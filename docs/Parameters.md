@@ -1,0 +1,56 @@
+# Parameters
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] [readonly] 
+**media_force_show_deleted** | **bool** |  | [optional] 
+**analytics** | **bool** |  | [optional] 
+**identify_command** | **str** |  | [optional] 
+**external_url** | **str** | http://host/ | [optional] 
+**branding_css** | **str** |  | [optional] 
+**branding_logo** | **str** |  | [optional] 
+**fm_new_directory_mode** | **str** |  | [optional] 
+**icap_server** | **str** |  | [optional] 
+**icap_port** | **int** |  | [optional] 
+**icap_service** | **str** |  | [optional] 
+**ltfs_default_restore_to_original_location** | **bool** |  | [optional] 
+**ltfs_default_search_directories** | **bool** |  | [optional] 
+**ltfs_library_address** | **str** |  | [optional] 
+**media_auto_play** | **bool** |  | [optional] 
+**media_auto_transport** | **bool** |  | [optional] 
+**media_auto_scan** | **bool** |  | [optional] 
+**media_auto_proxy** | **bool** |  | [optional] 
+**media_auto_veritone_upload** | **bool** |  | [optional] 
+**media_proxy_h264_preset** | **str** |  | [optional] 
+**media_default_custom_field_type** | **str** |  | [optional] 
+**media_default_delete_behaviour** | **str** |  | [optional] 
+**media_recycle_bin** | **bool** | Recycle bin is usually in the .recycle-bin folder in the volume root | [optional] 
+**file_manager_recycle_bin** | **bool** | Recycle bins are usually either in Workspace/Share or Volume folder | [optional] 
+**ntp_server** | **str** |  | [optional] 
+**ntp_offer_sync** | **bool** |  | [optional] 
+**slugify_workspace_path** | **bool** | Affects new workspaces only | [optional] 
+**slugify_shares** | **bool** | Requires | [optional] 
+**smtp_from** | **str** |  | [optional] 
+**smtp_server** | **str** |  | [optional] 
+**smtp_port** | **int** |  | [optional] 
+**smtp_tls** | **str** |  | [optional] 
+**smtp_username** | **str** |  | [optional] 
+**tasks_limit** | **int** |  | [optional] 
+**tasks_hard_limit** | **int** |  | [optional] 
+**umask_afp** | **str** |  | [optional] 
+**umask_smb** | **str** |  | [optional] 
+**users_default_permissions** | **str** | Copy this value from an existing user | [optional] 
+**workspaces_folder_template_path** | **str** |  | [optional] 
+**workspaces_mode** | **str** |  | [optional] 
+**workspaces_path** | **str** |  | [optional] 
+**language** | **str** |  | [optional] 
+**email_logo_url** | **str** |  | [optional] 
+**media_keep_selection_when_browsing** | **bool** |  | [optional] 
+**tasks_run_scheduled** | **bool** |  | [optional] 
+**https_redirect** | **str** |  | [optional] 
+
+[[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
+
+
