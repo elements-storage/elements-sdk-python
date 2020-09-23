@@ -5,19 +5,19 @@ All URIs are relative to *https://elements.local*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_tape**](TapeArchiveApi.md#create_tape) | **POST** `/api/2/archive/tape/tapes` | 
-[**create_tapegroup**](TapeArchiveApi.md#create_tapegroup) | **POST** `/api/2/archive/tape/groups` | 
+[**create_tape_group**](TapeArchiveApi.md#create_tape_group) | **POST** `/api/2/archive/tape/groups` | 
 [**delete_tape**](TapeArchiveApi.md#delete_tape) | **DELETE** `/api/2/archive/tape/tapes/{id}` | 
-[**delete_tapegroup**](TapeArchiveApi.md#delete_tapegroup) | **DELETE** `/api/2/archive/tape/groups/{id}` | 
-[**get_all_archivedfileentries**](TapeArchiveApi.md#get_all_archivedfileentries) | **GET** `/api/2/archive/tape/files` | 
-[**get_all_tapegroups**](TapeArchiveApi.md#get_all_tapegroups) | **GET** `/api/2/archive/tape/groups` | 
+[**delete_tape_group**](TapeArchiveApi.md#delete_tape_group) | **DELETE** `/api/2/archive/tape/groups/{id}` | 
+[**get_all_archived_file_entries**](TapeArchiveApi.md#get_all_archived_file_entries) | **GET** `/api/2/archive/tape/files` | 
+[**get_all_tape_groups**](TapeArchiveApi.md#get_all_tape_groups) | **GET** `/api/2/archive/tape/groups` | 
 [**get_all_tapes**](TapeArchiveApi.md#get_all_tapes) | **GET** `/api/2/archive/tape/tapes` | 
-[**get_archivedfileentry**](TapeArchiveApi.md#get_archivedfileentry) | **GET** `/api/2/archive/tape/files/{id}` | 
+[**get_archived_file_entry**](TapeArchiveApi.md#get_archived_file_entry) | **GET** `/api/2/archive/tape/files/{id}` | 
 [**get_tape**](TapeArchiveApi.md#get_tape) | **GET** `/api/2/archive/tape/tapes/{id}` | 
-[**get_tapegroup**](TapeArchiveApi.md#get_tapegroup) | **GET** `/api/2/archive/tape/groups/{id}` | 
+[**get_tape_group**](TapeArchiveApi.md#get_tape_group) | **GET** `/api/2/archive/tape/groups/{id}` | 
 [**patch_tape**](TapeArchiveApi.md#patch_tape) | **PATCH** `/api/2/archive/tape/tapes/{id}` | 
-[**patch_tapegroup**](TapeArchiveApi.md#patch_tapegroup) | **PATCH** `/api/2/archive/tape/groups/{id}` | 
+[**patch_tape_group**](TapeArchiveApi.md#patch_tape_group) | **PATCH** `/api/2/archive/tape/groups/{id}` | 
 [**update_tape**](TapeArchiveApi.md#update_tape) | **PUT** `/api/2/archive/tape/tapes/{id}` | 
-[**update_tapegroup**](TapeArchiveApi.md#update_tapegroup) | **PUT** `/api/2/archive/tape/groups/{id}` | 
+[**update_tape_group**](TapeArchiveApi.md#update_tape_group) | **PUT** `/api/2/archive/tape/groups/{id}` | 
 
 
 
@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 
 
-### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
 ### Example
 
@@ -75,12 +75,12 @@ Name | Type | Description  | Notes
 
 ***
 
-# **create_tapegroup**
-> TapeGroup create_tapegroup(data)
+# **create_tape_group**
+> TapeGroup create_tape_group(data)
 
 
 
-### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
 ### Example
 
@@ -105,10 +105,10 @@ with elements_sdk.ApiClient(configuration) as api_client:
     data = elements_sdk.TapeGroup() # TapeGroup | 
 
     try:
-        api_response = api_instance.create_tapegroup(data)
+        api_response = api_instance.create_tape_group(data)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling TapeArchiveApi->create_tapegroup: %s\n" % e)
+        print("Exception when calling TapeArchiveApi->create_tape_group: %s\n" % e)
 ```
 
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
 ### Example
 
@@ -179,12 +179,12 @@ Name | Type | Description  | Notes
 
 ***
 
-# **delete_tapegroup**
-> object delete_tapegroup(id)
+# **delete_tape_group**
+> object delete_tape_group(id)
 
 
 
-### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
 ### Example
 
@@ -209,10 +209,10 @@ with elements_sdk.ApiClient(configuration) as api_client:
     id = 56 # int | A unique integer value identifying this tape group.
 
     try:
-        api_response = api_instance.delete_tapegroup(id)
+        api_response = api_instance.delete_tape_group(id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling TapeArchiveApi->delete_tapegroup: %s\n" % e)
+        print("Exception when calling TapeArchiveApi->delete_tape_group: %s\n" % e)
 ```
 
 
@@ -231,12 +231,12 @@ Name | Type | Description  | Notes
 
 ***
 
-# **get_all_archivedfileentries**
-> list[TapeFile] get_all_archivedfileentries(id=id, is_dir=is_dir, name=name, fullpath=fullpath, parent=parent, ordering=ordering, limit=limit, offset=offset)
+# **get_all_archived_file_entries**
+> list[TapeFile] get_all_archived_file_entries(id=id, is_dir=is_dir, name=name, fullpath=fullpath, parent=parent, ordering=ordering, limit=limit, offset=offset)
 
 
 
-### Required permissions   * User account permission: ltfs:search (read) / ltfs:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: ltfs:search (read) / ltfs:manage (write)   * License component: ltfs 
 
 ### Example
 
@@ -268,10 +268,10 @@ limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
 
     try:
-        api_response = api_instance.get_all_archivedfileentries(id=id, is_dir=is_dir, name=name, fullpath=fullpath, parent=parent, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_archived_file_entries(id=id, is_dir=is_dir, name=name, fullpath=fullpath, parent=parent, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling TapeArchiveApi->get_all_archivedfileentries: %s\n" % e)
+        print("Exception when calling TapeArchiveApi->get_all_archived_file_entries: %s\n" % e)
 ```
 
 
@@ -297,12 +297,12 @@ Name | Type | Description  | Notes
 
 ***
 
-# **get_all_tapegroups**
-> list[TapeGroup] get_all_tapegroups(id=id, name=name, ordering=ordering, limit=limit, offset=offset)
+# **get_all_tape_groups**
+> list[TapeGroup] get_all_tape_groups(id=id, name=name, ordering=ordering, limit=limit, offset=offset)
 
 
 
-### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
 ### Example
 
@@ -331,10 +331,10 @@ limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
 
     try:
-        api_response = api_instance.get_all_tapegroups(id=id, name=name, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_tape_groups(id=id, name=name, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling TapeArchiveApi->get_all_tapegroups: %s\n" % e)
+        print("Exception when calling TapeArchiveApi->get_all_tape_groups: %s\n" % e)
 ```
 
 
@@ -362,7 +362,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
 ### Example
 
@@ -421,12 +421,12 @@ Name | Type | Description  | Notes
 
 ***
 
-# **get_archivedfileentry**
-> TapeFile get_archivedfileentry(id)
+# **get_archived_file_entry**
+> TapeFile get_archived_file_entry(id)
 
 
 
-### Required permissions   * User account permission: ltfs:search (read) / ltfs:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: ltfs:search (read) / ltfs:manage (write)   * License component: ltfs 
 
 ### Example
 
@@ -451,10 +451,10 @@ with elements_sdk.ApiClient(configuration) as api_client:
     id = 56 # int | A unique integer value identifying this Archived file entry.
 
     try:
-        api_response = api_instance.get_archivedfileentry(id)
+        api_response = api_instance.get_archived_file_entry(id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling TapeArchiveApi->get_archivedfileentry: %s\n" % e)
+        print("Exception when calling TapeArchiveApi->get_archived_file_entry: %s\n" % e)
 ```
 
 
@@ -478,7 +478,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
 ### Example
 
@@ -525,12 +525,12 @@ Name | Type | Description  | Notes
 
 ***
 
-# **get_tapegroup**
-> TapeGroup get_tapegroup(id)
+# **get_tape_group**
+> TapeGroup get_tape_group(id)
 
 
 
-### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
 ### Example
 
@@ -555,10 +555,10 @@ with elements_sdk.ApiClient(configuration) as api_client:
     id = 56 # int | A unique integer value identifying this tape group.
 
     try:
-        api_response = api_instance.get_tapegroup(id)
+        api_response = api_instance.get_tape_group(id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling TapeArchiveApi->get_tapegroup: %s\n" % e)
+        print("Exception when calling TapeArchiveApi->get_tape_group: %s\n" % e)
 ```
 
 
@@ -582,7 +582,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
 ### Example
 
@@ -631,12 +631,12 @@ Name | Type | Description  | Notes
 
 ***
 
-# **patch_tapegroup**
-> TapeGroup patch_tapegroup(id, data)
+# **patch_tape_group**
+> TapeGroup patch_tape_group(id, data)
 
 
 
-### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
 ### Example
 
@@ -662,10 +662,10 @@ with elements_sdk.ApiClient(configuration) as api_client:
 data = elements_sdk.TapeGroup() # TapeGroup | 
 
     try:
-        api_response = api_instance.patch_tapegroup(id, data)
+        api_response = api_instance.patch_tape_group(id, data)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling TapeArchiveApi->patch_tapegroup: %s\n" % e)
+        print("Exception when calling TapeArchiveApi->patch_tape_group: %s\n" % e)
 ```
 
 
@@ -690,7 +690,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
 ### Example
 
@@ -739,12 +739,12 @@ Name | Type | Description  | Notes
 
 ***
 
-# **update_tapegroup**
-> TapeGroup update_tapegroup(id, data)
+# **update_tape_group**
+> TapeGroup update_tape_group(id, data)
 
 
 
-### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
 ### Example
 
@@ -770,10 +770,10 @@ with elements_sdk.ApiClient(configuration) as api_client:
 data = elements_sdk.TapeGroup() # TapeGroup | 
 
     try:
-        api_response = api_instance.update_tapegroup(id, data)
+        api_response = api_instance.update_tape_group(id, data)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling TapeArchiveApi->update_tapegroup: %s\n" % e)
+        print("Exception when calling TapeArchiveApi->update_tape_group: %s\n" % e)
 ```
 
 

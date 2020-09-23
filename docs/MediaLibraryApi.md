@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**create_asset**](MediaLibraryApi.md#create_asset) | **POST** `/api/2/media/assets` | 
 [**create_asset_rating**](MediaLibraryApi.md#create_asset_rating) | **POST** `/api/2/media/ratings` | 
 [**create_comment**](MediaLibraryApi.md#create_comment) | **POST** `/api/2/media/comments` | 
+[**create_custom_field**](MediaLibraryApi.md#create_custom_field) | **POST** `/api/2/media/custom-fields` | 
 [**create_marker**](MediaLibraryApi.md#create_marker) | **POST** `/api/2/media/markers` | 
 [**create_media_file_template**](MediaLibraryApi.md#create_media_file_template) | **POST** `/api/2/media/files/templates` | 
 [**create_media_root**](MediaLibraryApi.md#create_media_root) | **POST** `/api/2/media/roots` | 
@@ -20,6 +21,7 @@ Method | HTTP request | Description
 [**delete_asset**](MediaLibraryApi.md#delete_asset) | **DELETE** `/api/2/media/assets/{id}` | 
 [**delete_asset_rating**](MediaLibraryApi.md#delete_asset_rating) | **DELETE** `/api/2/media/ratings/{id}` | 
 [**delete_comment**](MediaLibraryApi.md#delete_comment) | **DELETE** `/api/2/media/comments/{id}` | 
+[**delete_custom_field**](MediaLibraryApi.md#delete_custom_field) | **DELETE** `/api/2/media/custom-fields/{id}` | 
 [**delete_marker**](MediaLibraryApi.md#delete_marker) | **DELETE** `/api/2/media/markers/{id}` | 
 [**delete_media_file_template**](MediaLibraryApi.md#delete_media_file_template) | **DELETE** `/api/2/media/files/templates/{id}` | 
 [**delete_media_root**](MediaLibraryApi.md#delete_media_root) | **DELETE** `/api/2/media/roots/{id}` | 
@@ -38,6 +40,7 @@ Method | HTTP request | Description
 [**get_all_bundles_for_media_root**](MediaLibraryApi.md#get_all_bundles_for_media_root) | **GET** `/api/2/media/bundles/flat/{root}` | 
 [**get_all_click_links**](MediaLibraryApi.md#get_all_click_links) | **GET** `/api/2/media/assets/click-links` | 
 [**get_all_comments**](MediaLibraryApi.md#get_all_comments) | **GET** `/api/2/media/comments` | 
+[**get_all_custom_fields**](MediaLibraryApi.md#get_all_custom_fields) | **GET** `/api/2/media/custom-fields` | 
 [**get_all_markers**](MediaLibraryApi.md#get_all_markers) | **GET** `/api/2/media/markers` | 
 [**get_all_media_file_bundles**](MediaLibraryApi.md#get_all_media_file_bundles) | **GET** `/api/2/media/bundles` | 
 [**get_all_media_file_templates**](MediaLibraryApi.md#get_all_media_file_templates) | **GET** `/api/2/media/files/templates` | 
@@ -56,6 +59,7 @@ Method | HTTP request | Description
 [**get_asset**](MediaLibraryApi.md#get_asset) | **GET** `/api/2/media/assets/{id}` | 
 [**get_asset_rating**](MediaLibraryApi.md#get_asset_rating) | **GET** `/api/2/media/ratings/{id}` | 
 [**get_comment**](MediaLibraryApi.md#get_comment) | **GET** `/api/2/media/comments/{id}` | 
+[**get_custom_field**](MediaLibraryApi.md#get_custom_field) | **GET** `/api/2/media/custom-fields/{id}` | 
 [**get_latest_media_update**](MediaLibraryApi.md#get_latest_media_update) | **GET** `/api/2/media/updates/latest` | 
 [**get_marker**](MediaLibraryApi.md#get_marker) | **GET** `/api/2/media/markers/{id}` | 
 [**get_media_file**](MediaLibraryApi.md#get_media_file) | **GET** `/api/2/media/files/{id}` | 
@@ -78,6 +82,7 @@ Method | HTTP request | Description
 [**patch_asset**](MediaLibraryApi.md#patch_asset) | **PATCH** `/api/2/media/assets/{id}` | 
 [**patch_asset_rating**](MediaLibraryApi.md#patch_asset_rating) | **PATCH** `/api/2/media/ratings/{id}` | 
 [**patch_comment**](MediaLibraryApi.md#patch_comment) | **PATCH** `/api/2/media/comments/{id}` | 
+[**patch_custom_field**](MediaLibraryApi.md#patch_custom_field) | **PATCH** `/api/2/media/custom-fields/{id}` | 
 [**patch_marker**](MediaLibraryApi.md#patch_marker) | **PATCH** `/api/2/media/markers/{id}` | 
 [**patch_media_file**](MediaLibraryApi.md#patch_media_file) | **PATCH** `/api/2/media/files/{id}` | 
 [**patch_media_file_template**](MediaLibraryApi.md#patch_media_file_template) | **PATCH** `/api/2/media/files/templates/{id}` | 
@@ -92,6 +97,7 @@ Method | HTTP request | Description
 [**update_asset**](MediaLibraryApi.md#update_asset) | **PUT** `/api/2/media/assets/{id}` | 
 [**update_asset_rating**](MediaLibraryApi.md#update_asset_rating) | **PUT** `/api/2/media/ratings/{id}` | 
 [**update_comment**](MediaLibraryApi.md#update_comment) | **PUT** `/api/2/media/comments/{id}` | 
+[**update_custom_field**](MediaLibraryApi.md#update_custom_field) | **PUT** `/api/2/media/custom-fields/{id}` | 
 [**update_marker**](MediaLibraryApi.md#update_marker) | **PUT** `/api/2/media/markers/{id}` | 
 [**update_media_file**](MediaLibraryApi.md#update_media_file) | **PUT** `/api/2/media/files/{id}` | 
 [**update_media_file_template**](MediaLibraryApi.md#update_media_file_template) | **PUT** `/api/2/media/files/templates/{id}` | 
@@ -110,7 +116,7 @@ Method | HTTP request | Description
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -158,7 +164,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -210,7 +216,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -262,7 +268,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -314,7 +320,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -361,12 +367,64 @@ Name | Type | Description  | Notes
 
 ***
 
+# **create_custom_field**
+> CustomField create_custom_field(data)
+
+
+
+### Required permissions    * User account permission: media:access   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    data = elements_sdk.CustomField() # CustomField | 
+
+    try:
+        api_response = api_instance.create_custom_field(data)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->create_custom_field: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **data** | [**CustomField**](CustomField.md)|  | 
+
+### Return type
+
+[**CustomField**](CustomField.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
 # **create_marker**
 > Marker create_marker(data)
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -418,7 +476,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -470,7 +528,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -522,7 +580,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -574,7 +632,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -626,7 +684,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -678,7 +736,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -730,7 +788,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -782,7 +840,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -834,7 +892,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -886,7 +944,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -933,12 +991,64 @@ Name | Type | Description  | Notes
 
 ***
 
+# **delete_custom_field**
+> object delete_custom_field(id)
+
+
+
+### Required permissions    * User account permission: media:access   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    id = 56 # int | A unique integer value identifying this CustomField.
+
+    try:
+        api_response = api_instance.delete_custom_field(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->delete_custom_field: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this CustomField. | 
+
+### Return type
+
+**object**
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
 # **delete_marker**
 > object delete_marker(id)
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -990,7 +1100,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -1042,7 +1152,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -1094,7 +1204,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -1146,7 +1256,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -1198,7 +1308,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -1250,7 +1360,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -1302,7 +1412,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -1354,7 +1464,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -1406,7 +1516,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -1458,7 +1568,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access 
+### Required permissions    * User account permission: media:access 
 
 ### Example
 
@@ -1510,7 +1620,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -1570,7 +1680,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -1630,7 +1740,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media   * License component: ltfs 
+### Required permissions    * User account permission: media:access   * License component: media   * License component: ltfs 
 
 ### Example
 
@@ -1688,7 +1798,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -1750,7 +1860,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -1810,7 +1920,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -1870,7 +1980,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -1927,12 +2037,68 @@ Name | Type | Description  | Notes
 
 ***
 
+# **get_all_custom_fields**
+> list[CustomField] get_all_custom_fields(ordering=ordering, limit=limit, offset=offset)
+
+
+
+### Required permissions    * User account permission: media:access   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
+limit = 56 # int | Number of results to return per page. (optional)
+offset = 56 # int | The initial index from which to return the results. (optional)
+
+    try:
+        api_response = api_instance.get_all_custom_fields(ordering=ordering, limit=limit, offset=offset)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_all_custom_fields: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ordering** | **str**| Which field to use when ordering the results. | [optional] 
+ **limit** | **int**| Number of results to return per page. | [optional] 
+ **offset** | **int**| The initial index from which to return the results. | [optional] 
+
+### Return type
+
+[**list[CustomField]**](CustomField.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
 # **get_all_markers**
 > list[Marker] get_all_markers(asset=asset, user=user, ordering=ordering, limit=limit, offset=offset)
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -1992,7 +2158,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -2050,7 +2216,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -2106,7 +2272,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -2178,7 +2344,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -2230,7 +2396,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -2304,7 +2470,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -2364,7 +2530,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -2424,7 +2590,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -2488,7 +2654,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -2544,7 +2710,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -2610,7 +2776,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -2668,7 +2834,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -2726,7 +2892,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -2788,7 +2954,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -2844,7 +3010,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -2896,7 +3062,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -2948,7 +3114,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -2995,12 +3161,64 @@ Name | Type | Description  | Notes
 
 ***
 
+# **get_custom_field**
+> CustomField get_custom_field(id)
+
+
+
+### Required permissions    * User account permission: media:access   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    id = 56 # int | A unique integer value identifying this CustomField.
+
+    try:
+        api_response = api_instance.get_custom_field(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_custom_field: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this CustomField. | 
+
+### Return type
+
+[**CustomField**](CustomField.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
 # **get_latest_media_update**
 > MediaUpdate get_latest_media_update(ordering=ordering, limit=limit, offset=offset)
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -3056,7 +3274,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -3108,7 +3326,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -3160,7 +3378,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -3212,7 +3430,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -3272,7 +3490,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -3324,7 +3542,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -3376,7 +3594,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -3428,7 +3646,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -3480,7 +3698,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -3532,7 +3750,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -3584,7 +3802,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -3636,7 +3854,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -3696,7 +3914,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -3756,7 +3974,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -3808,7 +4026,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -3860,7 +4078,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -3912,7 +4130,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -3964,7 +4182,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -4016,7 +4234,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -4070,7 +4288,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -4124,7 +4342,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -4173,12 +4391,66 @@ Name | Type | Description  | Notes
 
 ***
 
+# **patch_custom_field**
+> CustomField patch_custom_field(id, data)
+
+
+
+### Required permissions    * User account permission: media:access   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    id = 56 # int | A unique integer value identifying this CustomField.
+data = elements_sdk.CustomField() # CustomField | 
+
+    try:
+        api_response = api_instance.patch_custom_field(id, data)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->patch_custom_field: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this CustomField. | 
+ **data** | [**CustomField**](CustomField.md)|  | 
+
+### Return type
+
+[**CustomField**](CustomField.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
 # **patch_marker**
 > Marker patch_marker(id, data)
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -4232,7 +4504,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -4286,7 +4558,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -4340,7 +4612,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -4394,7 +4666,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -4448,7 +4720,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -4502,7 +4774,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -4556,7 +4828,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -4610,7 +4882,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access 
+### Required permissions    * User account permission: media:access 
 
 ### Example
 
@@ -4662,7 +4934,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -4714,7 +4986,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -4766,7 +5038,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -4820,7 +5092,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -4874,7 +5146,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -4923,12 +5195,66 @@ Name | Type | Description  | Notes
 
 ***
 
+# **update_custom_field**
+> CustomField update_custom_field(id, data)
+
+
+
+### Required permissions    * User account permission: media:access   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    id = 56 # int | A unique integer value identifying this CustomField.
+data = elements_sdk.CustomField() # CustomField | 
+
+    try:
+        api_response = api_instance.update_custom_field(id, data)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->update_custom_field: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this CustomField. | 
+ **data** | [**CustomField**](CustomField.md)|  | 
+
+### Return type
+
+[**CustomField**](CustomField.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
 # **update_marker**
 > Marker update_marker(id, data)
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -4982,7 +5308,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -5036,7 +5362,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -5090,7 +5416,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -5144,7 +5470,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -5198,7 +5524,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 
@@ -5252,7 +5578,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
 ### Example
 
@@ -5306,7 +5632,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: media:access   * License component: media 
 
 ### Example
 

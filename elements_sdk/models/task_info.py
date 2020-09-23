@@ -110,7 +110,8 @@ class TaskInfo(object):
         self.kwargs = kwargs
         if subtask is not None:
             self.subtask = subtask
-        self.worker = worker
+        if worker is not None:
+            self.worker = worker
         self.user = user
         self.workstation = workstation
         if progress is not None:

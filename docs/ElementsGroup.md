@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **ldap_dn** | **str** |  | [optional] 
 **unix_groupname** | **str** |  | [optional] 
 **gid** | **int** |  | [optional] 
+**ancillary_path** | **str** |  | [optional] 
+**ancillary_path_read_only** | **bool** |  | [optional] 
 **ldap** | **int** |  | [optional] 
 **members** | **list[int]** |  | 
 

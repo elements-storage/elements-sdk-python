@@ -37,6 +37,7 @@ class Workspace(object):
         'volume_path': 'str',
         'path': 'str',
         'sharing_nfs_permissions': 'object',
+        'full_path': 'str',
         'current_share_name': 'str',
         'endpoints': 'WorkspaceEndpoint',
         'quota': 'Quota',
@@ -93,6 +94,7 @@ class Workspace(object):
         'volume_path': 'volume_path',
         'path': 'path',
         'sharing_nfs_permissions': 'sharing_nfs_permissions',
+        'full_path': 'full_path',
         'current_share_name': 'current_share_name',
         'endpoints': 'endpoints',
         'quota': 'quota',
@@ -142,7 +144,7 @@ class Workspace(object):
         'home_for': 'home_for'
     }
 
-    def __init__(self, id=None, production=None, volume=None, volume_path=None, path=None, sharing_nfs_permissions=None, current_share_name=None, endpoints=None, quota=None, size_used=None, size_total=None, bookmarked=None, resolved_permissions=None, resolved_read_only=None, name=None, directory=None, description=None, long_description=None, is_template=None, last_login=None, active=None, mac_protocol=None, win_protocol=None, win_drive=None, linux_protocol=None, linux_mountpoint=None, share_name=None, share_nfs=None, share_afp=None, sharing_hidden=None, sharing_require_login=None, sharing_read_only=None, sharing_allow_execute=None, quota_size_hard=None, quota_size_soft=None, affinity=None, emulate_avid=None, emulate_capture=None, emulate_preopen=None, emulate_ntfs_streams=None, emulate_recycle_bin=None, emulate_fruit=None, smb_extra_config=None, afp_extra_config=None, recycle_bin_exclude=None, is_external=None, external_mac_url=None, external_win_url=None, external_linux_url=None, allow_symlinks=None, rw_permission_priority=None, template=None, home_for=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, production=None, volume=None, volume_path=None, path=None, sharing_nfs_permissions=None, full_path=None, current_share_name=None, endpoints=None, quota=None, size_used=None, size_total=None, bookmarked=None, resolved_permissions=None, resolved_read_only=None, name=None, directory=None, description=None, long_description=None, is_template=None, last_login=None, active=None, mac_protocol=None, win_protocol=None, win_drive=None, linux_protocol=None, linux_mountpoint=None, share_name=None, share_nfs=None, share_afp=None, sharing_hidden=None, sharing_require_login=None, sharing_read_only=None, sharing_allow_execute=None, quota_size_hard=None, quota_size_soft=None, affinity=None, emulate_avid=None, emulate_capture=None, emulate_preopen=None, emulate_ntfs_streams=None, emulate_recycle_bin=None, emulate_fruit=None, smb_extra_config=None, afp_extra_config=None, recycle_bin_exclude=None, is_external=None, external_mac_url=None, external_win_url=None, external_linux_url=None, allow_symlinks=None, rw_permission_priority=None, template=None, home_for=None, local_vars_configuration=None):  # noqa: E501
         """Workspace - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -154,6 +156,7 @@ class Workspace(object):
         self._volume_path = None
         self._path = None
         self._sharing_nfs_permissions = None
+        self._full_path = None
         self._current_share_name = None
         self._endpoints = None
         self._quota = None
@@ -214,6 +217,8 @@ class Workspace(object):
             self.path = path
         if sharing_nfs_permissions is not None:
             self.sharing_nfs_permissions = sharing_nfs_permissions
+        if full_path is not None:
+            self.full_path = full_path
         if current_share_name is not None:
             self.current_share_name = current_share_name
         if endpoints is not None:
@@ -430,6 +435,30 @@ class Workspace(object):
         """
 
         self._sharing_nfs_permissions = sharing_nfs_permissions
+
+    @property
+    def full_path(self):
+        """Gets the full_path of this Workspace.  # noqa: E501
+
+
+        :return: The full_path of this Workspace.  # noqa: E501
+        :rtype: str
+        """
+        return self._full_path
+
+    @full_path.setter
+    def full_path(self, full_path):
+        """Sets the full_path of this Workspace.
+
+
+        :param full_path: The full_path of this Workspace.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                full_path is not None and len(full_path) < 1):
+            raise ValueError("Invalid value for `full_path`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._full_path = full_path
 
     @property
     def current_share_name(self):

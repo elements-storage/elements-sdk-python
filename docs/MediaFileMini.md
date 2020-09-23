@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] [readonly] 
 **bundle** | **int** |  | [optional] [readonly] 
 **full_path** | **str** |  | [optional] [readonly] 
-**custom_fields** | [**object**](.md) |  | [optional] 
+**custom_fields** | **object** |  | [optional] 
 **mtime** | **int** |  | [optional] [readonly] 
 **parent** | **str** |  | [optional] [readonly] 
 **path** | **str** |  | [optional] [readonly] 

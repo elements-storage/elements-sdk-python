@@ -43,8 +43,8 @@ class ElementsUser(object):
         'effective_permissions': 'list[str]',
         'email': 'str',
         'expiry': 'datetime',
-        'fm_root_read_only': 'bool',
-        'fm_root': 'str',
+        'ancillary_path_read_only': 'bool',
+        'ancillary_path': 'str',
         'fm_bookmarks': 'list[str]',
         'full_name': 'str',
         'gid': 'int',
@@ -83,8 +83,8 @@ class ElementsUser(object):
         'effective_permissions': 'effective_permissions',
         'email': 'email',
         'expiry': 'expiry',
-        'fm_root_read_only': 'fm_root_read_only',
-        'fm_root': 'fm_root',
+        'ancillary_path_read_only': 'ancillary_path_read_only',
+        'ancillary_path': 'ancillary_path',
         'fm_bookmarks': 'fm_bookmarks',
         'full_name': 'full_name',
         'gid': 'gid',
@@ -110,7 +110,7 @@ class ElementsUser(object):
         'username': 'username'
     }
 
-    def __init__(self, id=None, allow_changing_password=None, allow_wan_login=None, allowed_fs_paths=None, allowed_fs_write_paths=None, avatar=None, client_sessions=None, default_page=None, display_name=None, effective_permissions=None, email=None, expiry=None, fm_root_read_only=None, fm_root=None, fm_bookmarks=None, full_name=None, gid=None, group_permissions=None, has_password=None, home=None, is_anonymous=None, is_cloud=None, is_cloud_default=None, is_enabled=None, language=None, last_seen=None, ldap=None, ldap_dn=None, password_change_required=None, permissions=None, shaper_ceiling=None, shaper_rate=None, sync_id=None, totp_enabled=None, uid=None, unix_username=None, username=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, allow_changing_password=None, allow_wan_login=None, allowed_fs_paths=None, allowed_fs_write_paths=None, avatar=None, client_sessions=None, default_page=None, display_name=None, effective_permissions=None, email=None, expiry=None, ancillary_path_read_only=None, ancillary_path=None, fm_bookmarks=None, full_name=None, gid=None, group_permissions=None, has_password=None, home=None, is_anonymous=None, is_cloud=None, is_cloud_default=None, is_enabled=None, language=None, last_seen=None, ldap=None, ldap_dn=None, password_change_required=None, permissions=None, shaper_ceiling=None, shaper_rate=None, sync_id=None, totp_enabled=None, uid=None, unix_username=None, username=None, local_vars_configuration=None):  # noqa: E501
         """ElementsUser - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -128,8 +128,8 @@ class ElementsUser(object):
         self._effective_permissions = None
         self._email = None
         self._expiry = None
-        self._fm_root_read_only = None
-        self._fm_root = None
+        self._ancillary_path_read_only = None
+        self._ancillary_path = None
         self._fm_bookmarks = None
         self._full_name = None
         self._gid = None
@@ -176,10 +176,10 @@ class ElementsUser(object):
             self.effective_permissions = effective_permissions
         self.email = email
         self.expiry = expiry
-        if fm_root_read_only is not None:
-            self.fm_root_read_only = fm_root_read_only
-        if fm_root is not None:
-            self.fm_root = fm_root
+        if ancillary_path_read_only is not None:
+            self.ancillary_path_read_only = ancillary_path_read_only
+        if ancillary_path is not None:
+            self.ancillary_path = ancillary_path
         if fm_bookmarks is not None:
             self.fm_bookmarks = fm_bookmarks
         self.full_name = full_name
@@ -479,49 +479,49 @@ class ElementsUser(object):
         self._expiry = expiry
 
     @property
-    def fm_root_read_only(self):
-        """Gets the fm_root_read_only of this ElementsUser.  # noqa: E501
+    def ancillary_path_read_only(self):
+        """Gets the ancillary_path_read_only of this ElementsUser.  # noqa: E501
 
 
-        :return: The fm_root_read_only of this ElementsUser.  # noqa: E501
+        :return: The ancillary_path_read_only of this ElementsUser.  # noqa: E501
         :rtype: bool
         """
-        return self._fm_root_read_only
+        return self._ancillary_path_read_only
 
-    @fm_root_read_only.setter
-    def fm_root_read_only(self, fm_root_read_only):
-        """Sets the fm_root_read_only of this ElementsUser.
+    @ancillary_path_read_only.setter
+    def ancillary_path_read_only(self, ancillary_path_read_only):
+        """Sets the ancillary_path_read_only of this ElementsUser.
 
 
-        :param fm_root_read_only: The fm_root_read_only of this ElementsUser.  # noqa: E501
+        :param ancillary_path_read_only: The ancillary_path_read_only of this ElementsUser.  # noqa: E501
         :type: bool
         """
 
-        self._fm_root_read_only = fm_root_read_only
+        self._ancillary_path_read_only = ancillary_path_read_only
 
     @property
-    def fm_root(self):
-        """Gets the fm_root of this ElementsUser.  # noqa: E501
+    def ancillary_path(self):
+        """Gets the ancillary_path of this ElementsUser.  # noqa: E501
 
 
-        :return: The fm_root of this ElementsUser.  # noqa: E501
+        :return: The ancillary_path of this ElementsUser.  # noqa: E501
         :rtype: str
         """
-        return self._fm_root
+        return self._ancillary_path
 
-    @fm_root.setter
-    def fm_root(self, fm_root):
-        """Sets the fm_root of this ElementsUser.
+    @ancillary_path.setter
+    def ancillary_path(self, ancillary_path):
+        """Sets the ancillary_path of this ElementsUser.
 
 
-        :param fm_root: The fm_root of this ElementsUser.  # noqa: E501
+        :param ancillary_path: The ancillary_path of this ElementsUser.  # noqa: E501
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                fm_root is not None and len(fm_root) > 255):
-            raise ValueError("Invalid value for `fm_root`, length must be less than or equal to `255`")  # noqa: E501
+                ancillary_path is not None and len(ancillary_path) > 255):
+            raise ValueError("Invalid value for `ancillary_path`, length must be less than or equal to `255`")  # noqa: E501
 
-        self._fm_root = fm_root
+        self._ancillary_path = ancillary_path
 
     @property
     def fm_bookmarks(self):

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **dataset** | [**AIDatasetSimple**](AIDatasetSimple.md) |  | 
 **model** | **str** |  | [optional] 
 **type** | **str** |  | [optional] 
-**metadata** | [**object**](.md) |  | 
+**metadata** | **object** |  | 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 

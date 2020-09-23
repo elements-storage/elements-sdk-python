@@ -6,10 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**check_auth_ticket**](AuthApi.md#check_auth_ticket) | **POST** `/api/2/auth/ticket/check` | 
 [**create_auth_ticket**](AuthApi.md#create_auth_ticket) | **POST** `/api/2/auth/ticket` | 
-[**delete_onetimeaccesstoken**](AuthApi.md#delete_onetimeaccesstoken) | **DELETE** `/api/2/auth/access-tokens/{id}` | 
+[**delete_one_time_access_token**](AuthApi.md#delete_one_time_access_token) | **DELETE** `/api/2/auth/access-tokens/{id}` | 
 [**generate_password**](AuthApi.md#generate_password) | **POST** `/api/2/auth/generate-password` | 
-[**get_all_onetimeaccesstokens**](AuthApi.md#get_all_onetimeaccesstokens) | **GET** `/api/2/auth/access-tokens` | 
-[**get_onetimeaccesstoken**](AuthApi.md#get_onetimeaccesstoken) | **GET** `/api/2/auth/access-tokens/{id}` | 
+[**get_all_one_time_access_tokens**](AuthApi.md#get_all_one_time_access_tokens) | **GET** `/api/2/auth/access-tokens` | 
+[**get_one_time_access_token**](AuthApi.md#get_one_time_access_token) | **GET** `/api/2/auth/access-tokens/{id}` | 
 [**login**](AuthApi.md#login) | **POST** `/api/2/auth/login` | 
 [**logout**](AuthApi.md#logout) | **POST** `/api/2/auth/logout` | 
 
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -117,12 +117,12 @@ This endpoint does not need any parameters.
 
 ***
 
-# **delete_onetimeaccesstoken**
-> object delete_onetimeaccesstoken(id)
+# **delete_one_time_access_token**
+> object delete_one_time_access_token(id)
 
 
 
-### Required permissions   * User account permission: None (read) / users:manage (write) 
+### Required permissions    * User account permission: None (read) / users:manage (write) 
 
 ### Example
 
@@ -147,10 +147,10 @@ with elements_sdk.ApiClient(configuration) as api_client:
     id = 56 # int | A unique integer value identifying this one time access token.
 
     try:
-        api_response = api_instance.delete_onetimeaccesstoken(id)
+        api_response = api_instance.delete_one_time_access_token(id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling AuthApi->delete_onetimeaccesstoken: %s\n" % e)
+        print("Exception when calling AuthApi->delete_one_time_access_token: %s\n" % e)
 ```
 
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -217,12 +217,12 @@ This endpoint does not need any parameters.
 
 ***
 
-# **get_all_onetimeaccesstokens**
-> list[OneTimeAccessToken] get_all_onetimeaccesstokens(ordering=ordering, limit=limit, offset=offset)
+# **get_all_one_time_access_tokens**
+> list[OneTimeAccessToken] get_all_one_time_access_tokens(ordering=ordering, limit=limit, offset=offset)
 
 
 
-### Required permissions   * User account permission: None (read) / users:manage (write) 
+### Required permissions    * User account permission: None (read) / users:manage (write) 
 
 ### Example
 
@@ -249,10 +249,10 @@ limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
 
     try:
-        api_response = api_instance.get_all_onetimeaccesstokens(ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_one_time_access_tokens(ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling AuthApi->get_all_onetimeaccesstokens: %s\n" % e)
+        print("Exception when calling AuthApi->get_all_one_time_access_tokens: %s\n" % e)
 ```
 
 
@@ -273,12 +273,12 @@ Name | Type | Description  | Notes
 
 ***
 
-# **get_onetimeaccesstoken**
-> OneTimeAccessToken get_onetimeaccesstoken(id)
+# **get_one_time_access_token**
+> OneTimeAccessToken get_one_time_access_token(id)
 
 
 
-### Required permissions   * User account permission: None (read) / users:manage (write) 
+### Required permissions    * User account permission: None (read) / users:manage (write) 
 
 ### Example
 
@@ -303,10 +303,10 @@ with elements_sdk.ApiClient(configuration) as api_client:
     id = 56 # int | A unique integer value identifying this one time access token.
 
     try:
-        api_response = api_instance.get_onetimeaccesstoken(id)
+        api_response = api_instance.get_one_time_access_token(id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling AuthApi->get_onetimeaccesstoken: %s\n" % e)
+        print("Exception when calling AuthApi->get_one_time_access_token: %s\n" % e)
 ```
 
 
@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -382,7 +382,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 

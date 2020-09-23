@@ -11,10 +11,12 @@ Name | Type | Description | Notes
 **allow_groups** | [**list[ElementsGroup]**](ElementsGroup.md) |  | [optional] 
 **startable** | **bool** |  | [optional] [readonly] 
 **variable_definitions** | **list[str]** |  | [optional] 
+**media_roots** | **list[int]** |  | [optional] 
 **special_type** | **int** |  | [optional] 
 **name** | **str** |  | 
 **allow_others_to_start** | **bool** |  | [optional] 
 **allow_client_to_start** | **bool** |  | [optional] 
+**show_as_button** | **bool** |  | [optional] 
 **input_type** | **str** |  | [optional] 
 **security_context** | **int** |  | [optional] 
 **part_of_workflow_for** | **int** |  | [optional] 

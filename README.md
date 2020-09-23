@@ -2,7 +2,7 @@
 
 - API version: 2
 - Python 2.7 and 3.4+
-- Latest build: 3.0b1
+- Latest build: 3.0b2
 
 ## Installation & Usage
 
@@ -80,10 +80,10 @@ Class | Method | HTTP request | Description
 *AIApi* | [**update_ai_model**](docs/AIApi#update_ai_model) | **PUT** `/api/2/ai/models/{id}` | 
 *AuthApi* | [**check_auth_ticket**](docs/AuthApi#check_auth_ticket) | **POST** `/api/2/auth/ticket/check` | 
 *AuthApi* | [**create_auth_ticket**](docs/AuthApi#create_auth_ticket) | **POST** `/api/2/auth/ticket` | 
-*AuthApi* | [**delete_onetimeaccesstoken**](docs/AuthApi#delete_onetimeaccesstoken) | **DELETE** `/api/2/auth/access-tokens/{id}` | 
+*AuthApi* | [**delete_one_time_access_token**](docs/AuthApi#delete_one_time_access_token) | **DELETE** `/api/2/auth/access-tokens/{id}` | 
 *AuthApi* | [**generate_password**](docs/AuthApi#generate_password) | **POST** `/api/2/auth/generate-password` | 
-*AuthApi* | [**get_all_onetimeaccesstokens**](docs/AuthApi#get_all_onetimeaccesstokens) | **GET** `/api/2/auth/access-tokens` | 
-*AuthApi* | [**get_onetimeaccesstoken**](docs/AuthApi#get_onetimeaccesstoken) | **GET** `/api/2/auth/access-tokens/{id}` | 
+*AuthApi* | [**get_all_one_time_access_tokens**](docs/AuthApi#get_all_one_time_access_tokens) | **GET** `/api/2/auth/access-tokens` | 
+*AuthApi* | [**get_one_time_access_token**](docs/AuthApi#get_one_time_access_token) | **GET** `/api/2/auth/access-tokens/{id}` | 
 *AuthApi* | [**login**](docs/AuthApi#login) | **POST** `/api/2/auth/login` | 
 *AuthApi* | [**logout**](docs/AuthApi#logout) | **POST** `/api/2/auth/logout` | 
 *AutomationApi* | [**abort_task**](docs/AutomationApi#abort_task) | **POST** `/api/2/tasks/{id}/abort` | 
@@ -93,20 +93,20 @@ Class | Method | HTTP request | Description
 *AutomationApi* | [**delete_job**](docs/AutomationApi#delete_job) | **DELETE** `/api/2/jobs/{id}` | 
 *AutomationApi* | [**delete_schedule**](docs/AutomationApi#delete_schedule) | **DELETE** `/api/2/schedules/{id}` | 
 *AutomationApi* | [**delete_subtask**](docs/AutomationApi#delete_subtask) | **DELETE** `/api/2/subtasks/{id}` | 
-*AutomationApi* | [**delete_taskinfo**](docs/AutomationApi#delete_taskinfo) | **DELETE** `/api/2/tasks/{id}` | 
+*AutomationApi* | [**delete_task**](docs/AutomationApi#delete_task) | **DELETE** `/api/2/tasks/{id}` | 
 *AutomationApi* | [**download_all_task_logs**](docs/AutomationApi#download_all_task_logs) | **GET** `/api/2/tasks/logs/download` | 
 *AutomationApi* | [**download_task_log**](docs/AutomationApi#download_task_log) | **GET** `/api/2/tasks/{id}/log/download` | 
 *AutomationApi* | [**get_all_jobs**](docs/AutomationApi#get_all_jobs) | **GET** `/api/2/jobs` | 
 *AutomationApi* | [**get_all_schedules**](docs/AutomationApi#get_all_schedules) | **GET** `/api/2/schedules` | 
 *AutomationApi* | [**get_all_subtasks**](docs/AutomationApi#get_all_subtasks) | **GET** `/api/2/subtasks` | 
-*AutomationApi* | [**get_all_taskinfos**](docs/AutomationApi#get_all_taskinfos) | **GET** `/api/2/tasks` | 
+*AutomationApi* | [**get_all_tasks**](docs/AutomationApi#get_all_tasks) | **GET** `/api/2/tasks` | 
 *AutomationApi* | [**get_finished_tasks**](docs/AutomationApi#get_finished_tasks) | **GET** `/api/2/tasks/finished` | 
 *AutomationApi* | [**get_job**](docs/AutomationApi#get_job) | **GET** `/api/2/jobs/{id}` | 
 *AutomationApi* | [**get_pending_tasks**](docs/AutomationApi#get_pending_tasks) | **GET** `/api/2/tasks/pending` | 
 *AutomationApi* | [**get_schedule**](docs/AutomationApi#get_schedule) | **GET** `/api/2/schedules/{id}` | 
 *AutomationApi* | [**get_subtask**](docs/AutomationApi#get_subtask) | **GET** `/api/2/subtasks/{id}` | 
+*AutomationApi* | [**get_task**](docs/AutomationApi#get_task) | **GET** `/api/2/tasks/{id}` | 
 *AutomationApi* | [**get_task_log**](docs/AutomationApi#get_task_log) | **GET** `/api/2/tasks/{id}/log` | 
-*AutomationApi* | [**get_taskinfo**](docs/AutomationApi#get_taskinfo) | **GET** `/api/2/tasks/{id}` | 
 *AutomationApi* | [**get_tasks_summary**](docs/AutomationApi#get_tasks_summary) | **GET** `/api/2/tasks/summary` | 
 *AutomationApi* | [**kill_all_pending_tasks**](docs/AutomationApi#kill_all_pending_tasks) | **DELETE** `/api/2/tasks/pending` | 
 *AutomationApi* | [**kill_task**](docs/AutomationApi#kill_task) | **POST** `/api/2/tasks/{id}/kill` | 
@@ -162,6 +162,7 @@ Class | Method | HTTP request | Description
 *MainApi* | [**get_user**](docs/MainApi#get_user) | **GET** `/api/2/users/{id}` | 
 *MainApi* | [**get_workstation**](docs/MainApi#get_workstation) | **GET** `/api/2/workstations/{id}` | 
 *MainApi* | [**install_stor_next_license**](docs/MainApi#install_stor_next_license) | **POST** `/api/2/stornext-license` | 
+*MainApi* | [**patch_current_workstation**](docs/MainApi#patch_current_workstation) | **PATCH** `/api/2/workstations/current` | 
 *MainApi* | [**patch_group**](docs/MainApi#patch_group) | **PATCH** `/api/2/groups/{id}` | 
 *MainApi* | [**patch_user**](docs/MainApi#patch_user) | **PATCH** `/api/2/users/{id}` | 
 *MainApi* | [**patch_workstation**](docs/MainApi#patch_workstation) | **PATCH** `/api/2/workstations/{id}` | 
@@ -185,6 +186,7 @@ Class | Method | HTTP request | Description
 *MediaLibraryApi* | [**create_asset**](docs/MediaLibraryApi#create_asset) | **POST** `/api/2/media/assets` | 
 *MediaLibraryApi* | [**create_asset_rating**](docs/MediaLibraryApi#create_asset_rating) | **POST** `/api/2/media/ratings` | 
 *MediaLibraryApi* | [**create_comment**](docs/MediaLibraryApi#create_comment) | **POST** `/api/2/media/comments` | 
+*MediaLibraryApi* | [**create_custom_field**](docs/MediaLibraryApi#create_custom_field) | **POST** `/api/2/media/custom-fields` | 
 *MediaLibraryApi* | [**create_marker**](docs/MediaLibraryApi#create_marker) | **POST** `/api/2/media/markers` | 
 *MediaLibraryApi* | [**create_media_file_template**](docs/MediaLibraryApi#create_media_file_template) | **POST** `/api/2/media/files/templates` | 
 *MediaLibraryApi* | [**create_media_root**](docs/MediaLibraryApi#create_media_root) | **POST** `/api/2/media/roots` | 
@@ -196,6 +198,7 @@ Class | Method | HTTP request | Description
 *MediaLibraryApi* | [**delete_asset**](docs/MediaLibraryApi#delete_asset) | **DELETE** `/api/2/media/assets/{id}` | 
 *MediaLibraryApi* | [**delete_asset_rating**](docs/MediaLibraryApi#delete_asset_rating) | **DELETE** `/api/2/media/ratings/{id}` | 
 *MediaLibraryApi* | [**delete_comment**](docs/MediaLibraryApi#delete_comment) | **DELETE** `/api/2/media/comments/{id}` | 
+*MediaLibraryApi* | [**delete_custom_field**](docs/MediaLibraryApi#delete_custom_field) | **DELETE** `/api/2/media/custom-fields/{id}` | 
 *MediaLibraryApi* | [**delete_marker**](docs/MediaLibraryApi#delete_marker) | **DELETE** `/api/2/media/markers/{id}` | 
 *MediaLibraryApi* | [**delete_media_file_template**](docs/MediaLibraryApi#delete_media_file_template) | **DELETE** `/api/2/media/files/templates/{id}` | 
 *MediaLibraryApi* | [**delete_media_root**](docs/MediaLibraryApi#delete_media_root) | **DELETE** `/api/2/media/roots/{id}` | 
@@ -214,6 +217,7 @@ Class | Method | HTTP request | Description
 *MediaLibraryApi* | [**get_all_bundles_for_media_root**](docs/MediaLibraryApi#get_all_bundles_for_media_root) | **GET** `/api/2/media/bundles/flat/{root}` | 
 *MediaLibraryApi* | [**get_all_click_links**](docs/MediaLibraryApi#get_all_click_links) | **GET** `/api/2/media/assets/click-links` | 
 *MediaLibraryApi* | [**get_all_comments**](docs/MediaLibraryApi#get_all_comments) | **GET** `/api/2/media/comments` | 
+*MediaLibraryApi* | [**get_all_custom_fields**](docs/MediaLibraryApi#get_all_custom_fields) | **GET** `/api/2/media/custom-fields` | 
 *MediaLibraryApi* | [**get_all_markers**](docs/MediaLibraryApi#get_all_markers) | **GET** `/api/2/media/markers` | 
 *MediaLibraryApi* | [**get_all_media_file_bundles**](docs/MediaLibraryApi#get_all_media_file_bundles) | **GET** `/api/2/media/bundles` | 
 *MediaLibraryApi* | [**get_all_media_file_templates**](docs/MediaLibraryApi#get_all_media_file_templates) | **GET** `/api/2/media/files/templates` | 
@@ -232,6 +236,7 @@ Class | Method | HTTP request | Description
 *MediaLibraryApi* | [**get_asset**](docs/MediaLibraryApi#get_asset) | **GET** `/api/2/media/assets/{id}` | 
 *MediaLibraryApi* | [**get_asset_rating**](docs/MediaLibraryApi#get_asset_rating) | **GET** `/api/2/media/ratings/{id}` | 
 *MediaLibraryApi* | [**get_comment**](docs/MediaLibraryApi#get_comment) | **GET** `/api/2/media/comments/{id}` | 
+*MediaLibraryApi* | [**get_custom_field**](docs/MediaLibraryApi#get_custom_field) | **GET** `/api/2/media/custom-fields/{id}` | 
 *MediaLibraryApi* | [**get_latest_media_update**](docs/MediaLibraryApi#get_latest_media_update) | **GET** `/api/2/media/updates/latest` | 
 *MediaLibraryApi* | [**get_marker**](docs/MediaLibraryApi#get_marker) | **GET** `/api/2/media/markers/{id}` | 
 *MediaLibraryApi* | [**get_media_file**](docs/MediaLibraryApi#get_media_file) | **GET** `/api/2/media/files/{id}` | 
@@ -254,6 +259,7 @@ Class | Method | HTTP request | Description
 *MediaLibraryApi* | [**patch_asset**](docs/MediaLibraryApi#patch_asset) | **PATCH** `/api/2/media/assets/{id}` | 
 *MediaLibraryApi* | [**patch_asset_rating**](docs/MediaLibraryApi#patch_asset_rating) | **PATCH** `/api/2/media/ratings/{id}` | 
 *MediaLibraryApi* | [**patch_comment**](docs/MediaLibraryApi#patch_comment) | **PATCH** `/api/2/media/comments/{id}` | 
+*MediaLibraryApi* | [**patch_custom_field**](docs/MediaLibraryApi#patch_custom_field) | **PATCH** `/api/2/media/custom-fields/{id}` | 
 *MediaLibraryApi* | [**patch_marker**](docs/MediaLibraryApi#patch_marker) | **PATCH** `/api/2/media/markers/{id}` | 
 *MediaLibraryApi* | [**patch_media_file**](docs/MediaLibraryApi#patch_media_file) | **PATCH** `/api/2/media/files/{id}` | 
 *MediaLibraryApi* | [**patch_media_file_template**](docs/MediaLibraryApi#patch_media_file_template) | **PATCH** `/api/2/media/files/templates/{id}` | 
@@ -268,6 +274,7 @@ Class | Method | HTTP request | Description
 *MediaLibraryApi* | [**update_asset**](docs/MediaLibraryApi#update_asset) | **PUT** `/api/2/media/assets/{id}` | 
 *MediaLibraryApi* | [**update_asset_rating**](docs/MediaLibraryApi#update_asset_rating) | **PUT** `/api/2/media/ratings/{id}` | 
 *MediaLibraryApi* | [**update_comment**](docs/MediaLibraryApi#update_comment) | **PUT** `/api/2/media/comments/{id}` | 
+*MediaLibraryApi* | [**update_custom_field**](docs/MediaLibraryApi#update_custom_field) | **PUT** `/api/2/media/custom-fields/{id}` | 
 *MediaLibraryApi* | [**update_marker**](docs/MediaLibraryApi#update_marker) | **PUT** `/api/2/media/markers/{id}` | 
 *MediaLibraryApi* | [**update_media_file**](docs/MediaLibraryApi#update_media_file) | **PUT** `/api/2/media/files/{id}` | 
 *MediaLibraryApi* | [**update_media_file_template**](docs/MediaLibraryApi#update_media_file_template) | **PUT** `/api/2/media/files/templates/{id}` | 
@@ -325,19 +332,19 @@ Class | Method | HTTP request | Description
 *StorageApi* | [**update_workspace**](docs/StorageApi#update_workspace) | **PUT** `/api/2/workspaces/{id}` | 
 *StorageApi* | [**update_workspace_permission**](docs/StorageApi#update_workspace_permission) | **PUT** `/api/2/workspace-permissions/{id}` | 
 *TapeArchiveApi* | [**create_tape**](docs/TapeArchiveApi#create_tape) | **POST** `/api/2/archive/tape/tapes` | 
-*TapeArchiveApi* | [**create_tapegroup**](docs/TapeArchiveApi#create_tapegroup) | **POST** `/api/2/archive/tape/groups` | 
+*TapeArchiveApi* | [**create_tape_group**](docs/TapeArchiveApi#create_tape_group) | **POST** `/api/2/archive/tape/groups` | 
 *TapeArchiveApi* | [**delete_tape**](docs/TapeArchiveApi#delete_tape) | **DELETE** `/api/2/archive/tape/tapes/{id}` | 
-*TapeArchiveApi* | [**delete_tapegroup**](docs/TapeArchiveApi#delete_tapegroup) | **DELETE** `/api/2/archive/tape/groups/{id}` | 
-*TapeArchiveApi* | [**get_all_archivedfileentries**](docs/TapeArchiveApi#get_all_archivedfileentries) | **GET** `/api/2/archive/tape/files` | 
-*TapeArchiveApi* | [**get_all_tapegroups**](docs/TapeArchiveApi#get_all_tapegroups) | **GET** `/api/2/archive/tape/groups` | 
+*TapeArchiveApi* | [**delete_tape_group**](docs/TapeArchiveApi#delete_tape_group) | **DELETE** `/api/2/archive/tape/groups/{id}` | 
+*TapeArchiveApi* | [**get_all_archived_file_entries**](docs/TapeArchiveApi#get_all_archived_file_entries) | **GET** `/api/2/archive/tape/files` | 
+*TapeArchiveApi* | [**get_all_tape_groups**](docs/TapeArchiveApi#get_all_tape_groups) | **GET** `/api/2/archive/tape/groups` | 
 *TapeArchiveApi* | [**get_all_tapes**](docs/TapeArchiveApi#get_all_tapes) | **GET** `/api/2/archive/tape/tapes` | 
-*TapeArchiveApi* | [**get_archivedfileentry**](docs/TapeArchiveApi#get_archivedfileentry) | **GET** `/api/2/archive/tape/files/{id}` | 
+*TapeArchiveApi* | [**get_archived_file_entry**](docs/TapeArchiveApi#get_archived_file_entry) | **GET** `/api/2/archive/tape/files/{id}` | 
 *TapeArchiveApi* | [**get_tape**](docs/TapeArchiveApi#get_tape) | **GET** `/api/2/archive/tape/tapes/{id}` | 
-*TapeArchiveApi* | [**get_tapegroup**](docs/TapeArchiveApi#get_tapegroup) | **GET** `/api/2/archive/tape/groups/{id}` | 
+*TapeArchiveApi* | [**get_tape_group**](docs/TapeArchiveApi#get_tape_group) | **GET** `/api/2/archive/tape/groups/{id}` | 
 *TapeArchiveApi* | [**patch_tape**](docs/TapeArchiveApi#patch_tape) | **PATCH** `/api/2/archive/tape/tapes/{id}` | 
-*TapeArchiveApi* | [**patch_tapegroup**](docs/TapeArchiveApi#patch_tapegroup) | **PATCH** `/api/2/archive/tape/groups/{id}` | 
+*TapeArchiveApi* | [**patch_tape_group**](docs/TapeArchiveApi#patch_tape_group) | **PATCH** `/api/2/archive/tape/groups/{id}` | 
 *TapeArchiveApi* | [**update_tape**](docs/TapeArchiveApi#update_tape) | **PUT** `/api/2/archive/tape/tapes/{id}` | 
-*TapeArchiveApi* | [**update_tapegroup**](docs/TapeArchiveApi#update_tapegroup) | **PUT** `/api/2/archive/tape/groups/{id}` | 
+*TapeArchiveApi* | [**update_tape_group**](docs/TapeArchiveApi#update_tape_group) | **PUT** `/api/2/archive/tape/groups/{id}` | 
 
 
 ## Models
@@ -377,6 +384,7 @@ Class | Method | HTTP request | Description
  - [CloudConnection](docs/CloudConnection)
  - [Comment](docs/Comment)
  - [CreateHomeWorkspaceRequest](docs/CreateHomeWorkspaceRequest)
+ - [CustomField](docs/CustomField)
  - [DeletedWorkspace](docs/DeletedWorkspace)
  - [Download](docs/Download)
  - [ElementsGroup](docs/ElementsGroup)
@@ -417,7 +425,6 @@ Class | Method | HTTP request | Description
  - [MountedWorkspace](docs/MountedWorkspace)
  - [MultipleAssetsRequest](docs/MultipleAssetsRequest)
  - [NetStat](docs/NetStat)
- - [Network](docs/Network)
  - [OneTimeAccessToken](docs/OneTimeAccessToken)
  - [OneTimeAccessTokenActivity](docs/OneTimeAccessTokenActivity)
  - [Parameters](docs/Parameters)

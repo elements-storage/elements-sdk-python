@@ -36,7 +36,7 @@ class Alert(object):
         'message': 'str',
         'level': 'str',
         'is_open': 'bool',
-        'node_id': 'str',
+        'node': 'StorageNode',
         'opened_at': 'datetime',
         'closed_at': 'datetime',
         'duration': 'str'
@@ -48,13 +48,13 @@ class Alert(object):
         'message': 'message',
         'level': 'level',
         'is_open': 'is_open',
-        'node_id': 'node_id',
+        'node': 'node',
         'opened_at': 'opened_at',
         'closed_at': 'closed_at',
         'duration': 'duration'
     }
 
-    def __init__(self, id=None, name=None, message=None, level=None, is_open=None, node_id=None, opened_at=None, closed_at=None, duration=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, message=None, level=None, is_open=None, node=None, opened_at=None, closed_at=None, duration=None, local_vars_configuration=None):  # noqa: E501
         """Alert - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,7 +65,7 @@ class Alert(object):
         self._message = None
         self._level = None
         self._is_open = None
-        self._node_id = None
+        self._node = None
         self._opened_at = None
         self._closed_at = None
         self._duration = None
@@ -77,8 +77,8 @@ class Alert(object):
         self.message = message
         self.level = level
         self.is_open = is_open
-        if node_id is not None:
-            self.node_id = node_id
+        if node is not None:
+            self.node = node
         if opened_at is not None:
             self.opened_at = opened_at
         self.closed_at = closed_at
@@ -214,25 +214,25 @@ class Alert(object):
         self._is_open = is_open
 
     @property
-    def node_id(self):
-        """Gets the node_id of this Alert.  # noqa: E501
+    def node(self):
+        """Gets the node of this Alert.  # noqa: E501
 
 
-        :return: The node_id of this Alert.  # noqa: E501
-        :rtype: str
+        :return: The node of this Alert.  # noqa: E501
+        :rtype: StorageNode
         """
-        return self._node_id
+        return self._node
 
-    @node_id.setter
-    def node_id(self, node_id):
-        """Sets the node_id of this Alert.
+    @node.setter
+    def node(self, node):
+        """Sets the node of this Alert.
 
 
-        :param node_id: The node_id of this Alert.  # noqa: E501
-        :type: str
+        :param node: The node of this Alert.  # noqa: E501
+        :type: StorageNode
         """
 
-        self._node_id = node_id
+        self._node = node
 
     @property
     def opened_at(self):

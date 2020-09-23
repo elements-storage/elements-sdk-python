@@ -37,7 +37,7 @@ class MediaLibraryApi(object):
     def clear_subclip_clipboard(self, **kwargs):  # noqa: E501
         """clear_subclip_clipboard  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.clear_subclip_clipboard(async_req=True)
@@ -61,7 +61,7 @@ class MediaLibraryApi(object):
     def clear_subclip_clipboard_with_http_info(self, **kwargs):  # noqa: E501
         """clear_subclip_clipboard  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.clear_subclip_clipboard_with_http_info(async_req=True)
@@ -137,7 +137,7 @@ class MediaLibraryApi(object):
     def combine_assets_into_set(self, data, **kwargs):  # noqa: E501
         """combine_assets_into_set  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.combine_assets_into_set(data, async_req=True)
@@ -162,7 +162,7 @@ class MediaLibraryApi(object):
     def combine_assets_into_set_with_http_info(self, data, **kwargs):  # noqa: E501
         """combine_assets_into_set  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.combine_assets_into_set_with_http_info(data, async_req=True)
@@ -249,7 +249,7 @@ class MediaLibraryApi(object):
     def create_asset(self, data, **kwargs):  # noqa: E501
         """create_asset  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_asset(data, async_req=True)
@@ -274,7 +274,7 @@ class MediaLibraryApi(object):
     def create_asset_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_asset  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_asset_with_http_info(data, async_req=True)
@@ -361,7 +361,7 @@ class MediaLibraryApi(object):
     def create_asset_rating(self, data, **kwargs):  # noqa: E501
         """create_asset_rating  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_asset_rating(data, async_req=True)
@@ -386,7 +386,7 @@ class MediaLibraryApi(object):
     def create_asset_rating_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_asset_rating  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_asset_rating_with_http_info(data, async_req=True)
@@ -473,7 +473,7 @@ class MediaLibraryApi(object):
     def create_comment(self, data, **kwargs):  # noqa: E501
         """create_comment  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_comment(data, async_req=True)
@@ -498,7 +498,7 @@ class MediaLibraryApi(object):
     def create_comment_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_comment  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_comment_with_http_info(data, async_req=True)
@@ -582,10 +582,122 @@ class MediaLibraryApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def create_custom_field(self, data, **kwargs):  # noqa: E501
+        """create_custom_field  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_custom_field(data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param CustomField data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: CustomField
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_custom_field_with_http_info(data, **kwargs)  # noqa: E501
+
+    def create_custom_field_with_http_info(self, data, **kwargs):  # noqa: E501
+        """create_custom_field  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_custom_field_with_http_info(data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param CustomField data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(CustomField, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_custom_field" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `create_custom_field`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/media/custom-fields', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomField',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def create_marker(self, data, **kwargs):  # noqa: E501
         """create_marker  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_marker(data, async_req=True)
@@ -610,7 +722,7 @@ class MediaLibraryApi(object):
     def create_marker_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_marker  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_marker_with_http_info(data, async_req=True)
@@ -697,7 +809,7 @@ class MediaLibraryApi(object):
     def create_media_file_template(self, data, **kwargs):  # noqa: E501
         """create_media_file_template  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_media_file_template(data, async_req=True)
@@ -722,7 +834,7 @@ class MediaLibraryApi(object):
     def create_media_file_template_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_media_file_template  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_media_file_template_with_http_info(data, async_req=True)
@@ -809,7 +921,7 @@ class MediaLibraryApi(object):
     def create_media_root(self, data, **kwargs):  # noqa: E501
         """create_media_root  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_media_root(data, async_req=True)
@@ -834,7 +946,7 @@ class MediaLibraryApi(object):
     def create_media_root_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_media_root  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_media_root_with_http_info(data, async_req=True)
@@ -921,7 +1033,7 @@ class MediaLibraryApi(object):
     def create_media_root_permission(self, data, **kwargs):  # noqa: E501
         """create_media_root_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_media_root_permission(data, async_req=True)
@@ -946,7 +1058,7 @@ class MediaLibraryApi(object):
     def create_media_root_permission_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_media_root_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_media_root_permission_with_http_info(data, async_req=True)
@@ -1033,7 +1145,7 @@ class MediaLibraryApi(object):
     def create_media_tag(self, data, **kwargs):  # noqa: E501
         """create_media_tag  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_media_tag(data, async_req=True)
@@ -1058,7 +1170,7 @@ class MediaLibraryApi(object):
     def create_media_tag_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_media_tag  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_media_tag_with_http_info(data, async_req=True)
@@ -1145,7 +1257,7 @@ class MediaLibraryApi(object):
     def create_proxy_profile(self, data, **kwargs):  # noqa: E501
         """create_proxy_profile  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_proxy_profile(data, async_req=True)
@@ -1170,7 +1282,7 @@ class MediaLibraryApi(object):
     def create_proxy_profile_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_proxy_profile  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_proxy_profile_with_http_info(data, async_req=True)
@@ -1257,7 +1369,7 @@ class MediaLibraryApi(object):
     def create_subclip(self, data, **kwargs):  # noqa: E501
         """create_subclip  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_subclip(data, async_req=True)
@@ -1282,7 +1394,7 @@ class MediaLibraryApi(object):
     def create_subclip_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_subclip  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_subclip_with_http_info(data, async_req=True)
@@ -1369,7 +1481,7 @@ class MediaLibraryApi(object):
     def create_subclip_clipboard_entry(self, data, **kwargs):  # noqa: E501
         """create_subclip_clipboard_entry  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_subclip_clipboard_entry(data, async_req=True)
@@ -1394,7 +1506,7 @@ class MediaLibraryApi(object):
     def create_subclip_clipboard_entry_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_subclip_clipboard_entry  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_subclip_clipboard_entry_with_http_info(data, async_req=True)
@@ -1481,7 +1593,7 @@ class MediaLibraryApi(object):
     def delete_asset(self, id, **kwargs):  # noqa: E501
         """delete_asset  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_asset(id, async_req=True)
@@ -1506,7 +1618,7 @@ class MediaLibraryApi(object):
     def delete_asset_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_asset  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_asset_with_http_info(id, async_req=True)
@@ -1589,7 +1701,7 @@ class MediaLibraryApi(object):
     def delete_asset_rating(self, id, **kwargs):  # noqa: E501
         """delete_asset_rating  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_asset_rating(id, async_req=True)
@@ -1614,7 +1726,7 @@ class MediaLibraryApi(object):
     def delete_asset_rating_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_asset_rating  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_asset_rating_with_http_info(id, async_req=True)
@@ -1697,7 +1809,7 @@ class MediaLibraryApi(object):
     def delete_comment(self, id, **kwargs):  # noqa: E501
         """delete_comment  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_comment(id, async_req=True)
@@ -1722,7 +1834,7 @@ class MediaLibraryApi(object):
     def delete_comment_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_comment  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_comment_with_http_info(id, async_req=True)
@@ -1802,10 +1914,118 @@ class MediaLibraryApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_custom_field(self, id, **kwargs):  # noqa: E501
+        """delete_custom_field  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_custom_field(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this CustomField. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.delete_custom_field_with_http_info(id, **kwargs)  # noqa: E501
+
+    def delete_custom_field_with_http_info(self, id, **kwargs):  # noqa: E501
+        """delete_custom_field  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_custom_field_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this CustomField. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_custom_field" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `delete_custom_field`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/media/custom-fields/{id}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def delete_marker(self, id, **kwargs):  # noqa: E501
         """delete_marker  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_marker(id, async_req=True)
@@ -1830,7 +2050,7 @@ class MediaLibraryApi(object):
     def delete_marker_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_marker  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_marker_with_http_info(id, async_req=True)
@@ -1913,7 +2133,7 @@ class MediaLibraryApi(object):
     def delete_media_file_template(self, id, **kwargs):  # noqa: E501
         """delete_media_file_template  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_media_file_template(id, async_req=True)
@@ -1938,7 +2158,7 @@ class MediaLibraryApi(object):
     def delete_media_file_template_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_media_file_template  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_media_file_template_with_http_info(id, async_req=True)
@@ -2021,7 +2241,7 @@ class MediaLibraryApi(object):
     def delete_media_root(self, id, **kwargs):  # noqa: E501
         """delete_media_root  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_media_root(id, async_req=True)
@@ -2046,7 +2266,7 @@ class MediaLibraryApi(object):
     def delete_media_root_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_media_root  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_media_root_with_http_info(id, async_req=True)
@@ -2129,7 +2349,7 @@ class MediaLibraryApi(object):
     def delete_media_root_permission(self, id, **kwargs):  # noqa: E501
         """delete_media_root_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_media_root_permission(id, async_req=True)
@@ -2154,7 +2374,7 @@ class MediaLibraryApi(object):
     def delete_media_root_permission_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_media_root_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_media_root_permission_with_http_info(id, async_req=True)
@@ -2237,7 +2457,7 @@ class MediaLibraryApi(object):
     def delete_media_tag(self, id, **kwargs):  # noqa: E501
         """delete_media_tag  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_media_tag(id, async_req=True)
@@ -2262,7 +2482,7 @@ class MediaLibraryApi(object):
     def delete_media_tag_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_media_tag  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_media_tag_with_http_info(id, async_req=True)
@@ -2345,7 +2565,7 @@ class MediaLibraryApi(object):
     def delete_media_update(self, id, **kwargs):  # noqa: E501
         """delete_media_update  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_media_update(id, async_req=True)
@@ -2370,7 +2590,7 @@ class MediaLibraryApi(object):
     def delete_media_update_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_media_update  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_media_update_with_http_info(id, async_req=True)
@@ -2453,7 +2673,7 @@ class MediaLibraryApi(object):
     def delete_proxy(self, id, **kwargs):  # noqa: E501
         """delete_proxy  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_proxy(id, async_req=True)
@@ -2478,7 +2698,7 @@ class MediaLibraryApi(object):
     def delete_proxy_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_proxy  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_proxy_with_http_info(id, async_req=True)
@@ -2561,7 +2781,7 @@ class MediaLibraryApi(object):
     def delete_proxy_profile(self, id, **kwargs):  # noqa: E501
         """delete_proxy_profile  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_proxy_profile(id, async_req=True)
@@ -2586,7 +2806,7 @@ class MediaLibraryApi(object):
     def delete_proxy_profile_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_proxy_profile  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_proxy_profile_with_http_info(id, async_req=True)
@@ -2669,7 +2889,7 @@ class MediaLibraryApi(object):
     def delete_subclip(self, id, **kwargs):  # noqa: E501
         """delete_subclip  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_subclip(id, async_req=True)
@@ -2694,7 +2914,7 @@ class MediaLibraryApi(object):
     def delete_subclip_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_subclip  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_subclip_with_http_info(id, async_req=True)
@@ -2777,7 +2997,7 @@ class MediaLibraryApi(object):
     def delete_subclip_clipboard_entry(self, id, **kwargs):  # noqa: E501
         """delete_subclip_clipboard_entry  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_subclip_clipboard_entry(id, async_req=True)
@@ -2802,7 +3022,7 @@ class MediaLibraryApi(object):
     def delete_subclip_clipboard_entry_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_subclip_clipboard_entry  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_subclip_clipboard_entry_with_http_info(id, async_req=True)
@@ -2885,7 +3105,7 @@ class MediaLibraryApi(object):
     def discover_media(self, data, **kwargs):  # noqa: E501
         """discover_media  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   # noqa: E501
+        ### Required permissions    * User account permission: media:access   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.discover_media(data, async_req=True)
@@ -2910,7 +3130,7 @@ class MediaLibraryApi(object):
     def discover_media_with_http_info(self, data, **kwargs):  # noqa: E501
         """discover_media  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   # noqa: E501
+        ### Required permissions    * User account permission: media:access   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.discover_media_with_http_info(data, async_req=True)
@@ -2997,7 +3217,7 @@ class MediaLibraryApi(object):
     def get_all_asset_project_links(self, **kwargs):  # noqa: E501
         """get_all_asset_project_links  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_asset_project_links(async_req=True)
@@ -3026,7 +3246,7 @@ class MediaLibraryApi(object):
     def get_all_asset_project_links_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_asset_project_links  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_asset_project_links_with_http_info(async_req=True)
@@ -3117,7 +3337,7 @@ class MediaLibraryApi(object):
     def get_all_asset_ratings(self, **kwargs):  # noqa: E501
         """get_all_asset_ratings  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_asset_ratings(async_req=True)
@@ -3146,7 +3366,7 @@ class MediaLibraryApi(object):
     def get_all_asset_ratings_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_asset_ratings  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_asset_ratings_with_http_info(async_req=True)
@@ -3237,7 +3457,7 @@ class MediaLibraryApi(object):
     def get_all_asset_tape_backups(self, **kwargs):  # noqa: E501
         """get_all_asset_tape_backups  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_asset_tape_backups(async_req=True)
@@ -3265,7 +3485,7 @@ class MediaLibraryApi(object):
     def get_all_asset_tape_backups_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_asset_tape_backups  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_asset_tape_backups_with_http_info(async_req=True)
@@ -3353,7 +3573,7 @@ class MediaLibraryApi(object):
     def get_all_assets(self, **kwargs):  # noqa: E501
         """get_all_assets  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_assets(async_req=True)
@@ -3383,7 +3603,7 @@ class MediaLibraryApi(object):
     def get_all_assets_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_assets  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_assets_with_http_info(async_req=True)
@@ -3477,7 +3697,7 @@ class MediaLibraryApi(object):
     def get_all_bundles_for_media_root(self, root, **kwargs):  # noqa: E501
         """get_all_bundles_for_media_root  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_bundles_for_media_root(root, async_req=True)
@@ -3506,7 +3726,7 @@ class MediaLibraryApi(object):
     def get_all_bundles_for_media_root_with_http_info(self, root, **kwargs):  # noqa: E501
         """get_all_bundles_for_media_root  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_bundles_for_media_root_with_http_info(root, async_req=True)
@@ -3601,7 +3821,7 @@ class MediaLibraryApi(object):
     def get_all_click_links(self, **kwargs):  # noqa: E501
         """get_all_click_links  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_click_links(async_req=True)
@@ -3630,7 +3850,7 @@ class MediaLibraryApi(object):
     def get_all_click_links_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_click_links  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_click_links_with_http_info(async_req=True)
@@ -3721,7 +3941,7 @@ class MediaLibraryApi(object):
     def get_all_comments(self, **kwargs):  # noqa: E501
         """get_all_comments  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_comments(async_req=True)
@@ -3751,7 +3971,7 @@ class MediaLibraryApi(object):
     def get_all_comments_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_comments  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_comments_with_http_info(async_req=True)
@@ -3842,10 +4062,122 @@ class MediaLibraryApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_all_custom_fields(self, **kwargs):  # noqa: E501
+        """get_all_custom_fields  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_custom_fields(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str ordering: Which field to use when ordering the results.
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: list[CustomField]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_all_custom_fields_with_http_info(**kwargs)  # noqa: E501
+
+    def get_all_custom_fields_with_http_info(self, **kwargs):  # noqa: E501
+        """get_all_custom_fields  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_custom_fields_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str ordering: Which field to use when ordering the results.
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(list[CustomField], status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['ordering', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_all_custom_fields" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
+            query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/media/custom-fields', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[CustomField]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_all_markers(self, **kwargs):  # noqa: E501
         """get_all_markers  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_markers(async_req=True)
@@ -3874,7 +4206,7 @@ class MediaLibraryApi(object):
     def get_all_markers_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_markers  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_markers_with_http_info(async_req=True)
@@ -3965,7 +4297,7 @@ class MediaLibraryApi(object):
     def get_all_media_file_bundles(self, **kwargs):  # noqa: E501
         """get_all_media_file_bundles  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_file_bundles(async_req=True)
@@ -3993,7 +4325,7 @@ class MediaLibraryApi(object):
     def get_all_media_file_bundles_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_media_file_bundles  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_file_bundles_with_http_info(async_req=True)
@@ -4081,7 +4413,7 @@ class MediaLibraryApi(object):
     def get_all_media_file_templates(self, **kwargs):  # noqa: E501
         """get_all_media_file_templates  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_file_templates(async_req=True)
@@ -4108,7 +4440,7 @@ class MediaLibraryApi(object):
     def get_all_media_file_templates_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_media_file_templates  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_file_templates_with_http_info(async_req=True)
@@ -4193,7 +4525,7 @@ class MediaLibraryApi(object):
     def get_all_media_files(self, **kwargs):  # noqa: E501
         """get_all_media_files  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_files(async_req=True)
@@ -4228,7 +4560,7 @@ class MediaLibraryApi(object):
     def get_all_media_files_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_media_files  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_files_with_http_info(async_req=True)
@@ -4337,7 +4669,7 @@ class MediaLibraryApi(object):
     def get_all_media_files_for_bundles(self, data, **kwargs):  # noqa: E501
         """get_all_media_files_for_bundles  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_files_for_bundles(data, async_req=True)
@@ -4362,7 +4694,7 @@ class MediaLibraryApi(object):
     def get_all_media_files_for_bundles_with_http_info(self, data, **kwargs):  # noqa: E501
         """get_all_media_files_for_bundles  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_files_for_bundles_with_http_info(data, async_req=True)
@@ -4449,7 +4781,7 @@ class MediaLibraryApi(object):
     def get_all_media_files_for_media_root(self, root, **kwargs):  # noqa: E501
         """get_all_media_files_for_media_root  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_files_for_media_root(root, async_req=True)
@@ -4485,7 +4817,7 @@ class MediaLibraryApi(object):
     def get_all_media_files_for_media_root_with_http_info(self, root, **kwargs):  # noqa: E501
         """get_all_media_files_for_media_root  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_files_for_media_root_with_http_info(root, async_req=True)
@@ -4601,7 +4933,7 @@ class MediaLibraryApi(object):
     def get_all_media_root_permissions(self, **kwargs):  # noqa: E501
         """get_all_media_root_permissions  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_root_permissions(async_req=True)
@@ -4630,7 +4962,7 @@ class MediaLibraryApi(object):
     def get_all_media_root_permissions_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_media_root_permissions  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_root_permissions_with_http_info(async_req=True)
@@ -4721,7 +5053,7 @@ class MediaLibraryApi(object):
     def get_all_media_roots(self, **kwargs):  # noqa: E501
         """get_all_media_roots  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_roots(async_req=True)
@@ -4750,7 +5082,7 @@ class MediaLibraryApi(object):
     def get_all_media_roots_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_media_roots  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_roots_with_http_info(async_req=True)
@@ -4841,7 +5173,7 @@ class MediaLibraryApi(object):
     def get_all_media_tags(self, **kwargs):  # noqa: E501
         """get_all_media_tags  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_tags(async_req=True)
@@ -4872,7 +5204,7 @@ class MediaLibraryApi(object):
     def get_all_media_tags_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_media_tags  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_tags_with_http_info(async_req=True)
@@ -4969,7 +5301,7 @@ class MediaLibraryApi(object):
     def get_all_media_updates(self, **kwargs):  # noqa: E501
         """get_all_media_updates  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_updates(async_req=True)
@@ -4996,7 +5328,7 @@ class MediaLibraryApi(object):
     def get_all_media_updates_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_media_updates  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_media_updates_with_http_info(async_req=True)
@@ -5081,7 +5413,7 @@ class MediaLibraryApi(object):
     def get_all_proxies(self, **kwargs):  # noqa: E501
         """get_all_proxies  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_proxies(async_req=True)
@@ -5113,7 +5445,7 @@ class MediaLibraryApi(object):
     def get_all_proxies_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_proxies  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_proxies_with_http_info(async_req=True)
@@ -5213,7 +5545,7 @@ class MediaLibraryApi(object):
     def get_all_proxy_profiles(self, **kwargs):  # noqa: E501
         """get_all_proxy_profiles  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_proxy_profiles(async_req=True)
@@ -5241,7 +5573,7 @@ class MediaLibraryApi(object):
     def get_all_proxy_profiles_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_proxy_profiles  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_proxy_profiles_with_http_info(async_req=True)
@@ -5329,7 +5661,7 @@ class MediaLibraryApi(object):
     def get_all_subclip_clipboard_entries(self, **kwargs):  # noqa: E501
         """get_all_subclip_clipboard_entries  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_subclip_clipboard_entries(async_req=True)
@@ -5357,7 +5689,7 @@ class MediaLibraryApi(object):
     def get_all_subclip_clipboard_entries_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_subclip_clipboard_entries  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_subclip_clipboard_entries_with_http_info(async_req=True)
@@ -5445,7 +5777,7 @@ class MediaLibraryApi(object):
     def get_all_subclips(self, **kwargs):  # noqa: E501
         """get_all_subclips  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_subclips(async_req=True)
@@ -5475,7 +5807,7 @@ class MediaLibraryApi(object):
     def get_all_subclips_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_subclips  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_subclips_with_http_info(async_req=True)
@@ -5569,7 +5901,7 @@ class MediaLibraryApi(object):
     def get_all_transcoder_profiles(self, **kwargs):  # noqa: E501
         """get_all_transcoder_profiles  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_transcoder_profiles(async_req=True)
@@ -5596,7 +5928,7 @@ class MediaLibraryApi(object):
     def get_all_transcoder_profiles_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_transcoder_profiles  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_transcoder_profiles_with_http_info(async_req=True)
@@ -5681,7 +6013,7 @@ class MediaLibraryApi(object):
     def get_asset(self, id, **kwargs):  # noqa: E501
         """get_asset  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_asset(id, async_req=True)
@@ -5706,7 +6038,7 @@ class MediaLibraryApi(object):
     def get_asset_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_asset  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_asset_with_http_info(id, async_req=True)
@@ -5789,7 +6121,7 @@ class MediaLibraryApi(object):
     def get_asset_rating(self, id, **kwargs):  # noqa: E501
         """get_asset_rating  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_asset_rating(id, async_req=True)
@@ -5814,7 +6146,7 @@ class MediaLibraryApi(object):
     def get_asset_rating_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_asset_rating  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_asset_rating_with_http_info(id, async_req=True)
@@ -5897,7 +6229,7 @@ class MediaLibraryApi(object):
     def get_comment(self, id, **kwargs):  # noqa: E501
         """get_comment  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_comment(id, async_req=True)
@@ -5922,7 +6254,7 @@ class MediaLibraryApi(object):
     def get_comment_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_comment  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_comment_with_http_info(id, async_req=True)
@@ -6002,10 +6334,118 @@ class MediaLibraryApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_custom_field(self, id, **kwargs):  # noqa: E501
+        """get_custom_field  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_custom_field(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this CustomField. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: CustomField
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_custom_field_with_http_info(id, **kwargs)  # noqa: E501
+
+    def get_custom_field_with_http_info(self, id, **kwargs):  # noqa: E501
+        """get_custom_field  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_custom_field_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this CustomField. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(CustomField, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_custom_field" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `get_custom_field`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/media/custom-fields/{id}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomField',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_latest_media_update(self, **kwargs):  # noqa: E501
         """get_latest_media_update  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_latest_media_update(async_req=True)
@@ -6032,7 +6472,7 @@ class MediaLibraryApi(object):
     def get_latest_media_update_with_http_info(self, **kwargs):  # noqa: E501
         """get_latest_media_update  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_latest_media_update_with_http_info(async_req=True)
@@ -6117,7 +6557,7 @@ class MediaLibraryApi(object):
     def get_marker(self, id, **kwargs):  # noqa: E501
         """get_marker  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_marker(id, async_req=True)
@@ -6142,7 +6582,7 @@ class MediaLibraryApi(object):
     def get_marker_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_marker  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_marker_with_http_info(id, async_req=True)
@@ -6225,7 +6665,7 @@ class MediaLibraryApi(object):
     def get_media_file(self, id, **kwargs):  # noqa: E501
         """get_media_file  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_media_file(id, async_req=True)
@@ -6250,7 +6690,7 @@ class MediaLibraryApi(object):
     def get_media_file_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_media_file  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_media_file_with_http_info(id, async_req=True)
@@ -6333,7 +6773,7 @@ class MediaLibraryApi(object):
     def get_media_file_bundle(self, id, **kwargs):  # noqa: E501
         """get_media_file_bundle  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_media_file_bundle(id, async_req=True)
@@ -6358,7 +6798,7 @@ class MediaLibraryApi(object):
     def get_media_file_bundle_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_media_file_bundle  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_media_file_bundle_with_http_info(id, async_req=True)
@@ -6441,7 +6881,7 @@ class MediaLibraryApi(object):
     def get_media_file_contents(self, id, **kwargs):  # noqa: E501
         """get_media_file_contents  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_media_file_contents(id, async_req=True)
@@ -6470,7 +6910,7 @@ class MediaLibraryApi(object):
     def get_media_file_contents_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_media_file_contents  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_media_file_contents_with_http_info(id, async_req=True)
@@ -6565,7 +7005,7 @@ class MediaLibraryApi(object):
     def get_media_file_template(self, id, **kwargs):  # noqa: E501
         """get_media_file_template  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_media_file_template(id, async_req=True)
@@ -6590,7 +7030,7 @@ class MediaLibraryApi(object):
     def get_media_file_template_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_media_file_template  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_media_file_template_with_http_info(id, async_req=True)
@@ -6673,7 +7113,7 @@ class MediaLibraryApi(object):
     def get_media_root(self, id, **kwargs):  # noqa: E501
         """get_media_root  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_media_root(id, async_req=True)
@@ -6698,7 +7138,7 @@ class MediaLibraryApi(object):
     def get_media_root_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_media_root  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_media_root_with_http_info(id, async_req=True)
@@ -6781,7 +7221,7 @@ class MediaLibraryApi(object):
     def get_media_root_permission(self, id, **kwargs):  # noqa: E501
         """get_media_root_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_media_root_permission(id, async_req=True)
@@ -6806,7 +7246,7 @@ class MediaLibraryApi(object):
     def get_media_root_permission_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_media_root_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_media_root_permission_with_http_info(id, async_req=True)
@@ -6889,7 +7329,7 @@ class MediaLibraryApi(object):
     def get_media_tag(self, id, **kwargs):  # noqa: E501
         """get_media_tag  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_media_tag(id, async_req=True)
@@ -6914,7 +7354,7 @@ class MediaLibraryApi(object):
     def get_media_tag_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_media_tag  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_media_tag_with_http_info(id, async_req=True)
@@ -6997,7 +7437,7 @@ class MediaLibraryApi(object):
     def get_multiple_assets(self, data, **kwargs):  # noqa: E501
         """get_multiple_assets  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_multiple_assets(data, async_req=True)
@@ -7022,7 +7462,7 @@ class MediaLibraryApi(object):
     def get_multiple_assets_with_http_info(self, data, **kwargs):  # noqa: E501
         """get_multiple_assets  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_multiple_assets_with_http_info(data, async_req=True)
@@ -7109,7 +7549,7 @@ class MediaLibraryApi(object):
     def get_multiple_bundles(self, data, **kwargs):  # noqa: E501
         """get_multiple_bundles  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_multiple_bundles(data, async_req=True)
@@ -7134,7 +7574,7 @@ class MediaLibraryApi(object):
     def get_multiple_bundles_with_http_info(self, data, **kwargs):  # noqa: E501
         """get_multiple_bundles  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_multiple_bundles_with_http_info(data, async_req=True)
@@ -7221,7 +7661,7 @@ class MediaLibraryApi(object):
     def get_multiple_files(self, data, **kwargs):  # noqa: E501
         """get_multiple_files  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_multiple_files(data, async_req=True)
@@ -7246,7 +7686,7 @@ class MediaLibraryApi(object):
     def get_multiple_files_with_http_info(self, data, **kwargs):  # noqa: E501
         """get_multiple_files  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_multiple_files_with_http_info(data, async_req=True)
@@ -7333,7 +7773,7 @@ class MediaLibraryApi(object):
     def get_my_media_root_permissions(self, **kwargs):  # noqa: E501
         """get_my_media_root_permissions  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_my_media_root_permissions(async_req=True)
@@ -7362,7 +7802,7 @@ class MediaLibraryApi(object):
     def get_my_media_root_permissions_with_http_info(self, **kwargs):  # noqa: E501
         """get_my_media_root_permissions  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_my_media_root_permissions_with_http_info(async_req=True)
@@ -7453,7 +7893,7 @@ class MediaLibraryApi(object):
     def get_my_resolved_media_root_permissions(self, **kwargs):  # noqa: E501
         """get_my_resolved_media_root_permissions  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_my_resolved_media_root_permissions(async_req=True)
@@ -7482,7 +7922,7 @@ class MediaLibraryApi(object):
     def get_my_resolved_media_root_permissions_with_http_info(self, **kwargs):  # noqa: E501
         """get_my_resolved_media_root_permissions  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_my_resolved_media_root_permissions_with_http_info(async_req=True)
@@ -7573,7 +8013,7 @@ class MediaLibraryApi(object):
     def get_proxy(self, id, **kwargs):  # noqa: E501
         """get_proxy  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_proxy(id, async_req=True)
@@ -7598,7 +8038,7 @@ class MediaLibraryApi(object):
     def get_proxy_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_proxy  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_proxy_with_http_info(id, async_req=True)
@@ -7681,7 +8121,7 @@ class MediaLibraryApi(object):
     def get_proxy_profile(self, id, **kwargs):  # noqa: E501
         """get_proxy_profile  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_proxy_profile(id, async_req=True)
@@ -7706,7 +8146,7 @@ class MediaLibraryApi(object):
     def get_proxy_profile_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_proxy_profile  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_proxy_profile_with_http_info(id, async_req=True)
@@ -7789,7 +8229,7 @@ class MediaLibraryApi(object):
     def get_proxy_profile_proxy_count(self, id, **kwargs):  # noqa: E501
         """get_proxy_profile_proxy_count  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_proxy_profile_proxy_count(id, async_req=True)
@@ -7814,7 +8254,7 @@ class MediaLibraryApi(object):
     def get_proxy_profile_proxy_count_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_proxy_profile_proxy_count  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_proxy_profile_proxy_count_with_http_info(id, async_req=True)
@@ -7897,7 +8337,7 @@ class MediaLibraryApi(object):
     def get_subclip(self, id, **kwargs):  # noqa: E501
         """get_subclip  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_subclip(id, async_req=True)
@@ -7922,7 +8362,7 @@ class MediaLibraryApi(object):
     def get_subclip_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_subclip  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_subclip_with_http_info(id, async_req=True)
@@ -8005,7 +8445,7 @@ class MediaLibraryApi(object):
     def get_transcoder_profile(self, id, **kwargs):  # noqa: E501
         """get_transcoder_profile  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_transcoder_profile(id, async_req=True)
@@ -8030,7 +8470,7 @@ class MediaLibraryApi(object):
     def get_transcoder_profile_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_transcoder_profile  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_transcoder_profile_with_http_info(id, async_req=True)
@@ -8113,7 +8553,7 @@ class MediaLibraryApi(object):
     def patch_asset(self, id, data, **kwargs):  # noqa: E501
         """patch_asset  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_asset(id, data, async_req=True)
@@ -8139,7 +8579,7 @@ class MediaLibraryApi(object):
     def patch_asset_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_asset  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_asset_with_http_info(id, data, async_req=True)
@@ -8233,7 +8673,7 @@ class MediaLibraryApi(object):
     def patch_asset_rating(self, id, data, **kwargs):  # noqa: E501
         """patch_asset_rating  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_asset_rating(id, data, async_req=True)
@@ -8259,7 +8699,7 @@ class MediaLibraryApi(object):
     def patch_asset_rating_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_asset_rating  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_asset_rating_with_http_info(id, data, async_req=True)
@@ -8353,7 +8793,7 @@ class MediaLibraryApi(object):
     def patch_comment(self, id, data, **kwargs):  # noqa: E501
         """patch_comment  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_comment(id, data, async_req=True)
@@ -8379,7 +8819,7 @@ class MediaLibraryApi(object):
     def patch_comment_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_comment  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_comment_with_http_info(id, data, async_req=True)
@@ -8470,10 +8910,130 @@ class MediaLibraryApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def patch_custom_field(self, id, data, **kwargs):  # noqa: E501
+        """patch_custom_field  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.patch_custom_field(id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this CustomField. (required)
+        :param CustomField data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: CustomField
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.patch_custom_field_with_http_info(id, data, **kwargs)  # noqa: E501
+
+    def patch_custom_field_with_http_info(self, id, data, **kwargs):  # noqa: E501
+        """patch_custom_field  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.patch_custom_field_with_http_info(id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this CustomField. (required)
+        :param CustomField data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(CustomField, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method patch_custom_field" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `patch_custom_field`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `patch_custom_field`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/media/custom-fields/{id}', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomField',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def patch_marker(self, id, data, **kwargs):  # noqa: E501
         """patch_marker  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_marker(id, data, async_req=True)
@@ -8499,7 +9059,7 @@ class MediaLibraryApi(object):
     def patch_marker_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_marker  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_marker_with_http_info(id, data, async_req=True)
@@ -8593,7 +9153,7 @@ class MediaLibraryApi(object):
     def patch_media_file(self, id, data, **kwargs):  # noqa: E501
         """patch_media_file  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_media_file(id, data, async_req=True)
@@ -8619,7 +9179,7 @@ class MediaLibraryApi(object):
     def patch_media_file_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_media_file  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_media_file_with_http_info(id, data, async_req=True)
@@ -8713,7 +9273,7 @@ class MediaLibraryApi(object):
     def patch_media_file_template(self, id, data, **kwargs):  # noqa: E501
         """patch_media_file_template  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_media_file_template(id, data, async_req=True)
@@ -8739,7 +9299,7 @@ class MediaLibraryApi(object):
     def patch_media_file_template_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_media_file_template  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_media_file_template_with_http_info(id, data, async_req=True)
@@ -8833,7 +9393,7 @@ class MediaLibraryApi(object):
     def patch_media_root(self, id, data, **kwargs):  # noqa: E501
         """patch_media_root  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_media_root(id, data, async_req=True)
@@ -8859,7 +9419,7 @@ class MediaLibraryApi(object):
     def patch_media_root_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_media_root  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_media_root_with_http_info(id, data, async_req=True)
@@ -8953,7 +9513,7 @@ class MediaLibraryApi(object):
     def patch_media_root_permission(self, id, data, **kwargs):  # noqa: E501
         """patch_media_root_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_media_root_permission(id, data, async_req=True)
@@ -8979,7 +9539,7 @@ class MediaLibraryApi(object):
     def patch_media_root_permission_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_media_root_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_media_root_permission_with_http_info(id, data, async_req=True)
@@ -9073,7 +9633,7 @@ class MediaLibraryApi(object):
     def patch_media_tag(self, id, data, **kwargs):  # noqa: E501
         """patch_media_tag  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_media_tag(id, data, async_req=True)
@@ -9099,7 +9659,7 @@ class MediaLibraryApi(object):
     def patch_media_tag_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_media_tag  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_media_tag_with_http_info(id, data, async_req=True)
@@ -9193,7 +9753,7 @@ class MediaLibraryApi(object):
     def patch_proxy_profile(self, id, data, **kwargs):  # noqa: E501
         """patch_proxy_profile  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_proxy_profile(id, data, async_req=True)
@@ -9219,7 +9779,7 @@ class MediaLibraryApi(object):
     def patch_proxy_profile_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_proxy_profile  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_proxy_profile_with_http_info(id, data, async_req=True)
@@ -9313,7 +9873,7 @@ class MediaLibraryApi(object):
     def patch_subclip(self, id, data, **kwargs):  # noqa: E501
         """patch_subclip  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_subclip(id, data, async_req=True)
@@ -9339,7 +9899,7 @@ class MediaLibraryApi(object):
     def patch_subclip_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_subclip  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_subclip_with_http_info(id, data, async_req=True)
@@ -9433,7 +9993,7 @@ class MediaLibraryApi(object):
     def request_media_scan(self, data, **kwargs):  # noqa: E501
         """request_media_scan  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   # noqa: E501
+        ### Required permissions    * User account permission: media:access   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.request_media_scan(data, async_req=True)
@@ -9458,7 +10018,7 @@ class MediaLibraryApi(object):
     def request_media_scan_with_http_info(self, data, **kwargs):  # noqa: E501
         """request_media_scan  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   # noqa: E501
+        ### Required permissions    * User account permission: media:access   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.request_media_scan_with_http_info(data, async_req=True)
@@ -9545,7 +10105,7 @@ class MediaLibraryApi(object):
     def resolve_comment(self, id, **kwargs):  # noqa: E501
         """resolve_comment  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.resolve_comment(id, async_req=True)
@@ -9570,7 +10130,7 @@ class MediaLibraryApi(object):
     def resolve_comment_with_http_info(self, id, **kwargs):  # noqa: E501
         """resolve_comment  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.resolve_comment_with_http_info(id, async_req=True)
@@ -9653,7 +10213,7 @@ class MediaLibraryApi(object):
     def unresolve_comment(self, id, **kwargs):  # noqa: E501
         """unresolve_comment  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.unresolve_comment(id, async_req=True)
@@ -9678,7 +10238,7 @@ class MediaLibraryApi(object):
     def unresolve_comment_with_http_info(self, id, **kwargs):  # noqa: E501
         """unresolve_comment  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.unresolve_comment_with_http_info(id, async_req=True)
@@ -9761,7 +10321,7 @@ class MediaLibraryApi(object):
     def update_asset(self, id, data, **kwargs):  # noqa: E501
         """update_asset  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_asset(id, data, async_req=True)
@@ -9787,7 +10347,7 @@ class MediaLibraryApi(object):
     def update_asset_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_asset  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_asset_with_http_info(id, data, async_req=True)
@@ -9881,7 +10441,7 @@ class MediaLibraryApi(object):
     def update_asset_rating(self, id, data, **kwargs):  # noqa: E501
         """update_asset_rating  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_asset_rating(id, data, async_req=True)
@@ -9907,7 +10467,7 @@ class MediaLibraryApi(object):
     def update_asset_rating_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_asset_rating  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_asset_rating_with_http_info(id, data, async_req=True)
@@ -10001,7 +10561,7 @@ class MediaLibraryApi(object):
     def update_comment(self, id, data, **kwargs):  # noqa: E501
         """update_comment  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_comment(id, data, async_req=True)
@@ -10027,7 +10587,7 @@ class MediaLibraryApi(object):
     def update_comment_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_comment  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_comment_with_http_info(id, data, async_req=True)
@@ -10118,10 +10678,130 @@ class MediaLibraryApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def update_custom_field(self, id, data, **kwargs):  # noqa: E501
+        """update_custom_field  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_custom_field(id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this CustomField. (required)
+        :param CustomField data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: CustomField
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.update_custom_field_with_http_info(id, data, **kwargs)  # noqa: E501
+
+    def update_custom_field_with_http_info(self, id, data, **kwargs):  # noqa: E501
+        """update_custom_field  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_custom_field_with_http_info(id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this CustomField. (required)
+        :param CustomField data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(CustomField, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_custom_field" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `update_custom_field`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `update_custom_field`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/media/custom-fields/{id}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomField',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def update_marker(self, id, data, **kwargs):  # noqa: E501
         """update_marker  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_marker(id, data, async_req=True)
@@ -10147,7 +10827,7 @@ class MediaLibraryApi(object):
     def update_marker_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_marker  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_marker_with_http_info(id, data, async_req=True)
@@ -10241,7 +10921,7 @@ class MediaLibraryApi(object):
     def update_media_file(self, id, data, **kwargs):  # noqa: E501
         """update_media_file  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_media_file(id, data, async_req=True)
@@ -10267,7 +10947,7 @@ class MediaLibraryApi(object):
     def update_media_file_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_media_file  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_media_file_with_http_info(id, data, async_req=True)
@@ -10361,7 +11041,7 @@ class MediaLibraryApi(object):
     def update_media_file_template(self, id, data, **kwargs):  # noqa: E501
         """update_media_file_template  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_media_file_template(id, data, async_req=True)
@@ -10387,7 +11067,7 @@ class MediaLibraryApi(object):
     def update_media_file_template_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_media_file_template  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_media_file_template_with_http_info(id, data, async_req=True)
@@ -10481,7 +11161,7 @@ class MediaLibraryApi(object):
     def update_media_root(self, id, data, **kwargs):  # noqa: E501
         """update_media_root  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_media_root(id, data, async_req=True)
@@ -10507,7 +11187,7 @@ class MediaLibraryApi(object):
     def update_media_root_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_media_root  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_media_root_with_http_info(id, data, async_req=True)
@@ -10601,7 +11281,7 @@ class MediaLibraryApi(object):
     def update_media_root_permission(self, id, data, **kwargs):  # noqa: E501
         """update_media_root_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_media_root_permission(id, data, async_req=True)
@@ -10627,7 +11307,7 @@ class MediaLibraryApi(object):
     def update_media_root_permission_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_media_root_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_media_root_permission_with_http_info(id, data, async_req=True)
@@ -10721,7 +11401,7 @@ class MediaLibraryApi(object):
     def update_media_tag(self, id, data, **kwargs):  # noqa: E501
         """update_media_tag  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_media_tag(id, data, async_req=True)
@@ -10747,7 +11427,7 @@ class MediaLibraryApi(object):
     def update_media_tag_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_media_tag  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_media_tag_with_http_info(id, data, async_req=True)
@@ -10841,7 +11521,7 @@ class MediaLibraryApi(object):
     def update_proxy_profile(self, id, data, **kwargs):  # noqa: E501
         """update_proxy_profile  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_proxy_profile(id, data, async_req=True)
@@ -10867,7 +11547,7 @@ class MediaLibraryApi(object):
     def update_proxy_profile_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_proxy_profile  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_proxy_profile_with_http_info(id, data, async_req=True)
@@ -10961,7 +11641,7 @@ class MediaLibraryApi(object):
     def update_subclip(self, id, data, **kwargs):  # noqa: E501
         """update_subclip  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_subclip(id, data, async_req=True)
@@ -10987,7 +11667,7 @@ class MediaLibraryApi(object):
     def update_subclip_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_subclip  # noqa: E501
 
-        ### Required permissions   * User account permission: media:access   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_subclip_with_http_info(id, data, async_req=True)

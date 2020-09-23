@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 
-### Required permissions   * User account permission: system:status:view 
+### Required permissions    * User account permission: system:status:view 
 
 ### Example
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: system:status:view 
+### Required permissions    * User account permission: system:status:view 
 
 ### Example
 
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: system:status:view 
+### Required permissions    * User account permission: system:status:view 
 
 ### Example
 
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: system:status:view 
+### Required permissions    * User account permission: system:status:view 
 
 ### Example
 

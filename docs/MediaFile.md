@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] [readonly] 
 **volume** | [**VolumeMini**](VolumeMini.md) |  | [optional] 
-**info** | [**object**](.md) |  | [optional] 
-**custom_fields** | [**object**](.md) |  | [optional] 
+**info** | **object** |  | [optional] 
+**custom_fields** | **object** |  | [optional] 
 **resolved_permission** | [**MediaRootPermission**](MediaRootPermission.md) |  | [optional] 
 **parent** | **str** |  | [optional] [readonly] 
 **root** | [**MediaRootMini**](MediaRootMini.md) |  | [optional] 

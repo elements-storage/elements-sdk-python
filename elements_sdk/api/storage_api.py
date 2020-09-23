@@ -37,7 +37,7 @@ class StorageApi(object):
     def apply_workspace_affinity(self, id, **kwargs):  # noqa: E501
         """apply_workspace_affinity  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:manage   # noqa: E501
+        ### Required permissions    * User account permission: projects:manage   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.apply_workspace_affinity(id, async_req=True)
@@ -62,7 +62,7 @@ class StorageApi(object):
     def apply_workspace_affinity_with_http_info(self, id, **kwargs):  # noqa: E501
         """apply_workspace_affinity  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:manage   # noqa: E501
+        ### Required permissions    * User account permission: projects:manage   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.apply_workspace_affinity_with_http_info(id, async_req=True)
@@ -145,7 +145,7 @@ class StorageApi(object):
     def bookmark_workspace(self, id, **kwargs):  # noqa: E501
         """bookmark_workspace  # noqa: E501
 
-        ### Required permissions   * Authenticated user   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.bookmark_workspace(id, async_req=True)
@@ -170,7 +170,7 @@ class StorageApi(object):
     def bookmark_workspace_with_http_info(self, id, **kwargs):  # noqa: E501
         """bookmark_workspace  # noqa: E501
 
-        ### Required permissions   * Authenticated user   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.bookmark_workspace_with_http_info(id, async_req=True)
@@ -253,7 +253,7 @@ class StorageApi(object):
     def check_in_into_workspace(self, id, data, **kwargs):  # noqa: E501
         """check_in_into_workspace  # noqa: E501
 
-        ### Required permissions   * Authenticated user   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.check_in_into_workspace(id, data, async_req=True)
@@ -279,7 +279,7 @@ class StorageApi(object):
     def check_in_into_workspace_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """check_in_into_workspace  # noqa: E501
 
-        ### Required permissions   * Authenticated user   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.check_in_into_workspace_with_http_info(id, data, async_req=True)
@@ -373,7 +373,7 @@ class StorageApi(object):
     def check_out_of_workspace(self, id, **kwargs):  # noqa: E501
         """check_out_of_workspace  # noqa: E501
 
-        ### Required permissions   * Authenticated user   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.check_out_of_workspace(id, async_req=True)
@@ -398,7 +398,7 @@ class StorageApi(object):
     def check_out_of_workspace_with_http_info(self, id, **kwargs):  # noqa: E501
         """check_out_of_workspace  # noqa: E501
 
-        ### Required permissions   * Authenticated user   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.check_out_of_workspace_with_http_info(id, async_req=True)
@@ -481,7 +481,7 @@ class StorageApi(object):
     def create_production(self, data, **kwargs):  # noqa: E501
         """create_production  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_production(data, async_req=True)
@@ -506,7 +506,7 @@ class StorageApi(object):
     def create_production_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_production  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_production_with_http_info(data, async_req=True)
@@ -593,7 +593,7 @@ class StorageApi(object):
     def create_share(self, data, **kwargs):  # noqa: E501
         """create_share  # noqa: E501
 
-        ### Required permissions   * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_share(data, async_req=True)
@@ -618,7 +618,7 @@ class StorageApi(object):
     def create_share_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_share  # noqa: E501
 
-        ### Required permissions   * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_share_with_http_info(data, async_req=True)
@@ -705,7 +705,7 @@ class StorageApi(object):
     def create_snapshot(self, data, **kwargs):  # noqa: E501
         """create_snapshot  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_snapshot(data, async_req=True)
@@ -730,7 +730,7 @@ class StorageApi(object):
     def create_snapshot_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_snapshot  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_snapshot_with_http_info(data, async_req=True)
@@ -817,7 +817,7 @@ class StorageApi(object):
     def create_workspace(self, data, **kwargs):  # noqa: E501
         """create_workspace  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_workspace(data, async_req=True)
@@ -842,7 +842,7 @@ class StorageApi(object):
     def create_workspace_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_workspace  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_workspace_with_http_info(data, async_req=True)
@@ -929,7 +929,7 @@ class StorageApi(object):
     def create_workspace_permission(self, data, **kwargs):  # noqa: E501
         """create_workspace_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_workspace_permission(data, async_req=True)
@@ -954,7 +954,7 @@ class StorageApi(object):
     def create_workspace_permission_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_workspace_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_workspace_permission_with_http_info(data, async_req=True)
@@ -1041,7 +1041,7 @@ class StorageApi(object):
     def delete_production(self, id, **kwargs):  # noqa: E501
         """delete_production  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_production(id, async_req=True)
@@ -1066,7 +1066,7 @@ class StorageApi(object):
     def delete_production_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_production  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_production_with_http_info(id, async_req=True)
@@ -1149,7 +1149,7 @@ class StorageApi(object):
     def delete_share(self, id, **kwargs):  # noqa: E501
         """delete_share  # noqa: E501
 
-        ### Required permissions   * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_share(id, async_req=True)
@@ -1174,7 +1174,7 @@ class StorageApi(object):
     def delete_share_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_share  # noqa: E501
 
-        ### Required permissions   * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_share_with_http_info(id, async_req=True)
@@ -1257,7 +1257,7 @@ class StorageApi(object):
     def delete_snapshot(self, id, **kwargs):  # noqa: E501
         """delete_snapshot  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_snapshot(id, async_req=True)
@@ -1282,7 +1282,7 @@ class StorageApi(object):
     def delete_snapshot_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_snapshot  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_snapshot_with_http_info(id, async_req=True)
@@ -1365,7 +1365,7 @@ class StorageApi(object):
     def delete_workspace(self, id, **kwargs):  # noqa: E501
         """delete_workspace  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_workspace(id, async_req=True)
@@ -1390,7 +1390,7 @@ class StorageApi(object):
     def delete_workspace_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_workspace  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_workspace_with_http_info(id, async_req=True)
@@ -1473,7 +1473,7 @@ class StorageApi(object):
     def delete_workspace_permission(self, id, **kwargs):  # noqa: E501
         """delete_workspace_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_workspace_permission(id, async_req=True)
@@ -1498,7 +1498,7 @@ class StorageApi(object):
     def delete_workspace_permission_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_workspace_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_workspace_permission_with_http_info(id, async_req=True)
@@ -1581,7 +1581,7 @@ class StorageApi(object):
     def get_all_deleted_workspaces(self, **kwargs):  # noqa: E501
         """get_all_deleted_workspaces  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view   # noqa: E501
+        ### Required permissions    * User account permission: projects:view   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_deleted_workspaces(async_req=True)
@@ -1608,7 +1608,7 @@ class StorageApi(object):
     def get_all_deleted_workspaces_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_deleted_workspaces  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view   # noqa: E501
+        ### Required permissions    * User account permission: projects:view   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_deleted_workspaces_with_http_info(async_req=True)
@@ -1693,7 +1693,7 @@ class StorageApi(object):
     def get_all_productions(self, **kwargs):  # noqa: E501
         """get_all_productions  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_productions(async_req=True)
@@ -1722,7 +1722,7 @@ class StorageApi(object):
     def get_all_productions_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_productions  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_productions_with_http_info(async_req=True)
@@ -1813,7 +1813,7 @@ class StorageApi(object):
     def get_all_shares(self, **kwargs):  # noqa: E501
         """get_all_shares  # noqa: E501
 
-        ### Required permissions   * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_shares(async_req=True)
@@ -1840,7 +1840,7 @@ class StorageApi(object):
     def get_all_shares_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_shares  # noqa: E501
 
-        ### Required permissions   * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_shares_with_http_info(async_req=True)
@@ -1925,7 +1925,7 @@ class StorageApi(object):
     def get_all_snapshots(self, **kwargs):  # noqa: E501
         """get_all_snapshots  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_snapshots(async_req=True)
@@ -1953,7 +1953,7 @@ class StorageApi(object):
     def get_all_snapshots_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_snapshots  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_snapshots_with_http_info(async_req=True)
@@ -2041,7 +2041,7 @@ class StorageApi(object):
     def get_all_volumes(self, **kwargs):  # noqa: E501
         """get_all_volumes  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_volumes(async_req=True)
@@ -2072,7 +2072,7 @@ class StorageApi(object):
     def get_all_volumes_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_volumes  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_volumes_with_http_info(async_req=True)
@@ -2169,7 +2169,7 @@ class StorageApi(object):
     def get_all_workspace_permissions(self, **kwargs):  # noqa: E501
         """get_all_workspace_permissions  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_workspace_permissions(async_req=True)
@@ -2199,7 +2199,7 @@ class StorageApi(object):
     def get_all_workspace_permissions_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_workspace_permissions  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_workspace_permissions_with_http_info(async_req=True)
@@ -2293,7 +2293,7 @@ class StorageApi(object):
     def get_all_workspaces(self, **kwargs):  # noqa: E501
         """get_all_workspaces  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_workspaces(async_req=True)
@@ -2323,7 +2323,7 @@ class StorageApi(object):
     def get_all_workspaces_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_workspaces  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_workspaces_with_http_info(async_req=True)
@@ -2417,7 +2417,7 @@ class StorageApi(object):
     def get_my_workspaces(self, **kwargs):  # noqa: E501
         """get_my_workspaces  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_my_workspaces(async_req=True)
@@ -2444,7 +2444,7 @@ class StorageApi(object):
     def get_my_workspaces_with_http_info(self, **kwargs):  # noqa: E501
         """get_my_workspaces  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_my_workspaces_with_http_info(async_req=True)
@@ -2529,7 +2529,7 @@ class StorageApi(object):
     def get_production(self, id, **kwargs):  # noqa: E501
         """get_production  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_production(id, async_req=True)
@@ -2554,7 +2554,7 @@ class StorageApi(object):
     def get_production_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_production  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_production_with_http_info(id, async_req=True)
@@ -2637,7 +2637,7 @@ class StorageApi(object):
     def get_share(self, id, **kwargs):  # noqa: E501
         """get_share  # noqa: E501
 
-        ### Required permissions   * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_share(id, async_req=True)
@@ -2662,7 +2662,7 @@ class StorageApi(object):
     def get_share_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_share  # noqa: E501
 
-        ### Required permissions   * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_share_with_http_info(id, async_req=True)
@@ -2745,7 +2745,7 @@ class StorageApi(object):
     def get_snapshot(self, id, **kwargs):  # noqa: E501
         """get_snapshot  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_snapshot(id, async_req=True)
@@ -2770,7 +2770,7 @@ class StorageApi(object):
     def get_snapshot_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_snapshot  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_snapshot_with_http_info(id, async_req=True)
@@ -2853,7 +2853,7 @@ class StorageApi(object):
     def get_volume(self, id, **kwargs):  # noqa: E501
         """get_volume  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_volume(id, async_req=True)
@@ -2878,7 +2878,7 @@ class StorageApi(object):
     def get_volume_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_volume  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_volume_with_http_info(id, async_req=True)
@@ -2961,7 +2961,7 @@ class StorageApi(object):
     def get_volume_active_connections(self, id, **kwargs):  # noqa: E501
         """get_volume_active_connections  # noqa: E501
 
-        ### Required permissions   * User account permission: system:status:view   # noqa: E501
+        ### Required permissions    * User account permission: system:status:view   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_volume_active_connections(id, async_req=True)
@@ -2986,7 +2986,7 @@ class StorageApi(object):
     def get_volume_active_connections_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_volume_active_connections  # noqa: E501
 
-        ### Required permissions   * User account permission: system:status:view   # noqa: E501
+        ### Required permissions    * User account permission: system:status:view   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_volume_active_connections_with_http_info(id, async_req=True)
@@ -3069,7 +3069,7 @@ class StorageApi(object):
     def get_volume_file_size_distribution(self, id, **kwargs):  # noqa: E501
         """get_volume_file_size_distribution  # noqa: E501
 
-        ### Required permissions   * User account permission: system:status:view   # noqa: E501
+        ### Required permissions    * User account permission: system:status:view   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_volume_file_size_distribution(id, async_req=True)
@@ -3094,7 +3094,7 @@ class StorageApi(object):
     def get_volume_file_size_distribution_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_volume_file_size_distribution  # noqa: E501
 
-        ### Required permissions   * User account permission: system:status:view   # noqa: E501
+        ### Required permissions    * User account permission: system:status:view   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_volume_file_size_distribution_with_http_info(id, async_req=True)
@@ -3177,7 +3177,7 @@ class StorageApi(object):
     def get_volume_stats(self, id, **kwargs):  # noqa: E501
         """get_volume_stats  # noqa: E501
 
-        ### Required permissions   * User account permission: system:status:view   # noqa: E501
+        ### Required permissions    * User account permission: system:status:view   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_volume_stats(id, async_req=True)
@@ -3202,7 +3202,7 @@ class StorageApi(object):
     def get_volume_stats_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_volume_stats  # noqa: E501
 
-        ### Required permissions   * User account permission: system:status:view   # noqa: E501
+        ### Required permissions    * User account permission: system:status:view   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_volume_stats_with_http_info(id, async_req=True)
@@ -3285,7 +3285,7 @@ class StorageApi(object):
     def get_workspace(self, id, **kwargs):  # noqa: E501
         """get_workspace  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_workspace(id, async_req=True)
@@ -3310,7 +3310,7 @@ class StorageApi(object):
     def get_workspace_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_workspace  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_workspace_with_http_info(id, async_req=True)
@@ -3393,7 +3393,7 @@ class StorageApi(object):
     def get_workspace_permission(self, id, **kwargs):  # noqa: E501
         """get_workspace_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_workspace_permission(id, async_req=True)
@@ -3418,7 +3418,7 @@ class StorageApi(object):
     def get_workspace_permission_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_workspace_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_workspace_permission_with_http_info(id, async_req=True)
@@ -3501,7 +3501,7 @@ class StorageApi(object):
     def move_workspace_to_production(self, id, data, **kwargs):  # noqa: E501
         """move_workspace_to_production  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:manage   # noqa: E501
+        ### Required permissions    * User account permission: projects:manage   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.move_workspace_to_production(id, data, async_req=True)
@@ -3527,7 +3527,7 @@ class StorageApi(object):
     def move_workspace_to_production_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """move_workspace_to_production  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:manage   # noqa: E501
+        ### Required permissions    * User account permission: projects:manage   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.move_workspace_to_production_with_http_info(id, data, async_req=True)
@@ -3621,7 +3621,7 @@ class StorageApi(object):
     def patch_production(self, id, data, **kwargs):  # noqa: E501
         """patch_production  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_production(id, data, async_req=True)
@@ -3647,7 +3647,7 @@ class StorageApi(object):
     def patch_production_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_production  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_production_with_http_info(id, data, async_req=True)
@@ -3741,7 +3741,7 @@ class StorageApi(object):
     def patch_share(self, id, data, **kwargs):  # noqa: E501
         """patch_share  # noqa: E501
 
-        ### Required permissions   * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_share(id, data, async_req=True)
@@ -3767,7 +3767,7 @@ class StorageApi(object):
     def patch_share_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_share  # noqa: E501
 
-        ### Required permissions   * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_share_with_http_info(id, data, async_req=True)
@@ -3861,7 +3861,7 @@ class StorageApi(object):
     def patch_snapshot(self, id, data, **kwargs):  # noqa: E501
         """patch_snapshot  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_snapshot(id, data, async_req=True)
@@ -3887,7 +3887,7 @@ class StorageApi(object):
     def patch_snapshot_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_snapshot  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_snapshot_with_http_info(id, data, async_req=True)
@@ -3981,7 +3981,7 @@ class StorageApi(object):
     def patch_workspace(self, id, data, **kwargs):  # noqa: E501
         """patch_workspace  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_workspace(id, data, async_req=True)
@@ -4007,7 +4007,7 @@ class StorageApi(object):
     def patch_workspace_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_workspace  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_workspace_with_http_info(id, data, async_req=True)
@@ -4101,7 +4101,7 @@ class StorageApi(object):
     def patch_workspace_permission(self, id, data, **kwargs):  # noqa: E501
         """patch_workspace_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_workspace_permission(id, data, async_req=True)
@@ -4127,7 +4127,7 @@ class StorageApi(object):
     def patch_workspace_permission_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_workspace_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_workspace_permission_with_http_info(id, data, async_req=True)
@@ -4221,7 +4221,7 @@ class StorageApi(object):
     def repair_workspace_permissions(self, id, **kwargs):  # noqa: E501
         """repair_workspace_permissions  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:manage   # noqa: E501
+        ### Required permissions    * User account permission: projects:manage   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.repair_workspace_permissions(id, async_req=True)
@@ -4246,7 +4246,7 @@ class StorageApi(object):
     def repair_workspace_permissions_with_http_info(self, id, **kwargs):  # noqa: E501
         """repair_workspace_permissions  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:manage   # noqa: E501
+        ### Required permissions    * User account permission: projects:manage   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.repair_workspace_permissions_with_http_info(id, async_req=True)
@@ -4329,7 +4329,7 @@ class StorageApi(object):
     def unbookmark_workspace(self, id, **kwargs):  # noqa: E501
         """unbookmark_workspace  # noqa: E501
 
-        ### Required permissions   * Authenticated user   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.unbookmark_workspace(id, async_req=True)
@@ -4354,7 +4354,7 @@ class StorageApi(object):
     def unbookmark_workspace_with_http_info(self, id, **kwargs):  # noqa: E501
         """unbookmark_workspace  # noqa: E501
 
-        ### Required permissions   * Authenticated user   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.unbookmark_workspace_with_http_info(id, async_req=True)
@@ -4437,7 +4437,7 @@ class StorageApi(object):
     def update_production(self, id, data, **kwargs):  # noqa: E501
         """update_production  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_production(id, data, async_req=True)
@@ -4463,7 +4463,7 @@ class StorageApi(object):
     def update_production_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_production  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_production_with_http_info(id, data, async_req=True)
@@ -4557,7 +4557,7 @@ class StorageApi(object):
     def update_share(self, id, data, **kwargs):  # noqa: E501
         """update_share  # noqa: E501
 
-        ### Required permissions   * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_share(id, data, async_req=True)
@@ -4583,7 +4583,7 @@ class StorageApi(object):
     def update_share_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_share  # noqa: E501
 
-        ### Required permissions   * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: shares:view (read) / shares:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_share_with_http_info(id, data, async_req=True)
@@ -4677,7 +4677,7 @@ class StorageApi(object):
     def update_snapshot(self, id, data, **kwargs):  # noqa: E501
         """update_snapshot  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_snapshot(id, data, async_req=True)
@@ -4703,7 +4703,7 @@ class StorageApi(object):
     def update_snapshot_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_snapshot  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_snapshot_with_http_info(id, data, async_req=True)
@@ -4797,7 +4797,7 @@ class StorageApi(object):
     def update_workspace(self, id, data, **kwargs):  # noqa: E501
         """update_workspace  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_workspace(id, data, async_req=True)
@@ -4823,7 +4823,7 @@ class StorageApi(object):
     def update_workspace_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_workspace  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_workspace_with_http_info(id, data, async_req=True)
@@ -4917,7 +4917,7 @@ class StorageApi(object):
     def update_workspace_permission(self, id, data, **kwargs):  # noqa: E501
         """update_workspace_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_workspace_permission(id, data, async_req=True)
@@ -4943,7 +4943,7 @@ class StorageApi(object):
     def update_workspace_permission_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_workspace_permission  # noqa: E501
 
-        ### Required permissions   * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: projects:view (read) / projects:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_workspace_permission_with_http_info(id, data, async_req=True)

@@ -47,6 +47,7 @@ Method | HTTP request | Description
 [**get_user**](MainApi.md#get_user) | **GET** `/api/2/users/{id}` | 
 [**get_workstation**](MainApi.md#get_workstation) | **GET** `/api/2/workstations/{id}` | 
 [**install_stor_next_license**](MainApi.md#install_stor_next_license) | **POST** `/api/2/stornext-license` | 
+[**patch_current_workstation**](MainApi.md#patch_current_workstation) | **PATCH** `/api/2/workstations/current` | 
 [**patch_group**](MainApi.md#patch_group) | **PATCH** `/api/2/groups/{id}` | 
 [**patch_user**](MainApi.md#patch_user) | **PATCH** `/api/2/users/{id}` | 
 [**patch_workstation**](MainApi.md#patch_workstation) | **PATCH** `/api/2/workstations/{id}` | 
@@ -75,7 +76,7 @@ Method | HTTP request | Description
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -123,7 +124,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -177,7 +178,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: maintenance:view   * License component: stornext_mdc 
+### Required permissions    * User account permission: maintenance:view   * License component: stornext_mdc 
 
 ### Example
 
@@ -229,7 +230,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:view (read) / users:manage (write) 
+### Required permissions    * User account permission: users:view (read) / users:manage (write) 
 
 ### Example
 
@@ -281,7 +282,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:manage 
+### Required permissions    * User account permission: users:manage 
 
 ### Example
 
@@ -335,7 +336,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / users:manage (write) 
+### Required permissions    * User account permission: None (read) / users:manage (write) 
 
 ### Example
 
@@ -387,7 +388,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fddc711d828> 
+### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fe4489ef3c8> 
 
 ### Example
 
@@ -439,7 +440,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:view (read) / users:manage (write) 
+### Required permissions    * User account permission: users:view (read) / users:manage (write) 
 
 ### Example
 
@@ -491,7 +492,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:manage 
+### Required permissions    * User account permission: users:manage 
 
 ### Example
 
@@ -543,7 +544,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / users:manage (write) 
+### Required permissions    * User account permission: None (read) / users:manage (write) 
 
 ### Example
 
@@ -595,7 +596,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fddc711d828> 
+### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fe4489ef3c8> 
 
 ### Example
 
@@ -647,7 +648,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:manage 
+### Required permissions    * User account permission: users:manage 
 
 ### Example
 
@@ -699,7 +700,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:manage 
+### Required permissions    * User account permission: users:manage 
 
 ### Example
 
@@ -753,7 +754,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -805,7 +806,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:manage 
+### Required permissions    * User account permission: users:manage 
 
 ### Example
 
@@ -857,7 +858,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: downloads:view 
+### Required permissions    * User account permission: downloads:view 
 
 ### Example
 
@@ -913,7 +914,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:view (read) / users:manage (write) 
+### Required permissions    * User account permission: users:view (read) / users:manage (write) 
 
 ### Example
 
@@ -969,7 +970,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -1025,7 +1026,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -1081,7 +1082,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / users:manage (write) 
+### Required permissions    * User account permission: None (read) / users:manage (write) 
 
 ### Example
 
@@ -1145,7 +1146,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fddc711d828> 
+### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fe4489ef3c8> 
 
 ### Example
 
@@ -1201,7 +1202,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -1253,7 +1254,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -1301,7 +1302,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -1349,7 +1350,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions   * User account permission: downloads:view 
+### Required permissions    * User account permission: downloads:view 
 
 ### Example
 
@@ -1401,7 +1402,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: downloads:view 
+### Required permissions    * User account permission: downloads:view 
 
 ### Example
 
@@ -1453,7 +1454,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: downloads:view 
+### Required permissions    * User account permission: downloads:view 
 
 ### Example
 
@@ -1505,7 +1506,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:view (read) / users:manage (write) 
+### Required permissions    * User account permission: users:view (read) / users:manage (write) 
 
 ### Example
 
@@ -1557,7 +1558,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:manage 
+### Required permissions    * User account permission: users:manage 
 
 ### Example
 
@@ -1609,7 +1610,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -1661,7 +1662,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:manage 
+### Required permissions    * User account permission: users:manage 
 
 ### Example
 
@@ -1713,7 +1714,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:manage 
+### Required permissions    * User account permission: users:manage 
 
 ### Example
 
@@ -1765,7 +1766,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: system:status:view 
+### Required permissions    * User account permission: system:status:view 
 
 ### Example
 
@@ -1817,7 +1818,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: system:status:view 
+### Required permissions    * User account permission: system:status:view 
 
 ### Example
 
@@ -1869,7 +1870,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -1917,7 +1918,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -1965,7 +1966,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -2013,7 +2014,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions   * User account permission: maintenance:view   * License component: stornext_mdc 
+### Required permissions    * User account permission: maintenance:view   * License component: stornext_mdc 
 
 ### Example
 
@@ -2061,7 +2062,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -2113,7 +2114,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -2161,7 +2162,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions   * User account permission: None (read) / users:manage (write) 
+### Required permissions    * User account permission: None (read) / users:manage (write) 
 
 ### Example
 
@@ -2213,7 +2214,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fddc711d828> 
+### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fe4489ef3c8> 
 
 ### Example
 
@@ -2265,7 +2266,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: maintenance:view   * License component: stornext_mdc 
+### Required permissions    * User account permission: maintenance:view   * License component: stornext_mdc 
 
 ### Example
 
@@ -2312,12 +2313,64 @@ Name | Type | Description  | Notes
 
 ***
 
+# **patch_current_workstation**
+> Workstation patch_current_workstation(data)
+
+
+
+### Required permissions    * Authenticated user 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MainApi(api_client)
+    data = elements_sdk.Workstation() # Workstation | 
+
+    try:
+        api_response = api_instance.patch_current_workstation(data)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MainApi->patch_current_workstation: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **data** | [**Workstation**](Workstation.md)|  | 
+
+### Return type
+
+[**Workstation**](Workstation.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
 # **patch_group**
 > ElementsGroupDetail patch_group(id, data)
 
 
 
-### Required permissions   * User account permission: users:view (read) / users:manage (write) 
+### Required permissions    * User account permission: users:view (read) / users:manage (write) 
 
 ### Example
 
@@ -2371,7 +2424,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / users:manage (write) 
+### Required permissions    * User account permission: None (read) / users:manage (write) 
 
 ### Example
 
@@ -2425,7 +2478,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fddc711d828> 
+### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fe4489ef3c8> 
 
 ### Example
 
@@ -2529,7 +2582,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -2581,7 +2634,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:manage 
+### Required permissions    * User account permission: users:manage 
 
 ### Example
 
@@ -2635,7 +2688,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -2687,7 +2740,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:manage 
+### Required permissions    * User account permission: users:manage 
 
 ### Example
 
@@ -2741,7 +2794,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:manage 
+### Required permissions    * User account permission: users:manage 
 
 ### Example
 
@@ -2793,7 +2846,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:manage 
+### Required permissions    * User account permission: users:manage 
 
 ### Example
 
@@ -2845,7 +2898,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:manage 
+### Required permissions    * User account permission: users:manage 
 
 ### Example
 
@@ -2899,7 +2952,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -2951,7 +3004,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: users:view (read) / users:manage (write) 
+### Required permissions    * User account permission: users:view (read) / users:manage (write) 
 
 ### Example
 
@@ -3005,7 +3058,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -3057,7 +3110,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -3109,7 +3162,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / users:manage (write) 
+### Required permissions    * User account permission: None (read) / users:manage (write) 
 
 ### Example
 
@@ -3163,7 +3216,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fddc711d828> 
+### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fe4489ef3c8> 
 
 ### Example
 
@@ -3217,7 +3270,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 

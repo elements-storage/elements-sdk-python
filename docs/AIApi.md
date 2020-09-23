@@ -50,7 +50,7 @@ Method | HTTP request | Description
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -362,7 +362,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -414,7 +414,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -466,7 +466,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -518,7 +518,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -570,7 +570,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -622,7 +622,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -674,7 +674,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -726,7 +726,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -778,7 +778,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -830,7 +830,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -882,7 +882,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -934,7 +934,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -986,7 +986,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -1038,7 +1038,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -1090,7 +1090,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -1142,7 +1142,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -1194,7 +1194,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -1258,7 +1258,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -1322,7 +1322,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -1382,7 +1382,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -1438,7 +1438,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -1498,7 +1498,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -1556,7 +1556,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -1616,7 +1616,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -1674,7 +1674,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -1728,7 +1728,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -1782,7 +1782,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -1836,7 +1836,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -1890,7 +1890,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
 ### Example
 
@@ -1944,7 +1944,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 

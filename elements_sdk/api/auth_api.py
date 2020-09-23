@@ -37,7 +37,7 @@ class AuthApi(object):
     def check_auth_ticket(self, data, **kwargs):  # noqa: E501
         """check_auth_ticket  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.check_auth_ticket(data, async_req=True)
@@ -62,7 +62,7 @@ class AuthApi(object):
     def check_auth_ticket_with_http_info(self, data, **kwargs):  # noqa: E501
         """check_auth_ticket  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.check_auth_ticket_with_http_info(data, async_req=True)
@@ -149,7 +149,7 @@ class AuthApi(object):
     def create_auth_ticket(self, **kwargs):  # noqa: E501
         """create_auth_ticket  # noqa: E501
 
-        ### Required permissions   * Authenticated user   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_auth_ticket(async_req=True)
@@ -173,7 +173,7 @@ class AuthApi(object):
     def create_auth_ticket_with_http_info(self, **kwargs):  # noqa: E501
         """create_auth_ticket  # noqa: E501
 
-        ### Required permissions   * Authenticated user   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_auth_ticket_with_http_info(async_req=True)
@@ -246,13 +246,13 @@ class AuthApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_onetimeaccesstoken(self, id, **kwargs):  # noqa: E501
-        """delete_onetimeaccesstoken  # noqa: E501
+    def delete_one_time_access_token(self, id, **kwargs):  # noqa: E501
+        """delete_one_time_access_token  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / users:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / users:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_onetimeaccesstoken(id, async_req=True)
+        >>> thread = api.delete_one_time_access_token(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -269,15 +269,15 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.delete_onetimeaccesstoken_with_http_info(id, **kwargs)  # noqa: E501
+        return self.delete_one_time_access_token_with_http_info(id, **kwargs)  # noqa: E501
 
-    def delete_onetimeaccesstoken_with_http_info(self, id, **kwargs):  # noqa: E501
-        """delete_onetimeaccesstoken  # noqa: E501
+    def delete_one_time_access_token_with_http_info(self, id, **kwargs):  # noqa: E501
+        """delete_one_time_access_token  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / users:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / users:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_onetimeaccesstoken_with_http_info(id, async_req=True)
+        >>> thread = api.delete_one_time_access_token_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -308,14 +308,14 @@ class AuthApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_onetimeaccesstoken" % key
+                    " to method delete_one_time_access_token" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `delete_onetimeaccesstoken`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `delete_one_time_access_token`")  # noqa: E501
 
         collection_formats = {}
 
@@ -357,7 +357,7 @@ class AuthApi(object):
     def generate_password(self, **kwargs):  # noqa: E501
         """generate_password  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.generate_password(async_req=True)
@@ -381,7 +381,7 @@ class AuthApi(object):
     def generate_password_with_http_info(self, **kwargs):  # noqa: E501
         """generate_password  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.generate_password_with_http_info(async_req=True)
@@ -454,13 +454,13 @@ class AuthApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_all_onetimeaccesstokens(self, **kwargs):  # noqa: E501
-        """get_all_onetimeaccesstokens  # noqa: E501
+    def get_all_one_time_access_tokens(self, **kwargs):  # noqa: E501
+        """get_all_one_time_access_tokens  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / users:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / users:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_all_onetimeaccesstokens(async_req=True)
+        >>> thread = api.get_all_one_time_access_tokens(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -479,15 +479,15 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_all_onetimeaccesstokens_with_http_info(**kwargs)  # noqa: E501
+        return self.get_all_one_time_access_tokens_with_http_info(**kwargs)  # noqa: E501
 
-    def get_all_onetimeaccesstokens_with_http_info(self, **kwargs):  # noqa: E501
-        """get_all_onetimeaccesstokens  # noqa: E501
+    def get_all_one_time_access_tokens_with_http_info(self, **kwargs):  # noqa: E501
+        """get_all_one_time_access_tokens  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / users:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / users:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_all_onetimeaccesstokens_with_http_info(async_req=True)
+        >>> thread = api.get_all_one_time_access_tokens_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -520,7 +520,7 @@ class AuthApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_all_onetimeaccesstokens" % key
+                    " to method get_all_one_time_access_tokens" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
@@ -566,13 +566,13 @@ class AuthApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_onetimeaccesstoken(self, id, **kwargs):  # noqa: E501
-        """get_onetimeaccesstoken  # noqa: E501
+    def get_one_time_access_token(self, id, **kwargs):  # noqa: E501
+        """get_one_time_access_token  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / users:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / users:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_onetimeaccesstoken(id, async_req=True)
+        >>> thread = api.get_one_time_access_token(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -589,15 +589,15 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_onetimeaccesstoken_with_http_info(id, **kwargs)  # noqa: E501
+        return self.get_one_time_access_token_with_http_info(id, **kwargs)  # noqa: E501
 
-    def get_onetimeaccesstoken_with_http_info(self, id, **kwargs):  # noqa: E501
-        """get_onetimeaccesstoken  # noqa: E501
+    def get_one_time_access_token_with_http_info(self, id, **kwargs):  # noqa: E501
+        """get_one_time_access_token  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / users:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / users:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_onetimeaccesstoken_with_http_info(id, async_req=True)
+        >>> thread = api.get_one_time_access_token_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -628,14 +628,14 @@ class AuthApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_onetimeaccesstoken" % key
+                    " to method get_one_time_access_token" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `get_onetimeaccesstoken`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `get_one_time_access_token`")  # noqa: E501
 
         collection_formats = {}
 
@@ -677,7 +677,7 @@ class AuthApi(object):
     def login(self, data, **kwargs):  # noqa: E501
         """login  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.login(data, async_req=True)
@@ -702,7 +702,7 @@ class AuthApi(object):
     def login_with_http_info(self, data, **kwargs):  # noqa: E501
         """login  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.login_with_http_info(data, async_req=True)
@@ -789,7 +789,7 @@ class AuthApi(object):
     def logout(self, **kwargs):  # noqa: E501
         """logout  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.logout(async_req=True)
@@ -813,7 +813,7 @@ class AuthApi(object):
     def logout_with_http_info(self, **kwargs):  # noqa: E501
         """logout  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.logout_with_http_info(async_req=True)

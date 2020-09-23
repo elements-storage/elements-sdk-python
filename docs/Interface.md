@@ -5,9 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] [readonly] 
-**network** | [**Network**](Network.md) |  | [optional] 
 **device** | **str** |  | 
-**address** | **str** |  | 
+**addresses** | **str** |  | [optional] [readonly] 
 **speed** | **int** |  | [optional] 
 **mtu** | **int** |  | [optional] 
 **use_for_mounts** | **bool** |  | [optional] 

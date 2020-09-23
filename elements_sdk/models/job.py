@@ -38,10 +38,12 @@ class Job(object):
         'allow_groups': 'list[ElementsGroup]',
         'startable': 'bool',
         'variable_definitions': 'list[str]',
+        'media_roots': 'list[int]',
         'special_type': 'int',
         'name': 'str',
         'allow_others_to_start': 'bool',
         'allow_client_to_start': 'bool',
+        'show_as_button': 'bool',
         'input_type': 'str',
         'security_context': 'int',
         'part_of_workflow_for': 'int'
@@ -55,16 +57,18 @@ class Job(object):
         'allow_groups': 'allow_groups',
         'startable': 'startable',
         'variable_definitions': 'variable_definitions',
+        'media_roots': 'media_roots',
         'special_type': 'special_type',
         'name': 'name',
         'allow_others_to_start': 'allow_others_to_start',
         'allow_client_to_start': 'allow_client_to_start',
+        'show_as_button': 'show_as_button',
         'input_type': 'input_type',
         'security_context': 'security_context',
         'part_of_workflow_for': 'part_of_workflow_for'
     }
 
-    def __init__(self, id=None, subtasks=None, schedules=None, allow_users=None, allow_groups=None, startable=None, variable_definitions=None, special_type=None, name=None, allow_others_to_start=None, allow_client_to_start=None, input_type=None, security_context=None, part_of_workflow_for=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, subtasks=None, schedules=None, allow_users=None, allow_groups=None, startable=None, variable_definitions=None, media_roots=None, special_type=None, name=None, allow_others_to_start=None, allow_client_to_start=None, show_as_button=None, input_type=None, security_context=None, part_of_workflow_for=None, local_vars_configuration=None):  # noqa: E501
         """Job - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -77,10 +81,12 @@ class Job(object):
         self._allow_groups = None
         self._startable = None
         self._variable_definitions = None
+        self._media_roots = None
         self._special_type = None
         self._name = None
         self._allow_others_to_start = None
         self._allow_client_to_start = None
+        self._show_as_button = None
         self._input_type = None
         self._security_context = None
         self._part_of_workflow_for = None
@@ -100,12 +106,16 @@ class Job(object):
             self.startable = startable
         if variable_definitions is not None:
             self.variable_definitions = variable_definitions
+        if media_roots is not None:
+            self.media_roots = media_roots
         self.special_type = special_type
         self.name = name
         if allow_others_to_start is not None:
             self.allow_others_to_start = allow_others_to_start
         if allow_client_to_start is not None:
             self.allow_client_to_start = allow_client_to_start
+        if show_as_button is not None:
+            self.show_as_button = show_as_button
         self.input_type = input_type
         self.security_context = security_context
         self.part_of_workflow_for = part_of_workflow_for
@@ -258,6 +268,27 @@ class Job(object):
         self._variable_definitions = variable_definitions
 
     @property
+    def media_roots(self):
+        """Gets the media_roots of this Job.  # noqa: E501
+
+
+        :return: The media_roots of this Job.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._media_roots
+
+    @media_roots.setter
+    def media_roots(self, media_roots):
+        """Sets the media_roots of this Job.
+
+
+        :param media_roots: The media_roots of this Job.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._media_roots = media_roots
+
+    @property
     def special_type(self):
         """Gets the special_type of this Job.  # noqa: E501
 
@@ -348,6 +379,27 @@ class Job(object):
         """
 
         self._allow_client_to_start = allow_client_to_start
+
+    @property
+    def show_as_button(self):
+        """Gets the show_as_button of this Job.  # noqa: E501
+
+
+        :return: The show_as_button of this Job.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_as_button
+
+    @show_as_button.setter
+    def show_as_button(self, show_as_button):
+        """Sets the show_as_button of this Job.
+
+
+        :param show_as_button: The show_as_button of this Job.  # noqa: E501
+        :type: bool
+        """
+
+        self._show_as_button = show_as_button
 
     @property
     def input_type(self):

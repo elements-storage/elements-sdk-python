@@ -34,7 +34,8 @@ class MediaRootMini(object):
         'id': 'int',
         'name': 'str',
         'full_path': 'str',
-        'custom_field_definitions': 'list[str]',
+        'custom_fields': 'list[CustomField]',
+        'custom_field_definitions': 'list[int]',
         'volume': 'VolumeMini',
         'path': 'str',
         'prefetch_thumbnail_strips': 'bool'
@@ -44,13 +45,14 @@ class MediaRootMini(object):
         'id': 'id',
         'name': 'name',
         'full_path': 'full_path',
+        'custom_fields': 'custom_fields',
         'custom_field_definitions': 'custom_field_definitions',
         'volume': 'volume',
         'path': 'path',
         'prefetch_thumbnail_strips': 'prefetch_thumbnail_strips'
     }
 
-    def __init__(self, id=None, name=None, full_path=None, custom_field_definitions=None, volume=None, path=None, prefetch_thumbnail_strips=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, full_path=None, custom_fields=None, custom_field_definitions=None, volume=None, path=None, prefetch_thumbnail_strips=None, local_vars_configuration=None):  # noqa: E501
         """MediaRootMini - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,6 +61,7 @@ class MediaRootMini(object):
         self._id = None
         self._name = None
         self._full_path = None
+        self._custom_fields = None
         self._custom_field_definitions = None
         self._volume = None
         self._path = None
@@ -70,6 +73,7 @@ class MediaRootMini(object):
         self.name = name
         if full_path is not None:
             self.full_path = full_path
+        self.custom_fields = custom_fields
         self.custom_field_definitions = custom_field_definitions
         self.volume = volume
         if path is not None:
@@ -149,12 +153,35 @@ class MediaRootMini(object):
         self._full_path = full_path
 
     @property
+    def custom_fields(self):
+        """Gets the custom_fields of this MediaRootMini.  # noqa: E501
+
+
+        :return: The custom_fields of this MediaRootMini.  # noqa: E501
+        :rtype: list[CustomField]
+        """
+        return self._custom_fields
+
+    @custom_fields.setter
+    def custom_fields(self, custom_fields):
+        """Sets the custom_fields of this MediaRootMini.
+
+
+        :param custom_fields: The custom_fields of this MediaRootMini.  # noqa: E501
+        :type: list[CustomField]
+        """
+        if self.local_vars_configuration.client_side_validation and custom_fields is None:  # noqa: E501
+            raise ValueError("Invalid value for `custom_fields`, must not be `None`")  # noqa: E501
+
+        self._custom_fields = custom_fields
+
+    @property
     def custom_field_definitions(self):
         """Gets the custom_field_definitions of this MediaRootMini.  # noqa: E501
 
 
         :return: The custom_field_definitions of this MediaRootMini.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[int]
         """
         return self._custom_field_definitions
 
@@ -164,7 +191,7 @@ class MediaRootMini(object):
 
 
         :param custom_field_definitions: The custom_field_definitions of this MediaRootMini.  # noqa: E501
-        :type: list[str]
+        :type: list[int]
         """
         if self.local_vars_configuration.client_side_validation and custom_field_definitions is None:  # noqa: E501
             raise ValueError("Invalid value for `custom_field_definitions`, must not be `None`")  # noqa: E501

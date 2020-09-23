@@ -37,7 +37,7 @@ class AIApi(object):
     def abort_ai_dataset_model_creation(self, id, **kwargs):  # noqa: E501
         """abort_ai_dataset_model_creation  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.abort_ai_dataset_model_creation(id, async_req=True)
@@ -62,7 +62,7 @@ class AIApi(object):
     def abort_ai_dataset_model_creation_with_http_info(self, id, **kwargs):  # noqa: E501
         """abort_ai_dataset_model_creation  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.abort_ai_dataset_model_creation_with_http_info(id, async_req=True)
@@ -145,7 +145,7 @@ class AIApi(object):
     def create_ai_annotation_track(self, data, **kwargs):  # noqa: E501
         """create_ai_annotation_track  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_ai_annotation_track(data, async_req=True)
@@ -170,7 +170,7 @@ class AIApi(object):
     def create_ai_annotation_track_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_ai_annotation_track  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_ai_annotation_track_with_http_info(data, async_req=True)
@@ -257,7 +257,7 @@ class AIApi(object):
     def create_ai_category(self, data, **kwargs):  # noqa: E501
         """create_ai_category  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_ai_category(data, async_req=True)
@@ -282,7 +282,7 @@ class AIApi(object):
     def create_ai_category_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_ai_category  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_ai_category_with_http_info(data, async_req=True)
@@ -369,7 +369,7 @@ class AIApi(object):
     def create_ai_dataset(self, data, **kwargs):  # noqa: E501
         """create_ai_dataset  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_ai_dataset(data, async_req=True)
@@ -394,7 +394,7 @@ class AIApi(object):
     def create_ai_dataset_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_ai_dataset  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_ai_dataset_with_http_info(data, async_req=True)
@@ -481,7 +481,7 @@ class AIApi(object):
     def create_ai_dataset_model(self, data, **kwargs):  # noqa: E501
         """create_ai_dataset_model  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_ai_dataset_model(data, async_req=True)
@@ -506,7 +506,7 @@ class AIApi(object):
     def create_ai_dataset_model_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_ai_dataset_model  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_ai_dataset_model_with_http_info(data, async_req=True)
@@ -593,7 +593,7 @@ class AIApi(object):
     def create_ai_metadata(self, data, **kwargs):  # noqa: E501
         """create_ai_metadata  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_ai_metadata(data, async_req=True)
@@ -618,7 +618,7 @@ class AIApi(object):
     def create_ai_metadata_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_ai_metadata  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_ai_metadata_with_http_info(data, async_req=True)
@@ -705,7 +705,7 @@ class AIApi(object):
     def create_ai_model(self, data, **kwargs):  # noqa: E501
         """create_ai_model  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_ai_model(data, async_req=True)
@@ -730,7 +730,7 @@ class AIApi(object):
     def create_ai_model_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_ai_model  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_ai_model_with_http_info(data, async_req=True)
@@ -817,7 +817,7 @@ class AIApi(object):
     def delete_ai_annotation(self, id, **kwargs):  # noqa: E501
         """delete_ai_annotation  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_ai_annotation(id, async_req=True)
@@ -842,7 +842,7 @@ class AIApi(object):
     def delete_ai_annotation_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_ai_annotation  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_ai_annotation_with_http_info(id, async_req=True)
@@ -925,7 +925,7 @@ class AIApi(object):
     def delete_ai_annotation_track(self, id, **kwargs):  # noqa: E501
         """delete_ai_annotation_track  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_ai_annotation_track(id, async_req=True)
@@ -950,7 +950,7 @@ class AIApi(object):
     def delete_ai_annotation_track_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_ai_annotation_track  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_ai_annotation_track_with_http_info(id, async_req=True)
@@ -1033,7 +1033,7 @@ class AIApi(object):
     def delete_ai_category(self, id, **kwargs):  # noqa: E501
         """delete_ai_category  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_ai_category(id, async_req=True)
@@ -1058,7 +1058,7 @@ class AIApi(object):
     def delete_ai_category_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_ai_category  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_ai_category_with_http_info(id, async_req=True)
@@ -1141,7 +1141,7 @@ class AIApi(object):
     def delete_ai_dataset(self, id, **kwargs):  # noqa: E501
         """delete_ai_dataset  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_ai_dataset(id, async_req=True)
@@ -1166,7 +1166,7 @@ class AIApi(object):
     def delete_ai_dataset_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_ai_dataset  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_ai_dataset_with_http_info(id, async_req=True)
@@ -1249,7 +1249,7 @@ class AIApi(object):
     def delete_ai_model(self, id, **kwargs):  # noqa: E501
         """delete_ai_model  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_ai_model(id, async_req=True)
@@ -1274,7 +1274,7 @@ class AIApi(object):
     def delete_ai_model_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_ai_model  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_ai_model_with_http_info(id, async_req=True)
@@ -1357,7 +1357,7 @@ class AIApi(object):
     def get_ai_annotation(self, id, **kwargs):  # noqa: E501
         """get_ai_annotation  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_annotation(id, async_req=True)
@@ -1382,7 +1382,7 @@ class AIApi(object):
     def get_ai_annotation_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_ai_annotation  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_annotation_with_http_info(id, async_req=True)
@@ -1465,7 +1465,7 @@ class AIApi(object):
     def get_ai_annotation_image(self, id, **kwargs):  # noqa: E501
         """get_ai_annotation_image  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_annotation_image(id, async_req=True)
@@ -1490,7 +1490,7 @@ class AIApi(object):
     def get_ai_annotation_image_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_ai_annotation_image  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_annotation_image_with_http_info(id, async_req=True)
@@ -1573,7 +1573,7 @@ class AIApi(object):
     def get_ai_category(self, id, **kwargs):  # noqa: E501
         """get_ai_category  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_category(id, async_req=True)
@@ -1598,7 +1598,7 @@ class AIApi(object):
     def get_ai_category_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_ai_category  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_category_with_http_info(id, async_req=True)
@@ -1681,7 +1681,7 @@ class AIApi(object):
     def get_ai_connection(self, id, **kwargs):  # noqa: E501
         """get_ai_connection  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_connection(id, async_req=True)
@@ -1706,7 +1706,7 @@ class AIApi(object):
     def get_ai_connection_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_ai_connection  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_connection_with_http_info(id, async_req=True)
@@ -1789,7 +1789,7 @@ class AIApi(object):
     def get_ai_dataset(self, id, **kwargs):  # noqa: E501
         """get_ai_dataset  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_dataset(id, async_req=True)
@@ -1814,7 +1814,7 @@ class AIApi(object):
     def get_ai_dataset_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_ai_dataset  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_dataset_with_http_info(id, async_req=True)
@@ -1897,7 +1897,7 @@ class AIApi(object):
     def get_ai_dataset_model_stats(self, id, **kwargs):  # noqa: E501
         """get_ai_dataset_model_stats  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_dataset_model_stats(id, async_req=True)
@@ -1922,7 +1922,7 @@ class AIApi(object):
     def get_ai_dataset_model_stats_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_ai_dataset_model_stats  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_dataset_model_stats_with_http_info(id, async_req=True)
@@ -2005,7 +2005,7 @@ class AIApi(object):
     def get_ai_image(self, id, **kwargs):  # noqa: E501
         """get_ai_image  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_image(id, async_req=True)
@@ -2030,7 +2030,7 @@ class AIApi(object):
     def get_ai_image_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_ai_image  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_image_with_http_info(id, async_req=True)
@@ -2113,7 +2113,7 @@ class AIApi(object):
     def get_ai_image_content(self, id, **kwargs):  # noqa: E501
         """get_ai_image_content  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_image_content(id, async_req=True)
@@ -2138,7 +2138,7 @@ class AIApi(object):
     def get_ai_image_content_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_ai_image_content  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_image_content_with_http_info(id, async_req=True)
@@ -2221,7 +2221,7 @@ class AIApi(object):
     def get_ai_metadata(self, id, **kwargs):  # noqa: E501
         """get_ai_metadata  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_metadata(id, async_req=True)
@@ -2246,7 +2246,7 @@ class AIApi(object):
     def get_ai_metadata_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_ai_metadata  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_metadata_with_http_info(id, async_req=True)
@@ -2329,7 +2329,7 @@ class AIApi(object):
     def get_ai_model(self, id, **kwargs):  # noqa: E501
         """get_ai_model  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_model(id, async_req=True)
@@ -2354,7 +2354,7 @@ class AIApi(object):
     def get_ai_model_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_ai_model  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_model_with_http_info(id, async_req=True)
@@ -2437,7 +2437,7 @@ class AIApi(object):
     def get_all_ai_annotation_tracks(self, **kwargs):  # noqa: E501
         """get_all_ai_annotation_tracks  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_ai_annotation_tracks(async_req=True)
@@ -2468,7 +2468,7 @@ class AIApi(object):
     def get_all_ai_annotation_tracks_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_ai_annotation_tracks  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_ai_annotation_tracks_with_http_info(async_req=True)
@@ -2565,7 +2565,7 @@ class AIApi(object):
     def get_all_ai_annotations(self, **kwargs):  # noqa: E501
         """get_all_ai_annotations  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_ai_annotations(async_req=True)
@@ -2596,7 +2596,7 @@ class AIApi(object):
     def get_all_ai_annotations_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_ai_annotations  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_ai_annotations_with_http_info(async_req=True)
@@ -2693,7 +2693,7 @@ class AIApi(object):
     def get_all_ai_categories(self, **kwargs):  # noqa: E501
         """get_all_ai_categories  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_ai_categories(async_req=True)
@@ -2722,7 +2722,7 @@ class AIApi(object):
     def get_all_ai_categories_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_ai_categories  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_ai_categories_with_http_info(async_req=True)
@@ -2813,7 +2813,7 @@ class AIApi(object):
     def get_all_ai_connections(self, **kwargs):  # noqa: E501
         """get_all_ai_connections  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_ai_connections(async_req=True)
@@ -2840,7 +2840,7 @@ class AIApi(object):
     def get_all_ai_connections_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_ai_connections  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_ai_connections_with_http_info(async_req=True)
@@ -2925,7 +2925,7 @@ class AIApi(object):
     def get_all_ai_datasets(self, **kwargs):  # noqa: E501
         """get_all_ai_datasets  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_ai_datasets(async_req=True)
@@ -2954,7 +2954,7 @@ class AIApi(object):
     def get_all_ai_datasets_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_ai_datasets  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_ai_datasets_with_http_info(async_req=True)
@@ -3045,7 +3045,7 @@ class AIApi(object):
     def get_all_ai_images(self, **kwargs):  # noqa: E501
         """get_all_ai_images  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_ai_images(async_req=True)
@@ -3073,7 +3073,7 @@ class AIApi(object):
     def get_all_ai_images_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_ai_images  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_ai_images_with_http_info(async_req=True)
@@ -3161,7 +3161,7 @@ class AIApi(object):
     def get_all_ai_metadata(self, **kwargs):  # noqa: E501
         """get_all_ai_metadata  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_ai_metadata(async_req=True)
@@ -3190,7 +3190,7 @@ class AIApi(object):
     def get_all_ai_metadata_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_ai_metadata  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_ai_metadata_with_http_info(async_req=True)
@@ -3281,7 +3281,7 @@ class AIApi(object):
     def get_all_ai_models(self, **kwargs):  # noqa: E501
         """get_all_ai_models  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_ai_models(async_req=True)
@@ -3309,7 +3309,7 @@ class AIApi(object):
     def get_all_ai_models_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_ai_models  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_ai_models_with_http_info(async_req=True)
@@ -3397,7 +3397,7 @@ class AIApi(object):
     def patch_ai_category(self, id, data, **kwargs):  # noqa: E501
         """patch_ai_category  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_ai_category(id, data, async_req=True)
@@ -3423,7 +3423,7 @@ class AIApi(object):
     def patch_ai_category_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_ai_category  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_ai_category_with_http_info(id, data, async_req=True)
@@ -3517,7 +3517,7 @@ class AIApi(object):
     def patch_ai_dataset(self, id, data, **kwargs):  # noqa: E501
         """patch_ai_dataset  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_ai_dataset(id, data, async_req=True)
@@ -3543,7 +3543,7 @@ class AIApi(object):
     def patch_ai_dataset_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_ai_dataset  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_ai_dataset_with_http_info(id, data, async_req=True)
@@ -3637,7 +3637,7 @@ class AIApi(object):
     def patch_ai_model(self, id, data, **kwargs):  # noqa: E501
         """patch_ai_model  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_ai_model(id, data, async_req=True)
@@ -3663,7 +3663,7 @@ class AIApi(object):
     def patch_ai_model_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_ai_model  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_ai_model_with_http_info(id, data, async_req=True)
@@ -3757,7 +3757,7 @@ class AIApi(object):
     def update_ai_category(self, id, data, **kwargs):  # noqa: E501
         """update_ai_category  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_ai_category(id, data, async_req=True)
@@ -3783,7 +3783,7 @@ class AIApi(object):
     def update_ai_category_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_ai_category  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_ai_category_with_http_info(id, data, async_req=True)
@@ -3877,7 +3877,7 @@ class AIApi(object):
     def update_ai_dataset(self, id, data, **kwargs):  # noqa: E501
         """update_ai_dataset  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_ai_dataset(id, data, async_req=True)
@@ -3903,7 +3903,7 @@ class AIApi(object):
     def update_ai_dataset_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_ai_dataset  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / media:roots:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_ai_dataset_with_http_info(id, data, async_req=True)
@@ -3997,7 +3997,7 @@ class AIApi(object):
     def update_ai_model(self, id, data, **kwargs):  # noqa: E501
         """update_ai_model  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_ai_model(id, data, async_req=True)
@@ -4023,7 +4023,7 @@ class AIApi(object):
     def update_ai_model_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_ai_model  # noqa: E501
 
-        ### Required permissions   * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_ai_model_with_http_info(id, data, async_req=True)

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **display_name** | **str** |  | [optional] [readonly] 
 **rdc_allow_users** | [**list[ElementsUser]**](ElementsUser.md) |  | [optional] 
 **rdc_allow_groups** | [**list[ElementsGroup]**](ElementsGroup.md) |  | [optional] 
-**report** | [**object**](.md) |  | [optional] 
+**report** | **object** |  | [optional] 
 **name** | **str** |  | [optional] 
 **hostname** | **str** |  | 
 **rdc_last_used** | **datetime** |  | [optional] 

@@ -39,6 +39,8 @@ class ElementsGroup(object):
         'ldap_dn': 'str',
         'unix_groupname': 'str',
         'gid': 'int',
+        'ancillary_path': 'str',
+        'ancillary_path_read_only': 'bool',
         'ldap': 'int',
         'members': 'list[int]'
     }
@@ -52,11 +54,13 @@ class ElementsGroup(object):
         'ldap_dn': 'ldap_dn',
         'unix_groupname': 'unix_groupname',
         'gid': 'gid',
+        'ancillary_path': 'ancillary_path',
+        'ancillary_path_read_only': 'ancillary_path_read_only',
         'ldap': 'ldap',
         'members': 'members'
     }
 
-    def __init__(self, id=None, permissions=None, members_preview=None, effective_permissions=None, name=None, ldap_dn=None, unix_groupname=None, gid=None, ldap=None, members=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, permissions=None, members_preview=None, effective_permissions=None, name=None, ldap_dn=None, unix_groupname=None, gid=None, ancillary_path=None, ancillary_path_read_only=None, ldap=None, members=None, local_vars_configuration=None):  # noqa: E501
         """ElementsGroup - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -70,6 +74,8 @@ class ElementsGroup(object):
         self._ldap_dn = None
         self._unix_groupname = None
         self._gid = None
+        self._ancillary_path = None
+        self._ancillary_path_read_only = None
         self._ldap = None
         self._members = None
         self.discriminator = None
@@ -86,6 +92,10 @@ class ElementsGroup(object):
         self.ldap_dn = ldap_dn
         self.unix_groupname = unix_groupname
         self.gid = gid
+        if ancillary_path is not None:
+            self.ancillary_path = ancillary_path
+        if ancillary_path_read_only is not None:
+            self.ancillary_path_read_only = ancillary_path_read_only
         self.ldap = ldap
         self.members = members
 
@@ -276,6 +286,51 @@ class ElementsGroup(object):
             raise ValueError("Invalid value for `gid`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._gid = gid
+
+    @property
+    def ancillary_path(self):
+        """Gets the ancillary_path of this ElementsGroup.  # noqa: E501
+
+
+        :return: The ancillary_path of this ElementsGroup.  # noqa: E501
+        :rtype: str
+        """
+        return self._ancillary_path
+
+    @ancillary_path.setter
+    def ancillary_path(self, ancillary_path):
+        """Sets the ancillary_path of this ElementsGroup.
+
+
+        :param ancillary_path: The ancillary_path of this ElementsGroup.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                ancillary_path is not None and len(ancillary_path) > 255):
+            raise ValueError("Invalid value for `ancillary_path`, length must be less than or equal to `255`")  # noqa: E501
+
+        self._ancillary_path = ancillary_path
+
+    @property
+    def ancillary_path_read_only(self):
+        """Gets the ancillary_path_read_only of this ElementsGroup.  # noqa: E501
+
+
+        :return: The ancillary_path_read_only of this ElementsGroup.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ancillary_path_read_only
+
+    @ancillary_path_read_only.setter
+    def ancillary_path_read_only(self, ancillary_path_read_only):
+        """Sets the ancillary_path_read_only of this ElementsGroup.
+
+
+        :param ancillary_path_read_only: The ancillary_path_read_only of this ElementsGroup.  # noqa: E501
+        :type: bool
+        """
+
+        self._ancillary_path_read_only = ancillary_path_read_only
 
     @property
     def ldap(self):

@@ -32,7 +32,7 @@ class MediaRoot(object):
     """
     openapi_types = {
         'id': 'int',
-        'custom_field_definitions': 'list[str]',
+        'custom_fields': 'list[CustomField]',
         'workflow': 'dict(str, str)',
         'ai_config': 'dict(str, str)',
         'veritone_config': 'dict(str, str)',
@@ -65,12 +65,13 @@ class MediaRoot(object):
         'veritone_proxy_profile': 'int',
         'ai_connection': 'int',
         'ai_proxy_profile': 'int',
+        'custom_field_definitions': 'list[int]',
         'proxy_profiles': 'list[int]'
     }
 
     attribute_map = {
         'id': 'id',
-        'custom_field_definitions': 'custom_field_definitions',
+        'custom_fields': 'custom_fields',
         'workflow': 'workflow',
         'ai_config': 'ai_config',
         'veritone_config': 'veritone_config',
@@ -103,17 +104,18 @@ class MediaRoot(object):
         'veritone_proxy_profile': 'veritone_proxy_profile',
         'ai_connection': 'ai_connection',
         'ai_proxy_profile': 'ai_proxy_profile',
+        'custom_field_definitions': 'custom_field_definitions',
         'proxy_profiles': 'proxy_profiles'
     }
 
-    def __init__(self, id=None, custom_field_definitions=None, workflow=None, ai_config=None, veritone_config=None, volume=None, full_path=None, resolved_permissions=None, jobs=None, name=None, path=None, needs_rescan=None, view_mode=None, view_style=None, view_default_tab=None, show_tags=None, show_comments=None, show_locations=None, show_custom_fields=None, show_ratings=None, show_subclips=None, show_markers=None, show_ai_metadata=None, prefetch_thumbnail_strips=None, cover=None, name_field=None, share_comments=None, share_link_duration=None, default_proxy_profile=None, cloud_proxy_profile=None, veritone_connection=None, veritone_proxy_profile=None, ai_connection=None, ai_proxy_profile=None, proxy_profiles=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, custom_fields=None, workflow=None, ai_config=None, veritone_config=None, volume=None, full_path=None, resolved_permissions=None, jobs=None, name=None, path=None, needs_rescan=None, view_mode=None, view_style=None, view_default_tab=None, show_tags=None, show_comments=None, show_locations=None, show_custom_fields=None, show_ratings=None, show_subclips=None, show_markers=None, show_ai_metadata=None, prefetch_thumbnail_strips=None, cover=None, name_field=None, share_comments=None, share_link_duration=None, default_proxy_profile=None, cloud_proxy_profile=None, veritone_connection=None, veritone_proxy_profile=None, ai_connection=None, ai_proxy_profile=None, custom_field_definitions=None, proxy_profiles=None, local_vars_configuration=None):  # noqa: E501
         """MediaRoot - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
-        self._custom_field_definitions = None
+        self._custom_fields = None
         self._workflow = None
         self._ai_config = None
         self._veritone_config = None
@@ -146,12 +148,13 @@ class MediaRoot(object):
         self._veritone_proxy_profile = None
         self._ai_connection = None
         self._ai_proxy_profile = None
+        self._custom_field_definitions = None
         self._proxy_profiles = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
-        self.custom_field_definitions = custom_field_definitions
+        self.custom_fields = custom_fields
         self.workflow = workflow
         self.ai_config = ai_config
         self.veritone_config = veritone_config
@@ -203,7 +206,9 @@ class MediaRoot(object):
         self.veritone_proxy_profile = veritone_proxy_profile
         self.ai_connection = ai_connection
         self.ai_proxy_profile = ai_proxy_profile
-        self.proxy_profiles = proxy_profiles
+        self.custom_field_definitions = custom_field_definitions
+        if proxy_profiles is not None:
+            self.proxy_profiles = proxy_profiles
 
     @property
     def id(self):
@@ -227,27 +232,27 @@ class MediaRoot(object):
         self._id = id
 
     @property
-    def custom_field_definitions(self):
-        """Gets the custom_field_definitions of this MediaRoot.  # noqa: E501
+    def custom_fields(self):
+        """Gets the custom_fields of this MediaRoot.  # noqa: E501
 
 
-        :return: The custom_field_definitions of this MediaRoot.  # noqa: E501
-        :rtype: list[str]
+        :return: The custom_fields of this MediaRoot.  # noqa: E501
+        :rtype: list[CustomField]
         """
-        return self._custom_field_definitions
+        return self._custom_fields
 
-    @custom_field_definitions.setter
-    def custom_field_definitions(self, custom_field_definitions):
-        """Sets the custom_field_definitions of this MediaRoot.
+    @custom_fields.setter
+    def custom_fields(self, custom_fields):
+        """Sets the custom_fields of this MediaRoot.
 
 
-        :param custom_field_definitions: The custom_field_definitions of this MediaRoot.  # noqa: E501
-        :type: list[str]
+        :param custom_fields: The custom_fields of this MediaRoot.  # noqa: E501
+        :type: list[CustomField]
         """
-        if self.local_vars_configuration.client_side_validation and custom_field_definitions is None:  # noqa: E501
-            raise ValueError("Invalid value for `custom_field_definitions`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and custom_fields is None:  # noqa: E501
+            raise ValueError("Invalid value for `custom_fields`, must not be `None`")  # noqa: E501
 
-        self._custom_field_definitions = custom_field_definitions
+        self._custom_fields = custom_fields
 
     @property
     def workflow(self):
@@ -965,6 +970,29 @@ class MediaRoot(object):
         self._ai_proxy_profile = ai_proxy_profile
 
     @property
+    def custom_field_definitions(self):
+        """Gets the custom_field_definitions of this MediaRoot.  # noqa: E501
+
+
+        :return: The custom_field_definitions of this MediaRoot.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._custom_field_definitions
+
+    @custom_field_definitions.setter
+    def custom_field_definitions(self, custom_field_definitions):
+        """Sets the custom_field_definitions of this MediaRoot.
+
+
+        :param custom_field_definitions: The custom_field_definitions of this MediaRoot.  # noqa: E501
+        :type: list[int]
+        """
+        if self.local_vars_configuration.client_side_validation and custom_field_definitions is None:  # noqa: E501
+            raise ValueError("Invalid value for `custom_field_definitions`, must not be `None`")  # noqa: E501
+
+        self._custom_field_definitions = custom_field_definitions
+
+    @property
     def proxy_profiles(self):
         """Gets the proxy_profiles of this MediaRoot.  # noqa: E501
 
@@ -982,8 +1010,6 @@ class MediaRoot(object):
         :param proxy_profiles: The proxy_profiles of this MediaRoot.  # noqa: E501
         :type: list[int]
         """
-        if self.local_vars_configuration.client_side_validation and proxy_profiles is None:  # noqa: E501
-            raise ValueError("Invalid value for `proxy_profiles`, must not be `None`")  # noqa: E501
 
         self._proxy_profiles = proxy_profiles
 

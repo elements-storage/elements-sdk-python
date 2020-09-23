@@ -11,20 +11,20 @@ Method | HTTP request | Description
 [**delete_job**](AutomationApi.md#delete_job) | **DELETE** `/api/2/jobs/{id}` | 
 [**delete_schedule**](AutomationApi.md#delete_schedule) | **DELETE** `/api/2/schedules/{id}` | 
 [**delete_subtask**](AutomationApi.md#delete_subtask) | **DELETE** `/api/2/subtasks/{id}` | 
-[**delete_taskinfo**](AutomationApi.md#delete_taskinfo) | **DELETE** `/api/2/tasks/{id}` | 
+[**delete_task**](AutomationApi.md#delete_task) | **DELETE** `/api/2/tasks/{id}` | 
 [**download_all_task_logs**](AutomationApi.md#download_all_task_logs) | **GET** `/api/2/tasks/logs/download` | 
 [**download_task_log**](AutomationApi.md#download_task_log) | **GET** `/api/2/tasks/{id}/log/download` | 
 [**get_all_jobs**](AutomationApi.md#get_all_jobs) | **GET** `/api/2/jobs` | 
 [**get_all_schedules**](AutomationApi.md#get_all_schedules) | **GET** `/api/2/schedules` | 
 [**get_all_subtasks**](AutomationApi.md#get_all_subtasks) | **GET** `/api/2/subtasks` | 
-[**get_all_taskinfos**](AutomationApi.md#get_all_taskinfos) | **GET** `/api/2/tasks` | 
+[**get_all_tasks**](AutomationApi.md#get_all_tasks) | **GET** `/api/2/tasks` | 
 [**get_finished_tasks**](AutomationApi.md#get_finished_tasks) | **GET** `/api/2/tasks/finished` | 
 [**get_job**](AutomationApi.md#get_job) | **GET** `/api/2/jobs/{id}` | 
 [**get_pending_tasks**](AutomationApi.md#get_pending_tasks) | **GET** `/api/2/tasks/pending` | 
 [**get_schedule**](AutomationApi.md#get_schedule) | **GET** `/api/2/schedules/{id}` | 
 [**get_subtask**](AutomationApi.md#get_subtask) | **GET** `/api/2/subtasks/{id}` | 
+[**get_task**](AutomationApi.md#get_task) | **GET** `/api/2/tasks/{id}` | 
 [**get_task_log**](AutomationApi.md#get_task_log) | **GET** `/api/2/tasks/{id}/log` | 
-[**get_taskinfo**](AutomationApi.md#get_taskinfo) | **GET** `/api/2/tasks/{id}` | 
 [**get_tasks_summary**](AutomationApi.md#get_tasks_summary) | **GET** `/api/2/tasks/summary` | 
 [**kill_all_pending_tasks**](AutomationApi.md#kill_all_pending_tasks) | **DELETE** `/api/2/tasks/pending` | 
 [**kill_task**](AutomationApi.md#kill_task) | **POST** `/api/2/tasks/{id}/kill` | 
@@ -47,7 +47,7 @@ Method | HTTP request | Description
 
 
 
-### Required permissions   * User account permission: tasks:manage 
+### Required permissions    * User account permission: tasks:manage 
 
 ### Example
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / tasks:manage (write) 
+### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
 ### Example
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write) 
+### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
 ### Example
 
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write) 
+### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
 ### Example
 
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / tasks:manage (write) 
+### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
 ### Example
 
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write) 
+### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
 ### Example
 
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write) 
+### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
 ### Example
 
@@ -408,12 +408,12 @@ Name | Type | Description  | Notes
 
 ***
 
-# **delete_taskinfo**
-> object delete_taskinfo(id)
+# **delete_task**
+> object delete_task(id)
 
 
 
-### Required permissions   * User account permission: None (read) / tasks:manage (write) 
+### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
 ### Example
 
@@ -438,10 +438,10 @@ with elements_sdk.ApiClient(configuration) as api_client:
     id = 'id_example' # str | A unique value identifying this task info.
 
     try:
-        api_response = api_instance.delete_taskinfo(id)
+        api_response = api_instance.delete_task(id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling AutomationApi->delete_taskinfo: %s\n" % e)
+        print("Exception when calling AutomationApi->delete_task: %s\n" % e)
 ```
 
 
@@ -465,7 +465,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: tasks:view 
+### Required permissions    * User account permission: tasks:view 
 
 ### Example
 
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: tasks:view 
+### Required permissions    * User account permission: tasks:view 
 
 ### Example
 
@@ -587,7 +587,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / tasks:manage (write) 
+### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
 ### Example
 
@@ -647,7 +647,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write) 
+### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
 ### Example
 
@@ -705,7 +705,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write) 
+### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
 ### Example
 
@@ -758,12 +758,12 @@ Name | Type | Description  | Notes
 
 ***
 
-# **get_all_taskinfos**
-> list[TaskInfo] get_all_taskinfos(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, ordering=ordering, limit=limit, offset=offset)
+# **get_all_tasks**
+> list[TaskInfo] get_all_tasks(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, ordering=ordering, limit=limit, offset=offset)
 
 
 
-### Required permissions   * User account permission: None (read) / tasks:manage (write) 
+### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
 ### Example
 
@@ -797,10 +797,10 @@ limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
 
     try:
-        api_response = api_instance.get_all_taskinfos(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_tasks(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling AutomationApi->get_all_taskinfos: %s\n" % e)
+        print("Exception when calling AutomationApi->get_all_tasks: %s\n" % e)
 ```
 
 
@@ -833,7 +833,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / tasks:manage (write) 
+### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
 ### Example
 
@@ -903,7 +903,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / tasks:manage (write) 
+### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
 ### Example
 
@@ -955,7 +955,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / tasks:manage (write) 
+### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
 ### Example
 
@@ -1025,7 +1025,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write) 
+### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
 ### Example
 
@@ -1077,7 +1077,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write) 
+### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
 ### Example
 
@@ -1124,12 +1124,64 @@ Name | Type | Description  | Notes
 
 ***
 
+# **get_task**
+> TaskInfo get_task(id)
+
+
+
+### Required permissions    * User account permission: None (read) / tasks:manage (write) 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.AutomationApi(api_client)
+    id = 'id_example' # str | A unique value identifying this task info.
+
+    try:
+        api_response = api_instance.get_task(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AutomationApi->get_task: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| A unique value identifying this task info. | 
+
+### Return type
+
+[**TaskInfo**](TaskInfo.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
 # **get_task_log**
 > TaskLog get_task_log(id)
 
 
 
-### Required permissions   * User account permission: tasks:view 
+### Required permissions    * User account permission: tasks:view 
 
 ### Example
 
@@ -1176,64 +1228,12 @@ Name | Type | Description  | Notes
 
 ***
 
-# **get_taskinfo**
-> TaskInfo get_taskinfo(id)
-
-
-
-### Required permissions   * User account permission: None (read) / tasks:manage (write) 
-
-### Example
-
-* Api Key Authentication (Bearer):
-
-```python
-import elements_sdk
-from elements_sdk.rest import ApiException
-from pprint import pprint
-
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-configuration.host = "https://elements.local"
-
-# Enter a context with an instance of the API client
-with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 'id_example' # str | A unique value identifying this task info.
-
-    try:
-        api_response = api_instance.get_taskinfo(id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling AutomationApi->get_taskinfo: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **str**| A unique value identifying this task info. | 
-
-### Return type
-
-[**TaskInfo**](TaskInfo.md)
-
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
-
-
-***
-
 # **get_tasks_summary**
 > TasksSummary get_tasks_summary(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, ordering=ordering, limit=limit, offset=offset)
 
 
 
-### Required permissions   * User account permission: None (read) / tasks:manage (write) 
+### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
 ### Example
 
@@ -1303,7 +1303,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / tasks:manage (write) 
+### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
 ### Example
 
@@ -1351,7 +1351,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions   * User account permission: tasks:manage 
+### Required permissions    * User account permission: tasks:manage 
 
 ### Example
 
@@ -1405,7 +1405,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / tasks:manage (write) 
+### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
 ### Example
 
@@ -1459,7 +1459,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write) 
+### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
 ### Example
 
@@ -1513,7 +1513,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write) 
+### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
 ### Example
 
@@ -1567,7 +1567,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: tasks:manage 
+### Required permissions    * User account permission: tasks:manage 
 
 ### Example
 
@@ -1673,7 +1673,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: tasks:manage 
+### Required permissions    * User account permission: tasks:manage 
 
 ### Example
 
@@ -1725,7 +1725,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / tasks:manage (write) 
+### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
 ### Example
 
@@ -1779,7 +1779,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write) 
+### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
 ### Example
 
@@ -1833,7 +1833,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write) 
+### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
 ### Example
 

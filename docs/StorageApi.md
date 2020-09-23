@@ -58,7 +58,7 @@ Method | HTTP request | Description
 
 
 
-### Required permissions   * User account permission: projects:manage 
+### Required permissions    * User account permission: projects:manage 
 
 ### Example
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 
@@ -320,7 +320,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: shares:view (read) / shares:manage (write) 
+### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
 
 ### Example
 
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 
@@ -424,7 +424,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / projects:manage (write) 
+### Required permissions    * User account permission: None (read) / projects:manage (write) 
 
 ### Example
 
@@ -476,7 +476,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 
@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 
@@ -580,7 +580,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: shares:view (read) / shares:manage (write) 
+### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
 
 ### Example
 
@@ -632,7 +632,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 
@@ -684,7 +684,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / projects:manage (write) 
+### Required permissions    * User account permission: None (read) / projects:manage (write) 
 
 ### Example
 
@@ -736,7 +736,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 
@@ -788,7 +788,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view 
+### Required permissions    * User account permission: projects:view 
 
 ### Example
 
@@ -844,7 +844,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 
@@ -904,7 +904,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: shares:view (read) / shares:manage (write) 
+### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
 
 ### Example
 
@@ -960,7 +960,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 
@@ -1018,7 +1018,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -1082,7 +1082,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 
@@ -1144,7 +1144,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / projects:manage (write) 
+### Required permissions    * User account permission: None (read) / projects:manage (write) 
 
 ### Example
 
@@ -1206,7 +1206,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / projects:manage (write) 
+### Required permissions    * User account permission: None (read) / projects:manage (write) 
 
 ### Example
 
@@ -1262,7 +1262,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 
@@ -1314,7 +1314,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: shares:view (read) / shares:manage (write) 
+### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
 
 ### Example
 
@@ -1366,7 +1366,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 
@@ -1418,7 +1418,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
 ### Example
 
@@ -1470,7 +1470,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: system:status:view 
+### Required permissions    * User account permission: system:status:view 
 
 ### Example
 
@@ -1522,7 +1522,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: system:status:view 
+### Required permissions    * User account permission: system:status:view 
 
 ### Example
 
@@ -1574,7 +1574,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: system:status:view 
+### Required permissions    * User account permission: system:status:view 
 
 ### Example
 
@@ -1626,7 +1626,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / projects:manage (write) 
+### Required permissions    * User account permission: None (read) / projects:manage (write) 
 
 ### Example
 
@@ -1678,7 +1678,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 
@@ -1730,7 +1730,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:manage 
+### Required permissions    * User account permission: projects:manage 
 
 ### Example
 
@@ -1784,7 +1784,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 
@@ -1838,7 +1838,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: shares:view (read) / shares:manage (write) 
+### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
 
 ### Example
 
@@ -1892,7 +1892,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 
@@ -1946,7 +1946,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / projects:manage (write) 
+### Required permissions    * User account permission: None (read) / projects:manage (write) 
 
 ### Example
 
@@ -2000,7 +2000,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 
@@ -2054,7 +2054,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:manage 
+### Required permissions    * User account permission: projects:manage 
 
 ### Example
 
@@ -2106,7 +2106,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * Authenticated user 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -2158,7 +2158,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 
@@ -2212,7 +2212,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: shares:view (read) / shares:manage (write) 
+### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
 
 ### Example
 
@@ -2266,7 +2266,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 
@@ -2320,7 +2320,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: None (read) / projects:manage (write) 
+### Required permissions    * User account permission: None (read) / projects:manage (write) 
 
 ### Example
 
@@ -2374,7 +2374,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions   * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
 ### Example
 

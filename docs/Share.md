@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] [readonly] 
-**sharing_nfs_permissions** | [**object**](.md) |  | [optional] 
+**sharing_nfs_permissions** | **object** |  | [optional] 
 **volume** | [**Volume**](Volume.md) |  | 
 **name** | **str** |  | 
 **path** | **str** |  | 

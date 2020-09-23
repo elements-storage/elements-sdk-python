@@ -37,7 +37,7 @@ class TapeArchiveApi(object):
     def create_tape(self, data, **kwargs):  # noqa: E501
         """create_tape  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_tape(data, async_req=True)
@@ -62,7 +62,7 @@ class TapeArchiveApi(object):
     def create_tape_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_tape  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_tape_with_http_info(data, async_req=True)
@@ -146,13 +146,13 @@ class TapeArchiveApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_tapegroup(self, data, **kwargs):  # noqa: E501
-        """create_tapegroup  # noqa: E501
+    def create_tape_group(self, data, **kwargs):  # noqa: E501
+        """create_tape_group  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_tapegroup(data, async_req=True)
+        >>> thread = api.create_tape_group(data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -169,15 +169,15 @@ class TapeArchiveApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_tapegroup_with_http_info(data, **kwargs)  # noqa: E501
+        return self.create_tape_group_with_http_info(data, **kwargs)  # noqa: E501
 
-    def create_tapegroup_with_http_info(self, data, **kwargs):  # noqa: E501
-        """create_tapegroup  # noqa: E501
+    def create_tape_group_with_http_info(self, data, **kwargs):  # noqa: E501
+        """create_tape_group  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_tapegroup_with_http_info(data, async_req=True)
+        >>> thread = api.create_tape_group_with_http_info(data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -208,14 +208,14 @@ class TapeArchiveApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_tapegroup" % key
+                    " to method create_tape_group" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'data' is set
         if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
                                                         local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `create_tapegroup`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `create_tape_group`")  # noqa: E501
 
         collection_formats = {}
 
@@ -261,7 +261,7 @@ class TapeArchiveApi(object):
     def delete_tape(self, id, **kwargs):  # noqa: E501
         """delete_tape  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_tape(id, async_req=True)
@@ -286,7 +286,7 @@ class TapeArchiveApi(object):
     def delete_tape_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_tape  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_tape_with_http_info(id, async_req=True)
@@ -366,13 +366,13 @@ class TapeArchiveApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_tapegroup(self, id, **kwargs):  # noqa: E501
-        """delete_tapegroup  # noqa: E501
+    def delete_tape_group(self, id, **kwargs):  # noqa: E501
+        """delete_tape_group  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_tapegroup(id, async_req=True)
+        >>> thread = api.delete_tape_group(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -389,15 +389,15 @@ class TapeArchiveApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.delete_tapegroup_with_http_info(id, **kwargs)  # noqa: E501
+        return self.delete_tape_group_with_http_info(id, **kwargs)  # noqa: E501
 
-    def delete_tapegroup_with_http_info(self, id, **kwargs):  # noqa: E501
-        """delete_tapegroup  # noqa: E501
+    def delete_tape_group_with_http_info(self, id, **kwargs):  # noqa: E501
+        """delete_tape_group  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_tapegroup_with_http_info(id, async_req=True)
+        >>> thread = api.delete_tape_group_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -428,14 +428,14 @@ class TapeArchiveApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_tapegroup" % key
+                    " to method delete_tape_group" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `delete_tapegroup`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `delete_tape_group`")  # noqa: E501
 
         collection_formats = {}
 
@@ -474,13 +474,13 @@ class TapeArchiveApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_all_archivedfileentries(self, **kwargs):  # noqa: E501
-        """get_all_archivedfileentries  # noqa: E501
+    def get_all_archived_file_entries(self, **kwargs):  # noqa: E501
+        """get_all_archived_file_entries  # noqa: E501
 
-        ### Required permissions   * User account permission: ltfs:search (read) / ltfs:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: ltfs:search (read) / ltfs:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_all_archivedfileentries(async_req=True)
+        >>> thread = api.get_all_archived_file_entries(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -504,15 +504,15 @@ class TapeArchiveApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_all_archivedfileentries_with_http_info(**kwargs)  # noqa: E501
+        return self.get_all_archived_file_entries_with_http_info(**kwargs)  # noqa: E501
 
-    def get_all_archivedfileentries_with_http_info(self, **kwargs):  # noqa: E501
-        """get_all_archivedfileentries  # noqa: E501
+    def get_all_archived_file_entries_with_http_info(self, **kwargs):  # noqa: E501
+        """get_all_archived_file_entries  # noqa: E501
 
-        ### Required permissions   * User account permission: ltfs:search (read) / ltfs:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: ltfs:search (read) / ltfs:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_all_archivedfileentries_with_http_info(async_req=True)
+        >>> thread = api.get_all_archived_file_entries_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -550,7 +550,7 @@ class TapeArchiveApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_all_archivedfileentries" % key
+                    " to method get_all_archived_file_entries" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
@@ -606,13 +606,13 @@ class TapeArchiveApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_all_tapegroups(self, **kwargs):  # noqa: E501
-        """get_all_tapegroups  # noqa: E501
+    def get_all_tape_groups(self, **kwargs):  # noqa: E501
+        """get_all_tape_groups  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_all_tapegroups(async_req=True)
+        >>> thread = api.get_all_tape_groups(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -633,15 +633,15 @@ class TapeArchiveApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_all_tapegroups_with_http_info(**kwargs)  # noqa: E501
+        return self.get_all_tape_groups_with_http_info(**kwargs)  # noqa: E501
 
-    def get_all_tapegroups_with_http_info(self, **kwargs):  # noqa: E501
-        """get_all_tapegroups  # noqa: E501
+    def get_all_tape_groups_with_http_info(self, **kwargs):  # noqa: E501
+        """get_all_tape_groups  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_all_tapegroups_with_http_info(async_req=True)
+        >>> thread = api.get_all_tape_groups_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -676,7 +676,7 @@ class TapeArchiveApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_all_tapegroups" % key
+                    " to method get_all_tape_groups" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
@@ -729,7 +729,7 @@ class TapeArchiveApi(object):
     def get_all_tapes(self, **kwargs):  # noqa: E501
         """get_all_tapes  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_tapes(async_req=True)
@@ -760,7 +760,7 @@ class TapeArchiveApi(object):
     def get_all_tapes_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_tapes  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_tapes_with_http_info(async_req=True)
@@ -854,13 +854,13 @@ class TapeArchiveApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_archivedfileentry(self, id, **kwargs):  # noqa: E501
-        """get_archivedfileentry  # noqa: E501
+    def get_archived_file_entry(self, id, **kwargs):  # noqa: E501
+        """get_archived_file_entry  # noqa: E501
 
-        ### Required permissions   * User account permission: ltfs:search (read) / ltfs:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: ltfs:search (read) / ltfs:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_archivedfileentry(id, async_req=True)
+        >>> thread = api.get_archived_file_entry(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -877,15 +877,15 @@ class TapeArchiveApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_archivedfileentry_with_http_info(id, **kwargs)  # noqa: E501
+        return self.get_archived_file_entry_with_http_info(id, **kwargs)  # noqa: E501
 
-    def get_archivedfileentry_with_http_info(self, id, **kwargs):  # noqa: E501
-        """get_archivedfileentry  # noqa: E501
+    def get_archived_file_entry_with_http_info(self, id, **kwargs):  # noqa: E501
+        """get_archived_file_entry  # noqa: E501
 
-        ### Required permissions   * User account permission: ltfs:search (read) / ltfs:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: ltfs:search (read) / ltfs:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_archivedfileentry_with_http_info(id, async_req=True)
+        >>> thread = api.get_archived_file_entry_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -916,14 +916,14 @@ class TapeArchiveApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_archivedfileentry" % key
+                    " to method get_archived_file_entry" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `get_archivedfileentry`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `get_archived_file_entry`")  # noqa: E501
 
         collection_formats = {}
 
@@ -965,7 +965,7 @@ class TapeArchiveApi(object):
     def get_tape(self, id, **kwargs):  # noqa: E501
         """get_tape  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tape(id, async_req=True)
@@ -990,7 +990,7 @@ class TapeArchiveApi(object):
     def get_tape_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_tape  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tape_with_http_info(id, async_req=True)
@@ -1070,13 +1070,13 @@ class TapeArchiveApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_tapegroup(self, id, **kwargs):  # noqa: E501
-        """get_tapegroup  # noqa: E501
+    def get_tape_group(self, id, **kwargs):  # noqa: E501
+        """get_tape_group  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_tapegroup(id, async_req=True)
+        >>> thread = api.get_tape_group(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1093,15 +1093,15 @@ class TapeArchiveApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_tapegroup_with_http_info(id, **kwargs)  # noqa: E501
+        return self.get_tape_group_with_http_info(id, **kwargs)  # noqa: E501
 
-    def get_tapegroup_with_http_info(self, id, **kwargs):  # noqa: E501
-        """get_tapegroup  # noqa: E501
+    def get_tape_group_with_http_info(self, id, **kwargs):  # noqa: E501
+        """get_tape_group  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_tapegroup_with_http_info(id, async_req=True)
+        >>> thread = api.get_tape_group_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1132,14 +1132,14 @@ class TapeArchiveApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_tapegroup" % key
+                    " to method get_tape_group" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `get_tapegroup`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `get_tape_group`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1181,7 +1181,7 @@ class TapeArchiveApi(object):
     def patch_tape(self, id, data, **kwargs):  # noqa: E501
         """patch_tape  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_tape(id, data, async_req=True)
@@ -1207,7 +1207,7 @@ class TapeArchiveApi(object):
     def patch_tape_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_tape  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_tape_with_http_info(id, data, async_req=True)
@@ -1298,13 +1298,13 @@ class TapeArchiveApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_tapegroup(self, id, data, **kwargs):  # noqa: E501
-        """patch_tapegroup  # noqa: E501
+    def patch_tape_group(self, id, data, **kwargs):  # noqa: E501
+        """patch_tape_group  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_tapegroup(id, data, async_req=True)
+        >>> thread = api.patch_tape_group(id, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1322,15 +1322,15 @@ class TapeArchiveApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_tapegroup_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.patch_tape_group_with_http_info(id, data, **kwargs)  # noqa: E501
 
-    def patch_tapegroup_with_http_info(self, id, data, **kwargs):  # noqa: E501
-        """patch_tapegroup  # noqa: E501
+    def patch_tape_group_with_http_info(self, id, data, **kwargs):  # noqa: E501
+        """patch_tape_group  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_tapegroup_with_http_info(id, data, async_req=True)
+        >>> thread = api.patch_tape_group_with_http_info(id, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1362,18 +1362,18 @@ class TapeArchiveApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method patch_tapegroup" % key
+                    " to method patch_tape_group" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `patch_tapegroup`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `patch_tape_group`")  # noqa: E501
         # verify the required parameter 'data' is set
         if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
                                                         local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_tapegroup`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `patch_tape_group`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1421,7 +1421,7 @@ class TapeArchiveApi(object):
     def update_tape(self, id, data, **kwargs):  # noqa: E501
         """update_tape  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_tape(id, data, async_req=True)
@@ -1447,7 +1447,7 @@ class TapeArchiveApi(object):
     def update_tape_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_tape  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_tape_with_http_info(id, data, async_req=True)
@@ -1538,13 +1538,13 @@ class TapeArchiveApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_tapegroup(self, id, data, **kwargs):  # noqa: E501
-        """update_tapegroup  # noqa: E501
+    def update_tape_group(self, id, data, **kwargs):  # noqa: E501
+        """update_tape_group  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_tapegroup(id, data, async_req=True)
+        >>> thread = api.update_tape_group(id, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1562,15 +1562,15 @@ class TapeArchiveApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_tapegroup_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.update_tape_group_with_http_info(id, data, **kwargs)  # noqa: E501
 
-    def update_tapegroup_with_http_info(self, id, data, **kwargs):  # noqa: E501
-        """update_tapegroup  # noqa: E501
+    def update_tape_group_with_http_info(self, id, data, **kwargs):  # noqa: E501
+        """update_tape_group  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_tapegroup_with_http_info(id, data, async_req=True)
+        >>> thread = api.update_tape_group_with_http_info(id, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1602,18 +1602,18 @@ class TapeArchiveApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_tapegroup" % key
+                    " to method update_tape_group" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `update_tapegroup`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `update_tape_group`")  # noqa: E501
         # verify the required parameter 'data' is set
         if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
                                                         local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_tapegroup`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `update_tape_group`")  # noqa: E501
 
         collection_formats = {}
 

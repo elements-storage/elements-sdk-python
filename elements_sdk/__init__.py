@@ -12,7 +12,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "3.0b1"
+__version__ = "3.0b2"
 
 # import apis into sdk package
 from elements_sdk.api.ai_api import AIApi
@@ -68,6 +68,7 @@ from elements_sdk.models.clients_endpoint_response import ClientsEndpointRespons
 from elements_sdk.models.cloud_connection import CloudConnection
 from elements_sdk.models.comment import Comment
 from elements_sdk.models.create_home_workspace_request import CreateHomeWorkspaceRequest
+from elements_sdk.models.custom_field import CustomField
 from elements_sdk.models.deleted_workspace import DeletedWorkspace
 from elements_sdk.models.download import Download
 from elements_sdk.models.elements_group import ElementsGroup
@@ -108,7 +109,6 @@ from elements_sdk.models.member_preview import MemberPreview
 from elements_sdk.models.mounted_workspace import MountedWorkspace
 from elements_sdk.models.multiple_assets_request import MultipleAssetsRequest
 from elements_sdk.models.net_stat import NetStat
-from elements_sdk.models.network import Network
 from elements_sdk.models.one_time_access_token import OneTimeAccessToken
 from elements_sdk.models.one_time_access_token_activity import OneTimeAccessTokenActivity
 from elements_sdk.models.parameters import Parameters

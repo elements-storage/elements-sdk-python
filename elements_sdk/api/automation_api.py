@@ -37,7 +37,7 @@ class AutomationApi(object):
     def abort_task(self, id, data, **kwargs):  # noqa: E501
         """abort_task  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:manage   # noqa: E501
+        ### Required permissions    * User account permission: tasks:manage   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.abort_task(id, data, async_req=True)
@@ -63,7 +63,7 @@ class AutomationApi(object):
     def abort_task_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """abort_task  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:manage   # noqa: E501
+        ### Required permissions    * User account permission: tasks:manage   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.abort_task_with_http_info(id, data, async_req=True)
@@ -157,7 +157,7 @@ class AutomationApi(object):
     def create_job(self, data, **kwargs):  # noqa: E501
         """create_job  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_job(data, async_req=True)
@@ -182,7 +182,7 @@ class AutomationApi(object):
     def create_job_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_job  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_job_with_http_info(data, async_req=True)
@@ -269,7 +269,7 @@ class AutomationApi(object):
     def create_schedule(self, data, **kwargs):  # noqa: E501
         """create_schedule  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_schedule(data, async_req=True)
@@ -294,7 +294,7 @@ class AutomationApi(object):
     def create_schedule_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_schedule  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_schedule_with_http_info(data, async_req=True)
@@ -381,7 +381,7 @@ class AutomationApi(object):
     def create_subtask(self, data, **kwargs):  # noqa: E501
         """create_subtask  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_subtask(data, async_req=True)
@@ -406,7 +406,7 @@ class AutomationApi(object):
     def create_subtask_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_subtask  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_subtask_with_http_info(data, async_req=True)
@@ -493,7 +493,7 @@ class AutomationApi(object):
     def delete_job(self, id, **kwargs):  # noqa: E501
         """delete_job  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_job(id, async_req=True)
@@ -518,7 +518,7 @@ class AutomationApi(object):
     def delete_job_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_job  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_job_with_http_info(id, async_req=True)
@@ -601,7 +601,7 @@ class AutomationApi(object):
     def delete_schedule(self, id, **kwargs):  # noqa: E501
         """delete_schedule  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_schedule(id, async_req=True)
@@ -626,7 +626,7 @@ class AutomationApi(object):
     def delete_schedule_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_schedule  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_schedule_with_http_info(id, async_req=True)
@@ -709,7 +709,7 @@ class AutomationApi(object):
     def delete_subtask(self, id, **kwargs):  # noqa: E501
         """delete_subtask  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_subtask(id, async_req=True)
@@ -734,7 +734,7 @@ class AutomationApi(object):
     def delete_subtask_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_subtask  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_subtask_with_http_info(id, async_req=True)
@@ -814,13 +814,13 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_taskinfo(self, id, **kwargs):  # noqa: E501
-        """delete_taskinfo  # noqa: E501
+    def delete_task(self, id, **kwargs):  # noqa: E501
+        """delete_task  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_taskinfo(id, async_req=True)
+        >>> thread = api.delete_task(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -837,15 +837,15 @@ class AutomationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.delete_taskinfo_with_http_info(id, **kwargs)  # noqa: E501
+        return self.delete_task_with_http_info(id, **kwargs)  # noqa: E501
 
-    def delete_taskinfo_with_http_info(self, id, **kwargs):  # noqa: E501
-        """delete_taskinfo  # noqa: E501
+    def delete_task_with_http_info(self, id, **kwargs):  # noqa: E501
+        """delete_task  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_taskinfo_with_http_info(id, async_req=True)
+        >>> thread = api.delete_task_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -876,14 +876,14 @@ class AutomationApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_taskinfo" % key
+                    " to method delete_task" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `delete_taskinfo`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `delete_task`")  # noqa: E501
 
         collection_formats = {}
 
@@ -925,7 +925,7 @@ class AutomationApi(object):
     def download_all_task_logs(self, **kwargs):  # noqa: E501
         """download_all_task_logs  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.download_all_task_logs(async_req=True)
@@ -959,7 +959,7 @@ class AutomationApi(object):
     def download_all_task_logs_with_http_info(self, **kwargs):  # noqa: E501
         """download_all_task_logs  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.download_all_task_logs_with_http_info(async_req=True)
@@ -1065,7 +1065,7 @@ class AutomationApi(object):
     def download_task_log(self, id, **kwargs):  # noqa: E501
         """download_task_log  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.download_task_log(id, async_req=True)
@@ -1090,7 +1090,7 @@ class AutomationApi(object):
     def download_task_log_with_http_info(self, id, **kwargs):  # noqa: E501
         """download_task_log  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.download_task_log_with_http_info(id, async_req=True)
@@ -1173,7 +1173,7 @@ class AutomationApi(object):
     def get_all_jobs(self, **kwargs):  # noqa: E501
         """get_all_jobs  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_jobs(async_req=True)
@@ -1202,7 +1202,7 @@ class AutomationApi(object):
     def get_all_jobs_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_jobs  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_jobs_with_http_info(async_req=True)
@@ -1293,7 +1293,7 @@ class AutomationApi(object):
     def get_all_schedules(self, **kwargs):  # noqa: E501
         """get_all_schedules  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_schedules(async_req=True)
@@ -1321,7 +1321,7 @@ class AutomationApi(object):
     def get_all_schedules_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_schedules  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_schedules_with_http_info(async_req=True)
@@ -1409,7 +1409,7 @@ class AutomationApi(object):
     def get_all_subtasks(self, **kwargs):  # noqa: E501
         """get_all_subtasks  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_subtasks(async_req=True)
@@ -1437,7 +1437,7 @@ class AutomationApi(object):
     def get_all_subtasks_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_subtasks  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_subtasks_with_http_info(async_req=True)
@@ -1522,13 +1522,13 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_all_taskinfos(self, **kwargs):  # noqa: E501
-        """get_all_taskinfos  # noqa: E501
+    def get_all_tasks(self, **kwargs):  # noqa: E501
+        """get_all_tasks  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_all_taskinfos(async_req=True)
+        >>> thread = api.get_all_tasks(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1554,15 +1554,15 @@ class AutomationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_all_taskinfos_with_http_info(**kwargs)  # noqa: E501
+        return self.get_all_tasks_with_http_info(**kwargs)  # noqa: E501
 
-    def get_all_taskinfos_with_http_info(self, **kwargs):  # noqa: E501
-        """get_all_taskinfos  # noqa: E501
+    def get_all_tasks_with_http_info(self, **kwargs):  # noqa: E501
+        """get_all_tasks  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_all_taskinfos_with_http_info(async_req=True)
+        >>> thread = api.get_all_tasks_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1602,7 +1602,7 @@ class AutomationApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_all_taskinfos" % key
+                    " to method get_all_tasks" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
@@ -1665,7 +1665,7 @@ class AutomationApi(object):
     def get_finished_tasks(self, **kwargs):  # noqa: E501
         """get_finished_tasks  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_finished_tasks(async_req=True)
@@ -1699,7 +1699,7 @@ class AutomationApi(object):
     def get_finished_tasks_with_http_info(self, **kwargs):  # noqa: E501
         """get_finished_tasks  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_finished_tasks_with_http_info(async_req=True)
@@ -1805,7 +1805,7 @@ class AutomationApi(object):
     def get_job(self, id, **kwargs):  # noqa: E501
         """get_job  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_job(id, async_req=True)
@@ -1830,7 +1830,7 @@ class AutomationApi(object):
     def get_job_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_job  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_job_with_http_info(id, async_req=True)
@@ -1913,7 +1913,7 @@ class AutomationApi(object):
     def get_pending_tasks(self, **kwargs):  # noqa: E501
         """get_pending_tasks  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_pending_tasks(async_req=True)
@@ -1947,7 +1947,7 @@ class AutomationApi(object):
     def get_pending_tasks_with_http_info(self, **kwargs):  # noqa: E501
         """get_pending_tasks  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_pending_tasks_with_http_info(async_req=True)
@@ -2053,7 +2053,7 @@ class AutomationApi(object):
     def get_schedule(self, id, **kwargs):  # noqa: E501
         """get_schedule  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_schedule(id, async_req=True)
@@ -2078,7 +2078,7 @@ class AutomationApi(object):
     def get_schedule_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_schedule  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_schedule_with_http_info(id, async_req=True)
@@ -2161,7 +2161,7 @@ class AutomationApi(object):
     def get_subtask(self, id, **kwargs):  # noqa: E501
         """get_subtask  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_subtask(id, async_req=True)
@@ -2186,7 +2186,7 @@ class AutomationApi(object):
     def get_subtask_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_subtask  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_subtask_with_http_info(id, async_req=True)
@@ -2266,10 +2266,118 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_task(self, id, **kwargs):  # noqa: E501
+        """get_task  # noqa: E501
+
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_task(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str id: A unique value identifying this task info. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: TaskInfo
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_task_with_http_info(id, **kwargs)  # noqa: E501
+
+    def get_task_with_http_info(self, id, **kwargs):  # noqa: E501
+        """get_task  # noqa: E501
+
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_task_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str id: A unique value identifying this task info. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(TaskInfo, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_task" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `get_task`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/tasks/{id}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='TaskInfo',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_task_log(self, id, **kwargs):  # noqa: E501
         """get_task_log  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_task_log(id, async_req=True)
@@ -2294,7 +2402,7 @@ class AutomationApi(object):
     def get_task_log_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_task_log  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_task_log_with_http_info(id, async_req=True)
@@ -2374,118 +2482,10 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_taskinfo(self, id, **kwargs):  # noqa: E501
-        """get_taskinfo  # noqa: E501
-
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_taskinfo(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str id: A unique value identifying this task info. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: TaskInfo
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_taskinfo_with_http_info(id, **kwargs)  # noqa: E501
-
-    def get_taskinfo_with_http_info(self, id, **kwargs):  # noqa: E501
-        """get_taskinfo  # noqa: E501
-
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_taskinfo_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str id: A unique value identifying this task info. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(TaskInfo, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_taskinfo" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `get_taskinfo`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/api/2/tasks/{id}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='TaskInfo',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def get_tasks_summary(self, **kwargs):  # noqa: E501
         """get_tasks_summary  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tasks_summary(async_req=True)
@@ -2519,7 +2519,7 @@ class AutomationApi(object):
     def get_tasks_summary_with_http_info(self, **kwargs):  # noqa: E501
         """get_tasks_summary  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tasks_summary_with_http_info(async_req=True)
@@ -2625,7 +2625,7 @@ class AutomationApi(object):
     def kill_all_pending_tasks(self, **kwargs):  # noqa: E501
         """kill_all_pending_tasks  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.kill_all_pending_tasks(async_req=True)
@@ -2649,7 +2649,7 @@ class AutomationApi(object):
     def kill_all_pending_tasks_with_http_info(self, **kwargs):  # noqa: E501
         """kill_all_pending_tasks  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.kill_all_pending_tasks_with_http_info(async_req=True)
@@ -2725,7 +2725,7 @@ class AutomationApi(object):
     def kill_task(self, id, data, **kwargs):  # noqa: E501
         """kill_task  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:manage   # noqa: E501
+        ### Required permissions    * User account permission: tasks:manage   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.kill_task(id, data, async_req=True)
@@ -2751,7 +2751,7 @@ class AutomationApi(object):
     def kill_task_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """kill_task  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:manage   # noqa: E501
+        ### Required permissions    * User account permission: tasks:manage   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.kill_task_with_http_info(id, data, async_req=True)
@@ -2845,7 +2845,7 @@ class AutomationApi(object):
     def patch_job(self, id, data, **kwargs):  # noqa: E501
         """patch_job  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_job(id, data, async_req=True)
@@ -2871,7 +2871,7 @@ class AutomationApi(object):
     def patch_job_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_job  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_job_with_http_info(id, data, async_req=True)
@@ -2965,7 +2965,7 @@ class AutomationApi(object):
     def patch_schedule(self, id, data, **kwargs):  # noqa: E501
         """patch_schedule  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_schedule(id, data, async_req=True)
@@ -2991,7 +2991,7 @@ class AutomationApi(object):
     def patch_schedule_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_schedule  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_schedule_with_http_info(id, data, async_req=True)
@@ -3085,7 +3085,7 @@ class AutomationApi(object):
     def patch_subtask(self, id, data, **kwargs):  # noqa: E501
         """patch_subtask  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_subtask(id, data, async_req=True)
@@ -3111,7 +3111,7 @@ class AutomationApi(object):
     def patch_subtask_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_subtask  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_subtask_with_http_info(id, data, async_req=True)
@@ -3205,7 +3205,7 @@ class AutomationApi(object):
     def restart_task(self, id, data, **kwargs):  # noqa: E501
         """restart_task  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:manage   # noqa: E501
+        ### Required permissions    * User account permission: tasks:manage   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.restart_task(id, data, async_req=True)
@@ -3231,7 +3231,7 @@ class AutomationApi(object):
     def restart_task_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """restart_task  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:manage   # noqa: E501
+        ### Required permissions    * User account permission: tasks:manage   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.restart_task_with_http_info(id, data, async_req=True)
@@ -3443,7 +3443,7 @@ class AutomationApi(object):
     def start_task(self, data, **kwargs):  # noqa: E501
         """start_task  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:manage   # noqa: E501
+        ### Required permissions    * User account permission: tasks:manage   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.start_task(data, async_req=True)
@@ -3468,7 +3468,7 @@ class AutomationApi(object):
     def start_task_with_http_info(self, data, **kwargs):  # noqa: E501
         """start_task  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:manage   # noqa: E501
+        ### Required permissions    * User account permission: tasks:manage   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.start_task_with_http_info(data, async_req=True)
@@ -3555,7 +3555,7 @@ class AutomationApi(object):
     def update_job(self, id, data, **kwargs):  # noqa: E501
         """update_job  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_job(id, data, async_req=True)
@@ -3581,7 +3581,7 @@ class AutomationApi(object):
     def update_job_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_job  # noqa: E501
 
-        ### Required permissions   * User account permission: None (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: None (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_job_with_http_info(id, data, async_req=True)
@@ -3675,7 +3675,7 @@ class AutomationApi(object):
     def update_schedule(self, id, data, **kwargs):  # noqa: E501
         """update_schedule  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_schedule(id, data, async_req=True)
@@ -3701,7 +3701,7 @@ class AutomationApi(object):
     def update_schedule_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_schedule  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_schedule_with_http_info(id, data, async_req=True)
@@ -3795,7 +3795,7 @@ class AutomationApi(object):
     def update_subtask(self, id, data, **kwargs):  # noqa: E501
         """update_subtask  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_subtask(id, data, async_req=True)
@@ -3821,7 +3821,7 @@ class AutomationApi(object):
     def update_subtask_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_subtask  # noqa: E501
 
-        ### Required permissions   * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
+        ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_subtask_with_http_info(id, data, async_req=True)
