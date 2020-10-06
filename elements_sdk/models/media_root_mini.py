@@ -73,8 +73,10 @@ class MediaRootMini(object):
         self.name = name
         if full_path is not None:
             self.full_path = full_path
-        self.custom_fields = custom_fields
-        self.custom_field_definitions = custom_field_definitions
+        if custom_fields is not None:
+            self.custom_fields = custom_fields
+        if custom_field_definitions is not None:
+            self.custom_field_definitions = custom_field_definitions
         self.volume = volume
         if path is not None:
             self.path = path
@@ -170,8 +172,6 @@ class MediaRootMini(object):
         :param custom_fields: The custom_fields of this MediaRootMini.  # noqa: E501
         :type: list[CustomField]
         """
-        if self.local_vars_configuration.client_side_validation and custom_fields is None:  # noqa: E501
-            raise ValueError("Invalid value for `custom_fields`, must not be `None`")  # noqa: E501
 
         self._custom_fields = custom_fields
 
@@ -193,8 +193,6 @@ class MediaRootMini(object):
         :param custom_field_definitions: The custom_field_definitions of this MediaRootMini.  # noqa: E501
         :type: list[int]
         """
-        if self.local_vars_configuration.client_side_validation and custom_field_definitions is None:  # noqa: E501
-            raise ValueError("Invalid value for `custom_field_definitions`, must not be `None`")  # noqa: E501
 
         self._custom_field_definitions = custom_field_definitions
 

@@ -2,7 +2,7 @@
 
 - API version: 2
 - Python 2.7 and 3.4+
-- Latest build: 3.0b2
+- Latest build: 3.0.0
 
 ## Installation & Usage
 
@@ -151,6 +151,7 @@ Class | Method | HTTP request | Description
 *MainApi* | [**get_ldap_server**](docs/MainApi#get_ldap_server) | **GET** `/api/2/ldap-servers/{id}` | 
 *MainApi* | [**get_ldap_server_groups**](docs/MainApi#get_ldap_server_groups) | **GET** `/api/2/ldap-servers/{id}/groups` | 
 *MainApi* | [**get_ldap_server_users**](docs/MainApi#get_ldap_server_users) | **GET** `/api/2/ldap-servers/{id}/users` | 
+*MainApi* | [**get_license**](docs/MainApi#get_license) | **GET** `/api/2/license` | 
 *MainApi* | [**get_node_ipmi_sensors**](docs/MainApi#get_node_ipmi_sensors) | **GET** `/api/2/nodes/{id}/sensors` | 
 *MainApi* | [**get_node_stats**](docs/MainApi#get_node_stats) | **GET** `/api/2/nodes/{id}/stats` | 
 *MainApi* | [**get_parameters**](docs/MainApi#get_parameters) | **GET** `/api/2/parameters` | 

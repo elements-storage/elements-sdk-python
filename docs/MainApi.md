@@ -36,6 +36,7 @@ Method | HTTP request | Description
 [**get_ldap_server**](MainApi.md#get_ldap_server) | **GET** `/api/2/ldap-servers/{id}` | 
 [**get_ldap_server_groups**](MainApi.md#get_ldap_server_groups) | **GET** `/api/2/ldap-servers/{id}/groups` | 
 [**get_ldap_server_users**](MainApi.md#get_ldap_server_users) | **GET** `/api/2/ldap-servers/{id}/users` | 
+[**get_license**](MainApi.md#get_license) | **GET** `/api/2/license` | 
 [**get_node_ipmi_sensors**](MainApi.md#get_node_ipmi_sensors) | **GET** `/api/2/nodes/{id}/sensors` | 
 [**get_node_stats**](MainApi.md#get_node_stats) | **GET** `/api/2/nodes/{id}/stats` | 
 [**get_parameters**](MainApi.md#get_parameters) | **GET** `/api/2/parameters` | 
@@ -388,7 +389,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fe4489ef3c8> 
+### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58> 
 
 ### Example
 
@@ -596,7 +597,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fe4489ef3c8> 
+### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58> 
 
 ### Example
 
@@ -1146,7 +1147,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fe4489ef3c8> 
+### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58> 
 
 ### Example
 
@@ -1761,6 +1762,54 @@ Name | Type | Description  | Notes
 
 ***
 
+# **get_license**
+> License get_license()
+
+
+
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MainApi(api_client)
+    
+    try:
+        api_response = api_instance.get_license()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MainApi->get_license: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameters.
+
+### Return type
+
+[**License**](License.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
 # **get_node_ipmi_sensors**
 > Sensors get_node_ipmi_sensors(id)
 
@@ -2214,7 +2263,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fe4489ef3c8> 
+### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58> 
 
 ### Example
 
@@ -2478,7 +2527,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fe4489ef3c8> 
+### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58> 
 
 ### Example
 
@@ -3216,7 +3265,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7fe4489ef3c8> 
+### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58> 
 
 ### Example
 

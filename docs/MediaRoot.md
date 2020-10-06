@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] [readonly] 
-**custom_fields** | [**list[CustomField]**](CustomField.md) |  | 
+**custom_fields** | [**list[CustomField]**](CustomField.md) |  | [optional] 
 **workflow** | **dict(str, str)** |  | [optional] 
 **ai_config** | **dict(str, str)** |  | [optional] 
 **veritone_config** | **dict(str, str)** |  | [optional] 
@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 **veritone_proxy_profile** | **int** |  | [optional] 
 **ai_connection** | **int** |  | [optional] 
 **ai_proxy_profile** | **int** |  | [optional] 
-**custom_field_definitions** | **list[int]** |  | 
+**custom_field_definitions** | **list[int]** |  | [optional] 
 **proxy_profiles** | **list[int]** |  | [optional] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)

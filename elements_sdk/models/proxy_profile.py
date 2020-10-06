@@ -40,6 +40,7 @@ class ProxyProfile(object):
         'audio_bitrate': 'int',
         'variants_limit': 'int',
         'enable_realtime_read': 'bool',
+        'enable_dense_filmstrip': 'bool',
         'enable_watermark': 'bool',
         'watermark_image': 'str',
         'watermark_position': 'int',
@@ -58,6 +59,7 @@ class ProxyProfile(object):
         'audio_bitrate': 'audio_bitrate',
         'variants_limit': 'variants_limit',
         'enable_realtime_read': 'enable_realtime_read',
+        'enable_dense_filmstrip': 'enable_dense_filmstrip',
         'enable_watermark': 'enable_watermark',
         'watermark_image': 'watermark_image',
         'watermark_position': 'watermark_position',
@@ -66,7 +68,7 @@ class ProxyProfile(object):
         'lut': 'lut'
     }
 
-    def __init__(self, id=None, name=None, resolution=None, rate_control=None, crf=None, bitrate=None, audio_bitrate=None, variants_limit=None, enable_realtime_read=None, enable_watermark=None, watermark_image=None, watermark_position=None, watermark_opacity=None, watermark_size=None, lut=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, resolution=None, rate_control=None, crf=None, bitrate=None, audio_bitrate=None, variants_limit=None, enable_realtime_read=None, enable_dense_filmstrip=None, enable_watermark=None, watermark_image=None, watermark_position=None, watermark_opacity=None, watermark_size=None, lut=None, local_vars_configuration=None):  # noqa: E501
         """ProxyProfile - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -81,6 +83,7 @@ class ProxyProfile(object):
         self._audio_bitrate = None
         self._variants_limit = None
         self._enable_realtime_read = None
+        self._enable_dense_filmstrip = None
         self._enable_watermark = None
         self._watermark_image = None
         self._watermark_position = None
@@ -103,6 +106,8 @@ class ProxyProfile(object):
             self.variants_limit = variants_limit
         if enable_realtime_read is not None:
             self.enable_realtime_read = enable_realtime_read
+        if enable_dense_filmstrip is not None:
+            self.enable_dense_filmstrip = enable_dense_filmstrip
         if enable_watermark is not None:
             self.enable_watermark = enable_watermark
         self.watermark_image = watermark_image
@@ -337,6 +342,27 @@ class ProxyProfile(object):
         """
 
         self._enable_realtime_read = enable_realtime_read
+
+    @property
+    def enable_dense_filmstrip(self):
+        """Gets the enable_dense_filmstrip of this ProxyProfile.  # noqa: E501
+
+
+        :return: The enable_dense_filmstrip of this ProxyProfile.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_dense_filmstrip
+
+    @enable_dense_filmstrip.setter
+    def enable_dense_filmstrip(self, enable_dense_filmstrip):
+        """Sets the enable_dense_filmstrip of this ProxyProfile.
+
+
+        :param enable_dense_filmstrip: The enable_dense_filmstrip of this ProxyProfile.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_dense_filmstrip = enable_dense_filmstrip
 
     @property
     def enable_watermark(self):

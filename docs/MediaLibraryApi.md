@@ -1856,7 +1856,7 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_bundles_for_media_root**
-> list[MediaFileBundle] get_all_bundles_for_media_root(root, asset=asset, ordering=ordering, limit=limit, offset=offset)
+> list[MediaFileBundle] get_all_bundles_for_media_root(root, asset=asset, location=location, ordering=ordering, limit=limit, offset=offset)
 
 
 
@@ -1884,12 +1884,13 @@ with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     root = 'root_example' # str | 
 asset = 'asset_example' # str | Filter the returned list by `asset`. (optional)
+location = 'location_example' # str | Filter the returned list by `location`. (optional)
 ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
 limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
 
     try:
-        api_response = api_instance.get_all_bundles_for_media_root(root, asset=asset, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_bundles_for_media_root(root, asset=asset, location=location, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_bundles_for_media_root: %s\n" % e)
@@ -1902,6 +1903,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **root** | **str**|  | 
  **asset** | **str**| Filter the returned list by &#x60;asset&#x60;. | [optional] 
+ **location** | **str**| Filter the returned list by &#x60;location&#x60;. | [optional] 
  **ordering** | **str**| Which field to use when ordering the results. | [optional] 
  **limit** | **int**| Number of results to return per page. | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
@@ -2154,7 +2156,7 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_media_file_bundles**
-> list[MediaFileBundle] get_all_media_file_bundles(asset=asset, ordering=ordering, limit=limit, offset=offset)
+> list[MediaFileBundle] get_all_media_file_bundles(asset=asset, location=location, ordering=ordering, limit=limit, offset=offset)
 
 
 
@@ -2181,12 +2183,13 @@ with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     asset = 'asset_example' # str | Filter the returned list by `asset`. (optional)
+location = 'location_example' # str | Filter the returned list by `location`. (optional)
 ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
 limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
 
     try:
-        api_response = api_instance.get_all_media_file_bundles(asset=asset, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_media_file_bundles(asset=asset, location=location, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_media_file_bundles: %s\n" % e)
@@ -2198,6 +2201,7 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asset** | **str**| Filter the returned list by &#x60;asset&#x60;. | [optional] 
+ **location** | **str**| Filter the returned list by &#x60;location&#x60;. | [optional] 
  **ordering** | **str**| Which field to use when ordering the results. | [optional] 
  **limit** | **int**| Number of results to return per page. | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 

@@ -3706,6 +3706,7 @@ class MediaLibraryApi(object):
         :param async_req bool: execute request asynchronously
         :param str root: (required)
         :param str asset: Filter the returned list by `asset`.
+        :param str location: Filter the returned list by `location`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -3735,6 +3736,7 @@ class MediaLibraryApi(object):
         :param async_req bool: execute request asynchronously
         :param str root: (required)
         :param str asset: Filter the returned list by `asset`.
+        :param str location: Filter the returned list by `location`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -3754,7 +3756,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['root', 'asset', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['root', 'asset', 'location', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3782,6 +3784,8 @@ class MediaLibraryApi(object):
         query_params = []
         if 'asset' in local_var_params and local_var_params['asset'] is not None:  # noqa: E501
             query_params.append(('asset', local_var_params['asset']))  # noqa: E501
+        if 'location' in local_var_params and local_var_params['location'] is not None:  # noqa: E501
+            query_params.append(('location', local_var_params['location']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -4305,6 +4309,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str asset: Filter the returned list by `asset`.
+        :param str location: Filter the returned list by `location`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -4333,6 +4338,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str asset: Filter the returned list by `asset`.
+        :param str location: Filter the returned list by `location`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -4352,7 +4358,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['asset', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['asset', 'location', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4374,6 +4380,8 @@ class MediaLibraryApi(object):
         query_params = []
         if 'asset' in local_var_params and local_var_params['asset'] is not None:  # noqa: E501
             query_params.append(('asset', local_var_params['asset']))  # noqa: E501
+        if 'location' in local_var_params and local_var_params['location'] is not None:  # noqa: E501
+            query_params.append(('location', local_var_params['location']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501

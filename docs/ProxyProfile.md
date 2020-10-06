@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **audio_bitrate** | **int** |  | [optional] 
 **variants_limit** | **int** |  | [optional] 
 **enable_realtime_read** | **bool** |  | [optional] 
+**enable_dense_filmstrip** | **bool** |  | [optional] 
 **enable_watermark** | **bool** |  | [optional] 
 **watermark_image** | **str** |  | [optional] 
 **watermark_position** | **int** |  | [optional] 

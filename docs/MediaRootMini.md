@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] [readonly] 
 **name** | **str** |  | 
 **full_path** | **str** |  | [optional] [readonly] 
-**custom_fields** | [**list[CustomField]**](CustomField.md) |  | 
-**custom_field_definitions** | **list[int]** |  | 
+**custom_fields** | [**list[CustomField]**](CustomField.md) |  | [optional] 
+**custom_field_definitions** | **list[int]** |  | [optional] 
 **volume** | [**VolumeMini**](VolumeMini.md) |  | 
 **path** | **str** |  | [optional] [readonly] 
 **prefetch_thumbnail_strips** | **bool** |  | [optional] 

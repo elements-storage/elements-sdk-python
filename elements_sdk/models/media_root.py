@@ -154,7 +154,8 @@ class MediaRoot(object):
 
         if id is not None:
             self.id = id
-        self.custom_fields = custom_fields
+        if custom_fields is not None:
+            self.custom_fields = custom_fields
         self.workflow = workflow
         self.ai_config = ai_config
         self.veritone_config = veritone_config
@@ -206,7 +207,8 @@ class MediaRoot(object):
         self.veritone_proxy_profile = veritone_proxy_profile
         self.ai_connection = ai_connection
         self.ai_proxy_profile = ai_proxy_profile
-        self.custom_field_definitions = custom_field_definitions
+        if custom_field_definitions is not None:
+            self.custom_field_definitions = custom_field_definitions
         if proxy_profiles is not None:
             self.proxy_profiles = proxy_profiles
 
@@ -249,8 +251,6 @@ class MediaRoot(object):
         :param custom_fields: The custom_fields of this MediaRoot.  # noqa: E501
         :type: list[CustomField]
         """
-        if self.local_vars_configuration.client_side_validation and custom_fields is None:  # noqa: E501
-            raise ValueError("Invalid value for `custom_fields`, must not be `None`")  # noqa: E501
 
         self._custom_fields = custom_fields
 
@@ -987,8 +987,6 @@ class MediaRoot(object):
         :param custom_field_definitions: The custom_field_definitions of this MediaRoot.  # noqa: E501
         :type: list[int]
         """
-        if self.local_vars_configuration.client_side_validation and custom_field_definitions is None:  # noqa: E501
-            raise ValueError("Invalid value for `custom_field_definitions`, must not be `None`")  # noqa: E501
 
         self._custom_field_definitions = custom_field_definitions
 
