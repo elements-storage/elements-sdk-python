@@ -1,1 +1,17 @@
 theme: jekyll-theme-minimal
+markdown: kramdown
+include:
+  - _assets
+  - README.md
+  - docs
+  - "docs/*"
+
+defaults:
+-
+  scope:
+    path: "" # an empty string here means all files in the project
+  values:
+    layout: "default"
+
+collections:
+  - docs
