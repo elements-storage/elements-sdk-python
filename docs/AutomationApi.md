@@ -44,9 +44,9 @@ Method | HTTP request | Description
 
 # **abort_task**
 
-    object abort_task(id, data)
+    def abort_task(id, data) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:manage 
 
@@ -99,9 +99,9 @@ Name | Type | Description  | Notes
 
 # **create_job**
 
-    Job create_job(data)
+    def create_job(data) -> Job 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
@@ -152,9 +152,9 @@ Name | Type | Description  | Notes
 
 # **create_schedule**
 
-    Schedule create_schedule(data)
+    def create_schedule(data) -> Schedule 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
@@ -205,9 +205,9 @@ Name | Type | Description  | Notes
 
 # **create_subtask**
 
-    Subtask create_subtask(data)
+    def create_subtask(data) -> Subtask 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
@@ -258,9 +258,9 @@ Name | Type | Description  | Notes
 
 # **delete_job**
 
-    object delete_job(id)
+    def delete_job(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
@@ -311,9 +311,9 @@ Name | Type | Description  | Notes
 
 # **delete_schedule**
 
-    object delete_schedule(id)
+    def delete_schedule(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
@@ -364,9 +364,9 @@ Name | Type | Description  | Notes
 
 # **delete_subtask**
 
-    object delete_subtask(id)
+    def delete_subtask(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
@@ -417,9 +417,9 @@ Name | Type | Description  | Notes
 
 # **delete_task**
 
-    object delete_task(id)
+    def delete_task(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
@@ -470,9 +470,9 @@ Name | Type | Description  | Notes
 
 # **download_all_task_logs**
 
-    object download_all_task_logs(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, ordering=ordering, limit=limit, offset=offset)
+    def download_all_task_logs(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, ordering=ordering, limit=limit, offset=offset) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:view 
 
@@ -541,9 +541,9 @@ Name | Type | Description  | Notes
 
 # **download_task_log**
 
-    object download_task_log(id)
+    def download_task_log(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:view 
 
@@ -594,9 +594,9 @@ Name | Type | Description  | Notes
 
 # **get_all_jobs**
 
-    list[Job] get_all_jobs(special_type=special_type, special_type__isnull=special_type__isnull, ordering=ordering, limit=limit, offset=offset)
+    def get_all_jobs(special_type=special_type, special_type__isnull=special_type__isnull, ordering=ordering, limit=limit, offset=offset) -> list[Job] 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
@@ -655,9 +655,9 @@ Name | Type | Description  | Notes
 
 # **get_all_schedules**
 
-    list[Schedule] get_all_schedules(job=job, ordering=ordering, limit=limit, offset=offset)
+    def get_all_schedules(job=job, ordering=ordering, limit=limit, offset=offset) -> list[Schedule] 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
@@ -714,9 +714,9 @@ Name | Type | Description  | Notes
 
 # **get_all_subtasks**
 
-    list[Subtask] get_all_subtasks(parent=parent, ordering=ordering, limit=limit, offset=offset)
+    def get_all_subtasks(parent=parent, ordering=ordering, limit=limit, offset=offset) -> list[Subtask] 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
@@ -773,9 +773,9 @@ Name | Type | Description  | Notes
 
 # **get_all_tasks**
 
-    list[TaskInfo] get_all_tasks(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, ordering=ordering, limit=limit, offset=offset)
+    def get_all_tasks(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, ordering=ordering, limit=limit, offset=offset) -> list[TaskInfo] 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
@@ -844,9 +844,9 @@ Name | Type | Description  | Notes
 
 # **get_finished_tasks**
 
-    list[TaskInfo] get_finished_tasks(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, ordering=ordering, limit=limit, offset=offset)
+    def get_finished_tasks(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, ordering=ordering, limit=limit, offset=offset) -> list[TaskInfo] 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
@@ -915,9 +915,9 @@ Name | Type | Description  | Notes
 
 # **get_job**
 
-    Job get_job(id)
+    def get_job(id) -> Job 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
@@ -968,9 +968,9 @@ Name | Type | Description  | Notes
 
 # **get_pending_tasks**
 
-    list[TaskInfo] get_pending_tasks(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, ordering=ordering, limit=limit, offset=offset)
+    def get_pending_tasks(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, ordering=ordering, limit=limit, offset=offset) -> list[TaskInfo] 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
@@ -1039,9 +1039,9 @@ Name | Type | Description  | Notes
 
 # **get_schedule**
 
-    Schedule get_schedule(id)
+    def get_schedule(id) -> Schedule 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
@@ -1092,9 +1092,9 @@ Name | Type | Description  | Notes
 
 # **get_subtask**
 
-    Subtask get_subtask(id)
+    def get_subtask(id) -> Subtask 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
@@ -1145,9 +1145,9 @@ Name | Type | Description  | Notes
 
 # **get_task**
 
-    TaskInfo get_task(id)
+    def get_task(id) -> TaskInfo 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
@@ -1198,9 +1198,9 @@ Name | Type | Description  | Notes
 
 # **get_task_log**
 
-    TaskLog get_task_log(id)
+    def get_task_log(id) -> TaskLog 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:view 
 
@@ -1251,9 +1251,9 @@ Name | Type | Description  | Notes
 
 # **get_tasks_summary**
 
-    TasksSummary get_tasks_summary(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, ordering=ordering, limit=limit, offset=offset)
+    def get_tasks_summary(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, ordering=ordering, limit=limit, offset=offset) -> TasksSummary 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
@@ -1322,9 +1322,9 @@ Name | Type | Description  | Notes
 
 # **kill_all_pending_tasks**
 
-    object kill_all_pending_tasks()
+    def kill_all_pending_tasks() -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
@@ -1371,9 +1371,9 @@ This endpoint does not need any parameters.
 
 # **kill_task**
 
-    object kill_task(id, data)
+    def kill_task(id, data) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:manage 
 
@@ -1426,9 +1426,9 @@ Name | Type | Description  | Notes
 
 # **patch_job**
 
-    Job patch_job(id, data)
+    def patch_job(id, data) -> Job 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
@@ -1481,9 +1481,9 @@ Name | Type | Description  | Notes
 
 # **patch_schedule**
 
-    Schedule patch_schedule(id, data)
+    def patch_schedule(id, data) -> Schedule 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
@@ -1536,9 +1536,9 @@ Name | Type | Description  | Notes
 
 # **patch_subtask**
 
-    Subtask patch_subtask(id, data)
+    def patch_subtask(id, data) -> Subtask 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
@@ -1591,9 +1591,9 @@ Name | Type | Description  | Notes
 
 # **restart_task**
 
-    TaskInfo restart_task(id, data)
+    def restart_task(id, data) -> TaskInfo 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:manage 
 
@@ -1646,9 +1646,9 @@ Name | Type | Description  | Notes
 
 # **start_job**
 
-    list[TaskInfo] start_job(id, data)
+    def start_job(id, data) -> list[TaskInfo] 
 
-> 
+
 
 ### Example
 
@@ -1699,9 +1699,9 @@ Name | Type | Description  | Notes
 
 # **start_task**
 
-    TaskInfo start_task(data)
+    def start_task(data) -> TaskInfo 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:manage 
 
@@ -1752,9 +1752,9 @@ Name | Type | Description  | Notes
 
 # **update_job**
 
-    Job update_job(id, data)
+    def update_job(id, data) -> Job 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / tasks:manage (write) 
 
@@ -1807,9 +1807,9 @@ Name | Type | Description  | Notes
 
 # **update_schedule**
 
-    Schedule update_schedule(id, data)
+    def update_schedule(id, data) -> Schedule 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 
@@ -1862,9 +1862,9 @@ Name | Type | Description  | Notes
 
 # **update_subtask**
 
-    Subtask update_subtask(id, data)
+    def update_subtask(id, data) -> Subtask 
 
-> 
+
 
 ### Required permissions    * User account permission: tasks:view (read) / tasks:manage (write) 
 

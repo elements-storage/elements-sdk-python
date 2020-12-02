@@ -74,9 +74,9 @@ Method | HTTP request | Description
 
 # **apply_configuration**
 
-    object apply_configuration()
+    def apply_configuration() -> object 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -123,9 +123,9 @@ This endpoint does not need any parameters.
 
 # **check_chunk_uploaded**
 
-    object check_chunk_uploaded(upload_id=upload_id, chunk_number=chunk_number)
+    def check_chunk_uploaded(upload_id=upload_id, chunk_number=chunk_number) -> object 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -178,9 +178,9 @@ Name | Type | Description  | Notes
 
 # **check_stor_next_license**
 
-    list[StorNextLicenseCheckEndpointResponse] check_stor_next_license(data)
+    def check_stor_next_license(data) -> list[StorNextLicenseCheckEndpointResponse] 
 
-> 
+
 
 ### Required permissions    * User account permission: maintenance:view   * License component: stornext_mdc 
 
@@ -231,9 +231,9 @@ Name | Type | Description  | Notes
 
 # **create_group**
 
-    ElementsGroupDetail create_group(data)
+    def create_group(data) -> ElementsGroupDetail 
 
-> 
+
 
 ### Required permissions    * User account permission: users:view (read) / users:manage (write) 
 
@@ -284,9 +284,9 @@ Name | Type | Description  | Notes
 
 # **create_home_workspace**
 
-    Workspace create_home_workspace(id, data)
+    def create_home_workspace(id, data) -> Workspace 
 
-> 
+
 
 ### Required permissions    * User account permission: users:manage 
 
@@ -339,9 +339,9 @@ Name | Type | Description  | Notes
 
 # **create_user**
 
-    ElementsUserDetail create_user(data)
+    def create_user(data) -> ElementsUserDetail 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / users:manage (write) 
 
@@ -392,9 +392,9 @@ Name | Type | Description  | Notes
 
 # **create_workstation**
 
-    Workstation create_workstation(data)
+    def create_workstation(data) -> Workstation 
 
-> 
+
 
 ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write) 
 
@@ -445,9 +445,9 @@ Name | Type | Description  | Notes
 
 # **delete_group**
 
-    object delete_group(id)
+    def delete_group(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: users:view (read) / users:manage (write) 
 
@@ -498,9 +498,9 @@ Name | Type | Description  | Notes
 
 # **delete_home_workspace**
 
-    object delete_home_workspace(id)
+    def delete_home_workspace(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: users:manage 
 
@@ -551,9 +551,9 @@ Name | Type | Description  | Notes
 
 # **delete_user**
 
-    object delete_user(id)
+    def delete_user(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / users:manage (write) 
 
@@ -604,9 +604,9 @@ Name | Type | Description  | Notes
 
 # **delete_workstation**
 
-    object delete_workstation(id)
+    def delete_workstation(id) -> object 
 
-> 
+
 
 ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write) 
 
@@ -657,9 +657,9 @@ Name | Type | Description  | Notes
 
 # **disable_user_totp**
 
-    object disable_user_totp(id)
+    def disable_user_totp(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: users:manage 
 
@@ -710,9 +710,9 @@ Name | Type | Description  | Notes
 
 # **enable_user_totp**
 
-    object enable_user_totp(id, data)
+    def enable_user_totp(id, data) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: users:manage 
 
@@ -765,9 +765,9 @@ Name | Type | Description  | Notes
 
 # **finish_upload**
 
-    object finish_upload(data)
+    def finish_upload(data) -> object 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -818,9 +818,9 @@ Name | Type | Description  | Notes
 
 # **fix_ldap_group_memberships**
 
-    object fix_ldap_group_memberships(id)
+    def fix_ldap_group_memberships(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: users:manage 
 
@@ -871,9 +871,9 @@ Name | Type | Description  | Notes
 
 # **get_all_downloads**
 
-    list[Download] get_all_downloads(ordering=ordering, limit=limit, offset=offset)
+    def get_all_downloads(ordering=ordering, limit=limit, offset=offset) -> list[Download] 
 
-> 
+
 
 ### Required permissions    * User account permission: downloads:view 
 
@@ -928,9 +928,9 @@ Name | Type | Description  | Notes
 
 # **get_all_groups**
 
-    list[ElementsGroup] get_all_groups(ordering=ordering, limit=limit, offset=offset)
+    def get_all_groups(ordering=ordering, limit=limit, offset=offset) -> list[ElementsGroup] 
 
-> 
+
 
 ### Required permissions    * User account permission: users:view (read) / users:manage (write) 
 
@@ -985,9 +985,9 @@ Name | Type | Description  | Notes
 
 # **get_all_ldap_servers**
 
-    list[LDAPServer] get_all_ldap_servers(ordering=ordering, limit=limit, offset=offset)
+    def get_all_ldap_servers(ordering=ordering, limit=limit, offset=offset) -> list[LDAPServer] 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -1042,9 +1042,9 @@ Name | Type | Description  | Notes
 
 # **get_all_storage_nodes**
 
-    list[StorageNode] get_all_storage_nodes(ordering=ordering, limit=limit, offset=offset)
+    def get_all_storage_nodes(ordering=ordering, limit=limit, offset=offset) -> list[StorageNode] 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -1099,9 +1099,9 @@ Name | Type | Description  | Notes
 
 # **get_all_users**
 
-    list[ElementsUser] get_all_users(username=username, home=home, ordering=ordering, limit=limit, offset=offset, include_allowed_fs_paths=include_allowed_fs_paths, include_client_sessions=include_client_sessions)
+    def get_all_users(username=username, home=home, ordering=ordering, limit=limit, offset=offset, include_allowed_fs_paths=include_allowed_fs_paths, include_client_sessions=include_client_sessions) -> list[ElementsUser] 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / users:manage (write) 
 
@@ -1164,9 +1164,9 @@ Name | Type | Description  | Notes
 
 # **get_all_workstations**
 
-    list[Workstation] get_all_workstations(ordering=ordering, limit=limit, offset=offset)
+    def get_all_workstations(ordering=ordering, limit=limit, offset=offset) -> list[Workstation] 
 
-> 
+
 
 ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write) 
 
@@ -1221,9 +1221,9 @@ Name | Type | Description  | Notes
 
 # **get_client_download_file**
 
-    object get_client_download_file(file)
+    def get_client_download_file(file) -> object 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -1274,9 +1274,9 @@ Name | Type | Description  | Notes
 
 # **get_client_downloads**
 
-    list[ClientsEndpointResponse] get_client_downloads()
+    def get_client_downloads() -> list[ClientsEndpointResponse] 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -1323,9 +1323,9 @@ This endpoint does not need any parameters.
 
 # **get_current_workstation**
 
-    Workstation get_current_workstation()
+    def get_current_workstation() -> Workstation 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -1372,9 +1372,9 @@ This endpoint does not need any parameters.
 
 # **get_download**
 
-    Download get_download(id)
+    def get_download(id) -> Download 
 
-> 
+
 
 ### Required permissions    * User account permission: downloads:view 
 
@@ -1425,9 +1425,9 @@ Name | Type | Description  | Notes
 
 # **get_download_file**
 
-    object get_download_file(id)
+    def get_download_file(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: downloads:view 
 
@@ -1478,9 +1478,9 @@ Name | Type | Description  | Notes
 
 # **get_download_icon**
 
-    object get_download_icon(id)
+    def get_download_icon(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: downloads:view 
 
@@ -1531,9 +1531,9 @@ Name | Type | Description  | Notes
 
 # **get_group**
 
-    ElementsGroupDetail get_group(id)
+    def get_group(id) -> ElementsGroupDetail 
 
-> 
+
 
 ### Required permissions    * User account permission: users:view (read) / users:manage (write) 
 
@@ -1584,9 +1584,9 @@ Name | Type | Description  | Notes
 
 # **get_home_workspace**
 
-    Workspace get_home_workspace(id)
+    def get_home_workspace(id) -> Workspace 
 
-> 
+
 
 ### Required permissions    * User account permission: users:manage 
 
@@ -1637,9 +1637,9 @@ Name | Type | Description  | Notes
 
 # **get_ldap_server**
 
-    LDAPServer get_ldap_server(id)
+    def get_ldap_server(id) -> LDAPServer 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -1690,9 +1690,9 @@ Name | Type | Description  | Notes
 
 # **get_ldap_server_groups**
 
-    LDAPServerGroups get_ldap_server_groups(id)
+    def get_ldap_server_groups(id) -> LDAPServerGroups 
 
-> 
+
 
 ### Required permissions    * User account permission: users:manage 
 
@@ -1743,9 +1743,9 @@ Name | Type | Description  | Notes
 
 # **get_ldap_server_users**
 
-    LDAPServerUsers get_ldap_server_users(id)
+    def get_ldap_server_users(id) -> LDAPServerUsers 
 
-> 
+
 
 ### Required permissions    * User account permission: users:manage 
 
@@ -1796,9 +1796,9 @@ Name | Type | Description  | Notes
 
 # **get_license**
 
-    License get_license()
+    def get_license() -> License 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -1845,9 +1845,9 @@ This endpoint does not need any parameters.
 
 # **get_node_ipmi_sensors**
 
-    Sensors get_node_ipmi_sensors(id)
+    def get_node_ipmi_sensors(id) -> Sensors 
 
-> 
+
 
 ### Required permissions    * User account permission: system:status:view 
 
@@ -1898,9 +1898,9 @@ Name | Type | Description  | Notes
 
 # **get_node_stats**
 
-    Stats get_node_stats(id)
+    def get_node_stats(id) -> Stats 
 
-> 
+
 
 ### Required permissions    * User account permission: system:status:view 
 
@@ -1951,9 +1951,9 @@ Name | Type | Description  | Notes
 
 # **get_parameters**
 
-    Parameters get_parameters()
+    def get_parameters() -> Parameters 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -2000,9 +2000,9 @@ This endpoint does not need any parameters.
 
 # **get_profile**
 
-    ElementsUserProfile get_profile()
+    def get_profile() -> ElementsUserProfile 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -2049,9 +2049,9 @@ This endpoint does not need any parameters.
 
 # **get_release_notes**
 
-    list[ReleaseNotesEndpointResponse] get_release_notes()
+    def get_release_notes() -> list[ReleaseNotesEndpointResponse] 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -2098,9 +2098,9 @@ This endpoint does not need any parameters.
 
 # **get_stor_next_license**
 
-    StorNextLicenseEndpointResponse get_stor_next_license()
+    def get_stor_next_license() -> StorNextLicenseEndpointResponse 
 
-> 
+
 
 ### Required permissions    * User account permission: maintenance:view   * License component: stornext_mdc 
 
@@ -2147,9 +2147,9 @@ This endpoint does not need any parameters.
 
 # **get_storage_node**
 
-    StorageNode get_storage_node(id)
+    def get_storage_node(id) -> StorageNode 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -2200,9 +2200,9 @@ Name | Type | Description  | Notes
 
 # **get_system_info**
 
-    SystemInfoEndpointResponse get_system_info()
+    def get_system_info() -> SystemInfoEndpointResponse 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -2249,9 +2249,9 @@ This endpoint does not need any parameters.
 
 # **get_user**
 
-    ElementsUserDetail get_user(id)
+    def get_user(id) -> ElementsUserDetail 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / users:manage (write) 
 
@@ -2302,9 +2302,9 @@ Name | Type | Description  | Notes
 
 # **get_workstation**
 
-    Workstation get_workstation(id)
+    def get_workstation(id) -> Workstation 
 
-> 
+
 
 ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write) 
 
@@ -2355,9 +2355,9 @@ Name | Type | Description  | Notes
 
 # **install_stor_next_license**
 
-    StorNextLicenseEndpointResponse install_stor_next_license(data)
+    def install_stor_next_license(data) -> StorNextLicenseEndpointResponse 
 
-> 
+
 
 ### Required permissions    * User account permission: maintenance:view   * License component: stornext_mdc 
 
@@ -2408,9 +2408,9 @@ Name | Type | Description  | Notes
 
 # **patch_current_workstation**
 
-    Workstation patch_current_workstation(data)
+    def patch_current_workstation(data) -> Workstation 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -2461,9 +2461,9 @@ Name | Type | Description  | Notes
 
 # **patch_group**
 
-    ElementsGroupDetail patch_group(id, data)
+    def patch_group(id, data) -> ElementsGroupDetail 
 
-> 
+
 
 ### Required permissions    * User account permission: users:view (read) / users:manage (write) 
 
@@ -2516,9 +2516,9 @@ Name | Type | Description  | Notes
 
 # **patch_user**
 
-    ElementsUserDetail patch_user(id, data)
+    def patch_user(id, data) -> ElementsUserDetail 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / users:manage (write) 
 
@@ -2571,9 +2571,9 @@ Name | Type | Description  | Notes
 
 # **patch_workstation**
 
-    Workstation patch_workstation(id, data)
+    def patch_workstation(id, data) -> Workstation 
 
-> 
+
 
 ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write) 
 
@@ -2626,9 +2626,9 @@ Name | Type | Description  | Notes
 
 # **preview_user**
 
-    UserPreviewResponse preview_user(data)
+    def preview_user(data) -> UserPreviewResponse 
 
-> 
+
 
 ### Example
 
@@ -2677,9 +2677,9 @@ Name | Type | Description  | Notes
 
 # **register_upload**
 
-    object register_upload(data)
+    def register_upload(data) -> object 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -2730,9 +2730,9 @@ Name | Type | Description  | Notes
 
 # **reset_user_password**
 
-    object reset_user_password(id, data)
+    def reset_user_password(id, data) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: users:manage 
 
@@ -2785,9 +2785,9 @@ Name | Type | Description  | Notes
 
 # **set_my_password**
 
-    object set_my_password(data)
+    def set_my_password(data) -> object 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -2838,9 +2838,9 @@ Name | Type | Description  | Notes
 
 # **set_user_password**
 
-    object set_user_password(id, data)
+    def set_user_password(id, data) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: users:manage 
 
@@ -2893,9 +2893,9 @@ Name | Type | Description  | Notes
 
 # **sync_ldap_group**
 
-    object sync_ldap_group(id)
+    def sync_ldap_group(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: users:manage 
 
@@ -2946,9 +2946,9 @@ Name | Type | Description  | Notes
 
 # **sync_ldap_users**
 
-    object sync_ldap_users(id)
+    def sync_ldap_users(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: users:manage 
 
@@ -2999,9 +2999,9 @@ Name | Type | Description  | Notes
 
 # **sync_user_totp**
 
-    SyncTOTP sync_user_totp(id, data)
+    def sync_user_totp(id, data) -> SyncTOTP 
 
-> 
+
 
 ### Required permissions    * User account permission: users:manage 
 
@@ -3054,9 +3054,9 @@ Name | Type | Description  | Notes
 
 # **update_current_workstation**
 
-    Workstation update_current_workstation(data)
+    def update_current_workstation(data) -> Workstation 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -3107,9 +3107,9 @@ Name | Type | Description  | Notes
 
 # **update_group**
 
-    ElementsGroupDetail update_group(id, data)
+    def update_group(id, data) -> ElementsGroupDetail 
 
-> 
+
 
 ### Required permissions    * User account permission: users:view (read) / users:manage (write) 
 
@@ -3162,9 +3162,9 @@ Name | Type | Description  | Notes
 
 # **update_parameters**
 
-    Parameters update_parameters(data)
+    def update_parameters(data) -> Parameters 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -3215,9 +3215,9 @@ Name | Type | Description  | Notes
 
 # **update_profile**
 
-    ElementsUserProfile update_profile(data)
+    def update_profile(data) -> ElementsUserProfile 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -3268,9 +3268,9 @@ Name | Type | Description  | Notes
 
 # **update_user**
 
-    ElementsUserDetail update_user(id, data)
+    def update_user(id, data) -> ElementsUserDetail 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / users:manage (write) 
 
@@ -3323,9 +3323,9 @@ Name | Type | Description  | Notes
 
 # **update_workstation**
 
-    Workstation update_workstation(id, data)
+    def update_workstation(id, data) -> Workstation 
 
-> 
+
 
 ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write) 
 
@@ -3378,9 +3378,9 @@ Name | Type | Description  | Notes
 
 # **upload_chunk**
 
-    object upload_chunk(data)
+    def upload_chunk(data) -> object 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 

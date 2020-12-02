@@ -15,9 +15,9 @@ Method | HTTP request | Description
 
 # **get_alert**
 
-    Alert get_alert(id)
+    def get_alert(id) -> Alert 
 
-> 
+
 
 ### Required permissions    * User account permission: system:status:view 
 
@@ -68,9 +68,9 @@ Name | Type | Description  | Notes
 
 # **get_all_alerts**
 
-    list[Alert] get_all_alerts(is_open=is_open, id=id, ordering=ordering, limit=limit, offset=offset)
+    def get_all_alerts(is_open=is_open, id=id, ordering=ordering, limit=limit, offset=offset) -> list[Alert] 
 
-> 
+
 
 ### Required permissions    * User account permission: system:status:view 
 
@@ -129,9 +129,9 @@ Name | Type | Description  | Notes
 
 # **patch_alert**
 
-    Alert patch_alert(id, data)
+    def patch_alert(id, data) -> Alert 
 
-> 
+
 
 ### Required permissions    * User account permission: system:status:view 
 
@@ -184,9 +184,9 @@ Name | Type | Description  | Notes
 
 # **update_alert**
 
-    Alert update_alert(id, data)
+    def update_alert(id, data) -> Alert 
 
-> 
+
 
 ### Required permissions    * User account permission: system:status:view 
 

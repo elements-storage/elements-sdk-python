@@ -25,9 +25,9 @@ Method | HTTP request | Description
 
 # **create_tape**
 
-    Tape create_tape(data)
+    def create_tape(data) -> Tape 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
@@ -78,9 +78,9 @@ Name | Type | Description  | Notes
 
 # **create_tape_group**
 
-    TapeGroup create_tape_group(data)
+    def create_tape_group(data) -> TapeGroup 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
@@ -131,9 +131,9 @@ Name | Type | Description  | Notes
 
 # **delete_tape**
 
-    object delete_tape(id)
+    def delete_tape(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
@@ -184,9 +184,9 @@ Name | Type | Description  | Notes
 
 # **delete_tape_group**
 
-    object delete_tape_group(id)
+    def delete_tape_group(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
@@ -237,9 +237,9 @@ Name | Type | Description  | Notes
 
 # **get_all_archived_file_entries**
 
-    list[TapeFile] get_all_archived_file_entries(id=id, is_dir=is_dir, name=name, fullpath=fullpath, parent=parent, ordering=ordering, limit=limit, offset=offset)
+    def get_all_archived_file_entries(id=id, is_dir=is_dir, name=name, fullpath=fullpath, parent=parent, ordering=ordering, limit=limit, offset=offset) -> list[TapeFile] 
 
-> 
+
 
 ### Required permissions    * User account permission: ltfs:search (read) / ltfs:manage (write)   * License component: ltfs 
 
@@ -304,9 +304,9 @@ Name | Type | Description  | Notes
 
 # **get_all_tape_groups**
 
-    list[TapeGroup] get_all_tape_groups(id=id, name=name, ordering=ordering, limit=limit, offset=offset)
+    def get_all_tape_groups(id=id, name=name, ordering=ordering, limit=limit, offset=offset) -> list[TapeGroup] 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
@@ -365,9 +365,9 @@ Name | Type | Description  | Notes
 
 # **get_all_tapes**
 
-    list[Tape] get_all_tapes(id=id, name=name, group=group, group__isnull=group__isnull, ordering=ordering, limit=limit, offset=offset)
+    def get_all_tapes(id=id, name=name, group=group, group__isnull=group__isnull, ordering=ordering, limit=limit, offset=offset) -> list[Tape] 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
@@ -430,9 +430,9 @@ Name | Type | Description  | Notes
 
 # **get_archived_file_entry**
 
-    TapeFile get_archived_file_entry(id)
+    def get_archived_file_entry(id) -> TapeFile 
 
-> 
+
 
 ### Required permissions    * User account permission: ltfs:search (read) / ltfs:manage (write)   * License component: ltfs 
 
@@ -483,9 +483,9 @@ Name | Type | Description  | Notes
 
 # **get_tape**
 
-    Tape get_tape(id)
+    def get_tape(id) -> Tape 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
@@ -536,9 +536,9 @@ Name | Type | Description  | Notes
 
 # **get_tape_group**
 
-    TapeGroup get_tape_group(id)
+    def get_tape_group(id) -> TapeGroup 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
@@ -589,9 +589,9 @@ Name | Type | Description  | Notes
 
 # **patch_tape**
 
-    Tape patch_tape(id, data)
+    def patch_tape(id, data) -> Tape 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
@@ -644,9 +644,9 @@ Name | Type | Description  | Notes
 
 # **patch_tape_group**
 
-    TapeGroup patch_tape_group(id, data)
+    def patch_tape_group(id, data) -> TapeGroup 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
@@ -699,9 +699,9 @@ Name | Type | Description  | Notes
 
 # **update_tape**
 
-    Tape update_tape(id, data)
+    def update_tape(id, data) -> Tape 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 
@@ -754,9 +754,9 @@ Name | Type | Description  | Notes
 
 # **update_tape_group**
 
-    TapeGroup update_tape_group(id, data)
+    def update_tape_group(id, data) -> TapeGroup 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
 

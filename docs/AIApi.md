@@ -47,9 +47,9 @@ Method | HTTP request | Description
 
 # **abort_ai_dataset_model_creation**
 
-    object abort_ai_dataset_model_creation(id)
+    def abort_ai_dataset_model_creation(id) -> object 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -100,9 +100,9 @@ Name | Type | Description  | Notes
 
 # **create_ai_annotation_track**
 
-    list[AIAnnotation] create_ai_annotation_track(data)
+    def create_ai_annotation_track(data) -> list[AIAnnotation] 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -153,9 +153,9 @@ Name | Type | Description  | Notes
 
 # **create_ai_category**
 
-    AICategoryDetail create_ai_category(data)
+    def create_ai_category(data) -> AICategoryDetail 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -206,9 +206,9 @@ Name | Type | Description  | Notes
 
 # **create_ai_dataset**
 
-    AIDatasetWithPreview create_ai_dataset(data)
+    def create_ai_dataset(data) -> AIDatasetWithPreview 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -259,9 +259,9 @@ Name | Type | Description  | Notes
 
 # **create_ai_dataset_model**
 
-    AIModel create_ai_dataset_model(data)
+    def create_ai_dataset_model(data) -> AIModel 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -312,9 +312,9 @@ Name | Type | Description  | Notes
 
 # **create_ai_metadata**
 
-    object create_ai_metadata(data)
+    def create_ai_metadata(data) -> object 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -365,9 +365,9 @@ Name | Type | Description  | Notes
 
 # **create_ai_model**
 
-    AIModel create_ai_model(data)
+    def create_ai_model(data) -> AIModel 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -418,9 +418,9 @@ Name | Type | Description  | Notes
 
 # **delete_ai_annotation**
 
-    object delete_ai_annotation(id)
+    def delete_ai_annotation(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -471,9 +471,9 @@ Name | Type | Description  | Notes
 
 # **delete_ai_annotation_track**
 
-    object delete_ai_annotation_track(id)
+    def delete_ai_annotation_track(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -524,9 +524,9 @@ Name | Type | Description  | Notes
 
 # **delete_ai_category**
 
-    object delete_ai_category(id)
+    def delete_ai_category(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -577,9 +577,9 @@ Name | Type | Description  | Notes
 
 # **delete_ai_dataset**
 
-    object delete_ai_dataset(id)
+    def delete_ai_dataset(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -630,9 +630,9 @@ Name | Type | Description  | Notes
 
 # **delete_ai_model**
 
-    object delete_ai_model(id)
+    def delete_ai_model(id) -> object 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -683,9 +683,9 @@ Name | Type | Description  | Notes
 
 # **get_ai_annotation**
 
-    AIAnnotation get_ai_annotation(id)
+    def get_ai_annotation(id) -> AIAnnotation 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -736,9 +736,9 @@ Name | Type | Description  | Notes
 
 # **get_ai_annotation_image**
 
-    object get_ai_annotation_image(id)
+    def get_ai_annotation_image(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -789,9 +789,9 @@ Name | Type | Description  | Notes
 
 # **get_ai_category**
 
-    AICategoryDetail get_ai_category(id)
+    def get_ai_category(id) -> AICategoryDetail 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -842,9 +842,9 @@ Name | Type | Description  | Notes
 
 # **get_ai_connection**
 
-    AIConnection get_ai_connection(id)
+    def get_ai_connection(id) -> AIConnection 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -895,9 +895,9 @@ Name | Type | Description  | Notes
 
 # **get_ai_dataset**
 
-    AIDatasetWithPreview get_ai_dataset(id)
+    def get_ai_dataset(id) -> AIDatasetWithPreview 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -948,9 +948,9 @@ Name | Type | Description  | Notes
 
 # **get_ai_dataset_model_stats**
 
-    AIModelStats get_ai_dataset_model_stats(id)
+    def get_ai_dataset_model_stats(id) -> AIModelStats 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -1001,9 +1001,9 @@ Name | Type | Description  | Notes
 
 # **get_ai_image**
 
-    AIImage get_ai_image(id)
+    def get_ai_image(id) -> AIImage 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -1054,9 +1054,9 @@ Name | Type | Description  | Notes
 
 # **get_ai_image_content**
 
-    object get_ai_image_content(id)
+    def get_ai_image_content(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -1107,9 +1107,9 @@ Name | Type | Description  | Notes
 
 # **get_ai_metadata**
 
-    AIMetadata get_ai_metadata(id)
+    def get_ai_metadata(id) -> AIMetadata 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -1160,9 +1160,9 @@ Name | Type | Description  | Notes
 
 # **get_ai_model**
 
-    AIModel get_ai_model(id)
+    def get_ai_model(id) -> AIModel 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -1213,9 +1213,9 @@ Name | Type | Description  | Notes
 
 # **get_all_ai_annotation_tracks**
 
-    list[AIAnnotation] get_all_ai_annotation_tracks(category=category, image__dataset=image__dataset, track=track, image=image, ordering=ordering, limit=limit, offset=offset)
+    def get_all_ai_annotation_tracks(category=category, image__dataset=image__dataset, track=track, image=image, ordering=ordering, limit=limit, offset=offset) -> list[AIAnnotation] 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -1278,9 +1278,9 @@ Name | Type | Description  | Notes
 
 # **get_all_ai_annotations**
 
-    list[AIAnnotation] get_all_ai_annotations(category=category, image__dataset=image__dataset, track=track, image=image, ordering=ordering, limit=limit, offset=offset)
+    def get_all_ai_annotations(category=category, image__dataset=image__dataset, track=track, image=image, ordering=ordering, limit=limit, offset=offset) -> list[AIAnnotation] 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -1343,9 +1343,9 @@ Name | Type | Description  | Notes
 
 # **get_all_ai_categories**
 
-    list[AICategory] get_all_ai_categories(dataset=dataset, name=name, ordering=ordering, limit=limit, offset=offset)
+    def get_all_ai_categories(dataset=dataset, name=name, ordering=ordering, limit=limit, offset=offset) -> list[AICategory] 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -1404,9 +1404,9 @@ Name | Type | Description  | Notes
 
 # **get_all_ai_connections**
 
-    list[AIConnection] get_all_ai_connections(ordering=ordering, limit=limit, offset=offset)
+    def get_all_ai_connections(ordering=ordering, limit=limit, offset=offset) -> list[AIConnection] 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -1461,9 +1461,9 @@ Name | Type | Description  | Notes
 
 # **get_all_ai_datasets**
 
-    list[AIDatasetWithPreview] get_all_ai_datasets(connection=connection, name=name, ordering=ordering, limit=limit, offset=offset)
+    def get_all_ai_datasets(connection=connection, name=name, ordering=ordering, limit=limit, offset=offset) -> list[AIDatasetWithPreview] 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -1522,9 +1522,9 @@ Name | Type | Description  | Notes
 
 # **get_all_ai_images**
 
-    list[AIImage] get_all_ai_images(dataset=dataset, ordering=ordering, limit=limit, offset=offset)
+    def get_all_ai_images(dataset=dataset, ordering=ordering, limit=limit, offset=offset) -> list[AIImage] 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -1581,9 +1581,9 @@ Name | Type | Description  | Notes
 
 # **get_all_ai_metadata**
 
-    list[AIMetadata] get_all_ai_metadata(asset=asset, id=id, ordering=ordering, limit=limit, offset=offset)
+    def get_all_ai_metadata(asset=asset, id=id, ordering=ordering, limit=limit, offset=offset) -> list[AIMetadata] 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -1642,9 +1642,9 @@ Name | Type | Description  | Notes
 
 # **get_all_ai_models**
 
-    list[AIModel] get_all_ai_models(dataset=dataset, ordering=ordering, limit=limit, offset=offset)
+    def get_all_ai_models(dataset=dataset, ordering=ordering, limit=limit, offset=offset) -> list[AIModel] 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -1701,9 +1701,9 @@ Name | Type | Description  | Notes
 
 # **patch_ai_category**
 
-    AICategoryDetail patch_ai_category(id, data)
+    def patch_ai_category(id, data) -> AICategoryDetail 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -1756,9 +1756,9 @@ Name | Type | Description  | Notes
 
 # **patch_ai_dataset**
 
-    AIDatasetWithPreview patch_ai_dataset(id, data)
+    def patch_ai_dataset(id, data) -> AIDatasetWithPreview 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -1811,9 +1811,9 @@ Name | Type | Description  | Notes
 
 # **patch_ai_model**
 
-    AIModel patch_ai_model(id, data)
+    def patch_ai_model(id, data) -> AIModel 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -1866,9 +1866,9 @@ Name | Type | Description  | Notes
 
 # **update_ai_category**
 
-    AICategoryDetail update_ai_category(id, data)
+    def update_ai_category(id, data) -> AICategoryDetail 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -1921,9 +1921,9 @@ Name | Type | Description  | Notes
 
 # **update_ai_dataset**
 
-    AIDatasetWithPreview update_ai_dataset(id, data)
+    def update_ai_dataset(id, data) -> AIDatasetWithPreview 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
 
@@ -1976,9 +1976,9 @@ Name | Type | Description  | Notes
 
 # **update_ai_model**
 
-    AIModel update_ai_model(id, data)
+    def update_ai_model(id, data) -> AIModel 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 

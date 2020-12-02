@@ -19,9 +19,9 @@ Method | HTTP request | Description
 
 # **check_auth_ticket**
 
-    ElementsUserDetail check_auth_ticket(data)
+    def check_auth_ticket(data) -> ElementsUserDetail 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -72,9 +72,9 @@ Name | Type | Description  | Notes
 
 # **create_auth_ticket**
 
-    Ticket create_auth_ticket()
+    def create_auth_ticket() -> Ticket 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -121,9 +121,9 @@ This endpoint does not need any parameters.
 
 # **delete_one_time_access_token**
 
-    object delete_one_time_access_token(id)
+    def delete_one_time_access_token(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / users:manage (write) 
 
@@ -174,9 +174,9 @@ Name | Type | Description  | Notes
 
 # **generate_password**
 
-    GeneratePasswordEndpointResponse generate_password()
+    def generate_password() -> GeneratePasswordEndpointResponse 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -223,9 +223,9 @@ This endpoint does not need any parameters.
 
 # **get_all_one_time_access_tokens**
 
-    list[OneTimeAccessToken] get_all_one_time_access_tokens(ordering=ordering, limit=limit, offset=offset)
+    def get_all_one_time_access_tokens(ordering=ordering, limit=limit, offset=offset) -> list[OneTimeAccessToken] 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / users:manage (write) 
 
@@ -280,9 +280,9 @@ Name | Type | Description  | Notes
 
 # **get_one_time_access_token**
 
-    OneTimeAccessToken get_one_time_access_token(id)
+    def get_one_time_access_token(id) -> OneTimeAccessToken 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / users:manage (write) 
 
@@ -333,9 +333,9 @@ Name | Type | Description  | Notes
 
 # **login**
 
-    AuthLoginEndpointResponse login(data)
+    def login(data) -> AuthLoginEndpointResponse 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -386,9 +386,9 @@ Name | Type | Description  | Notes
 
 # **logout**
 
-    object logout()
+    def logout() -> object 
 
-> 
+
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 

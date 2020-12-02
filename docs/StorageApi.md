@@ -57,9 +57,9 @@ Method | HTTP request | Description
 
 # **apply_workspace_affinity**
 
-    object apply_workspace_affinity(id)
+    def apply_workspace_affinity(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:manage 
 
@@ -110,9 +110,9 @@ Name | Type | Description  | Notes
 
 # **bookmark_workspace**
 
-    object bookmark_workspace(id)
+    def bookmark_workspace(id) -> object 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -163,9 +163,9 @@ Name | Type | Description  | Notes
 
 # **check_in_into_workspace**
 
-    object check_in_into_workspace(id, data)
+    def check_in_into_workspace(id, data) -> object 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -218,9 +218,9 @@ Name | Type | Description  | Notes
 
 # **check_out_of_workspace**
 
-    object check_out_of_workspace(id)
+    def check_out_of_workspace(id) -> object 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -271,9 +271,9 @@ Name | Type | Description  | Notes
 
 # **create_production**
 
-    Production create_production(data)
+    def create_production(data) -> Production 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
@@ -324,9 +324,9 @@ Name | Type | Description  | Notes
 
 # **create_share**
 
-    Share create_share(data)
+    def create_share(data) -> Share 
 
-> 
+
 
 ### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
 
@@ -377,9 +377,9 @@ Name | Type | Description  | Notes
 
 # **create_snapshot**
 
-    Snapshot create_snapshot(data)
+    def create_snapshot(data) -> Snapshot 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
@@ -430,9 +430,9 @@ Name | Type | Description  | Notes
 
 # **create_workspace**
 
-    Workspace create_workspace(data)
+    def create_workspace(data) -> Workspace 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / projects:manage (write) 
 
@@ -483,9 +483,9 @@ Name | Type | Description  | Notes
 
 # **create_workspace_permission**
 
-    WorkspacePermission create_workspace_permission(data)
+    def create_workspace_permission(data) -> WorkspacePermission 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
@@ -536,9 +536,9 @@ Name | Type | Description  | Notes
 
 # **delete_production**
 
-    object delete_production(id)
+    def delete_production(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
@@ -589,9 +589,9 @@ Name | Type | Description  | Notes
 
 # **delete_share**
 
-    object delete_share(id)
+    def delete_share(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
 
@@ -642,9 +642,9 @@ Name | Type | Description  | Notes
 
 # **delete_snapshot**
 
-    object delete_snapshot(id)
+    def delete_snapshot(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
@@ -695,9 +695,9 @@ Name | Type | Description  | Notes
 
 # **delete_workspace**
 
-    object delete_workspace(id)
+    def delete_workspace(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / projects:manage (write) 
 
@@ -748,9 +748,9 @@ Name | Type | Description  | Notes
 
 # **delete_workspace_permission**
 
-    object delete_workspace_permission(id)
+    def delete_workspace_permission(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
@@ -801,9 +801,9 @@ Name | Type | Description  | Notes
 
 # **get_all_deleted_workspaces**
 
-    list[DeletedWorkspace] get_all_deleted_workspaces(ordering=ordering, limit=limit, offset=offset)
+    def get_all_deleted_workspaces(ordering=ordering, limit=limit, offset=offset) -> list[DeletedWorkspace] 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view 
 
@@ -858,9 +858,9 @@ Name | Type | Description  | Notes
 
 # **get_all_productions**
 
-    list[Production] get_all_productions(active=active, name=name, ordering=ordering, limit=limit, offset=offset)
+    def get_all_productions(active=active, name=name, ordering=ordering, limit=limit, offset=offset) -> list[Production] 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
@@ -919,9 +919,9 @@ Name | Type | Description  | Notes
 
 # **get_all_shares**
 
-    list[Share] get_all_shares(ordering=ordering, limit=limit, offset=offset)
+    def get_all_shares(ordering=ordering, limit=limit, offset=offset) -> list[Share] 
 
-> 
+
 
 ### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
 
@@ -976,9 +976,9 @@ Name | Type | Description  | Notes
 
 # **get_all_snapshots**
 
-    list[Snapshot] get_all_snapshots(workspace=workspace, ordering=ordering, limit=limit, offset=offset)
+    def get_all_snapshots(workspace=workspace, ordering=ordering, limit=limit, offset=offset) -> list[Snapshot] 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
@@ -1035,9 +1035,9 @@ Name | Type | Description  | Notes
 
 # **get_all_volumes**
 
-    list[Volume] get_all_volumes(is_default=is_default, type=type, use_for_homes=use_for_homes, use_for_workspaces=use_for_workspaces, ordering=ordering, limit=limit, offset=offset)
+    def get_all_volumes(is_default=is_default, type=type, use_for_homes=use_for_homes, use_for_workspaces=use_for_workspaces, ordering=ordering, limit=limit, offset=offset) -> list[Volume] 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / system:admin-access (write) 
 
@@ -1100,9 +1100,9 @@ Name | Type | Description  | Notes
 
 # **get_all_workspace_permissions**
 
-    list[WorkspacePermission] get_all_workspace_permissions(workspace=workspace, user=user, group=group, ordering=ordering, limit=limit, offset=offset)
+    def get_all_workspace_permissions(workspace=workspace, user=user, group=group, ordering=ordering, limit=limit, offset=offset) -> list[WorkspacePermission] 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
@@ -1163,9 +1163,9 @@ Name | Type | Description  | Notes
 
 # **get_all_workspaces**
 
-    list[Workspace] get_all_workspaces(ordering=ordering, limit=limit, offset=offset, resolve_access_for=resolve_access_for, include_endpoints=include_endpoints, include_quotas=include_quotas)
+    def get_all_workspaces(ordering=ordering, limit=limit, offset=offset, resolve_access_for=resolve_access_for, include_endpoints=include_endpoints, include_quotas=include_quotas) -> list[Workspace] 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / projects:manage (write) 
 
@@ -1226,9 +1226,9 @@ Name | Type | Description  | Notes
 
 # **get_my_workspaces**
 
-    list[Workspace] get_my_workspaces(ordering=ordering, limit=limit, offset=offset)
+    def get_my_workspaces(ordering=ordering, limit=limit, offset=offset) -> list[Workspace] 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / projects:manage (write) 
 
@@ -1283,9 +1283,9 @@ Name | Type | Description  | Notes
 
 # **get_production**
 
-    Production get_production(id)
+    def get_production(id) -> Production 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
@@ -1336,9 +1336,9 @@ Name | Type | Description  | Notes
 
 # **get_share**
 
-    Share get_share(id)
+    def get_share(id) -> Share 
 
-> 
+
 
 ### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
 
@@ -1389,9 +1389,9 @@ Name | Type | Description  | Notes
 
 # **get_snapshot**
 
-    Snapshot get_snapshot(id)
+    def get_snapshot(id) -> Snapshot 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
@@ -1442,9 +1442,9 @@ Name | Type | Description  | Notes
 
 # **get_volume**
 
-    Volume get_volume(id)
+    def get_volume(id) -> Volume 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / system:admin-access (write) 
 
@@ -1495,9 +1495,9 @@ Name | Type | Description  | Notes
 
 # **get_volume_active_connections**
 
-    StorNextConnections get_volume_active_connections(id)
+    def get_volume_active_connections(id) -> StorNextConnections 
 
-> 
+
 
 ### Required permissions    * User account permission: system:status:view 
 
@@ -1548,9 +1548,9 @@ Name | Type | Description  | Notes
 
 # **get_volume_file_size_distribution**
 
-    FileSizeDistribution get_volume_file_size_distribution(id)
+    def get_volume_file_size_distribution(id) -> FileSizeDistribution 
 
-> 
+
 
 ### Required permissions    * User account permission: system:status:view 
 
@@ -1601,9 +1601,9 @@ Name | Type | Description  | Notes
 
 # **get_volume_stats**
 
-    VolumeStats get_volume_stats(id)
+    def get_volume_stats(id) -> VolumeStats 
 
-> 
+
 
 ### Required permissions    * User account permission: system:status:view 
 
@@ -1654,9 +1654,9 @@ Name | Type | Description  | Notes
 
 # **get_workspace**
 
-    Workspace get_workspace(id)
+    def get_workspace(id) -> Workspace 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / projects:manage (write) 
 
@@ -1707,9 +1707,9 @@ Name | Type | Description  | Notes
 
 # **get_workspace_permission**
 
-    WorkspacePermission get_workspace_permission(id)
+    def get_workspace_permission(id) -> WorkspacePermission 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
@@ -1760,9 +1760,9 @@ Name | Type | Description  | Notes
 
 # **move_workspace_to_production**
 
-    object move_workspace_to_production(id, data)
+    def move_workspace_to_production(id, data) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:manage 
 
@@ -1815,9 +1815,9 @@ Name | Type | Description  | Notes
 
 # **patch_production**
 
-    Production patch_production(id, data)
+    def patch_production(id, data) -> Production 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
@@ -1870,9 +1870,9 @@ Name | Type | Description  | Notes
 
 # **patch_share**
 
-    Share patch_share(id, data)
+    def patch_share(id, data) -> Share 
 
-> 
+
 
 ### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
 
@@ -1925,9 +1925,9 @@ Name | Type | Description  | Notes
 
 # **patch_snapshot**
 
-    Snapshot patch_snapshot(id, data)
+    def patch_snapshot(id, data) -> Snapshot 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
@@ -1980,9 +1980,9 @@ Name | Type | Description  | Notes
 
 # **patch_volume**
 
-    Volume patch_volume(id, data)
+    def patch_volume(id, data) -> Volume 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / system:admin-access (write) 
 
@@ -2035,9 +2035,9 @@ Name | Type | Description  | Notes
 
 # **patch_workspace**
 
-    Workspace patch_workspace(id, data)
+    def patch_workspace(id, data) -> Workspace 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / projects:manage (write) 
 
@@ -2090,9 +2090,9 @@ Name | Type | Description  | Notes
 
 # **patch_workspace_permission**
 
-    WorkspacePermission patch_workspace_permission(id, data)
+    def patch_workspace_permission(id, data) -> WorkspacePermission 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
@@ -2145,9 +2145,9 @@ Name | Type | Description  | Notes
 
 # **repair_workspace_permissions**
 
-    object repair_workspace_permissions(id)
+    def repair_workspace_permissions(id) -> object 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:manage 
 
@@ -2198,9 +2198,9 @@ Name | Type | Description  | Notes
 
 # **unbookmark_workspace**
 
-    object unbookmark_workspace(id)
+    def unbookmark_workspace(id) -> object 
 
-> 
+
 
 ### Required permissions    * Authenticated user 
 
@@ -2251,9 +2251,9 @@ Name | Type | Description  | Notes
 
 # **update_production**
 
-    Production update_production(id, data)
+    def update_production(id, data) -> Production 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
@@ -2306,9 +2306,9 @@ Name | Type | Description  | Notes
 
 # **update_share**
 
-    Share update_share(id, data)
+    def update_share(id, data) -> Share 
 
-> 
+
 
 ### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
 
@@ -2361,9 +2361,9 @@ Name | Type | Description  | Notes
 
 # **update_snapshot**
 
-    Snapshot update_snapshot(id, data)
+    def update_snapshot(id, data) -> Snapshot 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
@@ -2416,9 +2416,9 @@ Name | Type | Description  | Notes
 
 # **update_volume**
 
-    Volume update_volume(id, data)
+    def update_volume(id, data) -> Volume 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / system:admin-access (write) 
 
@@ -2471,9 +2471,9 @@ Name | Type | Description  | Notes
 
 # **update_workspace**
 
-    Workspace update_workspace(id, data)
+    def update_workspace(id, data) -> Workspace 
 
-> 
+
 
 ### Required permissions    * User account permission: None (read) / projects:manage (write) 
 
@@ -2526,9 +2526,9 @@ Name | Type | Description  | Notes
 
 # **update_workspace_permission**
 
-    WorkspacePermission update_workspace_permission(id, data)
+    def update_workspace_permission(id, data) -> WorkspacePermission 
 
-> 
+
 
 ### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
 
