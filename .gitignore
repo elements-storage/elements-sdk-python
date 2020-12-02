@@ -74,3 +74,4 @@ tox.ini
 .travis.yml
 test-requirements.txt
 _site
+.jekyll*

@@ -701,7 +701,7 @@ class MainApi(object):
     def create_workstation(self, data, **kwargs):  # noqa: E501
         """create_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_workstation(data, async_req=True)
@@ -726,7 +726,7 @@ class MainApi(object):
     def create_workstation_with_http_info(self, data, **kwargs):  # noqa: E501
         """create_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_workstation_with_http_info(data, async_req=True)
@@ -1137,7 +1137,7 @@ class MainApi(object):
     def delete_workstation(self, id, **kwargs):  # noqa: E501
         """delete_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_workstation(id, async_req=True)
@@ -1162,7 +1162,7 @@ class MainApi(object):
     def delete_workstation_with_http_info(self, id, **kwargs):  # noqa: E501
         """delete_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_workstation_with_http_info(id, async_req=True)
@@ -2269,7 +2269,7 @@ class MainApi(object):
     def get_all_workstations(self, **kwargs):  # noqa: E501
         """get_all_workstations  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_workstations(async_req=True)
@@ -2296,7 +2296,7 @@ class MainApi(object):
     def get_all_workstations_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_workstations  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_workstations_with_http_info(async_req=True)
@@ -4585,7 +4585,7 @@ class MainApi(object):
     def get_workstation(self, id, **kwargs):  # noqa: E501
         """get_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_workstation(id, async_req=True)
@@ -4610,7 +4610,7 @@ class MainApi(object):
     def get_workstation_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_workstation_with_http_info(id, async_req=True)
@@ -5157,7 +5157,7 @@ class MainApi(object):
     def patch_workstation(self, id, data, **kwargs):  # noqa: E501
         """patch_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_workstation(id, data, async_req=True)
@@ -5183,7 +5183,7 @@ class MainApi(object):
     def patch_workstation_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_workstation_with_http_info(id, data, async_req=True)
@@ -6763,7 +6763,7 @@ class MainApi(object):
     def update_workstation(self, id, data, **kwargs):  # noqa: E501
         """update_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_workstation(id, data, async_req=True)
@@ -6789,7 +6789,7 @@ class MainApi(object):
     def update_workstation_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * <apps.main.api.workstation.AuthorizedWorkstation object at 0x7ff16ab6ba58>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: workstations:view (read) / workstations:manage (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_workstation_with_http_info(id, data, async_req=True)

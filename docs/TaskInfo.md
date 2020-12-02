@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **display_name** | **str** |  | [optional] [readonly] 
 **kwargs** | **dict(str, str)** |  | 
 **subtask** | [**Subtask**](Subtask.md) |  | [optional] 
-**worker** | [**StorageNode**](StorageNode.md) |  | [optional] 
-**user** | [**ElementsUserMini**](ElementsUserMini.md) |  | 
-**workstation** | [**Workstation**](Workstation.md) |  | 
+**worker** | [**StorageNodeMini**](StorageNodeMini.md) |  | [optional] 
+**user** | [**ElementsUserMini**](ElementsUserMini.md) |  | [optional] 
+**workstation** | [**Workstation**](Workstation.md) |  | [optional] 
 **progress** | [**TaskProgress**](TaskProgress.md) |  | [optional] 
 **name** | **str** |  | [optional] 
 **task_name** | **str** |  | [optional] 

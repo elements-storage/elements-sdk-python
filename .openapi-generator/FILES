@@ -113,6 +113,7 @@ docs/StorNextLicenseCheckEndpointResponse.md
 docs/StorNextLicenseEndpointResponse.md
 docs/StorageApi.md
 docs/StorageNode.md
+docs/StorageNodeMini.md
 docs/StornextLicense.md
 docs/StornextManagerAttributes.md
 docs/Subclip.md
@@ -265,6 +266,7 @@ elements_sdk/models/stor_next_connections.py
 elements_sdk/models/stor_next_license_check_endpoint_response.py
 elements_sdk/models/stor_next_license_endpoint_response.py
 elements_sdk/models/storage_node.py
+elements_sdk/models/storage_node_mini.py
 elements_sdk/models/stornext_license.py
 elements_sdk/models/stornext_manager_attributes.py
 elements_sdk/models/subclip.py

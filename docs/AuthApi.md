@@ -18,9 +18,10 @@ Method | HTTP request | Description
 ***
 
 # **check_auth_ticket**
-> ElementsUser check_auth_ticket(data)
 
+    ElementsUserDetail check_auth_ticket(data)
 
+> 
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -62,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ElementsUser**](ElementsUser.md)
+[**ElementsUserDetail**](ElementsUserDetail.md)
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
@@ -70,9 +71,10 @@ Name | Type | Description  | Notes
 ***
 
 # **create_auth_ticket**
-> Ticket create_auth_ticket()
 
+    Ticket create_auth_ticket()
 
+> 
 
 ### Required permissions    * Authenticated user 
 
@@ -118,9 +120,10 @@ This endpoint does not need any parameters.
 ***
 
 # **delete_one_time_access_token**
-> object delete_one_time_access_token(id)
 
+    object delete_one_time_access_token(id)
 
+> 
 
 ### Required permissions    * User account permission: None (read) / users:manage (write) 
 
@@ -170,9 +173,10 @@ Name | Type | Description  | Notes
 ***
 
 # **generate_password**
-> GeneratePasswordEndpointResponse generate_password()
 
+    GeneratePasswordEndpointResponse generate_password()
 
+> 
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -218,9 +222,10 @@ This endpoint does not need any parameters.
 ***
 
 # **get_all_one_time_access_tokens**
-> list[OneTimeAccessToken] get_all_one_time_access_tokens(ordering=ordering, limit=limit, offset=offset)
 
+    list[OneTimeAccessToken] get_all_one_time_access_tokens(ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: None (read) / users:manage (write) 
 
@@ -274,9 +279,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_one_time_access_token**
-> OneTimeAccessToken get_one_time_access_token(id)
 
+    OneTimeAccessToken get_one_time_access_token(id)
 
+> 
 
 ### Required permissions    * User account permission: None (read) / users:manage (write) 
 
@@ -326,9 +332,10 @@ Name | Type | Description  | Notes
 ***
 
 # **login**
-> AuthLoginEndpointResponse login(data)
 
+    AuthLoginEndpointResponse login(data)
 
+> 
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -378,9 +385,10 @@ Name | Type | Description  | Notes
 ***
 
 # **logout**
-> object logout()
 
+    object logout()
 
+> 
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 

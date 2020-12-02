@@ -116,6 +116,7 @@ from elements_sdk.models.stor_next_connections import StorNextConnections
 from elements_sdk.models.stor_next_license_check_endpoint_response import StorNextLicenseCheckEndpointResponse
 from elements_sdk.models.stor_next_license_endpoint_response import StorNextLicenseEndpointResponse
 from elements_sdk.models.storage_node import StorageNode
+from elements_sdk.models.storage_node_mini import StorageNodeMini
 from elements_sdk.models.stornext_license import StornextLicense
 from elements_sdk.models.stornext_manager_attributes import StornextManagerAttributes
 from elements_sdk.models.subclip import Subclip

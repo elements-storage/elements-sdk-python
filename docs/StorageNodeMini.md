@@ -1,13 +1,13 @@
-# AuthLoginEndpointResponse
+# StorageNodeMini
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**reason** | **str** |  | [optional] 
-**detail** | **str** |  | [optional] 
-**redirect** | **str** |  | [optional] 
-**user** | [**ElementsUserDetail**](ElementsUserDetail.md) |  | [optional] 
+**id** | **int** |  | [optional] [readonly] 
+**name** | **str** |  | [optional] 
+**address** | **str** | For communication between nodes only | [optional] 
+**type** | **int** |  | [optional] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 

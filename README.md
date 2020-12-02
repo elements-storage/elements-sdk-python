@@ -2,7 +2,7 @@
 
 - API version: 2
 - Python 2.7 and 3.4+
-- Latest build: 3.0.0
+- Latest build: 3.0.1
 
 ## Installation & Usage
 
@@ -323,6 +323,7 @@ Class | Method | HTTP request | Description
 *StorageApi* | [**patch_production**](docs/StorageApi#patch_production) | **PATCH** `/api/2/productions/{id}` | 
 *StorageApi* | [**patch_share**](docs/StorageApi#patch_share) | **PATCH** `/api/2/shares/{id}` | 
 *StorageApi* | [**patch_snapshot**](docs/StorageApi#patch_snapshot) | **PATCH** `/api/2/snapshots/{id}` | 
+*StorageApi* | [**patch_volume**](docs/StorageApi#patch_volume) | **PATCH** `/api/2/volumes/{id}` | 
 *StorageApi* | [**patch_workspace**](docs/StorageApi#patch_workspace) | **PATCH** `/api/2/workspaces/{id}` | 
 *StorageApi* | [**patch_workspace_permission**](docs/StorageApi#patch_workspace_permission) | **PATCH** `/api/2/workspace-permissions/{id}` | 
 *StorageApi* | [**repair_workspace_permissions**](docs/StorageApi#repair_workspace_permissions) | **POST** `/api/2/workspaces/{id}/repair-permissions` | 
@@ -330,6 +331,7 @@ Class | Method | HTTP request | Description
 *StorageApi* | [**update_production**](docs/StorageApi#update_production) | **PUT** `/api/2/productions/{id}` | 
 *StorageApi* | [**update_share**](docs/StorageApi#update_share) | **PUT** `/api/2/shares/{id}` | 
 *StorageApi* | [**update_snapshot**](docs/StorageApi#update_snapshot) | **PUT** `/api/2/snapshots/{id}` | 
+*StorageApi* | [**update_volume**](docs/StorageApi#update_volume) | **PUT** `/api/2/volumes/{id}` | 
 *StorageApi* | [**update_workspace**](docs/StorageApi#update_workspace) | **PUT** `/api/2/workspaces/{id}` | 
 *StorageApi* | [**update_workspace_permission**](docs/StorageApi#update_workspace_permission) | **PUT** `/api/2/workspace-permissions/{id}` | 
 *TapeArchiveApi* | [**create_tape**](docs/TapeArchiveApi#create_tape) | **POST** `/api/2/archive/tape/tapes` | 
@@ -454,6 +456,7 @@ Class | Method | HTTP request | Description
  - [StorNextLicenseCheckEndpointResponse](docs/StorNextLicenseCheckEndpointResponse)
  - [StorNextLicenseEndpointResponse](docs/StorNextLicenseEndpointResponse)
  - [StorageNode](docs/StorageNode)
+ - [StorageNodeMini](docs/StorageNodeMini)
  - [StornextLicense](docs/StornextLicense)
  - [StornextManagerAttributes](docs/StornextManagerAttributes)
  - [Subclip](docs/Subclip)

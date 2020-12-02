@@ -35,7 +35,7 @@ class TaskInfo(object):
         'display_name': 'str',
         'kwargs': 'dict(str, str)',
         'subtask': 'Subtask',
-        'worker': 'StorageNode',
+        'worker': 'StorageNodeMini',
         'user': 'ElementsUserMini',
         'workstation': 'Workstation',
         'progress': 'TaskProgress',
@@ -110,10 +110,11 @@ class TaskInfo(object):
         self.kwargs = kwargs
         if subtask is not None:
             self.subtask = subtask
-        if worker is not None:
-            self.worker = worker
-        self.user = user
-        self.workstation = workstation
+        self.worker = worker
+        if user is not None:
+            self.user = user
+        if workstation is not None:
+            self.workstation = workstation
         if progress is not None:
             self.progress = progress
         self.name = name
@@ -232,7 +233,7 @@ class TaskInfo(object):
 
 
         :return: The worker of this TaskInfo.  # noqa: E501
-        :rtype: StorageNode
+        :rtype: StorageNodeMini
         """
         return self._worker
 
@@ -242,7 +243,7 @@ class TaskInfo(object):
 
 
         :param worker: The worker of this TaskInfo.  # noqa: E501
-        :type: StorageNode
+        :type: StorageNodeMini
         """
 
         self._worker = worker
@@ -265,8 +266,6 @@ class TaskInfo(object):
         :param user: The user of this TaskInfo.  # noqa: E501
         :type: ElementsUserMini
         """
-        if self.local_vars_configuration.client_side_validation and user is None:  # noqa: E501
-            raise ValueError("Invalid value for `user`, must not be `None`")  # noqa: E501
 
         self._user = user
 
@@ -288,8 +287,6 @@ class TaskInfo(object):
         :param workstation: The workstation of this TaskInfo.  # noqa: E501
         :type: Workstation
         """
-        if self.local_vars_configuration.client_side_validation and workstation is None:  # noqa: E501
-            raise ValueError("Invalid value for `workstation`, must not be `None`")  # noqa: E501
 
         self._workstation = workstation
 

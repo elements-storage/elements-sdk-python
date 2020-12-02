@@ -112,9 +112,10 @@ Method | HTTP request | Description
 ***
 
 # **clear_subclip_clipboard**
-> object clear_subclip_clipboard()
 
+    object clear_subclip_clipboard()
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -160,9 +161,10 @@ This endpoint does not need any parameters.
 ***
 
 # **combine_assets_into_set**
-> object combine_assets_into_set(data)
 
+    object combine_assets_into_set(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -212,9 +214,10 @@ Name | Type | Description  | Notes
 ***
 
 # **create_asset**
-> Asset create_asset(data)
 
+    Asset create_asset(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -264,9 +267,10 @@ Name | Type | Description  | Notes
 ***
 
 # **create_asset_rating**
-> AssetRating create_asset_rating(data)
 
+    AssetRating create_asset_rating(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -316,9 +320,10 @@ Name | Type | Description  | Notes
 ***
 
 # **create_comment**
-> Comment create_comment(data)
 
+    Comment create_comment(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -368,9 +373,10 @@ Name | Type | Description  | Notes
 ***
 
 # **create_custom_field**
-> CustomField create_custom_field(data)
 
+    CustomField create_custom_field(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -420,9 +426,10 @@ Name | Type | Description  | Notes
 ***
 
 # **create_marker**
-> Marker create_marker(data)
 
+    Marker create_marker(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -472,9 +479,10 @@ Name | Type | Description  | Notes
 ***
 
 # **create_media_file_template**
-> MediaFileTemplate create_media_file_template(data)
 
+    MediaFileTemplate create_media_file_template(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -524,9 +532,10 @@ Name | Type | Description  | Notes
 ***
 
 # **create_media_root**
-> MediaRoot create_media_root(data)
 
+    MediaRoot create_media_root(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -576,9 +585,10 @@ Name | Type | Description  | Notes
 ***
 
 # **create_media_root_permission**
-> MediaRootPermission create_media_root_permission(data)
 
+    MediaRootPermission create_media_root_permission(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -628,9 +638,10 @@ Name | Type | Description  | Notes
 ***
 
 # **create_media_tag**
-> Tag create_media_tag(data)
 
+    Tag create_media_tag(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -680,9 +691,10 @@ Name | Type | Description  | Notes
 ***
 
 # **create_proxy_profile**
-> ProxyProfile create_proxy_profile(data)
 
+    ProxyProfile create_proxy_profile(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -732,9 +744,10 @@ Name | Type | Description  | Notes
 ***
 
 # **create_subclip**
-> Subclip create_subclip(data)
 
+    Subclip create_subclip(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -784,9 +797,10 @@ Name | Type | Description  | Notes
 ***
 
 # **create_subclip_clipboard_entry**
-> SubclipClipboardEntry create_subclip_clipboard_entry(data)
 
+    SubclipClipboardEntry create_subclip_clipboard_entry(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -836,9 +850,10 @@ Name | Type | Description  | Notes
 ***
 
 # **delete_asset**
-> object delete_asset(id)
 
+    object delete_asset(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -888,9 +903,10 @@ Name | Type | Description  | Notes
 ***
 
 # **delete_asset_rating**
-> object delete_asset_rating(id)
 
+    object delete_asset_rating(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -940,9 +956,10 @@ Name | Type | Description  | Notes
 ***
 
 # **delete_comment**
-> object delete_comment(id)
 
+    object delete_comment(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -992,9 +1009,10 @@ Name | Type | Description  | Notes
 ***
 
 # **delete_custom_field**
-> object delete_custom_field(id)
 
+    object delete_custom_field(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -1044,9 +1062,10 @@ Name | Type | Description  | Notes
 ***
 
 # **delete_marker**
-> object delete_marker(id)
 
+    object delete_marker(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -1096,9 +1115,10 @@ Name | Type | Description  | Notes
 ***
 
 # **delete_media_file_template**
-> object delete_media_file_template(id)
 
+    object delete_media_file_template(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -1148,9 +1168,10 @@ Name | Type | Description  | Notes
 ***
 
 # **delete_media_root**
-> object delete_media_root(id)
 
+    object delete_media_root(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -1200,9 +1221,10 @@ Name | Type | Description  | Notes
 ***
 
 # **delete_media_root_permission**
-> object delete_media_root_permission(id)
 
+    object delete_media_root_permission(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -1252,9 +1274,10 @@ Name | Type | Description  | Notes
 ***
 
 # **delete_media_tag**
-> object delete_media_tag(id)
 
+    object delete_media_tag(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -1304,9 +1327,10 @@ Name | Type | Description  | Notes
 ***
 
 # **delete_media_update**
-> object delete_media_update(id)
 
+    object delete_media_update(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -1356,9 +1380,10 @@ Name | Type | Description  | Notes
 ***
 
 # **delete_proxy**
-> object delete_proxy(id)
 
+    object delete_proxy(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -1408,9 +1433,10 @@ Name | Type | Description  | Notes
 ***
 
 # **delete_proxy_profile**
-> object delete_proxy_profile(id)
 
+    object delete_proxy_profile(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -1460,9 +1486,10 @@ Name | Type | Description  | Notes
 ***
 
 # **delete_subclip**
-> object delete_subclip(id)
 
+    object delete_subclip(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -1512,9 +1539,10 @@ Name | Type | Description  | Notes
 ***
 
 # **delete_subclip_clipboard_entry**
-> object delete_subclip_clipboard_entry(id)
 
+    object delete_subclip_clipboard_entry(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -1564,9 +1592,10 @@ Name | Type | Description  | Notes
 ***
 
 # **discover_media**
-> object discover_media(data)
 
+    object discover_media(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access 
 
@@ -1616,9 +1645,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_asset_project_links**
-> list[AssetProjectLink] get_all_asset_project_links(asset=asset, project=project, ordering=ordering, limit=limit, offset=offset)
 
+    list[AssetProjectLink] get_all_asset_project_links(asset=asset, project=project, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -1676,9 +1706,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_asset_ratings**
-> list[AssetRating] get_all_asset_ratings(user=user, asset=asset, ordering=ordering, limit=limit, offset=offset)
 
+    list[AssetRating] get_all_asset_ratings(user=user, asset=asset, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -1736,9 +1767,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_asset_tape_backups**
-> list[AssetBackup] get_all_asset_tape_backups(asset=asset, ordering=ordering, limit=limit, offset=offset)
 
+    list[AssetBackup] get_all_asset_tape_backups(asset=asset, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media   * License component: ltfs 
 
@@ -1794,9 +1826,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_assets**
-> list[Asset] get_all_assets(sync_id=sync_id, display_name=display_name, set=set, ordering=ordering, limit=limit, offset=offset)
 
+    list[Asset] get_all_assets(sync_id=sync_id, display_name=display_name, set=set, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -1856,9 +1889,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_bundles_for_media_root**
-> list[MediaFileBundle] get_all_bundles_for_media_root(root, asset=asset, location=location, ordering=ordering, limit=limit, offset=offset)
 
+    list[MediaFileBundle] get_all_bundles_for_media_root(root, asset=asset, location=location, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -1918,9 +1952,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_click_links**
-> list[AssetCloudLink] get_all_click_links(asset=asset, connection=connection, ordering=ordering, limit=limit, offset=offset)
 
+    list[AssetCloudLink] get_all_click_links(asset=asset, connection=connection, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -1978,9 +2013,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_comments**
-> list[Comment] get_all_comments(asset=asset, root=root, user=user, ordering=ordering, limit=limit, offset=offset)
 
+    list[Comment] get_all_comments(asset=asset, root=root, user=user, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -2040,9 +2076,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_custom_fields**
-> list[CustomField] get_all_custom_fields(ordering=ordering, limit=limit, offset=offset)
 
+    list[CustomField] get_all_custom_fields(ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -2096,9 +2133,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_markers**
-> list[Marker] get_all_markers(asset=asset, user=user, ordering=ordering, limit=limit, offset=offset)
 
+    list[Marker] get_all_markers(asset=asset, user=user, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -2156,9 +2194,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_media_file_bundles**
-> list[MediaFileBundle] get_all_media_file_bundles(asset=asset, location=location, ordering=ordering, limit=limit, offset=offset)
 
+    list[MediaFileBundle] get_all_media_file_bundles(asset=asset, location=location, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -2216,9 +2255,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_media_file_templates**
-> list[MediaFileTemplate] get_all_media_file_templates(ordering=ordering, limit=limit, offset=offset)
 
+    list[MediaFileTemplate] get_all_media_file_templates(ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -2272,9 +2312,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_media_files**
-> list[MediaFile] get_all_media_files(bundle=bundle, parent=parent, path=path, name=name, is_dir=is_dir, is_showroom=is_showroom, present=present, volume=volume, ordering=ordering, limit=limit, offset=offset)
 
+    list[MediaFile] get_all_media_files(bundle=bundle, parent=parent, path=path, name=name, is_dir=is_dir, is_showroom=is_showroom, present=present, volume=volume, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -2344,9 +2385,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_media_files_for_bundles**
-> list[MediaFile] get_all_media_files_for_bundles(data)
 
+    list[MediaFile] get_all_media_files_for_bundles(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -2396,9 +2438,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_media_files_for_media_root**
-> list[MediaFile] get_all_media_files_for_media_root(root, bundle=bundle, parent=parent, path=path, name=name, is_dir=is_dir, is_showroom=is_showroom, present=present, volume=volume, ordering=ordering, limit=limit, offset=offset)
 
+    list[MediaFile] get_all_media_files_for_media_root(root, bundle=bundle, parent=parent, path=path, name=name, is_dir=is_dir, is_showroom=is_showroom, present=present, volume=volume, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -2470,9 +2513,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_media_root_permissions**
-> list[MediaRootPermission] get_all_media_root_permissions(root=root, id=id, ordering=ordering, limit=limit, offset=offset)
 
+    list[MediaRootPermission] get_all_media_root_permissions(root=root, id=id, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -2530,9 +2574,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_media_roots**
-> list[MediaRoot] get_all_media_roots(path=path, volume=volume, ordering=ordering, limit=limit, offset=offset)
 
+    list[MediaRoot] get_all_media_roots(path=path, volume=volume, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -2590,9 +2635,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_media_tags**
-> list[Tag] get_all_media_tags(name=name, name__icontains=name__icontains, root=root, root__isnull=root__isnull, ordering=ordering, limit=limit, offset=offset)
 
+    list[Tag] get_all_media_tags(name=name, name__icontains=name__icontains, root=root, root__isnull=root__isnull, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -2654,9 +2700,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_media_updates**
-> list[MediaUpdate] get_all_media_updates(ordering=ordering, limit=limit, offset=offset)
 
+    list[MediaUpdate] get_all_media_updates(ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -2710,9 +2757,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_proxies**
-> list[Proxy] get_all_proxies(asset=asset, profile=profile, generated=generated, failed=failed, variant_id=variant_id, ordering=ordering, limit=limit, offset=offset)
 
+    list[Proxy] get_all_proxies(asset=asset, profile=profile, generated=generated, failed=failed, variant_id=variant_id, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -2776,9 +2824,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_proxy_profiles**
-> list[ProxyProfile] get_all_proxy_profiles(name=name, ordering=ordering, limit=limit, offset=offset)
 
+    list[ProxyProfile] get_all_proxy_profiles(name=name, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -2834,9 +2883,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_subclip_clipboard_entries**
-> list[SubclipClipboardEntry] get_all_subclip_clipboard_entries(cut=cut, ordering=ordering, limit=limit, offset=offset)
 
+    list[SubclipClipboardEntry] get_all_subclip_clipboard_entries(cut=cut, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -2892,9 +2942,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_subclips**
-> list[Subclip] get_all_subclips(asset=asset, root=root, name=name, ordering=ordering, limit=limit, offset=offset)
 
+    list[Subclip] get_all_subclips(asset=asset, root=root, name=name, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -2954,9 +3005,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_all_transcoder_profiles**
-> list[TranscoderProfile] get_all_transcoder_profiles(ordering=ordering, limit=limit, offset=offset)
 
+    list[TranscoderProfile] get_all_transcoder_profiles(ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -3010,9 +3062,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_asset**
-> Asset get_asset(id)
 
+    Asset get_asset(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -3062,9 +3115,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_asset_rating**
-> AssetRating get_asset_rating(id)
 
+    AssetRating get_asset_rating(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -3114,9 +3168,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_comment**
-> Comment get_comment(id)
 
+    Comment get_comment(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -3166,9 +3221,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_custom_field**
-> CustomField get_custom_field(id)
 
+    CustomField get_custom_field(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -3218,9 +3274,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_latest_media_update**
-> MediaUpdate get_latest_media_update(ordering=ordering, limit=limit, offset=offset)
 
+    MediaUpdate get_latest_media_update(ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -3274,9 +3331,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_marker**
-> Marker get_marker(id)
 
+    Marker get_marker(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -3326,9 +3384,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_media_file**
-> MediaFile get_media_file(id)
 
+    MediaFile get_media_file(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -3378,9 +3437,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_media_file_bundle**
-> MediaFileBundle get_media_file_bundle(id)
 
+    MediaFileBundle get_media_file_bundle(id)
 
+> 
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -3430,9 +3490,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_media_file_contents**
-> MediaFileContents get_media_file_contents(id, exclude_deleted=exclude_deleted, exclude_unrecognized=exclude_unrecognized, offset=offset, limit=limit)
 
+    MediaFileContents get_media_file_contents(id, exclude_deleted=exclude_deleted, exclude_unrecognized=exclude_unrecognized, offset=offset, limit=limit)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -3490,9 +3551,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_media_file_template**
-> MediaFileTemplate get_media_file_template(id)
 
+    MediaFileTemplate get_media_file_template(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -3542,9 +3604,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_media_root**
-> MediaRoot get_media_root(id)
 
+    MediaRoot get_media_root(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -3594,9 +3657,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_media_root_permission**
-> MediaRootPermission get_media_root_permission(id)
 
+    MediaRootPermission get_media_root_permission(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -3646,9 +3710,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_media_tag**
-> Tag get_media_tag(id)
 
+    Tag get_media_tag(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -3698,9 +3763,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_multiple_assets**
-> list[Asset] get_multiple_assets(data)
 
+    list[Asset] get_multiple_assets(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -3750,9 +3816,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_multiple_bundles**
-> list[MediaFileBundle] get_multiple_bundles(data)
 
+    list[MediaFileBundle] get_multiple_bundles(data)
 
+> 
 
 ### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
 
@@ -3802,9 +3869,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_multiple_files**
-> list[MediaFile] get_multiple_files(data)
 
+    list[MediaFile] get_multiple_files(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -3854,9 +3922,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_my_media_root_permissions**
-> list[MediaRootPermission] get_my_media_root_permissions(root=root, id=id, ordering=ordering, limit=limit, offset=offset)
 
+    list[MediaRootPermission] get_my_media_root_permissions(root=root, id=id, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -3914,9 +3983,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_my_resolved_media_root_permissions**
-> list[MediaRootPermission] get_my_resolved_media_root_permissions(root=root, id=id, ordering=ordering, limit=limit, offset=offset)
 
+    list[MediaRootPermission] get_my_resolved_media_root_permissions(root=root, id=id, ordering=ordering, limit=limit, offset=offset)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -3974,9 +4044,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_proxy**
-> Proxy get_proxy(id)
 
+    Proxy get_proxy(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -4026,9 +4097,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_proxy_profile**
-> ProxyProfile get_proxy_profile(id)
 
+    ProxyProfile get_proxy_profile(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -4078,9 +4150,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_proxy_profile_proxy_count**
-> ProxyCount get_proxy_profile_proxy_count(id)
 
+    ProxyCount get_proxy_profile_proxy_count(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -4130,9 +4203,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_subclip**
-> Subclip get_subclip(id)
 
+    Subclip get_subclip(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -4182,9 +4256,10 @@ Name | Type | Description  | Notes
 ***
 
 # **get_transcoder_profile**
-> TranscoderProfile get_transcoder_profile(id)
 
+    TranscoderProfile get_transcoder_profile(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -4234,9 +4309,10 @@ Name | Type | Description  | Notes
 ***
 
 # **patch_asset**
-> Asset patch_asset(id, data)
 
+    Asset patch_asset(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -4288,9 +4364,10 @@ Name | Type | Description  | Notes
 ***
 
 # **patch_asset_rating**
-> AssetRating patch_asset_rating(id, data)
 
+    AssetRating patch_asset_rating(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -4342,9 +4419,10 @@ Name | Type | Description  | Notes
 ***
 
 # **patch_comment**
-> Comment patch_comment(id, data)
 
+    Comment patch_comment(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -4396,9 +4474,10 @@ Name | Type | Description  | Notes
 ***
 
 # **patch_custom_field**
-> CustomField patch_custom_field(id, data)
 
+    CustomField patch_custom_field(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -4450,9 +4529,10 @@ Name | Type | Description  | Notes
 ***
 
 # **patch_marker**
-> Marker patch_marker(id, data)
 
+    Marker patch_marker(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -4504,9 +4584,10 @@ Name | Type | Description  | Notes
 ***
 
 # **patch_media_file**
-> MediaFile patch_media_file(id, data)
 
+    MediaFile patch_media_file(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -4558,9 +4639,10 @@ Name | Type | Description  | Notes
 ***
 
 # **patch_media_file_template**
-> MediaFileTemplate patch_media_file_template(id, data)
 
+    MediaFileTemplate patch_media_file_template(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -4612,9 +4694,10 @@ Name | Type | Description  | Notes
 ***
 
 # **patch_media_root**
-> MediaRoot patch_media_root(id, data)
 
+    MediaRoot patch_media_root(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -4666,9 +4749,10 @@ Name | Type | Description  | Notes
 ***
 
 # **patch_media_root_permission**
-> MediaRootPermission patch_media_root_permission(id, data)
 
+    MediaRootPermission patch_media_root_permission(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -4720,9 +4804,10 @@ Name | Type | Description  | Notes
 ***
 
 # **patch_media_tag**
-> Tag patch_media_tag(id, data)
 
+    Tag patch_media_tag(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -4774,9 +4859,10 @@ Name | Type | Description  | Notes
 ***
 
 # **patch_proxy_profile**
-> ProxyProfile patch_proxy_profile(id, data)
 
+    ProxyProfile patch_proxy_profile(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -4828,9 +4914,10 @@ Name | Type | Description  | Notes
 ***
 
 # **patch_subclip**
-> Subclip patch_subclip(id, data)
 
+    Subclip patch_subclip(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -4882,9 +4969,10 @@ Name | Type | Description  | Notes
 ***
 
 # **request_media_scan**
-> object request_media_scan(data)
 
+    object request_media_scan(data)
 
+> 
 
 ### Required permissions    * User account permission: media:access 
 
@@ -4934,9 +5022,10 @@ Name | Type | Description  | Notes
 ***
 
 # **resolve_comment**
-> Comment resolve_comment(id)
 
+    Comment resolve_comment(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -4986,9 +5075,10 @@ Name | Type | Description  | Notes
 ***
 
 # **unresolve_comment**
-> Comment unresolve_comment(id)
 
+    Comment unresolve_comment(id)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -5038,9 +5128,10 @@ Name | Type | Description  | Notes
 ***
 
 # **update_asset**
-> Asset update_asset(id, data)
 
+    Asset update_asset(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -5092,9 +5183,10 @@ Name | Type | Description  | Notes
 ***
 
 # **update_asset_rating**
-> AssetRating update_asset_rating(id, data)
 
+    AssetRating update_asset_rating(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -5146,9 +5238,10 @@ Name | Type | Description  | Notes
 ***
 
 # **update_comment**
-> Comment update_comment(id, data)
 
+    Comment update_comment(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -5200,9 +5293,10 @@ Name | Type | Description  | Notes
 ***
 
 # **update_custom_field**
-> CustomField update_custom_field(id, data)
 
+    CustomField update_custom_field(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -5254,9 +5348,10 @@ Name | Type | Description  | Notes
 ***
 
 # **update_marker**
-> Marker update_marker(id, data)
 
+    Marker update_marker(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -5308,9 +5403,10 @@ Name | Type | Description  | Notes
 ***
 
 # **update_media_file**
-> MediaFile update_media_file(id, data)
 
+    MediaFile update_media_file(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -5362,9 +5458,10 @@ Name | Type | Description  | Notes
 ***
 
 # **update_media_file_template**
-> MediaFileTemplate update_media_file_template(id, data)
 
+    MediaFileTemplate update_media_file_template(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -5416,9 +5513,10 @@ Name | Type | Description  | Notes
 ***
 
 # **update_media_root**
-> MediaRoot update_media_root(id, data)
 
+    MediaRoot update_media_root(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -5470,9 +5568,10 @@ Name | Type | Description  | Notes
 ***
 
 # **update_media_root_permission**
-> MediaRootPermission update_media_root_permission(id, data)
 
+    MediaRootPermission update_media_root_permission(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -5524,9 +5623,10 @@ Name | Type | Description  | Notes
 ***
 
 # **update_media_tag**
-> Tag update_media_tag(id, data)
 
+    Tag update_media_tag(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 
@@ -5578,9 +5678,10 @@ Name | Type | Description  | Notes
 ***
 
 # **update_proxy_profile**
-> ProxyProfile update_proxy_profile(id, data)
 
+    ProxyProfile update_proxy_profile(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
 
@@ -5632,9 +5733,10 @@ Name | Type | Description  | Notes
 ***
 
 # **update_subclip**
-> Subclip update_subclip(id, data)
 
+    Subclip update_subclip(id, data)
 
+> 
 
 ### Required permissions    * User account permission: media:access   * License component: media 
 

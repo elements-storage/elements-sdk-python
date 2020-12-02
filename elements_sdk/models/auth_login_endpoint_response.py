@@ -34,7 +34,7 @@ class AuthLoginEndpointResponse(object):
         'reason': 'str',
         'detail': 'str',
         'redirect': 'str',
-        'user': 'ElementsUser'
+        'user': 'ElementsUserDetail'
     }
 
     attribute_map = {
@@ -143,7 +143,7 @@ class AuthLoginEndpointResponse(object):
 
 
         :return: The user of this AuthLoginEndpointResponse.  # noqa: E501
-        :rtype: ElementsUser
+        :rtype: ElementsUserDetail
         """
         return self._user
 
@@ -153,7 +153,7 @@ class AuthLoginEndpointResponse(object):
 
 
         :param user: The user of this AuthLoginEndpointResponse.  # noqa: E501
-        :type: ElementsUser
+        :type: ElementsUserDetail
         """
 
         self._user = user
