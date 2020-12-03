@@ -34,6 +34,7 @@ class Volume(object):
         'id': 'int',
         'name': 'str',
         'path': 'str',
+        'nodes': 'list[int]',
         'display_name': 'str',
         'visual_tag': 'str',
         'is_default': 'bool',
@@ -41,6 +42,7 @@ class Volume(object):
         'use_for_workspaces': 'bool',
         'type': 'str',
         'snm_enabled': 'bool',
+        'snfs_name': 'str',
         'simulated_quotas': 'bool',
         'fs_properties': 'FSProperties',
         'backend': 'Backend'
@@ -50,6 +52,7 @@ class Volume(object):
         'id': 'id',
         'name': 'name',
         'path': 'path',
+        'nodes': 'nodes',
         'display_name': 'display_name',
         'visual_tag': 'visual_tag',
         'is_default': 'is_default',
@@ -57,12 +60,13 @@ class Volume(object):
         'use_for_workspaces': 'use_for_workspaces',
         'type': 'type',
         'snm_enabled': 'snm_enabled',
+        'snfs_name': 'snfs_name',
         'simulated_quotas': 'simulated_quotas',
         'fs_properties': 'fs_properties',
         'backend': 'backend'
     }
 
-    def __init__(self, id=None, name=None, path=None, display_name=None, visual_tag=None, is_default=None, use_for_homes=None, use_for_workspaces=None, type=None, snm_enabled=None, simulated_quotas=None, fs_properties=None, backend=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, path=None, nodes=None, display_name=None, visual_tag=None, is_default=None, use_for_homes=None, use_for_workspaces=None, type=None, snm_enabled=None, snfs_name=None, simulated_quotas=None, fs_properties=None, backend=None, local_vars_configuration=None):  # noqa: E501
         """Volume - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -71,6 +75,7 @@ class Volume(object):
         self._id = None
         self._name = None
         self._path = None
+        self._nodes = None
         self._display_name = None
         self._visual_tag = None
         self._is_default = None
@@ -78,6 +83,7 @@ class Volume(object):
         self._use_for_workspaces = None
         self._type = None
         self._snm_enabled = None
+        self._snfs_name = None
         self._simulated_quotas = None
         self._fs_properties = None
         self._backend = None
@@ -89,6 +95,7 @@ class Volume(object):
             self.name = name
         if path is not None:
             self.path = path
+        self.nodes = nodes
         if display_name is not None:
             self.display_name = display_name
         self.visual_tag = visual_tag
@@ -102,6 +109,7 @@ class Volume(object):
             self.type = type
         if snm_enabled is not None:
             self.snm_enabled = snm_enabled
+        self.snfs_name = snfs_name
         if simulated_quotas is not None:
             self.simulated_quotas = simulated_quotas
         if fs_properties is not None:
@@ -177,6 +185,29 @@ class Volume(object):
         """
 
         self._path = path
+
+    @property
+    def nodes(self):
+        """Gets the nodes of this Volume.  # noqa: E501
+
+
+        :return: The nodes of this Volume.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._nodes
+
+    @nodes.setter
+    def nodes(self, nodes):
+        """Sets the nodes of this Volume.
+
+
+        :param nodes: The nodes of this Volume.  # noqa: E501
+        :type: list[int]
+        """
+        if self.local_vars_configuration.client_side_validation and nodes is None:  # noqa: E501
+            raise ValueError("Invalid value for `nodes`, must not be `None`")  # noqa: E501
+
+        self._nodes = nodes
 
     @property
     def display_name(self):
@@ -339,6 +370,30 @@ class Volume(object):
         """
 
         self._snm_enabled = snm_enabled
+
+    @property
+    def snfs_name(self):
+        """Gets the snfs_name of this Volume.  # noqa: E501
+
+
+        :return: The snfs_name of this Volume.  # noqa: E501
+        :rtype: str
+        """
+        return self._snfs_name
+
+    @snfs_name.setter
+    def snfs_name(self, snfs_name):
+        """Sets the snfs_name of this Volume.
+
+
+        :param snfs_name: The snfs_name of this Volume.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                snfs_name is not None and len(snfs_name) > 255):
+            raise ValueError("Invalid value for `snfs_name`, length must be less than or equal to `255`")  # noqa: E501
+
+        self._snfs_name = snfs_name
 
     @property
     def simulated_quotas(self):

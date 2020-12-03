@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] [readonly] 
 **name** | **str** |  | [optional] 
 **path** | **str** |  | [optional] [readonly] 
+**nodes** | **list[int]** |  | 
 **display_name** | **str** |  | [optional] 
 **visual_tag** | **str** |  | [optional] 
 **is_default** | **bool** |  | [optional] 
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 **use_for_workspaces** | **bool** |  | [optional] 
 **type** | **str** |  | [optional] 
 **snm_enabled** | **bool** |  | [optional] 
+**snfs_name** | **str** |  | [optional] 
 **simulated_quotas** | **bool** |  | [optional] 
 **fs_properties** | [**FSProperties**](FSProperties.md) |  | [optional] 
 **backend** | [**Backend**](Backend.md) |  | [optional] 
