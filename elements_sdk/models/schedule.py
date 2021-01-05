@@ -33,8 +33,10 @@ class Schedule(object):
     openapi_types = {
         'id': 'int',
         'variables': 'dict(str, str)',
+        'next_run': 'datetime',
         'type': 'int',
         'enabled': 'bool',
+        'last_run': 'datetime',
         'every': 'int',
         'period': 'str',
         'crontab_day_of_month': 'str',
@@ -48,8 +50,10 @@ class Schedule(object):
     attribute_map = {
         'id': 'id',
         'variables': 'variables',
+        'next_run': 'next_run',
         'type': 'type',
         'enabled': 'enabled',
+        'last_run': 'last_run',
         'every': 'every',
         'period': 'period',
         'crontab_day_of_month': 'crontab_day_of_month',
@@ -60,7 +64,7 @@ class Schedule(object):
         'job': 'job'
     }
 
-    def __init__(self, id=None, variables=None, type=None, enabled=None, every=None, period=None, crontab_day_of_month=None, crontab_day_of_week=None, crontab_hour=None, crontab_minute=None, crontab_month_of_year=None, job=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, variables=None, next_run=None, type=None, enabled=None, last_run=None, every=None, period=None, crontab_day_of_month=None, crontab_day_of_week=None, crontab_hour=None, crontab_minute=None, crontab_month_of_year=None, job=None, local_vars_configuration=None):  # noqa: E501
         """Schedule - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -68,8 +72,10 @@ class Schedule(object):
 
         self._id = None
         self._variables = None
+        self._next_run = None
         self._type = None
         self._enabled = None
+        self._last_run = None
         self._every = None
         self._period = None
         self._crontab_day_of_month = None
@@ -84,10 +90,13 @@ class Schedule(object):
             self.id = id
         if variables is not None:
             self.variables = variables
+        if next_run is not None:
+            self.next_run = next_run
         if type is not None:
             self.type = type
         if enabled is not None:
             self.enabled = enabled
+        self.last_run = last_run
         if every is not None:
             self.every = every
         if period is not None:
@@ -147,6 +156,27 @@ class Schedule(object):
         self._variables = variables
 
     @property
+    def next_run(self):
+        """Gets the next_run of this Schedule.  # noqa: E501
+
+
+        :return: The next_run of this Schedule.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._next_run
+
+    @next_run.setter
+    def next_run(self, next_run):
+        """Sets the next_run of this Schedule.
+
+
+        :param next_run: The next_run of this Schedule.  # noqa: E501
+        :type: datetime
+        """
+
+        self._next_run = next_run
+
+    @property
     def type(self):
         """Gets the type of this Schedule.  # noqa: E501
 
@@ -187,6 +217,27 @@ class Schedule(object):
         """
 
         self._enabled = enabled
+
+    @property
+    def last_run(self):
+        """Gets the last_run of this Schedule.  # noqa: E501
+
+
+        :return: The last_run of this Schedule.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._last_run
+
+    @last_run.setter
+    def last_run(self, last_run):
+        """Sets the last_run of this Schedule.
+
+
+        :param last_run: The last_run of this Schedule.  # noqa: E501
+        :type: datetime
+        """
+
+        self._last_run = last_run
 
     @property
     def every(self):

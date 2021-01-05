@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **modified_by** | [**ElementsUserMini**](ElementsUserMini.md) |  | [optional] 
 **full_path** | **str** |  | [optional] [readonly] 
 **search_highlight** | **str** |  | [optional] [readonly] 
+**is_shared** | **bool** |  | [optional] [readonly] 
 **name** | **str** |  | [optional] [readonly] 
 **path** | **str** |  | [optional] [readonly] 
 **pathhash** | **str** |  | [optional] [readonly] 

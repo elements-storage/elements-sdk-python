@@ -42,6 +42,7 @@ class MediaFile(object):
         'modified_by': 'ElementsUserMini',
         'full_path': 'str',
         'search_highlight': 'str',
+        'is_shared': 'bool',
         'name': 'str',
         'path': 'str',
         'pathhash': 'str',
@@ -69,6 +70,7 @@ class MediaFile(object):
         'modified_by': 'modified_by',
         'full_path': 'full_path',
         'search_highlight': 'search_highlight',
+        'is_shared': 'is_shared',
         'name': 'name',
         'path': 'path',
         'pathhash': 'pathhash',
@@ -84,7 +86,7 @@ class MediaFile(object):
         'bundle': 'bundle'
     }
 
-    def __init__(self, id=None, volume=None, info=None, custom_fields=None, resolved_permission=None, parent=None, root=None, effective_custom_fields=None, modified_by=None, full_path=None, search_highlight=None, name=None, path=None, pathhash=None, is_dir=None, total_files=None, size=None, mtime=None, present=None, needs_rescan=None, is_showroom=None, bundle_index=None, modified=None, bundle=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, volume=None, info=None, custom_fields=None, resolved_permission=None, parent=None, root=None, effective_custom_fields=None, modified_by=None, full_path=None, search_highlight=None, is_shared=None, name=None, path=None, pathhash=None, is_dir=None, total_files=None, size=None, mtime=None, present=None, needs_rescan=None, is_showroom=None, bundle_index=None, modified=None, bundle=None, local_vars_configuration=None):  # noqa: E501
         """MediaFile - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -101,6 +103,7 @@ class MediaFile(object):
         self._modified_by = None
         self._full_path = None
         self._search_highlight = None
+        self._is_shared = None
         self._name = None
         self._path = None
         self._pathhash = None
@@ -138,6 +141,8 @@ class MediaFile(object):
             self.full_path = full_path
         if search_highlight is not None:
             self.search_highlight = search_highlight
+        if is_shared is not None:
+            self.is_shared = is_shared
         if name is not None:
             self.name = name
         if path is not None:
@@ -394,6 +399,27 @@ class MediaFile(object):
         """
 
         self._search_highlight = search_highlight
+
+    @property
+    def is_shared(self):
+        """Gets the is_shared of this MediaFile.  # noqa: E501
+
+
+        :return: The is_shared of this MediaFile.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_shared
+
+    @is_shared.setter
+    def is_shared(self, is_shared):
+        """Sets the is_shared of this MediaFile.
+
+
+        :param is_shared: The is_shared of this MediaFile.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_shared = is_shared
 
     @property
     def name(self):

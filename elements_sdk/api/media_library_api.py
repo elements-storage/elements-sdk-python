@@ -2022,6 +2022,222 @@ class MediaLibraryApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_easy_sharing_token_for_bundle(self, id, **kwargs):  # noqa: E501
+        """delete_easy_sharing_token_for_bundle  # noqa: E501
+
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_easy_sharing_token_for_bundle(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this Bundle. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.delete_easy_sharing_token_for_bundle_with_http_info(id, **kwargs)  # noqa: E501
+
+    def delete_easy_sharing_token_for_bundle_with_http_info(self, id, **kwargs):  # noqa: E501
+        """delete_easy_sharing_token_for_bundle  # noqa: E501
+
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_easy_sharing_token_for_bundle_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this Bundle. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_easy_sharing_token_for_bundle" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `delete_easy_sharing_token_for_bundle`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/media/bundles/{id}/easy-sharing-token', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_easy_sharing_token_for_directory(self, id, **kwargs):  # noqa: E501
+        """delete_easy_sharing_token_for_directory  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_easy_sharing_token_for_directory(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this File. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.delete_easy_sharing_token_for_directory_with_http_info(id, **kwargs)  # noqa: E501
+
+    def delete_easy_sharing_token_for_directory_with_http_info(self, id, **kwargs):  # noqa: E501
+        """delete_easy_sharing_token_for_directory  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_easy_sharing_token_for_directory_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this File. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_easy_sharing_token_for_directory" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `delete_easy_sharing_token_for_directory`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/media/files/{id}/easy-sharing-token', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def delete_marker(self, id, **kwargs):  # noqa: E501
         """delete_marker  # noqa: E501
 
@@ -3457,7 +3673,7 @@ class MediaLibraryApi(object):
     def get_all_asset_tape_backups(self, **kwargs):  # noqa: E501
         """get_all_asset_tape_backups  # noqa: E501
 
-        ### Required permissions    * User account permission: media:access   * License component: media   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_asset_tape_backups(async_req=True)
@@ -3468,6 +3684,7 @@ class MediaLibraryApi(object):
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
+        :param bool include_asset:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3485,7 +3702,7 @@ class MediaLibraryApi(object):
     def get_all_asset_tape_backups_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_asset_tape_backups  # noqa: E501
 
-        ### Required permissions    * User account permission: media:access   * License component: media   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_asset_tape_backups_with_http_info(async_req=True)
@@ -3496,6 +3713,7 @@ class MediaLibraryApi(object):
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
+        :param bool include_asset:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3512,7 +3730,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['asset', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['asset', 'ordering', 'limit', 'offset', 'include_asset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3540,6 +3758,8 @@ class MediaLibraryApi(object):
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if 'include_asset' in local_var_params and local_var_params['include_asset'] is not None:  # noqa: E501
+            query_params.append(('include_asset', local_var_params['include_asset']))  # noqa: E501
 
         header_params = {}
 
@@ -3586,6 +3806,8 @@ class MediaLibraryApi(object):
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
+        :param bool resolve_asset_permission:
+        :param int for_root:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3616,6 +3838,8 @@ class MediaLibraryApi(object):
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
+        :param bool resolve_asset_permission:
+        :param int for_root:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3632,7 +3856,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['sync_id', 'display_name', 'set', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['sync_id', 'display_name', 'set', 'ordering', 'limit', 'offset', 'resolve_asset_permission', 'for_root']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3664,6 +3888,10 @@ class MediaLibraryApi(object):
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if 'resolve_asset_permission' in local_var_params and local_var_params['resolve_asset_permission'] is not None:  # noqa: E501
+            query_params.append(('resolve_asset_permission', local_var_params['resolve_asset_permission']))  # noqa: E501
+        if 'for_root' in local_var_params and local_var_params['for_root'] is not None:  # noqa: E501
+            query_params.append(('for_root', local_var_params['for_root']))  # noqa: E501
 
         header_params = {}
 
@@ -3707,6 +3935,8 @@ class MediaLibraryApi(object):
         :param str root: (required)
         :param str asset: Filter the returned list by `asset`.
         :param str location: Filter the returned list by `location`.
+        :param str shared_via_tokens: Filter the returned list by `shared_via_tokens`.
+        :param str shared_via_tokens__token: Filter the returned list by `shared_via_tokens__token`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -3737,6 +3967,8 @@ class MediaLibraryApi(object):
         :param str root: (required)
         :param str asset: Filter the returned list by `asset`.
         :param str location: Filter the returned list by `location`.
+        :param str shared_via_tokens: Filter the returned list by `shared_via_tokens`.
+        :param str shared_via_tokens__token: Filter the returned list by `shared_via_tokens__token`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -3756,7 +3988,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['root', 'asset', 'location', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['root', 'asset', 'location', 'shared_via_tokens', 'shared_via_tokens__token', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3786,6 +4018,10 @@ class MediaLibraryApi(object):
             query_params.append(('asset', local_var_params['asset']))  # noqa: E501
         if 'location' in local_var_params and local_var_params['location'] is not None:  # noqa: E501
             query_params.append(('location', local_var_params['location']))  # noqa: E501
+        if 'shared_via_tokens' in local_var_params and local_var_params['shared_via_tokens'] is not None:  # noqa: E501
+            query_params.append(('shared_via_tokens', local_var_params['shared_via_tokens']))  # noqa: E501
+        if 'shared_via_tokens__token' in local_var_params and local_var_params['shared_via_tokens__token'] is not None:  # noqa: E501
+            query_params.append(('shared_via_tokens__token', local_var_params['shared_via_tokens__token']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -3958,6 +4194,9 @@ class MediaLibraryApi(object):
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
+        :param int for_root:
+        :param int tasks_for_user:
+        :param bool include_full_asset:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3988,6 +4227,9 @@ class MediaLibraryApi(object):
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
+        :param int for_root:
+        :param int tasks_for_user:
+        :param bool include_full_asset:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4004,7 +4246,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['asset', 'root', 'user', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['asset', 'root', 'user', 'ordering', 'limit', 'offset', 'for_root', 'tasks_for_user', 'include_full_asset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4036,6 +4278,12 @@ class MediaLibraryApi(object):
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if 'for_root' in local_var_params and local_var_params['for_root'] is not None:  # noqa: E501
+            query_params.append(('for_root', local_var_params['for_root']))  # noqa: E501
+        if 'tasks_for_user' in local_var_params and local_var_params['tasks_for_user'] is not None:  # noqa: E501
+            query_params.append(('tasks_for_user', local_var_params['tasks_for_user']))  # noqa: E501
+        if 'include_full_asset' in local_var_params and local_var_params['include_full_asset'] is not None:  # noqa: E501
+            query_params.append(('include_full_asset', local_var_params['include_full_asset']))  # noqa: E501
 
         header_params = {}
 
@@ -4310,9 +4558,14 @@ class MediaLibraryApi(object):
         :param async_req bool: execute request asynchronously
         :param str asset: Filter the returned list by `asset`.
         :param str location: Filter the returned list by `location`.
+        :param str shared_via_tokens: Filter the returned list by `shared_via_tokens`.
+        :param str shared_via_tokens__token: Filter the returned list by `shared_via_tokens__token`.
         :param str ordering: Which field to use when ordering the results.
-        :param int limit: Number of results to return per page.
-        :param int offset: The initial index from which to return the results.
+        :param int limit:
+        :param int offset:
+        :param bool exclude_deleted:
+        :param bool exclude_unrecognized:
+        :param bool include_parents:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4339,9 +4592,14 @@ class MediaLibraryApi(object):
         :param async_req bool: execute request asynchronously
         :param str asset: Filter the returned list by `asset`.
         :param str location: Filter the returned list by `location`.
+        :param str shared_via_tokens: Filter the returned list by `shared_via_tokens`.
+        :param str shared_via_tokens__token: Filter the returned list by `shared_via_tokens__token`.
         :param str ordering: Which field to use when ordering the results.
-        :param int limit: Number of results to return per page.
-        :param int offset: The initial index from which to return the results.
+        :param int limit:
+        :param int offset:
+        :param bool exclude_deleted:
+        :param bool exclude_unrecognized:
+        :param bool include_parents:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4358,7 +4616,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['asset', 'location', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['asset', 'location', 'shared_via_tokens', 'shared_via_tokens__token', 'ordering', 'limit', 'offset', 'exclude_deleted', 'exclude_unrecognized', 'include_parents']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4382,12 +4640,22 @@ class MediaLibraryApi(object):
             query_params.append(('asset', local_var_params['asset']))  # noqa: E501
         if 'location' in local_var_params and local_var_params['location'] is not None:  # noqa: E501
             query_params.append(('location', local_var_params['location']))  # noqa: E501
+        if 'shared_via_tokens' in local_var_params and local_var_params['shared_via_tokens'] is not None:  # noqa: E501
+            query_params.append(('shared_via_tokens', local_var_params['shared_via_tokens']))  # noqa: E501
+        if 'shared_via_tokens__token' in local_var_params and local_var_params['shared_via_tokens__token'] is not None:  # noqa: E501
+            query_params.append(('shared_via_tokens__token', local_var_params['shared_via_tokens__token']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if 'exclude_deleted' in local_var_params and local_var_params['exclude_deleted'] is not None:  # noqa: E501
+            query_params.append(('exclude_deleted', local_var_params['exclude_deleted']))  # noqa: E501
+        if 'exclude_unrecognized' in local_var_params and local_var_params['exclude_unrecognized'] is not None:  # noqa: E501
+            query_params.append(('exclude_unrecognized', local_var_params['exclude_unrecognized']))  # noqa: E501
+        if 'include_parents' in local_var_params and local_var_params['include_parents'] is not None:  # noqa: E501
+            query_params.append(('include_parents', local_var_params['include_parents']))  # noqa: E501
 
         header_params = {}
 
@@ -4548,9 +4816,16 @@ class MediaLibraryApi(object):
         :param str is_showroom: Filter the returned list by `is_showroom`.
         :param str present: Filter the returned list by `present`.
         :param str volume: Filter the returned list by `volume`.
+        :param str shared_via_tokens: Filter the returned list by `shared_via_tokens`.
+        :param str shared_via_tokens__token: Filter the returned list by `shared_via_tokens__token`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
+        :param bool resolve_file_permission:
+        :param bool include_modified_by:
+        :param bool include_effective_custom_fields:
+        :param bool include_root:
+        :param bool include_parents:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4583,9 +4858,16 @@ class MediaLibraryApi(object):
         :param str is_showroom: Filter the returned list by `is_showroom`.
         :param str present: Filter the returned list by `present`.
         :param str volume: Filter the returned list by `volume`.
+        :param str shared_via_tokens: Filter the returned list by `shared_via_tokens`.
+        :param str shared_via_tokens__token: Filter the returned list by `shared_via_tokens__token`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
+        :param bool resolve_file_permission:
+        :param bool include_modified_by:
+        :param bool include_effective_custom_fields:
+        :param bool include_root:
+        :param bool include_parents:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4602,7 +4884,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['bundle', 'parent', 'path', 'name', 'is_dir', 'is_showroom', 'present', 'volume', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['bundle', 'parent', 'path', 'name', 'is_dir', 'is_showroom', 'present', 'volume', 'shared_via_tokens', 'shared_via_tokens__token', 'ordering', 'limit', 'offset', 'resolve_file_permission', 'include_modified_by', 'include_effective_custom_fields', 'include_root', 'include_parents']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4638,12 +4920,26 @@ class MediaLibraryApi(object):
             query_params.append(('present', local_var_params['present']))  # noqa: E501
         if 'volume' in local_var_params and local_var_params['volume'] is not None:  # noqa: E501
             query_params.append(('volume', local_var_params['volume']))  # noqa: E501
+        if 'shared_via_tokens' in local_var_params and local_var_params['shared_via_tokens'] is not None:  # noqa: E501
+            query_params.append(('shared_via_tokens', local_var_params['shared_via_tokens']))  # noqa: E501
+        if 'shared_via_tokens__token' in local_var_params and local_var_params['shared_via_tokens__token'] is not None:  # noqa: E501
+            query_params.append(('shared_via_tokens__token', local_var_params['shared_via_tokens__token']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if 'resolve_file_permission' in local_var_params and local_var_params['resolve_file_permission'] is not None:  # noqa: E501
+            query_params.append(('resolve_file_permission', local_var_params['resolve_file_permission']))  # noqa: E501
+        if 'include_modified_by' in local_var_params and local_var_params['include_modified_by'] is not None:  # noqa: E501
+            query_params.append(('include_modified_by', local_var_params['include_modified_by']))  # noqa: E501
+        if 'include_effective_custom_fields' in local_var_params and local_var_params['include_effective_custom_fields'] is not None:  # noqa: E501
+            query_params.append(('include_effective_custom_fields', local_var_params['include_effective_custom_fields']))  # noqa: E501
+        if 'include_root' in local_var_params and local_var_params['include_root'] is not None:  # noqa: E501
+            query_params.append(('include_root', local_var_params['include_root']))  # noqa: E501
+        if 'include_parents' in local_var_params and local_var_params['include_parents'] is not None:  # noqa: E501
+            query_params.append(('include_parents', local_var_params['include_parents']))  # noqa: E501
 
         header_params = {}
 
@@ -4805,6 +5101,8 @@ class MediaLibraryApi(object):
         :param str is_showroom: Filter the returned list by `is_showroom`.
         :param str present: Filter the returned list by `present`.
         :param str volume: Filter the returned list by `volume`.
+        :param str shared_via_tokens: Filter the returned list by `shared_via_tokens`.
+        :param str shared_via_tokens__token: Filter the returned list by `shared_via_tokens__token`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -4841,6 +5139,8 @@ class MediaLibraryApi(object):
         :param str is_showroom: Filter the returned list by `is_showroom`.
         :param str present: Filter the returned list by `present`.
         :param str volume: Filter the returned list by `volume`.
+        :param str shared_via_tokens: Filter the returned list by `shared_via_tokens`.
+        :param str shared_via_tokens__token: Filter the returned list by `shared_via_tokens__token`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -4860,7 +5160,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['root', 'bundle', 'parent', 'path', 'name', 'is_dir', 'is_showroom', 'present', 'volume', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['root', 'bundle', 'parent', 'path', 'name', 'is_dir', 'is_showroom', 'present', 'volume', 'shared_via_tokens', 'shared_via_tokens__token', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4902,6 +5202,10 @@ class MediaLibraryApi(object):
             query_params.append(('present', local_var_params['present']))  # noqa: E501
         if 'volume' in local_var_params and local_var_params['volume'] is not None:  # noqa: E501
             query_params.append(('volume', local_var_params['volume']))  # noqa: E501
+        if 'shared_via_tokens' in local_var_params and local_var_params['shared_via_tokens'] is not None:  # noqa: E501
+            query_params.append(('shared_via_tokens', local_var_params['shared_via_tokens']))  # noqa: E501
+        if 'shared_via_tokens__token' in local_var_params and local_var_params['shared_via_tokens__token'] is not None:  # noqa: E501
+            query_params.append(('shared_via_tokens__token', local_var_params['shared_via_tokens__token']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -5195,6 +5499,7 @@ class MediaLibraryApi(object):
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
+        :param int for_root:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -5226,6 +5531,7 @@ class MediaLibraryApi(object):
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
+        :param int for_root:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5242,7 +5548,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['name', 'name__icontains', 'root', 'root__isnull', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['name', 'name__icontains', 'root', 'root__isnull', 'ordering', 'limit', 'offset', 'for_root']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5276,6 +5582,8 @@ class MediaLibraryApi(object):
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if 'for_root' in local_var_params and local_var_params['for_root'] is not None:  # noqa: E501
+            query_params.append(('for_root', local_var_params['for_root']))  # noqa: E501
 
         header_params = {}
 
@@ -5564,6 +5872,7 @@ class MediaLibraryApi(object):
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
+        :param int for_root:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -5592,6 +5901,7 @@ class MediaLibraryApi(object):
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
+        :param int for_root:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5608,7 +5918,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['name', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['name', 'ordering', 'limit', 'offset', 'for_root']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5636,6 +5946,8 @@ class MediaLibraryApi(object):
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if 'for_root' in local_var_params and local_var_params['for_root'] is not None:  # noqa: E501
+            query_params.append(('for_root', local_var_params['for_root']))  # noqa: E501
 
         header_params = {}
 
@@ -6029,6 +6341,8 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Asset. (required)
+        :param bool resolve_asset_permission:
+        :param int for_root:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -6054,6 +6368,8 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Asset. (required)
+        :param bool resolve_asset_permission:
+        :param int for_root:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6070,7 +6386,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id']  # noqa: E501
+        all_params = ['id', 'resolve_asset_permission', 'for_root']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6096,6 +6412,10 @@ class MediaLibraryApi(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
+        if 'resolve_asset_permission' in local_var_params and local_var_params['resolve_asset_permission'] is not None:  # noqa: E501
+            query_params.append(('resolve_asset_permission', local_var_params['resolve_asset_permission']))  # noqa: E501
+        if 'for_root' in local_var_params and local_var_params['for_root'] is not None:  # noqa: E501
+            query_params.append(('for_root', local_var_params['for_root']))  # noqa: E501
 
         header_params = {}
 
@@ -6245,6 +6565,9 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Comment. (required)
+        :param int for_root:
+        :param int tasks_for_user:
+        :param bool include_full_asset:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -6270,6 +6593,9 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Comment. (required)
+        :param int for_root:
+        :param int tasks_for_user:
+        :param bool include_full_asset:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6286,7 +6612,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id']  # noqa: E501
+        all_params = ['id', 'for_root', 'tasks_for_user', 'include_full_asset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6312,6 +6638,12 @@ class MediaLibraryApi(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
+        if 'for_root' in local_var_params and local_var_params['for_root'] is not None:  # noqa: E501
+            query_params.append(('for_root', local_var_params['for_root']))  # noqa: E501
+        if 'tasks_for_user' in local_var_params and local_var_params['tasks_for_user'] is not None:  # noqa: E501
+            query_params.append(('tasks_for_user', local_var_params['tasks_for_user']))  # noqa: E501
+        if 'include_full_asset' in local_var_params and local_var_params['include_full_asset'] is not None:  # noqa: E501
+            query_params.append(('include_full_asset', local_var_params['include_full_asset']))  # noqa: E501
 
         header_params = {}
 
@@ -6443,6 +6775,338 @@ class MediaLibraryApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CustomField',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_easy_sharing_token_for_bundle(self, id, **kwargs):  # noqa: E501
+        """get_easy_sharing_token_for_bundle  # noqa: E501
+
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_easy_sharing_token_for_bundle(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this Bundle. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: OneTimeAccessToken
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_easy_sharing_token_for_bundle_with_http_info(id, **kwargs)  # noqa: E501
+
+    def get_easy_sharing_token_for_bundle_with_http_info(self, id, **kwargs):  # noqa: E501
+        """get_easy_sharing_token_for_bundle  # noqa: E501
+
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_easy_sharing_token_for_bundle_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this Bundle. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(OneTimeAccessToken, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_easy_sharing_token_for_bundle" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `get_easy_sharing_token_for_bundle`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/media/bundles/{id}/easy-sharing-token', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OneTimeAccessToken',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_easy_sharing_token_for_directory(self, id, **kwargs):  # noqa: E501
+        """get_easy_sharing_token_for_directory  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_easy_sharing_token_for_directory(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this File. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: OneTimeAccessToken
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_easy_sharing_token_for_directory_with_http_info(id, **kwargs)  # noqa: E501
+
+    def get_easy_sharing_token_for_directory_with_http_info(self, id, **kwargs):  # noqa: E501
+        """get_easy_sharing_token_for_directory  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_easy_sharing_token_for_directory_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this File. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(OneTimeAccessToken, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_easy_sharing_token_for_directory" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `get_easy_sharing_token_for_directory`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/media/files/{id}/easy-sharing-token', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OneTimeAccessToken',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_frame(self, frame, id, **kwargs):  # noqa: E501
+        """get_frame  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_frame(frame, id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str frame: (required)
+        :param int id: A unique integer value identifying this Asset. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_frame_with_http_info(frame, id, **kwargs)  # noqa: E501
+
+    def get_frame_with_http_info(self, frame, id, **kwargs):  # noqa: E501
+        """get_frame  # noqa: E501
+
+        ### Required permissions    * User account permission: media:access   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_frame_with_http_info(frame, id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str frame: (required)
+        :param int id: A unique integer value identifying this Asset. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['frame', 'id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_frame" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'frame' is set
+        if self.api_client.client_side_validation and ('frame' not in local_var_params or  # noqa: E501
+                                                        local_var_params['frame'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `frame` when calling `get_frame`")  # noqa: E501
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `get_frame`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'frame' in local_var_params:
+            path_params['frame'] = local_var_params['frame']  # noqa: E501
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['image/png', 'image/jpeg'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/media/assets/{id}/frames/{frame}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6681,6 +7345,11 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this File. (required)
+        :param bool resolve_file_permission:
+        :param bool include_modified_by:
+        :param bool include_effective_custom_fields:
+        :param bool include_root:
+        :param bool include_parents:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -6706,6 +7375,11 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this File. (required)
+        :param bool resolve_file_permission:
+        :param bool include_modified_by:
+        :param bool include_effective_custom_fields:
+        :param bool include_root:
+        :param bool include_parents:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6722,7 +7396,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id']  # noqa: E501
+        all_params = ['id', 'resolve_file_permission', 'include_modified_by', 'include_effective_custom_fields', 'include_root', 'include_parents']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6748,6 +7422,16 @@ class MediaLibraryApi(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
+        if 'resolve_file_permission' in local_var_params and local_var_params['resolve_file_permission'] is not None:  # noqa: E501
+            query_params.append(('resolve_file_permission', local_var_params['resolve_file_permission']))  # noqa: E501
+        if 'include_modified_by' in local_var_params and local_var_params['include_modified_by'] is not None:  # noqa: E501
+            query_params.append(('include_modified_by', local_var_params['include_modified_by']))  # noqa: E501
+        if 'include_effective_custom_fields' in local_var_params and local_var_params['include_effective_custom_fields'] is not None:  # noqa: E501
+            query_params.append(('include_effective_custom_fields', local_var_params['include_effective_custom_fields']))  # noqa: E501
+        if 'include_root' in local_var_params and local_var_params['include_root'] is not None:  # noqa: E501
+            query_params.append(('include_root', local_var_params['include_root']))  # noqa: E501
+        if 'include_parents' in local_var_params and local_var_params['include_parents'] is not None:  # noqa: E501
+            query_params.append(('include_parents', local_var_params['include_parents']))  # noqa: E501
 
         header_params = {}
 
@@ -6789,6 +7473,11 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Bundle. (required)
+        :param bool exclude_deleted:
+        :param bool exclude_unrecognized:
+        :param bool include_parents:
+        :param int offset:
+        :param int limit:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -6814,6 +7503,11 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Bundle. (required)
+        :param bool exclude_deleted:
+        :param bool exclude_unrecognized:
+        :param bool include_parents:
+        :param int offset:
+        :param int limit:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6830,7 +7524,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id']  # noqa: E501
+        all_params = ['id', 'exclude_deleted', 'exclude_unrecognized', 'include_parents', 'offset', 'limit']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6856,6 +7550,16 @@ class MediaLibraryApi(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
+        if 'exclude_deleted' in local_var_params and local_var_params['exclude_deleted'] is not None:  # noqa: E501
+            query_params.append(('exclude_deleted', local_var_params['exclude_deleted']))  # noqa: E501
+        if 'exclude_unrecognized' in local_var_params and local_var_params['exclude_unrecognized'] is not None:  # noqa: E501
+            query_params.append(('exclude_unrecognized', local_var_params['exclude_unrecognized']))  # noqa: E501
+        if 'include_parents' in local_var_params and local_var_params['include_parents'] is not None:  # noqa: E501
+            query_params.append(('include_parents', local_var_params['include_parents']))  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
 
         header_params = {}
 
@@ -7345,6 +8049,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Tag. (required)
+        :param int for_root:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7370,6 +8075,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Tag. (required)
+        :param int for_root:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7386,7 +8092,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id']  # noqa: E501
+        all_params = ['id', 'for_root']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7412,6 +8118,8 @@ class MediaLibraryApi(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
+        if 'for_root' in local_var_params and local_var_params['for_root'] is not None:  # noqa: E501
+            query_params.append(('for_root', local_var_params['for_root']))  # noqa: E501
 
         header_params = {}
 
@@ -8137,6 +8845,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this proxy profile. (required)
+        :param int for_root:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8162,6 +8871,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this proxy profile. (required)
+        :param int for_root:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8178,7 +8888,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id']  # noqa: E501
+        all_params = ['id', 'for_root']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -8204,6 +8914,8 @@ class MediaLibraryApi(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
+        if 'for_root' in local_var_params and local_var_params['for_root'] is not None:  # noqa: E501
+            query_params.append(('for_root', local_var_params['for_root']))  # noqa: E501
 
         header_params = {}
 
@@ -8569,7 +9281,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Asset. (required)
-        :param Asset data: (required)
+        :param AssetPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8595,7 +9307,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Asset. (required)
-        :param Asset data: (required)
+        :param AssetPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8689,7 +9401,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Rating. (required)
-        :param AssetRating data: (required)
+        :param AssetRatingPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8715,7 +9427,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Rating. (required)
-        :param AssetRating data: (required)
+        :param AssetRatingPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8809,7 +9521,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Comment. (required)
-        :param Comment data: (required)
+        :param CommentPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8835,7 +9547,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Comment. (required)
-        :param Comment data: (required)
+        :param CommentPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8929,7 +9641,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this CustomField. (required)
-        :param CustomField data: (required)
+        :param CustomFieldPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8955,7 +9667,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this CustomField. (required)
-        :param CustomField data: (required)
+        :param CustomFieldPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9049,7 +9761,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this marker. (required)
-        :param Marker data: (required)
+        :param MarkerPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9075,7 +9787,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this marker. (required)
-        :param Marker data: (required)
+        :param MarkerPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9169,7 +9881,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this File. (required)
-        :param MediaFile data: (required)
+        :param MediaFilePartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9195,7 +9907,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this File. (required)
-        :param MediaFile data: (required)
+        :param MediaFilePartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9289,7 +10001,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Template. (required)
-        :param MediaFileTemplate data: (required)
+        :param MediaFileTemplatePartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9315,7 +10027,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Template. (required)
-        :param MediaFileTemplate data: (required)
+        :param MediaFileTemplatePartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9409,7 +10121,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this media root. (required)
-        :param MediaRoot data: (required)
+        :param MediaRootPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9435,7 +10147,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this media root. (required)
-        :param MediaRoot data: (required)
+        :param MediaRootPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9529,7 +10241,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Media Root Permission. (required)
-        :param MediaRootPermission data: (required)
+        :param MediaRootPermissionPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9555,7 +10267,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Media Root Permission. (required)
-        :param MediaRootPermission data: (required)
+        :param MediaRootPermissionPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9649,7 +10361,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Tag. (required)
-        :param Tag data: (required)
+        :param TagPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9675,7 +10387,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Tag. (required)
-        :param Tag data: (required)
+        :param TagPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9769,7 +10481,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this proxy profile. (required)
-        :param ProxyProfile data: (required)
+        :param ProxyProfilePartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9795,7 +10507,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this proxy profile. (required)
-        :param ProxyProfile data: (required)
+        :param ProxyProfilePartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9889,7 +10601,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this subclip. (required)
-        :param Subclip data: (required)
+        :param SubclipPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9915,7 +10627,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this subclip. (required)
-        :param Subclip data: (required)
+        :param SubclipPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -10211,6 +10923,118 @@ class MediaLibraryApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='Comment',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def share_media_library_objects(self, data, **kwargs):  # noqa: E501
+        """share_media_library_objects  # noqa: E501
+
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.share_media_library_objects(data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param MediaLibraryShareRequest data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: OneTimeAccessToken
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.share_media_library_objects_with_http_info(data, **kwargs)  # noqa: E501
+
+    def share_media_library_objects_with_http_info(self, data, **kwargs):  # noqa: E501
+        """share_media_library_objects  # noqa: E501
+
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.share_media_library_objects_with_http_info(data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param MediaLibraryShareRequest data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(OneTimeAccessToken, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method share_media_library_objects" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `share_media_library_objects`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/media/share', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OneTimeAccessToken',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

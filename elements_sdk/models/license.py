@@ -36,7 +36,7 @@ class License(object):
         'hardware_key': 'str',
         'rdc_slots': 'int',
         'expires': 'datetime',
-        'components': 'dict(str, str)',
+        'components': 'dict(str, bool)',
         'components_license': 'dict(str, str)'
     }
 
@@ -70,8 +70,7 @@ class License(object):
         self.hardware_key = hardware_key
         self.rdc_slots = rdc_slots
         self.expires = expires
-        if components is not None:
-            self.components = components
+        self.components = components
         self.components_license = components_license
 
     @property
@@ -204,7 +203,7 @@ class License(object):
 
 
         :return: The components of this License.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: dict(str, bool)
         """
         return self._components
 
@@ -214,8 +213,10 @@ class License(object):
 
 
         :param components: The components of this License.  # noqa: E501
-        :type: dict(str, str)
+        :type: dict(str, bool)
         """
+        if self.local_vars_configuration.client_side_validation and components is None:  # noqa: E501
+            raise ValueError("Invalid value for `components`, must not be `None`")  # noqa: E501
 
         self._components = components
 

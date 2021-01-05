@@ -36,7 +36,7 @@ class Alert(object):
         'message': 'str',
         'level': 'str',
         'is_open': 'bool',
-        'node': 'StorageNode',
+        'node': 'StorageNodeMini',
         'opened_at': 'datetime',
         'closed_at': 'datetime',
         'duration': 'str'
@@ -219,7 +219,7 @@ class Alert(object):
 
 
         :return: The node of this Alert.  # noqa: E501
-        :rtype: StorageNode
+        :rtype: StorageNodeMini
         """
         return self._node
 
@@ -229,7 +229,7 @@ class Alert(object):
 
 
         :param node: The node of this Alert.  # noqa: E501
-        :type: StorageNode
+        :type: StorageNodeMini
         """
 
         self._node = node

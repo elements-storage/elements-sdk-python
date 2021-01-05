@@ -64,6 +64,7 @@ class Parameters(object):
         'smtp_port': 'int',
         'smtp_tls': 'str',
         'smtp_username': 'str',
+        'smtp_ehlo': 'str',
         'tasks_limit': 'int',
         'tasks_hard_limit': 'int',
         'umask_afp': 'str',
@@ -113,6 +114,7 @@ class Parameters(object):
         'smtp_port': 'smtp_port',
         'smtp_tls': 'smtp_tls',
         'smtp_username': 'smtp_username',
+        'smtp_ehlo': 'smtp_ehlo',
         'tasks_limit': 'tasks_limit',
         'tasks_hard_limit': 'tasks_hard_limit',
         'umask_afp': 'umask_afp',
@@ -128,7 +130,7 @@ class Parameters(object):
         'https_redirect': 'https_redirect'
     }
 
-    def __init__(self, id=None, media_force_show_deleted=None, analytics=None, identify_command=None, external_url=None, branding_css=None, branding_logo=None, fm_new_directory_mode=None, icap_server=None, icap_port=None, icap_service=None, ltfs_default_restore_to_original_location=None, ltfs_default_search_directories=None, ltfs_library_address=None, media_auto_play=None, media_auto_transport=None, media_auto_scan=None, media_auto_proxy=None, media_auto_veritone_upload=None, media_proxy_h264_preset=None, media_default_custom_field_type=None, media_default_delete_behaviour=None, media_recycle_bin=None, file_manager_recycle_bin=None, ntp_server=None, ntp_offer_sync=None, slugify_workspace_path=None, slugify_shares=None, smtp_from=None, smtp_server=None, smtp_port=None, smtp_tls=None, smtp_username=None, tasks_limit=None, tasks_hard_limit=None, umask_afp=None, umask_smb=None, users_default_permissions=None, workspaces_folder_template_path=None, workspaces_mode=None, workspaces_path=None, language=None, email_logo_url=None, media_keep_selection_when_browsing=None, tasks_run_scheduled=None, https_redirect=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, media_force_show_deleted=None, analytics=None, identify_command=None, external_url=None, branding_css=None, branding_logo=None, fm_new_directory_mode=None, icap_server=None, icap_port=None, icap_service=None, ltfs_default_restore_to_original_location=None, ltfs_default_search_directories=None, ltfs_library_address=None, media_auto_play=None, media_auto_transport=None, media_auto_scan=None, media_auto_proxy=None, media_auto_veritone_upload=None, media_proxy_h264_preset=None, media_default_custom_field_type=None, media_default_delete_behaviour=None, media_recycle_bin=None, file_manager_recycle_bin=None, ntp_server=None, ntp_offer_sync=None, slugify_workspace_path=None, slugify_shares=None, smtp_from=None, smtp_server=None, smtp_port=None, smtp_tls=None, smtp_username=None, smtp_ehlo=None, tasks_limit=None, tasks_hard_limit=None, umask_afp=None, umask_smb=None, users_default_permissions=None, workspaces_folder_template_path=None, workspaces_mode=None, workspaces_path=None, language=None, email_logo_url=None, media_keep_selection_when_browsing=None, tasks_run_scheduled=None, https_redirect=None, local_vars_configuration=None):  # noqa: E501
         """Parameters - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -167,6 +169,7 @@ class Parameters(object):
         self._smtp_port = None
         self._smtp_tls = None
         self._smtp_username = None
+        self._smtp_ehlo = None
         self._tasks_limit = None
         self._tasks_hard_limit = None
         self._umask_afp = None
@@ -245,6 +248,8 @@ class Parameters(object):
             self.smtp_tls = smtp_tls
         if smtp_username is not None:
             self.smtp_username = smtp_username
+        if smtp_ehlo is not None:
+            self.smtp_ehlo = smtp_ehlo
         if tasks_limit is not None:
             self.tasks_limit = tasks_limit
         if tasks_hard_limit is not None:
@@ -1038,6 +1043,30 @@ class Parameters(object):
             raise ValueError("Invalid value for `smtp_username`, length must be less than or equal to `255`")  # noqa: E501
 
         self._smtp_username = smtp_username
+
+    @property
+    def smtp_ehlo(self):
+        """Gets the smtp_ehlo of this Parameters.  # noqa: E501
+
+
+        :return: The smtp_ehlo of this Parameters.  # noqa: E501
+        :rtype: str
+        """
+        return self._smtp_ehlo
+
+    @smtp_ehlo.setter
+    def smtp_ehlo(self, smtp_ehlo):
+        """Sets the smtp_ehlo of this Parameters.
+
+
+        :param smtp_ehlo: The smtp_ehlo of this Parameters.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                smtp_ehlo is not None and len(smtp_ehlo) > 255):
+            raise ValueError("Invalid value for `smtp_ehlo`, length must be less than or equal to `255`")  # noqa: E501
+
+        self._smtp_ehlo = smtp_ehlo
 
     @property
     def tasks_limit(self):

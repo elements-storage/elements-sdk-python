@@ -38,6 +38,7 @@ class Subtask(object):
         'name': 'str',
         'noop_dont_save': 'bool',
         'no_concurrency': 'bool',
+        'timeout': 'int',
         'log_variable': 'bool',
         'task': 'str',
         'condition_variable': 'str',
@@ -54,6 +55,7 @@ class Subtask(object):
         'name': 'name',
         'noop_dont_save': 'noop_dont_save',
         'no_concurrency': 'no_concurrency',
+        'timeout': 'timeout',
         'log_variable': 'log_variable',
         'task': 'task',
         'condition_variable': 'condition_variable',
@@ -62,7 +64,7 @@ class Subtask(object):
         'relative_to': 'relative_to'
     }
 
-    def __init__(self, id=None, kwargs=None, validation_error=None, trigger=None, name=None, noop_dont_save=None, no_concurrency=None, log_variable=None, task=None, condition_variable=None, condition_value=None, parent=None, relative_to=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, kwargs=None, validation_error=None, trigger=None, name=None, noop_dont_save=None, no_concurrency=None, timeout=None, log_variable=None, task=None, condition_variable=None, condition_value=None, parent=None, relative_to=None, local_vars_configuration=None):  # noqa: E501
         """Subtask - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,6 +77,7 @@ class Subtask(object):
         self._name = None
         self._noop_dont_save = None
         self._no_concurrency = None
+        self._timeout = None
         self._log_variable = None
         self._task = None
         self._condition_variable = None
@@ -94,6 +97,7 @@ class Subtask(object):
             self.noop_dont_save = noop_dont_save
         if no_concurrency is not None:
             self.no_concurrency = no_concurrency
+        self.timeout = timeout
         if log_variable is not None:
             self.log_variable = log_variable
         self.task = task
@@ -262,6 +266,33 @@ class Subtask(object):
         """
 
         self._no_concurrency = no_concurrency
+
+    @property
+    def timeout(self):
+        """Gets the timeout of this Subtask.  # noqa: E501
+
+
+        :return: The timeout of this Subtask.  # noqa: E501
+        :rtype: int
+        """
+        return self._timeout
+
+    @timeout.setter
+    def timeout(self, timeout):
+        """Sets the timeout of this Subtask.
+
+
+        :param timeout: The timeout of this Subtask.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                timeout is not None and timeout > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `timeout`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                timeout is not None and timeout < -2147483648):  # noqa: E501
+            raise ValueError("Invalid value for `timeout`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+
+        self._timeout = timeout
 
     @property
     def log_variable(self):

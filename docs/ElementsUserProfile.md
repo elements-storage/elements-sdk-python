@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **unix_username** | **str** |  | [optional] [readonly] 
 **display_name** | **str** |  | [optional] [readonly] 
 **email** | **str** |  | [optional] [readonly] 
+**ldap** | [**LDAPServer**](LDAPServer.md) |  | 
 **effective_permissions** | **list[str]** |  | [optional] [readonly] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)

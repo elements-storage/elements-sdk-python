@@ -246,13 +246,13 @@ class AuthApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_one_time_access_token(self, id, **kwargs):  # noqa: E501
-        """delete_one_time_access_token  # noqa: E501
+    def delete_access_token(self, id, **kwargs):  # noqa: E501
+        """delete_access_token  # noqa: E501
 
-        ### Required permissions    * User account permission: None (read) / users:manage (write)   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_one_time_access_token(id, async_req=True)
+        >>> thread = api.delete_access_token(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -269,15 +269,15 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.delete_one_time_access_token_with_http_info(id, **kwargs)  # noqa: E501
+        return self.delete_access_token_with_http_info(id, **kwargs)  # noqa: E501
 
-    def delete_one_time_access_token_with_http_info(self, id, **kwargs):  # noqa: E501
-        """delete_one_time_access_token  # noqa: E501
+    def delete_access_token_with_http_info(self, id, **kwargs):  # noqa: E501
+        """delete_access_token  # noqa: E501
 
-        ### Required permissions    * User account permission: None (read) / users:manage (write)   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_one_time_access_token_with_http_info(id, async_req=True)
+        >>> thread = api.delete_access_token_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -308,14 +308,14 @@ class AuthApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_one_time_access_token" % key
+                    " to method delete_access_token" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `delete_one_time_access_token`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `delete_access_token`")  # noqa: E501
 
         collection_formats = {}
 
@@ -454,125 +454,13 @@ class AuthApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_all_one_time_access_tokens(self, **kwargs):  # noqa: E501
-        """get_all_one_time_access_tokens  # noqa: E501
+    def get_access_token(self, id, **kwargs):  # noqa: E501
+        """get_access_token  # noqa: E501
 
-        ### Required permissions    * User account permission: None (read) / users:manage (write)   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_all_one_time_access_tokens(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str ordering: Which field to use when ordering the results.
-        :param int limit: Number of results to return per page.
-        :param int offset: The initial index from which to return the results.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: list[OneTimeAccessToken]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_all_one_time_access_tokens_with_http_info(**kwargs)  # noqa: E501
-
-    def get_all_one_time_access_tokens_with_http_info(self, **kwargs):  # noqa: E501
-        """get_all_one_time_access_tokens  # noqa: E501
-
-        ### Required permissions    * User account permission: None (read) / users:manage (write)   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_all_one_time_access_tokens_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str ordering: Which field to use when ordering the results.
-        :param int limit: Number of results to return per page.
-        :param int offset: The initial index from which to return the results.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(list[OneTimeAccessToken], status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['ordering', 'limit', 'offset']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_all_one_time_access_tokens" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-        if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
-            query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/api/2/auth/access-tokens', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[OneTimeAccessToken]',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_one_time_access_token(self, id, **kwargs):  # noqa: E501
-        """get_one_time_access_token  # noqa: E501
-
-        ### Required permissions    * User account permission: None (read) / users:manage (write)   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_one_time_access_token(id, async_req=True)
+        >>> thread = api.get_access_token(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -589,15 +477,15 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_one_time_access_token_with_http_info(id, **kwargs)  # noqa: E501
+        return self.get_access_token_with_http_info(id, **kwargs)  # noqa: E501
 
-    def get_one_time_access_token_with_http_info(self, id, **kwargs):  # noqa: E501
-        """get_one_time_access_token  # noqa: E501
+    def get_access_token_with_http_info(self, id, **kwargs):  # noqa: E501
+        """get_access_token  # noqa: E501
 
-        ### Required permissions    * User account permission: None (read) / users:manage (write)   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_one_time_access_token_with_http_info(id, async_req=True)
+        >>> thread = api.get_access_token_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -628,14 +516,14 @@ class AuthApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_one_time_access_token" % key
+                    " to method get_access_token" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `get_one_time_access_token`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `get_access_token`")  # noqa: E501
 
         collection_formats = {}
 
@@ -667,6 +555,138 @@ class AuthApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='OneTimeAccessToken',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_all_access_tokens(self, **kwargs):  # noqa: E501
+        """get_all_access_tokens  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_access_tokens(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str shared_bundles: Filter the returned list by `shared_bundles`.
+        :param str shared_directories: Filter the returned list by `shared_directories`.
+        :param str shared_bundles__asset: Filter the returned list by `shared_bundles__asset`.
+        :param str user: Filter the returned list by `user`.
+        :param str created_by: Filter the returned list by `created_by`.
+        :param str ordering: Which field to use when ordering the results.
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: list[OneTimeAccessToken]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_all_access_tokens_with_http_info(**kwargs)  # noqa: E501
+
+    def get_all_access_tokens_with_http_info(self, **kwargs):  # noqa: E501
+        """get_all_access_tokens  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_access_tokens_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str shared_bundles: Filter the returned list by `shared_bundles`.
+        :param str shared_directories: Filter the returned list by `shared_directories`.
+        :param str shared_bundles__asset: Filter the returned list by `shared_bundles__asset`.
+        :param str user: Filter the returned list by `user`.
+        :param str created_by: Filter the returned list by `created_by`.
+        :param str ordering: Which field to use when ordering the results.
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(list[OneTimeAccessToken], status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['shared_bundles', 'shared_directories', 'shared_bundles__asset', 'user', 'created_by', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_all_access_tokens" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'shared_bundles' in local_var_params and local_var_params['shared_bundles'] is not None:  # noqa: E501
+            query_params.append(('shared_bundles', local_var_params['shared_bundles']))  # noqa: E501
+        if 'shared_directories' in local_var_params and local_var_params['shared_directories'] is not None:  # noqa: E501
+            query_params.append(('shared_directories', local_var_params['shared_directories']))  # noqa: E501
+        if 'shared_bundles__asset' in local_var_params and local_var_params['shared_bundles__asset'] is not None:  # noqa: E501
+            query_params.append(('shared_bundles__asset', local_var_params['shared_bundles__asset']))  # noqa: E501
+        if 'user' in local_var_params and local_var_params['user'] is not None:  # noqa: E501
+            query_params.append(('user', local_var_params['user']))  # noqa: E501
+        if 'created_by' in local_var_params and local_var_params['created_by'] is not None:  # noqa: E501
+            query_params.append(('created_by', local_var_params['created_by']))  # noqa: E501
+        if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
+            query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/auth/access-tokens', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[OneTimeAccessToken]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -872,6 +892,126 @@ class AuthApi(object):
 
         return self.api_client.call_api(
             '/api/2/auth/logout', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def send_access_token_email_notification(self, id, data, **kwargs):  # noqa: E501
+        """send_access_token_email_notification  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.send_access_token_email_notification(id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this one time access token. (required)
+        :param SendLinkEmailRequest data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.send_access_token_email_notification_with_http_info(id, data, **kwargs)  # noqa: E501
+
+    def send_access_token_email_notification_with_http_info(self, id, data, **kwargs):  # noqa: E501
+        """send_access_token_email_notification  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.send_access_token_email_notification_with_http_info(id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this one time access token. (required)
+        :param SendLinkEmailRequest data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method send_access_token_email_notification" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `send_access_token_email_notification`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `send_access_token_email_notification`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/auth/access-tokens/{id}/email', 'POST',
             path_params,
             query_params,
             header_params,

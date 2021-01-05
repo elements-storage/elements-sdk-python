@@ -11,3 +11,4 @@ from elements_sdk.api.media_library_api import MediaLibraryApi
 from elements_sdk.api.status_api import StatusApi
 from elements_sdk.api.storage_api import StorageApi
 from elements_sdk.api.tape_archive_api import TapeArchiveApi
+from elements_sdk.api.tasks_api import TasksApi

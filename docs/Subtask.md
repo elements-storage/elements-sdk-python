@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **noop_dont_save** | **bool** |  | [optional] 
 **no_concurrency** | **bool** |  | [optional] 
+**timeout** | **int** |  | [optional] 
 **log_variable** | **bool** |  | [optional] 
 **task** | **str** |  | [optional] 
 **condition_variable** | **str** |  | [optional] 

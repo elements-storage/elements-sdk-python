@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **nt_hostname** | **str** |  | 
 **offers_ntp_sync** | **bool** |  | 
 **language** | **str** |  | 
+**saml_providers** | [**list[SAMLProvider]**](SAMLProvider.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 

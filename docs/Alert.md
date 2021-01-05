@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **message** | **str** |  | 
 **level** | **str** |  | 
 **is_open** | **bool** |  | 
-**node** | [**StorageNode**](StorageNode.md) |  | [optional] 
+**node** | [**StorageNodeMini**](StorageNodeMini.md) |  | [optional] 
 **opened_at** | **datetime** |  | [optional] [readonly] 
 **closed_at** | **datetime** |  | [optional] 
 **duration** | **str** |  | [optional] [readonly] 

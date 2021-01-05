@@ -33,7 +33,7 @@ class Interface(object):
     openapi_types = {
         'id': 'int',
         'device': 'str',
-        'addresses': 'str',
+        'addresses': 'list[Address]',
         'speed': 'int',
         'mtu': 'int',
         'use_for_mounts': 'bool',
@@ -134,7 +134,7 @@ class Interface(object):
 
 
         :return: The addresses of this Interface.  # noqa: E501
-        :rtype: str
+        :rtype: list[Address]
         """
         return self._addresses
 
@@ -144,7 +144,7 @@ class Interface(object):
 
 
         :param addresses: The addresses of this Interface.  # noqa: E501
-        :type: str
+        :type: list[Address]
         """
 
         self._addresses = addresses

@@ -37,7 +37,7 @@ class AssetMini(object):
         'urls': 'Proxy',
         'type': 'str',
         'display_name': 'str',
-        'info': 'dict(str, str)',
+        'info': 'str',
         'thumbnail_generated': 'bool'
     }
 
@@ -223,7 +223,7 @@ class AssetMini(object):
 
 
         :return: The info of this AssetMini.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: str
         """
         return self._info
 
@@ -233,7 +233,7 @@ class AssetMini(object):
 
 
         :param info: The info of this AssetMini.  # noqa: E501
-        :type: dict(str, str)
+        :type: str
         """
 
         self._info = info

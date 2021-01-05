@@ -3405,7 +3405,7 @@ class AIApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: A UUID string identifying this AI Category. (required)
-        :param AICategoryDetail data: (required)
+        :param AICategoryDetailPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3431,7 +3431,7 @@ class AIApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: A UUID string identifying this AI Category. (required)
-        :param AICategoryDetail data: (required)
+        :param AICategoryDetailPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3525,7 +3525,7 @@ class AIApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: A UUID string identifying this AI Dataset. (required)
-        :param AIDatasetWithPreview data: (required)
+        :param AIDatasetWithPreviewPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3551,7 +3551,7 @@ class AIApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: A UUID string identifying this AI Dataset. (required)
-        :param AIDatasetWithPreview data: (required)
+        :param AIDatasetWithPreviewPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3645,7 +3645,7 @@ class AIApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: A UUID string identifying this AI Model. (required)
-        :param AIModel data: (required)
+        :param AIModelPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3671,7 +3671,7 @@ class AIApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: A UUID string identifying this AI Model. (required)
-        :param AIModel data: (required)
+        :param AIModelPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

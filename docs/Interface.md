@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] [readonly] 
 **device** | **str** |  | 
-**addresses** | **str** |  | [optional] [readonly] 
+**addresses** | [**list[Address]**](Address.md) |  | [optional] [readonly] 
 **speed** | **int** |  | [optional] 
 **mtu** | **int** |  | [optional] 
 **use_for_mounts** | **bool** |  | [optional] 

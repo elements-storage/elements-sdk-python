@@ -1,17 +1,18 @@
 # elements_sdk.AuthApi
 
-All URIs are relative to *https://elements.local*
+All URIs are relative to *http://elements.local*
 >
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**check_auth_ticket**](AuthApi.md#check_auth_ticket) | **POST** `/api/2/auth/ticket/check` | 
 [**create_auth_ticket**](AuthApi.md#create_auth_ticket) | **POST** `/api/2/auth/ticket` | 
-[**delete_one_time_access_token**](AuthApi.md#delete_one_time_access_token) | **DELETE** `/api/2/auth/access-tokens/{id}` | 
+[**delete_access_token**](AuthApi.md#delete_access_token) | **DELETE** `/api/2/auth/access-tokens/{id}` | 
 [**generate_password**](AuthApi.md#generate_password) | **POST** `/api/2/auth/generate-password` | 
-[**get_all_one_time_access_tokens**](AuthApi.md#get_all_one_time_access_tokens) | **GET** `/api/2/auth/access-tokens` | 
-[**get_one_time_access_token**](AuthApi.md#get_one_time_access_token) | **GET** `/api/2/auth/access-tokens/{id}` | 
+[**get_access_token**](AuthApi.md#get_access_token) | **GET** `/api/2/auth/access-tokens/{id}` | 
+[**get_all_access_tokens**](AuthApi.md#get_all_access_tokens) | **GET** `/api/2/auth/access-tokens` | 
 [**login**](AuthApi.md#login) | **POST** `/api/2/auth/login` | 
 [**logout**](AuthApi.md#logout) | **POST** `/api/2/auth/logout` | 
+[**send_access_token_email_notification**](AuthApi.md#send_access_token_email_notification) | **POST** `/api/2/auth/access-tokens/{id}/email` | 
 
 
 
@@ -39,7 +40,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -92,7 +93,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -119,13 +120,13 @@ This endpoint does not need any parameters.
 
 ***
 
-# **delete_one_time_access_token**
+# **delete_access_token**
 
-    def delete_one_time_access_token(id) -> object 
+    def delete_access_token(id) -> object 
 
 
 
-### Required permissions    * User account permission: None (read) / users:manage (write) 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -141,7 +142,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -150,10 +151,10 @@ with elements_sdk.ApiClient(configuration) as api_client:
     id = 56 # int | A unique integer value identifying this one time access token.
 
     try:
-        api_response = api_instance.delete_one_time_access_token(id)
+        api_response = api_instance.delete_access_token(id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling AuthApi->delete_one_time_access_token: %s\n" % e)
+        print("Exception when calling AuthApi->delete_access_token: %s\n" % e)
 ```
 
 
@@ -194,7 +195,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -221,70 +222,13 @@ This endpoint does not need any parameters.
 
 ***
 
-# **get_all_one_time_access_tokens**
+# **get_access_token**
 
-    def get_all_one_time_access_tokens(ordering=ordering, limit=limit, offset=offset) -> list[OneTimeAccessToken] 
-
-
-
-### Required permissions    * User account permission: None (read) / users:manage (write) 
-
-### Example
-
-* Api Key Authentication (Bearer):
-
-```python
-import elements_sdk
-from elements_sdk.rest import ApiException
-from pprint import pprint
-
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-configuration.host = "https://elements.local"
-
-# Enter a context with an instance of the API client
-with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = elements_sdk.AuthApi(api_client)
-    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
-
-    try:
-        api_response = api_instance.get_all_one_time_access_tokens(ordering=ordering, limit=limit, offset=offset)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling AuthApi->get_all_one_time_access_tokens: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
-
-### Return type
-
-[**list[OneTimeAccessToken]**](OneTimeAccessToken.md)
-
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
-
-
-***
-
-# **get_one_time_access_token**
-
-    def get_one_time_access_token(id) -> OneTimeAccessToken 
+    def get_access_token(id) -> OneTimeAccessToken 
 
 
 
-### Required permissions    * User account permission: None (read) / users:manage (write) 
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -300,7 +244,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -309,10 +253,10 @@ with elements_sdk.ApiClient(configuration) as api_client:
     id = 56 # int | A unique integer value identifying this one time access token.
 
     try:
-        api_response = api_instance.get_one_time_access_token(id)
+        api_response = api_instance.get_access_token(id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling AuthApi->get_one_time_access_token: %s\n" % e)
+        print("Exception when calling AuthApi->get_access_token: %s\n" % e)
 ```
 
 
@@ -325,6 +269,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OneTimeAccessToken**](OneTimeAccessToken.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **get_all_access_tokens**
+
+    def get_all_access_tokens(shared_bundles=shared_bundles, shared_directories=shared_directories, shared_bundles__asset=shared_bundles__asset, user=user, created_by=created_by, ordering=ordering, limit=limit, offset=offset) -> list[OneTimeAccessToken] 
+
+
+
+### Required permissions    * Authenticated user 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "http://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.AuthApi(api_client)
+    shared_bundles = 'shared_bundles_example' # str | Filter the returned list by `shared_bundles`. (optional)
+shared_directories = 'shared_directories_example' # str | Filter the returned list by `shared_directories`. (optional)
+shared_bundles__asset = 'shared_bundles__asset_example' # str | Filter the returned list by `shared_bundles__asset`. (optional)
+user = 'user_example' # str | Filter the returned list by `user`. (optional)
+created_by = 'created_by_example' # str | Filter the returned list by `created_by`. (optional)
+ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
+limit = 56 # int | Number of results to return per page. (optional)
+offset = 56 # int | The initial index from which to return the results. (optional)
+
+    try:
+        api_response = api_instance.get_all_access_tokens(shared_bundles=shared_bundles, shared_directories=shared_directories, shared_bundles__asset=shared_bundles__asset, user=user, created_by=created_by, ordering=ordering, limit=limit, offset=offset)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AuthApi->get_all_access_tokens: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **shared_bundles** | **str**| Filter the returned list by &#x60;shared_bundles&#x60;. | [optional] 
+ **shared_directories** | **str**| Filter the returned list by &#x60;shared_directories&#x60;. | [optional] 
+ **shared_bundles__asset** | **str**| Filter the returned list by &#x60;shared_bundles__asset&#x60;. | [optional] 
+ **user** | **str**| Filter the returned list by &#x60;user&#x60;. | [optional] 
+ **created_by** | **str**| Filter the returned list by &#x60;created_by&#x60;. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional] 
+ **limit** | **int**| Number of results to return per page. | [optional] 
+ **offset** | **int**| The initial index from which to return the results. | [optional] 
+
+### Return type
+
+[**list[OneTimeAccessToken]**](OneTimeAccessToken.md)
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
@@ -353,7 +364,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -406,7 +417,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -423,6 +434,61 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 ### Parameters
 This endpoint does not need any parameters.
+
+### Return type
+
+**object**
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **send_access_token_email_notification**
+
+    def send_access_token_email_notification(id, data) -> object 
+
+
+
+### Required permissions    * Authenticated user 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "http://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.AuthApi(api_client)
+    id = 56 # int | A unique integer value identifying this one time access token.
+data = elements_sdk.SendLinkEmailRequest() # SendLinkEmailRequest | 
+
+    try:
+        api_response = api_instance.send_access_token_email_notification(id, data)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AuthApi->send_access_token_email_notification: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this one time access token. | 
+ **data** | [**SendLinkEmailRequest**](SendLinkEmailRequest.md)|  | 
 
 ### Return type
 

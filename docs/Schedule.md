@@ -6,8 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] [readonly] 
 **variables** | **dict(str, str)** |  | [optional] 
+**next_run** | **datetime** |  | [optional] [readonly] 
 **type** | **int** |  | [optional] 
 **enabled** | **bool** |  | [optional] 
+**last_run** | **datetime** |  | [optional] 
 **every** | **int** |  | [optional] 
 **period** | **str** |  | [optional] 
 **crontab_day_of_month** | **str** |  | [optional] 

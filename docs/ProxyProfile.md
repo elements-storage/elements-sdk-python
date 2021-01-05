@@ -19,6 +19,10 @@ Name | Type | Description | Notes
 **watermark_position** | **int** |  | [optional] 
 **watermark_opacity** | **float** |  | [optional] 
 **watermark_size** | **float** |  | [optional] 
+**enable_timecode** | **bool** |  | [optional] 
+**timecode_position** | **int** |  | [optional] 
+**timecode_opacity** | **float** |  | [optional] 
+**timecode_size** | **float** |  | [optional] 
 **lut** | **str** |  | [optional] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)

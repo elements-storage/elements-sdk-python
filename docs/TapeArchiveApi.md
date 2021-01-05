@@ -1,6 +1,6 @@
 # elements_sdk.TapeArchiveApi
 
-All URIs are relative to *https://elements.local*
+All URIs are relative to *http://elements.local*
 >
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -45,7 +45,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -98,7 +98,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -151,7 +151,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -204,7 +204,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -257,7 +257,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -324,7 +324,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -385,7 +385,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -450,7 +450,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -503,7 +503,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -556,7 +556,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -609,14 +609,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.TapeArchiveApi(api_client)
     id = 56 # int | A unique integer value identifying this tape.
-data = elements_sdk.Tape() # Tape | 
+data = elements_sdk.TapePartialUpdate() # TapePartialUpdate | 
 
     try:
         api_response = api_instance.patch_tape(id, data)
@@ -631,7 +631,7 @@ data = elements_sdk.Tape() # Tape |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this tape. | 
- **data** | [**Tape**](Tape.md)|  | 
+ **data** | [**TapePartialUpdate**](TapePartialUpdate.md)|  | 
 
 ### Return type
 
@@ -664,14 +664,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.TapeArchiveApi(api_client)
     id = 56 # int | A unique integer value identifying this tape group.
-data = elements_sdk.TapeGroup() # TapeGroup | 
+data = elements_sdk.TapeGroupPartialUpdate() # TapeGroupPartialUpdate | 
 
     try:
         api_response = api_instance.patch_tape_group(id, data)
@@ -686,7 +686,7 @@ data = elements_sdk.TapeGroup() # TapeGroup |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this tape group. | 
- **data** | [**TapeGroup**](TapeGroup.md)|  | 
+ **data** | [**TapeGroupPartialUpdate**](TapeGroupPartialUpdate.md)|  | 
 
 ### Return type
 
@@ -719,7 +719,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -774,7 +774,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:

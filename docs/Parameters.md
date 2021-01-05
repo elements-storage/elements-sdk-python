@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **smtp_port** | **int** |  | [optional] 
 **smtp_tls** | **str** |  | [optional] 
 **smtp_username** | **str** |  | [optional] 
+**smtp_ehlo** | **str** |  | [optional] 
 **tasks_limit** | **int** |  | [optional] 
 **tasks_hard_limit** | **int** |  | [optional] 
 **umask_afp** | **str** |  | [optional] 

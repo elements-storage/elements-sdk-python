@@ -273,7 +273,7 @@ class StatusApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this alert. (required)
-        :param Alert data: (required)
+        :param AlertPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -299,7 +299,7 @@ class StatusApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this alert. (required)
-        :param Alert data: (required)
+        :param AlertPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

@@ -35,13 +35,18 @@ class OneTimeAccessToken(object):
         'activity': 'list[OneTimeAccessTokenActivity]',
         'user': 'ElementsUserMini',
         'created_by': 'ElementsUserMini',
+        'media_root_permissions': 'str',
+        'shared_bundles': 'str',
+        'shared_directories': 'str',
+        'full_url': 'str',
         'url': 'str',
         'token': 'str',
         'view_limit_enabled': 'bool',
         'view_limit_left': 'int',
         'expires': 'datetime',
         'require_login': 'bool',
-        'media_root_permission': 'int'
+        'is_easy_sharing_for_bundle': 'int',
+        'is_easy_sharing_for_directory': 'int'
     }
 
     attribute_map = {
@@ -49,16 +54,21 @@ class OneTimeAccessToken(object):
         'activity': 'activity',
         'user': 'user',
         'created_by': 'created_by',
+        'media_root_permissions': 'media_root_permissions',
+        'shared_bundles': 'shared_bundles',
+        'shared_directories': 'shared_directories',
+        'full_url': 'full_url',
         'url': 'url',
         'token': 'token',
         'view_limit_enabled': 'view_limit_enabled',
         'view_limit_left': 'view_limit_left',
         'expires': 'expires',
         'require_login': 'require_login',
-        'media_root_permission': 'media_root_permission'
+        'is_easy_sharing_for_bundle': 'is_easy_sharing_for_bundle',
+        'is_easy_sharing_for_directory': 'is_easy_sharing_for_directory'
     }
 
-    def __init__(self, id=None, activity=None, user=None, created_by=None, url=None, token=None, view_limit_enabled=None, view_limit_left=None, expires=None, require_login=None, media_root_permission=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, activity=None, user=None, created_by=None, media_root_permissions=None, shared_bundles=None, shared_directories=None, full_url=None, url=None, token=None, view_limit_enabled=None, view_limit_left=None, expires=None, require_login=None, is_easy_sharing_for_bundle=None, is_easy_sharing_for_directory=None, local_vars_configuration=None):  # noqa: E501
         """OneTimeAccessToken - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -68,13 +78,18 @@ class OneTimeAccessToken(object):
         self._activity = None
         self._user = None
         self._created_by = None
+        self._media_root_permissions = None
+        self._shared_bundles = None
+        self._shared_directories = None
+        self._full_url = None
         self._url = None
         self._token = None
         self._view_limit_enabled = None
         self._view_limit_left = None
         self._expires = None
         self._require_login = None
-        self._media_root_permission = None
+        self._is_easy_sharing_for_bundle = None
+        self._is_easy_sharing_for_directory = None
         self.discriminator = None
 
         if id is not None:
@@ -84,6 +99,14 @@ class OneTimeAccessToken(object):
         self.user = user
         if created_by is not None:
             self.created_by = created_by
+        if media_root_permissions is not None:
+            self.media_root_permissions = media_root_permissions
+        if shared_bundles is not None:
+            self.shared_bundles = shared_bundles
+        if shared_directories is not None:
+            self.shared_directories = shared_directories
+        if full_url is not None:
+            self.full_url = full_url
         self.url = url
         self.token = token
         if view_limit_enabled is not None:
@@ -93,8 +116,10 @@ class OneTimeAccessToken(object):
         self.expires = expires
         if require_login is not None:
             self.require_login = require_login
-        if media_root_permission is not None:
-            self.media_root_permission = media_root_permission
+        if is_easy_sharing_for_bundle is not None:
+            self.is_easy_sharing_for_bundle = is_easy_sharing_for_bundle
+        if is_easy_sharing_for_directory is not None:
+            self.is_easy_sharing_for_directory = is_easy_sharing_for_directory
 
     @property
     def id(self):
@@ -181,6 +206,90 @@ class OneTimeAccessToken(object):
         """
 
         self._created_by = created_by
+
+    @property
+    def media_root_permissions(self):
+        """Gets the media_root_permissions of this OneTimeAccessToken.  # noqa: E501
+
+
+        :return: The media_root_permissions of this OneTimeAccessToken.  # noqa: E501
+        :rtype: str
+        """
+        return self._media_root_permissions
+
+    @media_root_permissions.setter
+    def media_root_permissions(self, media_root_permissions):
+        """Sets the media_root_permissions of this OneTimeAccessToken.
+
+
+        :param media_root_permissions: The media_root_permissions of this OneTimeAccessToken.  # noqa: E501
+        :type: str
+        """
+
+        self._media_root_permissions = media_root_permissions
+
+    @property
+    def shared_bundles(self):
+        """Gets the shared_bundles of this OneTimeAccessToken.  # noqa: E501
+
+
+        :return: The shared_bundles of this OneTimeAccessToken.  # noqa: E501
+        :rtype: str
+        """
+        return self._shared_bundles
+
+    @shared_bundles.setter
+    def shared_bundles(self, shared_bundles):
+        """Sets the shared_bundles of this OneTimeAccessToken.
+
+
+        :param shared_bundles: The shared_bundles of this OneTimeAccessToken.  # noqa: E501
+        :type: str
+        """
+
+        self._shared_bundles = shared_bundles
+
+    @property
+    def shared_directories(self):
+        """Gets the shared_directories of this OneTimeAccessToken.  # noqa: E501
+
+
+        :return: The shared_directories of this OneTimeAccessToken.  # noqa: E501
+        :rtype: str
+        """
+        return self._shared_directories
+
+    @shared_directories.setter
+    def shared_directories(self, shared_directories):
+        """Sets the shared_directories of this OneTimeAccessToken.
+
+
+        :param shared_directories: The shared_directories of this OneTimeAccessToken.  # noqa: E501
+        :type: str
+        """
+
+        self._shared_directories = shared_directories
+
+    @property
+    def full_url(self):
+        """Gets the full_url of this OneTimeAccessToken.  # noqa: E501
+
+
+        :return: The full_url of this OneTimeAccessToken.  # noqa: E501
+        :rtype: str
+        """
+        return self._full_url
+
+    @full_url.setter
+    def full_url(self, full_url):
+        """Sets the full_url of this OneTimeAccessToken.
+
+
+        :param full_url: The full_url of this OneTimeAccessToken.  # noqa: E501
+        :type: str
+        """
+
+        self._full_url = full_url
 
     @property
     def url(self):
@@ -331,25 +440,46 @@ class OneTimeAccessToken(object):
         self._require_login = require_login
 
     @property
-    def media_root_permission(self):
-        """Gets the media_root_permission of this OneTimeAccessToken.  # noqa: E501
+    def is_easy_sharing_for_bundle(self):
+        """Gets the is_easy_sharing_for_bundle of this OneTimeAccessToken.  # noqa: E501
 
 
-        :return: The media_root_permission of this OneTimeAccessToken.  # noqa: E501
+        :return: The is_easy_sharing_for_bundle of this OneTimeAccessToken.  # noqa: E501
         :rtype: int
         """
-        return self._media_root_permission
+        return self._is_easy_sharing_for_bundle
 
-    @media_root_permission.setter
-    def media_root_permission(self, media_root_permission):
-        """Sets the media_root_permission of this OneTimeAccessToken.
+    @is_easy_sharing_for_bundle.setter
+    def is_easy_sharing_for_bundle(self, is_easy_sharing_for_bundle):
+        """Sets the is_easy_sharing_for_bundle of this OneTimeAccessToken.
 
 
-        :param media_root_permission: The media_root_permission of this OneTimeAccessToken.  # noqa: E501
+        :param is_easy_sharing_for_bundle: The is_easy_sharing_for_bundle of this OneTimeAccessToken.  # noqa: E501
         :type: int
         """
 
-        self._media_root_permission = media_root_permission
+        self._is_easy_sharing_for_bundle = is_easy_sharing_for_bundle
+
+    @property
+    def is_easy_sharing_for_directory(self):
+        """Gets the is_easy_sharing_for_directory of this OneTimeAccessToken.  # noqa: E501
+
+
+        :return: The is_easy_sharing_for_directory of this OneTimeAccessToken.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_easy_sharing_for_directory
+
+    @is_easy_sharing_for_directory.setter
+    def is_easy_sharing_for_directory(self, is_easy_sharing_for_directory):
+        """Sets the is_easy_sharing_for_directory of this OneTimeAccessToken.
+
+
+        :param is_easy_sharing_for_directory: The is_easy_sharing_for_directory of this OneTimeAccessToken.  # noqa: E501
+        :type: int
+        """
+
+        self._is_easy_sharing_for_directory = is_easy_sharing_for_directory
 
     def to_dict(self):
         """Returns the model properties as a dict"""

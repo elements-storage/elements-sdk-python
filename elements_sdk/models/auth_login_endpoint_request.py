@@ -131,9 +131,6 @@ class AuthLoginEndpointRequest(object):
         :param otp: The otp of this AuthLoginEndpointRequest.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                otp is not None and len(otp) < 1):
-            raise ValueError("Invalid value for `otp`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._otp = otp
 

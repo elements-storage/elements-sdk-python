@@ -2853,7 +2853,7 @@ class AutomationApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this job. (required)
-        :param Job data: (required)
+        :param JobPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2879,7 +2879,7 @@ class AutomationApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this job. (required)
-        :param Job data: (required)
+        :param JobPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2973,7 +2973,7 @@ class AutomationApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this schedule. (required)
-        :param Schedule data: (required)
+        :param SchedulePartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2999,7 +2999,7 @@ class AutomationApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this schedule. (required)
-        :param Schedule data: (required)
+        :param SchedulePartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3093,7 +3093,7 @@ class AutomationApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this subtask. (required)
-        :param Subtask data: (required)
+        :param SubtaskPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3119,7 +3119,7 @@ class AutomationApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this subtask. (required)
-        :param Subtask data: (required)
+        :param SubtaskPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

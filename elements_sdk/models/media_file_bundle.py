@@ -36,8 +36,10 @@ class MediaFileBundle(object):
         'mainfile': 'MediaFileMini',
         'snm_attributes': 'StornextManagerAttributes',
         'search_highlight': 'str',
+        'is_shared': 'bool',
         'name': 'str',
-        'location': 'int'
+        'location': 'int',
+        'shared_via_tokens': 'list[int]'
     }
 
     attribute_map = {
@@ -46,11 +48,13 @@ class MediaFileBundle(object):
         'mainfile': 'mainfile',
         'snm_attributes': 'snm_attributes',
         'search_highlight': 'search_highlight',
+        'is_shared': 'is_shared',
         'name': 'name',
-        'location': 'location'
+        'location': 'location',
+        'shared_via_tokens': 'shared_via_tokens'
     }
 
-    def __init__(self, id=None, asset=None, mainfile=None, snm_attributes=None, search_highlight=None, name=None, location=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, asset=None, mainfile=None, snm_attributes=None, search_highlight=None, is_shared=None, name=None, location=None, shared_via_tokens=None, local_vars_configuration=None):  # noqa: E501
         """MediaFileBundle - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,8 +65,10 @@ class MediaFileBundle(object):
         self._mainfile = None
         self._snm_attributes = None
         self._search_highlight = None
+        self._is_shared = None
         self._name = None
         self._location = None
+        self._shared_via_tokens = None
         self.discriminator = None
 
         if id is not None:
@@ -75,8 +81,12 @@ class MediaFileBundle(object):
             self.snm_attributes = snm_attributes
         if search_highlight is not None:
             self.search_highlight = search_highlight
+        if is_shared is not None:
+            self.is_shared = is_shared
         self.name = name
         self.location = location
+        if shared_via_tokens is not None:
+            self.shared_via_tokens = shared_via_tokens
 
     @property
     def id(self):
@@ -184,6 +194,27 @@ class MediaFileBundle(object):
         self._search_highlight = search_highlight
 
     @property
+    def is_shared(self):
+        """Gets the is_shared of this MediaFileBundle.  # noqa: E501
+
+
+        :return: The is_shared of this MediaFileBundle.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_shared
+
+    @is_shared.setter
+    def is_shared(self, is_shared):
+        """Sets the is_shared of this MediaFileBundle.
+
+
+        :param is_shared: The is_shared of this MediaFileBundle.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_shared = is_shared
+
+    @property
     def name(self):
         """Gets the name of this MediaFileBundle.  # noqa: E501
 
@@ -234,6 +265,27 @@ class MediaFileBundle(object):
             raise ValueError("Invalid value for `location`, must not be `None`")  # noqa: E501
 
         self._location = location
+
+    @property
+    def shared_via_tokens(self):
+        """Gets the shared_via_tokens of this MediaFileBundle.  # noqa: E501
+
+
+        :return: The shared_via_tokens of this MediaFileBundle.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._shared_via_tokens
+
+    @shared_via_tokens.setter
+    def shared_via_tokens(self, shared_via_tokens):
+        """Sets the shared_via_tokens of this MediaFileBundle.
+
+
+        :param shared_via_tokens: The shared_via_tokens of this MediaFileBundle.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._shared_via_tokens = shared_via_tokens
 
     def to_dict(self):
         """Returns the model properties as a dict"""

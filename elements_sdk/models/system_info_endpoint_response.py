@@ -35,7 +35,8 @@ class SystemInfoEndpointResponse(object):
         'client_api_version': 'int',
         'nt_hostname': 'str',
         'offers_ntp_sync': 'bool',
-        'language': 'str'
+        'language': 'str',
+        'saml_providers': 'list[SAMLProvider]'
     }
 
     attribute_map = {
@@ -43,10 +44,11 @@ class SystemInfoEndpointResponse(object):
         'client_api_version': 'client_api_version',
         'nt_hostname': 'nt_hostname',
         'offers_ntp_sync': 'offers_ntp_sync',
-        'language': 'language'
+        'language': 'language',
+        'saml_providers': 'saml_providers'
     }
 
-    def __init__(self, license=None, client_api_version=None, nt_hostname=None, offers_ntp_sync=None, language=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, license=None, client_api_version=None, nt_hostname=None, offers_ntp_sync=None, language=None, saml_providers=None, local_vars_configuration=None):  # noqa: E501
         """SystemInfoEndpointResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,6 +59,7 @@ class SystemInfoEndpointResponse(object):
         self._nt_hostname = None
         self._offers_ntp_sync = None
         self._language = None
+        self._saml_providers = None
         self.discriminator = None
 
         self.license = license
@@ -64,6 +67,8 @@ class SystemInfoEndpointResponse(object):
         self.nt_hostname = nt_hostname
         self.offers_ntp_sync = offers_ntp_sync
         self.language = language
+        if saml_providers is not None:
+            self.saml_providers = saml_providers
 
     @property
     def license(self):
@@ -185,6 +190,27 @@ class SystemInfoEndpointResponse(object):
             raise ValueError("Invalid value for `language`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._language = language
+
+    @property
+    def saml_providers(self):
+        """Gets the saml_providers of this SystemInfoEndpointResponse.  # noqa: E501
+
+
+        :return: The saml_providers of this SystemInfoEndpointResponse.  # noqa: E501
+        :rtype: list[SAMLProvider]
+        """
+        return self._saml_providers
+
+    @saml_providers.setter
+    def saml_providers(self, saml_providers):
+        """Sets the saml_providers of this SystemInfoEndpointResponse.
+
+
+        :param saml_providers: The saml_providers of this SystemInfoEndpointResponse.  # noqa: E501
+        :type: list[SAMLProvider]
+        """
+
+        self._saml_providers = saml_providers
 
     def to_dict(self):
         """Returns the model properties as a dict"""

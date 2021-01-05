@@ -1,6 +1,6 @@
 # elements_sdk.StatusApi
 
-All URIs are relative to *https://elements.local*
+All URIs are relative to *http://elements.local*
 >
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,7 +35,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -88,7 +88,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -149,14 +149,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.StatusApi(api_client)
     id = 56 # int | A unique integer value identifying this alert.
-data = elements_sdk.Alert() # Alert | 
+data = elements_sdk.AlertPartialUpdate() # AlertPartialUpdate | 
 
     try:
         api_response = api_instance.patch_alert(id, data)
@@ -171,7 +171,7 @@ data = elements_sdk.Alert() # Alert |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this alert. | 
- **data** | [**Alert**](Alert.md)|  | 
+ **data** | [**AlertPartialUpdate**](AlertPartialUpdate.md)|  | 
 
 ### Return type
 
@@ -204,7 +204,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:

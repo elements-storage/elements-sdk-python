@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **bookmarked** | **bool** |  | [optional] [readonly] 
 **resolved_permissions** | [**list[WorkspaceResolvedPermission]**](WorkspaceResolvedPermission.md) |  | [optional] [readonly] 
 **resolved_read_only** | **bool** |  | [optional] [readonly] 
+**recycle_bin_path** | **str** |  | [optional] [readonly] 
 **name** | **str** |  | [optional] 
 **directory** | **str** |  | [optional] [readonly] 
 **description** | **str** |  | [optional] 

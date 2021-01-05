@@ -1189,7 +1189,7 @@ class TapeArchiveApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this tape. (required)
-        :param Tape data: (required)
+        :param TapePartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1215,7 +1215,7 @@ class TapeArchiveApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this tape. (required)
-        :param Tape data: (required)
+        :param TapePartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1309,7 +1309,7 @@ class TapeArchiveApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this tape group. (required)
-        :param TapeGroup data: (required)
+        :param TapeGroupPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1335,7 +1335,7 @@ class TapeArchiveApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this tape group. (required)
-        :param TapeGroup data: (required)
+        :param TapeGroupPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

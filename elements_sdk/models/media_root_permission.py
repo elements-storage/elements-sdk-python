@@ -53,7 +53,8 @@ class MediaRootPermission(object):
         'show_subclips': 'bool',
         'show_ai_metadata': 'bool',
         'show_markers': 'bool',
-        'root': 'int'
+        'root': 'int',
+        'is_temporary_for_token': 'int'
     }
 
     attribute_map = {
@@ -79,10 +80,11 @@ class MediaRootPermission(object):
         'show_subclips': 'show_subclips',
         'show_ai_metadata': 'show_ai_metadata',
         'show_markers': 'show_markers',
-        'root': 'root'
+        'root': 'root',
+        'is_temporary_for_token': 'is_temporary_for_token'
     }
 
-    def __init__(self, id=None, user=None, group=None, full_path=None, path=None, allow_create=None, allow_write_fs=None, allow_write_db=None, allow_proxy_download=None, allow_original_download=None, allow_upload=None, allow_sharing=None, allow_delete_fs=None, allow_delete_db=None, show_tags=None, show_comments=None, show_locations=None, show_custom_fields=None, show_ratings=None, show_subclips=None, show_ai_metadata=None, show_markers=None, root=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, user=None, group=None, full_path=None, path=None, allow_create=None, allow_write_fs=None, allow_write_db=None, allow_proxy_download=None, allow_original_download=None, allow_upload=None, allow_sharing=None, allow_delete_fs=None, allow_delete_db=None, show_tags=None, show_comments=None, show_locations=None, show_custom_fields=None, show_ratings=None, show_subclips=None, show_ai_metadata=None, show_markers=None, root=None, is_temporary_for_token=None, local_vars_configuration=None):  # noqa: E501
         """MediaRootPermission - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -111,6 +113,7 @@ class MediaRootPermission(object):
         self._show_ai_metadata = None
         self._show_markers = None
         self._root = None
+        self._is_temporary_for_token = None
         self.discriminator = None
 
         if id is not None:
@@ -158,6 +161,7 @@ class MediaRootPermission(object):
         if show_markers is not None:
             self.show_markers = show_markers
         self.root = root
+        self.is_temporary_for_token = is_temporary_for_token
 
     @property
     def id(self):
@@ -646,6 +650,27 @@ class MediaRootPermission(object):
             raise ValueError("Invalid value for `root`, must not be `None`")  # noqa: E501
 
         self._root = root
+
+    @property
+    def is_temporary_for_token(self):
+        """Gets the is_temporary_for_token of this MediaRootPermission.  # noqa: E501
+
+
+        :return: The is_temporary_for_token of this MediaRootPermission.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_temporary_for_token
+
+    @is_temporary_for_token.setter
+    def is_temporary_for_token(self, is_temporary_for_token):
+        """Sets the is_temporary_for_token of this MediaRootPermission.
+
+
+        :param is_temporary_for_token: The is_temporary_for_token of this MediaRootPermission.  # noqa: E501
+        :type: int
+        """
+
+        self._is_temporary_for_token = is_temporary_for_token
 
     def to_dict(self):
         """Returns the model properties as a dict"""

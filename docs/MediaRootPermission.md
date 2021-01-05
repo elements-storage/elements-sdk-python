@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **show_ai_metadata** | **bool** |  | [optional] 
 **show_markers** | **bool** |  | [optional] 
 **root** | **int** |  | 
+**is_temporary_for_token** | **int** |  | [optional] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 

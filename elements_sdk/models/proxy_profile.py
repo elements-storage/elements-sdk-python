@@ -46,6 +46,10 @@ class ProxyProfile(object):
         'watermark_position': 'int',
         'watermark_opacity': 'float',
         'watermark_size': 'float',
+        'enable_timecode': 'bool',
+        'timecode_position': 'int',
+        'timecode_opacity': 'float',
+        'timecode_size': 'float',
         'lut': 'str'
     }
 
@@ -65,10 +69,14 @@ class ProxyProfile(object):
         'watermark_position': 'watermark_position',
         'watermark_opacity': 'watermark_opacity',
         'watermark_size': 'watermark_size',
+        'enable_timecode': 'enable_timecode',
+        'timecode_position': 'timecode_position',
+        'timecode_opacity': 'timecode_opacity',
+        'timecode_size': 'timecode_size',
         'lut': 'lut'
     }
 
-    def __init__(self, id=None, name=None, resolution=None, rate_control=None, crf=None, bitrate=None, audio_bitrate=None, variants_limit=None, enable_realtime_read=None, enable_dense_filmstrip=None, enable_watermark=None, watermark_image=None, watermark_position=None, watermark_opacity=None, watermark_size=None, lut=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, resolution=None, rate_control=None, crf=None, bitrate=None, audio_bitrate=None, variants_limit=None, enable_realtime_read=None, enable_dense_filmstrip=None, enable_watermark=None, watermark_image=None, watermark_position=None, watermark_opacity=None, watermark_size=None, enable_timecode=None, timecode_position=None, timecode_opacity=None, timecode_size=None, lut=None, local_vars_configuration=None):  # noqa: E501
         """ProxyProfile - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -89,6 +97,10 @@ class ProxyProfile(object):
         self._watermark_position = None
         self._watermark_opacity = None
         self._watermark_size = None
+        self._enable_timecode = None
+        self._timecode_position = None
+        self._timecode_opacity = None
+        self._timecode_size = None
         self._lut = None
         self.discriminator = None
 
@@ -117,6 +129,14 @@ class ProxyProfile(object):
             self.watermark_opacity = watermark_opacity
         if watermark_size is not None:
             self.watermark_size = watermark_size
+        if enable_timecode is not None:
+            self.enable_timecode = enable_timecode
+        if timecode_position is not None:
+            self.timecode_position = timecode_position
+        if timecode_opacity is not None:
+            self.timecode_opacity = timecode_opacity
+        if timecode_size is not None:
+            self.timecode_size = timecode_size
         self.lut = lut
 
     @property
@@ -471,6 +491,90 @@ class ProxyProfile(object):
         """
 
         self._watermark_size = watermark_size
+
+    @property
+    def enable_timecode(self):
+        """Gets the enable_timecode of this ProxyProfile.  # noqa: E501
+
+
+        :return: The enable_timecode of this ProxyProfile.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_timecode
+
+    @enable_timecode.setter
+    def enable_timecode(self, enable_timecode):
+        """Sets the enable_timecode of this ProxyProfile.
+
+
+        :param enable_timecode: The enable_timecode of this ProxyProfile.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_timecode = enable_timecode
+
+    @property
+    def timecode_position(self):
+        """Gets the timecode_position of this ProxyProfile.  # noqa: E501
+
+
+        :return: The timecode_position of this ProxyProfile.  # noqa: E501
+        :rtype: int
+        """
+        return self._timecode_position
+
+    @timecode_position.setter
+    def timecode_position(self, timecode_position):
+        """Sets the timecode_position of this ProxyProfile.
+
+
+        :param timecode_position: The timecode_position of this ProxyProfile.  # noqa: E501
+        :type: int
+        """
+
+        self._timecode_position = timecode_position
+
+    @property
+    def timecode_opacity(self):
+        """Gets the timecode_opacity of this ProxyProfile.  # noqa: E501
+
+
+        :return: The timecode_opacity of this ProxyProfile.  # noqa: E501
+        :rtype: float
+        """
+        return self._timecode_opacity
+
+    @timecode_opacity.setter
+    def timecode_opacity(self, timecode_opacity):
+        """Sets the timecode_opacity of this ProxyProfile.
+
+
+        :param timecode_opacity: The timecode_opacity of this ProxyProfile.  # noqa: E501
+        :type: float
+        """
+
+        self._timecode_opacity = timecode_opacity
+
+    @property
+    def timecode_size(self):
+        """Gets the timecode_size of this ProxyProfile.  # noqa: E501
+
+
+        :return: The timecode_size of this ProxyProfile.  # noqa: E501
+        :rtype: float
+        """
+        return self._timecode_size
+
+    @timecode_size.setter
+    def timecode_size(self, timecode_size):
+        """Sets the timecode_size of this ProxyProfile.
+
+
+        :param timecode_size: The timecode_size of this ProxyProfile.  # noqa: E501
+        :type: float
+        """
+
+        self._timecode_size = timecode_size
 
     @property
     def lut(self):

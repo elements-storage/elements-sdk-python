@@ -2,7 +2,7 @@
 
 - API version: 2
 - Python 2.7 and 3.4+
-- Latest build: 3.0.3
+- Latest build: 3.1.0
 
 ## Installation & Usage
 
@@ -80,12 +80,13 @@ Class | Method | HTTP request | Description
 *AIApi* | [**update_ai_model**](docs/AIApi#update_ai_model) | **PUT** `/api/2/ai/models/{id}` | 
 *AuthApi* | [**check_auth_ticket**](docs/AuthApi#check_auth_ticket) | **POST** `/api/2/auth/ticket/check` | 
 *AuthApi* | [**create_auth_ticket**](docs/AuthApi#create_auth_ticket) | **POST** `/api/2/auth/ticket` | 
-*AuthApi* | [**delete_one_time_access_token**](docs/AuthApi#delete_one_time_access_token) | **DELETE** `/api/2/auth/access-tokens/{id}` | 
+*AuthApi* | [**delete_access_token**](docs/AuthApi#delete_access_token) | **DELETE** `/api/2/auth/access-tokens/{id}` | 
 *AuthApi* | [**generate_password**](docs/AuthApi#generate_password) | **POST** `/api/2/auth/generate-password` | 
-*AuthApi* | [**get_all_one_time_access_tokens**](docs/AuthApi#get_all_one_time_access_tokens) | **GET** `/api/2/auth/access-tokens` | 
-*AuthApi* | [**get_one_time_access_token**](docs/AuthApi#get_one_time_access_token) | **GET** `/api/2/auth/access-tokens/{id}` | 
+*AuthApi* | [**get_access_token**](docs/AuthApi#get_access_token) | **GET** `/api/2/auth/access-tokens/{id}` | 
+*AuthApi* | [**get_all_access_tokens**](docs/AuthApi#get_all_access_tokens) | **GET** `/api/2/auth/access-tokens` | 
 *AuthApi* | [**login**](docs/AuthApi#login) | **POST** `/api/2/auth/login` | 
 *AuthApi* | [**logout**](docs/AuthApi#logout) | **POST** `/api/2/auth/logout` | 
+*AuthApi* | [**send_access_token_email_notification**](docs/AuthApi#send_access_token_email_notification) | **POST** `/api/2/auth/access-tokens/{id}/email` | 
 *AutomationApi* | [**abort_task**](docs/AutomationApi#abort_task) | **POST** `/api/2/tasks/{id}/abort` | 
 *AutomationApi* | [**create_job**](docs/AutomationApi#create_job) | **POST** `/api/2/jobs` | 
 *AutomationApi* | [**create_schedule**](docs/AutomationApi#create_schedule) | **POST** `/api/2/schedules` | 
@@ -122,10 +123,12 @@ Class | Method | HTTP request | Description
 *MainApi* | [**apply_configuration**](docs/MainApi#apply_configuration) | **POST** `/api/2/configuration/apply` | 
 *MainApi* | [**check_chunk_uploaded**](docs/MainApi#check_chunk_uploaded) | **GET** `/api/2/uploads/chunk` | 
 *MainApi* | [**check_stor_next_license**](docs/MainApi#check_stor_next_license) | **POST** `/api/2/stornext-license/check` | 
+*MainApi* | [**create_archive**](docs/MainApi#create_archive) | **POST** `/api/2/download-archive/create` | 
 *MainApi* | [**create_group**](docs/MainApi#create_group) | **POST** `/api/2/groups` | 
 *MainApi* | [**create_home_workspace**](docs/MainApi#create_home_workspace) | **POST** `/api/2/users/{id}/home` | 
 *MainApi* | [**create_user**](docs/MainApi#create_user) | **POST** `/api/2/users` | 
 *MainApi* | [**create_workstation**](docs/MainApi#create_workstation) | **POST** `/api/2/workstations` | 
+*MainApi* | [**delete_download_archive**](docs/MainApi#delete_download_archive) | **DELETE** `/api/2/download-archive/{id}` | 
 *MainApi* | [**delete_group**](docs/MainApi#delete_group) | **DELETE** `/api/2/groups/{id}` | 
 *MainApi* | [**delete_home_workspace**](docs/MainApi#delete_home_workspace) | **DELETE** `/api/2/users/{id}/home` | 
 *MainApi* | [**delete_user**](docs/MainApi#delete_user) | **DELETE** `/api/2/users/{id}` | 
@@ -134,6 +137,7 @@ Class | Method | HTTP request | Description
 *MainApi* | [**enable_user_totp**](docs/MainApi#enable_user_totp) | **POST** `/api/2/users/{id}/totp` | 
 *MainApi* | [**finish_upload**](docs/MainApi#finish_upload) | **POST** `/api/2/uploads/finish` | 
 *MainApi* | [**fix_ldap_group_memberships**](docs/MainApi#fix_ldap_group_memberships) | **POST** `/api/2/ldap-servers/{id}/fix-memberships` | 
+*MainApi* | [**get_all_download_archives**](docs/MainApi#get_all_download_archives) | **GET** `/api/2/download-archive` | 
 *MainApi* | [**get_all_downloads**](docs/MainApi#get_all_downloads) | **GET** `/api/2/downloads` | 
 *MainApi* | [**get_all_groups**](docs/MainApi#get_all_groups) | **GET** `/api/2/groups` | 
 *MainApi* | [**get_all_ldap_servers**](docs/MainApi#get_all_ldap_servers) | **GET** `/api/2/ldap-servers` | 
@@ -144,6 +148,8 @@ Class | Method | HTTP request | Description
 *MainApi* | [**get_client_downloads**](docs/MainApi#get_client_downloads) | **GET** `/api/2/downloads/clients` | 
 *MainApi* | [**get_current_workstation**](docs/MainApi#get_current_workstation) | **GET** `/api/2/workstations/current` | 
 *MainApi* | [**get_download**](docs/MainApi#get_download) | **GET** `/api/2/downloads/{id}` | 
+*MainApi* | [**get_download_archive**](docs/MainApi#get_download_archive) | **GET** `/api/2/download-archive/{id}` | 
+*MainApi* | [**get_download_archive_file**](docs/MainApi#get_download_archive_file) | **GET** `/api/2/download-archive/{id}/download` | 
 *MainApi* | [**get_download_file**](docs/MainApi#get_download_file) | **GET** `/api/2/downloads/{id}/download` | 
 *MainApi* | [**get_download_icon**](docs/MainApi#get_download_icon) | **GET** `/api/2/downloads/{id}/icon` | 
 *MainApi* | [**get_group**](docs/MainApi#get_group) | **GET** `/api/2/groups/{id}` | 
@@ -164,6 +170,7 @@ Class | Method | HTTP request | Description
 *MainApi* | [**get_workstation**](docs/MainApi#get_workstation) | **GET** `/api/2/workstations/{id}` | 
 *MainApi* | [**install_stor_next_license**](docs/MainApi#install_stor_next_license) | **POST** `/api/2/stornext-license` | 
 *MainApi* | [**patch_current_workstation**](docs/MainApi#patch_current_workstation) | **PATCH** `/api/2/workstations/current` | 
+*MainApi* | [**patch_download_archive**](docs/MainApi#patch_download_archive) | **PATCH** `/api/2/download-archive/{id}` | 
 *MainApi* | [**patch_group**](docs/MainApi#patch_group) | **PATCH** `/api/2/groups/{id}` | 
 *MainApi* | [**patch_user**](docs/MainApi#patch_user) | **PATCH** `/api/2/users/{id}` | 
 *MainApi* | [**patch_workstation**](docs/MainApi#patch_workstation) | **PATCH** `/api/2/workstations/{id}` | 
@@ -176,6 +183,7 @@ Class | Method | HTTP request | Description
 *MainApi* | [**sync_ldap_users**](docs/MainApi#sync_ldap_users) | **POST** `/api/2/ldap-servers/{id}/sync-users` | 
 *MainApi* | [**sync_user_totp**](docs/MainApi#sync_user_totp) | **PUT** `/api/2/users/{id}/totp` | 
 *MainApi* | [**update_current_workstation**](docs/MainApi#update_current_workstation) | **PUT** `/api/2/workstations/current` | 
+*MainApi* | [**update_download_archive**](docs/MainApi#update_download_archive) | **PUT** `/api/2/download-archive/{id}` | 
 *MainApi* | [**update_group**](docs/MainApi#update_group) | **PUT** `/api/2/groups/{id}` | 
 *MainApi* | [**update_parameters**](docs/MainApi#update_parameters) | **PUT** `/api/2/parameters` | 
 *MainApi* | [**update_profile**](docs/MainApi#update_profile) | **PUT** `/api/2/users/me` | 
@@ -200,6 +208,8 @@ Class | Method | HTTP request | Description
 *MediaLibraryApi* | [**delete_asset_rating**](docs/MediaLibraryApi#delete_asset_rating) | **DELETE** `/api/2/media/ratings/{id}` | 
 *MediaLibraryApi* | [**delete_comment**](docs/MediaLibraryApi#delete_comment) | **DELETE** `/api/2/media/comments/{id}` | 
 *MediaLibraryApi* | [**delete_custom_field**](docs/MediaLibraryApi#delete_custom_field) | **DELETE** `/api/2/media/custom-fields/{id}` | 
+*MediaLibraryApi* | [**delete_easy_sharing_token_for_bundle**](docs/MediaLibraryApi#delete_easy_sharing_token_for_bundle) | **DELETE** `/api/2/media/bundles/{id}/easy-sharing-token` | 
+*MediaLibraryApi* | [**delete_easy_sharing_token_for_directory**](docs/MediaLibraryApi#delete_easy_sharing_token_for_directory) | **DELETE** `/api/2/media/files/{id}/easy-sharing-token` | 
 *MediaLibraryApi* | [**delete_marker**](docs/MediaLibraryApi#delete_marker) | **DELETE** `/api/2/media/markers/{id}` | 
 *MediaLibraryApi* | [**delete_media_file_template**](docs/MediaLibraryApi#delete_media_file_template) | **DELETE** `/api/2/media/files/templates/{id}` | 
 *MediaLibraryApi* | [**delete_media_root**](docs/MediaLibraryApi#delete_media_root) | **DELETE** `/api/2/media/roots/{id}` | 
@@ -238,6 +248,9 @@ Class | Method | HTTP request | Description
 *MediaLibraryApi* | [**get_asset_rating**](docs/MediaLibraryApi#get_asset_rating) | **GET** `/api/2/media/ratings/{id}` | 
 *MediaLibraryApi* | [**get_comment**](docs/MediaLibraryApi#get_comment) | **GET** `/api/2/media/comments/{id}` | 
 *MediaLibraryApi* | [**get_custom_field**](docs/MediaLibraryApi#get_custom_field) | **GET** `/api/2/media/custom-fields/{id}` | 
+*MediaLibraryApi* | [**get_easy_sharing_token_for_bundle**](docs/MediaLibraryApi#get_easy_sharing_token_for_bundle) | **GET** `/api/2/media/bundles/{id}/easy-sharing-token` | 
+*MediaLibraryApi* | [**get_easy_sharing_token_for_directory**](docs/MediaLibraryApi#get_easy_sharing_token_for_directory) | **GET** `/api/2/media/files/{id}/easy-sharing-token` | 
+*MediaLibraryApi* | [**get_frame**](docs/MediaLibraryApi#get_frame) | **GET** `/api/2/media/assets/{id}/frames/{frame}` | 
 *MediaLibraryApi* | [**get_latest_media_update**](docs/MediaLibraryApi#get_latest_media_update) | **GET** `/api/2/media/updates/latest` | 
 *MediaLibraryApi* | [**get_marker**](docs/MediaLibraryApi#get_marker) | **GET** `/api/2/media/markers/{id}` | 
 *MediaLibraryApi* | [**get_media_file**](docs/MediaLibraryApi#get_media_file) | **GET** `/api/2/media/files/{id}` | 
@@ -271,6 +284,7 @@ Class | Method | HTTP request | Description
 *MediaLibraryApi* | [**patch_subclip**](docs/MediaLibraryApi#patch_subclip) | **PATCH** `/api/2/media/subclips/{id}` | 
 *MediaLibraryApi* | [**request_media_scan**](docs/MediaLibraryApi#request_media_scan) | **POST** `/api/2/scanner/scan` | 
 *MediaLibraryApi* | [**resolve_comment**](docs/MediaLibraryApi#resolve_comment) | **POST** `/api/2/media/comments/{id}/resolve` | 
+*MediaLibraryApi* | [**share_media_library_objects**](docs/MediaLibraryApi#share_media_library_objects) | **POST** `/api/2/media/share` | 
 *MediaLibraryApi* | [**unresolve_comment**](docs/MediaLibraryApi#unresolve_comment) | **POST** `/api/2/media/comments/{id}/unresolve` | 
 *MediaLibraryApi* | [**update_asset**](docs/MediaLibraryApi#update_asset) | **PUT** `/api/2/media/assets/{id}` | 
 *MediaLibraryApi* | [**update_asset_rating**](docs/MediaLibraryApi#update_asset_rating) | **PUT** `/api/2/media/ratings/{id}` | 
@@ -290,13 +304,18 @@ Class | Method | HTTP request | Description
 *StatusApi* | [**update_alert**](docs/StatusApi#update_alert) | **PUT** `/api/2/alerts/{id}` | 
 *StorageApi* | [**apply_workspace_affinity**](docs/StorageApi#apply_workspace_affinity) | **POST** `/api/2/workspaces/{id}/apply-affinity` | 
 *StorageApi* | [**bookmark_workspace**](docs/StorageApi#bookmark_workspace) | **POST** `/api/2/workspaces/{id}/bookmark` | 
+*StorageApi* | [**calculate_directory_size**](docs/StorageApi#calculate_directory_size) | **POST** `/api/2/filesystem/calculate-directory-size` | 
 *StorageApi* | [**check_in_into_workspace**](docs/StorageApi#check_in_into_workspace) | **POST** `/api/2/workspaces/{id}/check-in` | 
 *StorageApi* | [**check_out_of_workspace**](docs/StorageApi#check_out_of_workspace) | **POST** `/api/2/workspaces/{id}/check-out` | 
+*StorageApi* | [**copy_files**](docs/StorageApi#copy_files) | **POST** `/api/2/filesystem/copy` | 
+*StorageApi* | [**create_file**](docs/StorageApi#create_file) | **POST** `/api/2/files` | 
 *StorageApi* | [**create_production**](docs/StorageApi#create_production) | **POST** `/api/2/productions` | 
 *StorageApi* | [**create_share**](docs/StorageApi#create_share) | **POST** `/api/2/shares` | 
 *StorageApi* | [**create_snapshot**](docs/StorageApi#create_snapshot) | **POST** `/api/2/snapshots` | 
 *StorageApi* | [**create_workspace**](docs/StorageApi#create_workspace) | **POST** `/api/2/workspaces` | 
 *StorageApi* | [**create_workspace_permission**](docs/StorageApi#create_workspace_permission) | **POST** `/api/2/workspace-permissions` | 
+*StorageApi* | [**delete_file**](docs/StorageApi#delete_file) | **DELETE** `/api/2/files/{path}` | 
+*StorageApi* | [**delete_files**](docs/StorageApi#delete_files) | **POST** `/api/2/filesystem/delete` | 
 *StorageApi* | [**delete_production**](docs/StorageApi#delete_production) | **DELETE** `/api/2/productions/{id}` | 
 *StorageApi* | [**delete_share**](docs/StorageApi#delete_share) | **DELETE** `/api/2/shares/{id}` | 
 *StorageApi* | [**delete_snapshot**](docs/StorageApi#delete_snapshot) | **DELETE** `/api/2/snapshots/{id}` | 
@@ -309,8 +328,10 @@ Class | Method | HTTP request | Description
 *StorageApi* | [**get_all_volumes**](docs/StorageApi#get_all_volumes) | **GET** `/api/2/volumes` | 
 *StorageApi* | [**get_all_workspace_permissions**](docs/StorageApi#get_all_workspace_permissions) | **GET** `/api/2/workspace-permissions` | 
 *StorageApi* | [**get_all_workspaces**](docs/StorageApi#get_all_workspaces) | **GET** `/api/2/workspaces` | 
+*StorageApi* | [**get_file**](docs/StorageApi#get_file) | **GET** `/api/2/files/{path}` | 
 *StorageApi* | [**get_my_workspaces**](docs/StorageApi#get_my_workspaces) | **GET** `/api/2/workspaces/mine` | 
 *StorageApi* | [**get_production**](docs/StorageApi#get_production) | **GET** `/api/2/productions/{id}` | 
+*StorageApi* | [**get_root_directory**](docs/StorageApi#get_root_directory) | **GET** `/api/2/files` | 
 *StorageApi* | [**get_share**](docs/StorageApi#get_share) | **GET** `/api/2/shares/{id}` | 
 *StorageApi* | [**get_snapshot**](docs/StorageApi#get_snapshot) | **GET** `/api/2/snapshots/{id}` | 
 *StorageApi* | [**get_volume**](docs/StorageApi#get_volume) | **GET** `/api/2/volumes/{id}` | 
@@ -319,7 +340,9 @@ Class | Method | HTTP request | Description
 *StorageApi* | [**get_volume_stats**](docs/StorageApi#get_volume_stats) | **GET** `/api/2/volumes/{id}/stats` | 
 *StorageApi* | [**get_workspace**](docs/StorageApi#get_workspace) | **GET** `/api/2/workspaces/{id}` | 
 *StorageApi* | [**get_workspace_permission**](docs/StorageApi#get_workspace_permission) | **GET** `/api/2/workspace-permissions/{id}` | 
+*StorageApi* | [**move_files**](docs/StorageApi#move_files) | **POST** `/api/2/filesystem/move` | 
 *StorageApi* | [**move_workspace_to_production**](docs/StorageApi#move_workspace_to_production) | **POST** `/api/2/workspaces/{id}/move-to` | 
+*StorageApi* | [**patch_file**](docs/StorageApi#patch_file) | **PATCH** `/api/2/files/{path}` | 
 *StorageApi* | [**patch_production**](docs/StorageApi#patch_production) | **PATCH** `/api/2/productions/{id}` | 
 *StorageApi* | [**patch_share**](docs/StorageApi#patch_share) | **PATCH** `/api/2/shares/{id}` | 
 *StorageApi* | [**patch_snapshot**](docs/StorageApi#patch_snapshot) | **PATCH** `/api/2/snapshots/{id}` | 
@@ -328,12 +351,14 @@ Class | Method | HTTP request | Description
 *StorageApi* | [**patch_workspace_permission**](docs/StorageApi#patch_workspace_permission) | **PATCH** `/api/2/workspace-permissions/{id}` | 
 *StorageApi* | [**repair_workspace_permissions**](docs/StorageApi#repair_workspace_permissions) | **POST** `/api/2/workspaces/{id}/repair-permissions` | 
 *StorageApi* | [**unbookmark_workspace**](docs/StorageApi#unbookmark_workspace) | **DELETE** `/api/2/workspaces/{id}/bookmark` | 
+*StorageApi* | [**unzip_file**](docs/StorageApi#unzip_file) | **POST** `/api/2/filesystem/unzip` | 
 *StorageApi* | [**update_production**](docs/StorageApi#update_production) | **PUT** `/api/2/productions/{id}` | 
 *StorageApi* | [**update_share**](docs/StorageApi#update_share) | **PUT** `/api/2/shares/{id}` | 
 *StorageApi* | [**update_snapshot**](docs/StorageApi#update_snapshot) | **PUT** `/api/2/snapshots/{id}` | 
 *StorageApi* | [**update_volume**](docs/StorageApi#update_volume) | **PUT** `/api/2/volumes/{id}` | 
 *StorageApi* | [**update_workspace**](docs/StorageApi#update_workspace) | **PUT** `/api/2/workspaces/{id}` | 
 *StorageApi* | [**update_workspace_permission**](docs/StorageApi#update_workspace_permission) | **PUT** `/api/2/workspace-permissions/{id}` | 
+*StorageApi* | [**zip_files**](docs/StorageApi#zip_files) | **POST** `/api/2/filesystem/zip` | 
 *TapeArchiveApi* | [**create_tape**](docs/TapeArchiveApi#create_tape) | **POST** `/api/2/archive/tape/tapes` | 
 *TapeArchiveApi* | [**create_tape_group**](docs/TapeArchiveApi#create_tape_group) | **POST** `/api/2/archive/tape/groups` | 
 *TapeArchiveApi* | [**delete_tape**](docs/TapeArchiveApi#delete_tape) | **DELETE** `/api/2/archive/tape/tapes/{id}` | 
@@ -348,6 +373,7 @@ Class | Method | HTTP request | Description
 *TapeArchiveApi* | [**patch_tape_group**](docs/TapeArchiveApi#patch_tape_group) | **PATCH** `/api/2/archive/tape/groups/{id}` | 
 *TapeArchiveApi* | [**update_tape**](docs/TapeArchiveApi#update_tape) | **PUT** `/api/2/archive/tape/tapes/{id}` | 
 *TapeArchiveApi* | [**update_tape_group**](docs/TapeArchiveApi#update_tape_group) | **PUT** `/api/2/archive/tape/groups/{id}` | 
+*TasksApi* | [**get_python_environments**](docs/TasksApi#get_python_environments) | **GET** `/api/2/python/environments` | 
 
 
 ## Models
@@ -356,29 +382,37 @@ Class | Method | HTTP request | Description
  - [AIAnnotationCreateRequest](docs/AIAnnotationCreateRequest)
  - [AICategory](docs/AICategory)
  - [AICategoryDetail](docs/AICategoryDetail)
+ - [AICategoryDetailPartialUpdate](docs/AICategoryDetailPartialUpdate)
  - [AIConnection](docs/AIConnection)
  - [AIDataset](docs/AIDataset)
  - [AIDatasetSimple](docs/AIDatasetSimple)
  - [AIDatasetWithPreview](docs/AIDatasetWithPreview)
+ - [AIDatasetWithPreviewPartialUpdate](docs/AIDatasetWithPreviewPartialUpdate)
  - [AIImage](docs/AIImage)
  - [AIMetadata](docs/AIMetadata)
  - [AIModel](docs/AIModel)
+ - [AIModelPartialUpdate](docs/AIModelPartialUpdate)
  - [AIModelProgress](docs/AIModelProgress)
  - [AIModelStat](docs/AIModelStat)
  - [AIModelStats](docs/AIModelStats)
  - [AIProcessingRequest](docs/AIProcessingRequest)
+ - [Address](docs/Address)
  - [Alert](docs/Alert)
+ - [AlertPartialUpdate](docs/AlertPartialUpdate)
  - [AllMediaFilesForBundlesRequest](docs/AllMediaFilesForBundlesRequest)
  - [Asset](docs/Asset)
  - [AssetBackup](docs/AssetBackup)
  - [AssetCloudLink](docs/AssetCloudLink)
  - [AssetMini](docs/AssetMini)
+ - [AssetPartialUpdate](docs/AssetPartialUpdate)
  - [AssetProjectLink](docs/AssetProjectLink)
  - [AssetRating](docs/AssetRating)
+ - [AssetRatingPartialUpdate](docs/AssetRatingPartialUpdate)
  - [AuthLoginEndpointRequest](docs/AuthLoginEndpointRequest)
  - [AuthLoginEndpointResponse](docs/AuthLoginEndpointResponse)
  - [Backend](docs/Backend)
  - [BackendProperties](docs/BackendProperties)
+ - [BasicFile](docs/BasicFile)
  - [CPUStat](docs/CPUStat)
  - [ChangeOwnPasswordRequest](docs/ChangeOwnPasswordRequest)
  - [ChangePasswordRequest](docs/ChangePasswordRequest)
@@ -386,20 +420,34 @@ Class | Method | HTTP request | Description
  - [ClientsEndpointResponse](docs/ClientsEndpointResponse)
  - [CloudConnection](docs/CloudConnection)
  - [Comment](docs/Comment)
+ - [CommentPartialUpdate](docs/CommentPartialUpdate)
+ - [CreateDownloadArchive](docs/CreateDownloadArchive)
  - [CreateHomeWorkspaceRequest](docs/CreateHomeWorkspaceRequest)
  - [CustomField](docs/CustomField)
+ - [CustomFieldPartialUpdate](docs/CustomFieldPartialUpdate)
  - [DeletedWorkspace](docs/DeletedWorkspace)
  - [Download](docs/Download)
+ - [DownloadArchive](docs/DownloadArchive)
+ - [DownloadArchivePartialUpdate](docs/DownloadArchivePartialUpdate)
  - [ElementsGroup](docs/ElementsGroup)
  - [ElementsGroupDetail](docs/ElementsGroupDetail)
+ - [ElementsGroupDetailPartialUpdate](docs/ElementsGroupDetailPartialUpdate)
  - [ElementsUser](docs/ElementsUser)
  - [ElementsUserDetail](docs/ElementsUserDetail)
+ - [ElementsUserDetailPartialUpdate](docs/ElementsUserDetailPartialUpdate)
  - [ElementsUserMini](docs/ElementsUserMini)
  - [ElementsUserProfile](docs/ElementsUserProfile)
  - [EnableTOTPRequest](docs/EnableTOTPRequest)
  - [FSProperties](docs/FSProperties)
+ - [File](docs/File)
+ - [FileCopyEndpointRequest](docs/FileCopyEndpointRequest)
+ - [FileMoveEndpointRequest](docs/FileMoveEndpointRequest)
+ - [FilePartialUpdate](docs/FilePartialUpdate)
  - [FileSizeDistribution](docs/FileSizeDistribution)
  - [FileSizeDistributionItem](docs/FileSizeDistributionItem)
+ - [FileSizeEndpointResponse](docs/FileSizeEndpointResponse)
+ - [FileUnzipEndpointRequest](docs/FileUnzipEndpointRequest)
+ - [FileZipEndpointRequest](docs/FileZipEndpointRequest)
  - [FinishUploadEndpointRequest](docs/FinishUploadEndpointRequest)
  - [GeneratePasswordEndpointResponse](docs/GeneratePasswordEndpointResponse)
  - [GetMultipleBundlesRequest](docs/GetMultipleBundlesRequest)
@@ -407,6 +455,7 @@ Class | Method | HTTP request | Description
  - [IOStat](docs/IOStat)
  - [Interface](docs/Interface)
  - [Job](docs/Job)
+ - [JobPartialUpdate](docs/JobPartialUpdate)
  - [LDAPServer](docs/LDAPServer)
  - [LDAPServerGroup](docs/LDAPServerGroup)
  - [LDAPServerGroups](docs/LDAPServerGroups)
@@ -414,15 +463,22 @@ Class | Method | HTTP request | Description
  - [LDAPServerUsers](docs/LDAPServerUsers)
  - [License](docs/License)
  - [Marker](docs/Marker)
+ - [MarkerPartialUpdate](docs/MarkerPartialUpdate)
  - [MediaFile](docs/MediaFile)
  - [MediaFileBundle](docs/MediaFileBundle)
  - [MediaFileBundleMini](docs/MediaFileBundleMini)
  - [MediaFileContents](docs/MediaFileContents)
  - [MediaFileMini](docs/MediaFileMini)
+ - [MediaFilePartialUpdate](docs/MediaFilePartialUpdate)
  - [MediaFileTemplate](docs/MediaFileTemplate)
+ - [MediaFileTemplatePartialUpdate](docs/MediaFileTemplatePartialUpdate)
+ - [MediaLibraryShareRequest](docs/MediaLibraryShareRequest)
  - [MediaRoot](docs/MediaRoot)
  - [MediaRootMini](docs/MediaRootMini)
+ - [MediaRootPartialUpdate](docs/MediaRootPartialUpdate)
  - [MediaRootPermission](docs/MediaRootPermission)
+ - [MediaRootPermissionAccessOptions](docs/MediaRootPermissionAccessOptions)
+ - [MediaRootPermissionPartialUpdate](docs/MediaRootPermissionPartialUpdate)
  - [MediaUpdate](docs/MediaUpdate)
  - [MemberPreview](docs/MemberPreview)
  - [MountedWorkspace](docs/MountedWorkspace)
@@ -431,23 +487,32 @@ Class | Method | HTTP request | Description
  - [OneTimeAccessToken](docs/OneTimeAccessToken)
  - [OneTimeAccessTokenActivity](docs/OneTimeAccessTokenActivity)
  - [Parameters](docs/Parameters)
+ - [PathInput](docs/PathInput)
  - [Production](docs/Production)
  - [ProductionMini](docs/ProductionMini)
+ - [ProductionPartialUpdate](docs/ProductionPartialUpdate)
  - [Proxy](docs/Proxy)
  - [ProxyCount](docs/ProxyCount)
  - [ProxyProfile](docs/ProxyProfile)
  - [ProxyProfileMini](docs/ProxyProfileMini)
+ - [ProxyProfilePartialUpdate](docs/ProxyProfilePartialUpdate)
+ - [PythonEnvironment](docs/PythonEnvironment)
  - [Quota](docs/Quota)
  - [RAMStat](docs/RAMStat)
  - [RegisterUploadEndpointRequest](docs/RegisterUploadEndpointRequest)
  - [ReleaseNotesEndpointResponse](docs/ReleaseNotesEndpointResponse)
+ - [SAMLProvider](docs/SAMLProvider)
  - [ScannerDiscoverEndpointRequest](docs/ScannerDiscoverEndpointRequest)
  - [ScannerScanEndpointRequest](docs/ScannerScanEndpointRequest)
  - [Schedule](docs/Schedule)
+ - [SchedulePartialUpdate](docs/SchedulePartialUpdate)
+ - [SendLinkEmailRequest](docs/SendLinkEmailRequest)
  - [Sensor](docs/Sensor)
  - [Sensors](docs/Sensors)
  - [Share](docs/Share)
+ - [SharePartialUpdate](docs/SharePartialUpdate)
  - [Snapshot](docs/Snapshot)
+ - [SnapshotPartialUpdate](docs/SnapshotPartialUpdate)
  - [StartJobRequest](docs/StartJobRequest)
  - [StartTaskRequest](docs/StartTaskRequest)
  - [Stats](docs/Stats)
@@ -461,14 +526,19 @@ Class | Method | HTTP request | Description
  - [StornextManagerAttributes](docs/StornextManagerAttributes)
  - [Subclip](docs/Subclip)
  - [SubclipClipboardEntry](docs/SubclipClipboardEntry)
+ - [SubclipPartialUpdate](docs/SubclipPartialUpdate)
  - [Subtask](docs/Subtask)
+ - [SubtaskPartialUpdate](docs/SubtaskPartialUpdate)
  - [SyncTOTP](docs/SyncTOTP)
  - [SyncTOTPRequest](docs/SyncTOTPRequest)
  - [SystemInfoEndpointResponse](docs/SystemInfoEndpointResponse)
  - [Tag](docs/Tag)
+ - [TagPartialUpdate](docs/TagPartialUpdate)
  - [Tape](docs/Tape)
  - [TapeFile](docs/TapeFile)
  - [TapeGroup](docs/TapeGroup)
+ - [TapeGroupPartialUpdate](docs/TapeGroupPartialUpdate)
+ - [TapePartialUpdate](docs/TapePartialUpdate)
  - [TaskInfo](docs/TaskInfo)
  - [TaskLog](docs/TaskLog)
  - [TaskProgress](docs/TaskProgress)
@@ -480,6 +550,7 @@ Class | Method | HTTP request | Description
  - [UserPreviewResponse](docs/UserPreviewResponse)
  - [Volume](docs/Volume)
  - [VolumeMini](docs/VolumeMini)
+ - [VolumePartialUpdate](docs/VolumePartialUpdate)
  - [VolumeStat](docs/VolumeStat)
  - [VolumeStats](docs/VolumeStats)
  - [Workspace](docs/Workspace)
@@ -487,8 +558,11 @@ Class | Method | HTTP request | Description
  - [WorkspaceEndpoint](docs/WorkspaceEndpoint)
  - [WorkspaceMini](docs/WorkspaceMini)
  - [WorkspaceMoveToRequest](docs/WorkspaceMoveToRequest)
+ - [WorkspacePartialUpdate](docs/WorkspacePartialUpdate)
  - [WorkspacePermission](docs/WorkspacePermission)
+ - [WorkspacePermissionPartialUpdate](docs/WorkspacePermissionPartialUpdate)
  - [WorkspaceResolvedPermission](docs/WorkspaceResolvedPermission)
  - [Workstation](docs/Workstation)
+ - [WorkstationPartialUpdate](docs/WorkstationPartialUpdate)
 
 

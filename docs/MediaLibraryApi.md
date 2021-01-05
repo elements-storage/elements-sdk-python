@@ -1,6 +1,6 @@
 # elements_sdk.MediaLibraryApi
 
-All URIs are relative to *https://elements.local*
+All URIs are relative to *http://elements.local*
 >
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,6 +22,8 @@ Method | HTTP request | Description
 [**delete_asset_rating**](MediaLibraryApi.md#delete_asset_rating) | **DELETE** `/api/2/media/ratings/{id}` | 
 [**delete_comment**](MediaLibraryApi.md#delete_comment) | **DELETE** `/api/2/media/comments/{id}` | 
 [**delete_custom_field**](MediaLibraryApi.md#delete_custom_field) | **DELETE** `/api/2/media/custom-fields/{id}` | 
+[**delete_easy_sharing_token_for_bundle**](MediaLibraryApi.md#delete_easy_sharing_token_for_bundle) | **DELETE** `/api/2/media/bundles/{id}/easy-sharing-token` | 
+[**delete_easy_sharing_token_for_directory**](MediaLibraryApi.md#delete_easy_sharing_token_for_directory) | **DELETE** `/api/2/media/files/{id}/easy-sharing-token` | 
 [**delete_marker**](MediaLibraryApi.md#delete_marker) | **DELETE** `/api/2/media/markers/{id}` | 
 [**delete_media_file_template**](MediaLibraryApi.md#delete_media_file_template) | **DELETE** `/api/2/media/files/templates/{id}` | 
 [**delete_media_root**](MediaLibraryApi.md#delete_media_root) | **DELETE** `/api/2/media/roots/{id}` | 
@@ -60,6 +62,9 @@ Method | HTTP request | Description
 [**get_asset_rating**](MediaLibraryApi.md#get_asset_rating) | **GET** `/api/2/media/ratings/{id}` | 
 [**get_comment**](MediaLibraryApi.md#get_comment) | **GET** `/api/2/media/comments/{id}` | 
 [**get_custom_field**](MediaLibraryApi.md#get_custom_field) | **GET** `/api/2/media/custom-fields/{id}` | 
+[**get_easy_sharing_token_for_bundle**](MediaLibraryApi.md#get_easy_sharing_token_for_bundle) | **GET** `/api/2/media/bundles/{id}/easy-sharing-token` | 
+[**get_easy_sharing_token_for_directory**](MediaLibraryApi.md#get_easy_sharing_token_for_directory) | **GET** `/api/2/media/files/{id}/easy-sharing-token` | 
+[**get_frame**](MediaLibraryApi.md#get_frame) | **GET** `/api/2/media/assets/{id}/frames/{frame}` | 
 [**get_latest_media_update**](MediaLibraryApi.md#get_latest_media_update) | **GET** `/api/2/media/updates/latest` | 
 [**get_marker**](MediaLibraryApi.md#get_marker) | **GET** `/api/2/media/markers/{id}` | 
 [**get_media_file**](MediaLibraryApi.md#get_media_file) | **GET** `/api/2/media/files/{id}` | 
@@ -93,6 +98,7 @@ Method | HTTP request | Description
 [**patch_subclip**](MediaLibraryApi.md#patch_subclip) | **PATCH** `/api/2/media/subclips/{id}` | 
 [**request_media_scan**](MediaLibraryApi.md#request_media_scan) | **POST** `/api/2/scanner/scan` | 
 [**resolve_comment**](MediaLibraryApi.md#resolve_comment) | **POST** `/api/2/media/comments/{id}/resolve` | 
+[**share_media_library_objects**](MediaLibraryApi.md#share_media_library_objects) | **POST** `/api/2/media/share` | 
 [**unresolve_comment**](MediaLibraryApi.md#unresolve_comment) | **POST** `/api/2/media/comments/{id}/unresolve` | 
 [**update_asset**](MediaLibraryApi.md#update_asset) | **PUT** `/api/2/media/assets/{id}` | 
 [**update_asset_rating**](MediaLibraryApi.md#update_asset_rating) | **PUT** `/api/2/media/ratings/{id}` | 
@@ -133,7 +139,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -182,7 +188,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -235,7 +241,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -288,7 +294,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -341,7 +347,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -394,7 +400,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -447,7 +453,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -500,7 +506,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -553,7 +559,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -606,7 +612,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -659,7 +665,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -712,7 +718,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -765,7 +771,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -818,7 +824,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -871,7 +877,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -924,7 +930,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -977,7 +983,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1030,7 +1036,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1051,6 +1057,112 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this CustomField. | 
+
+### Return type
+
+**object**
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **delete_easy_sharing_token_for_bundle**
+
+    def delete_easy_sharing_token_for_bundle(id) -> object 
+
+
+
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "http://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    id = 56 # int | A unique integer value identifying this Bundle.
+
+    try:
+        api_response = api_instance.delete_easy_sharing_token_for_bundle(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->delete_easy_sharing_token_for_bundle: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this Bundle. | 
+
+### Return type
+
+**object**
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **delete_easy_sharing_token_for_directory**
+
+    def delete_easy_sharing_token_for_directory(id) -> object 
+
+
+
+### Required permissions    * User account permission: media:access   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "http://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    id = 56 # int | A unique integer value identifying this File.
+
+    try:
+        api_response = api_instance.delete_easy_sharing_token_for_directory(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->delete_easy_sharing_token_for_directory: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this File. | 
 
 ### Return type
 
@@ -1083,7 +1195,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1136,7 +1248,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1189,7 +1301,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1242,7 +1354,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1295,7 +1407,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1348,7 +1460,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1401,7 +1513,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1454,7 +1566,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1507,7 +1619,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1560,7 +1672,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1613,7 +1725,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1666,7 +1778,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1727,7 +1839,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1768,66 +1880,7 @@ Name | Type | Description  | Notes
 
 # **get_all_asset_tape_backups**
 
-    def get_all_asset_tape_backups(asset=asset, ordering=ordering, limit=limit, offset=offset) -> list[AssetBackup] 
-
-
-
-### Required permissions    * User account permission: media:access   * License component: media   * License component: ltfs 
-
-### Example
-
-* Api Key Authentication (Bearer):
-
-```python
-import elements_sdk
-from elements_sdk.rest import ApiException
-from pprint import pprint
-
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-configuration.host = "https://elements.local"
-
-# Enter a context with an instance of the API client
-with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = elements_sdk.MediaLibraryApi(api_client)
-    asset = 'asset_example' # str | Filter the returned list by `asset`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
-
-    try:
-        api_response = api_instance.get_all_asset_tape_backups(asset=asset, ordering=ordering, limit=limit, offset=offset)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling MediaLibraryApi->get_all_asset_tape_backups: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **asset** | **str**| Filter the returned list by &#x60;asset&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
-
-### Return type
-
-[**list[AssetBackup]**](AssetBackup.md)
-
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
-
-
-***
-
-# **get_all_assets**
-
-    def get_all_assets(sync_id=sync_id, display_name=display_name, set=set, ordering=ordering, limit=limit, offset=offset) -> list[Asset] 
+    def get_all_asset_tape_backups(asset=asset, ordering=ordering, limit=limit, offset=offset, include_asset=include_asset) -> list[AssetBackup] 
 
 
 
@@ -1847,7 +1900,68 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    asset = 'asset_example' # str | Filter the returned list by `asset`. (optional)
+ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
+limit = 56 # int | Number of results to return per page. (optional)
+offset = 56 # int | The initial index from which to return the results. (optional)
+include_asset = True # bool |  (optional)
+
+    try:
+        api_response = api_instance.get_all_asset_tape_backups(asset=asset, ordering=ordering, limit=limit, offset=offset, include_asset=include_asset)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_all_asset_tape_backups: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **asset** | **str**| Filter the returned list by &#x60;asset&#x60;. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional] 
+ **limit** | **int**| Number of results to return per page. | [optional] 
+ **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **include_asset** | **bool**|  | [optional] 
+
+### Return type
+
+[**list[AssetBackup]**](AssetBackup.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **get_all_assets**
+
+    def get_all_assets(sync_id=sync_id, display_name=display_name, set=set, ordering=ordering, limit=limit, offset=offset, resolve_asset_permission=resolve_asset_permission, for_root=for_root) -> list[Asset] 
+
+
+
+### Required permissions    * User account permission: media:access   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1859,9 +1973,11 @@ set = 'set_example' # str | Filter the returned list by `set`. (optional)
 ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
 limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
+resolve_asset_permission = True # bool |  (optional)
+for_root = 56 # int |  (optional)
 
     try:
-        api_response = api_instance.get_all_assets(sync_id=sync_id, display_name=display_name, set=set, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_assets(sync_id=sync_id, display_name=display_name, set=set, ordering=ordering, limit=limit, offset=offset, resolve_asset_permission=resolve_asset_permission, for_root=for_root)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_assets: %s\n" % e)
@@ -1878,6 +1994,8 @@ Name | Type | Description  | Notes
  **ordering** | **str**| Which field to use when ordering the results. | [optional] 
  **limit** | **int**| Number of results to return per page. | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **resolve_asset_permission** | **bool**|  | [optional] 
+ **for_root** | **int**|  | [optional] 
 
 ### Return type
 
@@ -1890,7 +2008,7 @@ Name | Type | Description  | Notes
 
 # **get_all_bundles_for_media_root**
 
-    def get_all_bundles_for_media_root(root, asset=asset, location=location, ordering=ordering, limit=limit, offset=offset) -> list[MediaFileBundle] 
+    def get_all_bundles_for_media_root(root, asset=asset, location=location, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, ordering=ordering, limit=limit, offset=offset) -> list[MediaFileBundle] 
 
 
 
@@ -1910,7 +2028,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1919,12 +2037,14 @@ with elements_sdk.ApiClient(configuration) as api_client:
     root = 'root_example' # str | 
 asset = 'asset_example' # str | Filter the returned list by `asset`. (optional)
 location = 'location_example' # str | Filter the returned list by `location`. (optional)
+shared_via_tokens = 'shared_via_tokens_example' # str | Filter the returned list by `shared_via_tokens`. (optional)
+shared_via_tokens__token = 'shared_via_tokens__token_example' # str | Filter the returned list by `shared_via_tokens__token`. (optional)
 ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
 limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
 
     try:
-        api_response = api_instance.get_all_bundles_for_media_root(root, asset=asset, location=location, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_bundles_for_media_root(root, asset=asset, location=location, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_bundles_for_media_root: %s\n" % e)
@@ -1938,6 +2058,8 @@ Name | Type | Description  | Notes
  **root** | **str**|  | 
  **asset** | **str**| Filter the returned list by &#x60;asset&#x60;. | [optional] 
  **location** | **str**| Filter the returned list by &#x60;location&#x60;. | [optional] 
+ **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60;. | [optional] 
+ **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60;. | [optional] 
  **ordering** | **str**| Which field to use when ordering the results. | [optional] 
  **limit** | **int**| Number of results to return per page. | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
@@ -1973,7 +2095,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2014,7 +2136,7 @@ Name | Type | Description  | Notes
 
 # **get_all_comments**
 
-    def get_all_comments(asset=asset, root=root, user=user, ordering=ordering, limit=limit, offset=offset) -> list[Comment] 
+    def get_all_comments(asset=asset, root=root, user=user, ordering=ordering, limit=limit, offset=offset, for_root=for_root, tasks_for_user=tasks_for_user, include_full_asset=include_full_asset) -> list[Comment] 
 
 
 
@@ -2034,7 +2156,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2046,9 +2168,12 @@ user = 'user_example' # str | Filter the returned list by `user`. (optional)
 ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
 limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
+for_root = 56 # int |  (optional)
+tasks_for_user = 56 # int |  (optional)
+include_full_asset = True # bool |  (optional)
 
     try:
-        api_response = api_instance.get_all_comments(asset=asset, root=root, user=user, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_comments(asset=asset, root=root, user=user, ordering=ordering, limit=limit, offset=offset, for_root=for_root, tasks_for_user=tasks_for_user, include_full_asset=include_full_asset)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_comments: %s\n" % e)
@@ -2065,6 +2190,9 @@ Name | Type | Description  | Notes
  **ordering** | **str**| Which field to use when ordering the results. | [optional] 
  **limit** | **int**| Number of results to return per page. | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **for_root** | **int**|  | [optional] 
+ **tasks_for_user** | **int**|  | [optional] 
+ **include_full_asset** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -2097,7 +2225,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2154,7 +2282,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2195,7 +2323,7 @@ Name | Type | Description  | Notes
 
 # **get_all_media_file_bundles**
 
-    def get_all_media_file_bundles(asset=asset, location=location, ordering=ordering, limit=limit, offset=offset) -> list[MediaFileBundle] 
+    def get_all_media_file_bundles(asset=asset, location=location, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, ordering=ordering, limit=limit, offset=offset, exclude_deleted=exclude_deleted, exclude_unrecognized=exclude_unrecognized, include_parents=include_parents) -> list[MediaFileBundle] 
 
 
 
@@ -2215,7 +2343,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2223,12 +2351,17 @@ with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     asset = 'asset_example' # str | Filter the returned list by `asset`. (optional)
 location = 'location_example' # str | Filter the returned list by `location`. (optional)
+shared_via_tokens = 'shared_via_tokens_example' # str | Filter the returned list by `shared_via_tokens`. (optional)
+shared_via_tokens__token = 'shared_via_tokens__token_example' # str | Filter the returned list by `shared_via_tokens__token`. (optional)
 ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+limit = 56 # int |  (optional)
+offset = 56 # int |  (optional)
+exclude_deleted = True # bool |  (optional)
+exclude_unrecognized = True # bool |  (optional)
+include_parents = True # bool |  (optional)
 
     try:
-        api_response = api_instance.get_all_media_file_bundles(asset=asset, location=location, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_media_file_bundles(asset=asset, location=location, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, ordering=ordering, limit=limit, offset=offset, exclude_deleted=exclude_deleted, exclude_unrecognized=exclude_unrecognized, include_parents=include_parents)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_media_file_bundles: %s\n" % e)
@@ -2241,9 +2374,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asset** | **str**| Filter the returned list by &#x60;asset&#x60;. | [optional] 
  **location** | **str**| Filter the returned list by &#x60;location&#x60;. | [optional] 
+ **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60;. | [optional] 
+ **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60;. | [optional] 
  **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **limit** | **int**|  | [optional] 
+ **offset** | **int**|  | [optional] 
+ **exclude_deleted** | **bool**|  | [optional] 
+ **exclude_unrecognized** | **bool**|  | [optional] 
+ **include_parents** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -2276,7 +2414,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2313,7 +2451,7 @@ Name | Type | Description  | Notes
 
 # **get_all_media_files**
 
-    def get_all_media_files(bundle=bundle, parent=parent, path=path, name=name, is_dir=is_dir, is_showroom=is_showroom, present=present, volume=volume, ordering=ordering, limit=limit, offset=offset) -> list[MediaFile] 
+    def get_all_media_files(bundle=bundle, parent=parent, path=path, name=name, is_dir=is_dir, is_showroom=is_showroom, present=present, volume=volume, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, ordering=ordering, limit=limit, offset=offset, resolve_file_permission=resolve_file_permission, include_modified_by=include_modified_by, include_effective_custom_fields=include_effective_custom_fields, include_root=include_root, include_parents=include_parents) -> list[MediaFile] 
 
 
 
@@ -2333,7 +2471,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2347,12 +2485,19 @@ is_dir = 'is_dir_example' # str | Filter the returned list by `is_dir`. (optiona
 is_showroom = 'is_showroom_example' # str | Filter the returned list by `is_showroom`. (optional)
 present = 'present_example' # str | Filter the returned list by `present`. (optional)
 volume = 'volume_example' # str | Filter the returned list by `volume`. (optional)
+shared_via_tokens = 'shared_via_tokens_example' # str | Filter the returned list by `shared_via_tokens`. (optional)
+shared_via_tokens__token = 'shared_via_tokens__token_example' # str | Filter the returned list by `shared_via_tokens__token`. (optional)
 ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
 limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
+resolve_file_permission = True # bool |  (optional)
+include_modified_by = True # bool |  (optional)
+include_effective_custom_fields = True # bool |  (optional)
+include_root = True # bool |  (optional)
+include_parents = True # bool |  (optional)
 
     try:
-        api_response = api_instance.get_all_media_files(bundle=bundle, parent=parent, path=path, name=name, is_dir=is_dir, is_showroom=is_showroom, present=present, volume=volume, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_media_files(bundle=bundle, parent=parent, path=path, name=name, is_dir=is_dir, is_showroom=is_showroom, present=present, volume=volume, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, ordering=ordering, limit=limit, offset=offset, resolve_file_permission=resolve_file_permission, include_modified_by=include_modified_by, include_effective_custom_fields=include_effective_custom_fields, include_root=include_root, include_parents=include_parents)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_media_files: %s\n" % e)
@@ -2371,9 +2516,16 @@ Name | Type | Description  | Notes
  **is_showroom** | **str**| Filter the returned list by &#x60;is_showroom&#x60;. | [optional] 
  **present** | **str**| Filter the returned list by &#x60;present&#x60;. | [optional] 
  **volume** | **str**| Filter the returned list by &#x60;volume&#x60;. | [optional] 
+ **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60;. | [optional] 
+ **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60;. | [optional] 
  **ordering** | **str**| Which field to use when ordering the results. | [optional] 
  **limit** | **int**| Number of results to return per page. | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **resolve_file_permission** | **bool**|  | [optional] 
+ **include_modified_by** | **bool**|  | [optional] 
+ **include_effective_custom_fields** | **bool**|  | [optional] 
+ **include_root** | **bool**|  | [optional] 
+ **include_parents** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -2406,7 +2558,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2439,7 +2591,7 @@ Name | Type | Description  | Notes
 
 # **get_all_media_files_for_media_root**
 
-    def get_all_media_files_for_media_root(root, bundle=bundle, parent=parent, path=path, name=name, is_dir=is_dir, is_showroom=is_showroom, present=present, volume=volume, ordering=ordering, limit=limit, offset=offset) -> list[MediaFile] 
+    def get_all_media_files_for_media_root(root, bundle=bundle, parent=parent, path=path, name=name, is_dir=is_dir, is_showroom=is_showroom, present=present, volume=volume, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, ordering=ordering, limit=limit, offset=offset) -> list[MediaFile] 
 
 
 
@@ -2459,7 +2611,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2474,12 +2626,14 @@ is_dir = 'is_dir_example' # str | Filter the returned list by `is_dir`. (optiona
 is_showroom = 'is_showroom_example' # str | Filter the returned list by `is_showroom`. (optional)
 present = 'present_example' # str | Filter the returned list by `present`. (optional)
 volume = 'volume_example' # str | Filter the returned list by `volume`. (optional)
+shared_via_tokens = 'shared_via_tokens_example' # str | Filter the returned list by `shared_via_tokens`. (optional)
+shared_via_tokens__token = 'shared_via_tokens__token_example' # str | Filter the returned list by `shared_via_tokens__token`. (optional)
 ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
 limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
 
     try:
-        api_response = api_instance.get_all_media_files_for_media_root(root, bundle=bundle, parent=parent, path=path, name=name, is_dir=is_dir, is_showroom=is_showroom, present=present, volume=volume, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_media_files_for_media_root(root, bundle=bundle, parent=parent, path=path, name=name, is_dir=is_dir, is_showroom=is_showroom, present=present, volume=volume, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_media_files_for_media_root: %s\n" % e)
@@ -2499,6 +2653,8 @@ Name | Type | Description  | Notes
  **is_showroom** | **str**| Filter the returned list by &#x60;is_showroom&#x60;. | [optional] 
  **present** | **str**| Filter the returned list by &#x60;present&#x60;. | [optional] 
  **volume** | **str**| Filter the returned list by &#x60;volume&#x60;. | [optional] 
+ **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60;. | [optional] 
+ **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60;. | [optional] 
  **ordering** | **str**| Which field to use when ordering the results. | [optional] 
  **limit** | **int**| Number of results to return per page. | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
@@ -2534,7 +2690,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2595,7 +2751,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2636,7 +2792,7 @@ Name | Type | Description  | Notes
 
 # **get_all_media_tags**
 
-    def get_all_media_tags(name=name, name__icontains=name__icontains, root=root, root__isnull=root__isnull, ordering=ordering, limit=limit, offset=offset) -> list[Tag] 
+    def get_all_media_tags(name=name, name__icontains=name__icontains, root=root, root__isnull=root__isnull, ordering=ordering, limit=limit, offset=offset, for_root=for_root) -> list[Tag] 
 
 
 
@@ -2656,7 +2812,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2669,9 +2825,10 @@ root__isnull = 'root__isnull_example' # str | Filter the returned list by `root_
 ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
 limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
+for_root = 56 # int |  (optional)
 
     try:
-        api_response = api_instance.get_all_media_tags(name=name, name__icontains=name__icontains, root=root, root__isnull=root__isnull, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_media_tags(name=name, name__icontains=name__icontains, root=root, root__isnull=root__isnull, ordering=ordering, limit=limit, offset=offset, for_root=for_root)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_media_tags: %s\n" % e)
@@ -2689,6 +2846,7 @@ Name | Type | Description  | Notes
  **ordering** | **str**| Which field to use when ordering the results. | [optional] 
  **limit** | **int**| Number of results to return per page. | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **for_root** | **int**|  | [optional] 
 
 ### Return type
 
@@ -2721,7 +2879,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2778,7 +2936,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2825,7 +2983,7 @@ Name | Type | Description  | Notes
 
 # **get_all_proxy_profiles**
 
-    def get_all_proxy_profiles(name=name, ordering=ordering, limit=limit, offset=offset) -> list[ProxyProfile] 
+    def get_all_proxy_profiles(name=name, ordering=ordering, limit=limit, offset=offset, for_root=for_root) -> list[ProxyProfile] 
 
 
 
@@ -2845,7 +3003,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2855,9 +3013,10 @@ with elements_sdk.ApiClient(configuration) as api_client:
 ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
 limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
+for_root = 56 # int |  (optional)
 
     try:
-        api_response = api_instance.get_all_proxy_profiles(name=name, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_proxy_profiles(name=name, ordering=ordering, limit=limit, offset=offset, for_root=for_root)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_proxy_profiles: %s\n" % e)
@@ -2872,6 +3031,7 @@ Name | Type | Description  | Notes
  **ordering** | **str**| Which field to use when ordering the results. | [optional] 
  **limit** | **int**| Number of results to return per page. | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **for_root** | **int**|  | [optional] 
 
 ### Return type
 
@@ -2904,7 +3064,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2963,7 +3123,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3026,7 +3186,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3063,7 +3223,7 @@ Name | Type | Description  | Notes
 
 # **get_asset**
 
-    def get_asset(id) -> Asset 
+    def get_asset(id, resolve_asset_permission=resolve_asset_permission, for_root=for_root) -> Asset 
 
 
 
@@ -3083,16 +3243,18 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this Asset.
+resolve_asset_permission = True # bool |  (optional)
+for_root = 56 # int |  (optional)
 
     try:
-        api_response = api_instance.get_asset(id)
+        api_response = api_instance.get_asset(id, resolve_asset_permission=resolve_asset_permission, for_root=for_root)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_asset: %s\n" % e)
@@ -3104,6 +3266,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this Asset. | 
+ **resolve_asset_permission** | **bool**|  | [optional] 
+ **for_root** | **int**|  | [optional] 
 
 ### Return type
 
@@ -3136,7 +3300,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3169,7 +3333,7 @@ Name | Type | Description  | Notes
 
 # **get_comment**
 
-    def get_comment(id) -> Comment 
+    def get_comment(id, for_root=for_root, tasks_for_user=tasks_for_user, include_full_asset=include_full_asset) -> Comment 
 
 
 
@@ -3189,16 +3353,19 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this Comment.
+for_root = 56 # int |  (optional)
+tasks_for_user = 56 # int |  (optional)
+include_full_asset = True # bool |  (optional)
 
     try:
-        api_response = api_instance.get_comment(id)
+        api_response = api_instance.get_comment(id, for_root=for_root, tasks_for_user=tasks_for_user, include_full_asset=include_full_asset)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_comment: %s\n" % e)
@@ -3210,6 +3377,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this Comment. | 
+ **for_root** | **int**|  | [optional] 
+ **tasks_for_user** | **int**|  | [optional] 
+ **include_full_asset** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -3242,7 +3412,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3273,6 +3443,167 @@ Name | Type | Description  | Notes
 
 ***
 
+# **get_easy_sharing_token_for_bundle**
+
+    def get_easy_sharing_token_for_bundle(id) -> OneTimeAccessToken 
+
+
+
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "http://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    id = 56 # int | A unique integer value identifying this Bundle.
+
+    try:
+        api_response = api_instance.get_easy_sharing_token_for_bundle(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_easy_sharing_token_for_bundle: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this Bundle. | 
+
+### Return type
+
+[**OneTimeAccessToken**](OneTimeAccessToken.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **get_easy_sharing_token_for_directory**
+
+    def get_easy_sharing_token_for_directory(id) -> OneTimeAccessToken 
+
+
+
+### Required permissions    * User account permission: media:access   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "http://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    id = 56 # int | A unique integer value identifying this File.
+
+    try:
+        api_response = api_instance.get_easy_sharing_token_for_directory(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_easy_sharing_token_for_directory: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this File. | 
+
+### Return type
+
+[**OneTimeAccessToken**](OneTimeAccessToken.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **get_frame**
+
+    def get_frame(frame, id) -> object 
+
+
+
+### Required permissions    * User account permission: media:access   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "http://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    frame = 'frame_example' # str | 
+id = 56 # int | A unique integer value identifying this Asset.
+
+    try:
+        api_response = api_instance.get_frame(frame, id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_frame: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **frame** | **str**|  | 
+ **id** | **int**| A unique integer value identifying this Asset. | 
+
+### Return type
+
+**object**
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
 # **get_latest_media_update**
 
     def get_latest_media_update(ordering=ordering, limit=limit, offset=offset) -> MediaUpdate 
@@ -3295,7 +3626,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3352,7 +3683,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3385,7 +3716,7 @@ Name | Type | Description  | Notes
 
 # **get_media_file**
 
-    def get_media_file(id) -> MediaFile 
+    def get_media_file(id, resolve_file_permission=resolve_file_permission, include_modified_by=include_modified_by, include_effective_custom_fields=include_effective_custom_fields, include_root=include_root, include_parents=include_parents) -> MediaFile 
 
 
 
@@ -3405,16 +3736,21 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this File.
+resolve_file_permission = True # bool |  (optional)
+include_modified_by = True # bool |  (optional)
+include_effective_custom_fields = True # bool |  (optional)
+include_root = True # bool |  (optional)
+include_parents = True # bool |  (optional)
 
     try:
-        api_response = api_instance.get_media_file(id)
+        api_response = api_instance.get_media_file(id, resolve_file_permission=resolve_file_permission, include_modified_by=include_modified_by, include_effective_custom_fields=include_effective_custom_fields, include_root=include_root, include_parents=include_parents)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_media_file: %s\n" % e)
@@ -3426,6 +3762,11 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this File. | 
+ **resolve_file_permission** | **bool**|  | [optional] 
+ **include_modified_by** | **bool**|  | [optional] 
+ **include_effective_custom_fields** | **bool**|  | [optional] 
+ **include_root** | **bool**|  | [optional] 
+ **include_parents** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -3438,7 +3779,7 @@ Name | Type | Description  | Notes
 
 # **get_media_file_bundle**
 
-    def get_media_file_bundle(id) -> MediaFileBundle 
+    def get_media_file_bundle(id, exclude_deleted=exclude_deleted, exclude_unrecognized=exclude_unrecognized, include_parents=include_parents, offset=offset, limit=limit) -> MediaFileBundle 
 
 
 
@@ -3458,16 +3799,21 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this Bundle.
+exclude_deleted = True # bool |  (optional)
+exclude_unrecognized = True # bool |  (optional)
+include_parents = True # bool |  (optional)
+offset = 56 # int |  (optional)
+limit = 56 # int |  (optional)
 
     try:
-        api_response = api_instance.get_media_file_bundle(id)
+        api_response = api_instance.get_media_file_bundle(id, exclude_deleted=exclude_deleted, exclude_unrecognized=exclude_unrecognized, include_parents=include_parents, offset=offset, limit=limit)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_media_file_bundle: %s\n" % e)
@@ -3479,6 +3825,11 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this Bundle. | 
+ **exclude_deleted** | **bool**|  | [optional] 
+ **exclude_unrecognized** | **bool**|  | [optional] 
+ **include_parents** | **bool**|  | [optional] 
+ **offset** | **int**|  | [optional] 
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -3511,7 +3862,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3572,7 +3923,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3625,7 +3976,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3678,7 +4029,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3711,7 +4062,7 @@ Name | Type | Description  | Notes
 
 # **get_media_tag**
 
-    def get_media_tag(id) -> Tag 
+    def get_media_tag(id, for_root=for_root) -> Tag 
 
 
 
@@ -3731,16 +4082,17 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this Tag.
+for_root = 56 # int |  (optional)
 
     try:
-        api_response = api_instance.get_media_tag(id)
+        api_response = api_instance.get_media_tag(id, for_root=for_root)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_media_tag: %s\n" % e)
@@ -3752,6 +4104,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this Tag. | 
+ **for_root** | **int**|  | [optional] 
 
 ### Return type
 
@@ -3784,7 +4137,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3837,7 +4190,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3890,7 +4243,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3943,7 +4296,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4004,7 +4357,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4065,7 +4418,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4098,7 +4451,7 @@ Name | Type | Description  | Notes
 
 # **get_proxy_profile**
 
-    def get_proxy_profile(id) -> ProxyProfile 
+    def get_proxy_profile(id, for_root=for_root) -> ProxyProfile 
 
 
 
@@ -4118,16 +4471,17 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this proxy profile.
+for_root = 56 # int |  (optional)
 
     try:
-        api_response = api_instance.get_proxy_profile(id)
+        api_response = api_instance.get_proxy_profile(id, for_root=for_root)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_proxy_profile: %s\n" % e)
@@ -4139,6 +4493,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this proxy profile. | 
+ **for_root** | **int**|  | [optional] 
 
 ### Return type
 
@@ -4171,7 +4526,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4224,7 +4579,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4277,7 +4632,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4330,14 +4685,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this Asset.
-data = elements_sdk.Asset() # Asset | 
+data = elements_sdk.AssetPartialUpdate() # AssetPartialUpdate | 
 
     try:
         api_response = api_instance.patch_asset(id, data)
@@ -4352,7 +4707,7 @@ data = elements_sdk.Asset() # Asset |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this Asset. | 
- **data** | [**Asset**](Asset.md)|  | 
+ **data** | [**AssetPartialUpdate**](AssetPartialUpdate.md)|  | 
 
 ### Return type
 
@@ -4385,14 +4740,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this Rating.
-data = elements_sdk.AssetRating() # AssetRating | 
+data = elements_sdk.AssetRatingPartialUpdate() # AssetRatingPartialUpdate | 
 
     try:
         api_response = api_instance.patch_asset_rating(id, data)
@@ -4407,7 +4762,7 @@ data = elements_sdk.AssetRating() # AssetRating |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this Rating. | 
- **data** | [**AssetRating**](AssetRating.md)|  | 
+ **data** | [**AssetRatingPartialUpdate**](AssetRatingPartialUpdate.md)|  | 
 
 ### Return type
 
@@ -4440,14 +4795,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this Comment.
-data = elements_sdk.Comment() # Comment | 
+data = elements_sdk.CommentPartialUpdate() # CommentPartialUpdate | 
 
     try:
         api_response = api_instance.patch_comment(id, data)
@@ -4462,7 +4817,7 @@ data = elements_sdk.Comment() # Comment |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this Comment. | 
- **data** | [**Comment**](Comment.md)|  | 
+ **data** | [**CommentPartialUpdate**](CommentPartialUpdate.md)|  | 
 
 ### Return type
 
@@ -4495,14 +4850,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this CustomField.
-data = elements_sdk.CustomField() # CustomField | 
+data = elements_sdk.CustomFieldPartialUpdate() # CustomFieldPartialUpdate | 
 
     try:
         api_response = api_instance.patch_custom_field(id, data)
@@ -4517,7 +4872,7 @@ data = elements_sdk.CustomField() # CustomField |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this CustomField. | 
- **data** | [**CustomField**](CustomField.md)|  | 
+ **data** | [**CustomFieldPartialUpdate**](CustomFieldPartialUpdate.md)|  | 
 
 ### Return type
 
@@ -4550,14 +4905,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this marker.
-data = elements_sdk.Marker() # Marker | 
+data = elements_sdk.MarkerPartialUpdate() # MarkerPartialUpdate | 
 
     try:
         api_response = api_instance.patch_marker(id, data)
@@ -4572,7 +4927,7 @@ data = elements_sdk.Marker() # Marker |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this marker. | 
- **data** | [**Marker**](Marker.md)|  | 
+ **data** | [**MarkerPartialUpdate**](MarkerPartialUpdate.md)|  | 
 
 ### Return type
 
@@ -4605,14 +4960,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this File.
-data = elements_sdk.MediaFile() # MediaFile | 
+data = elements_sdk.MediaFilePartialUpdate() # MediaFilePartialUpdate | 
 
     try:
         api_response = api_instance.patch_media_file(id, data)
@@ -4627,7 +4982,7 @@ data = elements_sdk.MediaFile() # MediaFile |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this File. | 
- **data** | [**MediaFile**](MediaFile.md)|  | 
+ **data** | [**MediaFilePartialUpdate**](MediaFilePartialUpdate.md)|  | 
 
 ### Return type
 
@@ -4660,14 +5015,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this Template.
-data = elements_sdk.MediaFileTemplate() # MediaFileTemplate | 
+data = elements_sdk.MediaFileTemplatePartialUpdate() # MediaFileTemplatePartialUpdate | 
 
     try:
         api_response = api_instance.patch_media_file_template(id, data)
@@ -4682,7 +5037,7 @@ data = elements_sdk.MediaFileTemplate() # MediaFileTemplate |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this Template. | 
- **data** | [**MediaFileTemplate**](MediaFileTemplate.md)|  | 
+ **data** | [**MediaFileTemplatePartialUpdate**](MediaFileTemplatePartialUpdate.md)|  | 
 
 ### Return type
 
@@ -4715,14 +5070,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this media root.
-data = elements_sdk.MediaRoot() # MediaRoot | 
+data = elements_sdk.MediaRootPartialUpdate() # MediaRootPartialUpdate | 
 
     try:
         api_response = api_instance.patch_media_root(id, data)
@@ -4737,7 +5092,7 @@ data = elements_sdk.MediaRoot() # MediaRoot |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this media root. | 
- **data** | [**MediaRoot**](MediaRoot.md)|  | 
+ **data** | [**MediaRootPartialUpdate**](MediaRootPartialUpdate.md)|  | 
 
 ### Return type
 
@@ -4770,14 +5125,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this Media Root Permission.
-data = elements_sdk.MediaRootPermission() # MediaRootPermission | 
+data = elements_sdk.MediaRootPermissionPartialUpdate() # MediaRootPermissionPartialUpdate | 
 
     try:
         api_response = api_instance.patch_media_root_permission(id, data)
@@ -4792,7 +5147,7 @@ data = elements_sdk.MediaRootPermission() # MediaRootPermission |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this Media Root Permission. | 
- **data** | [**MediaRootPermission**](MediaRootPermission.md)|  | 
+ **data** | [**MediaRootPermissionPartialUpdate**](MediaRootPermissionPartialUpdate.md)|  | 
 
 ### Return type
 
@@ -4825,14 +5180,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this Tag.
-data = elements_sdk.Tag() # Tag | 
+data = elements_sdk.TagPartialUpdate() # TagPartialUpdate | 
 
     try:
         api_response = api_instance.patch_media_tag(id, data)
@@ -4847,7 +5202,7 @@ data = elements_sdk.Tag() # Tag |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this Tag. | 
- **data** | [**Tag**](Tag.md)|  | 
+ **data** | [**TagPartialUpdate**](TagPartialUpdate.md)|  | 
 
 ### Return type
 
@@ -4880,14 +5235,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this proxy profile.
-data = elements_sdk.ProxyProfile() # ProxyProfile | 
+data = elements_sdk.ProxyProfilePartialUpdate() # ProxyProfilePartialUpdate | 
 
     try:
         api_response = api_instance.patch_proxy_profile(id, data)
@@ -4902,7 +5257,7 @@ data = elements_sdk.ProxyProfile() # ProxyProfile |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this proxy profile. | 
- **data** | [**ProxyProfile**](ProxyProfile.md)|  | 
+ **data** | [**ProxyProfilePartialUpdate**](ProxyProfilePartialUpdate.md)|  | 
 
 ### Return type
 
@@ -4935,14 +5290,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
     id = 56 # int | A unique integer value identifying this subclip.
-data = elements_sdk.Subclip() # Subclip | 
+data = elements_sdk.SubclipPartialUpdate() # SubclipPartialUpdate | 
 
     try:
         api_response = api_instance.patch_subclip(id, data)
@@ -4957,7 +5312,7 @@ data = elements_sdk.Subclip() # Subclip |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this subclip. | 
- **data** | [**Subclip**](Subclip.md)|  | 
+ **data** | [**SubclipPartialUpdate**](SubclipPartialUpdate.md)|  | 
 
 ### Return type
 
@@ -4990,7 +5345,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5043,7 +5398,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5074,6 +5429,59 @@ Name | Type | Description  | Notes
 
 ***
 
+# **share_media_library_objects**
+
+    def share_media_library_objects(data) -> OneTimeAccessToken 
+
+
+
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "http://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    data = elements_sdk.MediaLibraryShareRequest() # MediaLibraryShareRequest | 
+
+    try:
+        api_response = api_instance.share_media_library_objects(data)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->share_media_library_objects: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **data** | [**MediaLibraryShareRequest**](MediaLibraryShareRequest.md)|  | 
+
+### Return type
+
+[**OneTimeAccessToken**](OneTimeAccessToken.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
 # **unresolve_comment**
 
     def unresolve_comment(id) -> Comment 
@@ -5096,7 +5504,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5149,7 +5557,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5204,7 +5612,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5259,7 +5667,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5314,7 +5722,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5369,7 +5777,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5424,7 +5832,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5479,7 +5887,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5534,7 +5942,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5589,7 +5997,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5644,7 +6052,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5699,7 +6107,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5754,7 +6162,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "https://elements.local"
+configuration.host = "http://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:

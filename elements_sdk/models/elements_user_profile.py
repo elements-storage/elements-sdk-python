@@ -41,6 +41,7 @@ class ElementsUserProfile(object):
         'unix_username': 'str',
         'display_name': 'str',
         'email': 'str',
+        'ldap': 'LDAPServer',
         'effective_permissions': 'list[str]'
     }
 
@@ -55,10 +56,11 @@ class ElementsUserProfile(object):
         'unix_username': 'unix_username',
         'display_name': 'display_name',
         'email': 'email',
+        'ldap': 'ldap',
         'effective_permissions': 'effective_permissions'
     }
 
-    def __init__(self, avatar=None, default_page=None, full_name=None, language=None, fm_bookmarks=None, id=None, username=None, unix_username=None, display_name=None, email=None, effective_permissions=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, avatar=None, default_page=None, full_name=None, language=None, fm_bookmarks=None, id=None, username=None, unix_username=None, display_name=None, email=None, ldap=None, effective_permissions=None, local_vars_configuration=None):  # noqa: E501
         """ElementsUserProfile - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,6 +76,7 @@ class ElementsUserProfile(object):
         self._unix_username = None
         self._display_name = None
         self._email = None
+        self._ldap = None
         self._effective_permissions = None
         self.discriminator = None
 
@@ -94,6 +97,7 @@ class ElementsUserProfile(object):
             self.display_name = display_name
         if email is not None:
             self.email = email
+        self.ldap = ldap
         if effective_permissions is not None:
             self.effective_permissions = effective_permissions
 
@@ -330,6 +334,29 @@ class ElementsUserProfile(object):
             raise ValueError("Invalid value for `email`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._email = email
+
+    @property
+    def ldap(self):
+        """Gets the ldap of this ElementsUserProfile.  # noqa: E501
+
+
+        :return: The ldap of this ElementsUserProfile.  # noqa: E501
+        :rtype: LDAPServer
+        """
+        return self._ldap
+
+    @ldap.setter
+    def ldap(self, ldap):
+        """Sets the ldap of this ElementsUserProfile.
+
+
+        :param ldap: The ldap of this ElementsUserProfile.  # noqa: E501
+        :type: LDAPServer
+        """
+        if self.local_vars_configuration.client_side_validation and ldap is None:  # noqa: E501
+            raise ValueError("Invalid value for `ldap`, must not be `None`")  # noqa: E501
+
+        self._ldap = ldap
 
     @property
     def effective_permissions(self):

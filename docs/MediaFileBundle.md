@@ -9,8 +9,10 @@ Name | Type | Description | Notes
 **mainfile** | [**MediaFileMini**](MediaFileMini.md) |  | [optional] 
 **snm_attributes** | [**StornextManagerAttributes**](StornextManagerAttributes.md) |  | [optional] 
 **search_highlight** | **str** |  | [optional] [readonly] 
+**is_shared** | **bool** |  | [optional] [readonly] 
 **name** | **str** |  | 
 **location** | **int** |  | 
+**shared_via_tokens** | **list[int]** |  | [optional] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 

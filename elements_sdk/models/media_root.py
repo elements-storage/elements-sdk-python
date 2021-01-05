@@ -451,8 +451,8 @@ class MediaRoot(object):
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                path is not None and len(path) < 1):
-            raise ValueError("Invalid value for `path`, length must be greater than or equal to `1`")  # noqa: E501
+                path is not None and len(path) > 255):
+            raise ValueError("Invalid value for `path`, length must be less than or equal to `255`")  # noqa: E501
 
         self._path = path
 
