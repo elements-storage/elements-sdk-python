@@ -95,7 +95,8 @@ class Share(object):
             self.sharing_nfs_permissions = sharing_nfs_permissions
         self.volume = volume
         self.name = name
-        self.path = path
+        if path is not None:
+            self.path = path
         if share_smb is not None:
             self.share_smb = share_smb
         if share_nfs is not None:
@@ -227,8 +228,6 @@ class Share(object):
         :param path: The path of this Share.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and path is None:  # noqa: E501
-            raise ValueError("Invalid value for `path`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 path is not None and len(path) > 255):
             raise ValueError("Invalid value for `path`, length must be less than or equal to `255`")  # noqa: E501
