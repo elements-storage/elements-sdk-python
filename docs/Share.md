@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **sharing_nfs_permissions** | **object** |  | [optional] 
 **volume** | [**Volume**](Volume.md) |  | 
 **name** | **str** |  | 
-**path** | **str** |  | 
+**path** | **str** |  | [optional] 
 **share_smb** | **bool** |  | [optional] 
 **share_nfs** | **bool** |  | [optional] 
 **share_afp** | **bool** |  | [optional] 

@@ -12,7 +12,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "3.1.0"
+__version__ = "3.1.1"
 
 # import apis into sdk package
 from elements_sdk.api.ai_api import AIApi
