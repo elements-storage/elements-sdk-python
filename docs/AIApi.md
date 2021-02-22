@@ -1,6 +1,6 @@
 # elements_sdk.AIApi
 
-All URIs are relative to *http://elements.local*
+All URIs are relative to *https://elements.local*
 >
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -67,7 +67,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -120,7 +120,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -173,7 +173,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -226,7 +226,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -279,7 +279,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -332,7 +332,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -385,7 +385,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -438,7 +438,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -491,7 +491,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -544,7 +544,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -597,7 +597,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -650,7 +650,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -703,7 +703,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -756,7 +756,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -809,7 +809,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -862,7 +862,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -915,7 +915,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -968,7 +968,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1021,7 +1021,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1074,7 +1074,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1127,7 +1127,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1180,7 +1180,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1233,7 +1233,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1298,7 +1298,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1363,7 +1363,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1424,7 +1424,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1481,7 +1481,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1542,7 +1542,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1601,7 +1601,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1662,7 +1662,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1721,14 +1721,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.AIApi(api_client)
     id = 'id_example' # str | A UUID string identifying this AI Category.
-data = elements_sdk.AICategoryDetailPartialUpdate() # AICategoryDetailPartialUpdate | 
+data = elements_sdk.AICategoryDetail() # AICategoryDetail | 
 
     try:
         api_response = api_instance.patch_ai_category(id, data)
@@ -1743,7 +1743,7 @@ data = elements_sdk.AICategoryDetailPartialUpdate() # AICategoryDetailPartialUpd
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)| A UUID string identifying this AI Category. | 
- **data** | [**AICategoryDetailPartialUpdate**](AICategoryDetailPartialUpdate.md)|  | 
+ **data** | [**AICategoryDetail**](AICategoryDetail.md)|  | 
 
 ### Return type
 
@@ -1776,14 +1776,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.AIApi(api_client)
     id = 'id_example' # str | A UUID string identifying this AI Dataset.
-data = elements_sdk.AIDatasetWithPreviewPartialUpdate() # AIDatasetWithPreviewPartialUpdate | 
+data = elements_sdk.AIDatasetWithPreview() # AIDatasetWithPreview | 
 
     try:
         api_response = api_instance.patch_ai_dataset(id, data)
@@ -1798,7 +1798,7 @@ data = elements_sdk.AIDatasetWithPreviewPartialUpdate() # AIDatasetWithPreviewPa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)| A UUID string identifying this AI Dataset. | 
- **data** | [**AIDatasetWithPreviewPartialUpdate**](AIDatasetWithPreviewPartialUpdate.md)|  | 
+ **data** | [**AIDatasetWithPreview**](AIDatasetWithPreview.md)|  | 
 
 ### Return type
 
@@ -1831,14 +1831,14 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.AIApi(api_client)
     id = 'id_example' # str | A UUID string identifying this AI Model.
-data = elements_sdk.AIModelPartialUpdate() # AIModelPartialUpdate | 
+data = elements_sdk.AIModel() # AIModel | 
 
     try:
         api_response = api_instance.patch_ai_model(id, data)
@@ -1853,7 +1853,7 @@ data = elements_sdk.AIModelPartialUpdate() # AIModelPartialUpdate |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)| A UUID string identifying this AI Model. | 
- **data** | [**AIModelPartialUpdate**](AIModelPartialUpdate.md)|  | 
+ **data** | [**AIModel**](AIModel.md)|  | 
 
 ### Return type
 
@@ -1886,7 +1886,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1941,7 +1941,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1996,7 +1996,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
