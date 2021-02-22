@@ -226,14 +226,12 @@ class Workspace(object):
             self.current_share_name = current_share_name
         if endpoints is not None:
             self.endpoints = endpoints
-        if quota is not None:
-            self.quota = quota
+        self.quota = quota
         if size_used is not None:
             self.size_used = size_used
         if size_total is not None:
             self.size_total = size_total
-        if bookmarked is not None:
-            self.bookmarked = bookmarked
+        self.bookmarked = bookmarked
         if resolved_permissions is not None:
             self.resolved_permissions = resolved_permissions
         if resolved_read_only is not None:

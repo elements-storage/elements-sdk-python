@@ -31,29 +31,58 @@ class SendLinkEmailRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'email': 'str',
         'subject': 'str',
         'text': 'str'
     }
 
     attribute_map = {
+        'email': 'email',
         'subject': 'subject',
         'text': 'text'
     }
 
-    def __init__(self, subject=None, text=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, email=None, subject=None, text=None, local_vars_configuration=None):  # noqa: E501
         """SendLinkEmailRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._email = None
         self._subject = None
         self._text = None
         self.discriminator = None
 
+        if email is not None:
+            self.email = email
         if subject is not None:
             self.subject = subject
         if text is not None:
             self.text = text
+
+    @property
+    def email(self):
+        """Gets the email of this SendLinkEmailRequest.  # noqa: E501
+
+
+        :return: The email of this SendLinkEmailRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._email
+
+    @email.setter
+    def email(self, email):
+        """Sets the email of this SendLinkEmailRequest.
+
+
+        :param email: The email of this SendLinkEmailRequest.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                email is not None and len(email) < 1):
+            raise ValueError("Invalid value for `email`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._email = email
 
     @property
     def subject(self):

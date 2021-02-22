@@ -32,6 +32,7 @@ class SubtaskPartialUpdate(object):
     """
     openapi_types = {
         'kwargs': 'dict(str, str)',
+        'graph_layout': 'dict(str, str)',
         'trigger': 'str',
         'name': 'str',
         'noop_dont_save': 'bool',
@@ -41,12 +42,14 @@ class SubtaskPartialUpdate(object):
         'task': 'str',
         'condition_variable': 'str',
         'condition_value': 'str',
+        'sync': 'bool',
         'parent': 'int',
         'relative_to': 'int'
     }
 
     attribute_map = {
         'kwargs': 'kwargs',
+        'graph_layout': 'graph_layout',
         'trigger': 'trigger',
         'name': 'name',
         'noop_dont_save': 'noop_dont_save',
@@ -56,17 +59,19 @@ class SubtaskPartialUpdate(object):
         'task': 'task',
         'condition_variable': 'condition_variable',
         'condition_value': 'condition_value',
+        'sync': 'sync',
         'parent': 'parent',
         'relative_to': 'relative_to'
     }
 
-    def __init__(self, kwargs=None, trigger=None, name=None, noop_dont_save=None, no_concurrency=None, timeout=None, log_variable=None, task=None, condition_variable=None, condition_value=None, parent=None, relative_to=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, kwargs=None, graph_layout=None, trigger=None, name=None, noop_dont_save=None, no_concurrency=None, timeout=None, log_variable=None, task=None, condition_variable=None, condition_value=None, sync=None, parent=None, relative_to=None, local_vars_configuration=None):  # noqa: E501
         """SubtaskPartialUpdate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._kwargs = None
+        self._graph_layout = None
         self._trigger = None
         self._name = None
         self._noop_dont_save = None
@@ -76,12 +81,15 @@ class SubtaskPartialUpdate(object):
         self._task = None
         self._condition_variable = None
         self._condition_value = None
+        self._sync = None
         self._parent = None
         self._relative_to = None
         self.discriminator = None
 
         if kwargs is not None:
             self.kwargs = kwargs
+        if graph_layout is not None:
+            self.graph_layout = graph_layout
         self.trigger = trigger
         self.name = name
         if noop_dont_save is not None:
@@ -94,6 +102,8 @@ class SubtaskPartialUpdate(object):
         self.task = task
         self.condition_variable = condition_variable
         self.condition_value = condition_value
+        if sync is not None:
+            self.sync = sync
         if parent is not None:
             self.parent = parent
         self.relative_to = relative_to
@@ -118,6 +128,27 @@ class SubtaskPartialUpdate(object):
         """
 
         self._kwargs = kwargs
+
+    @property
+    def graph_layout(self):
+        """Gets the graph_layout of this SubtaskPartialUpdate.  # noqa: E501
+
+
+        :return: The graph_layout of this SubtaskPartialUpdate.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._graph_layout
+
+    @graph_layout.setter
+    def graph_layout(self, graph_layout):
+        """Sets the graph_layout of this SubtaskPartialUpdate.
+
+
+        :param graph_layout: The graph_layout of this SubtaskPartialUpdate.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._graph_layout = graph_layout
 
     @property
     def trigger(self):
@@ -343,6 +374,27 @@ class SubtaskPartialUpdate(object):
             raise ValueError("Invalid value for `condition_value`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._condition_value = condition_value
+
+    @property
+    def sync(self):
+        """Gets the sync of this SubtaskPartialUpdate.  # noqa: E501
+
+
+        :return: The sync of this SubtaskPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sync
+
+    @sync.setter
+    def sync(self, sync):
+        """Sets the sync of this SubtaskPartialUpdate.
+
+
+        :param sync: The sync of this SubtaskPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._sync = sync
 
     @property
     def parent(self):

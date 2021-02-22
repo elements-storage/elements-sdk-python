@@ -37,7 +37,8 @@ class Interface(object):
         'speed': 'int',
         'mtu': 'int',
         'use_for_mounts': 'bool',
-        'priority': 'int'
+        'priority': 'int',
+        'port': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class Interface(object):
         'speed': 'speed',
         'mtu': 'mtu',
         'use_for_mounts': 'use_for_mounts',
-        'priority': 'priority'
+        'priority': 'priority',
+        'port': 'port'
     }
 
-    def __init__(self, id=None, device=None, addresses=None, speed=None, mtu=None, use_for_mounts=None, priority=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, device=None, addresses=None, speed=None, mtu=None, use_for_mounts=None, priority=None, port=None, local_vars_configuration=None):  # noqa: E501
         """Interface - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -63,6 +65,7 @@ class Interface(object):
         self._mtu = None
         self._use_for_mounts = None
         self._priority = None
+        self._port = None
         self.discriminator = None
 
         if id is not None:
@@ -77,6 +80,7 @@ class Interface(object):
             self.use_for_mounts = use_for_mounts
         if priority is not None:
             self.priority = priority
+        self.port = port
 
     @property
     def id(self):
@@ -250,6 +254,33 @@ class Interface(object):
             raise ValueError("Invalid value for `priority`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._priority = priority
+
+    @property
+    def port(self):
+        """Gets the port of this Interface.  # noqa: E501
+
+
+        :return: The port of this Interface.  # noqa: E501
+        :rtype: str
+        """
+        return self._port
+
+    @port.setter
+    def port(self, port):
+        """Sets the port of this Interface.
+
+
+        :param port: The port of this Interface.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                port is not None and len(port) > 255):
+            raise ValueError("Invalid value for `port`, length must be less than or equal to `255`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                port is not None and len(port) < 1):
+            raise ValueError("Invalid value for `port`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._port = port
 
     def to_dict(self):
         """Returns the model properties as a dict"""

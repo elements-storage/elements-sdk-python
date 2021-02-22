@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **allow_client_to_start** | **bool** |  | [optional] 
 **show_as_button** | **bool** |  | [optional] 
 **input_type** | **str** |  | [optional] 
+**hook** | **str** |  | [optional] 
+**webhook_secret** | **str** |  | [optional] 
 **security_context** | **int** |  | [optional] 
 **part_of_workflow_for** | **int** |  | [optional] 
 

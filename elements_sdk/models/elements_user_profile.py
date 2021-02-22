@@ -97,7 +97,8 @@ class ElementsUserProfile(object):
             self.display_name = display_name
         if email is not None:
             self.email = email
-        self.ldap = ldap
+        if ldap is not None:
+            self.ldap = ldap
         if effective_permissions is not None:
             self.effective_permissions = effective_permissions
 
@@ -191,7 +192,7 @@ class ElementsUserProfile(object):
         :param language: The language of this ElementsUserProfile.  # noqa: E501
         :type: str
         """
-        allowed_values = [None,"en", "de", "ru"]  # noqa: E501
+        allowed_values = [None,"en", "fr", "de", "ru"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and language not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `language` ({0}), must be one of {1}"  # noqa: E501
@@ -353,8 +354,6 @@ class ElementsUserProfile(object):
         :param ldap: The ldap of this ElementsUserProfile.  # noqa: E501
         :type: LDAPServer
         """
-        if self.local_vars_configuration.client_side_validation and ldap is None:  # noqa: E501
-            raise ValueError("Invalid value for `ldap`, must not be `None`")  # noqa: E501
 
         self._ldap = ldap
 

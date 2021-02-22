@@ -1,6 +1,6 @@
 # elements_sdk.MediaLibraryApi
 
-All URIs are relative to *http://elements.local*
+All URIs are relative to *https://elements.local*
 >
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**create_asset_rating**](MediaLibraryApi.md#create_asset_rating) | **POST** `/api/2/media/ratings` | 
 [**create_comment**](MediaLibraryApi.md#create_comment) | **POST** `/api/2/media/comments` | 
 [**create_custom_field**](MediaLibraryApi.md#create_custom_field) | **POST** `/api/2/media/custom-fields` | 
+[**create_external_transcoder**](MediaLibraryApi.md#create_external_transcoder) | **POST** `/api/2/media/external-transcoders` | 
 [**create_marker**](MediaLibraryApi.md#create_marker) | **POST** `/api/2/media/markers` | 
 [**create_media_file_template**](MediaLibraryApi.md#create_media_file_template) | **POST** `/api/2/media/files/templates` | 
 [**create_media_root**](MediaLibraryApi.md#create_media_root) | **POST** `/api/2/media/roots` | 
@@ -24,6 +25,7 @@ Method | HTTP request | Description
 [**delete_custom_field**](MediaLibraryApi.md#delete_custom_field) | **DELETE** `/api/2/media/custom-fields/{id}` | 
 [**delete_easy_sharing_token_for_bundle**](MediaLibraryApi.md#delete_easy_sharing_token_for_bundle) | **DELETE** `/api/2/media/bundles/{id}/easy-sharing-token` | 
 [**delete_easy_sharing_token_for_directory**](MediaLibraryApi.md#delete_easy_sharing_token_for_directory) | **DELETE** `/api/2/media/files/{id}/easy-sharing-token` | 
+[**delete_external_transcoder**](MediaLibraryApi.md#delete_external_transcoder) | **DELETE** `/api/2/media/external-transcoders/{id}` | 
 [**delete_marker**](MediaLibraryApi.md#delete_marker) | **DELETE** `/api/2/media/markers/{id}` | 
 [**delete_media_file_template**](MediaLibraryApi.md#delete_media_file_template) | **DELETE** `/api/2/media/files/templates/{id}` | 
 [**delete_media_root**](MediaLibraryApi.md#delete_media_root) | **DELETE** `/api/2/media/roots/{id}` | 
@@ -43,6 +45,7 @@ Method | HTTP request | Description
 [**get_all_click_links**](MediaLibraryApi.md#get_all_click_links) | **GET** `/api/2/media/assets/click-links` | 
 [**get_all_comments**](MediaLibraryApi.md#get_all_comments) | **GET** `/api/2/media/comments` | 
 [**get_all_custom_fields**](MediaLibraryApi.md#get_all_custom_fields) | **GET** `/api/2/media/custom-fields` | 
+[**get_all_external_transcoders**](MediaLibraryApi.md#get_all_external_transcoders) | **GET** `/api/2/media/external-transcoders` | 
 [**get_all_markers**](MediaLibraryApi.md#get_all_markers) | **GET** `/api/2/media/markers` | 
 [**get_all_media_file_bundles**](MediaLibraryApi.md#get_all_media_file_bundles) | **GET** `/api/2/media/bundles` | 
 [**get_all_media_file_templates**](MediaLibraryApi.md#get_all_media_file_templates) | **GET** `/api/2/media/files/templates` | 
@@ -54,6 +57,7 @@ Method | HTTP request | Description
 [**get_all_media_tags**](MediaLibraryApi.md#get_all_media_tags) | **GET** `/api/2/media/tags` | 
 [**get_all_media_updates**](MediaLibraryApi.md#get_all_media_updates) | **GET** `/api/2/media/updates` | 
 [**get_all_proxies**](MediaLibraryApi.md#get_all_proxies) | **GET** `/api/2/media/proxies` | 
+[**get_all_proxy_generators**](MediaLibraryApi.md#get_all_proxy_generators) | **GET** `/api/2/media/proxy-generators` | 
 [**get_all_proxy_profiles**](MediaLibraryApi.md#get_all_proxy_profiles) | **GET** `/api/2/media/proxy-profiles` | 
 [**get_all_subclip_clipboard_entries**](MediaLibraryApi.md#get_all_subclip_clipboard_entries) | **GET** `/api/2/media/subclips/clipboard` | 
 [**get_all_subclips**](MediaLibraryApi.md#get_all_subclips) | **GET** `/api/2/media/subclips` | 
@@ -64,6 +68,7 @@ Method | HTTP request | Description
 [**get_custom_field**](MediaLibraryApi.md#get_custom_field) | **GET** `/api/2/media/custom-fields/{id}` | 
 [**get_easy_sharing_token_for_bundle**](MediaLibraryApi.md#get_easy_sharing_token_for_bundle) | **GET** `/api/2/media/bundles/{id}/easy-sharing-token` | 
 [**get_easy_sharing_token_for_directory**](MediaLibraryApi.md#get_easy_sharing_token_for_directory) | **GET** `/api/2/media/files/{id}/easy-sharing-token` | 
+[**get_external_transcoder**](MediaLibraryApi.md#get_external_transcoder) | **GET** `/api/2/media/external-transcoders/{id}` | 
 [**get_frame**](MediaLibraryApi.md#get_frame) | **GET** `/api/2/media/assets/{id}/frames/{frame}` | 
 [**get_latest_media_update**](MediaLibraryApi.md#get_latest_media_update) | **GET** `/api/2/media/updates/latest` | 
 [**get_marker**](MediaLibraryApi.md#get_marker) | **GET** `/api/2/media/markers/{id}` | 
@@ -80,14 +85,17 @@ Method | HTTP request | Description
 [**get_my_media_root_permissions**](MediaLibraryApi.md#get_my_media_root_permissions) | **GET** `/api/2/media/root-permissions/mine` | 
 [**get_my_resolved_media_root_permissions**](MediaLibraryApi.md#get_my_resolved_media_root_permissions) | **GET** `/api/2/media/root-permissions/mine/resolved` | 
 [**get_proxy**](MediaLibraryApi.md#get_proxy) | **GET** `/api/2/media/proxies/{id}` | 
+[**get_proxy_generator**](MediaLibraryApi.md#get_proxy_generator) | **GET** `/api/2/media/proxy-generators/{id}` | 
 [**get_proxy_profile**](MediaLibraryApi.md#get_proxy_profile) | **GET** `/api/2/media/proxy-profiles/{id}` | 
 [**get_proxy_profile_proxy_count**](MediaLibraryApi.md#get_proxy_profile_proxy_count) | **GET** `/api/2/media/proxy-profiles/{id}/proxy-count` | 
 [**get_subclip**](MediaLibraryApi.md#get_subclip) | **GET** `/api/2/media/subclips/{id}` | 
 [**get_transcoder_profile**](MediaLibraryApi.md#get_transcoder_profile) | **GET** `/api/2/transcoder-profiles/{id}` | 
+[**get_vantage_workflows**](MediaLibraryApi.md#get_vantage_workflows) | **GET** `/api/2/media/external-transcoders/{id}/workflows` | 
 [**patch_asset**](MediaLibraryApi.md#patch_asset) | **PATCH** `/api/2/media/assets/{id}` | 
 [**patch_asset_rating**](MediaLibraryApi.md#patch_asset_rating) | **PATCH** `/api/2/media/ratings/{id}` | 
 [**patch_comment**](MediaLibraryApi.md#patch_comment) | **PATCH** `/api/2/media/comments/{id}` | 
 [**patch_custom_field**](MediaLibraryApi.md#patch_custom_field) | **PATCH** `/api/2/media/custom-fields/{id}` | 
+[**patch_external_transcoder**](MediaLibraryApi.md#patch_external_transcoder) | **PATCH** `/api/2/media/external-transcoders/{id}` | 
 [**patch_marker**](MediaLibraryApi.md#patch_marker) | **PATCH** `/api/2/media/markers/{id}` | 
 [**patch_media_file**](MediaLibraryApi.md#patch_media_file) | **PATCH** `/api/2/media/files/{id}` | 
 [**patch_media_file_template**](MediaLibraryApi.md#patch_media_file_template) | **PATCH** `/api/2/media/files/templates/{id}` | 
@@ -96,14 +104,17 @@ Method | HTTP request | Description
 [**patch_media_tag**](MediaLibraryApi.md#patch_media_tag) | **PATCH** `/api/2/media/tags/{id}` | 
 [**patch_proxy_profile**](MediaLibraryApi.md#patch_proxy_profile) | **PATCH** `/api/2/media/proxy-profiles/{id}` | 
 [**patch_subclip**](MediaLibraryApi.md#patch_subclip) | **PATCH** `/api/2/media/subclips/{id}` | 
+[**render_subclip**](MediaLibraryApi.md#render_subclip) | **POST** `/api/2/media/subclips/{id}/render` | 
 [**request_media_scan**](MediaLibraryApi.md#request_media_scan) | **POST** `/api/2/scanner/scan` | 
 [**resolve_comment**](MediaLibraryApi.md#resolve_comment) | **POST** `/api/2/media/comments/{id}/resolve` | 
 [**share_media_library_objects**](MediaLibraryApi.md#share_media_library_objects) | **POST** `/api/2/media/share` | 
+[**test_external_transcoder_connection**](MediaLibraryApi.md#test_external_transcoder_connection) | **POST** `/api/2/media/external-transcoders/test-connection` | 
 [**unresolve_comment**](MediaLibraryApi.md#unresolve_comment) | **POST** `/api/2/media/comments/{id}/unresolve` | 
 [**update_asset**](MediaLibraryApi.md#update_asset) | **PUT** `/api/2/media/assets/{id}` | 
 [**update_asset_rating**](MediaLibraryApi.md#update_asset_rating) | **PUT** `/api/2/media/ratings/{id}` | 
 [**update_comment**](MediaLibraryApi.md#update_comment) | **PUT** `/api/2/media/comments/{id}` | 
 [**update_custom_field**](MediaLibraryApi.md#update_custom_field) | **PUT** `/api/2/media/custom-fields/{id}` | 
+[**update_external_transcoder**](MediaLibraryApi.md#update_external_transcoder) | **PUT** `/api/2/media/external-transcoders/{id}` | 
 [**update_marker**](MediaLibraryApi.md#update_marker) | **PUT** `/api/2/media/markers/{id}` | 
 [**update_media_file**](MediaLibraryApi.md#update_media_file) | **PUT** `/api/2/media/files/{id}` | 
 [**update_media_file_template**](MediaLibraryApi.md#update_media_file_template) | **PUT** `/api/2/media/files/templates/{id}` | 
@@ -123,7 +134,7 @@ Method | HTTP request | Description
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -139,7 +150,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -172,7 +183,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -188,7 +199,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -225,7 +236,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -241,7 +252,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -278,7 +289,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -294,7 +305,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -331,7 +342,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -347,7 +358,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -384,7 +395,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -400,7 +411,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -431,13 +442,13 @@ Name | Type | Description  | Notes
 
 ***
 
-# **create_marker**
+# **create_external_transcoder**
 
-    def create_marker(data) -> Marker 
+    def create_external_transcoder(data) -> ExternalTranscoder 
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -453,7 +464,60 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    data = elements_sdk.ExternalTranscoder() # ExternalTranscoder | 
+
+    try:
+        api_response = api_instance.create_external_transcoder(data)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->create_external_transcoder: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **data** | [**ExternalTranscoder**](ExternalTranscoder.md)|  | 
+
+### Return type
+
+[**ExternalTranscoder**](ExternalTranscoder.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **create_marker**
+
+    def create_marker(data) -> Marker 
+
+
+
+### Required permissions    * User account permission: `media:access`   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -490,7 +554,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -506,7 +570,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -543,7 +607,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -559,7 +623,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -596,7 +660,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -612,7 +676,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -649,7 +713,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -665,7 +729,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -702,7 +766,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -718,7 +782,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -755,7 +819,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -771,7 +835,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -808,7 +872,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -824,7 +888,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -861,7 +925,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -877,7 +941,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -914,7 +978,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -930,7 +994,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -967,7 +1031,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -983,7 +1047,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1020,7 +1084,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -1036,7 +1100,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1089,7 +1153,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1126,7 +1190,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -1142,7 +1206,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1173,13 +1237,13 @@ Name | Type | Description  | Notes
 
 ***
 
-# **delete_marker**
+# **delete_external_transcoder**
 
-    def delete_marker(id) -> object 
+    def delete_external_transcoder(id) -> object 
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -1195,7 +1259,60 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    id = 56 # int | A unique integer value identifying this external transcoder.
+
+    try:
+        api_response = api_instance.delete_external_transcoder(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->delete_external_transcoder: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this external transcoder. | 
+
+### Return type
+
+**object**
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **delete_marker**
+
+    def delete_marker(id) -> object 
+
+
+
+### Required permissions    * User account permission: `media:access`   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1232,7 +1349,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -1248,7 +1365,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1285,7 +1402,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -1301,7 +1418,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1338,7 +1455,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -1354,7 +1471,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1391,7 +1508,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -1407,7 +1524,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1444,7 +1561,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -1460,7 +1577,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1497,7 +1614,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -1513,7 +1630,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1550,7 +1667,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -1566,7 +1683,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1603,7 +1720,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -1619,7 +1736,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1656,7 +1773,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -1672,7 +1789,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1709,7 +1826,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access 
+### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
@@ -1725,7 +1842,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1762,7 +1879,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -1778,7 +1895,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1823,7 +1940,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -1839,7 +1956,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1884,7 +2001,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -1900,7 +2017,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1945,7 +2062,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -1961,7 +2078,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2028,7 +2145,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2079,7 +2196,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -2095,7 +2212,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2140,7 +2257,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -2156,7 +2273,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2209,7 +2326,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -2225,7 +2342,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2260,13 +2377,13 @@ Name | Type | Description  | Notes
 
 ***
 
-# **get_all_markers**
+# **get_all_external_transcoders**
 
-    def get_all_markers(asset=asset, user=user, ordering=ordering, limit=limit, offset=offset) -> list[Marker] 
+    def get_all_external_transcoders(name=name, id=id, ordering=ordering, limit=limit, offset=offset) -> list[ExternalTranscoder] 
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -2282,7 +2399,68 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    name = 'name_example' # str | Filter the returned list by `name`. (optional)
+id = 3.4 # float | Filter the returned list by `id`. (optional)
+ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
+limit = 56 # int | Number of results to return per page. (optional)
+offset = 56 # int | The initial index from which to return the results. (optional)
+
+    try:
+        api_response = api_instance.get_all_external_transcoders(name=name, id=id, ordering=ordering, limit=limit, offset=offset)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_all_external_transcoders: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional] 
+ **id** | **float**| Filter the returned list by &#x60;id&#x60;. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional] 
+ **limit** | **int**| Number of results to return per page. | [optional] 
+ **offset** | **int**| The initial index from which to return the results. | [optional] 
+
+### Return type
+
+[**list[ExternalTranscoder]**](ExternalTranscoder.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **get_all_markers**
+
+    def get_all_markers(asset=asset, user=user, ordering=ordering, limit=limit, offset=offset) -> list[Marker] 
+
+
+
+### Required permissions    * User account permission: `media:access`   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2343,7 +2521,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2398,7 +2576,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -2414,7 +2592,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2455,7 +2633,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -2471,7 +2649,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2542,7 +2720,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -2558,7 +2736,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2595,7 +2773,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -2611,7 +2789,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2674,7 +2852,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -2690,7 +2868,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2735,7 +2913,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -2751,7 +2929,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2796,7 +2974,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -2812,7 +2990,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2863,7 +3041,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -2879,7 +3057,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2920,7 +3098,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -2936,7 +3114,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2981,13 +3159,13 @@ Name | Type | Description  | Notes
 
 ***
 
-# **get_all_proxy_profiles**
+# **get_all_proxy_generators**
 
-    def get_all_proxy_profiles(name=name, ordering=ordering, limit=limit, offset=offset, for_root=for_root) -> list[ProxyProfile] 
+    def get_all_proxy_generators(ordering=ordering, limit=limit, offset=offset) -> list[ProxyGenerator] 
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
@@ -3003,7 +3181,64 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
+limit = 56 # int | Number of results to return per page. (optional)
+offset = 56 # int | The initial index from which to return the results. (optional)
+
+    try:
+        api_response = api_instance.get_all_proxy_generators(ordering=ordering, limit=limit, offset=offset)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_all_proxy_generators: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ordering** | **str**| Which field to use when ordering the results. | [optional] 
+ **limit** | **int**| Number of results to return per page. | [optional] 
+ **offset** | **int**| The initial index from which to return the results. | [optional] 
+
+### Return type
+
+[**list[ProxyGenerator]**](ProxyGenerator.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **get_all_proxy_profiles**
+
+    def get_all_proxy_profiles(name=name, ordering=ordering, limit=limit, offset=offset, for_root=for_root) -> list[ProxyProfile] 
+
+
+
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3048,7 +3283,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -3064,7 +3299,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3107,7 +3342,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -3123,7 +3358,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3170,7 +3405,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -3186,7 +3421,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3227,7 +3462,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -3243,7 +3478,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3284,7 +3519,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -3300,7 +3535,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3337,7 +3572,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -3353,7 +3588,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3396,7 +3631,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -3412,7 +3647,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3465,7 +3700,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3502,7 +3737,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -3518,7 +3753,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3549,13 +3784,13 @@ Name | Type | Description  | Notes
 
 ***
 
-# **get_frame**
+# **get_external_transcoder**
 
-    def get_frame(frame, id) -> object 
+    def get_external_transcoder(id) -> ExternalTranscoder 
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -3571,7 +3806,60 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    id = 56 # int | A unique integer value identifying this external transcoder.
+
+    try:
+        api_response = api_instance.get_external_transcoder(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_external_transcoder: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this external transcoder. | 
+
+### Return type
+
+[**ExternalTranscoder**](ExternalTranscoder.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **get_frame**
+
+    def get_frame(frame, id) -> object 
+
+
+
+### Required permissions    * User account permission: `media:access`   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3610,7 +3898,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -3626,7 +3914,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3667,7 +3955,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -3683,7 +3971,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3720,7 +4008,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -3736,7 +4024,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3799,7 +4087,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3846,7 +4134,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -3862,7 +4150,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3907,7 +4195,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -3923,7 +4211,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3960,7 +4248,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -3976,7 +4264,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4013,7 +4301,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -4029,7 +4317,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4066,7 +4354,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -4082,7 +4370,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4121,7 +4409,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -4137,7 +4425,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4190,7 +4478,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4227,7 +4515,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -4243,7 +4531,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4280,7 +4568,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -4296,7 +4584,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4341,7 +4629,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -4357,7 +4645,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4402,7 +4690,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -4418,7 +4706,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4449,13 +4737,13 @@ Name | Type | Description  | Notes
 
 ***
 
-# **get_proxy_profile**
+# **get_proxy_generator**
 
-    def get_proxy_profile(id, for_root=for_root) -> ProxyProfile 
+    def get_proxy_generator(id) -> ProxyGenerator 
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
@@ -4471,7 +4759,60 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    id = 'id_example' # str | 
+
+    try:
+        api_response = api_instance.get_proxy_generator(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_proxy_generator: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**|  | 
+
+### Return type
+
+[**ProxyGenerator**](ProxyGenerator.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **get_proxy_profile**
+
+    def get_proxy_profile(id, for_root=for_root) -> ProxyProfile 
+
+
+
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4510,7 +4851,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -4526,7 +4867,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4563,7 +4904,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -4579,7 +4920,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4616,7 +4957,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -4632,7 +4973,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4663,13 +5004,13 @@ Name | Type | Description  | Notes
 
 ***
 
-# **patch_asset**
+# **get_vantage_workflows**
 
-    def patch_asset(id, data) -> Asset 
+    def get_vantage_workflows(id) -> VantageWorkflows 
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -4685,7 +5026,60 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    id = 56 # int | A unique integer value identifying this external transcoder.
+
+    try:
+        api_response = api_instance.get_vantage_workflows(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_vantage_workflows: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this external transcoder. | 
+
+### Return type
+
+[**VantageWorkflows**](VantageWorkflows.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **patch_asset**
+
+    def patch_asset(id, data) -> Asset 
+
+
+
+### Required permissions    * User account permission: `media:access`   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4724,7 +5118,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -4740,7 +5134,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4779,7 +5173,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -4795,7 +5189,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4834,7 +5228,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -4850,7 +5244,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4883,13 +5277,13 @@ Name | Type | Description  | Notes
 
 ***
 
-# **patch_marker**
+# **patch_external_transcoder**
 
-    def patch_marker(id, data) -> Marker 
+    def patch_external_transcoder(id, data) -> ExternalTranscoder 
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -4905,7 +5299,62 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    id = 56 # int | A unique integer value identifying this external transcoder.
+data = elements_sdk.ExternalTranscoderPartialUpdate() # ExternalTranscoderPartialUpdate | 
+
+    try:
+        api_response = api_instance.patch_external_transcoder(id, data)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->patch_external_transcoder: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this external transcoder. | 
+ **data** | [**ExternalTranscoderPartialUpdate**](ExternalTranscoderPartialUpdate.md)|  | 
+
+### Return type
+
+[**ExternalTranscoder**](ExternalTranscoder.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **patch_marker**
+
+    def patch_marker(id, data) -> Marker 
+
+
+
+### Required permissions    * User account permission: `media:access`   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4944,7 +5393,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -4960,7 +5409,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -4999,7 +5448,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -5015,7 +5464,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5054,7 +5503,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -5070,7 +5519,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5109,7 +5558,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -5125,7 +5574,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5164,7 +5613,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -5180,7 +5629,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5219,7 +5668,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -5235,7 +5684,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5274,7 +5723,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -5290,7 +5739,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5323,13 +5772,13 @@ Name | Type | Description  | Notes
 
 ***
 
-# **request_media_scan**
+# **render_subclip**
 
-    def request_media_scan(data) -> object 
+    def render_subclip(id, data) -> TaskInfo 
 
 
 
-### Required permissions    * User account permission: media:access 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -5345,7 +5794,62 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    id = 56 # int | A unique integer value identifying this subclip.
+data = elements_sdk.RenderRequest() # RenderRequest | 
+
+    try:
+        api_response = api_instance.render_subclip(id, data)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->render_subclip: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this subclip. | 
+ **data** | [**RenderRequest**](RenderRequest.md)|  | 
+
+### Return type
+
+[**TaskInfo**](TaskInfo.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **request_media_scan**
+
+    def request_media_scan(data) -> object 
+
+
+
+### Required permissions    * User account permission: `media:access` 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5382,7 +5886,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -5398,7 +5902,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5451,7 +5955,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5482,13 +5986,13 @@ Name | Type | Description  | Notes
 
 ***
 
-# **unresolve_comment**
+# **test_external_transcoder_connection**
 
-    def unresolve_comment(id) -> Comment 
+    def test_external_transcoder_connection(data) -> TestExternalTranscoderConnectionResponse 
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -5504,7 +6008,60 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    data = elements_sdk.TestExternalTranscoderConnectionRequest() # TestExternalTranscoderConnectionRequest | 
+
+    try:
+        api_response = api_instance.test_external_transcoder_connection(data)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->test_external_transcoder_connection: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **data** | [**TestExternalTranscoderConnectionRequest**](TestExternalTranscoderConnectionRequest.md)|  | 
+
+### Return type
+
+[**TestExternalTranscoderConnectionResponse**](TestExternalTranscoderConnectionResponse.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **unresolve_comment**
+
+    def unresolve_comment(id) -> Comment 
+
+
+
+### Required permissions    * User account permission: `media:access`   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5541,7 +6098,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -5557,7 +6114,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5596,7 +6153,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -5612,7 +6169,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5651,7 +6208,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -5667,7 +6224,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5706,7 +6263,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -5722,7 +6279,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5755,13 +6312,13 @@ Name | Type | Description  | Notes
 
 ***
 
-# **update_marker**
+# **update_external_transcoder**
 
-    def update_marker(id, data) -> Marker 
+    def update_external_transcoder(id, data) -> ExternalTranscoder 
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -5777,7 +6334,62 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = elements_sdk.MediaLibraryApi(api_client)
+    id = 56 # int | A unique integer value identifying this external transcoder.
+data = elements_sdk.ExternalTranscoder() # ExternalTranscoder | 
+
+    try:
+        api_response = api_instance.update_external_transcoder(id, data)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MediaLibraryApi->update_external_transcoder: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this external transcoder. | 
+ **data** | [**ExternalTranscoder**](ExternalTranscoder.md)|  | 
+
+### Return type
+
+[**ExternalTranscoder**](ExternalTranscoder.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+
+***
+
+# **update_marker**
+
+    def update_marker(id, data) -> Marker 
+
+
+
+### Required permissions    * User account permission: `media:access`   * License component: media 
+
+### Example
+
+* Api Key Authentication (Bearer):
+
+```python
+import elements_sdk
+from elements_sdk.rest import ApiException
+from pprint import pprint
+
+configuration = elements_sdk.Configuration()
+# Configure API key authorization: Bearer
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5816,7 +6428,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -5832,7 +6444,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5871,7 +6483,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -5887,7 +6499,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5926,7 +6538,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -5942,7 +6554,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -5981,7 +6593,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -5997,7 +6609,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -6036,7 +6648,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -6052,7 +6664,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -6091,7 +6703,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access (read) / media:roots:manage (write)   * License component: media 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -6107,7 +6719,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -6146,7 +6758,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: media:access   * License component: media 
+### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -6162,7 +6774,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:

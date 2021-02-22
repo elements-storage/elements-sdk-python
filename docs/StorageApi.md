@@ -1,6 +1,6 @@
 # elements_sdk.StorageApi
 
-All URIs are relative to *http://elements.local*
+All URIs are relative to *https://elements.local*
 >
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -72,7 +72,7 @@ Method | HTTP request | Description
 
 
 
-### Required permissions    * User account permission: projects:manage 
+### Required permissions    * User account permission: `projects:manage` 
 
 ### Example
 
@@ -88,7 +88,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -141,7 +141,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -194,7 +194,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -247,7 +247,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -302,7 +302,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -355,7 +355,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -408,7 +408,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -461,7 +461,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -498,7 +498,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
+### Required permissions    * User account permission: `shares:view` (read) / `shares:manage` (write) 
 
 ### Example
 
@@ -514,7 +514,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -551,7 +551,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -567,7 +567,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -604,7 +604,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / projects:manage (write) 
+### Required permissions    * User account permission: `None` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -620,7 +620,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -657,7 +657,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -673,7 +673,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -726,7 +726,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -779,7 +779,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -816,7 +816,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -832,7 +832,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -869,7 +869,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
+### Required permissions    * User account permission: `shares:view` (read) / `shares:manage` (write) 
 
 ### Example
 
@@ -885,7 +885,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -922,7 +922,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -938,7 +938,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -975,7 +975,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / projects:manage (write) 
+### Required permissions    * User account permission: `None` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -991,7 +991,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1028,7 +1028,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -1044,7 +1044,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1081,7 +1081,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view 
+### Required permissions    * User account permission: `projects:view` 
 
 ### Example
 
@@ -1097,7 +1097,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1152,7 +1152,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -1168,7 +1168,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1215,7 +1215,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
+### Required permissions    * User account permission: `shares:view` (read) / `shares:manage` (write) 
 
 ### Example
 
@@ -1231,7 +1231,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1272,7 +1272,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -1288,7 +1288,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1327,11 +1327,11 @@ Name | Type | Description  | Notes
 
 # **get_all_volumes**
 
-    def get_all_volumes(is_default=is_default, type=type, use_for_homes=use_for_homes, use_for_workspaces=use_for_workspaces, ordering=ordering, limit=limit, offset=offset) -> list[Volume] 
+    def get_all_volumes(is_default=is_default, type=type, use_for_homes=use_for_homes, use_for_workspaces=use_for_workspaces, ordering=ordering, limit=limit, offset=offset, include_status=include_status) -> list[Volume] 
 
 
 
-### Required permissions    * User account permission: None (read) / system:admin-access (write) 
+### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -1347,7 +1347,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1360,9 +1360,10 @@ use_for_workspaces = 'use_for_workspaces_example' # str | Filter the returned li
 ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
 limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
+include_status = True # bool |  (optional)
 
     try:
-        api_response = api_instance.get_all_volumes(is_default=is_default, type=type, use_for_homes=use_for_homes, use_for_workspaces=use_for_workspaces, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_volumes(is_default=is_default, type=type, use_for_homes=use_for_homes, use_for_workspaces=use_for_workspaces, ordering=ordering, limit=limit, offset=offset, include_status=include_status)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling StorageApi->get_all_volumes: %s\n" % e)
@@ -1380,6 +1381,7 @@ Name | Type | Description  | Notes
  **ordering** | **str**| Which field to use when ordering the results. | [optional] 
  **limit** | **int**| Number of results to return per page. | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **include_status** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -1396,7 +1398,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -1412,7 +1414,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1459,7 +1461,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / projects:manage (write) 
+### Required permissions    * User account permission: `None` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -1475,7 +1477,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1552,7 +1554,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1593,7 +1595,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / projects:manage (write) 
+### Required permissions    * User account permission: `None` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -1609,7 +1611,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1664,7 +1666,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -1680,7 +1682,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1735,7 +1737,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1775,7 +1777,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
+### Required permissions    * User account permission: `shares:view` (read) / `shares:manage` (write) 
 
 ### Example
 
@@ -1791,7 +1793,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1828,7 +1830,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -1844,7 +1846,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1877,11 +1879,11 @@ Name | Type | Description  | Notes
 
 # **get_volume**
 
-    def get_volume(id) -> Volume 
+    def get_volume(id, include_status=include_status) -> Volume 
 
 
 
-### Required permissions    * User account permission: None (read) / system:admin-access (write) 
+### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -1897,16 +1899,17 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.StorageApi(api_client)
     id = 56 # int | A unique integer value identifying this volume.
+include_status = True # bool |  (optional)
 
     try:
-        api_response = api_instance.get_volume(id)
+        api_response = api_instance.get_volume(id, include_status=include_status)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling StorageApi->get_volume: %s\n" % e)
@@ -1918,6 +1921,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this volume. | 
+ **include_status** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -1934,7 +1938,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: system:status:view 
+### Required permissions    * User account permission: `system:status:view` 
 
 ### Example
 
@@ -1950,7 +1954,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -1987,7 +1991,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: system:status:view 
+### Required permissions    * User account permission: `system:status:view` 
 
 ### Example
 
@@ -2003,7 +2007,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2040,7 +2044,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: system:status:view 
+### Required permissions    * User account permission: `system:status:view` 
 
 ### Example
 
@@ -2056,7 +2060,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2093,7 +2097,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / projects:manage (write) 
+### Required permissions    * User account permission: `None` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -2109,7 +2113,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2146,7 +2150,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -2162,7 +2166,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2215,7 +2219,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2252,7 +2256,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:manage 
+### Required permissions    * User account permission: `projects:manage` 
 
 ### Example
 
@@ -2268,7 +2272,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2323,7 +2327,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2366,7 +2370,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -2382,7 +2386,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2421,7 +2425,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
+### Required permissions    * User account permission: `shares:view` (read) / `shares:manage` (write) 
 
 ### Example
 
@@ -2437,7 +2441,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2476,7 +2480,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -2492,7 +2496,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2531,7 +2535,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / system:admin-access (write) 
+### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -2547,7 +2551,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2586,7 +2590,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / projects:manage (write) 
+### Required permissions    * User account permission: `None` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -2602,7 +2606,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2641,7 +2645,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -2657,7 +2661,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2696,7 +2700,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:manage 
+### Required permissions    * User account permission: `projects:manage` 
 
 ### Example
 
@@ -2712,7 +2716,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2765,7 +2769,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2818,7 +2822,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2855,7 +2859,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -2871,7 +2875,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2910,7 +2914,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: shares:view (read) / shares:manage (write) 
+### Required permissions    * User account permission: `shares:view` (read) / `shares:manage` (write) 
 
 ### Example
 
@@ -2926,7 +2930,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -2965,7 +2969,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -2981,7 +2985,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3020,7 +3024,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / system:admin-access (write) 
+### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -3036,7 +3040,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3075,7 +3079,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / projects:manage (write) 
+### Required permissions    * User account permission: `None` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -3091,7 +3095,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3130,7 +3134,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: projects:view (read) / projects:manage (write) 
+### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -3146,7 +3150,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -3201,7 +3205,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:

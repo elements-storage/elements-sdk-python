@@ -32,6 +32,7 @@ class SubclipPartialUpdate(object):
     """
     openapi_types = {
         'asset': 'AssetMini',
+        'rendered': 'AssetMini',
         'shared': 'bool',
         'name': 'str',
         't_in': 'float',
@@ -41,6 +42,7 @@ class SubclipPartialUpdate(object):
 
     attribute_map = {
         'asset': 'asset',
+        'rendered': 'rendered',
         'shared': 'shared',
         'name': 'name',
         't_in': 't_in',
@@ -48,13 +50,14 @@ class SubclipPartialUpdate(object):
         'root': 'root'
     }
 
-    def __init__(self, asset=None, shared=None, name=None, t_in=None, t_out=None, root=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, asset=None, rendered=None, shared=None, name=None, t_in=None, t_out=None, root=None, local_vars_configuration=None):  # noqa: E501
         """SubclipPartialUpdate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._asset = None
+        self._rendered = None
         self._shared = None
         self._name = None
         self._t_in = None
@@ -64,6 +67,8 @@ class SubclipPartialUpdate(object):
 
         if asset is not None:
             self.asset = asset
+        if rendered is not None:
+            self.rendered = rendered
         if shared is not None:
             self.shared = shared
         if name is not None:
@@ -94,6 +99,27 @@ class SubclipPartialUpdate(object):
         """
 
         self._asset = asset
+
+    @property
+    def rendered(self):
+        """Gets the rendered of this SubclipPartialUpdate.  # noqa: E501
+
+
+        :return: The rendered of this SubclipPartialUpdate.  # noqa: E501
+        :rtype: AssetMini
+        """
+        return self._rendered
+
+    @rendered.setter
+    def rendered(self, rendered):
+        """Sets the rendered of this SubclipPartialUpdate.
+
+
+        :param rendered: The rendered of this SubclipPartialUpdate.  # noqa: E501
+        :type: AssetMini
+        """
+
+        self._rendered = rendered
 
     @property
     def shared(self):

@@ -31,24 +31,29 @@ class StartJobRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'variables': 'dict(str, str)'
+        'variables': 'dict(str, str)',
+        'secret': 'str'
     }
 
     attribute_map = {
-        'variables': 'variables'
+        'variables': 'variables',
+        'secret': 'secret'
     }
 
-    def __init__(self, variables=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, variables=None, secret=None, local_vars_configuration=None):  # noqa: E501
         """StartJobRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._variables = None
+        self._secret = None
         self.discriminator = None
 
         if variables is not None:
             self.variables = variables
+        if secret is not None:
+            self.secret = secret
 
     @property
     def variables(self):
@@ -70,6 +75,32 @@ class StartJobRequest(object):
         """
 
         self._variables = variables
+
+    @property
+    def secret(self):
+        """Gets the secret of this StartJobRequest.  # noqa: E501
+
+        Only required for incoming webhooks  # noqa: E501
+
+        :return: The secret of this StartJobRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._secret
+
+    @secret.setter
+    def secret(self, secret):
+        """Sets the secret of this StartJobRequest.
+
+        Only required for incoming webhooks  # noqa: E501
+
+        :param secret: The secret of this StartJobRequest.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                secret is not None and len(secret) < 1):
+            raise ValueError("Invalid value for `secret`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._secret = secret
 
     def to_dict(self):
         """Returns the model properties as a dict"""

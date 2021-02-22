@@ -33,6 +33,7 @@ class Subtask(object):
     openapi_types = {
         'id': 'int',
         'kwargs': 'dict(str, str)',
+        'graph_layout': 'dict(str, str)',
         'validation_error': 'str',
         'trigger': 'str',
         'name': 'str',
@@ -43,6 +44,7 @@ class Subtask(object):
         'task': 'str',
         'condition_variable': 'str',
         'condition_value': 'str',
+        'sync': 'bool',
         'parent': 'int',
         'relative_to': 'int'
     }
@@ -50,6 +52,7 @@ class Subtask(object):
     attribute_map = {
         'id': 'id',
         'kwargs': 'kwargs',
+        'graph_layout': 'graph_layout',
         'validation_error': 'validation_error',
         'trigger': 'trigger',
         'name': 'name',
@@ -60,11 +63,12 @@ class Subtask(object):
         'task': 'task',
         'condition_variable': 'condition_variable',
         'condition_value': 'condition_value',
+        'sync': 'sync',
         'parent': 'parent',
         'relative_to': 'relative_to'
     }
 
-    def __init__(self, id=None, kwargs=None, validation_error=None, trigger=None, name=None, noop_dont_save=None, no_concurrency=None, timeout=None, log_variable=None, task=None, condition_variable=None, condition_value=None, parent=None, relative_to=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, kwargs=None, graph_layout=None, validation_error=None, trigger=None, name=None, noop_dont_save=None, no_concurrency=None, timeout=None, log_variable=None, task=None, condition_variable=None, condition_value=None, sync=None, parent=None, relative_to=None, local_vars_configuration=None):  # noqa: E501
         """Subtask - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -72,6 +76,7 @@ class Subtask(object):
 
         self._id = None
         self._kwargs = None
+        self._graph_layout = None
         self._validation_error = None
         self._trigger = None
         self._name = None
@@ -82,6 +87,7 @@ class Subtask(object):
         self._task = None
         self._condition_variable = None
         self._condition_value = None
+        self._sync = None
         self._parent = None
         self._relative_to = None
         self.discriminator = None
@@ -89,6 +95,8 @@ class Subtask(object):
         if id is not None:
             self.id = id
         self.kwargs = kwargs
+        if graph_layout is not None:
+            self.graph_layout = graph_layout
         if validation_error is not None:
             self.validation_error = validation_error
         self.trigger = trigger
@@ -103,6 +111,8 @@ class Subtask(object):
         self.task = task
         self.condition_variable = condition_variable
         self.condition_value = condition_value
+        if sync is not None:
+            self.sync = sync
         self.parent = parent
         self.relative_to = relative_to
 
@@ -149,6 +159,27 @@ class Subtask(object):
             raise ValueError("Invalid value for `kwargs`, must not be `None`")  # noqa: E501
 
         self._kwargs = kwargs
+
+    @property
+    def graph_layout(self):
+        """Gets the graph_layout of this Subtask.  # noqa: E501
+
+
+        :return: The graph_layout of this Subtask.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._graph_layout
+
+    @graph_layout.setter
+    def graph_layout(self, graph_layout):
+        """Sets the graph_layout of this Subtask.
+
+
+        :param graph_layout: The graph_layout of this Subtask.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._graph_layout = graph_layout
 
     @property
     def validation_error(self):
@@ -395,6 +426,27 @@ class Subtask(object):
             raise ValueError("Invalid value for `condition_value`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._condition_value = condition_value
+
+    @property
+    def sync(self):
+        """Gets the sync of this Subtask.  # noqa: E501
+
+
+        :return: The sync of this Subtask.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sync
+
+    @sync.setter
+    def sync(self, sync):
+        """Sets the sync of this Subtask.
+
+
+        :param sync: The sync of this Subtask.  # noqa: E501
+        :type: bool
+        """
+
+        self._sync = sync
 
     @property
     def parent(self):

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] [readonly] 
 **asset** | [**AssetMini**](AssetMini.md) |  | 
+**rendered** | [**AssetMini**](AssetMini.md) |  | [optional] 
 **shared** | **bool** |  | [optional] 
 **date** | **datetime** |  | [optional] [readonly] 
 **name** | **str** |  | [optional] 

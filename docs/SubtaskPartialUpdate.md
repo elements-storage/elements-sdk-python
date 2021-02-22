@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **kwargs** | **dict(str, str)** |  | [optional] 
+**graph_layout** | **dict(str, str)** |  | [optional] 
 **trigger** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **noop_dont_save** | **bool** |  | [optional] 
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 **task** | **str** |  | [optional] 
 **condition_variable** | **str** |  | [optional] 
 **condition_value** | **str** |  | [optional] 
+**sync** | **bool** |  | [optional] 
 **parent** | **int** |  | [optional] 
 **relative_to** | **int** |  | [optional] 
 

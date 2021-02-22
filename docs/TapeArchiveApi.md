@@ -1,6 +1,6 @@
 # elements_sdk.TapeArchiveApi
 
-All URIs are relative to *http://elements.local*
+All URIs are relative to *https://elements.local*
 >
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,7 +29,7 @@ Method | HTTP request | Description
 
 
 
-### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -45,7 +45,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -98,7 +98,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -151,7 +151,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -204,7 +204,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: ltfs:search (read) / ltfs:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:search` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -257,7 +257,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -324,7 +324,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -369,7 +369,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -385,7 +385,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -434,7 +434,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: ltfs:search (read) / ltfs:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:search` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -450,7 +450,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -487,7 +487,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -503,7 +503,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -540,7 +540,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -556,7 +556,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -593,7 +593,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -609,7 +609,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -648,7 +648,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -664,7 +664,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -703,7 +703,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -719,7 +719,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
@@ -758,7 +758,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: None (read) / ltfs:tapegroups:manage (write)   * License component: ltfs 
+### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -774,7 +774,7 @@ configuration = elements_sdk.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-configuration.host = "http://elements.local"
+configuration.host = "https://elements.local"
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:

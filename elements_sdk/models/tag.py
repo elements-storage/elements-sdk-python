@@ -158,8 +158,6 @@ class Tag(object):
         :param root: The root of this Tag.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and root is None:  # noqa: E501
-            raise ValueError("Invalid value for `root`, must not be `None`")  # noqa: E501
 
         self._root = root
 

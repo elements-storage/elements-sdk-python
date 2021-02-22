@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **type** | **int** |  | [optional] 
 **ipmi** | **int** |  | [optional] 
 **interfaces** | [**list[Interface]**](Interface.md) |  | [optional] [readonly] 
+**status** | [**StorageNodeStatus**](StorageNodeStatus.md) |  | [optional] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 

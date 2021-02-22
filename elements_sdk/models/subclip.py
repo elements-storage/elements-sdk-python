@@ -33,6 +33,7 @@ class Subclip(object):
     openapi_types = {
         'id': 'int',
         'asset': 'AssetMini',
+        'rendered': 'AssetMini',
         'shared': 'bool',
         'date': 'datetime',
         'name': 'str',
@@ -45,6 +46,7 @@ class Subclip(object):
     attribute_map = {
         'id': 'id',
         'asset': 'asset',
+        'rendered': 'rendered',
         'shared': 'shared',
         'date': 'date',
         'name': 'name',
@@ -54,7 +56,7 @@ class Subclip(object):
         'root': 'root'
     }
 
-    def __init__(self, id=None, asset=None, shared=None, date=None, name=None, t_in=None, t_out=None, user=None, root=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, asset=None, rendered=None, shared=None, date=None, name=None, t_in=None, t_out=None, user=None, root=None, local_vars_configuration=None):  # noqa: E501
         """Subclip - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,6 +64,7 @@ class Subclip(object):
 
         self._id = None
         self._asset = None
+        self._rendered = None
         self._shared = None
         self._date = None
         self._name = None
@@ -74,6 +77,8 @@ class Subclip(object):
         if id is not None:
             self.id = id
         self.asset = asset
+        if rendered is not None:
+            self.rendered = rendered
         if shared is not None:
             self.shared = shared
         if date is not None:
@@ -129,6 +134,27 @@ class Subclip(object):
             raise ValueError("Invalid value for `asset`, must not be `None`")  # noqa: E501
 
         self._asset = asset
+
+    @property
+    def rendered(self):
+        """Gets the rendered of this Subclip.  # noqa: E501
+
+
+        :return: The rendered of this Subclip.  # noqa: E501
+        :rtype: AssetMini
+        """
+        return self._rendered
+
+    @rendered.setter
+    def rendered(self, rendered):
+        """Sets the rendered of this Subclip.
+
+
+        :param rendered: The rendered of this Subclip.  # noqa: E501
+        :type: AssetMini
+        """
+
+        self._rendered = rendered
 
     @property
     def shared(self):

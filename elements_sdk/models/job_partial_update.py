@@ -43,6 +43,8 @@ class JobPartialUpdate(object):
         'allow_client_to_start': 'bool',
         'show_as_button': 'bool',
         'input_type': 'str',
+        'hook': 'str',
+        'webhook_secret': 'str',
         'security_context': 'int',
         'part_of_workflow_for': 'int'
     }
@@ -60,11 +62,13 @@ class JobPartialUpdate(object):
         'allow_client_to_start': 'allow_client_to_start',
         'show_as_button': 'show_as_button',
         'input_type': 'input_type',
+        'hook': 'hook',
+        'webhook_secret': 'webhook_secret',
         'security_context': 'security_context',
         'part_of_workflow_for': 'part_of_workflow_for'
     }
 
-    def __init__(self, subtasks=None, schedules=None, allow_users=None, allow_groups=None, variable_definitions=None, media_roots=None, special_type=None, name=None, allow_others_to_start=None, allow_client_to_start=None, show_as_button=None, input_type=None, security_context=None, part_of_workflow_for=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, subtasks=None, schedules=None, allow_users=None, allow_groups=None, variable_definitions=None, media_roots=None, special_type=None, name=None, allow_others_to_start=None, allow_client_to_start=None, show_as_button=None, input_type=None, hook=None, webhook_secret=None, security_context=None, part_of_workflow_for=None, local_vars_configuration=None):  # noqa: E501
         """JobPartialUpdate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -82,6 +86,8 @@ class JobPartialUpdate(object):
         self._allow_client_to_start = None
         self._show_as_button = None
         self._input_type = None
+        self._hook = None
+        self._webhook_secret = None
         self._security_context = None
         self._part_of_workflow_for = None
         self.discriminator = None
@@ -108,6 +114,8 @@ class JobPartialUpdate(object):
         if show_as_button is not None:
             self.show_as_button = show_as_button
         self.input_type = input_type
+        self.hook = hook
+        self.webhook_secret = webhook_secret
         self.security_context = security_context
         self.part_of_workflow_for = part_of_workflow_for
 
@@ -374,6 +382,54 @@ class JobPartialUpdate(object):
             )
 
         self._input_type = input_type
+
+    @property
+    def hook(self):
+        """Gets the hook of this JobPartialUpdate.  # noqa: E501
+
+
+        :return: The hook of this JobPartialUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._hook
+
+    @hook.setter
+    def hook(self, hook):
+        """Sets the hook of this JobPartialUpdate.
+
+
+        :param hook: The hook of this JobPartialUpdate.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                hook is not None and len(hook) > 255):
+            raise ValueError("Invalid value for `hook`, length must be less than or equal to `255`")  # noqa: E501
+
+        self._hook = hook
+
+    @property
+    def webhook_secret(self):
+        """Gets the webhook_secret of this JobPartialUpdate.  # noqa: E501
+
+
+        :return: The webhook_secret of this JobPartialUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._webhook_secret
+
+    @webhook_secret.setter
+    def webhook_secret(self, webhook_secret):
+        """Sets the webhook_secret of this JobPartialUpdate.
+
+
+        :param webhook_secret: The webhook_secret of this JobPartialUpdate.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                webhook_secret is not None and len(webhook_secret) > 128):
+            raise ValueError("Invalid value for `webhook_secret`, length must be less than or equal to `128`")  # noqa: E501
+
+        self._webhook_secret = webhook_secret
 
     @property
     def security_context(self):

@@ -108,8 +108,7 @@ class TaskInfo(object):
         if display_name is not None:
             self.display_name = display_name
         self.kwargs = kwargs
-        if subtask is not None:
-            self.subtask = subtask
+        self.subtask = subtask
         if worker is not None:
             self.worker = worker
         if user is not None:

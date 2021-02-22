@@ -37,7 +37,7 @@ class StatusApi(object):
     def get_alert(self, id, **kwargs):  # noqa: E501
         """get_alert  # noqa: E501
 
-        ### Required permissions    * User account permission: system:status:view   # noqa: E501
+        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_alert(id, async_req=True)
@@ -62,7 +62,7 @@ class StatusApi(object):
     def get_alert_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_alert  # noqa: E501
 
-        ### Required permissions    * User account permission: system:status:view   # noqa: E501
+        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_alert_with_http_info(id, async_req=True)
@@ -145,7 +145,7 @@ class StatusApi(object):
     def get_all_alerts(self, **kwargs):  # noqa: E501
         """get_all_alerts  # noqa: E501
 
-        ### Required permissions    * User account permission: system:status:view   # noqa: E501
+        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_alerts(async_req=True)
@@ -174,7 +174,7 @@ class StatusApi(object):
     def get_all_alerts_with_http_info(self, **kwargs):  # noqa: E501
         """get_all_alerts  # noqa: E501
 
-        ### Required permissions    * User account permission: system:status:view   # noqa: E501
+        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_all_alerts_with_http_info(async_req=True)
@@ -265,7 +265,7 @@ class StatusApi(object):
     def patch_alert(self, id, data, **kwargs):  # noqa: E501
         """patch_alert  # noqa: E501
 
-        ### Required permissions    * User account permission: system:status:view   # noqa: E501
+        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_alert(id, data, async_req=True)
@@ -291,7 +291,7 @@ class StatusApi(object):
     def patch_alert_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """patch_alert  # noqa: E501
 
-        ### Required permissions    * User account permission: system:status:view   # noqa: E501
+        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_alert_with_http_info(id, data, async_req=True)
@@ -385,7 +385,7 @@ class StatusApi(object):
     def update_alert(self, id, data, **kwargs):  # noqa: E501
         """update_alert  # noqa: E501
 
-        ### Required permissions    * User account permission: system:status:view   # noqa: E501
+        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_alert(id, data, async_req=True)
@@ -411,7 +411,7 @@ class StatusApi(object):
     def update_alert_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """update_alert  # noqa: E501
 
-        ### Required permissions    * User account permission: system:status:view   # noqa: E501
+        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_alert_with_http_info(id, data, async_req=True)

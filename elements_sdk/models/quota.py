@@ -98,8 +98,6 @@ class Quota(object):
         :param soft: The soft of this Quota.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and soft is None:  # noqa: E501
-            raise ValueError("Invalid value for `soft`, must not be `None`")  # noqa: E501
 
         self._soft = soft
 
@@ -121,8 +119,6 @@ class Quota(object):
         :param hard: The hard of this Quota.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and hard is None:  # noqa: E501
-            raise ValueError("Invalid value for `hard`, must not be `None`")  # noqa: E501
 
         self._hard = hard
 

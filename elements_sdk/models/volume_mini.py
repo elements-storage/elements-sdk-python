@@ -212,7 +212,7 @@ class VolumeMini(object):
         :param type: The type of this VolumeMini.  # noqa: E501
         :type: str
         """
-        allowed_values = ["generic", "generic-mount", "snfs", "btrfs", "s3fs", "lizardfs", "bcachefs", "isilon"]  # noqa: E501
+        allowed_values = ["generic", "generic-mount", "snfs", "btrfs", "s3fs", "lizardfs", "bcachefs", "isilon", "beegfs"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501

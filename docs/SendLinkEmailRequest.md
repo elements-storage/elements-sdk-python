@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**email** | **str** |  | [optional] 
 **subject** | **str** |  | [optional] 
 **text** | **str** |  | [optional] 
 

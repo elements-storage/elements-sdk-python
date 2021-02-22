@@ -31,74 +31,74 @@ class FSProperties(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'supports_quotas': 'bool',
+        'supports_directory_quotas': 'bool',
         'supports_soft_quotas': 'bool',
         'supports_user_quotas': 'bool',
         'supports_group_quotas': 'bool',
         'supports_xattrs': 'bool',
         'supports_snapshots': 'bool',
-        'creating_quota_destroys_content': 'bool',
-        'removing_quota_destroys_content': 'bool'
+        'creating_directory_quota_destroys_content': 'bool',
+        'removing_directory_quota_destroys_content': 'bool'
     }
 
     attribute_map = {
-        'supports_quotas': 'supports_quotas',
+        'supports_directory_quotas': 'supports_directory_quotas',
         'supports_soft_quotas': 'supports_soft_quotas',
         'supports_user_quotas': 'supports_user_quotas',
         'supports_group_quotas': 'supports_group_quotas',
         'supports_xattrs': 'supports_xattrs',
         'supports_snapshots': 'supports_snapshots',
-        'creating_quota_destroys_content': 'creating_quota_destroys_content',
-        'removing_quota_destroys_content': 'removing_quota_destroys_content'
+        'creating_directory_quota_destroys_content': 'creating_directory_quota_destroys_content',
+        'removing_directory_quota_destroys_content': 'removing_directory_quota_destroys_content'
     }
 
-    def __init__(self, supports_quotas=None, supports_soft_quotas=None, supports_user_quotas=None, supports_group_quotas=None, supports_xattrs=None, supports_snapshots=None, creating_quota_destroys_content=None, removing_quota_destroys_content=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, supports_directory_quotas=None, supports_soft_quotas=None, supports_user_quotas=None, supports_group_quotas=None, supports_xattrs=None, supports_snapshots=None, creating_directory_quota_destroys_content=None, removing_directory_quota_destroys_content=None, local_vars_configuration=None):  # noqa: E501
         """FSProperties - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._supports_quotas = None
+        self._supports_directory_quotas = None
         self._supports_soft_quotas = None
         self._supports_user_quotas = None
         self._supports_group_quotas = None
         self._supports_xattrs = None
         self._supports_snapshots = None
-        self._creating_quota_destroys_content = None
-        self._removing_quota_destroys_content = None
+        self._creating_directory_quota_destroys_content = None
+        self._removing_directory_quota_destroys_content = None
         self.discriminator = None
 
-        self.supports_quotas = supports_quotas
+        self.supports_directory_quotas = supports_directory_quotas
         self.supports_soft_quotas = supports_soft_quotas
         self.supports_user_quotas = supports_user_quotas
         self.supports_group_quotas = supports_group_quotas
         self.supports_xattrs = supports_xattrs
         self.supports_snapshots = supports_snapshots
-        self.creating_quota_destroys_content = creating_quota_destroys_content
-        self.removing_quota_destroys_content = removing_quota_destroys_content
+        self.creating_directory_quota_destroys_content = creating_directory_quota_destroys_content
+        self.removing_directory_quota_destroys_content = removing_directory_quota_destroys_content
 
     @property
-    def supports_quotas(self):
-        """Gets the supports_quotas of this FSProperties.  # noqa: E501
+    def supports_directory_quotas(self):
+        """Gets the supports_directory_quotas of this FSProperties.  # noqa: E501
 
 
-        :return: The supports_quotas of this FSProperties.  # noqa: E501
+        :return: The supports_directory_quotas of this FSProperties.  # noqa: E501
         :rtype: bool
         """
-        return self._supports_quotas
+        return self._supports_directory_quotas
 
-    @supports_quotas.setter
-    def supports_quotas(self, supports_quotas):
-        """Sets the supports_quotas of this FSProperties.
+    @supports_directory_quotas.setter
+    def supports_directory_quotas(self, supports_directory_quotas):
+        """Sets the supports_directory_quotas of this FSProperties.
 
 
-        :param supports_quotas: The supports_quotas of this FSProperties.  # noqa: E501
+        :param supports_directory_quotas: The supports_directory_quotas of this FSProperties.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and supports_quotas is None:  # noqa: E501
-            raise ValueError("Invalid value for `supports_quotas`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and supports_directory_quotas is None:  # noqa: E501
+            raise ValueError("Invalid value for `supports_directory_quotas`, must not be `None`")  # noqa: E501
 
-        self._supports_quotas = supports_quotas
+        self._supports_directory_quotas = supports_directory_quotas
 
     @property
     def supports_soft_quotas(self):
@@ -216,50 +216,50 @@ class FSProperties(object):
         self._supports_snapshots = supports_snapshots
 
     @property
-    def creating_quota_destroys_content(self):
-        """Gets the creating_quota_destroys_content of this FSProperties.  # noqa: E501
+    def creating_directory_quota_destroys_content(self):
+        """Gets the creating_directory_quota_destroys_content of this FSProperties.  # noqa: E501
 
 
-        :return: The creating_quota_destroys_content of this FSProperties.  # noqa: E501
+        :return: The creating_directory_quota_destroys_content of this FSProperties.  # noqa: E501
         :rtype: bool
         """
-        return self._creating_quota_destroys_content
+        return self._creating_directory_quota_destroys_content
 
-    @creating_quota_destroys_content.setter
-    def creating_quota_destroys_content(self, creating_quota_destroys_content):
-        """Sets the creating_quota_destroys_content of this FSProperties.
+    @creating_directory_quota_destroys_content.setter
+    def creating_directory_quota_destroys_content(self, creating_directory_quota_destroys_content):
+        """Sets the creating_directory_quota_destroys_content of this FSProperties.
 
 
-        :param creating_quota_destroys_content: The creating_quota_destroys_content of this FSProperties.  # noqa: E501
+        :param creating_directory_quota_destroys_content: The creating_directory_quota_destroys_content of this FSProperties.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and creating_quota_destroys_content is None:  # noqa: E501
-            raise ValueError("Invalid value for `creating_quota_destroys_content`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and creating_directory_quota_destroys_content is None:  # noqa: E501
+            raise ValueError("Invalid value for `creating_directory_quota_destroys_content`, must not be `None`")  # noqa: E501
 
-        self._creating_quota_destroys_content = creating_quota_destroys_content
+        self._creating_directory_quota_destroys_content = creating_directory_quota_destroys_content
 
     @property
-    def removing_quota_destroys_content(self):
-        """Gets the removing_quota_destroys_content of this FSProperties.  # noqa: E501
+    def removing_directory_quota_destroys_content(self):
+        """Gets the removing_directory_quota_destroys_content of this FSProperties.  # noqa: E501
 
 
-        :return: The removing_quota_destroys_content of this FSProperties.  # noqa: E501
+        :return: The removing_directory_quota_destroys_content of this FSProperties.  # noqa: E501
         :rtype: bool
         """
-        return self._removing_quota_destroys_content
+        return self._removing_directory_quota_destroys_content
 
-    @removing_quota_destroys_content.setter
-    def removing_quota_destroys_content(self, removing_quota_destroys_content):
-        """Sets the removing_quota_destroys_content of this FSProperties.
+    @removing_directory_quota_destroys_content.setter
+    def removing_directory_quota_destroys_content(self, removing_directory_quota_destroys_content):
+        """Sets the removing_directory_quota_destroys_content of this FSProperties.
 
 
-        :param removing_quota_destroys_content: The removing_quota_destroys_content of this FSProperties.  # noqa: E501
+        :param removing_directory_quota_destroys_content: The removing_directory_quota_destroys_content of this FSProperties.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and removing_quota_destroys_content is None:  # noqa: E501
-            raise ValueError("Invalid value for `removing_quota_destroys_content`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and removing_directory_quota_destroys_content is None:  # noqa: E501
+            raise ValueError("Invalid value for `removing_directory_quota_destroys_content`, must not be `None`")  # noqa: E501
 
-        self._removing_quota_destroys_content = removing_quota_destroys_content
+        self._removing_directory_quota_destroys_content = removing_directory_quota_destroys_content
 
     def to_dict(self):
         """Returns the model properties as a dict"""

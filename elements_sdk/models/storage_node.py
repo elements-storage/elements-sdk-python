@@ -38,7 +38,8 @@ class StorageNode(object):
         'backend': 'Backend',
         'type': 'int',
         'ipmi': 'int',
-        'interfaces': 'list[Interface]'
+        'interfaces': 'list[Interface]',
+        'status': 'StorageNodeStatus'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class StorageNode(object):
         'backend': 'backend',
         'type': 'type',
         'ipmi': 'ipmi',
-        'interfaces': 'interfaces'
+        'interfaces': 'interfaces',
+        'status': 'status'
     }
 
-    def __init__(self, id=None, name=None, address=None, address_override=None, backend=None, type=None, ipmi=None, interfaces=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, address=None, address_override=None, backend=None, type=None, ipmi=None, interfaces=None, status=None, local_vars_configuration=None):  # noqa: E501
         """StorageNode - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +68,7 @@ class StorageNode(object):
         self._type = None
         self._ipmi = None
         self._interfaces = None
+        self._status = None
         self.discriminator = None
 
         if id is not None:
@@ -83,6 +86,8 @@ class StorageNode(object):
             self.ipmi = ipmi
         if interfaces is not None:
             self.interfaces = interfaces
+        if status is not None:
+            self.status = status
 
     @property
     def id(self):
@@ -270,6 +275,27 @@ class StorageNode(object):
         """
 
         self._interfaces = interfaces
+
+    @property
+    def status(self):
+        """Gets the status of this StorageNode.  # noqa: E501
+
+
+        :return: The status of this StorageNode.  # noqa: E501
+        :rtype: StorageNodeStatus
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this StorageNode.
+
+
+        :param status: The status of this StorageNode.  # noqa: E501
+        :type: StorageNodeStatus
+        """
+
+        self._status = status
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **asset** | [**AssetMini**](AssetMini.md) |  | [optional] 
+**rendered** | [**AssetMini**](AssetMini.md) |  | [optional] 
 **shared** | **bool** |  | [optional] 
 **name** | **str** |  | [optional] 
 **t_in** | **float** |  | [optional] 

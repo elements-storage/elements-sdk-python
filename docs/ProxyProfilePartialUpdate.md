@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
+**proxy_generator** | **str** |  | [optional] 
 **resolution** | **str** |  | [optional] 
 **rate_control** | **int** |  | [optional] 
 **crf** | **int** |  | [optional] 
@@ -23,6 +24,13 @@ Name | Type | Description | Notes
 **timecode_opacity** | **float** |  | [optional] 
 **timecode_size** | **float** |  | [optional] 
 **lut** | **str** |  | [optional] 
+**hotfolder_copy_to** | **str** |  | [optional] 
+**hotfolder_read_from** | **str** |  | [optional] 
+**hotfolder_queue_timeout** | **int** |  | [optional] 
+**hotfolder_encode_timeout** | **int** |  | [optional] 
+**vantage_workflow_id** | **str** |  | [optional] 
+**external_transcoder_staging_path** | **str** |  | [optional] 
+**external_transcoder** | **int** |  | [optional] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 

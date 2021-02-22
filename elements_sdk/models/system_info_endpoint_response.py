@@ -36,7 +36,7 @@ class SystemInfoEndpointResponse(object):
         'nt_hostname': 'str',
         'offers_ntp_sync': 'bool',
         'language': 'str',
-        'saml_providers': 'list[SAMLProvider]'
+        'saml_providers': 'list[SAMLProviderMini]'
     }
 
     attribute_map = {
@@ -197,7 +197,7 @@ class SystemInfoEndpointResponse(object):
 
 
         :return: The saml_providers of this SystemInfoEndpointResponse.  # noqa: E501
-        :rtype: list[SAMLProvider]
+        :rtype: list[SAMLProviderMini]
         """
         return self._saml_providers
 
@@ -207,7 +207,7 @@ class SystemInfoEndpointResponse(object):
 
 
         :param saml_providers: The saml_providers of this SystemInfoEndpointResponse.  # noqa: E501
-        :type: list[SAMLProvider]
+        :type: list[SAMLProviderMini]
         """
 
         self._saml_providers = saml_providers

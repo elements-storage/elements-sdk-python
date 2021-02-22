@@ -32,6 +32,7 @@ class ProxyProfilePartialUpdate(object):
     """
     openapi_types = {
         'name': 'str',
+        'proxy_generator': 'str',
         'resolution': 'str',
         'rate_control': 'int',
         'crf': 'int',
@@ -49,11 +50,19 @@ class ProxyProfilePartialUpdate(object):
         'timecode_position': 'int',
         'timecode_opacity': 'float',
         'timecode_size': 'float',
-        'lut': 'str'
+        'lut': 'str',
+        'hotfolder_copy_to': 'str',
+        'hotfolder_read_from': 'str',
+        'hotfolder_queue_timeout': 'int',
+        'hotfolder_encode_timeout': 'int',
+        'vantage_workflow_id': 'str',
+        'external_transcoder_staging_path': 'str',
+        'external_transcoder': 'int'
     }
 
     attribute_map = {
         'name': 'name',
+        'proxy_generator': 'proxy_generator',
         'resolution': 'resolution',
         'rate_control': 'rate_control',
         'crf': 'crf',
@@ -71,16 +80,24 @@ class ProxyProfilePartialUpdate(object):
         'timecode_position': 'timecode_position',
         'timecode_opacity': 'timecode_opacity',
         'timecode_size': 'timecode_size',
-        'lut': 'lut'
+        'lut': 'lut',
+        'hotfolder_copy_to': 'hotfolder_copy_to',
+        'hotfolder_read_from': 'hotfolder_read_from',
+        'hotfolder_queue_timeout': 'hotfolder_queue_timeout',
+        'hotfolder_encode_timeout': 'hotfolder_encode_timeout',
+        'vantage_workflow_id': 'vantage_workflow_id',
+        'external_transcoder_staging_path': 'external_transcoder_staging_path',
+        'external_transcoder': 'external_transcoder'
     }
 
-    def __init__(self, name=None, resolution=None, rate_control=None, crf=None, bitrate=None, audio_bitrate=None, variants_limit=None, enable_realtime_read=None, enable_dense_filmstrip=None, enable_watermark=None, watermark_image=None, watermark_position=None, watermark_opacity=None, watermark_size=None, enable_timecode=None, timecode_position=None, timecode_opacity=None, timecode_size=None, lut=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, proxy_generator=None, resolution=None, rate_control=None, crf=None, bitrate=None, audio_bitrate=None, variants_limit=None, enable_realtime_read=None, enable_dense_filmstrip=None, enable_watermark=None, watermark_image=None, watermark_position=None, watermark_opacity=None, watermark_size=None, enable_timecode=None, timecode_position=None, timecode_opacity=None, timecode_size=None, lut=None, hotfolder_copy_to=None, hotfolder_read_from=None, hotfolder_queue_timeout=None, hotfolder_encode_timeout=None, vantage_workflow_id=None, external_transcoder_staging_path=None, external_transcoder=None, local_vars_configuration=None):  # noqa: E501
         """ProxyProfilePartialUpdate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._name = None
+        self._proxy_generator = None
         self._resolution = None
         self._rate_control = None
         self._crf = None
@@ -99,10 +116,19 @@ class ProxyProfilePartialUpdate(object):
         self._timecode_opacity = None
         self._timecode_size = None
         self._lut = None
+        self._hotfolder_copy_to = None
+        self._hotfolder_read_from = None
+        self._hotfolder_queue_timeout = None
+        self._hotfolder_encode_timeout = None
+        self._vantage_workflow_id = None
+        self._external_transcoder_staging_path = None
+        self._external_transcoder = None
         self.discriminator = None
 
         if name is not None:
             self.name = name
+        if proxy_generator is not None:
+            self.proxy_generator = proxy_generator
         self.resolution = resolution
         if rate_control is not None:
             self.rate_control = rate_control
@@ -134,6 +160,15 @@ class ProxyProfilePartialUpdate(object):
         if timecode_size is not None:
             self.timecode_size = timecode_size
         self.lut = lut
+        self.hotfolder_copy_to = hotfolder_copy_to
+        self.hotfolder_read_from = hotfolder_read_from
+        if hotfolder_queue_timeout is not None:
+            self.hotfolder_queue_timeout = hotfolder_queue_timeout
+        if hotfolder_encode_timeout is not None:
+            self.hotfolder_encode_timeout = hotfolder_encode_timeout
+        self.vantage_workflow_id = vantage_workflow_id
+        self.external_transcoder_staging_path = external_transcoder_staging_path
+        self.external_transcoder = external_transcoder
 
     @property
     def name(self):
@@ -161,6 +196,33 @@ class ProxyProfilePartialUpdate(object):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def proxy_generator(self):
+        """Gets the proxy_generator of this ProxyProfilePartialUpdate.  # noqa: E501
+
+
+        :return: The proxy_generator of this ProxyProfilePartialUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._proxy_generator
+
+    @proxy_generator.setter
+    def proxy_generator(self, proxy_generator):
+        """Sets the proxy_generator of this ProxyProfilePartialUpdate.
+
+
+        :param proxy_generator: The proxy_generator of this ProxyProfilePartialUpdate.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["ffmpeg", "hotfolder", "transkoder", "vantage"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and proxy_generator not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `proxy_generator` ({0}), must be one of {1}"  # noqa: E501
+                .format(proxy_generator, allowed_values)
+            )
+
+        self._proxy_generator = proxy_generator
 
     @property
     def resolution(self):
@@ -569,6 +631,177 @@ class ProxyProfilePartialUpdate(object):
         """
 
         self._lut = lut
+
+    @property
+    def hotfolder_copy_to(self):
+        """Gets the hotfolder_copy_to of this ProxyProfilePartialUpdate.  # noqa: E501
+
+
+        :return: The hotfolder_copy_to of this ProxyProfilePartialUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._hotfolder_copy_to
+
+    @hotfolder_copy_to.setter
+    def hotfolder_copy_to(self, hotfolder_copy_to):
+        """Sets the hotfolder_copy_to of this ProxyProfilePartialUpdate.
+
+
+        :param hotfolder_copy_to: The hotfolder_copy_to of this ProxyProfilePartialUpdate.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                hotfolder_copy_to is not None and len(hotfolder_copy_to) > 1023):
+            raise ValueError("Invalid value for `hotfolder_copy_to`, length must be less than or equal to `1023`")  # noqa: E501
+
+        self._hotfolder_copy_to = hotfolder_copy_to
+
+    @property
+    def hotfolder_read_from(self):
+        """Gets the hotfolder_read_from of this ProxyProfilePartialUpdate.  # noqa: E501
+
+
+        :return: The hotfolder_read_from of this ProxyProfilePartialUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._hotfolder_read_from
+
+    @hotfolder_read_from.setter
+    def hotfolder_read_from(self, hotfolder_read_from):
+        """Sets the hotfolder_read_from of this ProxyProfilePartialUpdate.
+
+
+        :param hotfolder_read_from: The hotfolder_read_from of this ProxyProfilePartialUpdate.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                hotfolder_read_from is not None and len(hotfolder_read_from) > 1023):
+            raise ValueError("Invalid value for `hotfolder_read_from`, length must be less than or equal to `1023`")  # noqa: E501
+
+        self._hotfolder_read_from = hotfolder_read_from
+
+    @property
+    def hotfolder_queue_timeout(self):
+        """Gets the hotfolder_queue_timeout of this ProxyProfilePartialUpdate.  # noqa: E501
+
+
+        :return: The hotfolder_queue_timeout of this ProxyProfilePartialUpdate.  # noqa: E501
+        :rtype: int
+        """
+        return self._hotfolder_queue_timeout
+
+    @hotfolder_queue_timeout.setter
+    def hotfolder_queue_timeout(self, hotfolder_queue_timeout):
+        """Sets the hotfolder_queue_timeout of this ProxyProfilePartialUpdate.
+
+
+        :param hotfolder_queue_timeout: The hotfolder_queue_timeout of this ProxyProfilePartialUpdate.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                hotfolder_queue_timeout is not None and hotfolder_queue_timeout > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `hotfolder_queue_timeout`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                hotfolder_queue_timeout is not None and hotfolder_queue_timeout < -2147483648):  # noqa: E501
+            raise ValueError("Invalid value for `hotfolder_queue_timeout`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+
+        self._hotfolder_queue_timeout = hotfolder_queue_timeout
+
+    @property
+    def hotfolder_encode_timeout(self):
+        """Gets the hotfolder_encode_timeout of this ProxyProfilePartialUpdate.  # noqa: E501
+
+
+        :return: The hotfolder_encode_timeout of this ProxyProfilePartialUpdate.  # noqa: E501
+        :rtype: int
+        """
+        return self._hotfolder_encode_timeout
+
+    @hotfolder_encode_timeout.setter
+    def hotfolder_encode_timeout(self, hotfolder_encode_timeout):
+        """Sets the hotfolder_encode_timeout of this ProxyProfilePartialUpdate.
+
+
+        :param hotfolder_encode_timeout: The hotfolder_encode_timeout of this ProxyProfilePartialUpdate.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                hotfolder_encode_timeout is not None and hotfolder_encode_timeout > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `hotfolder_encode_timeout`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                hotfolder_encode_timeout is not None and hotfolder_encode_timeout < -2147483648):  # noqa: E501
+            raise ValueError("Invalid value for `hotfolder_encode_timeout`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+
+        self._hotfolder_encode_timeout = hotfolder_encode_timeout
+
+    @property
+    def vantage_workflow_id(self):
+        """Gets the vantage_workflow_id of this ProxyProfilePartialUpdate.  # noqa: E501
+
+
+        :return: The vantage_workflow_id of this ProxyProfilePartialUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._vantage_workflow_id
+
+    @vantage_workflow_id.setter
+    def vantage_workflow_id(self, vantage_workflow_id):
+        """Sets the vantage_workflow_id of this ProxyProfilePartialUpdate.
+
+
+        :param vantage_workflow_id: The vantage_workflow_id of this ProxyProfilePartialUpdate.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                vantage_workflow_id is not None and len(vantage_workflow_id) > 63):
+            raise ValueError("Invalid value for `vantage_workflow_id`, length must be less than or equal to `63`")  # noqa: E501
+
+        self._vantage_workflow_id = vantage_workflow_id
+
+    @property
+    def external_transcoder_staging_path(self):
+        """Gets the external_transcoder_staging_path of this ProxyProfilePartialUpdate.  # noqa: E501
+
+
+        :return: The external_transcoder_staging_path of this ProxyProfilePartialUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_transcoder_staging_path
+
+    @external_transcoder_staging_path.setter
+    def external_transcoder_staging_path(self, external_transcoder_staging_path):
+        """Sets the external_transcoder_staging_path of this ProxyProfilePartialUpdate.
+
+
+        :param external_transcoder_staging_path: The external_transcoder_staging_path of this ProxyProfilePartialUpdate.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                external_transcoder_staging_path is not None and len(external_transcoder_staging_path) > 1023):
+            raise ValueError("Invalid value for `external_transcoder_staging_path`, length must be less than or equal to `1023`")  # noqa: E501
+
+        self._external_transcoder_staging_path = external_transcoder_staging_path
+
+    @property
+    def external_transcoder(self):
+        """Gets the external_transcoder of this ProxyProfilePartialUpdate.  # noqa: E501
+
+
+        :return: The external_transcoder of this ProxyProfilePartialUpdate.  # noqa: E501
+        :rtype: int
+        """
+        return self._external_transcoder
+
+    @external_transcoder.setter
+    def external_transcoder(self, external_transcoder):
+        """Sets the external_transcoder of this ProxyProfilePartialUpdate.
+
+
+        :param external_transcoder: The external_transcoder of this ProxyProfilePartialUpdate.  # noqa: E501
+        :type: int
+        """
+
+        self._external_transcoder = external_transcoder
 
     def to_dict(self):
         """Returns the model properties as a dict"""

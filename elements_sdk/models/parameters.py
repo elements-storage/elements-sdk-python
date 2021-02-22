@@ -1286,7 +1286,7 @@ class Parameters(object):
         :param language: The language of this Parameters.  # noqa: E501
         :type: str
         """
-        allowed_values = ["en", "de", "ru"]  # noqa: E501
+        allowed_values = ["en", "fr", "de", "ru"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and language not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `language` ({0}), must be one of {1}"  # noqa: E501

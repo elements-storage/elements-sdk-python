@@ -45,7 +45,8 @@ class Volume(object):
         'snfs_name': 'str',
         'simulated_quotas': 'bool',
         'fs_properties': 'FSProperties',
-        'backend': 'Backend'
+        'backend': 'Backend',
+        'status': 'VolumeStatus'
     }
 
     attribute_map = {
@@ -63,10 +64,11 @@ class Volume(object):
         'snfs_name': 'snfs_name',
         'simulated_quotas': 'simulated_quotas',
         'fs_properties': 'fs_properties',
-        'backend': 'backend'
+        'backend': 'backend',
+        'status': 'status'
     }
 
-    def __init__(self, id=None, name=None, path=None, nodes=None, display_name=None, visual_tag=None, is_default=None, use_for_homes=None, use_for_workspaces=None, type=None, snm_enabled=None, snfs_name=None, simulated_quotas=None, fs_properties=None, backend=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, path=None, nodes=None, display_name=None, visual_tag=None, is_default=None, use_for_homes=None, use_for_workspaces=None, type=None, snm_enabled=None, snfs_name=None, simulated_quotas=None, fs_properties=None, backend=None, status=None, local_vars_configuration=None):  # noqa: E501
         """Volume - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -87,6 +89,7 @@ class Volume(object):
         self._simulated_quotas = None
         self._fs_properties = None
         self._backend = None
+        self._status = None
         self.discriminator = None
 
         if id is not None:
@@ -116,6 +119,8 @@ class Volume(object):
             self.fs_properties = fs_properties
         if backend is not None:
             self.backend = backend
+        if status is not None:
+            self.status = status
 
     @property
     def id(self):
@@ -341,7 +346,7 @@ class Volume(object):
         :param type: The type of this Volume.  # noqa: E501
         :type: str
         """
-        allowed_values = ["generic", "generic-mount", "snfs", "btrfs", "s3fs", "lizardfs", "bcachefs", "isilon"]  # noqa: E501
+        allowed_values = ["generic", "generic-mount", "snfs", "btrfs", "s3fs", "lizardfs", "bcachefs", "isilon", "beegfs"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
@@ -457,6 +462,27 @@ class Volume(object):
         """
 
         self._backend = backend
+
+    @property
+    def status(self):
+        """Gets the status of this Volume.  # noqa: E501
+
+
+        :return: The status of this Volume.  # noqa: E501
+        :rtype: VolumeStatus
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this Volume.
+
+
+        :param status: The status of this Volume.  # noqa: E501
+        :type: VolumeStatus
+        """
+
+        self._status = status
 
     def to_dict(self):
         """Returns the model properties as a dict"""

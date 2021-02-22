@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] [readonly] 
 **kwargs** | **dict(str, str)** |  | 
+**graph_layout** | **dict(str, str)** |  | [optional] 
 **validation_error** | **str** |  | [optional] [readonly] 
 **trigger** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 **task** | **str** |  | [optional] 
 **condition_variable** | **str** |  | [optional] 
 **condition_value** | **str** |  | [optional] 
+**sync** | **bool** |  | [optional] 
 **parent** | **int** |  | 
 **relative_to** | **int** |  | [optional] 
 

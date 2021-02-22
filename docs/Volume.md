@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **simulated_quotas** | **bool** |  | [optional] 
 **fs_properties** | [**FSProperties**](FSProperties.md) |  | [optional] 
 **backend** | [**Backend**](Backend.md) |  | [optional] 
+**status** | [**VolumeStatus**](VolumeStatus.md) |  | [optional] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 
