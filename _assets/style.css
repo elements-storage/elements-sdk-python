@@ -1,0 +1,10 @@
+.wrapper {
+    width: auto;
+    margin: 0;
+}
+
+section {
+    float: none;
+    width: auto;
+    margin-left: 300px;
+}
