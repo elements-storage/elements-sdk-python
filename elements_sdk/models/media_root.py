@@ -38,7 +38,7 @@ class MediaRoot(object):
         'veritone_config': 'dict(str, str)',
         'volume': 'VolumeMini',
         'full_path': 'str',
-        'resolved_permissions': 'MediaRootPermission',
+        'resolved_permissions': 'list[MediaRootPermission]',
         'jobs': 'list[Job]',
         'name': 'str',
         'path': 'str',
@@ -367,7 +367,7 @@ class MediaRoot(object):
 
 
         :return: The resolved_permissions of this MediaRoot.  # noqa: E501
-        :rtype: MediaRootPermission
+        :rtype: list[MediaRootPermission]
         """
         return self._resolved_permissions
 
@@ -377,7 +377,7 @@ class MediaRoot(object):
 
 
         :param resolved_permissions: The resolved_permissions of this MediaRoot.  # noqa: E501
-        :type: MediaRootPermission
+        :type: list[MediaRootPermission]
         """
 
         self._resolved_permissions = resolved_permissions

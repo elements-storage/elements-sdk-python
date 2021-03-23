@@ -137,7 +137,7 @@ class MainApi(object):
     def beep(self, **kwargs):  # noqa: E501
         """beep  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.beep(async_req=True)
@@ -161,7 +161,7 @@ class MainApi(object):
     def beep_with_http_info(self, **kwargs):  # noqa: E501
         """beep  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.beep_with_http_info(async_req=True)
@@ -345,7 +345,7 @@ class MainApi(object):
     def check_internet_connectivity(self, **kwargs):  # noqa: E501
         """check_internet_connectivity  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.check_internet_connectivity(async_req=True)
@@ -369,7 +369,7 @@ class MainApi(object):
     def check_internet_connectivity_with_http_info(self, **kwargs):  # noqa: E501
         """check_internet_connectivity  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.check_internet_connectivity_with_http_info(async_req=True)
@@ -445,7 +445,7 @@ class MainApi(object):
     def check_stor_next_license(self, data, **kwargs):  # noqa: E501
         """check_stor_next_license  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view`   * License component: stornext_mdc   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   * License component: stornext_mdc   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.check_stor_next_license(data, async_req=True)
@@ -470,7 +470,7 @@ class MainApi(object):
     def check_stor_next_license_with_http_info(self, data, **kwargs):  # noqa: E501
         """check_stor_next_license  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view`   * License component: stornext_mdc   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   * License component: stornext_mdc   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.check_stor_next_license_with_http_info(data, async_req=True)
@@ -557,7 +557,7 @@ class MainApi(object):
     def collect_diagnostics(self, **kwargs):  # noqa: E501
         """collect_diagnostics  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.collect_diagnostics(async_req=True)
@@ -581,7 +581,7 @@ class MainApi(object):
     def collect_diagnostics_with_http_info(self, **kwargs):  # noqa: E501
         """collect_diagnostics  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.collect_diagnostics_with_http_info(async_req=True)
@@ -4093,7 +4093,7 @@ class MainApi(object):
     def get_ipmi_configuration(self, id, **kwargs):  # noqa: E501
         """get_ipmi_configuration  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ipmi_configuration(id, async_req=True)
@@ -4118,7 +4118,7 @@ class MainApi(object):
     def get_ipmi_configuration_with_http_info(self, id, **kwargs):  # noqa: E501
         """get_ipmi_configuration  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ipmi_configuration_with_http_info(id, async_req=True)
@@ -4625,7 +4625,7 @@ class MainApi(object):
     def get_local_time(self, **kwargs):  # noqa: E501
         """get_local_time  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view` (read) / `maintenance:manage` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_local_time(async_req=True)
@@ -4649,7 +4649,7 @@ class MainApi(object):
     def get_local_time_with_http_info(self, **kwargs):  # noqa: E501
         """get_local_time  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view` (read) / `maintenance:manage` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_local_time_with_http_info(async_req=True)
@@ -5265,7 +5265,7 @@ class MainApi(object):
     def get_service_status(self, id, service, **kwargs):  # noqa: E501
         """get_service_status  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_service_status(id, service, async_req=True)
@@ -5291,7 +5291,7 @@ class MainApi(object):
     def get_service_status_with_http_info(self, id, service, **kwargs):  # noqa: E501
         """get_service_status  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_service_status_with_http_info(id, service, async_req=True)
@@ -5381,7 +5381,7 @@ class MainApi(object):
     def get_smtp_configuration(self, **kwargs):  # noqa: E501
         """get_smtp_configuration  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view` (read) / `maintenance:manage` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_smtp_configuration(async_req=True)
@@ -5405,7 +5405,7 @@ class MainApi(object):
     def get_smtp_configuration_with_http_info(self, **kwargs):  # noqa: E501
         """get_smtp_configuration  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view` (read) / `maintenance:manage` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_smtp_configuration_with_http_info(async_req=True)
@@ -5481,7 +5481,7 @@ class MainApi(object):
     def get_stor_next_license(self, **kwargs):  # noqa: E501
         """get_stor_next_license  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view`   * License component: stornext_mdc   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   * License component: stornext_mdc   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_stor_next_license(async_req=True)
@@ -5505,7 +5505,7 @@ class MainApi(object):
     def get_stor_next_license_with_http_info(self, **kwargs):  # noqa: E501
         """get_stor_next_license  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view`   * License component: stornext_mdc   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   * License component: stornext_mdc   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_stor_next_license_with_http_info(async_req=True)
@@ -6009,7 +6009,7 @@ class MainApi(object):
     def install_stor_next_license(self, data, **kwargs):  # noqa: E501
         """install_stor_next_license  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view`   * License component: stornext_mdc   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   * License component: stornext_mdc   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.install_stor_next_license(data, async_req=True)
@@ -6034,7 +6034,7 @@ class MainApi(object):
     def install_stor_next_license_with_http_info(self, data, **kwargs):  # noqa: E501
         """install_stor_next_license  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view`   * License component: stornext_mdc   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   * License component: stornext_mdc   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.install_stor_next_license_with_http_info(data, async_req=True)
@@ -6935,7 +6935,7 @@ class MainApi(object):
     def reboot(self, **kwargs):  # noqa: E501
         """reboot  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.reboot(async_req=True)
@@ -6959,7 +6959,7 @@ class MainApi(object):
     def reboot_with_http_info(self, **kwargs):  # noqa: E501
         """reboot  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.reboot_with_http_info(async_req=True)
@@ -7267,7 +7267,7 @@ class MainApi(object):
     def run_service_operation(self, id, operation, service, **kwargs):  # noqa: E501
         """run_service_operation  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.run_service_operation(id, operation, service, async_req=True)
@@ -7294,7 +7294,7 @@ class MainApi(object):
     def run_service_operation_with_http_info(self, id, operation, service, **kwargs):  # noqa: E501
         """run_service_operation  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.run_service_operation_with_http_info(id, operation, service, async_req=True)
@@ -7391,7 +7391,7 @@ class MainApi(object):
     def set_ipmi_configuration(self, id, data, **kwargs):  # noqa: E501
         """set_ipmi_configuration  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.set_ipmi_configuration(id, data, async_req=True)
@@ -7417,7 +7417,7 @@ class MainApi(object):
     def set_ipmi_configuration_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """set_ipmi_configuration  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.set_ipmi_configuration_with_http_info(id, data, async_req=True)
@@ -7511,7 +7511,7 @@ class MainApi(object):
     def set_local_time(self, data, **kwargs):  # noqa: E501
         """set_local_time  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view` (read) / `maintenance:manage` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.set_local_time(data, async_req=True)
@@ -7536,7 +7536,7 @@ class MainApi(object):
     def set_local_time_with_http_info(self, data, **kwargs):  # noqa: E501
         """set_local_time  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view` (read) / `maintenance:manage` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.set_local_time_with_http_info(data, async_req=True)
@@ -7855,7 +7855,7 @@ class MainApi(object):
     def shutdown(self, **kwargs):  # noqa: E501
         """shutdown  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.shutdown(async_req=True)
@@ -7879,7 +7879,7 @@ class MainApi(object):
     def shutdown_with_http_info(self, **kwargs):  # noqa: E501
         """shutdown  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.shutdown_with_http_info(async_req=True)
@@ -7955,7 +7955,7 @@ class MainApi(object):
     def start_solr_reindex(self, **kwargs):  # noqa: E501
         """start_solr_reindex  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.start_solr_reindex(async_req=True)
@@ -7979,7 +7979,7 @@ class MainApi(object):
     def start_solr_reindex_with_http_info(self, **kwargs):  # noqa: E501
         """start_solr_reindex  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.start_solr_reindex_with_http_info(async_req=True)
@@ -8055,7 +8055,7 @@ class MainApi(object):
     def start_support_session(self, **kwargs):  # noqa: E501
         """start_support_session  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.start_support_session(async_req=True)
@@ -8079,7 +8079,7 @@ class MainApi(object):
     def start_support_session_with_http_info(self, **kwargs):  # noqa: E501
         """start_support_session  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.start_support_session_with_http_info(async_req=True)
@@ -8155,7 +8155,7 @@ class MainApi(object):
     def start_system_backup(self, data, **kwargs):  # noqa: E501
         """start_system_backup  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.start_system_backup(data, async_req=True)
@@ -8180,7 +8180,7 @@ class MainApi(object):
     def start_system_backup_with_http_info(self, data, **kwargs):  # noqa: E501
         """start_system_backup  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.start_system_backup_with_http_info(data, async_req=True)
@@ -8483,7 +8483,7 @@ class MainApi(object):
     def sync_time(self, data, **kwargs):  # noqa: E501
         """sync_time  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sync_time(data, async_req=True)
@@ -8508,7 +8508,7 @@ class MainApi(object):
     def sync_time_with_http_info(self, data, **kwargs):  # noqa: E501
         """sync_time  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sync_time_with_http_info(data, async_req=True)
@@ -8715,7 +8715,7 @@ class MainApi(object):
     def test_smtp_configuration(self, data, **kwargs):  # noqa: E501
         """test_smtp_configuration  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.test_smtp_configuration(data, async_req=True)
@@ -8740,7 +8740,7 @@ class MainApi(object):
     def test_smtp_configuration_with_http_info(self, data, **kwargs):  # noqa: E501
         """test_smtp_configuration  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view`   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.test_smtp_configuration_with_http_info(data, async_req=True)
@@ -9403,7 +9403,7 @@ class MainApi(object):
     def update_smtp_configuration(self, data, **kwargs):  # noqa: E501
         """update_smtp_configuration  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view` (read) / `maintenance:manage` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_smtp_configuration(data, async_req=True)
@@ -9428,7 +9428,7 @@ class MainApi(object):
     def update_smtp_configuration_with_http_info(self, data, **kwargs):  # noqa: E501
         """update_smtp_configuration  # noqa: E501
 
-        ### Required permissions    * User account permission: `maintenance:view` (read) / `maintenance:manage` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_smtp_configuration_with_http_info(data, async_req=True)

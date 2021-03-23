@@ -113,6 +113,7 @@ docs/MultipleAssetsRequest.md
 docs/NetStat.md
 docs/OneTimeAccessToken.md
 docs/OneTimeAccessTokenActivity.md
+docs/OneTimeAccessTokenSharedObject.md
 docs/Parameters.md
 docs/Path.md
 docs/PathInput.md
@@ -353,6 +354,7 @@ elements_sdk/models/multiple_assets_request.py
 elements_sdk/models/net_stat.py
 elements_sdk/models/one_time_access_token.py
 elements_sdk/models/one_time_access_token_activity.py
+elements_sdk/models/one_time_access_token_shared_object.py
 elements_sdk/models/parameters.py
 elements_sdk/models/path.py
 elements_sdk/models/path_input.py

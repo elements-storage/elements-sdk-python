@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **veritone_config** | **dict(str, str)** |  | [optional] 
 **volume** | [**VolumeMini**](VolumeMini.md) |  | 
 **full_path** | **str** |  | [optional] [readonly] 
-**resolved_permissions** | [**MediaRootPermission**](MediaRootPermission.md) |  | [optional] 
+**resolved_permissions** | [**list[MediaRootPermission]**](MediaRootPermission.md) |  | [optional] [readonly] 
 **jobs** | [**list[Job]**](Job.md) |  | [optional] 
 **name** | **str** |  | 
 **path** | **str** |  | [optional] [readonly] 

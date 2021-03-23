@@ -33,10 +33,10 @@ class DownloadArchive(object):
     openapi_types = {
         'id': 'str',
         'task_info': 'TaskInfo',
-        'uncompressed_size': 'str',
-        'size': 'str',
+        'uncompressed_size': 'int',
+        'size': 'int',
         'expires': 'str',
-        'files': 'str',
+        'files': 'list[str]',
         'name': 'str',
         'path': 'str',
         'created_at': 'datetime',
@@ -146,7 +146,7 @@ class DownloadArchive(object):
 
 
         :return: The uncompressed_size of this DownloadArchive.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._uncompressed_size
 
@@ -156,7 +156,7 @@ class DownloadArchive(object):
 
 
         :param uncompressed_size: The uncompressed_size of this DownloadArchive.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._uncompressed_size = uncompressed_size
@@ -167,7 +167,7 @@ class DownloadArchive(object):
 
 
         :return: The size of this DownloadArchive.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._size
 
@@ -177,7 +177,7 @@ class DownloadArchive(object):
 
 
         :param size: The size of this DownloadArchive.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._size = size
@@ -209,7 +209,7 @@ class DownloadArchive(object):
 
 
         :return: The files of this DownloadArchive.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._files
 
@@ -219,7 +219,7 @@ class DownloadArchive(object):
 
 
         :param files: The files of this DownloadArchive.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._files = files

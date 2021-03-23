@@ -117,6 +117,7 @@ from elements_sdk.models.multiple_assets_request import MultipleAssetsRequest
 from elements_sdk.models.net_stat import NetStat
 from elements_sdk.models.one_time_access_token import OneTimeAccessToken
 from elements_sdk.models.one_time_access_token_activity import OneTimeAccessTokenActivity
+from elements_sdk.models.one_time_access_token_shared_object import OneTimeAccessTokenSharedObject
 from elements_sdk.models.parameters import Parameters
 from elements_sdk.models.path import Path
 from elements_sdk.models.path_input import PathInput

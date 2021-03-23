@@ -39,7 +39,7 @@ class Workspace(object):
         'sharing_nfs_permissions': 'object',
         'full_path': 'str',
         'current_share_name': 'str',
-        'endpoints': 'WorkspaceEndpoint',
+        'endpoints': 'list[WorkspaceEndpoint]',
         'quota': 'Quota',
         'size_used': 'int',
         'size_total': 'int',
@@ -231,7 +231,8 @@ class Workspace(object):
             self.size_used = size_used
         if size_total is not None:
             self.size_total = size_total
-        self.bookmarked = bookmarked
+        if bookmarked is not None:
+            self.bookmarked = bookmarked
         if resolved_permissions is not None:
             self.resolved_permissions = resolved_permissions
         if resolved_read_only is not None:
@@ -490,7 +491,7 @@ class Workspace(object):
 
 
         :return: The endpoints of this Workspace.  # noqa: E501
-        :rtype: WorkspaceEndpoint
+        :rtype: list[WorkspaceEndpoint]
         """
         return self._endpoints
 
@@ -500,7 +501,7 @@ class Workspace(object):
 
 
         :param endpoints: The endpoints of this Workspace.  # noqa: E501
-        :type: WorkspaceEndpoint
+        :type: list[WorkspaceEndpoint]
         """
 
         self._endpoints = endpoints

@@ -37,7 +37,7 @@ class MediaFileMini(object):
         'full_path': 'str',
         'custom_fields': 'object',
         'mtime': 'int',
-        'parent': 'str',
+        'parent': 'dict(str, str)',
         'path': 'str',
         'present': 'bool',
         'size': 'int',
@@ -235,7 +235,7 @@ class MediaFileMini(object):
 
 
         :return: The parent of this MediaFileMini.  # noqa: E501
-        :rtype: str
+        :rtype: dict(str, str)
         """
         return self._parent
 
@@ -245,7 +245,7 @@ class MediaFileMini(object):
 
 
         :param parent: The parent of this MediaFileMini.  # noqa: E501
-        :type: str
+        :type: dict(str, str)
         """
 
         self._parent = parent

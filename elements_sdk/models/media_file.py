@@ -36,7 +36,7 @@ class MediaFile(object):
         'info': 'object',
         'custom_fields': 'object',
         'resolved_permission': 'MediaRootPermission',
-        'parent': 'str',
+        'parent': 'dict(str, str)',
         'root': 'MediaRootMini',
         'effective_custom_fields': 'dict(str, str)',
         'modified_by': 'ElementsUserMini',
@@ -280,7 +280,7 @@ class MediaFile(object):
 
 
         :return: The parent of this MediaFile.  # noqa: E501
-        :rtype: str
+        :rtype: dict(str, str)
         """
         return self._parent
 
@@ -290,7 +290,7 @@ class MediaFile(object):
 
 
         :param parent: The parent of this MediaFile.  # noqa: E501
-        :type: str
+        :type: dict(str, str)
         """
 
         self._parent = parent

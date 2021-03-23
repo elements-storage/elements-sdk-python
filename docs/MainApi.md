@@ -153,7 +153,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions    * User account permission: `maintenance:manage` 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `maintenance:view` 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -306,7 +306,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions    * User account permission: `maintenance:view`   * License component: stornext_mdc 
+### Required permissions    * User account permission: `system:admin-access`   * License component: stornext_mdc 
 
 ### Example
 
@@ -359,7 +359,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `maintenance:view` 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -2093,7 +2093,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `maintenance:manage` 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -2354,7 +2354,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions    * User account permission: `maintenance:view` (read) / `maintenance:manage` (write) 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -2672,7 +2672,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions    * User account permission: `maintenance:manage` 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -2727,7 +2727,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `maintenance:view` (read) / `maintenance:manage` (write) 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -2776,7 +2776,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions    * User account permission: `maintenance:view`   * License component: stornext_mdc 
+### Required permissions    * User account permission: `system:admin-access`   * License component: stornext_mdc 
 
 ### Example
 
@@ -3035,7 +3035,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `maintenance:view`   * License component: stornext_mdc 
+### Required permissions    * User account permission: `system:admin-access`   * License component: stornext_mdc 
 
 ### Example
 
@@ -3465,7 +3465,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `maintenance:manage` 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -3622,7 +3622,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `maintenance:manage` 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -3679,7 +3679,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `maintenance:manage` 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -3734,7 +3734,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `maintenance:view` (read) / `maintenance:manage` (write) 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -3895,7 +3895,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `maintenance:manage` 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -3944,7 +3944,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions    * User account permission: `maintenance:manage` 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -3993,7 +3993,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions    * User account permission: `maintenance:manage` 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -4042,7 +4042,7 @@ This endpoint does not need any parameters.
 
 
 
-### Required permissions    * User account permission: `maintenance:manage` 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -4201,7 +4201,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `maintenance:manage` 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -4309,7 +4309,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `maintenance:view` 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -4631,7 +4631,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `maintenance:view` (read) / `maintenance:manage` (write) 
+### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 

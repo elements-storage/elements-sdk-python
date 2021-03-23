@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **user** | [**ElementsUserMini**](ElementsUserMini.md) |  | 
 **created_by** | [**ElementsUserMini**](ElementsUserMini.md) |  | [optional] 
 **media_root_permissions** | **str** |  | [optional] [readonly] 
-**shared_bundles** | **str** |  | [optional] [readonly] 
-**shared_directories** | **str** |  | [optional] [readonly] 
+**shared_bundles** | [**list[OneTimeAccessTokenSharedObject]**](OneTimeAccessTokenSharedObject.md) |  | [optional] [readonly] 
+**shared_directories** | [**list[OneTimeAccessTokenSharedObject]**](OneTimeAccessTokenSharedObject.md) |  | [optional] [readonly] 
 **full_url** | **str** |  | [optional] [readonly] 
 **url** | **str** |  | 
 **token** | **str** |  | 

@@ -2,7 +2,7 @@
 
 - API version: 2
 - Python 2.7 and 3.4+
-- Latest build: 3.2.0b1
+- Latest build: 3.2.0
 
 ## Installation & Usage
 
@@ -509,6 +509,7 @@ Class | Method | HTTP request | Description
  - [NetStat](docs/NetStat)
  - [OneTimeAccessToken](docs/OneTimeAccessToken)
  - [OneTimeAccessTokenActivity](docs/OneTimeAccessTokenActivity)
+ - [OneTimeAccessTokenSharedObject](docs/OneTimeAccessTokenSharedObject)
  - [Parameters](docs/Parameters)
  - [Path](docs/Path)
  - [PathInput](docs/PathInput)

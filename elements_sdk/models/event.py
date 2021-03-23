@@ -36,7 +36,7 @@ class Event(object):
         'group': 'str',
         'icon_class': 'str',
         'license_component': 'str',
-        'arg_types': 'str'
+        'arg_types': 'dict(str, str)'
     }
 
     attribute_map = {
@@ -206,7 +206,7 @@ class Event(object):
 
 
         :return: The arg_types of this Event.  # noqa: E501
-        :rtype: str
+        :rtype: dict(str, str)
         """
         return self._arg_types
 
@@ -216,7 +216,7 @@ class Event(object):
 
 
         :param arg_types: The arg_types of this Event.  # noqa: E501
-        :type: str
+        :type: dict(str, str)
         """
 
         self._arg_types = arg_types

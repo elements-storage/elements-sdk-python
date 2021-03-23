@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **sharing_nfs_permissions** | **object** |  | [optional] 
 **full_path** | **str** |  | [optional] [readonly] 
 **current_share_name** | **str** |  | [optional] [readonly] 
-**endpoints** | [**WorkspaceEndpoint**](WorkspaceEndpoint.md) |  | [optional] 
+**endpoints** | [**list[WorkspaceEndpoint]**](WorkspaceEndpoint.md) |  | [optional] [readonly] 
 **quota** | [**Quota**](Quota.md) |  | [optional] 
 **size_used** | **int** |  | [optional] [readonly] 
 **size_total** | **int** |  | [optional] [readonly] 

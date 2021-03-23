@@ -36,8 +36,8 @@ class OneTimeAccessToken(object):
         'user': 'ElementsUserMini',
         'created_by': 'ElementsUserMini',
         'media_root_permissions': 'str',
-        'shared_bundles': 'str',
-        'shared_directories': 'str',
+        'shared_bundles': 'list[OneTimeAccessTokenSharedObject]',
+        'shared_directories': 'list[OneTimeAccessTokenSharedObject]',
         'full_url': 'str',
         'url': 'str',
         'token': 'str',
@@ -234,7 +234,7 @@ class OneTimeAccessToken(object):
 
 
         :return: The shared_bundles of this OneTimeAccessToken.  # noqa: E501
-        :rtype: str
+        :rtype: list[OneTimeAccessTokenSharedObject]
         """
         return self._shared_bundles
 
@@ -244,7 +244,7 @@ class OneTimeAccessToken(object):
 
 
         :param shared_bundles: The shared_bundles of this OneTimeAccessToken.  # noqa: E501
-        :type: str
+        :type: list[OneTimeAccessTokenSharedObject]
         """
 
         self._shared_bundles = shared_bundles
@@ -255,7 +255,7 @@ class OneTimeAccessToken(object):
 
 
         :return: The shared_directories of this OneTimeAccessToken.  # noqa: E501
-        :rtype: str
+        :rtype: list[OneTimeAccessTokenSharedObject]
         """
         return self._shared_directories
 
@@ -265,7 +265,7 @@ class OneTimeAccessToken(object):
 
 
         :param shared_directories: The shared_directories of this OneTimeAccessToken.  # noqa: E501
-        :type: str
+        :type: list[OneTimeAccessTokenSharedObject]
         """
 
         self._shared_directories = shared_directories

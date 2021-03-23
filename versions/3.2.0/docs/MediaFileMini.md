@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **full_path** | **str** |  | [optional] [readonly] 
 **custom_fields** | **object** |  | [optional] 
 **mtime** | **int** |  | [optional] [readonly] 
-**parent** | **str** |  | [optional] [readonly] 
+**parent** | **dict(str, str)** |  | [optional] [readonly] 
 **path** | **str** |  | [optional] [readonly] 
 **present** | **bool** |  | [optional] [readonly] 
 **size** | **int** |  | [optional] [readonly] 

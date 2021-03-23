@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **info** | **object** |  | [optional] 
 **custom_fields** | **object** |  | [optional] 
 **resolved_permission** | [**MediaRootPermission**](MediaRootPermission.md) |  | [optional] 
-**parent** | **str** |  | [optional] [readonly] 
+**parent** | **dict(str, str)** |  | [optional] [readonly] 
 **root** | [**MediaRootMini**](MediaRootMini.md) |  | [optional] 
 **effective_custom_fields** | **dict(str, str)** |  | [optional] [readonly] 
 **modified_by** | [**ElementsUserMini**](ElementsUserMini.md) |  | [optional] 
