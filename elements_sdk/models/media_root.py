@@ -40,6 +40,7 @@ class MediaRoot(object):
         'full_path': 'str',
         'resolved_permissions': 'list[MediaRootPermission]',
         'jobs': 'list[Job]',
+        'workflow_jobs': 'list[Job]',
         'name': 'str',
         'path': 'str',
         'needs_rescan': 'bool',
@@ -65,7 +66,6 @@ class MediaRoot(object):
         'veritone_proxy_profile': 'int',
         'ai_connection': 'int',
         'ai_proxy_profile': 'int',
-        'custom_field_definitions': 'list[int]',
         'proxy_profiles': 'list[int]'
     }
 
@@ -79,6 +79,7 @@ class MediaRoot(object):
         'full_path': 'full_path',
         'resolved_permissions': 'resolved_permissions',
         'jobs': 'jobs',
+        'workflow_jobs': 'workflow_jobs',
         'name': 'name',
         'path': 'path',
         'needs_rescan': 'needs_rescan',
@@ -104,11 +105,10 @@ class MediaRoot(object):
         'veritone_proxy_profile': 'veritone_proxy_profile',
         'ai_connection': 'ai_connection',
         'ai_proxy_profile': 'ai_proxy_profile',
-        'custom_field_definitions': 'custom_field_definitions',
         'proxy_profiles': 'proxy_profiles'
     }
 
-    def __init__(self, id=None, custom_fields=None, workflow=None, ai_config=None, veritone_config=None, volume=None, full_path=None, resolved_permissions=None, jobs=None, name=None, path=None, needs_rescan=None, view_mode=None, view_style=None, view_default_tab=None, show_tags=None, show_comments=None, show_locations=None, show_custom_fields=None, show_ratings=None, show_subclips=None, show_markers=None, show_ai_metadata=None, prefetch_thumbnail_strips=None, cover=None, name_field=None, share_comments=None, share_link_duration=None, default_proxy_profile=None, cloud_proxy_profile=None, veritone_connection=None, veritone_proxy_profile=None, ai_connection=None, ai_proxy_profile=None, custom_field_definitions=None, proxy_profiles=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, custom_fields=None, workflow=None, ai_config=None, veritone_config=None, volume=None, full_path=None, resolved_permissions=None, jobs=None, workflow_jobs=None, name=None, path=None, needs_rescan=None, view_mode=None, view_style=None, view_default_tab=None, show_tags=None, show_comments=None, show_locations=None, show_custom_fields=None, show_ratings=None, show_subclips=None, show_markers=None, show_ai_metadata=None, prefetch_thumbnail_strips=None, cover=None, name_field=None, share_comments=None, share_link_duration=None, default_proxy_profile=None, cloud_proxy_profile=None, veritone_connection=None, veritone_proxy_profile=None, ai_connection=None, ai_proxy_profile=None, proxy_profiles=None, local_vars_configuration=None):  # noqa: E501
         """MediaRoot - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -123,6 +123,7 @@ class MediaRoot(object):
         self._full_path = None
         self._resolved_permissions = None
         self._jobs = None
+        self._workflow_jobs = None
         self._name = None
         self._path = None
         self._needs_rescan = None
@@ -148,7 +149,6 @@ class MediaRoot(object):
         self._veritone_proxy_profile = None
         self._ai_connection = None
         self._ai_proxy_profile = None
-        self._custom_field_definitions = None
         self._proxy_profiles = None
         self.discriminator = None
 
@@ -166,6 +166,8 @@ class MediaRoot(object):
             self.resolved_permissions = resolved_permissions
         if jobs is not None:
             self.jobs = jobs
+        if workflow_jobs is not None:
+            self.workflow_jobs = workflow_jobs
         self.name = name
         if path is not None:
             self.path = path
@@ -207,8 +209,6 @@ class MediaRoot(object):
         self.veritone_proxy_profile = veritone_proxy_profile
         self.ai_connection = ai_connection
         self.ai_proxy_profile = ai_proxy_profile
-        if custom_field_definitions is not None:
-            self.custom_field_definitions = custom_field_definitions
         if proxy_profiles is not None:
             self.proxy_profiles = proxy_profiles
 
@@ -402,6 +402,27 @@ class MediaRoot(object):
         """
 
         self._jobs = jobs
+
+    @property
+    def workflow_jobs(self):
+        """Gets the workflow_jobs of this MediaRoot.  # noqa: E501
+
+
+        :return: The workflow_jobs of this MediaRoot.  # noqa: E501
+        :rtype: list[Job]
+        """
+        return self._workflow_jobs
+
+    @workflow_jobs.setter
+    def workflow_jobs(self, workflow_jobs):
+        """Sets the workflow_jobs of this MediaRoot.
+
+
+        :param workflow_jobs: The workflow_jobs of this MediaRoot.  # noqa: E501
+        :type: list[Job]
+        """
+
+        self._workflow_jobs = workflow_jobs
 
     @property
     def name(self):
@@ -968,27 +989,6 @@ class MediaRoot(object):
         """
 
         self._ai_proxy_profile = ai_proxy_profile
-
-    @property
-    def custom_field_definitions(self):
-        """Gets the custom_field_definitions of this MediaRoot.  # noqa: E501
-
-
-        :return: The custom_field_definitions of this MediaRoot.  # noqa: E501
-        :rtype: list[int]
-        """
-        return self._custom_field_definitions
-
-    @custom_field_definitions.setter
-    def custom_field_definitions(self, custom_field_definitions):
-        """Sets the custom_field_definitions of this MediaRoot.
-
-
-        :param custom_field_definitions: The custom_field_definitions of this MediaRoot.  # noqa: E501
-        :type: list[int]
-        """
-
-        self._custom_field_definitions = custom_field_definitions
 
     @property
     def proxy_profiles(self):

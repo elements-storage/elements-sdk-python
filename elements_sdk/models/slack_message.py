@@ -58,10 +58,8 @@ class SlackMessage(object):
 
         self.recipient = recipient
         self.text = text
-        if username is not None:
-            self.username = username
-        if emoji is not None:
-            self.emoji = emoji
+        self.username = username
+        self.emoji = emoji
 
     @property
     def recipient(self):

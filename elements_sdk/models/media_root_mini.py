@@ -35,7 +35,6 @@ class MediaRootMini(object):
         'name': 'str',
         'full_path': 'str',
         'custom_fields': 'list[CustomField]',
-        'custom_field_definitions': 'list[int]',
         'volume': 'VolumeMini',
         'path': 'str',
         'prefetch_thumbnail_strips': 'bool'
@@ -46,13 +45,12 @@ class MediaRootMini(object):
         'name': 'name',
         'full_path': 'full_path',
         'custom_fields': 'custom_fields',
-        'custom_field_definitions': 'custom_field_definitions',
         'volume': 'volume',
         'path': 'path',
         'prefetch_thumbnail_strips': 'prefetch_thumbnail_strips'
     }
 
-    def __init__(self, id=None, name=None, full_path=None, custom_fields=None, custom_field_definitions=None, volume=None, path=None, prefetch_thumbnail_strips=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, full_path=None, custom_fields=None, volume=None, path=None, prefetch_thumbnail_strips=None, local_vars_configuration=None):  # noqa: E501
         """MediaRootMini - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,7 +60,6 @@ class MediaRootMini(object):
         self._name = None
         self._full_path = None
         self._custom_fields = None
-        self._custom_field_definitions = None
         self._volume = None
         self._path = None
         self._prefetch_thumbnail_strips = None
@@ -75,8 +72,6 @@ class MediaRootMini(object):
             self.full_path = full_path
         if custom_fields is not None:
             self.custom_fields = custom_fields
-        if custom_field_definitions is not None:
-            self.custom_field_definitions = custom_field_definitions
         self.volume = volume
         if path is not None:
             self.path = path
@@ -174,27 +169,6 @@ class MediaRootMini(object):
         """
 
         self._custom_fields = custom_fields
-
-    @property
-    def custom_field_definitions(self):
-        """Gets the custom_field_definitions of this MediaRootMini.  # noqa: E501
-
-
-        :return: The custom_field_definitions of this MediaRootMini.  # noqa: E501
-        :rtype: list[int]
-        """
-        return self._custom_field_definitions
-
-    @custom_field_definitions.setter
-    def custom_field_definitions(self, custom_field_definitions):
-        """Sets the custom_field_definitions of this MediaRootMini.
-
-
-        :param custom_field_definitions: The custom_field_definitions of this MediaRootMini.  # noqa: E501
-        :type: list[int]
-        """
-
-        self._custom_field_definitions = custom_field_definitions
 
     @property
     def volume(self):

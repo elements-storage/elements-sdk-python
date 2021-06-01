@@ -12,7 +12,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "3.2.0"
+__version__ = "3.3.0"
 
 # import apis into sdk package
 from elements_sdk.api.aws_api import AWSApi
@@ -24,7 +24,6 @@ from elements_sdk.api.media_library_api import MediaLibraryApi
 from elements_sdk.api.status_api import StatusApi
 from elements_sdk.api.storage_api import StorageApi
 from elements_sdk.api.tape_archive_api import TapeArchiveApi
-from elements_sdk.api.tasks_api import TasksApi
 
 # import ApiClient
 from elements_sdk.api_client import ApiClient
@@ -41,6 +40,7 @@ from elements_sdk.models.address import Address
 from elements_sdk.models.alert import Alert
 from elements_sdk.models.alert_partial_update import AlertPartialUpdate
 from elements_sdk.models.all_media_files_for_bundles_request import AllMediaFilesForBundlesRequest
+from elements_sdk.models.argument_type import ArgumentType
 from elements_sdk.models.asset import Asset
 from elements_sdk.models.asset_backup import AssetBackup
 from elements_sdk.models.asset_cloud_link import AssetCloudLink
@@ -67,6 +67,7 @@ from elements_sdk.models.comment import Comment
 from elements_sdk.models.comment_partial_update import CommentPartialUpdate
 from elements_sdk.models.create_download_archive import CreateDownloadArchive
 from elements_sdk.models.create_home_workspace_request import CreateHomeWorkspaceRequest
+from elements_sdk.models.create_path_quota_request import CreatePathQuotaRequest
 from elements_sdk.models.custom_field import CustomField
 from elements_sdk.models.custom_field_partial_update import CustomFieldPartialUpdate
 from elements_sdk.models.deleted_workspace import DeletedWorkspace
@@ -82,6 +83,8 @@ from elements_sdk.models.elements_user_detail_partial_update import ElementsUser
 from elements_sdk.models.elements_user_mini import ElementsUserMini
 from elements_sdk.models.elements_user_profile import ElementsUserProfile
 from elements_sdk.models.elements_user_profile_partial_update import ElementsUserProfilePartialUpdate
+from elements_sdk.models.elements_version import ElementsVersion
+from elements_sdk.models.email_preview import EmailPreview
 from elements_sdk.models.enable_totp_request import EnableTOTPRequest
 from elements_sdk.models.event import Event
 from elements_sdk.models.external_transcoder import ExternalTranscoder
@@ -89,6 +92,7 @@ from elements_sdk.models.external_transcoder_partial_update import ExternalTrans
 from elements_sdk.models.fs_properties import FSProperties
 from elements_sdk.models.file import File
 from elements_sdk.models.file_copy_endpoint_request import FileCopyEndpointRequest
+from elements_sdk.models.file_delete_endpoint_request import FileDeleteEndpointRequest
 from elements_sdk.models.file_move_endpoint_request import FileMoveEndpointRequest
 from elements_sdk.models.file_partial_update import FilePartialUpdate
 from elements_sdk.models.file_size_distribution import FileSizeDistribution
@@ -98,14 +102,20 @@ from elements_sdk.models.file_unzip_endpoint_request import FileUnzipEndpointReq
 from elements_sdk.models.file_zip_endpoint_request import FileZipEndpointRequest
 from elements_sdk.models.finish_upload_endpoint_request import FinishUploadEndpointRequest
 from elements_sdk.models.generate_password_endpoint_response import GeneratePasswordEndpointResponse
+from elements_sdk.models.generate_proxies_request import GenerateProxiesRequest
 from elements_sdk.models.get_multiple_bundles_request import GetMultipleBundlesRequest
 from elements_sdk.models.get_multiple_files_request import GetMultipleFilesRequest
+from elements_sdk.models.global_alert import GlobalAlert
 from elements_sdk.models.io_stat import IOStat
+from elements_sdk.models.impersonation_endpoint_request import ImpersonationEndpointRequest
 from elements_sdk.models.inline_response200 import InlineResponse200
+from elements_sdk.models.inline_response2001 import InlineResponse2001
+from elements_sdk.models.inline_response2002 import InlineResponse2002
 from elements_sdk.models.interface import Interface
 from elements_sdk.models.ipmi import Ipmi
 from elements_sdk.models.job import Job
 from elements_sdk.models.job_partial_update import JobPartialUpdate
+from elements_sdk.models.kapacitor_alert import KapacitorAlert
 from elements_sdk.models.ldap_server import LDAPServer
 from elements_sdk.models.ldap_server_group import LDAPServerGroup
 from elements_sdk.models.ldap_server_groups import LDAPServerGroups
@@ -126,6 +136,7 @@ from elements_sdk.models.media_file_mini import MediaFileMini
 from elements_sdk.models.media_file_partial_update import MediaFilePartialUpdate
 from elements_sdk.models.media_file_template import MediaFileTemplate
 from elements_sdk.models.media_file_template_partial_update import MediaFileTemplatePartialUpdate
+from elements_sdk.models.media_library_delete_request import MediaLibraryDeleteRequest
 from elements_sdk.models.media_library_share_request import MediaLibraryShareRequest
 from elements_sdk.models.media_root import MediaRoot
 from elements_sdk.models.media_root_mini import MediaRootMini
@@ -135,17 +146,19 @@ from elements_sdk.models.media_root_permission_access_options import MediaRootPe
 from elements_sdk.models.media_root_permission_partial_update import MediaRootPermissionPartialUpdate
 from elements_sdk.models.media_update import MediaUpdate
 from elements_sdk.models.member_preview import MemberPreview
-from elements_sdk.models.mounted_workspace import MountedWorkspace
+from elements_sdk.models.move_workspace_request import MoveWorkspaceRequest
 from elements_sdk.models.multiple_assets_request import MultipleAssetsRequest
+from elements_sdk.models.ntp_server import NTPServer
+from elements_sdk.models.ntp_server_partial_update import NTPServerPartialUpdate
 from elements_sdk.models.net_stat import NetStat
 from elements_sdk.models.one_time_access_token import OneTimeAccessToken
 from elements_sdk.models.one_time_access_token_activity import OneTimeAccessTokenActivity
 from elements_sdk.models.one_time_access_token_shared_object import OneTimeAccessTokenSharedObject
 from elements_sdk.models.parameters import Parameters
+from elements_sdk.models.password_reset_endpoint_request import PasswordResetEndpointRequest
 from elements_sdk.models.path import Path
 from elements_sdk.models.path_input import PathInput
 from elements_sdk.models.production import Production
-from elements_sdk.models.production_mini import ProductionMini
 from elements_sdk.models.production_partial_update import ProductionPartialUpdate
 from elements_sdk.models.proxy import Proxy
 from elements_sdk.models.proxy_count import ProxyCount
@@ -155,10 +168,12 @@ from elements_sdk.models.proxy_profile import ProxyProfile
 from elements_sdk.models.proxy_profile_mini import ProxyProfileMini
 from elements_sdk.models.proxy_profile_partial_update import ProxyProfilePartialUpdate
 from elements_sdk.models.python_environment import PythonEnvironment
+from elements_sdk.models.queue import Queue
 from elements_sdk.models.quota import Quota
 from elements_sdk.models.ram_stat import RAMStat
 from elements_sdk.models.register_upload_endpoint_request import RegisterUploadEndpointRequest
 from elements_sdk.models.release_notes_endpoint_response import ReleaseNotesEndpointResponse
+from elements_sdk.models.rename_custom_field_request import RenameCustomFieldRequest
 from elements_sdk.models.render_request import RenderRequest
 from elements_sdk.models.saml_provider_mini import SAMLProviderMini
 from elements_sdk.models.smtp_configuration import SMTPConfiguration
@@ -213,6 +228,7 @@ from elements_sdk.models.tape_partial_update import TapePartialUpdate
 from elements_sdk.models.task_info import TaskInfo
 from elements_sdk.models.task_log import TaskLog
 from elements_sdk.models.task_progress import TaskProgress
+from elements_sdk.models.task_type import TaskType
 from elements_sdk.models.tasks_summary import TasksSummary
 from elements_sdk.models.teams_connection import TeamsConnection
 from elements_sdk.models.teams_connection_partial_update import TeamsConnectionPartialUpdate
@@ -231,6 +247,8 @@ from elements_sdk.models.time_sync_endpoint_request import TimeSyncEndpointReque
 from elements_sdk.models.time_sync_endpoint_response import TimeSyncEndpointResponse
 from elements_sdk.models.timezone import Timezone
 from elements_sdk.models.transcoder_profile import TranscoderProfile
+from elements_sdk.models.type_documentation import TypeDocumentation
+from elements_sdk.models.update_quota_request import UpdateQuotaRequest
 from elements_sdk.models.upload_chunk_endpoint_request import UploadChunkEndpointRequest
 from elements_sdk.models.user_preview_request import UserPreviewRequest
 from elements_sdk.models.user_preview_response import UserPreviewResponse
@@ -245,10 +263,11 @@ from elements_sdk.models.volume_snfs_status import VolumeSNFSStatus
 from elements_sdk.models.volume_stat import VolumeStat
 from elements_sdk.models.volume_stats import VolumeStats
 from elements_sdk.models.volume_status import VolumeStatus
+from elements_sdk.models.workflow_transition_request import WorkflowTransitionRequest
+from elements_sdk.models.workflow_transition_response import WorkflowTransitionResponse
 from elements_sdk.models.workspace import Workspace
 from elements_sdk.models.workspace_check_in import WorkspaceCheckIn
 from elements_sdk.models.workspace_endpoint import WorkspaceEndpoint
-from elements_sdk.models.workspace_mini import WorkspaceMini
 from elements_sdk.models.workspace_move_to_request import WorkspaceMoveToRequest
 from elements_sdk.models.workspace_partial_update import WorkspacePartialUpdate
 from elements_sdk.models.workspace_permission import WorkspacePermission

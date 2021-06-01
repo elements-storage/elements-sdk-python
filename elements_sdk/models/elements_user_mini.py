@@ -36,7 +36,7 @@ class ElementsUserMini(object):
         'display_name': 'str',
         'email': 'str',
         'full_name': 'str',
-        'is_anonymous': 'str',
+        'is_external': 'bool',
         'is_cloud': 'bool',
         'username': 'str'
     }
@@ -47,12 +47,12 @@ class ElementsUserMini(object):
         'display_name': 'display_name',
         'email': 'email',
         'full_name': 'full_name',
-        'is_anonymous': 'is_anonymous',
+        'is_external': 'is_external',
         'is_cloud': 'is_cloud',
         'username': 'username'
     }
 
-    def __init__(self, id=None, avatar=None, display_name=None, email=None, full_name=None, is_anonymous=None, is_cloud=None, username=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, avatar=None, display_name=None, email=None, full_name=None, is_external=None, is_cloud=None, username=None, local_vars_configuration=None):  # noqa: E501
         """ElementsUserMini - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -63,7 +63,7 @@ class ElementsUserMini(object):
         self._display_name = None
         self._email = None
         self._full_name = None
-        self._is_anonymous = None
+        self._is_external = None
         self._is_cloud = None
         self._username = None
         self.discriminator = None
@@ -75,8 +75,8 @@ class ElementsUserMini(object):
             self.display_name = display_name
         self.email = email
         self.full_name = full_name
-        if is_anonymous is not None:
-            self.is_anonymous = is_anonymous
+        if is_external is not None:
+            self.is_external = is_external
         if is_cloud is not None:
             self.is_cloud = is_cloud
         self.username = username
@@ -193,25 +193,25 @@ class ElementsUserMini(object):
         self._full_name = full_name
 
     @property
-    def is_anonymous(self):
-        """Gets the is_anonymous of this ElementsUserMini.  # noqa: E501
+    def is_external(self):
+        """Gets the is_external of this ElementsUserMini.  # noqa: E501
 
 
-        :return: The is_anonymous of this ElementsUserMini.  # noqa: E501
-        :rtype: str
+        :return: The is_external of this ElementsUserMini.  # noqa: E501
+        :rtype: bool
         """
-        return self._is_anonymous
+        return self._is_external
 
-    @is_anonymous.setter
-    def is_anonymous(self, is_anonymous):
-        """Sets the is_anonymous of this ElementsUserMini.
+    @is_external.setter
+    def is_external(self, is_external):
+        """Sets the is_external of this ElementsUserMini.
 
 
-        :param is_anonymous: The is_anonymous of this ElementsUserMini.  # noqa: E501
-        :type: str
+        :param is_external: The is_external of this ElementsUserMini.  # noqa: E501
+        :type: bool
         """
 
-        self._is_anonymous = is_anonymous
+        self._is_external = is_external
 
     @property
     def is_cloud(self):

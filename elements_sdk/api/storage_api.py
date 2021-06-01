@@ -814,6 +814,134 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def create_path_quota(self, id, relative_path, data, **kwargs):  # noqa: E501
+        """create_path_quota  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_path_quota(id, relative_path, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this volume. (required)
+        :param str relative_path: (required)
+        :param CreatePathQuotaRequest data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_path_quota_with_http_info(id, relative_path, data, **kwargs)  # noqa: E501
+
+    def create_path_quota_with_http_info(self, id, relative_path, data, **kwargs):  # noqa: E501
+        """create_path_quota  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_path_quota_with_http_info(id, relative_path, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this volume. (required)
+        :param str relative_path: (required)
+        :param CreatePathQuotaRequest data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'relative_path', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_path_quota" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `create_path_quota`")  # noqa: E501
+        # verify the required parameter 'relative_path' is set
+        if self.api_client.client_side_validation and ('relative_path' not in local_var_params or  # noqa: E501
+                                                        local_var_params['relative_path'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `relative_path` when calling `create_path_quota`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `create_path_quota`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'relative_path' in local_var_params:
+            path_params['relative_path'] = local_var_params['relative_path']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/volumes/{id}/quotas/path/{relative_path}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def create_production(self, data, **kwargs):  # noqa: E501
         """create_production  # noqa: E501
 
@@ -1494,7 +1622,7 @@ class StorageApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param PathInput data: (required)
+        :param FileDeleteEndpointRequest data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1519,7 +1647,7 @@ class StorageApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param PathInput data: (required)
+        :param FileDeleteEndpointRequest data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1589,6 +1717,122 @@ class StorageApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='TaskInfo',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_path_quota(self, id, relative_path, **kwargs):  # noqa: E501
+        """delete_path_quota  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_path_quota(id, relative_path, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this volume. (required)
+        :param str relative_path: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.delete_path_quota_with_http_info(id, relative_path, **kwargs)  # noqa: E501
+
+    def delete_path_quota_with_http_info(self, id, relative_path, **kwargs):  # noqa: E501
+        """delete_path_quota  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_path_quota_with_http_info(id, relative_path, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this volume. (required)
+        :param str relative_path: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'relative_path']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_path_quota" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `delete_path_quota`")  # noqa: E501
+        # verify the required parameter 'relative_path' is set
+        if self.api_client.client_side_validation and ('relative_path' not in local_var_params or  # noqa: E501
+                                                        local_var_params['relative_path'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `relative_path` when calling `delete_path_quota`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'relative_path' in local_var_params:
+            path_params['relative_path'] = local_var_params['relative_path']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/volumes/{id}/quotas/path/{relative_path}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2292,6 +2536,7 @@ class StorageApi(object):
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param bool copy_template_content:
+        :param bool include_total_size:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2322,6 +2567,7 @@ class StorageApi(object):
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param bool copy_template_content:
+        :param bool include_total_size:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2338,7 +2584,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['active', 'name', 'ordering', 'limit', 'offset', 'copy_template_content']  # noqa: E501
+        all_params = ['active', 'name', 'ordering', 'limit', 'offset', 'copy_template_content', 'include_total_size']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2370,6 +2616,8 @@ class StorageApi(object):
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
         if 'copy_template_content' in local_var_params and local_var_params['copy_template_content'] is not None:  # noqa: E501
             query_params.append(('copy_template_content', local_var_params['copy_template_content']))  # noqa: E501
+        if 'include_total_size' in local_var_params and local_var_params['include_total_size'] is not None:  # noqa: E501
+            query_params.append(('include_total_size', local_var_params['include_total_size']))  # noqa: E501
 
         header_params = {}
 
@@ -3154,6 +3402,122 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_group_quota(self, group_id, id, **kwargs):  # noqa: E501
+        """get_group_quota  # noqa: E501
+
+        ### Required permissions    * User account permission: `users:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_group_quota(group_id, id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str group_id: (required)
+        :param int id: A unique integer value identifying this volume. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Quota
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_group_quota_with_http_info(group_id, id, **kwargs)  # noqa: E501
+
+    def get_group_quota_with_http_info(self, group_id, id, **kwargs):  # noqa: E501
+        """get_group_quota  # noqa: E501
+
+        ### Required permissions    * User account permission: `users:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_group_quota_with_http_info(group_id, id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str group_id: (required)
+        :param int id: A unique integer value identifying this volume. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Quota, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['group_id', 'id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_group_quota" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'group_id' is set
+        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['group_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `group_id` when calling `get_group_quota`")  # noqa: E501
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `get_group_quota`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'group_id' in local_var_params:
+            path_params['group_id'] = local_var_params['group_id']  # noqa: E501
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/volumes/{id}/quotas/group/{group_id}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Quota',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_my_workspaces(self, **kwargs):  # noqa: E501
         """get_my_workspaces  # noqa: E501
 
@@ -3294,6 +3658,122 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_path_quota(self, id, relative_path, **kwargs):  # noqa: E501
+        """get_path_quota  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_path_quota(id, relative_path, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this volume. (required)
+        :param str relative_path: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Quota
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_path_quota_with_http_info(id, relative_path, **kwargs)  # noqa: E501
+
+    def get_path_quota_with_http_info(self, id, relative_path, **kwargs):  # noqa: E501
+        """get_path_quota  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_path_quota_with_http_info(id, relative_path, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this volume. (required)
+        :param str relative_path: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Quota, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'relative_path']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_path_quota" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `get_path_quota`")  # noqa: E501
+        # verify the required parameter 'relative_path' is set
+        if self.api_client.client_side_validation and ('relative_path' not in local_var_params or  # noqa: E501
+                                                        local_var_params['relative_path'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `relative_path` when calling `get_path_quota`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'relative_path' in local_var_params:
+            path_params['relative_path'] = local_var_params['relative_path']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/volumes/{id}/quotas/path/{relative_path}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Quota',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_production(self, id, **kwargs):  # noqa: E501
         """get_production  # noqa: E501
 
@@ -3306,6 +3786,7 @@ class StorageApi(object):
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this production. (required)
         :param bool copy_template_content:
+        :param bool include_total_size:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3332,6 +3813,7 @@ class StorageApi(object):
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this production. (required)
         :param bool copy_template_content:
+        :param bool include_total_size:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3348,7 +3830,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'copy_template_content']  # noqa: E501
+        all_params = ['id', 'copy_template_content', 'include_total_size']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3376,6 +3858,8 @@ class StorageApi(object):
         query_params = []
         if 'copy_template_content' in local_var_params and local_var_params['copy_template_content'] is not None:  # noqa: E501
             query_params.append(('copy_template_content', local_var_params['copy_template_content']))  # noqa: E501
+        if 'include_total_size' in local_var_params and local_var_params['include_total_size'] is not None:  # noqa: E501
+            query_params.append(('include_total_size', local_var_params['include_total_size']))  # noqa: E501
 
         header_params = {}
 
@@ -3727,6 +4211,122 @@ class StorageApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='Snapshot',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_user_quota(self, id, user_id, **kwargs):  # noqa: E501
+        """get_user_quota  # noqa: E501
+
+        ### Required permissions    * User account permission: `users:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_user_quota(id, user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this volume. (required)
+        :param str user_id: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Quota
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_user_quota_with_http_info(id, user_id, **kwargs)  # noqa: E501
+
+    def get_user_quota_with_http_info(self, id, user_id, **kwargs):  # noqa: E501
+        """get_user_quota  # noqa: E501
+
+        ### Required permissions    * User account permission: `users:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_user_quota_with_http_info(id, user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this volume. (required)
+        :param str user_id: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Quota, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'user_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_user_quota" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `get_user_quota`")  # noqa: E501
+        # verify the required parameter 'user_id' is set
+        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['user_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_id` when calling `get_user_quota`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'user_id' in local_var_params:
+            path_params['user_id'] = local_var_params['user_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/volumes/{id}/quotas/user/{user_id}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Quota',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -4484,6 +5084,126 @@ class StorageApi(object):
 
         return self.api_client.call_api(
             '/api/2/filesystem/move', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='TaskInfo',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def move_workspace(self, id, data, **kwargs):  # noqa: E501
+        """move_workspace  # noqa: E501
+
+        ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.move_workspace(id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this workspace. (required)
+        :param MoveWorkspaceRequest data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: TaskInfo
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.move_workspace_with_http_info(id, data, **kwargs)  # noqa: E501
+
+    def move_workspace_with_http_info(self, id, data, **kwargs):  # noqa: E501
+        """move_workspace  # noqa: E501
+
+        ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.move_workspace_with_http_info(id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this workspace. (required)
+        :param MoveWorkspaceRequest data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(TaskInfo, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method move_workspace" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `move_workspace`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `move_workspace`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/workspaces/{id}/move', 'POST',
             path_params,
             query_params,
             header_params,
@@ -5486,7 +6206,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: TaskInfo
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5513,7 +6233,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(TaskInfo, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5568,7 +6288,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type='TaskInfo',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5789,6 +6509,262 @@ class StorageApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='TaskInfo',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_group_quota(self, group_id, id, data, **kwargs):  # noqa: E501
+        """update_group_quota  # noqa: E501
+
+        ### Required permissions    * User account permission: `users:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_group_quota(group_id, id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str group_id: (required)
+        :param int id: A unique integer value identifying this volume. (required)
+        :param UpdateQuotaRequest data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.update_group_quota_with_http_info(group_id, id, data, **kwargs)  # noqa: E501
+
+    def update_group_quota_with_http_info(self, group_id, id, data, **kwargs):  # noqa: E501
+        """update_group_quota  # noqa: E501
+
+        ### Required permissions    * User account permission: `users:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_group_quota_with_http_info(group_id, id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str group_id: (required)
+        :param int id: A unique integer value identifying this volume. (required)
+        :param UpdateQuotaRequest data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['group_id', 'id', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_group_quota" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'group_id' is set
+        if self.api_client.client_side_validation and ('group_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['group_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `group_id` when calling `update_group_quota`")  # noqa: E501
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `update_group_quota`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `update_group_quota`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'group_id' in local_var_params:
+            path_params['group_id'] = local_var_params['group_id']  # noqa: E501
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/volumes/{id}/quotas/group/{group_id}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_path_quota(self, id, relative_path, data, **kwargs):  # noqa: E501
+        """update_path_quota  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_path_quota(id, relative_path, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this volume. (required)
+        :param str relative_path: (required)
+        :param UpdateQuotaRequest data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.update_path_quota_with_http_info(id, relative_path, data, **kwargs)  # noqa: E501
+
+    def update_path_quota_with_http_info(self, id, relative_path, data, **kwargs):  # noqa: E501
+        """update_path_quota  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_path_quota_with_http_info(id, relative_path, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this volume. (required)
+        :param str relative_path: (required)
+        :param UpdateQuotaRequest data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'relative_path', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_path_quota" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `update_path_quota`")  # noqa: E501
+        # verify the required parameter 'relative_path' is set
+        if self.api_client.client_side_validation and ('relative_path' not in local_var_params or  # noqa: E501
+                                                        local_var_params['relative_path'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `relative_path` when calling `update_path_quota`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `update_path_quota`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'relative_path' in local_var_params:
+            path_params['relative_path'] = local_var_params['relative_path']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/volumes/{id}/quotas/path/{relative_path}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6149,6 +7125,134 @@ class StorageApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='Snapshot',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_user_quota(self, id, user_id, data, **kwargs):  # noqa: E501
+        """update_user_quota  # noqa: E501
+
+        ### Required permissions    * User account permission: `users:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_user_quota(id, user_id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this volume. (required)
+        :param str user_id: (required)
+        :param UpdateQuotaRequest data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.update_user_quota_with_http_info(id, user_id, data, **kwargs)  # noqa: E501
+
+    def update_user_quota_with_http_info(self, id, user_id, data, **kwargs):  # noqa: E501
+        """update_user_quota  # noqa: E501
+
+        ### Required permissions    * User account permission: `users:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_user_quota_with_http_info(id, user_id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this volume. (required)
+        :param str user_id: (required)
+        :param UpdateQuotaRequest data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'user_id', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_user_quota" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `update_user_quota`")  # noqa: E501
+        # verify the required parameter 'user_id' is set
+        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['user_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_id` when calling `update_user_quota`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `update_user_quota`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'user_id' in local_var_params:
+            path_params['user_id'] = local_var_params['user_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/volumes/{id}/quotas/user/{user_id}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

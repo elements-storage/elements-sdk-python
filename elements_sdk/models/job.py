@@ -42,6 +42,7 @@ class Job(object):
         'webhook_url': 'str',
         'special_type': 'int',
         'name': 'str',
+        'enabled': 'bool',
         'allow_others_to_start': 'bool',
         'allow_client_to_start': 'bool',
         'show_as_button': 'bool',
@@ -64,6 +65,7 @@ class Job(object):
         'webhook_url': 'webhook_url',
         'special_type': 'special_type',
         'name': 'name',
+        'enabled': 'enabled',
         'allow_others_to_start': 'allow_others_to_start',
         'allow_client_to_start': 'allow_client_to_start',
         'show_as_button': 'show_as_button',
@@ -74,7 +76,7 @@ class Job(object):
         'part_of_workflow_for': 'part_of_workflow_for'
     }
 
-    def __init__(self, id=None, subtasks=None, schedules=None, allow_users=None, allow_groups=None, startable=None, variable_definitions=None, media_roots=None, webhook_url=None, special_type=None, name=None, allow_others_to_start=None, allow_client_to_start=None, show_as_button=None, input_type=None, hook=None, webhook_secret=None, security_context=None, part_of_workflow_for=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, subtasks=None, schedules=None, allow_users=None, allow_groups=None, startable=None, variable_definitions=None, media_roots=None, webhook_url=None, special_type=None, name=None, enabled=None, allow_others_to_start=None, allow_client_to_start=None, show_as_button=None, input_type=None, hook=None, webhook_secret=None, security_context=None, part_of_workflow_for=None, local_vars_configuration=None):  # noqa: E501
         """Job - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -91,6 +93,7 @@ class Job(object):
         self._webhook_url = None
         self._special_type = None
         self._name = None
+        self._enabled = None
         self._allow_others_to_start = None
         self._allow_client_to_start = None
         self._show_as_button = None
@@ -121,6 +124,8 @@ class Job(object):
             self.webhook_url = webhook_url
         self.special_type = special_type
         self.name = name
+        if enabled is not None:
+            self.enabled = enabled
         if allow_others_to_start is not None:
             self.allow_others_to_start = allow_others_to_start
         if allow_client_to_start is not None:
@@ -371,6 +376,27 @@ class Job(object):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def enabled(self):
+        """Gets the enabled of this Job.  # noqa: E501
+
+
+        :return: The enabled of this Job.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enabled
+
+    @enabled.setter
+    def enabled(self, enabled):
+        """Sets the enabled of this Job.
+
+
+        :param enabled: The enabled of this Job.  # noqa: E501
+        :type: bool
+        """
+
+        self._enabled = enabled
 
     @property
     def allow_others_to_start(self):

@@ -36,8 +36,11 @@ class MediaFileMini(object):
         'bundle': 'int',
         'full_path': 'str',
         'custom_fields': 'object',
+        'is_dir': 'bool',
+        'is_hardlink': 'bool',
         'mtime': 'int',
-        'parent': 'dict(str, str)',
+        'parent': 'int',
+        'parent_file': 'dict(str, str)',
         'path': 'str',
         'present': 'bool',
         'size': 'int',
@@ -50,15 +53,18 @@ class MediaFileMini(object):
         'bundle': 'bundle',
         'full_path': 'full_path',
         'custom_fields': 'custom_fields',
+        'is_dir': 'is_dir',
+        'is_hardlink': 'is_hardlink',
         'mtime': 'mtime',
         'parent': 'parent',
+        'parent_file': 'parent_file',
         'path': 'path',
         'present': 'present',
         'size': 'size',
         'volume': 'volume'
     }
 
-    def __init__(self, id=None, name=None, bundle=None, full_path=None, custom_fields=None, mtime=None, parent=None, path=None, present=None, size=None, volume=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, bundle=None, full_path=None, custom_fields=None, is_dir=None, is_hardlink=None, mtime=None, parent=None, parent_file=None, path=None, present=None, size=None, volume=None, local_vars_configuration=None):  # noqa: E501
         """MediaFileMini - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,8 +75,11 @@ class MediaFileMini(object):
         self._bundle = None
         self._full_path = None
         self._custom_fields = None
+        self._is_dir = None
+        self._is_hardlink = None
         self._mtime = None
         self._parent = None
+        self._parent_file = None
         self._path = None
         self._present = None
         self._size = None
@@ -87,10 +96,16 @@ class MediaFileMini(object):
             self.full_path = full_path
         if custom_fields is not None:
             self.custom_fields = custom_fields
+        if is_dir is not None:
+            self.is_dir = is_dir
+        if is_hardlink is not None:
+            self.is_hardlink = is_hardlink
         if mtime is not None:
             self.mtime = mtime
         if parent is not None:
             self.parent = parent
+        if parent_file is not None:
+            self.parent_file = parent_file
         if path is not None:
             self.path = path
         if present is not None:
@@ -209,6 +224,48 @@ class MediaFileMini(object):
         self._custom_fields = custom_fields
 
     @property
+    def is_dir(self):
+        """Gets the is_dir of this MediaFileMini.  # noqa: E501
+
+
+        :return: The is_dir of this MediaFileMini.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_dir
+
+    @is_dir.setter
+    def is_dir(self, is_dir):
+        """Sets the is_dir of this MediaFileMini.
+
+
+        :param is_dir: The is_dir of this MediaFileMini.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_dir = is_dir
+
+    @property
+    def is_hardlink(self):
+        """Gets the is_hardlink of this MediaFileMini.  # noqa: E501
+
+
+        :return: The is_hardlink of this MediaFileMini.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_hardlink
+
+    @is_hardlink.setter
+    def is_hardlink(self, is_hardlink):
+        """Sets the is_hardlink of this MediaFileMini.
+
+
+        :param is_hardlink: The is_hardlink of this MediaFileMini.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_hardlink = is_hardlink
+
+    @property
     def mtime(self):
         """Gets the mtime of this MediaFileMini.  # noqa: E501
 
@@ -235,7 +292,7 @@ class MediaFileMini(object):
 
 
         :return: The parent of this MediaFileMini.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: int
         """
         return self._parent
 
@@ -245,10 +302,31 @@ class MediaFileMini(object):
 
 
         :param parent: The parent of this MediaFileMini.  # noqa: E501
-        :type: dict(str, str)
+        :type: int
         """
 
         self._parent = parent
+
+    @property
+    def parent_file(self):
+        """Gets the parent_file of this MediaFileMini.  # noqa: E501
+
+
+        :return: The parent_file of this MediaFileMini.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._parent_file
+
+    @parent_file.setter
+    def parent_file(self, parent_file):
+        """Sets the parent_file of this MediaFileMini.
+
+
+        :param parent_file: The parent_file of this MediaFileMini.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._parent_file = parent_file
 
     @property
     def path(self):

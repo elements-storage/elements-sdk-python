@@ -55,7 +55,6 @@ class Parameters(object):
         'media_default_delete_behaviour': 'str',
         'media_recycle_bin': 'bool',
         'file_manager_recycle_bin': 'bool',
-        'ntp_server': 'str',
         'ntp_offer_sync': 'bool',
         'slugify_workspace_path': 'bool',
         'slugify_shares': 'bool',
@@ -65,6 +64,7 @@ class Parameters(object):
         'smtp_tls': 'str',
         'smtp_username': 'str',
         'smtp_ehlo': 'str',
+        'mail_styling': 'str',
         'tasks_limit': 'int',
         'tasks_hard_limit': 'int',
         'umask_afp': 'str',
@@ -77,7 +77,8 @@ class Parameters(object):
         'email_logo_url': 'str',
         'media_keep_selection_when_browsing': 'bool',
         'tasks_run_scheduled': 'bool',
-        'https_redirect': 'str'
+        'https_redirect': 'str',
+        'otp_policy': 'str'
     }
 
     attribute_map = {
@@ -105,7 +106,6 @@ class Parameters(object):
         'media_default_delete_behaviour': 'media_default_delete_behaviour',
         'media_recycle_bin': 'media_recycle_bin',
         'file_manager_recycle_bin': 'file_manager_recycle_bin',
-        'ntp_server': 'ntp_server',
         'ntp_offer_sync': 'ntp_offer_sync',
         'slugify_workspace_path': 'slugify_workspace_path',
         'slugify_shares': 'slugify_shares',
@@ -115,6 +115,7 @@ class Parameters(object):
         'smtp_tls': 'smtp_tls',
         'smtp_username': 'smtp_username',
         'smtp_ehlo': 'smtp_ehlo',
+        'mail_styling': 'mail_styling',
         'tasks_limit': 'tasks_limit',
         'tasks_hard_limit': 'tasks_hard_limit',
         'umask_afp': 'umask_afp',
@@ -127,10 +128,11 @@ class Parameters(object):
         'email_logo_url': 'email_logo_url',
         'media_keep_selection_when_browsing': 'media_keep_selection_when_browsing',
         'tasks_run_scheduled': 'tasks_run_scheduled',
-        'https_redirect': 'https_redirect'
+        'https_redirect': 'https_redirect',
+        'otp_policy': 'otp_policy'
     }
 
-    def __init__(self, id=None, media_force_show_deleted=None, analytics=None, identify_command=None, external_url=None, branding_css=None, branding_logo=None, fm_new_directory_mode=None, icap_server=None, icap_port=None, icap_service=None, ltfs_default_restore_to_original_location=None, ltfs_default_search_directories=None, ltfs_library_address=None, media_auto_play=None, media_auto_transport=None, media_auto_scan=None, media_auto_proxy=None, media_auto_veritone_upload=None, media_proxy_h264_preset=None, media_default_custom_field_type=None, media_default_delete_behaviour=None, media_recycle_bin=None, file_manager_recycle_bin=None, ntp_server=None, ntp_offer_sync=None, slugify_workspace_path=None, slugify_shares=None, smtp_from=None, smtp_server=None, smtp_port=None, smtp_tls=None, smtp_username=None, smtp_ehlo=None, tasks_limit=None, tasks_hard_limit=None, umask_afp=None, umask_smb=None, users_default_permissions=None, workspaces_folder_template_path=None, workspaces_mode=None, workspaces_path=None, language=None, email_logo_url=None, media_keep_selection_when_browsing=None, tasks_run_scheduled=None, https_redirect=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, media_force_show_deleted=None, analytics=None, identify_command=None, external_url=None, branding_css=None, branding_logo=None, fm_new_directory_mode=None, icap_server=None, icap_port=None, icap_service=None, ltfs_default_restore_to_original_location=None, ltfs_default_search_directories=None, ltfs_library_address=None, media_auto_play=None, media_auto_transport=None, media_auto_scan=None, media_auto_proxy=None, media_auto_veritone_upload=None, media_proxy_h264_preset=None, media_default_custom_field_type=None, media_default_delete_behaviour=None, media_recycle_bin=None, file_manager_recycle_bin=None, ntp_offer_sync=None, slugify_workspace_path=None, slugify_shares=None, smtp_from=None, smtp_server=None, smtp_port=None, smtp_tls=None, smtp_username=None, smtp_ehlo=None, mail_styling=None, tasks_limit=None, tasks_hard_limit=None, umask_afp=None, umask_smb=None, users_default_permissions=None, workspaces_folder_template_path=None, workspaces_mode=None, workspaces_path=None, language=None, email_logo_url=None, media_keep_selection_when_browsing=None, tasks_run_scheduled=None, https_redirect=None, otp_policy=None, local_vars_configuration=None):  # noqa: E501
         """Parameters - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -160,7 +162,6 @@ class Parameters(object):
         self._media_default_delete_behaviour = None
         self._media_recycle_bin = None
         self._file_manager_recycle_bin = None
-        self._ntp_server = None
         self._ntp_offer_sync = None
         self._slugify_workspace_path = None
         self._slugify_shares = None
@@ -170,6 +171,7 @@ class Parameters(object):
         self._smtp_tls = None
         self._smtp_username = None
         self._smtp_ehlo = None
+        self._mail_styling = None
         self._tasks_limit = None
         self._tasks_hard_limit = None
         self._umask_afp = None
@@ -183,6 +185,7 @@ class Parameters(object):
         self._media_keep_selection_when_browsing = None
         self._tasks_run_scheduled = None
         self._https_redirect = None
+        self._otp_policy = None
         self.discriminator = None
 
         if id is not None:
@@ -230,8 +233,6 @@ class Parameters(object):
             self.media_recycle_bin = media_recycle_bin
         if file_manager_recycle_bin is not None:
             self.file_manager_recycle_bin = file_manager_recycle_bin
-        if ntp_server is not None:
-            self.ntp_server = ntp_server
         if ntp_offer_sync is not None:
             self.ntp_offer_sync = ntp_offer_sync
         if slugify_workspace_path is not None:
@@ -250,6 +251,8 @@ class Parameters(object):
             self.smtp_username = smtp_username
         if smtp_ehlo is not None:
             self.smtp_ehlo = smtp_ehlo
+        if mail_styling is not None:
+            self.mail_styling = mail_styling
         if tasks_limit is not None:
             self.tasks_limit = tasks_limit
         if tasks_hard_limit is not None:
@@ -274,6 +277,8 @@ class Parameters(object):
         if tasks_run_scheduled is not None:
             self.tasks_run_scheduled = tasks_run_scheduled
         self.https_redirect = https_redirect
+        if otp_policy is not None:
+            self.otp_policy = otp_policy
 
     @property
     def id(self):
@@ -828,30 +833,6 @@ class Parameters(object):
         self._file_manager_recycle_bin = file_manager_recycle_bin
 
     @property
-    def ntp_server(self):
-        """Gets the ntp_server of this Parameters.  # noqa: E501
-
-
-        :return: The ntp_server of this Parameters.  # noqa: E501
-        :rtype: str
-        """
-        return self._ntp_server
-
-    @ntp_server.setter
-    def ntp_server(self, ntp_server):
-        """Sets the ntp_server of this Parameters.
-
-
-        :param ntp_server: The ntp_server of this Parameters.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                ntp_server is not None and len(ntp_server) > 255):
-            raise ValueError("Invalid value for `ntp_server`, length must be less than or equal to `255`")  # noqa: E501
-
-        self._ntp_server = ntp_server
-
-    @property
     def ntp_offer_sync(self):
         """Gets the ntp_offer_sync of this Parameters.  # noqa: E501
 
@@ -1067,6 +1048,30 @@ class Parameters(object):
             raise ValueError("Invalid value for `smtp_ehlo`, length must be less than or equal to `255`")  # noqa: E501
 
         self._smtp_ehlo = smtp_ehlo
+
+    @property
+    def mail_styling(self):
+        """Gets the mail_styling of this Parameters.  # noqa: E501
+
+
+        :return: The mail_styling of this Parameters.  # noqa: E501
+        :rtype: str
+        """
+        return self._mail_styling
+
+    @mail_styling.setter
+    def mail_styling(self, mail_styling):
+        """Sets the mail_styling of this Parameters.
+
+
+        :param mail_styling: The mail_styling of this Parameters.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                mail_styling is not None and len(mail_styling) < 1):
+            raise ValueError("Invalid value for `mail_styling`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._mail_styling = mail_styling
 
     @property
     def tasks_limit(self):
@@ -1384,6 +1389,33 @@ class Parameters(object):
             )
 
         self._https_redirect = https_redirect
+
+    @property
+    def otp_policy(self):
+        """Gets the otp_policy of this Parameters.  # noqa: E501
+
+
+        :return: The otp_policy of this Parameters.  # noqa: E501
+        :rtype: str
+        """
+        return self._otp_policy
+
+    @otp_policy.setter
+    def otp_policy(self, otp_policy):
+        """Sets the otp_policy of this Parameters.
+
+
+        :param otp_policy: The otp_policy of this Parameters.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["admin-only", "self-service-setup-only", "self-service-all"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and otp_policy not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `otp_policy` ({0}), must be one of {1}"  # noqa: E501
+                .format(otp_policy, allowed_values)
+            )
+
+        self._otp_policy = otp_policy
 
     def to_dict(self):
         """Returns the model properties as a dict"""

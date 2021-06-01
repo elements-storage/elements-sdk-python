@@ -34,6 +34,7 @@ class Production(object):
         'id': 'int',
         'is_special': 'bool',
         'special_type': 'int',
+        'total_size': 'int',
         'name': 'str',
         'obscure_name': 'bool',
         'description': 'str',
@@ -47,6 +48,7 @@ class Production(object):
         'id': 'id',
         'is_special': 'is_special',
         'special_type': 'special_type',
+        'total_size': 'total_size',
         'name': 'name',
         'obscure_name': 'obscure_name',
         'description': 'description',
@@ -56,7 +58,7 @@ class Production(object):
         'default_group': 'default_group'
     }
 
-    def __init__(self, id=None, is_special=None, special_type=None, name=None, obscure_name=None, description=None, long_description=None, active=None, template=None, default_group=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, is_special=None, special_type=None, total_size=None, name=None, obscure_name=None, description=None, long_description=None, active=None, template=None, default_group=None, local_vars_configuration=None):  # noqa: E501
         """Production - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +67,7 @@ class Production(object):
         self._id = None
         self._is_special = None
         self._special_type = None
+        self._total_size = None
         self._name = None
         self._obscure_name = None
         self._description = None
@@ -79,6 +82,8 @@ class Production(object):
         if is_special is not None:
             self.is_special = is_special
         self.special_type = special_type
+        if total_size is not None:
+            self.total_size = total_size
         self.name = name
         if obscure_name is not None:
             self.obscure_name = obscure_name
@@ -152,6 +157,27 @@ class Production(object):
         """
 
         self._special_type = special_type
+
+    @property
+    def total_size(self):
+        """Gets the total_size of this Production.  # noqa: E501
+
+
+        :return: The total_size of this Production.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_size
+
+    @total_size.setter
+    def total_size(self, total_size):
+        """Sets the total_size of this Production.
+
+
+        :param total_size: The total_size of this Production.  # noqa: E501
+        :type: int
+        """
+
+        self._total_size = total_size
 
     @property
     def name(self):

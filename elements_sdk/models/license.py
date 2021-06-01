@@ -33,24 +33,30 @@ class License(object):
     openapi_types = {
         'name': 'str',
         'product': 'str',
-        'hardware_key': 'str',
-        'rdc_slots': 'int',
-        'expires': 'datetime',
+        'serial': 'str',
+        'partner': 'str',
+        'expiry': 'datetime',
         'components': 'dict(str, bool)',
-        'components_license': 'dict(str, str)'
+        'components_expiry': 'dict(str, datetime)',
+        'rdc_slots': 'int',
+        'users': 'int',
+        'third_party_capacity': 'int'
     }
 
     attribute_map = {
         'name': 'name',
         'product': 'product',
-        'hardware_key': 'hardware_key',
-        'rdc_slots': 'rdc_slots',
-        'expires': 'expires',
+        'serial': 'serial',
+        'partner': 'partner',
+        'expiry': 'expiry',
         'components': 'components',
-        'components_license': 'components_license'
+        'components_expiry': 'components_expiry',
+        'rdc_slots': 'rdc_slots',
+        'users': 'users',
+        'third_party_capacity': 'third_party_capacity'
     }
 
-    def __init__(self, name=None, product=None, hardware_key=None, rdc_slots=None, expires=None, components=None, components_license=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, product=None, serial=None, partner=None, expiry=None, components=None, components_expiry=None, rdc_slots=None, users=None, third_party_capacity=None, local_vars_configuration=None):  # noqa: E501
         """License - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -58,20 +64,26 @@ class License(object):
 
         self._name = None
         self._product = None
-        self._hardware_key = None
-        self._rdc_slots = None
-        self._expires = None
+        self._serial = None
+        self._partner = None
+        self._expiry = None
         self._components = None
-        self._components_license = None
+        self._components_expiry = None
+        self._rdc_slots = None
+        self._users = None
+        self._third_party_capacity = None
         self.discriminator = None
 
         self.name = name
         self.product = product
-        self.hardware_key = hardware_key
-        self.rdc_slots = rdc_slots
-        self.expires = expires
+        self.serial = serial
+        self.partner = partner
+        self.expiry = expiry
         self.components = components
-        self.components_license = components_license
+        self.components_expiry = components_expiry
+        self.rdc_slots = rdc_slots
+        self.users = users
+        self.third_party_capacity = third_party_capacity
 
     @property
     def name(self):
@@ -126,76 +138,73 @@ class License(object):
         self._product = product
 
     @property
-    def hardware_key(self):
-        """Gets the hardware_key of this License.  # noqa: E501
+    def serial(self):
+        """Gets the serial of this License.  # noqa: E501
 
 
-        :return: The hardware_key of this License.  # noqa: E501
+        :return: The serial of this License.  # noqa: E501
         :rtype: str
         """
-        return self._hardware_key
+        return self._serial
 
-    @hardware_key.setter
-    def hardware_key(self, hardware_key):
-        """Sets the hardware_key of this License.
+    @serial.setter
+    def serial(self, serial):
+        """Sets the serial of this License.
 
 
-        :param hardware_key: The hardware_key of this License.  # noqa: E501
+        :param serial: The serial of this License.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and hardware_key is None:  # noqa: E501
-            raise ValueError("Invalid value for `hardware_key`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                hardware_key is not None and len(hardware_key) < 1):
-            raise ValueError("Invalid value for `hardware_key`, length must be greater than or equal to `1`")  # noqa: E501
+                serial is not None and len(serial) < 1):
+            raise ValueError("Invalid value for `serial`, length must be greater than or equal to `1`")  # noqa: E501
 
-        self._hardware_key = hardware_key
-
-    @property
-    def rdc_slots(self):
-        """Gets the rdc_slots of this License.  # noqa: E501
-
-
-        :return: The rdc_slots of this License.  # noqa: E501
-        :rtype: int
-        """
-        return self._rdc_slots
-
-    @rdc_slots.setter
-    def rdc_slots(self, rdc_slots):
-        """Sets the rdc_slots of this License.
-
-
-        :param rdc_slots: The rdc_slots of this License.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and rdc_slots is None:  # noqa: E501
-            raise ValueError("Invalid value for `rdc_slots`, must not be `None`")  # noqa: E501
-
-        self._rdc_slots = rdc_slots
+        self._serial = serial
 
     @property
-    def expires(self):
-        """Gets the expires of this License.  # noqa: E501
+    def partner(self):
+        """Gets the partner of this License.  # noqa: E501
 
 
-        :return: The expires of this License.  # noqa: E501
+        :return: The partner of this License.  # noqa: E501
+        :rtype: str
+        """
+        return self._partner
+
+    @partner.setter
+    def partner(self, partner):
+        """Sets the partner of this License.
+
+
+        :param partner: The partner of this License.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                partner is not None and len(partner) < 1):
+            raise ValueError("Invalid value for `partner`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._partner = partner
+
+    @property
+    def expiry(self):
+        """Gets the expiry of this License.  # noqa: E501
+
+
+        :return: The expiry of this License.  # noqa: E501
         :rtype: datetime
         """
-        return self._expires
+        return self._expiry
 
-    @expires.setter
-    def expires(self, expires):
-        """Sets the expires of this License.
+    @expiry.setter
+    def expiry(self, expiry):
+        """Sets the expiry of this License.
 
 
-        :param expires: The expires of this License.  # noqa: E501
+        :param expiry: The expiry of this License.  # noqa: E501
         :type: datetime
         """
-        if self.local_vars_configuration.client_side_validation and expires is None:  # noqa: E501
-            raise ValueError("Invalid value for `expires`, must not be `None`")  # noqa: E501
 
-        self._expires = expires
+        self._expiry = expiry
 
     @property
     def components(self):
@@ -221,27 +230,94 @@ class License(object):
         self._components = components
 
     @property
-    def components_license(self):
-        """Gets the components_license of this License.  # noqa: E501
+    def components_expiry(self):
+        """Gets the components_expiry of this License.  # noqa: E501
 
 
-        :return: The components_license of this License.  # noqa: E501
-        :rtype: dict(str, str)
+        :return: The components_expiry of this License.  # noqa: E501
+        :rtype: dict(str, datetime)
         """
-        return self._components_license
+        return self._components_expiry
 
-    @components_license.setter
-    def components_license(self, components_license):
-        """Sets the components_license of this License.
+    @components_expiry.setter
+    def components_expiry(self, components_expiry):
+        """Sets the components_expiry of this License.
 
 
-        :param components_license: The components_license of this License.  # noqa: E501
-        :type: dict(str, str)
+        :param components_expiry: The components_expiry of this License.  # noqa: E501
+        :type: dict(str, datetime)
         """
-        if self.local_vars_configuration.client_side_validation and components_license is None:  # noqa: E501
-            raise ValueError("Invalid value for `components_license`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and components_expiry is None:  # noqa: E501
+            raise ValueError("Invalid value for `components_expiry`, must not be `None`")  # noqa: E501
 
-        self._components_license = components_license
+        self._components_expiry = components_expiry
+
+    @property
+    def rdc_slots(self):
+        """Gets the rdc_slots of this License.  # noqa: E501
+
+
+        :return: The rdc_slots of this License.  # noqa: E501
+        :rtype: int
+        """
+        return self._rdc_slots
+
+    @rdc_slots.setter
+    def rdc_slots(self, rdc_slots):
+        """Sets the rdc_slots of this License.
+
+
+        :param rdc_slots: The rdc_slots of this License.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and rdc_slots is None:  # noqa: E501
+            raise ValueError("Invalid value for `rdc_slots`, must not be `None`")  # noqa: E501
+
+        self._rdc_slots = rdc_slots
+
+    @property
+    def users(self):
+        """Gets the users of this License.  # noqa: E501
+
+
+        :return: The users of this License.  # noqa: E501
+        :rtype: int
+        """
+        return self._users
+
+    @users.setter
+    def users(self, users):
+        """Sets the users of this License.
+
+
+        :param users: The users of this License.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and users is None:  # noqa: E501
+            raise ValueError("Invalid value for `users`, must not be `None`")  # noqa: E501
+
+        self._users = users
+
+    @property
+    def third_party_capacity(self):
+        """Gets the third_party_capacity of this License.  # noqa: E501
+
+
+        :return: The third_party_capacity of this License.  # noqa: E501
+        :rtype: int
+        """
+        return self._third_party_capacity
+
+    @third_party_capacity.setter
+    def third_party_capacity(self, third_party_capacity):
+        """Sets the third_party_capacity of this License.
+
+
+        :param third_party_capacity: The third_party_capacity of this License.  # noqa: E501
+        :type: int
+        """
+
+        self._third_party_capacity = third_party_capacity
 
     def to_dict(self):
         """Returns the model properties as a dict"""

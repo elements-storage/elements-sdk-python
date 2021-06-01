@@ -51,7 +51,7 @@ class ElementsUserDetail(object):
         'group_permissions': 'list[str]',
         'has_password': 'bool',
         'home': 'int',
-        'is_anonymous': 'str',
+        'is_external': 'bool',
         'is_cloud': 'bool',
         'is_cloud_default': 'bool',
         'is_enabled': 'bool',
@@ -92,7 +92,7 @@ class ElementsUserDetail(object):
         'group_permissions': 'group_permissions',
         'has_password': 'has_password',
         'home': 'home',
-        'is_anonymous': 'is_anonymous',
+        'is_external': 'is_external',
         'is_cloud': 'is_cloud',
         'is_cloud_default': 'is_cloud_default',
         'is_enabled': 'is_enabled',
@@ -112,7 +112,7 @@ class ElementsUserDetail(object):
         'groups': 'groups'
     }
 
-    def __init__(self, id=None, allow_changing_password=None, allow_wan_login=None, allowed_fs_paths=None, allowed_fs_write_paths=None, avatar=None, client_sessions=None, default_page=None, display_name=None, effective_permissions=None, email=None, expiry=None, ancillary_path_read_only=None, ancillary_path=None, fm_bookmarks=None, full_name=None, gid=None, group_permissions=None, has_password=None, home=None, is_anonymous=None, is_cloud=None, is_cloud_default=None, is_enabled=None, language=None, last_seen=None, ldap=None, ldap_dn=None, password_change_required=None, permissions=None, shaper_ceiling=None, shaper_rate=None, sync_id=None, totp_enabled=None, uid=None, unix_username=None, username=None, groups=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, allow_changing_password=None, allow_wan_login=None, allowed_fs_paths=None, allowed_fs_write_paths=None, avatar=None, client_sessions=None, default_page=None, display_name=None, effective_permissions=None, email=None, expiry=None, ancillary_path_read_only=None, ancillary_path=None, fm_bookmarks=None, full_name=None, gid=None, group_permissions=None, has_password=None, home=None, is_external=None, is_cloud=None, is_cloud_default=None, is_enabled=None, language=None, last_seen=None, ldap=None, ldap_dn=None, password_change_required=None, permissions=None, shaper_ceiling=None, shaper_rate=None, sync_id=None, totp_enabled=None, uid=None, unix_username=None, username=None, groups=None, local_vars_configuration=None):  # noqa: E501
         """ElementsUserDetail - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -138,7 +138,7 @@ class ElementsUserDetail(object):
         self._group_permissions = None
         self._has_password = None
         self._home = None
-        self._is_anonymous = None
+        self._is_external = None
         self._is_cloud = None
         self._is_cloud_default = None
         self._is_enabled = None
@@ -192,8 +192,8 @@ class ElementsUserDetail(object):
         if has_password is not None:
             self.has_password = has_password
         self.home = home
-        if is_anonymous is not None:
-            self.is_anonymous = is_anonymous
+        if is_external is not None:
+            self.is_external = is_external
         if is_cloud is not None:
             self.is_cloud = is_cloud
         if is_cloud_default is not None:
@@ -661,25 +661,25 @@ class ElementsUserDetail(object):
         self._home = home
 
     @property
-    def is_anonymous(self):
-        """Gets the is_anonymous of this ElementsUserDetail.  # noqa: E501
+    def is_external(self):
+        """Gets the is_external of this ElementsUserDetail.  # noqa: E501
 
 
-        :return: The is_anonymous of this ElementsUserDetail.  # noqa: E501
-        :rtype: str
+        :return: The is_external of this ElementsUserDetail.  # noqa: E501
+        :rtype: bool
         """
-        return self._is_anonymous
+        return self._is_external
 
-    @is_anonymous.setter
-    def is_anonymous(self, is_anonymous):
-        """Sets the is_anonymous of this ElementsUserDetail.
+    @is_external.setter
+    def is_external(self, is_external):
+        """Sets the is_external of this ElementsUserDetail.
 
 
-        :param is_anonymous: The is_anonymous of this ElementsUserDetail.  # noqa: E501
-        :type: str
+        :param is_external: The is_external of this ElementsUserDetail.  # noqa: E501
+        :type: bool
         """
 
-        self._is_anonymous = is_anonymous
+        self._is_external = is_external
 
     @property
     def is_cloud(self):

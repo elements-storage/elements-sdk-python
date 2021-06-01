@@ -32,15 +32,19 @@ class FileCopyEndpointRequest(object):
     """
     openapi_types = {
         'input': 'list[str]',
-        'destination': 'str'
+        'destination': 'str',
+        'hardlink': 'bool',
+        'sync': 'bool'
     }
 
     attribute_map = {
         'input': 'input',
-        'destination': 'destination'
+        'destination': 'destination',
+        'hardlink': 'hardlink',
+        'sync': 'sync'
     }
 
-    def __init__(self, input=None, destination=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, input=None, destination=None, hardlink=None, sync=None, local_vars_configuration=None):  # noqa: E501
         """FileCopyEndpointRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -48,10 +52,16 @@ class FileCopyEndpointRequest(object):
 
         self._input = None
         self._destination = None
+        self._hardlink = None
+        self._sync = None
         self.discriminator = None
 
         self.input = input
         self.destination = destination
+        if hardlink is not None:
+            self.hardlink = hardlink
+        if sync is not None:
+            self.sync = sync
 
     @property
     def input(self):
@@ -101,6 +111,48 @@ class FileCopyEndpointRequest(object):
             raise ValueError("Invalid value for `destination`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._destination = destination
+
+    @property
+    def hardlink(self):
+        """Gets the hardlink of this FileCopyEndpointRequest.  # noqa: E501
+
+
+        :return: The hardlink of this FileCopyEndpointRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hardlink
+
+    @hardlink.setter
+    def hardlink(self, hardlink):
+        """Sets the hardlink of this FileCopyEndpointRequest.
+
+
+        :param hardlink: The hardlink of this FileCopyEndpointRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._hardlink = hardlink
+
+    @property
+    def sync(self):
+        """Gets the sync of this FileCopyEndpointRequest.  # noqa: E501
+
+
+        :return: The sync of this FileCopyEndpointRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sync
+
+    @sync.setter
+    def sync(self, sync):
+        """Sets the sync of this FileCopyEndpointRequest.
+
+
+        :param sync: The sync of this FileCopyEndpointRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._sync = sync
 
     def to_dict(self):
         """Returns the model properties as a dict"""

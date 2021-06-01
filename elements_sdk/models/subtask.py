@@ -45,6 +45,8 @@ class Subtask(object):
         'condition_variable': 'str',
         'condition_value': 'str',
         'sync': 'bool',
+        'queue': 'str',
+        'enqueue_at_front': 'bool',
         'parent': 'int',
         'relative_to': 'int'
     }
@@ -64,11 +66,13 @@ class Subtask(object):
         'condition_variable': 'condition_variable',
         'condition_value': 'condition_value',
         'sync': 'sync',
+        'queue': 'queue',
+        'enqueue_at_front': 'enqueue_at_front',
         'parent': 'parent',
         'relative_to': 'relative_to'
     }
 
-    def __init__(self, id=None, kwargs=None, graph_layout=None, validation_error=None, trigger=None, name=None, noop_dont_save=None, no_concurrency=None, timeout=None, log_variable=None, task=None, condition_variable=None, condition_value=None, sync=None, parent=None, relative_to=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, kwargs=None, graph_layout=None, validation_error=None, trigger=None, name=None, noop_dont_save=None, no_concurrency=None, timeout=None, log_variable=None, task=None, condition_variable=None, condition_value=None, sync=None, queue=None, enqueue_at_front=None, parent=None, relative_to=None, local_vars_configuration=None):  # noqa: E501
         """Subtask - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -88,6 +92,8 @@ class Subtask(object):
         self._condition_variable = None
         self._condition_value = None
         self._sync = None
+        self._queue = None
+        self._enqueue_at_front = None
         self._parent = None
         self._relative_to = None
         self.discriminator = None
@@ -113,6 +119,9 @@ class Subtask(object):
         self.condition_value = condition_value
         if sync is not None:
             self.sync = sync
+        self.queue = queue
+        if enqueue_at_front is not None:
+            self.enqueue_at_front = enqueue_at_front
         self.parent = parent
         self.relative_to = relative_to
 
@@ -447,6 +456,51 @@ class Subtask(object):
         """
 
         self._sync = sync
+
+    @property
+    def queue(self):
+        """Gets the queue of this Subtask.  # noqa: E501
+
+
+        :return: The queue of this Subtask.  # noqa: E501
+        :rtype: str
+        """
+        return self._queue
+
+    @queue.setter
+    def queue(self, queue):
+        """Sets the queue of this Subtask.
+
+
+        :param queue: The queue of this Subtask.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                queue is not None and len(queue) > 255):
+            raise ValueError("Invalid value for `queue`, length must be less than or equal to `255`")  # noqa: E501
+
+        self._queue = queue
+
+    @property
+    def enqueue_at_front(self):
+        """Gets the enqueue_at_front of this Subtask.  # noqa: E501
+
+
+        :return: The enqueue_at_front of this Subtask.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enqueue_at_front
+
+    @enqueue_at_front.setter
+    def enqueue_at_front(self, enqueue_at_front):
+        """Sets the enqueue_at_front of this Subtask.
+
+
+        :param enqueue_at_front: The enqueue_at_front of this Subtask.  # noqa: E501
+        :type: bool
+        """
+
+        self._enqueue_at_front = enqueue_at_front
 
     @property
     def parent(self):

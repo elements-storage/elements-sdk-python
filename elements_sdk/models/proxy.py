@@ -35,6 +35,7 @@ class Proxy(object):
         'urls': 'dict(str, str)',
         'profile': 'ProxyProfileMini',
         'failed_reason': 'str',
+        'transforms': 'str',
         'generated': 'bool',
         'failed': 'bool',
         'name': 'str',
@@ -48,6 +49,7 @@ class Proxy(object):
         'urls': 'urls',
         'profile': 'profile',
         'failed_reason': 'failed_reason',
+        'transforms': 'transforms',
         'generated': 'generated',
         'failed': 'failed',
         'name': 'name',
@@ -56,7 +58,7 @@ class Proxy(object):
         'asset': 'asset'
     }
 
-    def __init__(self, id=None, urls=None, profile=None, failed_reason=None, generated=None, failed=None, name=None, variant_id='default', variant_config=None, asset=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, urls=None, profile=None, failed_reason=None, transforms=None, generated=None, failed=None, name=None, variant_id='default', variant_config=None, asset=None, local_vars_configuration=None):  # noqa: E501
         """Proxy - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +68,7 @@ class Proxy(object):
         self._urls = None
         self._profile = None
         self._failed_reason = None
+        self._transforms = None
         self._generated = None
         self._failed = None
         self._name = None
@@ -82,6 +85,8 @@ class Proxy(object):
             self.profile = profile
         if failed_reason is not None:
             self.failed_reason = failed_reason
+        if transforms is not None:
+            self.transforms = transforms
         if generated is not None:
             self.generated = generated
         if failed is not None:
@@ -177,6 +182,27 @@ class Proxy(object):
         """
 
         self._failed_reason = failed_reason
+
+    @property
+    def transforms(self):
+        """Gets the transforms of this Proxy.  # noqa: E501
+
+
+        :return: The transforms of this Proxy.  # noqa: E501
+        :rtype: str
+        """
+        return self._transforms
+
+    @transforms.setter
+    def transforms(self, transforms):
+        """Sets the transforms of this Proxy.
+
+
+        :param transforms: The transforms of this Proxy.  # noqa: E501
+        :type: str
+        """
+
+        self._transforms = transforms
 
     @property
     def generated(self):

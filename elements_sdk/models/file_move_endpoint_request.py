@@ -32,15 +32,17 @@ class FileMoveEndpointRequest(object):
     """
     openapi_types = {
         'input': 'list[str]',
-        'destination': 'str'
+        'destination': 'str',
+        'sync': 'bool'
     }
 
     attribute_map = {
         'input': 'input',
-        'destination': 'destination'
+        'destination': 'destination',
+        'sync': 'sync'
     }
 
-    def __init__(self, input=None, destination=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, input=None, destination=None, sync=None, local_vars_configuration=None):  # noqa: E501
         """FileMoveEndpointRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -48,10 +50,13 @@ class FileMoveEndpointRequest(object):
 
         self._input = None
         self._destination = None
+        self._sync = None
         self.discriminator = None
 
         self.input = input
         self.destination = destination
+        if sync is not None:
+            self.sync = sync
 
     @property
     def input(self):
@@ -101,6 +106,27 @@ class FileMoveEndpointRequest(object):
             raise ValueError("Invalid value for `destination`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._destination = destination
+
+    @property
+    def sync(self):
+        """Gets the sync of this FileMoveEndpointRequest.  # noqa: E501
+
+
+        :return: The sync of this FileMoveEndpointRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sync
+
+    @sync.setter
+    def sync(self, sync):
+        """Sets the sync of this FileMoveEndpointRequest.
+
+
+        :param sync: The sync of this FileMoveEndpointRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._sync = sync
 
     def to_dict(self):
         """Returns the model properties as a dict"""

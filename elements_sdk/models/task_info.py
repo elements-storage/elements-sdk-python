@@ -39,6 +39,7 @@ class TaskInfo(object):
         'user': 'ElementsUserMini',
         'workstation': 'Workstation',
         'progress': 'TaskProgress',
+        'log_path': 'str',
         'name': 'str',
         'task_name': 'str',
         'worker_name': 'str',
@@ -62,6 +63,7 @@ class TaskInfo(object):
         'user': 'user',
         'workstation': 'workstation',
         'progress': 'progress',
+        'log_path': 'log_path',
         'name': 'name',
         'task_name': 'task_name',
         'worker_name': 'worker_name',
@@ -76,7 +78,7 @@ class TaskInfo(object):
         'schedule': 'schedule'
     }
 
-    def __init__(self, id=None, display_name=None, kwargs=None, subtask=None, worker=None, user=None, workstation=None, progress=None, name=None, task_name=None, worker_name=None, queue=None, state=None, state_text=None, job_instance=None, started=None, finished=None, exception=None, traceback=None, schedule=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, display_name=None, kwargs=None, subtask=None, worker=None, user=None, workstation=None, progress=None, log_path=None, name=None, task_name=None, worker_name=None, queue=None, state=None, state_text=None, job_instance=None, started=None, finished=None, exception=None, traceback=None, schedule=None, local_vars_configuration=None):  # noqa: E501
         """TaskInfo - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -90,6 +92,7 @@ class TaskInfo(object):
         self._user = None
         self._workstation = None
         self._progress = None
+        self._log_path = None
         self._name = None
         self._task_name = None
         self._worker_name = None
@@ -117,6 +120,8 @@ class TaskInfo(object):
             self.workstation = workstation
         if progress is not None:
             self.progress = progress
+        if log_path is not None:
+            self.log_path = log_path
         self.name = name
         self.task_name = task_name
         self.worker_name = worker_name
@@ -310,6 +315,30 @@ class TaskInfo(object):
         """
 
         self._progress = progress
+
+    @property
+    def log_path(self):
+        """Gets the log_path of this TaskInfo.  # noqa: E501
+
+
+        :return: The log_path of this TaskInfo.  # noqa: E501
+        :rtype: str
+        """
+        return self._log_path
+
+    @log_path.setter
+    def log_path(self, log_path):
+        """Sets the log_path of this TaskInfo.
+
+
+        :param log_path: The log_path of this TaskInfo.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                log_path is not None and len(log_path) < 1):
+            raise ValueError("Invalid value for `log_path`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._log_path = log_path
 
     @property
     def name(self):

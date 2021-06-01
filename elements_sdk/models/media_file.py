@@ -36,13 +36,15 @@ class MediaFile(object):
         'info': 'object',
         'custom_fields': 'object',
         'resolved_permission': 'MediaRootPermission',
-        'parent': 'dict(str, str)',
+        'parent_file': 'dict(str, str)',
         'root': 'MediaRootMini',
         'effective_custom_fields': 'dict(str, str)',
         'modified_by': 'ElementsUserMini',
         'full_path': 'str',
         'search_highlight': 'str',
         'is_shared': 'bool',
+        'is_excluded': 'bool',
+        'is_hardlink': 'bool',
         'name': 'str',
         'path': 'str',
         'pathhash': 'str',
@@ -55,6 +57,7 @@ class MediaFile(object):
         'is_showroom': 'bool',
         'bundle_index': 'int',
         'modified': 'datetime',
+        'parent': 'int',
         'bundle': 'int'
     }
 
@@ -64,13 +67,15 @@ class MediaFile(object):
         'info': 'info',
         'custom_fields': 'custom_fields',
         'resolved_permission': 'resolved_permission',
-        'parent': 'parent',
+        'parent_file': 'parent_file',
         'root': 'root',
         'effective_custom_fields': 'effective_custom_fields',
         'modified_by': 'modified_by',
         'full_path': 'full_path',
         'search_highlight': 'search_highlight',
         'is_shared': 'is_shared',
+        'is_excluded': 'is_excluded',
+        'is_hardlink': 'is_hardlink',
         'name': 'name',
         'path': 'path',
         'pathhash': 'pathhash',
@@ -83,10 +88,11 @@ class MediaFile(object):
         'is_showroom': 'is_showroom',
         'bundle_index': 'bundle_index',
         'modified': 'modified',
+        'parent': 'parent',
         'bundle': 'bundle'
     }
 
-    def __init__(self, id=None, volume=None, info=None, custom_fields=None, resolved_permission=None, parent=None, root=None, effective_custom_fields=None, modified_by=None, full_path=None, search_highlight=None, is_shared=None, name=None, path=None, pathhash=None, is_dir=None, total_files=None, size=None, mtime=None, present=None, needs_rescan=None, is_showroom=None, bundle_index=None, modified=None, bundle=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, volume=None, info=None, custom_fields=None, resolved_permission=None, parent_file=None, root=None, effective_custom_fields=None, modified_by=None, full_path=None, search_highlight=None, is_shared=None, is_excluded=None, is_hardlink=None, name=None, path=None, pathhash=None, is_dir=None, total_files=None, size=None, mtime=None, present=None, needs_rescan=None, is_showroom=None, bundle_index=None, modified=None, parent=None, bundle=None, local_vars_configuration=None):  # noqa: E501
         """MediaFile - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -97,13 +103,15 @@ class MediaFile(object):
         self._info = None
         self._custom_fields = None
         self._resolved_permission = None
-        self._parent = None
+        self._parent_file = None
         self._root = None
         self._effective_custom_fields = None
         self._modified_by = None
         self._full_path = None
         self._search_highlight = None
         self._is_shared = None
+        self._is_excluded = None
+        self._is_hardlink = None
         self._name = None
         self._path = None
         self._pathhash = None
@@ -116,6 +124,7 @@ class MediaFile(object):
         self._is_showroom = None
         self._bundle_index = None
         self._modified = None
+        self._parent = None
         self._bundle = None
         self.discriminator = None
 
@@ -129,8 +138,8 @@ class MediaFile(object):
             self.custom_fields = custom_fields
         if resolved_permission is not None:
             self.resolved_permission = resolved_permission
-        if parent is not None:
-            self.parent = parent
+        if parent_file is not None:
+            self.parent_file = parent_file
         if root is not None:
             self.root = root
         if effective_custom_fields is not None:
@@ -143,6 +152,10 @@ class MediaFile(object):
             self.search_highlight = search_highlight
         if is_shared is not None:
             self.is_shared = is_shared
+        if is_excluded is not None:
+            self.is_excluded = is_excluded
+        if is_hardlink is not None:
+            self.is_hardlink = is_hardlink
         if name is not None:
             self.name = name
         if path is not None:
@@ -166,6 +179,8 @@ class MediaFile(object):
             self.bundle_index = bundle_index
         if modified is not None:
             self.modified = modified
+        if parent is not None:
+            self.parent = parent
         if bundle is not None:
             self.bundle = bundle
 
@@ -275,25 +290,25 @@ class MediaFile(object):
         self._resolved_permission = resolved_permission
 
     @property
-    def parent(self):
-        """Gets the parent of this MediaFile.  # noqa: E501
+    def parent_file(self):
+        """Gets the parent_file of this MediaFile.  # noqa: E501
 
 
-        :return: The parent of this MediaFile.  # noqa: E501
+        :return: The parent_file of this MediaFile.  # noqa: E501
         :rtype: dict(str, str)
         """
-        return self._parent
+        return self._parent_file
 
-    @parent.setter
-    def parent(self, parent):
-        """Sets the parent of this MediaFile.
+    @parent_file.setter
+    def parent_file(self, parent_file):
+        """Sets the parent_file of this MediaFile.
 
 
-        :param parent: The parent of this MediaFile.  # noqa: E501
+        :param parent_file: The parent_file of this MediaFile.  # noqa: E501
         :type: dict(str, str)
         """
 
-        self._parent = parent
+        self._parent_file = parent_file
 
     @property
     def root(self):
@@ -420,6 +435,48 @@ class MediaFile(object):
         """
 
         self._is_shared = is_shared
+
+    @property
+    def is_excluded(self):
+        """Gets the is_excluded of this MediaFile.  # noqa: E501
+
+
+        :return: The is_excluded of this MediaFile.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_excluded
+
+    @is_excluded.setter
+    def is_excluded(self, is_excluded):
+        """Sets the is_excluded of this MediaFile.
+
+
+        :param is_excluded: The is_excluded of this MediaFile.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_excluded = is_excluded
+
+    @property
+    def is_hardlink(self):
+        """Gets the is_hardlink of this MediaFile.  # noqa: E501
+
+
+        :return: The is_hardlink of this MediaFile.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_hardlink
+
+    @is_hardlink.setter
+    def is_hardlink(self, is_hardlink):
+        """Sets the is_hardlink of this MediaFile.
+
+
+        :param is_hardlink: The is_hardlink of this MediaFile.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_hardlink = is_hardlink
 
     @property
     def name(self):
@@ -687,6 +744,27 @@ class MediaFile(object):
         """
 
         self._modified = modified
+
+    @property
+    def parent(self):
+        """Gets the parent of this MediaFile.  # noqa: E501
+
+
+        :return: The parent of this MediaFile.  # noqa: E501
+        :rtype: int
+        """
+        return self._parent
+
+    @parent.setter
+    def parent(self, parent):
+        """Sets the parent of this MediaFile.
+
+
+        :param parent: The parent of this MediaFile.  # noqa: E501
+        :type: int
+        """
+
+        self._parent = parent
 
     @property
     def bundle(self):

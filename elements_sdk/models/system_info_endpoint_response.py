@@ -36,7 +36,9 @@ class SystemInfoEndpointResponse(object):
         'nt_hostname': 'str',
         'offers_ntp_sync': 'bool',
         'language': 'str',
-        'saml_providers': 'list[SAMLProviderMini]'
+        'saml_providers': 'list[SAMLProviderMini]',
+        'version': 'ElementsVersion',
+        'global_alerts': 'list[GlobalAlert]'
     }
 
     attribute_map = {
@@ -45,10 +47,12 @@ class SystemInfoEndpointResponse(object):
         'nt_hostname': 'nt_hostname',
         'offers_ntp_sync': 'offers_ntp_sync',
         'language': 'language',
-        'saml_providers': 'saml_providers'
+        'saml_providers': 'saml_providers',
+        'version': 'version',
+        'global_alerts': 'global_alerts'
     }
 
-    def __init__(self, license=None, client_api_version=None, nt_hostname=None, offers_ntp_sync=None, language=None, saml_providers=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, license=None, client_api_version=None, nt_hostname=None, offers_ntp_sync=None, language=None, saml_providers=None, version=None, global_alerts=None, local_vars_configuration=None):  # noqa: E501
         """SystemInfoEndpointResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,6 +64,8 @@ class SystemInfoEndpointResponse(object):
         self._offers_ntp_sync = None
         self._language = None
         self._saml_providers = None
+        self._version = None
+        self._global_alerts = None
         self.discriminator = None
 
         self.license = license
@@ -69,6 +75,8 @@ class SystemInfoEndpointResponse(object):
         self.language = language
         if saml_providers is not None:
             self.saml_providers = saml_providers
+        self.version = version
+        self.global_alerts = global_alerts
 
     @property
     def license(self):
@@ -211,6 +219,52 @@ class SystemInfoEndpointResponse(object):
         """
 
         self._saml_providers = saml_providers
+
+    @property
+    def version(self):
+        """Gets the version of this SystemInfoEndpointResponse.  # noqa: E501
+
+
+        :return: The version of this SystemInfoEndpointResponse.  # noqa: E501
+        :rtype: ElementsVersion
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this SystemInfoEndpointResponse.
+
+
+        :param version: The version of this SystemInfoEndpointResponse.  # noqa: E501
+        :type: ElementsVersion
+        """
+        if self.local_vars_configuration.client_side_validation and version is None:  # noqa: E501
+            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
+
+        self._version = version
+
+    @property
+    def global_alerts(self):
+        """Gets the global_alerts of this SystemInfoEndpointResponse.  # noqa: E501
+
+
+        :return: The global_alerts of this SystemInfoEndpointResponse.  # noqa: E501
+        :rtype: list[GlobalAlert]
+        """
+        return self._global_alerts
+
+    @global_alerts.setter
+    def global_alerts(self, global_alerts):
+        """Sets the global_alerts of this SystemInfoEndpointResponse.
+
+
+        :param global_alerts: The global_alerts of this SystemInfoEndpointResponse.  # noqa: E501
+        :type: list[GlobalAlert]
+        """
+        if self.local_vars_configuration.client_side_validation and global_alerts is None:  # noqa: E501
+            raise ValueError("Invalid value for `global_alerts`, must not be `None`")  # noqa: E501
+
+        self._global_alerts = global_alerts
 
     def to_dict(self):
         """Returns the model properties as a dict"""

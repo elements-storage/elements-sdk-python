@@ -43,6 +43,7 @@ class ElementsUserDetailPartialUpdate(object):
         'full_name': 'str',
         'gid': 'int',
         'home': 'int',
+        'is_external': 'bool',
         'is_cloud': 'bool',
         'is_cloud_default': 'bool',
         'is_enabled': 'bool',
@@ -74,6 +75,7 @@ class ElementsUserDetailPartialUpdate(object):
         'full_name': 'full_name',
         'gid': 'gid',
         'home': 'home',
+        'is_external': 'is_external',
         'is_cloud': 'is_cloud',
         'is_cloud_default': 'is_cloud_default',
         'is_enabled': 'is_enabled',
@@ -92,7 +94,7 @@ class ElementsUserDetailPartialUpdate(object):
         'groups': 'groups'
     }
 
-    def __init__(self, allow_changing_password=None, allow_wan_login=None, avatar=None, default_page=None, email=None, expiry=None, ancillary_path_read_only=None, ancillary_path=None, fm_bookmarks=None, full_name=None, gid=None, home=None, is_cloud=None, is_cloud_default=None, is_enabled=None, language=None, last_seen=None, ldap=None, ldap_dn=None, password_change_required=None, permissions=None, shaper_ceiling=None, shaper_rate=None, totp_enabled=None, uid=None, unix_username=None, username=None, groups=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, allow_changing_password=None, allow_wan_login=None, avatar=None, default_page=None, email=None, expiry=None, ancillary_path_read_only=None, ancillary_path=None, fm_bookmarks=None, full_name=None, gid=None, home=None, is_external=None, is_cloud=None, is_cloud_default=None, is_enabled=None, language=None, last_seen=None, ldap=None, ldap_dn=None, password_change_required=None, permissions=None, shaper_ceiling=None, shaper_rate=None, totp_enabled=None, uid=None, unix_username=None, username=None, groups=None, local_vars_configuration=None):  # noqa: E501
         """ElementsUserDetailPartialUpdate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -110,6 +112,7 @@ class ElementsUserDetailPartialUpdate(object):
         self._full_name = None
         self._gid = None
         self._home = None
+        self._is_external = None
         self._is_cloud = None
         self._is_cloud_default = None
         self._is_enabled = None
@@ -146,6 +149,8 @@ class ElementsUserDetailPartialUpdate(object):
         self.full_name = full_name
         self.gid = gid
         self.home = home
+        if is_external is not None:
+            self.is_external = is_external
         if is_cloud is not None:
             self.is_cloud = is_cloud
         if is_cloud_default is not None:
@@ -444,6 +449,27 @@ class ElementsUserDetailPartialUpdate(object):
         """
 
         self._home = home
+
+    @property
+    def is_external(self):
+        """Gets the is_external of this ElementsUserDetailPartialUpdate.  # noqa: E501
+
+
+        :return: The is_external of this ElementsUserDetailPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_external
+
+    @is_external.setter
+    def is_external(self, is_external):
+        """Sets the is_external of this ElementsUserDetailPartialUpdate.
+
+
+        :param is_external: The is_external of this ElementsUserDetailPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_external = is_external
 
     @property
     def is_cloud(self):

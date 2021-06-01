@@ -33,7 +33,7 @@ class ClientSession(object):
     openapi_types = {
         'id': 'int',
         'user': 'ElementsUserMini',
-        'mounted_workspaces': 'list[MountedWorkspace]',
+        'mounted_workspaces': 'str',
         'started': 'datetime',
         'last_updated': 'datetime',
         'workstation': 'str'
@@ -123,7 +123,7 @@ class ClientSession(object):
 
 
         :return: The mounted_workspaces of this ClientSession.  # noqa: E501
-        :rtype: list[MountedWorkspace]
+        :rtype: str
         """
         return self._mounted_workspaces
 
@@ -133,7 +133,7 @@ class ClientSession(object):
 
 
         :param mounted_workspaces: The mounted_workspaces of this ClientSession.  # noqa: E501
-        :type: list[MountedWorkspace]
+        :type: str
         """
 
         self._mounted_workspaces = mounted_workspaces

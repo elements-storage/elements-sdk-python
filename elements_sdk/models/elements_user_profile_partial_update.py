@@ -35,8 +35,7 @@ class ElementsUserProfilePartialUpdate(object):
         'default_page': 'str',
         'full_name': 'str',
         'language': 'str',
-        'fm_bookmarks': 'list[str]',
-        'ldap': 'LDAPServer'
+        'fm_bookmarks': 'list[str]'
     }
 
     attribute_map = {
@@ -44,11 +43,10 @@ class ElementsUserProfilePartialUpdate(object):
         'default_page': 'default_page',
         'full_name': 'full_name',
         'language': 'language',
-        'fm_bookmarks': 'fm_bookmarks',
-        'ldap': 'ldap'
+        'fm_bookmarks': 'fm_bookmarks'
     }
 
-    def __init__(self, avatar=None, default_page=None, full_name=None, language=None, fm_bookmarks=None, ldap=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, avatar=None, default_page=None, full_name=None, language=None, fm_bookmarks=None, local_vars_configuration=None):  # noqa: E501
         """ElementsUserProfilePartialUpdate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,7 +57,6 @@ class ElementsUserProfilePartialUpdate(object):
         self._full_name = None
         self._language = None
         self._fm_bookmarks = None
-        self._ldap = None
         self.discriminator = None
 
         self.avatar = avatar
@@ -69,8 +66,6 @@ class ElementsUserProfilePartialUpdate(object):
         self.language = language
         if fm_bookmarks is not None:
             self.fm_bookmarks = fm_bookmarks
-        if ldap is not None:
-            self.ldap = ldap
 
     @property
     def avatar(self):
@@ -191,27 +186,6 @@ class ElementsUserProfilePartialUpdate(object):
         """
 
         self._fm_bookmarks = fm_bookmarks
-
-    @property
-    def ldap(self):
-        """Gets the ldap of this ElementsUserProfilePartialUpdate.  # noqa: E501
-
-
-        :return: The ldap of this ElementsUserProfilePartialUpdate.  # noqa: E501
-        :rtype: LDAPServer
-        """
-        return self._ldap
-
-    @ldap.setter
-    def ldap(self, ldap):
-        """Sets the ldap of this ElementsUserProfilePartialUpdate.
-
-
-        :param ldap: The ldap of this ElementsUserProfilePartialUpdate.  # noqa: E501
-        :type: LDAPServer
-        """
-
-        self._ldap = ldap
 
     def to_dict(self):
         """Returns the model properties as a dict"""

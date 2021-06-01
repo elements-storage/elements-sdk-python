@@ -39,7 +39,8 @@ class StorageNode(object):
         'type': 'int',
         'ipmi': 'int',
         'interfaces': 'list[Interface]',
-        'status': 'StorageNodeStatus'
+        'status': 'StorageNodeStatus',
+        'is_log_aggregator': 'bool'
     }
 
     attribute_map = {
@@ -51,10 +52,11 @@ class StorageNode(object):
         'type': 'type',
         'ipmi': 'ipmi',
         'interfaces': 'interfaces',
-        'status': 'status'
+        'status': 'status',
+        'is_log_aggregator': 'is_log_aggregator'
     }
 
-    def __init__(self, id=None, name=None, address=None, address_override=None, backend=None, type=None, ipmi=None, interfaces=None, status=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, address=None, address_override=None, backend=None, type=None, ipmi=None, interfaces=None, status=None, is_log_aggregator=None, local_vars_configuration=None):  # noqa: E501
         """StorageNode - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +71,7 @@ class StorageNode(object):
         self._ipmi = None
         self._interfaces = None
         self._status = None
+        self._is_log_aggregator = None
         self.discriminator = None
 
         if id is not None:
@@ -88,6 +91,8 @@ class StorageNode(object):
             self.interfaces = interfaces
         if status is not None:
             self.status = status
+        if is_log_aggregator is not None:
+            self.is_log_aggregator = is_log_aggregator
 
     @property
     def id(self):
@@ -296,6 +301,27 @@ class StorageNode(object):
         """
 
         self._status = status
+
+    @property
+    def is_log_aggregator(self):
+        """Gets the is_log_aggregator of this StorageNode.  # noqa: E501
+
+
+        :return: The is_log_aggregator of this StorageNode.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_log_aggregator
+
+    @is_log_aggregator.setter
+    def is_log_aggregator(self, is_log_aggregator):
+        """Sets the is_log_aggregator of this StorageNode.
+
+
+        :param is_log_aggregator: The is_log_aggregator of this StorageNode.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_log_aggregator = is_log_aggregator
 
     def to_dict(self):
         """Returns the model properties as a dict"""
