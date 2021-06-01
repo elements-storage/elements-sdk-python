@@ -12,7 +12,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "3.2.0"
+__version__ = "3.2.1"
 
 # import apis into sdk package
 from elements_sdk.api.aws_api import AWSApi
@@ -24,7 +24,6 @@ from elements_sdk.api.media_library_api import MediaLibraryApi
 from elements_sdk.api.status_api import StatusApi
 from elements_sdk.api.storage_api import StorageApi
 from elements_sdk.api.tape_archive_api import TapeArchiveApi
-from elements_sdk.api.tasks_api import TasksApi
 
 # import ApiClient
 from elements_sdk.api_client import ApiClient
@@ -82,6 +81,7 @@ from elements_sdk.models.elements_user_detail_partial_update import ElementsUser
 from elements_sdk.models.elements_user_mini import ElementsUserMini
 from elements_sdk.models.elements_user_profile import ElementsUserProfile
 from elements_sdk.models.elements_user_profile_partial_update import ElementsUserProfilePartialUpdate
+from elements_sdk.models.elements_version import ElementsVersion
 from elements_sdk.models.enable_totp_request import EnableTOTPRequest
 from elements_sdk.models.event import Event
 from elements_sdk.models.external_transcoder import ExternalTranscoder

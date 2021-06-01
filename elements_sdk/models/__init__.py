@@ -59,6 +59,7 @@ from elements_sdk.models.elements_user_detail_partial_update import ElementsUser
 from elements_sdk.models.elements_user_mini import ElementsUserMini
 from elements_sdk.models.elements_user_profile import ElementsUserProfile
 from elements_sdk.models.elements_user_profile_partial_update import ElementsUserProfilePartialUpdate
+from elements_sdk.models.elements_version import ElementsVersion
 from elements_sdk.models.enable_totp_request import EnableTOTPRequest
 from elements_sdk.models.event import Event
 from elements_sdk.models.external_transcoder import ExternalTranscoder

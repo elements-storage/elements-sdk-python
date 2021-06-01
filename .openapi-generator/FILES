@@ -52,6 +52,7 @@ docs/ElementsUserDetailPartialUpdate.md
 docs/ElementsUserMini.md
 docs/ElementsUserProfile.md
 docs/ElementsUserProfilePartialUpdate.md
+docs/ElementsVersion.md
 docs/EnableTOTPRequest.md
 docs/Event.md
 docs/ExternalTranscoder.md
@@ -189,7 +190,6 @@ docs/TapePartialUpdate.md
 docs/TaskInfo.md
 docs/TaskLog.md
 docs/TaskProgress.md
-docs/TasksApi.md
 docs/TasksSummary.md
 docs/TeamsConnection.md
 docs/TeamsConnectionPartialUpdate.md
@@ -244,7 +244,6 @@ elements_sdk/api/media_library_api.py
 elements_sdk/api/status_api.py
 elements_sdk/api/storage_api.py
 elements_sdk/api/tape_archive_api.py
-elements_sdk/api/tasks_api.py
 elements_sdk/api_client.py
 elements_sdk/configuration.py
 elements_sdk/exceptions.py
@@ -296,6 +295,7 @@ elements_sdk/models/elements_user_detail_partial_update.py
 elements_sdk/models/elements_user_mini.py
 elements_sdk/models/elements_user_profile.py
 elements_sdk/models/elements_user_profile_partial_update.py
+elements_sdk/models/elements_version.py
 elements_sdk/models/enable_totp_request.py
 elements_sdk/models/event.py
 elements_sdk/models/external_transcoder.py
