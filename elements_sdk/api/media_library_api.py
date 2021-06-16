@@ -2036,7 +2036,7 @@ class MediaLibraryApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this CustomField. (required)
+        :param int id: A unique integer value identifying this Custom field. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2061,7 +2061,7 @@ class MediaLibraryApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this CustomField. (required)
+        :param int id: A unique integer value identifying this Custom field. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4569,6 +4569,7 @@ class MediaLibraryApi(object):
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param bool include_asset:
+        :param object advanced_search:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4598,6 +4599,7 @@ class MediaLibraryApi(object):
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param bool include_asset:
+        :param object advanced_search:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4614,7 +4616,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['asset', 'ordering', 'limit', 'offset', 'include_asset']  # noqa: E501
+        all_params = ['asset', 'ordering', 'limit', 'offset', 'include_asset', 'advanced_search']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4644,6 +4646,8 @@ class MediaLibraryApi(object):
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
         if 'include_asset' in local_var_params and local_var_params['include_asset'] is not None:  # noqa: E501
             query_params.append(('include_asset', local_var_params['include_asset']))  # noqa: E501
+        if 'advanced_search' in local_var_params and local_var_params['advanced_search'] is not None:  # noqa: E501
+            query_params.append(('advanced_search', local_var_params['advanced_search']))  # noqa: E501
 
         header_params = {}
 
@@ -5089,6 +5093,7 @@ class MediaLibraryApi(object):
         :param int for_root:
         :param int tasks_for_user:
         :param bool include_full_asset:
+        :param object advanced_search:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -5122,6 +5127,7 @@ class MediaLibraryApi(object):
         :param int for_root:
         :param int tasks_for_user:
         :param bool include_full_asset:
+        :param object advanced_search:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5138,7 +5144,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['asset', 'root', 'user', 'ordering', 'limit', 'offset', 'for_root', 'tasks_for_user', 'include_full_asset']  # noqa: E501
+        all_params = ['asset', 'root', 'user', 'ordering', 'limit', 'offset', 'for_root', 'tasks_for_user', 'include_full_asset', 'advanced_search']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5176,6 +5182,8 @@ class MediaLibraryApi(object):
             query_params.append(('tasks_for_user', local_var_params['tasks_for_user']))  # noqa: E501
         if 'include_full_asset' in local_var_params and local_var_params['include_full_asset'] is not None:  # noqa: E501
             query_params.append(('include_full_asset', local_var_params['include_full_asset']))  # noqa: E501
+        if 'advanced_search' in local_var_params and local_var_params['advanced_search'] is not None:  # noqa: E501
+            query_params.append(('advanced_search', local_var_params['advanced_search']))  # noqa: E501
 
         header_params = {}
 
@@ -5579,6 +5587,7 @@ class MediaLibraryApi(object):
         :param bool exclude_unrecognized:
         :param bool include_proxies:
         :param bool include_parents:
+        :param object advanced_search:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -5614,6 +5623,7 @@ class MediaLibraryApi(object):
         :param bool exclude_unrecognized:
         :param bool include_proxies:
         :param bool include_parents:
+        :param object advanced_search:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5630,7 +5640,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['asset', 'location', 'shared_via_tokens', 'shared_via_tokens__token', 'ordering', 'limit', 'offset', 'exclude_deleted', 'exclude_unrecognized', 'include_proxies', 'include_parents']  # noqa: E501
+        all_params = ['asset', 'location', 'shared_via_tokens', 'shared_via_tokens__token', 'ordering', 'limit', 'offset', 'exclude_deleted', 'exclude_unrecognized', 'include_proxies', 'include_parents', 'advanced_search']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5672,6 +5682,8 @@ class MediaLibraryApi(object):
             query_params.append(('include_proxies', local_var_params['include_proxies']))  # noqa: E501
         if 'include_parents' in local_var_params and local_var_params['include_parents'] is not None:  # noqa: E501
             query_params.append(('include_parents', local_var_params['include_parents']))  # noqa: E501
+        if 'advanced_search' in local_var_params and local_var_params['advanced_search'] is not None:  # noqa: E501
+            query_params.append(('advanced_search', local_var_params['advanced_search']))  # noqa: E501
 
         header_params = {}
 
@@ -5843,6 +5855,7 @@ class MediaLibraryApi(object):
         :param bool include_effective_custom_fields:
         :param bool include_root:
         :param bool include_parents:
+        :param object advanced_search:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -5886,6 +5899,7 @@ class MediaLibraryApi(object):
         :param bool include_effective_custom_fields:
         :param bool include_root:
         :param bool include_parents:
+        :param object advanced_search:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5902,7 +5916,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['bundle', 'bundle__in', 'parent', 'path', 'name', 'is_dir', 'is_showroom', 'present', 'volume', 'shared_via_tokens', 'shared_via_tokens__token', 'ordering', 'limit', 'offset', 'resolve_file_permission', 'include_modified_by', 'include_effective_custom_fields', 'include_root', 'include_parents']  # noqa: E501
+        all_params = ['bundle', 'bundle__in', 'parent', 'path', 'name', 'is_dir', 'is_showroom', 'present', 'volume', 'shared_via_tokens', 'shared_via_tokens__token', 'ordering', 'limit', 'offset', 'resolve_file_permission', 'include_modified_by', 'include_effective_custom_fields', 'include_root', 'include_parents', 'advanced_search']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5960,6 +5974,8 @@ class MediaLibraryApi(object):
             query_params.append(('include_root', local_var_params['include_root']))  # noqa: E501
         if 'include_parents' in local_var_params and local_var_params['include_parents'] is not None:  # noqa: E501
             query_params.append(('include_parents', local_var_params['include_parents']))  # noqa: E501
+        if 'advanced_search' in local_var_params and local_var_params['advanced_search'] is not None:  # noqa: E501
+            query_params.append(('advanced_search', local_var_params['advanced_search']))  # noqa: E501
 
         header_params = {}
 
@@ -7592,6 +7608,7 @@ class MediaLibraryApi(object):
         :param int for_root:
         :param int tasks_for_user:
         :param bool include_full_asset:
+        :param object advanced_search:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7620,6 +7637,7 @@ class MediaLibraryApi(object):
         :param int for_root:
         :param int tasks_for_user:
         :param bool include_full_asset:
+        :param object advanced_search:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7636,7 +7654,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'for_root', 'tasks_for_user', 'include_full_asset']  # noqa: E501
+        all_params = ['id', 'for_root', 'tasks_for_user', 'include_full_asset', 'advanced_search']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7668,6 +7686,8 @@ class MediaLibraryApi(object):
             query_params.append(('tasks_for_user', local_var_params['tasks_for_user']))  # noqa: E501
         if 'include_full_asset' in local_var_params and local_var_params['include_full_asset'] is not None:  # noqa: E501
             query_params.append(('include_full_asset', local_var_params['include_full_asset']))  # noqa: E501
+        if 'advanced_search' in local_var_params and local_var_params['advanced_search'] is not None:  # noqa: E501
+            query_params.append(('advanced_search', local_var_params['advanced_search']))  # noqa: E501
 
         header_params = {}
 
@@ -7708,7 +7728,7 @@ class MediaLibraryApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this CustomField. (required)
+        :param int id: A unique integer value identifying this Custom field. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7733,7 +7753,7 @@ class MediaLibraryApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this CustomField. (required)
+        :param int id: A unique integer value identifying this Custom field. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8494,6 +8514,7 @@ class MediaLibraryApi(object):
         :param bool include_effective_custom_fields:
         :param bool include_root:
         :param bool include_parents:
+        :param object advanced_search:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8524,6 +8545,7 @@ class MediaLibraryApi(object):
         :param bool include_effective_custom_fields:
         :param bool include_root:
         :param bool include_parents:
+        :param object advanced_search:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8540,7 +8562,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'resolve_file_permission', 'include_modified_by', 'include_effective_custom_fields', 'include_root', 'include_parents']  # noqa: E501
+        all_params = ['id', 'resolve_file_permission', 'include_modified_by', 'include_effective_custom_fields', 'include_root', 'include_parents', 'advanced_search']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -8576,6 +8598,8 @@ class MediaLibraryApi(object):
             query_params.append(('include_root', local_var_params['include_root']))  # noqa: E501
         if 'include_parents' in local_var_params and local_var_params['include_parents'] is not None:  # noqa: E501
             query_params.append(('include_parents', local_var_params['include_parents']))  # noqa: E501
+        if 'advanced_search' in local_var_params and local_var_params['advanced_search'] is not None:  # noqa: E501
+            query_params.append(('advanced_search', local_var_params['advanced_search']))  # noqa: E501
 
         header_params = {}
 
@@ -8623,6 +8647,7 @@ class MediaLibraryApi(object):
         :param bool include_parents:
         :param int offset:
         :param int limit:
+        :param object advanced_search:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8654,6 +8679,7 @@ class MediaLibraryApi(object):
         :param bool include_parents:
         :param int offset:
         :param int limit:
+        :param object advanced_search:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8670,7 +8696,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'exclude_deleted', 'exclude_unrecognized', 'include_proxies', 'include_parents', 'offset', 'limit']  # noqa: E501
+        all_params = ['id', 'exclude_deleted', 'exclude_unrecognized', 'include_proxies', 'include_parents', 'offset', 'limit', 'advanced_search']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -8708,6 +8734,8 @@ class MediaLibraryApi(object):
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'advanced_search' in local_var_params and local_var_params['advanced_search'] is not None:  # noqa: E501
+            query_params.append(('advanced_search', local_var_params['advanced_search']))  # noqa: E501
 
         header_params = {}
 
@@ -11112,7 +11140,7 @@ class MediaLibraryApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this CustomField. (required)
+        :param int id: A unique integer value identifying this Custom field. (required)
         :param CustomFieldPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -11138,7 +11166,7 @@ class MediaLibraryApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this CustomField. (required)
+        :param int id: A unique integer value identifying this Custom field. (required)
         :param CustomFieldPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -12312,7 +12340,7 @@ class MediaLibraryApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this CustomField. (required)
+        :param int id: A unique integer value identifying this Custom field. (required)
         :param RenameCustomFieldRequest data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -12338,7 +12366,7 @@ class MediaLibraryApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this CustomField. (required)
+        :param int id: A unique integer value identifying this Custom field. (required)
         :param RenameCustomFieldRequest data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -13684,7 +13712,7 @@ class MediaLibraryApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this CustomField. (required)
+        :param int id: A unique integer value identifying this Custom field. (required)
         :param CustomField data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -13710,7 +13738,7 @@ class MediaLibraryApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this CustomField. (required)
+        :param int id: A unique integer value identifying this Custom field. (required)
         :param CustomField data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers

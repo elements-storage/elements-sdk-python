@@ -37,7 +37,7 @@ class MainApi(object):
     def apply_configuration(self, **kwargs):  # noqa: E501
         """apply_configuration  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.apply_configuration(async_req=True)
@@ -61,7 +61,7 @@ class MainApi(object):
     def apply_configuration_with_http_info(self, **kwargs):  # noqa: E501
         """apply_configuration  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.apply_configuration_with_http_info(async_req=True)

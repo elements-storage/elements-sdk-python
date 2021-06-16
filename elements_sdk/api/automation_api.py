@@ -2597,7 +2597,7 @@ class AutomationApi(object):
     def get_python_environments(self, **kwargs):  # noqa: E501
         """get_python_environments  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_python_environments(async_req=True)
@@ -2621,7 +2621,7 @@ class AutomationApi(object):
     def get_python_environments_with_http_info(self, **kwargs):  # noqa: E501
         """get_python_environments  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_python_environments_with_http_info(async_req=True)

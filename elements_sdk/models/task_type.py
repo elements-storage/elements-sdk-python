@@ -45,7 +45,8 @@ class TaskType(object):
         'superuser_only': 'bool',
         'icon_class': 'str',
         'is_available': 'bool',
-        'allow_in_jobs': 'bool'
+        'allow_in_jobs': 'bool',
+        'new_since_version': 'str'
     }
 
     attribute_map = {
@@ -63,10 +64,11 @@ class TaskType(object):
         'superuser_only': 'superuser_only',
         'icon_class': 'icon_class',
         'is_available': 'is_available',
-        'allow_in_jobs': 'allow_in_jobs'
+        'allow_in_jobs': 'allow_in_jobs',
+        'new_since_version': 'new_since_version'
     }
 
-    def __init__(self, type=None, display_name=None, display_group=None, input_type=None, abortable=None, arg_template=None, arg_types=None, required_args=None, output_names=None, output_types=None, parameters_editor_component=None, superuser_only=None, icon_class=None, is_available=None, allow_in_jobs=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=None, display_name=None, display_group=None, input_type=None, abortable=None, arg_template=None, arg_types=None, required_args=None, output_names=None, output_types=None, parameters_editor_component=None, superuser_only=None, icon_class=None, is_available=None, allow_in_jobs=None, new_since_version=None, local_vars_configuration=None):  # noqa: E501
         """TaskType - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -87,6 +89,7 @@ class TaskType(object):
         self._icon_class = None
         self._is_available = None
         self._allow_in_jobs = None
+        self._new_since_version = None
         self.discriminator = None
 
         self.type = type
@@ -107,6 +110,7 @@ class TaskType(object):
         if is_available is not None:
             self.is_available = is_available
         self.allow_in_jobs = allow_in_jobs
+        self.new_since_version = new_since_version
 
     @property
     def type(self):
@@ -204,8 +208,6 @@ class TaskType(object):
         :param input_type: The input_type of this TaskType.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and input_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `input_type`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 input_type is not None and len(input_type) < 1):
             raise ValueError("Invalid value for `input_type`, length must be greater than or equal to `1`")  # noqa: E501
@@ -253,8 +255,6 @@ class TaskType(object):
         :param arg_template: The arg_template of this TaskType.  # noqa: E501
         :type: dict(str, str)
         """
-        if self.local_vars_configuration.client_side_validation and arg_template is None:  # noqa: E501
-            raise ValueError("Invalid value for `arg_template`, must not be `None`")  # noqa: E501
 
         self._arg_template = arg_template
 
@@ -364,8 +364,6 @@ class TaskType(object):
         :param parameters_editor_component: The parameters_editor_component of this TaskType.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and parameters_editor_component is None:  # noqa: E501
-            raise ValueError("Invalid value for `parameters_editor_component`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 parameters_editor_component is not None and len(parameters_editor_component) < 1):
             raise ValueError("Invalid value for `parameters_editor_component`, length must be greater than or equal to `1`")  # noqa: E501
@@ -413,8 +411,6 @@ class TaskType(object):
         :param icon_class: The icon_class of this TaskType.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and icon_class is None:  # noqa: E501
-            raise ValueError("Invalid value for `icon_class`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 icon_class is not None and len(icon_class) < 1):
             raise ValueError("Invalid value for `icon_class`, length must be greater than or equal to `1`")  # noqa: E501
@@ -464,6 +460,30 @@ class TaskType(object):
             raise ValueError("Invalid value for `allow_in_jobs`, must not be `None`")  # noqa: E501
 
         self._allow_in_jobs = allow_in_jobs
+
+    @property
+    def new_since_version(self):
+        """Gets the new_since_version of this TaskType.  # noqa: E501
+
+
+        :return: The new_since_version of this TaskType.  # noqa: E501
+        :rtype: str
+        """
+        return self._new_since_version
+
+    @new_since_version.setter
+    def new_since_version(self, new_since_version):
+        """Sets the new_since_version of this TaskType.
+
+
+        :param new_since_version: The new_since_version of this TaskType.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                new_since_version is not None and len(new_since_version) < 1):
+            raise ValueError("Invalid value for `new_since_version`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._new_since_version = new_since_version
 
     def to_dict(self):
         """Returns the model properties as a dict"""

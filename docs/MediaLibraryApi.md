@@ -1115,7 +1115,7 @@ configuration.host = "https://elements.local"
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
-    id = 56 # int | A unique integer value identifying this CustomField.
+    id = 56 # int | A unique integer value identifying this Custom field.
 
     try:
         api_response = api_instance.delete_custom_field(id)
@@ -1129,7 +1129,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this CustomField. | 
+ **id** | **int**| A unique integer value identifying this Custom field. | 
 
 ### Return type
 
@@ -2326,7 +2326,7 @@ Name | Type | Description  | Notes
 
 # **get_all_asset_tape_backups**
 
-    def get_all_asset_tape_backups(asset=asset, ordering=ordering, limit=limit, offset=offset, include_asset=include_asset) -> list[AssetBackup] 
+    def get_all_asset_tape_backups(asset=asset, ordering=ordering, limit=limit, offset=offset, include_asset=include_asset, advanced_search=advanced_search) -> list[AssetBackup] 
 
 
 
@@ -2357,9 +2357,10 @@ ordering = 'ordering_example' # str | Which field to use when ordering the resul
 limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
 include_asset = True # bool |  (optional)
+advanced_search = None # object |  (optional)
 
     try:
-        api_response = api_instance.get_all_asset_tape_backups(asset=asset, ordering=ordering, limit=limit, offset=offset, include_asset=include_asset)
+        api_response = api_instance.get_all_asset_tape_backups(asset=asset, ordering=ordering, limit=limit, offset=offset, include_asset=include_asset, advanced_search=advanced_search)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_asset_tape_backups: %s\n" % e)
@@ -2375,6 +2376,7 @@ Name | Type | Description  | Notes
  **limit** | **int**| Number of results to return per page. | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
  **include_asset** | **bool**|  | [optional] 
+ **advanced_search** | [**object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -2586,7 +2588,7 @@ Name | Type | Description  | Notes
 
 # **get_all_comments**
 
-    def get_all_comments(asset=asset, root=root, user=user, ordering=ordering, limit=limit, offset=offset, for_root=for_root, tasks_for_user=tasks_for_user, include_full_asset=include_full_asset) -> list[Comment] 
+    def get_all_comments(asset=asset, root=root, user=user, ordering=ordering, limit=limit, offset=offset, for_root=for_root, tasks_for_user=tasks_for_user, include_full_asset=include_full_asset, advanced_search=advanced_search) -> list[Comment] 
 
 
 
@@ -2621,9 +2623,10 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 for_root = 56 # int |  (optional)
 tasks_for_user = 56 # int |  (optional)
 include_full_asset = True # bool |  (optional)
+advanced_search = None # object |  (optional)
 
     try:
-        api_response = api_instance.get_all_comments(asset=asset, root=root, user=user, ordering=ordering, limit=limit, offset=offset, for_root=for_root, tasks_for_user=tasks_for_user, include_full_asset=include_full_asset)
+        api_response = api_instance.get_all_comments(asset=asset, root=root, user=user, ordering=ordering, limit=limit, offset=offset, for_root=for_root, tasks_for_user=tasks_for_user, include_full_asset=include_full_asset, advanced_search=advanced_search)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_comments: %s\n" % e)
@@ -2643,6 +2646,7 @@ Name | Type | Description  | Notes
  **for_root** | **int**|  | [optional] 
  **tasks_for_user** | **int**|  | [optional] 
  **include_full_asset** | **bool**|  | [optional] 
+ **advanced_search** | [**object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -2834,7 +2838,7 @@ Name | Type | Description  | Notes
 
 # **get_all_media_file_bundles**
 
-    def get_all_media_file_bundles(asset=asset, location=location, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, ordering=ordering, limit=limit, offset=offset, exclude_deleted=exclude_deleted, exclude_unrecognized=exclude_unrecognized, include_proxies=include_proxies, include_parents=include_parents) -> list[MediaFileBundle] 
+    def get_all_media_file_bundles(asset=asset, location=location, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, ordering=ordering, limit=limit, offset=offset, exclude_deleted=exclude_deleted, exclude_unrecognized=exclude_unrecognized, include_proxies=include_proxies, include_parents=include_parents, advanced_search=advanced_search) -> list[MediaFileBundle] 
 
 
 
@@ -2871,9 +2875,10 @@ exclude_deleted = True # bool |  (optional)
 exclude_unrecognized = True # bool |  (optional)
 include_proxies = True # bool |  (optional)
 include_parents = True # bool |  (optional)
+advanced_search = None # object |  (optional)
 
     try:
-        api_response = api_instance.get_all_media_file_bundles(asset=asset, location=location, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, ordering=ordering, limit=limit, offset=offset, exclude_deleted=exclude_deleted, exclude_unrecognized=exclude_unrecognized, include_proxies=include_proxies, include_parents=include_parents)
+        api_response = api_instance.get_all_media_file_bundles(asset=asset, location=location, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, ordering=ordering, limit=limit, offset=offset, exclude_deleted=exclude_deleted, exclude_unrecognized=exclude_unrecognized, include_proxies=include_proxies, include_parents=include_parents, advanced_search=advanced_search)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_media_file_bundles: %s\n" % e)
@@ -2895,6 +2900,7 @@ Name | Type | Description  | Notes
  **exclude_unrecognized** | **bool**|  | [optional] 
  **include_proxies** | **bool**|  | [optional] 
  **include_parents** | **bool**|  | [optional] 
+ **advanced_search** | [**object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -2964,7 +2970,7 @@ Name | Type | Description  | Notes
 
 # **get_all_media_files**
 
-    def get_all_media_files(bundle=bundle, bundle__in=bundle__in, parent=parent, path=path, name=name, is_dir=is_dir, is_showroom=is_showroom, present=present, volume=volume, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, ordering=ordering, limit=limit, offset=offset, resolve_file_permission=resolve_file_permission, include_modified_by=include_modified_by, include_effective_custom_fields=include_effective_custom_fields, include_root=include_root, include_parents=include_parents) -> list[MediaFile] 
+    def get_all_media_files(bundle=bundle, bundle__in=bundle__in, parent=parent, path=path, name=name, is_dir=is_dir, is_showroom=is_showroom, present=present, volume=volume, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, ordering=ordering, limit=limit, offset=offset, resolve_file_permission=resolve_file_permission, include_modified_by=include_modified_by, include_effective_custom_fields=include_effective_custom_fields, include_root=include_root, include_parents=include_parents, advanced_search=advanced_search) -> list[MediaFile] 
 
 
 
@@ -3009,9 +3015,10 @@ include_modified_by = True # bool |  (optional)
 include_effective_custom_fields = True # bool |  (optional)
 include_root = True # bool |  (optional)
 include_parents = True # bool |  (optional)
+advanced_search = None # object |  (optional)
 
     try:
-        api_response = api_instance.get_all_media_files(bundle=bundle, bundle__in=bundle__in, parent=parent, path=path, name=name, is_dir=is_dir, is_showroom=is_showroom, present=present, volume=volume, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, ordering=ordering, limit=limit, offset=offset, resolve_file_permission=resolve_file_permission, include_modified_by=include_modified_by, include_effective_custom_fields=include_effective_custom_fields, include_root=include_root, include_parents=include_parents)
+        api_response = api_instance.get_all_media_files(bundle=bundle, bundle__in=bundle__in, parent=parent, path=path, name=name, is_dir=is_dir, is_showroom=is_showroom, present=present, volume=volume, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, ordering=ordering, limit=limit, offset=offset, resolve_file_permission=resolve_file_permission, include_modified_by=include_modified_by, include_effective_custom_fields=include_effective_custom_fields, include_root=include_root, include_parents=include_parents, advanced_search=advanced_search)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_media_files: %s\n" % e)
@@ -3041,6 +3048,7 @@ Name | Type | Description  | Notes
  **include_effective_custom_fields** | **bool**|  | [optional] 
  **include_root** | **bool**|  | [optional] 
  **include_parents** | **bool**|  | [optional] 
+ **advanced_search** | [**object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -3850,7 +3858,7 @@ Name | Type | Description  | Notes
 
 # **get_comment**
 
-    def get_comment(id, for_root=for_root, tasks_for_user=tasks_for_user, include_full_asset=include_full_asset) -> Comment 
+    def get_comment(id, for_root=for_root, tasks_for_user=tasks_for_user, include_full_asset=include_full_asset, advanced_search=advanced_search) -> Comment 
 
 
 
@@ -3880,9 +3888,10 @@ with elements_sdk.ApiClient(configuration) as api_client:
 for_root = 56 # int |  (optional)
 tasks_for_user = 56 # int |  (optional)
 include_full_asset = True # bool |  (optional)
+advanced_search = None # object |  (optional)
 
     try:
-        api_response = api_instance.get_comment(id, for_root=for_root, tasks_for_user=tasks_for_user, include_full_asset=include_full_asset)
+        api_response = api_instance.get_comment(id, for_root=for_root, tasks_for_user=tasks_for_user, include_full_asset=include_full_asset, advanced_search=advanced_search)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_comment: %s\n" % e)
@@ -3897,6 +3906,7 @@ Name | Type | Description  | Notes
  **for_root** | **int**|  | [optional] 
  **tasks_for_user** | **int**|  | [optional] 
  **include_full_asset** | **bool**|  | [optional] 
+ **advanced_search** | [**object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -3935,7 +3945,7 @@ configuration.host = "https://elements.local"
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
-    id = 56 # int | A unique integer value identifying this CustomField.
+    id = 56 # int | A unique integer value identifying this Custom field.
 
     try:
         api_response = api_instance.get_custom_field(id)
@@ -3949,7 +3959,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this CustomField. | 
+ **id** | **int**| A unique integer value identifying this Custom field. | 
 
 ### Return type
 
@@ -4292,7 +4302,7 @@ Name | Type | Description  | Notes
 
 # **get_media_file**
 
-    def get_media_file(id, resolve_file_permission=resolve_file_permission, include_modified_by=include_modified_by, include_effective_custom_fields=include_effective_custom_fields, include_root=include_root, include_parents=include_parents) -> MediaFile 
+    def get_media_file(id, resolve_file_permission=resolve_file_permission, include_modified_by=include_modified_by, include_effective_custom_fields=include_effective_custom_fields, include_root=include_root, include_parents=include_parents, advanced_search=advanced_search) -> MediaFile 
 
 
 
@@ -4324,9 +4334,10 @@ include_modified_by = True # bool |  (optional)
 include_effective_custom_fields = True # bool |  (optional)
 include_root = True # bool |  (optional)
 include_parents = True # bool |  (optional)
+advanced_search = None # object |  (optional)
 
     try:
-        api_response = api_instance.get_media_file(id, resolve_file_permission=resolve_file_permission, include_modified_by=include_modified_by, include_effective_custom_fields=include_effective_custom_fields, include_root=include_root, include_parents=include_parents)
+        api_response = api_instance.get_media_file(id, resolve_file_permission=resolve_file_permission, include_modified_by=include_modified_by, include_effective_custom_fields=include_effective_custom_fields, include_root=include_root, include_parents=include_parents, advanced_search=advanced_search)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_media_file: %s\n" % e)
@@ -4343,6 +4354,7 @@ Name | Type | Description  | Notes
  **include_effective_custom_fields** | **bool**|  | [optional] 
  **include_root** | **bool**|  | [optional] 
  **include_parents** | **bool**|  | [optional] 
+ **advanced_search** | [**object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -4355,7 +4367,7 @@ Name | Type | Description  | Notes
 
 # **get_media_file_bundle**
 
-    def get_media_file_bundle(id, exclude_deleted=exclude_deleted, exclude_unrecognized=exclude_unrecognized, include_proxies=include_proxies, include_parents=include_parents, offset=offset, limit=limit) -> MediaFileBundle 
+    def get_media_file_bundle(id, exclude_deleted=exclude_deleted, exclude_unrecognized=exclude_unrecognized, include_proxies=include_proxies, include_parents=include_parents, offset=offset, limit=limit, advanced_search=advanced_search) -> MediaFileBundle 
 
 
 
@@ -4388,9 +4400,10 @@ include_proxies = True # bool |  (optional)
 include_parents = True # bool |  (optional)
 offset = 56 # int |  (optional)
 limit = 56 # int |  (optional)
+advanced_search = None # object |  (optional)
 
     try:
-        api_response = api_instance.get_media_file_bundle(id, exclude_deleted=exclude_deleted, exclude_unrecognized=exclude_unrecognized, include_proxies=include_proxies, include_parents=include_parents, offset=offset, limit=limit)
+        api_response = api_instance.get_media_file_bundle(id, exclude_deleted=exclude_deleted, exclude_unrecognized=exclude_unrecognized, include_proxies=include_proxies, include_parents=include_parents, offset=offset, limit=limit, advanced_search=advanced_search)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MediaLibraryApi->get_media_file_bundle: %s\n" % e)
@@ -4408,6 +4421,7 @@ Name | Type | Description  | Notes
  **include_parents** | **bool**|  | [optional] 
  **offset** | **int**|  | [optional] 
  **limit** | **int**|  | [optional] 
+ **advanced_search** | [**object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -5593,7 +5607,7 @@ configuration.host = "https://elements.local"
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
-    id = 56 # int | A unique integer value identifying this CustomField.
+    id = 56 # int | A unique integer value identifying this Custom field.
 data = elements_sdk.CustomFieldPartialUpdate() # CustomFieldPartialUpdate | 
 
     try:
@@ -5608,7 +5622,7 @@ data = elements_sdk.CustomFieldPartialUpdate() # CustomFieldPartialUpdate |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this CustomField. | 
+ **id** | **int**| A unique integer value identifying this Custom field. | 
  **data** | [**CustomFieldPartialUpdate**](CustomFieldPartialUpdate.md)|  | 
 
 ### Return type
@@ -6143,7 +6157,7 @@ configuration.host = "https://elements.local"
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
-    id = 56 # int | A unique integer value identifying this CustomField.
+    id = 56 # int | A unique integer value identifying this Custom field.
 data = elements_sdk.RenameCustomFieldRequest() # RenameCustomFieldRequest | 
 
     try:
@@ -6158,7 +6172,7 @@ data = elements_sdk.RenameCustomFieldRequest() # RenameCustomFieldRequest |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this CustomField. | 
+ **id** | **int**| A unique integer value identifying this Custom field. | 
  **data** | [**RenameCustomFieldRequest**](RenameCustomFieldRequest.md)|  | 
 
 ### Return type
@@ -6789,7 +6803,7 @@ configuration.host = "https://elements.local"
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = elements_sdk.MediaLibraryApi(api_client)
-    id = 56 # int | A unique integer value identifying this CustomField.
+    id = 56 # int | A unique integer value identifying this Custom field.
 data = elements_sdk.CustomField() # CustomField | 
 
     try:
@@ -6804,7 +6818,7 @@ data = elements_sdk.CustomField() # CustomField |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this CustomField. | 
+ **id** | **int**| A unique integer value identifying this Custom field. | 
  **data** | [**CustomField**](CustomField.md)|  | 
 
 ### Return type

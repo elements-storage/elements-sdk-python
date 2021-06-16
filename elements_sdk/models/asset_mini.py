@@ -34,7 +34,7 @@ class AssetMini(object):
         'id': 'int',
         'sync_id': 'str',
         'default_proxy': 'Proxy',
-        'urls': 'Proxy',
+        'urls': 'dict(str, str)',
         'type': 'str',
         'display_name': 'str',
         'info': 'str',
@@ -154,7 +154,7 @@ class AssetMini(object):
 
 
         :return: The urls of this AssetMini.  # noqa: E501
-        :rtype: Proxy
+        :rtype: dict(str, str)
         """
         return self._urls
 
@@ -164,7 +164,7 @@ class AssetMini(object):
 
 
         :param urls: The urls of this AssetMini.  # noqa: E501
-        :type: Proxy
+        :type: dict(str, str)
         """
 
         self._urls = urls

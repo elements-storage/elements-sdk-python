@@ -357,7 +357,7 @@ class AuthApi(object):
     def generate_password(self, **kwargs):  # noqa: E501
         """generate_password  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.generate_password(async_req=True)
@@ -381,7 +381,7 @@ class AuthApi(object):
     def generate_password_with_http_info(self, **kwargs):  # noqa: E501
         """generate_password  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.generate_password_with_http_info(async_req=True)

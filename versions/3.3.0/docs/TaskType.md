@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **icon_class** | **str** |  | 
 **is_available** | **bool** |  | [optional] [readonly] 
 **allow_in_jobs** | **bool** |  | 
+**new_since_version** | **str** |  | 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 

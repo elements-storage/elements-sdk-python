@@ -1325,7 +1325,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * User account permission: `tasks:manage` 
 
 ### Example
 

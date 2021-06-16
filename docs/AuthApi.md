@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+### Required permissions    * Authenticated user 
 
 ### Example
 

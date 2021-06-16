@@ -32,7 +32,7 @@ class Asset(object):
     """
     openapi_types = {
         'id': 'int',
-        'urls': 'Proxy',
+        'urls': 'dict(str, str)',
         'proxies': 'list[Proxy]',
         'default_proxy': 'Proxy',
         'info': 'dict(str, str)',
@@ -40,7 +40,7 @@ class Asset(object):
         'custom_fields': 'dict(str, str)',
         'tags': 'list[Tag]',
         'resolved_permission': 'MediaRootPermission',
-        'bundles': 'str',
+        'bundles': 'list[dict(str, str)]',
         'backups': 'str',
         'proxies_generated': 'bool',
         'proxies_failed': 'bool',
@@ -214,7 +214,7 @@ class Asset(object):
 
 
         :return: The urls of this Asset.  # noqa: E501
-        :rtype: Proxy
+        :rtype: dict(str, str)
         """
         return self._urls
 
@@ -224,7 +224,7 @@ class Asset(object):
 
 
         :param urls: The urls of this Asset.  # noqa: E501
-        :type: Proxy
+        :type: dict(str, str)
         """
 
         self._urls = urls
@@ -386,7 +386,7 @@ class Asset(object):
 
 
         :return: The bundles of this Asset.  # noqa: E501
-        :rtype: str
+        :rtype: list[dict(str, str)]
         """
         return self._bundles
 
@@ -396,7 +396,7 @@ class Asset(object):
 
 
         :param bundles: The bundles of this Asset.  # noqa: E501
-        :type: str
+        :type: list[dict(str, str)]
         """
 
         self._bundles = bundles

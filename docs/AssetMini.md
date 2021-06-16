@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] [readonly] 
 **sync_id** | **str** |  | [optional] [readonly] 
 **default_proxy** | [**Proxy**](Proxy.md) |  | [optional] 
-**urls** | [**Proxy**](Proxy.md) |  | [optional] 
+**urls** | **dict(str, str)** |  | [optional] [readonly] 
 **type** | **str** |  | [optional] [readonly] 
 **display_name** | **str** |  | [optional] [readonly] 
 **info** | **str** |  | [optional] [readonly] 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] [readonly] 
-**urls** | [**Proxy**](Proxy.md) |  | [optional] 
+**urls** | **dict(str, str)** |  | [optional] [readonly] 
 **proxies** | [**list[Proxy]**](Proxy.md) |  | [optional] [readonly] 
 **default_proxy** | [**Proxy**](Proxy.md) |  | [optional] 
 **info** | **dict(str, str)** |  | [optional] [readonly] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **custom_fields** | **dict(str, str)** |  | 
 **tags** | [**list[Tag]**](Tag.md) |  | 
 **resolved_permission** | [**MediaRootPermission**](MediaRootPermission.md) |  | [optional] 
-**bundles** | **str** |  | [optional] [readonly] 
+**bundles** | **list[dict(str, str)]** |  | [optional] [readonly] 
 **backups** | **str** |  | [optional] [readonly] 
 **proxies_generated** | **bool** |  | [optional] [readonly] 
 **proxies_failed** | **bool** |  | [optional] [readonly] 
