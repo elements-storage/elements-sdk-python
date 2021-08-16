@@ -133,6 +133,7 @@ docs/PasswordResetEndpointRequest.md
 docs/Path.md
 docs/PathInput.md
 docs/Production.md
+docs/ProductionMini.md
 docs/ProductionPartialUpdate.md
 docs/Proxy.md
 docs/ProxyCount.md
@@ -244,9 +245,10 @@ docs/WorkflowTransitionRequest.md
 docs/WorkflowTransitionResponse.md
 docs/Workspace.md
 docs/WorkspaceCheckIn.md
+docs/WorkspaceDetail.md
+docs/WorkspaceDetailPartialUpdate.md
 docs/WorkspaceEndpoint.md
 docs/WorkspaceMoveToRequest.md
-docs/WorkspacePartialUpdate.md
 docs/WorkspacePermission.md
 docs/WorkspacePermissionPartialUpdate.md
 docs/WorkspaceResolvedPermission.md
@@ -392,6 +394,7 @@ elements_sdk/models/password_reset_endpoint_request.py
 elements_sdk/models/path.py
 elements_sdk/models/path_input.py
 elements_sdk/models/production.py
+elements_sdk/models/production_mini.py
 elements_sdk/models/production_partial_update.py
 elements_sdk/models/proxy.py
 elements_sdk/models/proxy_count.py
@@ -500,9 +503,10 @@ elements_sdk/models/workflow_transition_request.py
 elements_sdk/models/workflow_transition_response.py
 elements_sdk/models/workspace.py
 elements_sdk/models/workspace_check_in.py
+elements_sdk/models/workspace_detail.py
+elements_sdk/models/workspace_detail_partial_update.py
 elements_sdk/models/workspace_endpoint.py
 elements_sdk/models/workspace_move_to_request.py
-elements_sdk/models/workspace_partial_update.py
 elements_sdk/models/workspace_permission.py
 elements_sdk/models/workspace_permission_partial_update.py
 elements_sdk/models/workspace_resolved_permission.py

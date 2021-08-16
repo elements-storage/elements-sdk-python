@@ -287,12 +287,6 @@ class ProxyProfilePartialUpdate(object):
         :param crf: The crf of this ProxyProfilePartialUpdate.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                crf is not None and crf > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `crf`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                crf is not None and crf < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `crf`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._crf = crf
 
@@ -314,12 +308,6 @@ class ProxyProfilePartialUpdate(object):
         :param bitrate: The bitrate of this ProxyProfilePartialUpdate.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                bitrate is not None and bitrate > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `bitrate`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                bitrate is not None and bitrate < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `bitrate`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._bitrate = bitrate
 
@@ -341,12 +329,6 @@ class ProxyProfilePartialUpdate(object):
         :param audio_bitrate: The audio_bitrate of this ProxyProfilePartialUpdate.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                audio_bitrate is not None and audio_bitrate > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `audio_bitrate`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                audio_bitrate is not None and audio_bitrate < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `audio_bitrate`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._audio_bitrate = audio_bitrate
 
@@ -368,12 +350,6 @@ class ProxyProfilePartialUpdate(object):
         :param variants_limit: The variants_limit of this ProxyProfilePartialUpdate.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                variants_limit is not None and variants_limit > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `variants_limit`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                variants_limit is not None and variants_limit < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `variants_limit`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._variants_limit = variants_limit
 
@@ -698,12 +674,6 @@ class ProxyProfilePartialUpdate(object):
         :param hotfolder_queue_timeout: The hotfolder_queue_timeout of this ProxyProfilePartialUpdate.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                hotfolder_queue_timeout is not None and hotfolder_queue_timeout > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `hotfolder_queue_timeout`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                hotfolder_queue_timeout is not None and hotfolder_queue_timeout < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `hotfolder_queue_timeout`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._hotfolder_queue_timeout = hotfolder_queue_timeout
 
@@ -725,12 +695,6 @@ class ProxyProfilePartialUpdate(object):
         :param hotfolder_encode_timeout: The hotfolder_encode_timeout of this ProxyProfilePartialUpdate.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                hotfolder_encode_timeout is not None and hotfolder_encode_timeout > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `hotfolder_encode_timeout`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                hotfolder_encode_timeout is not None and hotfolder_encode_timeout < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `hotfolder_encode_timeout`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._hotfolder_encode_timeout = hotfolder_encode_timeout
 

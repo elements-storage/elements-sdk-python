@@ -206,12 +206,6 @@ class SchedulePartialUpdate(object):
         :param every: The every of this SchedulePartialUpdate.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                every is not None and every > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `every`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                every is not None and every < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `every`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._every = every
 

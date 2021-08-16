@@ -501,12 +501,6 @@ class Parameters(object):
         :param icap_port: The icap_port of this Parameters.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                icap_port is not None and icap_port > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `icap_port`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                icap_port is not None and icap_port < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `icap_port`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._icap_port = icap_port
 
@@ -965,12 +959,6 @@ class Parameters(object):
         :param smtp_port: The smtp_port of this Parameters.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                smtp_port is not None and smtp_port > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `smtp_port`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                smtp_port is not None and smtp_port < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `smtp_port`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._smtp_port = smtp_port
 
@@ -1091,12 +1079,6 @@ class Parameters(object):
         :param tasks_limit: The tasks_limit of this Parameters.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                tasks_limit is not None and tasks_limit > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `tasks_limit`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                tasks_limit is not None and tasks_limit < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `tasks_limit`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._tasks_limit = tasks_limit
 
@@ -1118,12 +1100,6 @@ class Parameters(object):
         :param tasks_hard_limit: The tasks_hard_limit of this Parameters.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                tasks_hard_limit is not None and tasks_hard_limit > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `tasks_hard_limit`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                tasks_hard_limit is not None and tasks_hard_limit < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `tasks_hard_limit`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._tasks_hard_limit = tasks_hard_limit
 

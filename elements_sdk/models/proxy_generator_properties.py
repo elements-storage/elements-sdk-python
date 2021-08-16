@@ -77,17 +77,28 @@ class ProxyGeneratorProperties(object):
         self._supports_staging_path = None
         self.discriminator = None
 
-        self.supports_video_bitrate = supports_video_bitrate
-        self.supports_video_crf = supports_video_crf
-        self.supports_video_vbr = supports_video_vbr
-        self.supports_audio_bitrate = supports_audio_bitrate
-        self.supports_lut = supports_lut
-        self.supports_resolution = supports_resolution
-        self.supports_watermark = supports_watermark
-        self.supports_timecode_burn_in = supports_timecode_burn_in
-        self.supports_audio_channels = supports_audio_channels
-        self.supports_realtime_read = supports_realtime_read
-        self.supports_staging_path = supports_staging_path
+        if supports_video_bitrate is not None:
+            self.supports_video_bitrate = supports_video_bitrate
+        if supports_video_crf is not None:
+            self.supports_video_crf = supports_video_crf
+        if supports_video_vbr is not None:
+            self.supports_video_vbr = supports_video_vbr
+        if supports_audio_bitrate is not None:
+            self.supports_audio_bitrate = supports_audio_bitrate
+        if supports_lut is not None:
+            self.supports_lut = supports_lut
+        if supports_resolution is not None:
+            self.supports_resolution = supports_resolution
+        if supports_watermark is not None:
+            self.supports_watermark = supports_watermark
+        if supports_timecode_burn_in is not None:
+            self.supports_timecode_burn_in = supports_timecode_burn_in
+        if supports_audio_channels is not None:
+            self.supports_audio_channels = supports_audio_channels
+        if supports_realtime_read is not None:
+            self.supports_realtime_read = supports_realtime_read
+        if supports_staging_path is not None:
+            self.supports_staging_path = supports_staging_path
 
     @property
     def supports_video_bitrate(self):
@@ -107,8 +118,6 @@ class ProxyGeneratorProperties(object):
         :param supports_video_bitrate: The supports_video_bitrate of this ProxyGeneratorProperties.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and supports_video_bitrate is None:  # noqa: E501
-            raise ValueError("Invalid value for `supports_video_bitrate`, must not be `None`")  # noqa: E501
 
         self._supports_video_bitrate = supports_video_bitrate
 
@@ -130,8 +139,6 @@ class ProxyGeneratorProperties(object):
         :param supports_video_crf: The supports_video_crf of this ProxyGeneratorProperties.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and supports_video_crf is None:  # noqa: E501
-            raise ValueError("Invalid value for `supports_video_crf`, must not be `None`")  # noqa: E501
 
         self._supports_video_crf = supports_video_crf
 
@@ -153,8 +160,6 @@ class ProxyGeneratorProperties(object):
         :param supports_video_vbr: The supports_video_vbr of this ProxyGeneratorProperties.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and supports_video_vbr is None:  # noqa: E501
-            raise ValueError("Invalid value for `supports_video_vbr`, must not be `None`")  # noqa: E501
 
         self._supports_video_vbr = supports_video_vbr
 
@@ -176,8 +181,6 @@ class ProxyGeneratorProperties(object):
         :param supports_audio_bitrate: The supports_audio_bitrate of this ProxyGeneratorProperties.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and supports_audio_bitrate is None:  # noqa: E501
-            raise ValueError("Invalid value for `supports_audio_bitrate`, must not be `None`")  # noqa: E501
 
         self._supports_audio_bitrate = supports_audio_bitrate
 
@@ -199,8 +202,6 @@ class ProxyGeneratorProperties(object):
         :param supports_lut: The supports_lut of this ProxyGeneratorProperties.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and supports_lut is None:  # noqa: E501
-            raise ValueError("Invalid value for `supports_lut`, must not be `None`")  # noqa: E501
 
         self._supports_lut = supports_lut
 
@@ -222,8 +223,6 @@ class ProxyGeneratorProperties(object):
         :param supports_resolution: The supports_resolution of this ProxyGeneratorProperties.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and supports_resolution is None:  # noqa: E501
-            raise ValueError("Invalid value for `supports_resolution`, must not be `None`")  # noqa: E501
 
         self._supports_resolution = supports_resolution
 
@@ -245,8 +244,6 @@ class ProxyGeneratorProperties(object):
         :param supports_watermark: The supports_watermark of this ProxyGeneratorProperties.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and supports_watermark is None:  # noqa: E501
-            raise ValueError("Invalid value for `supports_watermark`, must not be `None`")  # noqa: E501
 
         self._supports_watermark = supports_watermark
 
@@ -268,8 +265,6 @@ class ProxyGeneratorProperties(object):
         :param supports_timecode_burn_in: The supports_timecode_burn_in of this ProxyGeneratorProperties.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and supports_timecode_burn_in is None:  # noqa: E501
-            raise ValueError("Invalid value for `supports_timecode_burn_in`, must not be `None`")  # noqa: E501
 
         self._supports_timecode_burn_in = supports_timecode_burn_in
 
@@ -291,8 +286,6 @@ class ProxyGeneratorProperties(object):
         :param supports_audio_channels: The supports_audio_channels of this ProxyGeneratorProperties.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and supports_audio_channels is None:  # noqa: E501
-            raise ValueError("Invalid value for `supports_audio_channels`, must not be `None`")  # noqa: E501
 
         self._supports_audio_channels = supports_audio_channels
 
@@ -314,8 +307,6 @@ class ProxyGeneratorProperties(object):
         :param supports_realtime_read: The supports_realtime_read of this ProxyGeneratorProperties.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and supports_realtime_read is None:  # noqa: E501
-            raise ValueError("Invalid value for `supports_realtime_read`, must not be `None`")  # noqa: E501
 
         self._supports_realtime_read = supports_realtime_read
 
@@ -337,8 +328,6 @@ class ProxyGeneratorProperties(object):
         :param supports_staging_path: The supports_staging_path of this ProxyGeneratorProperties.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and supports_staging_path is None:  # noqa: E501
-            raise ValueError("Invalid value for `supports_staging_path`, must not be `None`")  # noqa: E501
 
         self._supports_staging_path = supports_staging_path
 

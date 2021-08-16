@@ -325,12 +325,6 @@ class Subtask(object):
         :param timeout: The timeout of this Subtask.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                timeout is not None and timeout > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `timeout`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                timeout is not None and timeout < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `timeout`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._timeout = timeout
 

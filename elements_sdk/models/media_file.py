@@ -41,7 +41,6 @@ class MediaFile(object):
         'effective_custom_fields': 'dict(str, str)',
         'modified_by': 'ElementsUserMini',
         'full_path': 'str',
-        'search_highlight': 'str',
         'is_shared': 'bool',
         'is_excluded': 'bool',
         'is_hardlink': 'bool',
@@ -72,7 +71,6 @@ class MediaFile(object):
         'effective_custom_fields': 'effective_custom_fields',
         'modified_by': 'modified_by',
         'full_path': 'full_path',
-        'search_highlight': 'search_highlight',
         'is_shared': 'is_shared',
         'is_excluded': 'is_excluded',
         'is_hardlink': 'is_hardlink',
@@ -92,7 +90,7 @@ class MediaFile(object):
         'bundle': 'bundle'
     }
 
-    def __init__(self, id=None, volume=None, info=None, custom_fields=None, resolved_permission=None, parent_file=None, root=None, effective_custom_fields=None, modified_by=None, full_path=None, search_highlight=None, is_shared=None, is_excluded=None, is_hardlink=None, name=None, path=None, pathhash=None, is_dir=None, total_files=None, size=None, mtime=None, present=None, needs_rescan=None, is_showroom=None, bundle_index=None, modified=None, parent=None, bundle=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, volume=None, info=None, custom_fields=None, resolved_permission=None, parent_file=None, root=None, effective_custom_fields=None, modified_by=None, full_path=None, is_shared=None, is_excluded=None, is_hardlink=None, name=None, path=None, pathhash=None, is_dir=None, total_files=None, size=None, mtime=None, present=None, needs_rescan=None, is_showroom=None, bundle_index=None, modified=None, parent=None, bundle=None, local_vars_configuration=None):  # noqa: E501
         """MediaFile - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -108,7 +106,6 @@ class MediaFile(object):
         self._effective_custom_fields = None
         self._modified_by = None
         self._full_path = None
-        self._search_highlight = None
         self._is_shared = None
         self._is_excluded = None
         self._is_hardlink = None
@@ -148,8 +145,6 @@ class MediaFile(object):
             self.modified_by = modified_by
         if full_path is not None:
             self.full_path = full_path
-        if search_highlight is not None:
-            self.search_highlight = search_highlight
         if is_shared is not None:
             self.is_shared = is_shared
         if is_excluded is not None:
@@ -395,27 +390,6 @@ class MediaFile(object):
         self._full_path = full_path
 
     @property
-    def search_highlight(self):
-        """Gets the search_highlight of this MediaFile.  # noqa: E501
-
-
-        :return: The search_highlight of this MediaFile.  # noqa: E501
-        :rtype: str
-        """
-        return self._search_highlight
-
-    @search_highlight.setter
-    def search_highlight(self, search_highlight):
-        """Sets the search_highlight of this MediaFile.
-
-
-        :param search_highlight: The search_highlight of this MediaFile.  # noqa: E501
-        :type: str
-        """
-
-        self._search_highlight = search_highlight
-
-    @property
     def is_shared(self):
         """Gets the is_shared of this MediaFile.  # noqa: E501
 
@@ -589,12 +563,6 @@ class MediaFile(object):
         :param total_files: The total_files of this MediaFile.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                total_files is not None and total_files > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `total_files`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                total_files is not None and total_files < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `total_files`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._total_files = total_files
 

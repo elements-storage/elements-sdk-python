@@ -206,12 +206,6 @@ class CustomFieldPartialUpdate(object):
         :param order: The order of this CustomFieldPartialUpdate.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                order is not None and order > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `order`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                order is not None and order < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `order`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._order = order
 
@@ -377,12 +371,6 @@ class CustomFieldPartialUpdate(object):
         :param range_min: The range_min of this CustomFieldPartialUpdate.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                range_min is not None and range_min > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `range_min`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                range_min is not None and range_min < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `range_min`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._range_min = range_min
 
@@ -404,12 +392,6 @@ class CustomFieldPartialUpdate(object):
         :param range_max: The range_max of this CustomFieldPartialUpdate.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                range_max is not None and range_max > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `range_max`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                range_max is not None and range_max < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `range_max`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._range_max = range_max
 
@@ -431,12 +413,6 @@ class CustomFieldPartialUpdate(object):
         :param number_of_digits: The number_of_digits of this CustomFieldPartialUpdate.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                number_of_digits is not None and number_of_digits > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `number_of_digits`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                number_of_digits is not None and number_of_digits < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `number_of_digits`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._number_of_digits = number_of_digits
 

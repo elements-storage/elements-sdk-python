@@ -855,12 +855,6 @@ class MediaRoot(object):
         :param share_link_duration: The share_link_duration of this MediaRoot.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                share_link_duration is not None and share_link_duration > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `share_link_duration`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                share_link_duration is not None and share_link_duration < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `share_link_duration`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._share_link_duration = share_link_duration
 

@@ -1288,7 +1288,7 @@ class StorageApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Workspace data: (required)
+        :param WorkspaceDetail data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1296,7 +1296,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Workspace
+        :return: WorkspaceDetail
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1313,7 +1313,7 @@ class StorageApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Workspace data: (required)
+        :param WorkspaceDetail data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1323,7 +1323,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Workspace, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(WorkspaceDetail, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1382,7 +1382,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Workspace',  # noqa: E501
+            response_type='WorkspaceDetail',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2397,6 +2397,7 @@ class StorageApi(object):
         :param str volume__type: Filter the returned list by `volume__type`.
         :param str production__name: Filter the returned list by `production__name`.
         :param str production__active: Filter the returned list by `production__active`.
+        :param str active: Filter the returned list by `active`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -2431,6 +2432,7 @@ class StorageApi(object):
         :param str volume__type: Filter the returned list by `volume__type`.
         :param str production__name: Filter the returned list by `production__name`.
         :param str production__active: Filter the returned list by `production__active`.
+        :param str active: Filter the returned list by `active`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -2450,7 +2452,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['is_template', 'production', 'volume', 'home_for', 'volume__type', 'production__name', 'production__active', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['is_template', 'production', 'volume', 'home_for', 'volume__type', 'production__name', 'production__active', 'active', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2484,6 +2486,8 @@ class StorageApi(object):
             query_params.append(('production__name', local_var_params['production__name']))  # noqa: E501
         if 'production__active' in local_var_params and local_var_params['production__active'] is not None:  # noqa: E501
             query_params.append(('production__active', local_var_params['production__active']))  # noqa: E501
+        if 'active' in local_var_params and local_var_params['active'] is not None:  # noqa: E501
+            query_params.append(('active', local_var_params['active']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -3149,6 +3153,7 @@ class StorageApi(object):
         :param str volume__type: Filter the returned list by `volume__type`.
         :param str production__name: Filter the returned list by `production__name`.
         :param str production__active: Filter the returned list by `production__active`.
+        :param str active: Filter the returned list by `active`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -3186,6 +3191,7 @@ class StorageApi(object):
         :param str volume__type: Filter the returned list by `volume__type`.
         :param str production__name: Filter the returned list by `production__name`.
         :param str production__active: Filter the returned list by `production__active`.
+        :param str active: Filter the returned list by `active`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -3208,7 +3214,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['is_template', 'production', 'volume', 'home_for', 'volume__type', 'production__name', 'production__active', 'ordering', 'limit', 'offset', 'resolve_access_for', 'include_endpoints', 'include_quotas']  # noqa: E501
+        all_params = ['is_template', 'production', 'volume', 'home_for', 'volume__type', 'production__name', 'production__active', 'active', 'ordering', 'limit', 'offset', 'resolve_access_for', 'include_endpoints', 'include_quotas']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3242,6 +3248,8 @@ class StorageApi(object):
             query_params.append(('production__name', local_var_params['production__name']))  # noqa: E501
         if 'production__active' in local_var_params and local_var_params['production__active'] is not None:  # noqa: E501
             query_params.append(('production__active', local_var_params['production__active']))  # noqa: E501
+        if 'active' in local_var_params and local_var_params['active'] is not None:  # noqa: E501
+            query_params.append(('active', local_var_params['active']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -3535,6 +3543,7 @@ class StorageApi(object):
         :param str volume__type: Filter the returned list by `volume__type`.
         :param str production__name: Filter the returned list by `production__name`.
         :param str production__active: Filter the returned list by `production__active`.
+        :param str active: Filter the returned list by `active`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -3569,6 +3578,7 @@ class StorageApi(object):
         :param str volume__type: Filter the returned list by `volume__type`.
         :param str production__name: Filter the returned list by `production__name`.
         :param str production__active: Filter the returned list by `production__active`.
+        :param str active: Filter the returned list by `active`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -3588,7 +3598,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['is_template', 'production', 'volume', 'home_for', 'volume__type', 'production__name', 'production__active', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['is_template', 'production', 'volume', 'home_for', 'volume__type', 'production__name', 'production__active', 'active', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3622,6 +3632,8 @@ class StorageApi(object):
             query_params.append(('production__name', local_var_params['production__name']))  # noqa: E501
         if 'production__active' in local_var_params and local_var_params['production__active'] is not None:  # noqa: E501
             query_params.append(('production__active', local_var_params['production__active']))  # noqa: E501
+        if 'active' in local_var_params and local_var_params['active'] is not None:  # noqa: E501
+            query_params.append(('active', local_var_params['active']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -4788,7 +4800,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Workspace
+        :return: WorkspaceDetail
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4815,7 +4827,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Workspace, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(WorkspaceDetail, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4870,7 +4882,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Workspace',  # noqa: E501
+            response_type='WorkspaceDetail',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5959,7 +5971,7 @@ class StorageApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
-        :param WorkspacePartialUpdate data: (required)
+        :param WorkspaceDetailPartialUpdate data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -5967,7 +5979,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Workspace
+        :return: WorkspaceDetail
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5985,7 +5997,7 @@ class StorageApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
-        :param WorkspacePartialUpdate data: (required)
+        :param WorkspaceDetailPartialUpdate data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5995,7 +6007,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Workspace, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(WorkspaceDetail, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6060,7 +6072,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Workspace',  # noqa: E501
+            response_type='WorkspaceDetail',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7391,7 +7403,7 @@ class StorageApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
-        :param Workspace data: (required)
+        :param WorkspaceDetail data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7399,7 +7411,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Workspace
+        :return: WorkspaceDetail
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7417,7 +7429,7 @@ class StorageApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
-        :param Workspace data: (required)
+        :param WorkspaceDetail data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7427,7 +7439,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Workspace, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(WorkspaceDetail, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7492,7 +7504,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Workspace',  # noqa: E501
+            response_type='WorkspaceDetail',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

@@ -586,12 +586,6 @@ class ElementsUser(object):
         :param gid: The gid of this ElementsUser.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                gid is not None and gid > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `gid`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                gid is not None and gid < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `gid`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._gid = gid
 
@@ -897,12 +891,6 @@ class ElementsUser(object):
         :param shaper_ceiling: The shaper_ceiling of this ElementsUser.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                shaper_ceiling is not None and shaper_ceiling > 9223372036854775807):  # noqa: E501
-            raise ValueError("Invalid value for `shaper_ceiling`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                shaper_ceiling is not None and shaper_ceiling < -9223372036854775808):  # noqa: E501
-            raise ValueError("Invalid value for `shaper_ceiling`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
 
         self._shaper_ceiling = shaper_ceiling
 
@@ -924,12 +912,6 @@ class ElementsUser(object):
         :param shaper_rate: The shaper_rate of this ElementsUser.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                shaper_rate is not None and shaper_rate > 9223372036854775807):  # noqa: E501
-            raise ValueError("Invalid value for `shaper_rate`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                shaper_rate is not None and shaper_rate < -9223372036854775808):  # noqa: E501
-            raise ValueError("Invalid value for `shaper_rate`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
 
         self._shaper_rate = shaper_rate
 
@@ -993,12 +975,6 @@ class ElementsUser(object):
         :param uid: The uid of this ElementsUser.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                uid is not None and uid > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `uid`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                uid is not None and uid < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `uid`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._uid = uid
 

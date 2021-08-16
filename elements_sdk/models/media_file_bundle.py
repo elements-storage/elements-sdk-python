@@ -35,7 +35,6 @@ class MediaFileBundle(object):
         'asset': 'Asset',
         'mainfile': 'MediaFileMini',
         'snm_attributes': 'StornextManagerAttributes',
-        'search_highlight': 'str',
         'is_shared': 'bool',
         'name': 'str',
         'location': 'int',
@@ -47,14 +46,13 @@ class MediaFileBundle(object):
         'asset': 'asset',
         'mainfile': 'mainfile',
         'snm_attributes': 'snm_attributes',
-        'search_highlight': 'search_highlight',
         'is_shared': 'is_shared',
         'name': 'name',
         'location': 'location',
         'shared_via_tokens': 'shared_via_tokens'
     }
 
-    def __init__(self, id=None, asset=None, mainfile=None, snm_attributes=None, search_highlight=None, is_shared=None, name=None, location=None, shared_via_tokens=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, asset=None, mainfile=None, snm_attributes=None, is_shared=None, name=None, location=None, shared_via_tokens=None, local_vars_configuration=None):  # noqa: E501
         """MediaFileBundle - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -64,7 +62,6 @@ class MediaFileBundle(object):
         self._asset = None
         self._mainfile = None
         self._snm_attributes = None
-        self._search_highlight = None
         self._is_shared = None
         self._name = None
         self._location = None
@@ -79,8 +76,6 @@ class MediaFileBundle(object):
             self.mainfile = mainfile
         if snm_attributes is not None:
             self.snm_attributes = snm_attributes
-        if search_highlight is not None:
-            self.search_highlight = search_highlight
         if is_shared is not None:
             self.is_shared = is_shared
         self.name = name
@@ -171,27 +166,6 @@ class MediaFileBundle(object):
         """
 
         self._snm_attributes = snm_attributes
-
-    @property
-    def search_highlight(self):
-        """Gets the search_highlight of this MediaFileBundle.  # noqa: E501
-
-
-        :return: The search_highlight of this MediaFileBundle.  # noqa: E501
-        :rtype: str
-        """
-        return self._search_highlight
-
-    @search_highlight.setter
-    def search_highlight(self, search_highlight):
-        """Sets the search_highlight of this MediaFileBundle.
-
-
-        :param search_highlight: The search_highlight of this MediaFileBundle.  # noqa: E501
-        :type: str
-        """
-
-        self._search_highlight = search_highlight
 
     @property
     def is_shared(self):

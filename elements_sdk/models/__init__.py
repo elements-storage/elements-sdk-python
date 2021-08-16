@@ -137,6 +137,7 @@ from elements_sdk.models.password_reset_endpoint_request import PasswordResetEnd
 from elements_sdk.models.path import Path
 from elements_sdk.models.path_input import PathInput
 from elements_sdk.models.production import Production
+from elements_sdk.models.production_mini import ProductionMini
 from elements_sdk.models.production_partial_update import ProductionPartialUpdate
 from elements_sdk.models.proxy import Proxy
 from elements_sdk.models.proxy_count import ProxyCount
@@ -245,9 +246,10 @@ from elements_sdk.models.workflow_transition_request import WorkflowTransitionRe
 from elements_sdk.models.workflow_transition_response import WorkflowTransitionResponse
 from elements_sdk.models.workspace import Workspace
 from elements_sdk.models.workspace_check_in import WorkspaceCheckIn
+from elements_sdk.models.workspace_detail import WorkspaceDetail
+from elements_sdk.models.workspace_detail_partial_update import WorkspaceDetailPartialUpdate
 from elements_sdk.models.workspace_endpoint import WorkspaceEndpoint
 from elements_sdk.models.workspace_move_to_request import WorkspaceMoveToRequest
-from elements_sdk.models.workspace_partial_update import WorkspacePartialUpdate
 from elements_sdk.models.workspace_permission import WorkspacePermission
 from elements_sdk.models.workspace_permission_partial_update import WorkspacePermissionPartialUpdate
 from elements_sdk.models.workspace_resolved_permission import WorkspaceResolvedPermission

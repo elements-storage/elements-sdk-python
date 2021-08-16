@@ -388,12 +388,6 @@ class OneTimeAccessToken(object):
         :param view_limit_left: The view_limit_left of this OneTimeAccessToken.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                view_limit_left is not None and view_limit_left > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `view_limit_left`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                view_limit_left is not None and view_limit_left < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `view_limit_left`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._view_limit_left = view_limit_left
 

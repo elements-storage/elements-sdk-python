@@ -65,9 +65,12 @@ class SNFSStripeGroup(object):
         self.name = name
         self.status_tags = status_tags
         self.affinity = affinity
-        self.size_total = size_total
-        self.size_used = size_used
-        self.size_free = size_free
+        if size_total is not None:
+            self.size_total = size_total
+        if size_used is not None:
+            self.size_used = size_used
+        if size_free is not None:
+            self.size_free = size_free
 
     @property
     def name(self):
@@ -160,8 +163,6 @@ class SNFSStripeGroup(object):
         :param size_total: The size_total of this SNFSStripeGroup.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and size_total is None:  # noqa: E501
-            raise ValueError("Invalid value for `size_total`, must not be `None`")  # noqa: E501
 
         self._size_total = size_total
 
@@ -183,8 +184,6 @@ class SNFSStripeGroup(object):
         :param size_used: The size_used of this SNFSStripeGroup.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and size_used is None:  # noqa: E501
-            raise ValueError("Invalid value for `size_used`, must not be `None`")  # noqa: E501
 
         self._size_used = size_used
 
@@ -206,8 +205,6 @@ class SNFSStripeGroup(object):
         :param size_free: The size_free of this SNFSStripeGroup.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and size_free is None:  # noqa: E501
-            raise ValueError("Invalid value for `size_free`, must not be `None`")  # noqa: E501
 
         self._size_free = size_free
 

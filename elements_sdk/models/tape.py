@@ -233,12 +233,6 @@ class Tape(object):
         :param generation: The generation of this Tape.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                generation is not None and generation > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `generation`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                generation is not None and generation < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `generation`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._generation = generation
 
@@ -356,12 +350,6 @@ class Tape(object):
         :param free_space: The free_space of this Tape.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                free_space is not None and free_space > 9223372036854775807):  # noqa: E501
-            raise ValueError("Invalid value for `free_space`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                free_space is not None and free_space < -9223372036854775808):  # noqa: E501
-            raise ValueError("Invalid value for `free_space`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
 
         self._free_space = free_space
 
@@ -383,12 +371,6 @@ class Tape(object):
         :param load_counter: The load_counter of this Tape.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                load_counter is not None and load_counter > 9223372036854775807):  # noqa: E501
-            raise ValueError("Invalid value for `load_counter`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                load_counter is not None and load_counter < -9223372036854775808):  # noqa: E501
-            raise ValueError("Invalid value for `load_counter`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
 
         self._load_counter = load_counter
 
@@ -410,12 +392,6 @@ class Tape(object):
         :param error_counter: The error_counter of this Tape.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                error_counter is not None and error_counter > 9223372036854775807):  # noqa: E501
-            raise ValueError("Invalid value for `error_counter`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                error_counter is not None and error_counter < -9223372036854775808):  # noqa: E501
-            raise ValueError("Invalid value for `error_counter`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
 
         self._error_counter = error_counter
 

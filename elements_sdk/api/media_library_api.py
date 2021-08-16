@@ -7137,6 +7137,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str asset: Filter the returned list by `asset`.
+        :param str asset__in: Multiple values may be separated by commas.
         :param str root: Filter the returned list by `root`.
         :param str name: Filter the returned list by `name`.
         :param str ordering: Which field to use when ordering the results.
@@ -7167,6 +7168,7 @@ class MediaLibraryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str asset: Filter the returned list by `asset`.
+        :param str asset__in: Multiple values may be separated by commas.
         :param str root: Filter the returned list by `root`.
         :param str name: Filter the returned list by `name`.
         :param str ordering: Which field to use when ordering the results.
@@ -7188,7 +7190,7 @@ class MediaLibraryApi(object):
 
         local_var_params = locals()
 
-        all_params = ['asset', 'root', 'name', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['asset', 'asset__in', 'root', 'name', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7210,6 +7212,8 @@ class MediaLibraryApi(object):
         query_params = []
         if 'asset' in local_var_params and local_var_params['asset'] is not None:  # noqa: E501
             query_params.append(('asset', local_var_params['asset']))  # noqa: E501
+        if 'asset__in' in local_var_params and local_var_params['asset__in'] is not None:  # noqa: E501
+            query_params.append(('asset__in', local_var_params['asset__in']))  # noqa: E501
         if 'root' in local_var_params and local_var_params['root'] is not None:  # noqa: E501
             query_params.append(('root', local_var_params['root']))  # noqa: E501
         if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501

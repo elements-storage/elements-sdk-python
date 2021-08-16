@@ -292,12 +292,6 @@ class WorkstationPartialUpdate(object):
         :param rdc_client_port: The rdc_client_port of this WorkstationPartialUpdate.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                rdc_client_port is not None and rdc_client_port > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `rdc_client_port`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                rdc_client_port is not None and rdc_client_port < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `rdc_client_port`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._rdc_client_port = rdc_client_port
 
@@ -319,12 +313,6 @@ class WorkstationPartialUpdate(object):
         :param rdc_host_port: The rdc_host_port of this WorkstationPartialUpdate.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                rdc_host_port is not None and rdc_host_port > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `rdc_host_port`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                rdc_host_port is not None and rdc_host_port < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `rdc_host_port`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._rdc_host_port = rdc_host_port
 

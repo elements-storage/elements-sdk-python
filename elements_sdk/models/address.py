@@ -161,12 +161,6 @@ class Address(object):
         :param priority: The priority of this Address.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                priority is not None and priority > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `priority`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                priority is not None and priority < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `priority`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._priority = priority
 

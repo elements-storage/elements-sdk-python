@@ -171,12 +171,6 @@ class Interface(object):
         :param speed: The speed of this Interface.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                speed is not None and speed > 9223372036854775807):  # noqa: E501
-            raise ValueError("Invalid value for `speed`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                speed is not None and speed < -9223372036854775808):  # noqa: E501
-            raise ValueError("Invalid value for `speed`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
 
         self._speed = speed
 
@@ -198,12 +192,6 @@ class Interface(object):
         :param mtu: The mtu of this Interface.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                mtu is not None and mtu > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `mtu`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                mtu is not None and mtu < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `mtu`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._mtu = mtu
 
@@ -246,12 +234,6 @@ class Interface(object):
         :param priority: The priority of this Interface.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                priority is not None and priority > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `priority`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                priority is not None and priority < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `priority`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._priority = priority
 

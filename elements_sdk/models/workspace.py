@@ -32,8 +32,8 @@ class Workspace(object):
     """
     openapi_types = {
         'id': 'int',
-        'production': 'Production',
-        'volume': 'Volume',
+        'production': 'ProductionMini',
+        'volume': 'VolumeMini',
         'volume_path': 'str',
         'path': 'str',
         'sharing_nfs_permissions': 'object',
@@ -46,7 +46,6 @@ class Workspace(object):
         'bookmarked': 'bool',
         'resolved_permissions': 'list[WorkspaceResolvedPermission]',
         'resolved_read_only': 'bool',
-        'recycle_bin_path': 'str',
         'name': 'str',
         'directory': 'str',
         'description': 'str',
@@ -104,7 +103,6 @@ class Workspace(object):
         'bookmarked': 'bookmarked',
         'resolved_permissions': 'resolved_permissions',
         'resolved_read_only': 'resolved_read_only',
-        'recycle_bin_path': 'recycle_bin_path',
         'name': 'name',
         'directory': 'directory',
         'description': 'description',
@@ -146,7 +144,7 @@ class Workspace(object):
         'home_for': 'home_for'
     }
 
-    def __init__(self, id=None, production=None, volume=None, volume_path=None, path=None, sharing_nfs_permissions=None, full_path=None, current_share_name=None, endpoints=None, quota=None, size_used=None, size_total=None, bookmarked=None, resolved_permissions=None, resolved_read_only=None, recycle_bin_path=None, name=None, directory=None, description=None, long_description=None, is_template=None, last_login=None, active=None, mac_protocol=None, win_protocol=None, win_drive=None, linux_protocol=None, linux_mountpoint=None, share_name=None, share_nfs=None, share_afp=None, sharing_hidden=None, sharing_require_login=None, sharing_read_only=None, sharing_allow_execute=None, quota_size_hard=None, quota_size_soft=None, affinity=None, emulate_avid=None, emulate_capture=None, emulate_preopen=None, emulate_ntfs_streams=None, emulate_recycle_bin=None, emulate_fruit=None, smb_extra_config=None, afp_extra_config=None, recycle_bin_exclude=None, is_external=None, external_mac_url=None, external_win_url=None, external_linux_url=None, allow_symlinks=None, rw_permission_priority=None, template=None, home_for=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, production=None, volume=None, volume_path=None, path=None, sharing_nfs_permissions=None, full_path=None, current_share_name=None, endpoints=None, quota=None, size_used=None, size_total=None, bookmarked=None, resolved_permissions=None, resolved_read_only=None, name=None, directory=None, description=None, long_description=None, is_template=None, last_login=None, active=None, mac_protocol=None, win_protocol=None, win_drive=None, linux_protocol=None, linux_mountpoint=None, share_name=None, share_nfs=None, share_afp=None, sharing_hidden=None, sharing_require_login=None, sharing_read_only=None, sharing_allow_execute=None, quota_size_hard=None, quota_size_soft=None, affinity=None, emulate_avid=None, emulate_capture=None, emulate_preopen=None, emulate_ntfs_streams=None, emulate_recycle_bin=None, emulate_fruit=None, smb_extra_config=None, afp_extra_config=None, recycle_bin_exclude=None, is_external=None, external_mac_url=None, external_win_url=None, external_linux_url=None, allow_symlinks=None, rw_permission_priority=None, template=None, home_for=None, local_vars_configuration=None):  # noqa: E501
         """Workspace - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -167,7 +165,6 @@ class Workspace(object):
         self._bookmarked = None
         self._resolved_permissions = None
         self._resolved_read_only = None
-        self._recycle_bin_path = None
         self._name = None
         self._directory = None
         self._description = None
@@ -237,8 +234,6 @@ class Workspace(object):
             self.resolved_permissions = resolved_permissions
         if resolved_read_only is not None:
             self.resolved_read_only = resolved_read_only
-        if recycle_bin_path is not None:
-            self.recycle_bin_path = recycle_bin_path
         if name is not None:
             self.name = name
         if directory is not None:
@@ -333,7 +328,7 @@ class Workspace(object):
 
 
         :return: The production of this Workspace.  # noqa: E501
-        :rtype: Production
+        :rtype: ProductionMini
         """
         return self._production
 
@@ -343,7 +338,7 @@ class Workspace(object):
 
 
         :param production: The production of this Workspace.  # noqa: E501
-        :type: Production
+        :type: ProductionMini
         """
         if self.local_vars_configuration.client_side_validation and production is None:  # noqa: E501
             raise ValueError("Invalid value for `production`, must not be `None`")  # noqa: E501
@@ -356,7 +351,7 @@ class Workspace(object):
 
 
         :return: The volume of this Workspace.  # noqa: E501
-        :rtype: Volume
+        :rtype: VolumeMini
         """
         return self._volume
 
@@ -366,7 +361,7 @@ class Workspace(object):
 
 
         :param volume: The volume of this Workspace.  # noqa: E501
-        :type: Volume
+        :type: VolumeMini
         """
 
         self._volume = volume
@@ -631,27 +626,6 @@ class Workspace(object):
         """
 
         self._resolved_read_only = resolved_read_only
-
-    @property
-    def recycle_bin_path(self):
-        """Gets the recycle_bin_path of this Workspace.  # noqa: E501
-
-
-        :return: The recycle_bin_path of this Workspace.  # noqa: E501
-        :rtype: str
-        """
-        return self._recycle_bin_path
-
-    @recycle_bin_path.setter
-    def recycle_bin_path(self, recycle_bin_path):
-        """Sets the recycle_bin_path of this Workspace.
-
-
-        :param recycle_bin_path: The recycle_bin_path of this Workspace.  # noqa: E501
-        :type: str
-        """
-
-        self._recycle_bin_path = recycle_bin_path
 
     @property
     def name(self):
@@ -1112,12 +1086,6 @@ class Workspace(object):
         :param quota_size_hard: The quota_size_hard of this Workspace.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                quota_size_hard is not None and quota_size_hard > 9223372036854775807):  # noqa: E501
-            raise ValueError("Invalid value for `quota_size_hard`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                quota_size_hard is not None and quota_size_hard < -9223372036854775808):  # noqa: E501
-            raise ValueError("Invalid value for `quota_size_hard`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
 
         self._quota_size_hard = quota_size_hard
 
@@ -1139,12 +1107,6 @@ class Workspace(object):
         :param quota_size_soft: The quota_size_soft of this Workspace.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                quota_size_soft is not None and quota_size_soft > 9223372036854775807):  # noqa: E501
-            raise ValueError("Invalid value for `quota_size_soft`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                quota_size_soft is not None and quota_size_soft < -9223372036854775808):  # noqa: E501
-            raise ValueError("Invalid value for `quota_size_soft`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
 
         self._quota_size_soft = quota_size_soft
 

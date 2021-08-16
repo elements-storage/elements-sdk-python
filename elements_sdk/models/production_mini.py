@@ -32,15 +32,17 @@ class ProductionMini(object):
     """
     openapi_types = {
         'id': 'int',
-        'name': 'str'
+        'name': 'str',
+        'special_type': 'int'
     }
 
     attribute_map = {
         'id': 'id',
-        'name': 'name'
+        'name': 'name',
+        'special_type': 'special_type'
     }
 
-    def __init__(self, id=None, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, special_type=None, local_vars_configuration=None):  # noqa: E501
         """ProductionMini - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -48,11 +50,13 @@ class ProductionMini(object):
 
         self._id = None
         self._name = None
+        self._special_type = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
         self.name = name
+        self.special_type = special_type
 
     @property
     def id(self):
@@ -103,6 +107,27 @@ class ProductionMini(object):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def special_type(self):
+        """Gets the special_type of this ProductionMini.  # noqa: E501
+
+
+        :return: The special_type of this ProductionMini.  # noqa: E501
+        :rtype: int
+        """
+        return self._special_type
+
+    @special_type.setter
+    def special_type(self, special_type):
+        """Sets the special_type of this ProductionMini.
+
+
+        :param special_type: The special_type of this ProductionMini.  # noqa: E501
+        :type: int
+        """
+
+        self._special_type = special_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

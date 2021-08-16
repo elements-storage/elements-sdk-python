@@ -243,12 +243,6 @@ class ElementsGroupDetailPartialUpdate(object):
         :param gid: The gid of this ElementsGroupDetailPartialUpdate.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                gid is not None and gid > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `gid`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                gid is not None and gid < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `gid`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._gid = gid
 

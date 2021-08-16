@@ -182,12 +182,6 @@ class TapeFile(object):
         """
         if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
             raise ValueError("Invalid value for `uid`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                uid is not None and uid > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `uid`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                uid is not None and uid < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `uid`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._uid = uid
 
@@ -280,12 +274,6 @@ class TapeFile(object):
         :param length: The length of this TapeFile.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                length is not None and length > 9223372036854775807):  # noqa: E501
-            raise ValueError("Invalid value for `length`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                length is not None and length < -9223372036854775808):  # noqa: E501
-            raise ValueError("Invalid value for `length`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
 
         self._length = length
 

@@ -124,12 +124,6 @@ class MediaFilePartialUpdate(object):
         :param total_files: The total_files of this MediaFilePartialUpdate.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                total_files is not None and total_files > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `total_files`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                total_files is not None and total_files < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `total_files`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._total_files = total_files
 
