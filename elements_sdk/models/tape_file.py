@@ -34,6 +34,7 @@ class TapeFile(object):
         'id': 'int',
         'tape': 'Tape',
         'path': 'str',
+        'search_highlight': 'str',
         'uid': 'int',
         'name': 'str',
         'is_dir': 'bool',
@@ -48,6 +49,7 @@ class TapeFile(object):
         'id': 'id',
         'tape': 'tape',
         'path': 'path',
+        'search_highlight': 'search_highlight',
         'uid': 'uid',
         'name': 'name',
         'is_dir': 'is_dir',
@@ -58,7 +60,7 @@ class TapeFile(object):
         'parent': 'parent'
     }
 
-    def __init__(self, id=None, tape=None, path=None, uid=None, name=None, is_dir=None, read_only=None, length=None, checksum=None, fullpath=None, parent=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, tape=None, path=None, search_highlight=None, uid=None, name=None, is_dir=None, read_only=None, length=None, checksum=None, fullpath=None, parent=None, local_vars_configuration=None):  # noqa: E501
         """TapeFile - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,6 +69,7 @@ class TapeFile(object):
         self._id = None
         self._tape = None
         self._path = None
+        self._search_highlight = None
         self._uid = None
         self._name = None
         self._is_dir = None
@@ -82,6 +85,8 @@ class TapeFile(object):
         if tape is not None:
             self.tape = tape
         self.path = path
+        if search_highlight is not None:
+            self.search_highlight = search_highlight
         self.uid = uid
         self.name = name
         if is_dir is not None:
@@ -161,6 +166,27 @@ class TapeFile(object):
             raise ValueError("Invalid value for `path`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._path = path
+
+    @property
+    def search_highlight(self):
+        """Gets the search_highlight of this TapeFile.  # noqa: E501
+
+
+        :return: The search_highlight of this TapeFile.  # noqa: E501
+        :rtype: str
+        """
+        return self._search_highlight
+
+    @search_highlight.setter
+    def search_highlight(self, search_highlight):
+        """Sets the search_highlight of this TapeFile.
+
+
+        :param search_highlight: The search_highlight of this TapeFile.  # noqa: E501
+        :type: str
+        """
+
+        self._search_highlight = search_highlight
 
     @property
     def uid(self):

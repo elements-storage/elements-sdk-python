@@ -32,15 +32,17 @@ class StartTaskRequest(object):
     """
     openapi_types = {
         'task_type': 'str',
-        'parameters': 'dict(str, str)'
+        'parameters': 'dict(str, str)',
+        'sync': 'bool'
     }
 
     attribute_map = {
         'task_type': 'task_type',
-        'parameters': 'parameters'
+        'parameters': 'parameters',
+        'sync': 'sync'
     }
 
-    def __init__(self, task_type=None, parameters=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, task_type=None, parameters=None, sync=False, local_vars_configuration=None):  # noqa: E501
         """StartTaskRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -48,10 +50,13 @@ class StartTaskRequest(object):
 
         self._task_type = None
         self._parameters = None
+        self._sync = None
         self.discriminator = None
 
         self.task_type = task_type
         self.parameters = parameters
+        if sync is not None:
+            self.sync = sync
 
     @property
     def task_type(self):
@@ -101,6 +106,27 @@ class StartTaskRequest(object):
             raise ValueError("Invalid value for `parameters`, must not be `None`")  # noqa: E501
 
         self._parameters = parameters
+
+    @property
+    def sync(self):
+        """Gets the sync of this StartTaskRequest.  # noqa: E501
+
+
+        :return: The sync of this StartTaskRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sync
+
+    @sync.setter
+    def sync(self, sync):
+        """Sets the sync of this StartTaskRequest.
+
+
+        :param sync: The sync of this StartTaskRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._sync = sync
 
     def to_dict(self):
         """Returns the model properties as a dict"""

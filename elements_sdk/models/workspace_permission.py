@@ -32,8 +32,8 @@ class WorkspacePermission(object):
     """
     openapi_types = {
         'id': 'int',
-        'user': 'ElementsUser',
-        'group': 'ElementsGroup',
+        'user': 'ElementsUserReference',
+        'group': 'ElementsGroupReference',
         'read_only': 'bool',
         'workspace': 'int'
     }
@@ -96,7 +96,7 @@ class WorkspacePermission(object):
 
 
         :return: The user of this WorkspacePermission.  # noqa: E501
-        :rtype: ElementsUser
+        :rtype: ElementsUserReference
         """
         return self._user
 
@@ -106,7 +106,7 @@ class WorkspacePermission(object):
 
 
         :param user: The user of this WorkspacePermission.  # noqa: E501
-        :type: ElementsUser
+        :type: ElementsUserReference
         """
 
         self._user = user
@@ -117,7 +117,7 @@ class WorkspacePermission(object):
 
 
         :return: The group of this WorkspacePermission.  # noqa: E501
-        :rtype: ElementsGroup
+        :rtype: ElementsGroupReference
         """
         return self._group
 
@@ -127,7 +127,7 @@ class WorkspacePermission(object):
 
 
         :param group: The group of this WorkspacePermission.  # noqa: E501
-        :type: ElementsGroup
+        :type: ElementsGroupReference
         """
 
         self._group = group

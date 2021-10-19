@@ -31,8 +31,8 @@ class SharePartialUpdate(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'sharing_nfs_permissions': 'object',
-        'volume': 'Volume',
+        'sharing_nfs_permissions': 'list[str]',
+        'volume': 'VolumeReference',
         'name': 'str',
         'path': 'str',
         'share_smb': 'bool',
@@ -119,7 +119,7 @@ class SharePartialUpdate(object):
 
 
         :return: The sharing_nfs_permissions of this SharePartialUpdate.  # noqa: E501
-        :rtype: object
+        :rtype: list[str]
         """
         return self._sharing_nfs_permissions
 
@@ -129,7 +129,7 @@ class SharePartialUpdate(object):
 
 
         :param sharing_nfs_permissions: The sharing_nfs_permissions of this SharePartialUpdate.  # noqa: E501
-        :type: object
+        :type: list[str]
         """
 
         self._sharing_nfs_permissions = sharing_nfs_permissions
@@ -140,7 +140,7 @@ class SharePartialUpdate(object):
 
 
         :return: The volume of this SharePartialUpdate.  # noqa: E501
-        :rtype: Volume
+        :rtype: VolumeReference
         """
         return self._volume
 
@@ -150,7 +150,7 @@ class SharePartialUpdate(object):
 
 
         :param volume: The volume of this SharePartialUpdate.  # noqa: E501
-        :type: Volume
+        :type: VolumeReference
         """
 
         self._volume = volume

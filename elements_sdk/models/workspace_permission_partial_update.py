@@ -31,8 +31,8 @@ class WorkspacePermissionPartialUpdate(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'user': 'ElementsUser',
-        'group': 'ElementsGroup',
+        'user': 'ElementsUserReference',
+        'group': 'ElementsGroupReference',
         'read_only': 'bool',
         'workspace': 'int'
     }
@@ -71,7 +71,7 @@ class WorkspacePermissionPartialUpdate(object):
 
 
         :return: The user of this WorkspacePermissionPartialUpdate.  # noqa: E501
-        :rtype: ElementsUser
+        :rtype: ElementsUserReference
         """
         return self._user
 
@@ -81,7 +81,7 @@ class WorkspacePermissionPartialUpdate(object):
 
 
         :param user: The user of this WorkspacePermissionPartialUpdate.  # noqa: E501
-        :type: ElementsUser
+        :type: ElementsUserReference
         """
 
         self._user = user
@@ -92,7 +92,7 @@ class WorkspacePermissionPartialUpdate(object):
 
 
         :return: The group of this WorkspacePermissionPartialUpdate.  # noqa: E501
-        :rtype: ElementsGroup
+        :rtype: ElementsGroupReference
         """
         return self._group
 
@@ -102,7 +102,7 @@ class WorkspacePermissionPartialUpdate(object):
 
 
         :param group: The group of this WorkspacePermissionPartialUpdate.  # noqa: E501
-        :type: ElementsGroup
+        :type: ElementsGroupReference
         """
 
         self._group = group

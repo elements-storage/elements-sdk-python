@@ -31,7 +31,7 @@ class EmailPreview(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'styling': 'object'
+        'styling': 'dict(str, str)'
     }
 
     attribute_map = {
@@ -56,7 +56,7 @@ class EmailPreview(object):
 
 
         :return: The styling of this EmailPreview.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, str)
         """
         return self._styling
 
@@ -66,7 +66,7 @@ class EmailPreview(object):
 
 
         :param styling: The styling of this EmailPreview.  # noqa: E501
-        :type: object
+        :type: dict(str, str)
         """
 
         self._styling = styling

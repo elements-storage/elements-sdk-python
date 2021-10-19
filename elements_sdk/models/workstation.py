@@ -32,11 +32,11 @@ class Workstation(object):
     """
     openapi_types = {
         'id': 'str',
-        'client_sessions': 'list[ClientSession]',
         'display_name': 'str',
-        'rdc_allow_users': 'list[ElementsUser]',
-        'rdc_allow_groups': 'list[ElementsGroup]',
-        'report': 'object',
+        'rdc_allow_users': 'list[ElementsUserReference]',
+        'rdc_allow_groups': 'list[ElementsGroupReference]',
+        'report': 'dict(str, str)',
+        'client_sessions': 'list[ClientSession]',
         'name': 'str',
         'hostname': 'str',
         'rdc_last_used': 'datetime',
@@ -47,11 +47,11 @@ class Workstation(object):
 
     attribute_map = {
         'id': 'id',
-        'client_sessions': 'client_sessions',
         'display_name': 'display_name',
         'rdc_allow_users': 'rdc_allow_users',
         'rdc_allow_groups': 'rdc_allow_groups',
         'report': 'report',
+        'client_sessions': 'client_sessions',
         'name': 'name',
         'hostname': 'hostname',
         'rdc_last_used': 'rdc_last_used',
@@ -60,18 +60,18 @@ class Workstation(object):
         'rdc_host_port': 'rdc_host_port'
     }
 
-    def __init__(self, id=None, client_sessions=None, display_name=None, rdc_allow_users=None, rdc_allow_groups=None, report=None, name=None, hostname=None, rdc_last_used=None, rdc_disable_upnp=None, rdc_client_port=None, rdc_host_port=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, display_name=None, rdc_allow_users=None, rdc_allow_groups=None, report=None, client_sessions=None, name=None, hostname=None, rdc_last_used=None, rdc_disable_upnp=None, rdc_client_port=None, rdc_host_port=None, local_vars_configuration=None):  # noqa: E501
         """Workstation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
-        self._client_sessions = None
         self._display_name = None
         self._rdc_allow_users = None
         self._rdc_allow_groups = None
         self._report = None
+        self._client_sessions = None
         self._name = None
         self._hostname = None
         self._rdc_last_used = None
@@ -81,8 +81,6 @@ class Workstation(object):
         self.discriminator = None
 
         self.id = id
-        if client_sessions is not None:
-            self.client_sessions = client_sessions
         if display_name is not None:
             self.display_name = display_name
         if rdc_allow_users is not None:
@@ -91,6 +89,8 @@ class Workstation(object):
             self.rdc_allow_groups = rdc_allow_groups
         if report is not None:
             self.report = report
+        if client_sessions is not None:
+            self.client_sessions = client_sessions
         self.name = name
         self.hostname = hostname
         self.rdc_last_used = rdc_last_used
@@ -129,27 +129,6 @@ class Workstation(object):
         self._id = id
 
     @property
-    def client_sessions(self):
-        """Gets the client_sessions of this Workstation.  # noqa: E501
-
-
-        :return: The client_sessions of this Workstation.  # noqa: E501
-        :rtype: list[ClientSession]
-        """
-        return self._client_sessions
-
-    @client_sessions.setter
-    def client_sessions(self, client_sessions):
-        """Sets the client_sessions of this Workstation.
-
-
-        :param client_sessions: The client_sessions of this Workstation.  # noqa: E501
-        :type: list[ClientSession]
-        """
-
-        self._client_sessions = client_sessions
-
-    @property
     def display_name(self):
         """Gets the display_name of this Workstation.  # noqa: E501
 
@@ -179,7 +158,7 @@ class Workstation(object):
 
 
         :return: The rdc_allow_users of this Workstation.  # noqa: E501
-        :rtype: list[ElementsUser]
+        :rtype: list[ElementsUserReference]
         """
         return self._rdc_allow_users
 
@@ -189,7 +168,7 @@ class Workstation(object):
 
 
         :param rdc_allow_users: The rdc_allow_users of this Workstation.  # noqa: E501
-        :type: list[ElementsUser]
+        :type: list[ElementsUserReference]
         """
 
         self._rdc_allow_users = rdc_allow_users
@@ -200,7 +179,7 @@ class Workstation(object):
 
 
         :return: The rdc_allow_groups of this Workstation.  # noqa: E501
-        :rtype: list[ElementsGroup]
+        :rtype: list[ElementsGroupReference]
         """
         return self._rdc_allow_groups
 
@@ -210,7 +189,7 @@ class Workstation(object):
 
 
         :param rdc_allow_groups: The rdc_allow_groups of this Workstation.  # noqa: E501
-        :type: list[ElementsGroup]
+        :type: list[ElementsGroupReference]
         """
 
         self._rdc_allow_groups = rdc_allow_groups
@@ -221,7 +200,7 @@ class Workstation(object):
 
 
         :return: The report of this Workstation.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, str)
         """
         return self._report
 
@@ -231,10 +210,31 @@ class Workstation(object):
 
 
         :param report: The report of this Workstation.  # noqa: E501
-        :type: object
+        :type: dict(str, str)
         """
 
         self._report = report
+
+    @property
+    def client_sessions(self):
+        """Gets the client_sessions of this Workstation.  # noqa: E501
+
+
+        :return: The client_sessions of this Workstation.  # noqa: E501
+        :rtype: list[ClientSession]
+        """
+        return self._client_sessions
+
+    @client_sessions.setter
+    def client_sessions(self, client_sessions):
+        """Sets the client_sessions of this Workstation.
+
+
+        :param client_sessions: The client_sessions of this Workstation.  # noqa: E501
+        :type: list[ClientSession]
+        """
+
+        self._client_sessions = client_sessions
 
     @property
     def name(self):

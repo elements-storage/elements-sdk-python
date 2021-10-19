@@ -32,8 +32,8 @@ class Share(object):
     """
     openapi_types = {
         'id': 'int',
-        'sharing_nfs_permissions': 'object',
-        'volume': 'Volume',
+        'sharing_nfs_permissions': 'list[str]',
+        'volume': 'VolumeReference',
         'name': 'str',
         'path': 'str',
         'share_smb': 'bool',
@@ -143,7 +143,7 @@ class Share(object):
 
 
         :return: The sharing_nfs_permissions of this Share.  # noqa: E501
-        :rtype: object
+        :rtype: list[str]
         """
         return self._sharing_nfs_permissions
 
@@ -153,7 +153,7 @@ class Share(object):
 
 
         :param sharing_nfs_permissions: The sharing_nfs_permissions of this Share.  # noqa: E501
-        :type: object
+        :type: list[str]
         """
 
         self._sharing_nfs_permissions = sharing_nfs_permissions
@@ -164,7 +164,7 @@ class Share(object):
 
 
         :return: The volume of this Share.  # noqa: E501
-        :rtype: Volume
+        :rtype: VolumeReference
         """
         return self._volume
 
@@ -174,7 +174,7 @@ class Share(object):
 
 
         :param volume: The volume of this Share.  # noqa: E501
-        :type: Volume
+        :type: VolumeReference
         """
         if self.local_vars_configuration.client_side_validation and volume is None:  # noqa: E501
             raise ValueError("Invalid value for `volume`, must not be `None`")  # noqa: E501

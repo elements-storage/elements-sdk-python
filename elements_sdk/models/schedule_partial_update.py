@@ -143,6 +143,12 @@ class SchedulePartialUpdate(object):
         :param type: The type of this SchedulePartialUpdate.  # noqa: E501
         :type: int
         """
+        allowed_values = [1, 2]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
 
         self._type = type
 

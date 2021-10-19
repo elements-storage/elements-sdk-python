@@ -31,7 +31,7 @@ class AssetRatingPartialUpdate(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'user': 'ElementsUserMini',
+        'user': 'ElementsUserMiniReference',
         'rating': 'int',
         'asset': 'int'
     }
@@ -66,7 +66,7 @@ class AssetRatingPartialUpdate(object):
 
 
         :return: The user of this AssetRatingPartialUpdate.  # noqa: E501
-        :rtype: ElementsUserMini
+        :rtype: ElementsUserMiniReference
         """
         return self._user
 
@@ -76,7 +76,7 @@ class AssetRatingPartialUpdate(object):
 
 
         :param user: The user of this AssetRatingPartialUpdate.  # noqa: E501
-        :type: ElementsUserMini
+        :type: ElementsUserMiniReference
         """
 
         self._user = user

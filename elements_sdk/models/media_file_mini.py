@@ -35,7 +35,7 @@ class MediaFileMini(object):
         'name': 'str',
         'bundle': 'int',
         'full_path': 'str',
-        'custom_fields': 'object',
+        'custom_fields': 'dict(str, str)',
         'is_dir': 'bool',
         'is_hardlink': 'bool',
         'mtime': 'int',
@@ -208,7 +208,7 @@ class MediaFileMini(object):
 
 
         :return: The custom_fields of this MediaFileMini.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, str)
         """
         return self._custom_fields
 
@@ -218,7 +218,7 @@ class MediaFileMini(object):
 
 
         :param custom_fields: The custom_fields of this MediaFileMini.  # noqa: E501
-        :type: object
+        :type: dict(str, str)
         """
 
         self._custom_fields = custom_fields

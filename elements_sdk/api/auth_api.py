@@ -34,17 +34,17 @@ class AuthApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def check_auth_ticket(self, data, **kwargs):  # noqa: E501
+    def check_auth_ticket(self, ticket, **kwargs):  # noqa: E501
         """check_auth_ticket  # noqa: E501
 
         ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.check_auth_ticket(data, async_req=True)
+        >>> thread = api.check_auth_ticket(ticket, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Ticket data: (required)
+        :param Ticket ticket: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -57,19 +57,19 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.check_auth_ticket_with_http_info(data, **kwargs)  # noqa: E501
+        return self.check_auth_ticket_with_http_info(ticket, **kwargs)  # noqa: E501
 
-    def check_auth_ticket_with_http_info(self, data, **kwargs):  # noqa: E501
+    def check_auth_ticket_with_http_info(self, ticket, **kwargs):  # noqa: E501
         """check_auth_ticket  # noqa: E501
 
         ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.check_auth_ticket_with_http_info(data, async_req=True)
+        >>> thread = api.check_auth_ticket_with_http_info(ticket, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Ticket data: (required)
+        :param Ticket ticket: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -86,7 +86,7 @@ class AuthApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['ticket']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -100,10 +100,10 @@ class AuthApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `check_auth_ticket`")  # noqa: E501
+        # verify the required parameter 'ticket' is set
+        if self.api_client.client_side_validation and ('ticket' not in local_var_params or  # noqa: E501
+                                                        local_var_params['ticket'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `ticket` when calling `check_auth_ticket`")  # noqa: E501
 
         collection_formats = {}
 
@@ -117,8 +117,8 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'ticket' in local_var_params:
+            body_params = local_var_params['ticket']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -264,7 +264,7 @@ class AuthApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -291,7 +291,7 @@ class AuthApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -331,10 +331,6 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -346,7 +342,7 @@ class AuthApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -694,17 +690,17 @@ class AuthApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def login(self, data, **kwargs):  # noqa: E501
+    def login(self, auth_login_endpoint_request, **kwargs):  # noqa: E501
         """login  # noqa: E501
 
         ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.login(data, async_req=True)
+        >>> thread = api.login(auth_login_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param AuthLoginEndpointRequest data: (required)
+        :param AuthLoginEndpointRequest auth_login_endpoint_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -717,19 +713,19 @@ class AuthApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.login_with_http_info(data, **kwargs)  # noqa: E501
+        return self.login_with_http_info(auth_login_endpoint_request, **kwargs)  # noqa: E501
 
-    def login_with_http_info(self, data, **kwargs):  # noqa: E501
+    def login_with_http_info(self, auth_login_endpoint_request, **kwargs):  # noqa: E501
         """login  # noqa: E501
 
         ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.login_with_http_info(data, async_req=True)
+        >>> thread = api.login_with_http_info(auth_login_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param AuthLoginEndpointRequest data: (required)
+        :param AuthLoginEndpointRequest auth_login_endpoint_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -746,7 +742,7 @@ class AuthApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['auth_login_endpoint_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -760,10 +756,10 @@ class AuthApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `login`")  # noqa: E501
+        # verify the required parameter 'auth_login_endpoint_request' is set
+        if self.api_client.client_side_validation and ('auth_login_endpoint_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['auth_login_endpoint_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `auth_login_endpoint_request` when calling `login`")  # noqa: E501
 
         collection_formats = {}
 
@@ -777,8 +773,8 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'auth_login_endpoint_request' in local_var_params:
+            body_params = local_var_params['auth_login_endpoint_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -823,7 +819,7 @@ class AuthApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -849,7 +845,7 @@ class AuthApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -883,10 +879,6 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -898,7 +890,7 @@ class AuthApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -906,17 +898,17 @@ class AuthApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def reset_password(self, data, **kwargs):  # noqa: E501
+    def reset_password(self, password_reset_endpoint_request, **kwargs):  # noqa: E501
         """reset_password  # noqa: E501
 
         ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reset_password(data, async_req=True)
+        >>> thread = api.reset_password(password_reset_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param PasswordResetEndpointRequest data: (required)
+        :param PasswordResetEndpointRequest password_reset_endpoint_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -924,24 +916,24 @@ class AuthApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.reset_password_with_http_info(data, **kwargs)  # noqa: E501
+        return self.reset_password_with_http_info(password_reset_endpoint_request, **kwargs)  # noqa: E501
 
-    def reset_password_with_http_info(self, data, **kwargs):  # noqa: E501
+    def reset_password_with_http_info(self, password_reset_endpoint_request, **kwargs):  # noqa: E501
         """reset_password  # noqa: E501
 
         ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reset_password_with_http_info(data, async_req=True)
+        >>> thread = api.reset_password_with_http_info(password_reset_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param PasswordResetEndpointRequest data: (required)
+        :param PasswordResetEndpointRequest password_reset_endpoint_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -951,14 +943,14 @@ class AuthApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['password_reset_endpoint_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -972,10 +964,10 @@ class AuthApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `reset_password`")  # noqa: E501
+        # verify the required parameter 'password_reset_endpoint_request' is set
+        if self.api_client.client_side_validation and ('password_reset_endpoint_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['password_reset_endpoint_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `password_reset_endpoint_request` when calling `reset_password`")  # noqa: E501
 
         collection_formats = {}
 
@@ -989,12 +981,8 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'password_reset_endpoint_request' in local_var_params:
+            body_params = local_var_params['password_reset_endpoint_request']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1010,7 +998,7 @@ class AuthApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1018,18 +1006,18 @@ class AuthApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def send_access_token_email_notification(self, id, data, **kwargs):  # noqa: E501
+    def send_access_token_email_notification(self, id, send_link_email_request, **kwargs):  # noqa: E501
         """send_access_token_email_notification  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.send_access_token_email_notification(id, data, async_req=True)
+        >>> thread = api.send_access_token_email_notification(id, send_link_email_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this one time access token. (required)
-        :param SendLinkEmailRequest data: (required)
+        :param SendLinkEmailRequest send_link_email_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1037,25 +1025,25 @@ class AuthApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.send_access_token_email_notification_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.send_access_token_email_notification_with_http_info(id, send_link_email_request, **kwargs)  # noqa: E501
 
-    def send_access_token_email_notification_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def send_access_token_email_notification_with_http_info(self, id, send_link_email_request, **kwargs):  # noqa: E501
         """send_access_token_email_notification  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.send_access_token_email_notification_with_http_info(id, data, async_req=True)
+        >>> thread = api.send_access_token_email_notification_with_http_info(id, send_link_email_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this one time access token. (required)
-        :param SendLinkEmailRequest data: (required)
+        :param SendLinkEmailRequest send_link_email_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1065,14 +1053,14 @@ class AuthApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'send_link_email_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1090,10 +1078,10 @@ class AuthApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `send_access_token_email_notification`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `send_access_token_email_notification`")  # noqa: E501
+        # verify the required parameter 'send_link_email_request' is set
+        if self.api_client.client_side_validation and ('send_link_email_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['send_link_email_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `send_link_email_request` when calling `send_access_token_email_notification`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1109,12 +1097,8 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'send_link_email_request' in local_var_params:
+            body_params = local_var_params['send_link_email_request']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1130,7 +1114,7 @@ class AuthApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1138,17 +1122,17 @@ class AuthApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def start_impersonation(self, data, **kwargs):  # noqa: E501
+    def start_impersonation(self, impersonation_endpoint_request, **kwargs):  # noqa: E501
         """start_impersonation  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.start_impersonation(data, async_req=True)
+        >>> thread = api.start_impersonation(impersonation_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param ImpersonationEndpointRequest data: (required)
+        :param ImpersonationEndpointRequest impersonation_endpoint_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1156,24 +1140,24 @@ class AuthApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.start_impersonation_with_http_info(data, **kwargs)  # noqa: E501
+        return self.start_impersonation_with_http_info(impersonation_endpoint_request, **kwargs)  # noqa: E501
 
-    def start_impersonation_with_http_info(self, data, **kwargs):  # noqa: E501
+    def start_impersonation_with_http_info(self, impersonation_endpoint_request, **kwargs):  # noqa: E501
         """start_impersonation  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.start_impersonation_with_http_info(data, async_req=True)
+        >>> thread = api.start_impersonation_with_http_info(impersonation_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param ImpersonationEndpointRequest data: (required)
+        :param ImpersonationEndpointRequest impersonation_endpoint_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1183,14 +1167,14 @@ class AuthApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['impersonation_endpoint_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1204,10 +1188,10 @@ class AuthApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `start_impersonation`")  # noqa: E501
+        # verify the required parameter 'impersonation_endpoint_request' is set
+        if self.api_client.client_side_validation and ('impersonation_endpoint_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['impersonation_endpoint_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `impersonation_endpoint_request` when calling `start_impersonation`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1221,12 +1205,8 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'impersonation_endpoint_request' in local_var_params:
+            body_params = local_var_params['impersonation_endpoint_request']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1242,7 +1222,7 @@ class AuthApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1267,7 +1247,7 @@ class AuthApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1293,7 +1273,7 @@ class AuthApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1327,10 +1307,6 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -1342,7 +1318,7 @@ class AuthApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

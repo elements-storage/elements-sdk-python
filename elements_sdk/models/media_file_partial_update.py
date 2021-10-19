@@ -31,20 +31,22 @@ class MediaFilePartialUpdate(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'info': 'object',
-        'custom_fields': 'object',
+        'info': 'dict(str, str)',
+        'custom_fields': 'dict(str, str)',
         'total_files': 'int',
-        'needs_rescan': 'bool'
+        'needs_rescan': 'bool',
+        'bookmarked_by': 'list[int]'
     }
 
     attribute_map = {
         'info': 'info',
         'custom_fields': 'custom_fields',
         'total_files': 'total_files',
-        'needs_rescan': 'needs_rescan'
+        'needs_rescan': 'needs_rescan',
+        'bookmarked_by': 'bookmarked_by'
     }
 
-    def __init__(self, info=None, custom_fields=None, total_files=None, needs_rescan=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, info=None, custom_fields=None, total_files=None, needs_rescan=None, bookmarked_by=None, local_vars_configuration=None):  # noqa: E501
         """MediaFilePartialUpdate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -54,6 +56,7 @@ class MediaFilePartialUpdate(object):
         self._custom_fields = None
         self._total_files = None
         self._needs_rescan = None
+        self._bookmarked_by = None
         self.discriminator = None
 
         if info is not None:
@@ -63,6 +66,8 @@ class MediaFilePartialUpdate(object):
         self.total_files = total_files
         if needs_rescan is not None:
             self.needs_rescan = needs_rescan
+        if bookmarked_by is not None:
+            self.bookmarked_by = bookmarked_by
 
     @property
     def info(self):
@@ -70,7 +75,7 @@ class MediaFilePartialUpdate(object):
 
 
         :return: The info of this MediaFilePartialUpdate.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, str)
         """
         return self._info
 
@@ -80,7 +85,7 @@ class MediaFilePartialUpdate(object):
 
 
         :param info: The info of this MediaFilePartialUpdate.  # noqa: E501
-        :type: object
+        :type: dict(str, str)
         """
 
         self._info = info
@@ -91,7 +96,7 @@ class MediaFilePartialUpdate(object):
 
 
         :return: The custom_fields of this MediaFilePartialUpdate.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, str)
         """
         return self._custom_fields
 
@@ -101,7 +106,7 @@ class MediaFilePartialUpdate(object):
 
 
         :param custom_fields: The custom_fields of this MediaFilePartialUpdate.  # noqa: E501
-        :type: object
+        :type: dict(str, str)
         """
 
         self._custom_fields = custom_fields
@@ -147,6 +152,27 @@ class MediaFilePartialUpdate(object):
         """
 
         self._needs_rescan = needs_rescan
+
+    @property
+    def bookmarked_by(self):
+        """Gets the bookmarked_by of this MediaFilePartialUpdate.  # noqa: E501
+
+
+        :return: The bookmarked_by of this MediaFilePartialUpdate.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._bookmarked_by
+
+    @bookmarked_by.setter
+    def bookmarked_by(self, bookmarked_by):
+        """Sets the bookmarked_by of this MediaFilePartialUpdate.
+
+
+        :param bookmarked_by: The bookmarked_by of this MediaFilePartialUpdate.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._bookmarked_by = bookmarked_by
 
     def to_dict(self):
         """Returns the model properties as a dict"""

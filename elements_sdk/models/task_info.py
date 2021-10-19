@@ -454,6 +454,12 @@ class TaskInfo(object):
         :param state: The state of this TaskInfo.  # noqa: E501
         :type: int
         """
+        allowed_values = [0, 1, 2, 3, 4, 5, 6, 7]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
+                .format(state, allowed_values)
+            )
 
         self._state = state
 

@@ -32,15 +32,17 @@ class WorkspaceCheckIn(object):
     """
     openapi_types = {
         'mountpoint': 'str',
-        'protocol': 'str'
+        'protocol': 'str',
+        'address': 'str'
     }
 
     attribute_map = {
         'mountpoint': 'mountpoint',
-        'protocol': 'protocol'
+        'protocol': 'protocol',
+        'address': 'address'
     }
 
-    def __init__(self, mountpoint=None, protocol=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, mountpoint=None, protocol=None, address=None, local_vars_configuration=None):  # noqa: E501
         """WorkspaceCheckIn - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -48,12 +50,15 @@ class WorkspaceCheckIn(object):
 
         self._mountpoint = None
         self._protocol = None
+        self._address = None
         self.discriminator = None
 
         if mountpoint is not None:
             self.mountpoint = mountpoint
         if protocol is not None:
             self.protocol = protocol
+        if address is not None:
+            self.address = address
 
     @property
     def mountpoint(self):
@@ -102,6 +107,30 @@ class WorkspaceCheckIn(object):
             raise ValueError("Invalid value for `protocol`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._protocol = protocol
+
+    @property
+    def address(self):
+        """Gets the address of this WorkspaceCheckIn.  # noqa: E501
+
+
+        :return: The address of this WorkspaceCheckIn.  # noqa: E501
+        :rtype: str
+        """
+        return self._address
+
+    @address.setter
+    def address(self, address):
+        """Sets the address of this WorkspaceCheckIn.
+
+
+        :param address: The address of this WorkspaceCheckIn.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                address is not None and len(address) < 1):
+            raise ValueError("Invalid value for `address`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._address = address
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -39,6 +39,7 @@ class MediaRootPermissionAccessOptions(object):
         'show_subclips': 'bool',
         'show_ai_metadata': 'bool',
         'show_markers': 'bool',
+        'show_history': 'bool',
         'allow_create': 'bool',
         'allow_write_fs': 'bool',
         'allow_write_db': 'bool',
@@ -59,6 +60,7 @@ class MediaRootPermissionAccessOptions(object):
         'show_subclips': 'show_subclips',
         'show_ai_metadata': 'show_ai_metadata',
         'show_markers': 'show_markers',
+        'show_history': 'show_history',
         'allow_create': 'allow_create',
         'allow_write_fs': 'allow_write_fs',
         'allow_write_db': 'allow_write_db',
@@ -70,7 +72,7 @@ class MediaRootPermissionAccessOptions(object):
         'allow_delete_db': 'allow_delete_db'
     }
 
-    def __init__(self, show_tags=None, show_comments=None, show_locations=None, show_custom_fields=None, show_ratings=None, show_subclips=None, show_ai_metadata=None, show_markers=None, allow_create=None, allow_write_fs=None, allow_write_db=None, allow_proxy_download=None, allow_original_download=None, allow_upload=None, allow_sharing=None, allow_delete_fs=None, allow_delete_db=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, show_tags=None, show_comments=None, show_locations=None, show_custom_fields=None, show_ratings=None, show_subclips=None, show_ai_metadata=None, show_markers=None, show_history=None, allow_create=None, allow_write_fs=None, allow_write_db=None, allow_proxy_download=None, allow_original_download=None, allow_upload=None, allow_sharing=None, allow_delete_fs=None, allow_delete_db=None, local_vars_configuration=None):  # noqa: E501
         """MediaRootPermissionAccessOptions - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -84,6 +86,7 @@ class MediaRootPermissionAccessOptions(object):
         self._show_subclips = None
         self._show_ai_metadata = None
         self._show_markers = None
+        self._show_history = None
         self._allow_create = None
         self._allow_write_fs = None
         self._allow_write_db = None
@@ -111,6 +114,8 @@ class MediaRootPermissionAccessOptions(object):
             self.show_ai_metadata = show_ai_metadata
         if show_markers is not None:
             self.show_markers = show_markers
+        if show_history is not None:
+            self.show_history = show_history
         if allow_create is not None:
             self.allow_create = allow_create
         if allow_write_fs is not None:
@@ -297,6 +302,27 @@ class MediaRootPermissionAccessOptions(object):
         """
 
         self._show_markers = show_markers
+
+    @property
+    def show_history(self):
+        """Gets the show_history of this MediaRootPermissionAccessOptions.  # noqa: E501
+
+
+        :return: The show_history of this MediaRootPermissionAccessOptions.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_history
+
+    @show_history.setter
+    def show_history(self, show_history):
+        """Sets the show_history of this MediaRootPermissionAccessOptions.
+
+
+        :param show_history: The show_history of this MediaRootPermissionAccessOptions.  # noqa: E501
+        :type: bool
+        """
+
+        self._show_history = show_history
 
     @property
     def allow_create(self):

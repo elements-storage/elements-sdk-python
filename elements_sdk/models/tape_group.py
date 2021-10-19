@@ -32,7 +32,7 @@ class TapeGroup(object):
     """
     openapi_types = {
         'id': 'int',
-        'tapes': 'list[Tape]',
+        'tapes': 'list[TapeReference]',
         'name': 'str'
     }
 
@@ -85,7 +85,7 @@ class TapeGroup(object):
 
 
         :return: The tapes of this TapeGroup.  # noqa: E501
-        :rtype: list[Tape]
+        :rtype: list[TapeReference]
         """
         return self._tapes
 
@@ -95,7 +95,7 @@ class TapeGroup(object):
 
 
         :param tapes: The tapes of this TapeGroup.  # noqa: E501
-        :type: list[Tape]
+        :type: list[TapeReference]
         """
         if self.local_vars_configuration.client_side_validation and tapes is None:  # noqa: E501
             raise ValueError("Invalid value for `tapes`, must not be `None`")  # noqa: E501

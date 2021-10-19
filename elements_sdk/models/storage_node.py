@@ -236,6 +236,12 @@ class StorageNode(object):
         :param type: The type of this StorageNode.  # noqa: E501
         :type: int
         """
+        allowed_values = [1, 2, 3]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
 
         self._type = type
 
@@ -257,6 +263,12 @@ class StorageNode(object):
         :param ipmi: The ipmi of this StorageNode.  # noqa: E501
         :type: int
         """
+        allowed_values = [1, 2, 3]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and ipmi not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `ipmi` ({0}), must be one of {1}"  # noqa: E501
+                .format(ipmi, allowed_values)
+            )
 
         self._ipmi = ipmi
 

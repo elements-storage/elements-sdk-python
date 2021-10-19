@@ -32,8 +32,8 @@ class MediaRootPermission(object):
     """
     openapi_types = {
         'id': 'int',
-        'user': 'ElementsUserMini',
-        'group': 'ElementsGroup',
+        'user': 'ElementsUserMiniReference',
+        'group': 'ElementsGroupReference',
         'full_path': 'str',
         'path': 'str',
         'allow_create': 'bool',
@@ -53,6 +53,7 @@ class MediaRootPermission(object):
         'show_subclips': 'bool',
         'show_ai_metadata': 'bool',
         'show_markers': 'bool',
+        'show_history': 'bool',
         'root': 'int',
         'is_temporary_for_token': 'int'
     }
@@ -80,11 +81,12 @@ class MediaRootPermission(object):
         'show_subclips': 'show_subclips',
         'show_ai_metadata': 'show_ai_metadata',
         'show_markers': 'show_markers',
+        'show_history': 'show_history',
         'root': 'root',
         'is_temporary_for_token': 'is_temporary_for_token'
     }
 
-    def __init__(self, id=None, user=None, group=None, full_path=None, path=None, allow_create=None, allow_write_fs=None, allow_write_db=None, allow_proxy_download=None, allow_original_download=None, allow_upload=None, allow_sharing=None, allow_delete_fs=None, allow_delete_db=None, show_tags=None, show_comments=None, show_locations=None, show_custom_fields=None, show_ratings=None, show_subclips=None, show_ai_metadata=None, show_markers=None, root=None, is_temporary_for_token=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, user=None, group=None, full_path=None, path=None, allow_create=None, allow_write_fs=None, allow_write_db=None, allow_proxy_download=None, allow_original_download=None, allow_upload=None, allow_sharing=None, allow_delete_fs=None, allow_delete_db=None, show_tags=None, show_comments=None, show_locations=None, show_custom_fields=None, show_ratings=None, show_subclips=None, show_ai_metadata=None, show_markers=None, show_history=None, root=None, is_temporary_for_token=None, local_vars_configuration=None):  # noqa: E501
         """MediaRootPermission - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -112,6 +114,7 @@ class MediaRootPermission(object):
         self._show_subclips = None
         self._show_ai_metadata = None
         self._show_markers = None
+        self._show_history = None
         self._root = None
         self._is_temporary_for_token = None
         self.discriminator = None
@@ -160,6 +163,8 @@ class MediaRootPermission(object):
             self.show_ai_metadata = show_ai_metadata
         if show_markers is not None:
             self.show_markers = show_markers
+        if show_history is not None:
+            self.show_history = show_history
         self.root = root
         self.is_temporary_for_token = is_temporary_for_token
 
@@ -190,7 +195,7 @@ class MediaRootPermission(object):
 
 
         :return: The user of this MediaRootPermission.  # noqa: E501
-        :rtype: ElementsUserMini
+        :rtype: ElementsUserMiniReference
         """
         return self._user
 
@@ -200,7 +205,7 @@ class MediaRootPermission(object):
 
 
         :param user: The user of this MediaRootPermission.  # noqa: E501
-        :type: ElementsUserMini
+        :type: ElementsUserMiniReference
         """
 
         self._user = user
@@ -211,7 +216,7 @@ class MediaRootPermission(object):
 
 
         :return: The group of this MediaRootPermission.  # noqa: E501
-        :rtype: ElementsGroup
+        :rtype: ElementsGroupReference
         """
         return self._group
 
@@ -221,7 +226,7 @@ class MediaRootPermission(object):
 
 
         :param group: The group of this MediaRootPermission.  # noqa: E501
-        :type: ElementsGroup
+        :type: ElementsGroupReference
         """
 
         self._group = group
@@ -627,6 +632,27 @@ class MediaRootPermission(object):
         """
 
         self._show_markers = show_markers
+
+    @property
+    def show_history(self):
+        """Gets the show_history of this MediaRootPermission.  # noqa: E501
+
+
+        :return: The show_history of this MediaRootPermission.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_history
+
+    @show_history.setter
+    def show_history(self, show_history):
+        """Sets the show_history of this MediaRootPermission.
+
+
+        :param show_history: The show_history of this MediaRootPermission.  # noqa: E501
+        :type: bool
+        """
+
+        self._show_history = show_history
 
     @property
     def root(self):

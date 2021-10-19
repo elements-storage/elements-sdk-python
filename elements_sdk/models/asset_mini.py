@@ -34,10 +34,9 @@ class AssetMini(object):
         'id': 'int',
         'sync_id': 'str',
         'default_proxy': 'Proxy',
-        'urls': 'dict(str, str)',
         'type': 'str',
         'display_name': 'str',
-        'info': 'str',
+        'info': 'dict(str, str)',
         'thumbnail_generated': 'bool'
     }
 
@@ -45,14 +44,13 @@ class AssetMini(object):
         'id': 'id',
         'sync_id': 'sync_id',
         'default_proxy': 'default_proxy',
-        'urls': 'urls',
         'type': 'type',
         'display_name': 'display_name',
         'info': 'info',
         'thumbnail_generated': 'thumbnail_generated'
     }
 
-    def __init__(self, id=None, sync_id=None, default_proxy=None, urls=None, type=None, display_name=None, info=None, thumbnail_generated=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, sync_id=None, default_proxy=None, type=None, display_name=None, info=None, thumbnail_generated=None, local_vars_configuration=None):  # noqa: E501
         """AssetMini - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,7 +59,6 @@ class AssetMini(object):
         self._id = None
         self._sync_id = None
         self._default_proxy = None
-        self._urls = None
         self._type = None
         self._display_name = None
         self._info = None
@@ -74,8 +71,6 @@ class AssetMini(object):
             self.sync_id = sync_id
         if default_proxy is not None:
             self.default_proxy = default_proxy
-        if urls is not None:
-            self.urls = urls
         if type is not None:
             self.type = type
         if display_name is not None:
@@ -149,27 +144,6 @@ class AssetMini(object):
         self._default_proxy = default_proxy
 
     @property
-    def urls(self):
-        """Gets the urls of this AssetMini.  # noqa: E501
-
-
-        :return: The urls of this AssetMini.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._urls
-
-    @urls.setter
-    def urls(self, urls):
-        """Sets the urls of this AssetMini.
-
-
-        :param urls: The urls of this AssetMini.  # noqa: E501
-        :type: dict(str, str)
-        """
-
-        self._urls = urls
-
-    @property
     def type(self):
         """Gets the type of this AssetMini.  # noqa: E501
 
@@ -223,7 +197,7 @@ class AssetMini(object):
 
 
         :return: The info of this AssetMini.  # noqa: E501
-        :rtype: str
+        :rtype: dict(str, str)
         """
         return self._info
 
@@ -233,7 +207,7 @@ class AssetMini(object):
 
 
         :param info: The info of this AssetMini.  # noqa: E501
-        :type: str
+        :type: dict(str, str)
         """
 
         self._info = info

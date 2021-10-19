@@ -32,19 +32,18 @@ class Asset(object):
     """
     openapi_types = {
         'id': 'int',
-        'urls': 'dict(str, str)',
         'proxies': 'list[Proxy]',
         'default_proxy': 'Proxy',
         'info': 'dict(str, str)',
         'proxy_info': 'dict(str, str)',
         'custom_fields': 'dict(str, str)',
-        'tags': 'list[Tag]',
+        'tags': 'list[int]',
         'resolved_permission': 'MediaRootPermission',
-        'bundles': 'list[dict(str, str)]',
         'backups': 'str',
         'proxies_generated': 'bool',
         'proxies_failed': 'bool',
         'modified_by': 'ElementsUserMini',
+        'bundles': 'list[MediaFileBundleMini]',
         'sync_id': 'str',
         'display_name': 'str',
         'has_files': 'bool',
@@ -64,7 +63,6 @@ class Asset(object):
 
     attribute_map = {
         'id': 'id',
-        'urls': 'urls',
         'proxies': 'proxies',
         'default_proxy': 'default_proxy',
         'info': 'info',
@@ -72,11 +70,11 @@ class Asset(object):
         'custom_fields': 'custom_fields',
         'tags': 'tags',
         'resolved_permission': 'resolved_permission',
-        'bundles': 'bundles',
         'backups': 'backups',
         'proxies_generated': 'proxies_generated',
         'proxies_failed': 'proxies_failed',
         'modified_by': 'modified_by',
+        'bundles': 'bundles',
         'sync_id': 'sync_id',
         'display_name': 'display_name',
         'has_files': 'has_files',
@@ -94,14 +92,13 @@ class Asset(object):
         'set': 'set'
     }
 
-    def __init__(self, id=None, urls=None, proxies=None, default_proxy=None, info=None, proxy_info=None, custom_fields=None, tags=None, resolved_permission=None, bundles=None, backups=None, proxies_generated=None, proxies_failed=None, modified_by=None, sync_id=None, display_name=None, has_files=None, has_backups=None, has_cloud_links=None, checksum=None, type=None, thumbnail_generated=None, matched_scanner=None, rating=None, workflow_state=None, is_temporary=None, created=None, modified=None, set=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, proxies=None, default_proxy=None, info=None, proxy_info=None, custom_fields=None, tags=None, resolved_permission=None, backups=None, proxies_generated=None, proxies_failed=None, modified_by=None, bundles=None, sync_id=None, display_name=None, has_files=None, has_backups=None, has_cloud_links=None, checksum=None, type=None, thumbnail_generated=None, matched_scanner=None, rating=None, workflow_state=None, is_temporary=None, created=None, modified=None, set=None, local_vars_configuration=None):  # noqa: E501
         """Asset - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
-        self._urls = None
         self._proxies = None
         self._default_proxy = None
         self._info = None
@@ -109,11 +106,11 @@ class Asset(object):
         self._custom_fields = None
         self._tags = None
         self._resolved_permission = None
-        self._bundles = None
         self._backups = None
         self._proxies_generated = None
         self._proxies_failed = None
         self._modified_by = None
+        self._bundles = None
         self._sync_id = None
         self._display_name = None
         self._has_files = None
@@ -133,8 +130,6 @@ class Asset(object):
 
         if id is not None:
             self.id = id
-        if urls is not None:
-            self.urls = urls
         if proxies is not None:
             self.proxies = proxies
         if default_proxy is not None:
@@ -147,8 +142,6 @@ class Asset(object):
         self.tags = tags
         if resolved_permission is not None:
             self.resolved_permission = resolved_permission
-        if bundles is not None:
-            self.bundles = bundles
         if backups is not None:
             self.backups = backups
         if proxies_generated is not None:
@@ -157,6 +150,8 @@ class Asset(object):
             self.proxies_failed = proxies_failed
         if modified_by is not None:
             self.modified_by = modified_by
+        if bundles is not None:
+            self.bundles = bundles
         if sync_id is not None:
             self.sync_id = sync_id
         if display_name is not None:
@@ -207,27 +202,6 @@ class Asset(object):
         """
 
         self._id = id
-
-    @property
-    def urls(self):
-        """Gets the urls of this Asset.  # noqa: E501
-
-
-        :return: The urls of this Asset.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._urls
-
-    @urls.setter
-    def urls(self, urls):
-        """Sets the urls of this Asset.
-
-
-        :param urls: The urls of this Asset.  # noqa: E501
-        :type: dict(str, str)
-        """
-
-        self._urls = urls
 
     @property
     def proxies(self):
@@ -342,7 +316,7 @@ class Asset(object):
 
 
         :return: The tags of this Asset.  # noqa: E501
-        :rtype: list[Tag]
+        :rtype: list[int]
         """
         return self._tags
 
@@ -352,7 +326,7 @@ class Asset(object):
 
 
         :param tags: The tags of this Asset.  # noqa: E501
-        :type: list[Tag]
+        :type: list[int]
         """
         if self.local_vars_configuration.client_side_validation and tags is None:  # noqa: E501
             raise ValueError("Invalid value for `tags`, must not be `None`")  # noqa: E501
@@ -379,27 +353,6 @@ class Asset(object):
         """
 
         self._resolved_permission = resolved_permission
-
-    @property
-    def bundles(self):
-        """Gets the bundles of this Asset.  # noqa: E501
-
-
-        :return: The bundles of this Asset.  # noqa: E501
-        :rtype: list[dict(str, str)]
-        """
-        return self._bundles
-
-    @bundles.setter
-    def bundles(self, bundles):
-        """Sets the bundles of this Asset.
-
-
-        :param bundles: The bundles of this Asset.  # noqa: E501
-        :type: list[dict(str, str)]
-        """
-
-        self._bundles = bundles
 
     @property
     def backups(self):
@@ -484,6 +437,27 @@ class Asset(object):
         """
 
         self._modified_by = modified_by
+
+    @property
+    def bundles(self):
+        """Gets the bundles of this Asset.  # noqa: E501
+
+
+        :return: The bundles of this Asset.  # noqa: E501
+        :rtype: list[MediaFileBundleMini]
+        """
+        return self._bundles
+
+    @bundles.setter
+    def bundles(self, bundles):
+        """Sets the bundles of this Asset.
+
+
+        :param bundles: The bundles of this Asset.  # noqa: E501
+        :type: list[MediaFileBundleMini]
+        """
+
+        self._bundles = bundles
 
     @property
     def sync_id(self):

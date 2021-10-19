@@ -32,8 +32,8 @@ class ElementsGroupDetailPartialUpdate(object):
     """
     openapi_types = {
         'permissions': 'list[str]',
-        'members': 'list[ElementsUser]',
-        'ldap': 'LDAPServer',
+        'members': 'list[ElementsUserReference]',
+        'ldap': 'LDAPServerReference',
         'name': 'str',
         'ldap_dn': 'str',
         'unix_groupname': 'str',
@@ -114,7 +114,7 @@ class ElementsGroupDetailPartialUpdate(object):
 
 
         :return: The members of this ElementsGroupDetailPartialUpdate.  # noqa: E501
-        :rtype: list[ElementsUser]
+        :rtype: list[ElementsUserReference]
         """
         return self._members
 
@@ -124,7 +124,7 @@ class ElementsGroupDetailPartialUpdate(object):
 
 
         :param members: The members of this ElementsGroupDetailPartialUpdate.  # noqa: E501
-        :type: list[ElementsUser]
+        :type: list[ElementsUserReference]
         """
 
         self._members = members
@@ -135,7 +135,7 @@ class ElementsGroupDetailPartialUpdate(object):
 
 
         :return: The ldap of this ElementsGroupDetailPartialUpdate.  # noqa: E501
-        :rtype: LDAPServer
+        :rtype: LDAPServerReference
         """
         return self._ldap
 
@@ -145,7 +145,7 @@ class ElementsGroupDetailPartialUpdate(object):
 
 
         :param ldap: The ldap of this ElementsGroupDetailPartialUpdate.  # noqa: E501
-        :type: LDAPServer
+        :type: LDAPServerReference
         """
 
         self._ldap = ldap

@@ -31,11 +31,11 @@ class JobPartialUpdate(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'subtasks': 'list[Subtask]',
-        'schedules': 'list[Schedule]',
-        'allow_users': 'list[ElementsUser]',
-        'allow_groups': 'list[ElementsGroup]',
-        'variable_definitions': 'list[str]',
+        'subtasks': 'list[SubtaskReference]',
+        'schedules': 'list[ScheduleReference]',
+        'allow_users': 'list[ElementsUserReference]',
+        'allow_groups': 'list[ElementsGroupReference]',
+        'variable_definitions': 'list[dict(str, str)]',
         'media_roots': 'list[int]',
         'special_type': 'int',
         'name': 'str',
@@ -130,7 +130,7 @@ class JobPartialUpdate(object):
 
 
         :return: The subtasks of this JobPartialUpdate.  # noqa: E501
-        :rtype: list[Subtask]
+        :rtype: list[SubtaskReference]
         """
         return self._subtasks
 
@@ -140,7 +140,7 @@ class JobPartialUpdate(object):
 
 
         :param subtasks: The subtasks of this JobPartialUpdate.  # noqa: E501
-        :type: list[Subtask]
+        :type: list[SubtaskReference]
         """
 
         self._subtasks = subtasks
@@ -151,7 +151,7 @@ class JobPartialUpdate(object):
 
 
         :return: The schedules of this JobPartialUpdate.  # noqa: E501
-        :rtype: list[Schedule]
+        :rtype: list[ScheduleReference]
         """
         return self._schedules
 
@@ -161,7 +161,7 @@ class JobPartialUpdate(object):
 
 
         :param schedules: The schedules of this JobPartialUpdate.  # noqa: E501
-        :type: list[Schedule]
+        :type: list[ScheduleReference]
         """
 
         self._schedules = schedules
@@ -172,7 +172,7 @@ class JobPartialUpdate(object):
 
 
         :return: The allow_users of this JobPartialUpdate.  # noqa: E501
-        :rtype: list[ElementsUser]
+        :rtype: list[ElementsUserReference]
         """
         return self._allow_users
 
@@ -182,7 +182,7 @@ class JobPartialUpdate(object):
 
 
         :param allow_users: The allow_users of this JobPartialUpdate.  # noqa: E501
-        :type: list[ElementsUser]
+        :type: list[ElementsUserReference]
         """
 
         self._allow_users = allow_users
@@ -193,7 +193,7 @@ class JobPartialUpdate(object):
 
 
         :return: The allow_groups of this JobPartialUpdate.  # noqa: E501
-        :rtype: list[ElementsGroup]
+        :rtype: list[ElementsGroupReference]
         """
         return self._allow_groups
 
@@ -203,7 +203,7 @@ class JobPartialUpdate(object):
 
 
         :param allow_groups: The allow_groups of this JobPartialUpdate.  # noqa: E501
-        :type: list[ElementsGroup]
+        :type: list[ElementsGroupReference]
         """
 
         self._allow_groups = allow_groups
@@ -214,7 +214,7 @@ class JobPartialUpdate(object):
 
 
         :return: The variable_definitions of this JobPartialUpdate.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[dict(str, str)]
         """
         return self._variable_definitions
 
@@ -224,7 +224,7 @@ class JobPartialUpdate(object):
 
 
         :param variable_definitions: The variable_definitions of this JobPartialUpdate.  # noqa: E501
-        :type: list[str]
+        :type: list[dict(str, str)]
         """
 
         self._variable_definitions = variable_definitions
@@ -268,6 +268,12 @@ class JobPartialUpdate(object):
         :param special_type: The special_type of this JobPartialUpdate.  # noqa: E501
         :type: int
         """
+        allowed_values = [None,2, 3]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and special_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `special_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(special_type, allowed_values)
+            )
 
         self._special_type = special_type
 

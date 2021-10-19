@@ -34,8 +34,8 @@ class MediaRootMini(object):
         'id': 'int',
         'name': 'str',
         'full_path': 'str',
-        'custom_fields': 'list[CustomField]',
-        'volume': 'VolumeMini',
+        'custom_fields': 'list[CustomFieldReference]',
+        'volume': 'VolumeMiniReference',
         'path': 'str',
         'prefetch_thumbnail_strips': 'bool'
     }
@@ -155,7 +155,7 @@ class MediaRootMini(object):
 
 
         :return: The custom_fields of this MediaRootMini.  # noqa: E501
-        :rtype: list[CustomField]
+        :rtype: list[CustomFieldReference]
         """
         return self._custom_fields
 
@@ -165,7 +165,7 @@ class MediaRootMini(object):
 
 
         :param custom_fields: The custom_fields of this MediaRootMini.  # noqa: E501
-        :type: list[CustomField]
+        :type: list[CustomFieldReference]
         """
 
         self._custom_fields = custom_fields
@@ -176,7 +176,7 @@ class MediaRootMini(object):
 
 
         :return: The volume of this MediaRootMini.  # noqa: E501
-        :rtype: VolumeMini
+        :rtype: VolumeMiniReference
         """
         return self._volume
 
@@ -186,7 +186,7 @@ class MediaRootMini(object):
 
 
         :param volume: The volume of this MediaRootMini.  # noqa: E501
-        :type: VolumeMini
+        :type: VolumeMiniReference
         """
         if self.local_vars_configuration.client_side_validation and volume is None:  # noqa: E501
             raise ValueError("Invalid value for `volume`, must not be `None`")  # noqa: E501

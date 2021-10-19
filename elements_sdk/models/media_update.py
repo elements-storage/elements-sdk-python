@@ -38,8 +38,8 @@ class MediaUpdate(object):
         'root': 'MediaRootMini',
         'user': 'ElementsUserMini',
         'custom_fields_diff': 'dict(str, str)',
-        'added_tags': 'list[Tag]',
-        'removed_tags': 'list[Tag]',
+        'added_tags': 'list[UnfilteredTag]',
+        'removed_tags': 'list[UnfilteredTag]',
         'type': 'str',
         'date': 'datetime',
         'rating': 'int'
@@ -257,7 +257,7 @@ class MediaUpdate(object):
 
 
         :return: The added_tags of this MediaUpdate.  # noqa: E501
-        :rtype: list[Tag]
+        :rtype: list[UnfilteredTag]
         """
         return self._added_tags
 
@@ -267,7 +267,7 @@ class MediaUpdate(object):
 
 
         :param added_tags: The added_tags of this MediaUpdate.  # noqa: E501
-        :type: list[Tag]
+        :type: list[UnfilteredTag]
         """
 
         self._added_tags = added_tags
@@ -278,7 +278,7 @@ class MediaUpdate(object):
 
 
         :return: The removed_tags of this MediaUpdate.  # noqa: E501
-        :rtype: list[Tag]
+        :rtype: list[UnfilteredTag]
         """
         return self._removed_tags
 
@@ -288,7 +288,7 @@ class MediaUpdate(object):
 
 
         :param removed_tags: The removed_tags of this MediaUpdate.  # noqa: E501
-        :type: list[Tag]
+        :type: list[UnfilteredTag]
         """
 
         self._removed_tags = removed_tags

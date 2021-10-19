@@ -33,8 +33,8 @@ class MediaFile(object):
     openapi_types = {
         'id': 'int',
         'volume': 'VolumeMini',
-        'info': 'object',
-        'custom_fields': 'object',
+        'info': 'dict(str, str)',
+        'custom_fields': 'dict(str, str)',
         'resolved_permission': 'MediaRootPermission',
         'parent_file': 'dict(str, str)',
         'root': 'MediaRootMini',
@@ -44,9 +44,12 @@ class MediaFile(object):
         'is_shared': 'bool',
         'is_excluded': 'bool',
         'is_hardlink': 'bool',
+        'is_bookmarked': 'bool',
+        'child_count': 'int',
         'name': 'str',
         'path': 'str',
         'pathhash': 'str',
+        'ancestry': 'str',
         'is_dir': 'bool',
         'total_files': 'int',
         'size': 'int',
@@ -57,7 +60,8 @@ class MediaFile(object):
         'bundle_index': 'int',
         'modified': 'datetime',
         'parent': 'int',
-        'bundle': 'int'
+        'bundle': 'int',
+        'bookmarked_by': 'list[int]'
     }
 
     attribute_map = {
@@ -74,9 +78,12 @@ class MediaFile(object):
         'is_shared': 'is_shared',
         'is_excluded': 'is_excluded',
         'is_hardlink': 'is_hardlink',
+        'is_bookmarked': 'is_bookmarked',
+        'child_count': 'child_count',
         'name': 'name',
         'path': 'path',
         'pathhash': 'pathhash',
+        'ancestry': 'ancestry',
         'is_dir': 'is_dir',
         'total_files': 'total_files',
         'size': 'size',
@@ -87,10 +94,11 @@ class MediaFile(object):
         'bundle_index': 'bundle_index',
         'modified': 'modified',
         'parent': 'parent',
-        'bundle': 'bundle'
+        'bundle': 'bundle',
+        'bookmarked_by': 'bookmarked_by'
     }
 
-    def __init__(self, id=None, volume=None, info=None, custom_fields=None, resolved_permission=None, parent_file=None, root=None, effective_custom_fields=None, modified_by=None, full_path=None, is_shared=None, is_excluded=None, is_hardlink=None, name=None, path=None, pathhash=None, is_dir=None, total_files=None, size=None, mtime=None, present=None, needs_rescan=None, is_showroom=None, bundle_index=None, modified=None, parent=None, bundle=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, volume=None, info=None, custom_fields=None, resolved_permission=None, parent_file=None, root=None, effective_custom_fields=None, modified_by=None, full_path=None, is_shared=None, is_excluded=None, is_hardlink=None, is_bookmarked=None, child_count=None, name=None, path=None, pathhash=None, ancestry=None, is_dir=None, total_files=None, size=None, mtime=None, present=None, needs_rescan=None, is_showroom=None, bundle_index=None, modified=None, parent=None, bundle=None, bookmarked_by=None, local_vars_configuration=None):  # noqa: E501
         """MediaFile - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -109,9 +117,12 @@ class MediaFile(object):
         self._is_shared = None
         self._is_excluded = None
         self._is_hardlink = None
+        self._is_bookmarked = None
+        self._child_count = None
         self._name = None
         self._path = None
         self._pathhash = None
+        self._ancestry = None
         self._is_dir = None
         self._total_files = None
         self._size = None
@@ -123,6 +134,7 @@ class MediaFile(object):
         self._modified = None
         self._parent = None
         self._bundle = None
+        self._bookmarked_by = None
         self.discriminator = None
 
         if id is not None:
@@ -151,12 +163,18 @@ class MediaFile(object):
             self.is_excluded = is_excluded
         if is_hardlink is not None:
             self.is_hardlink = is_hardlink
+        if is_bookmarked is not None:
+            self.is_bookmarked = is_bookmarked
+        if child_count is not None:
+            self.child_count = child_count
         if name is not None:
             self.name = name
         if path is not None:
             self.path = path
         if pathhash is not None:
             self.pathhash = pathhash
+        if ancestry is not None:
+            self.ancestry = ancestry
         if is_dir is not None:
             self.is_dir = is_dir
         self.total_files = total_files
@@ -178,6 +196,8 @@ class MediaFile(object):
             self.parent = parent
         if bundle is not None:
             self.bundle = bundle
+        if bookmarked_by is not None:
+            self.bookmarked_by = bookmarked_by
 
     @property
     def id(self):
@@ -227,7 +247,7 @@ class MediaFile(object):
 
 
         :return: The info of this MediaFile.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, str)
         """
         return self._info
 
@@ -237,7 +257,7 @@ class MediaFile(object):
 
 
         :param info: The info of this MediaFile.  # noqa: E501
-        :type: object
+        :type: dict(str, str)
         """
 
         self._info = info
@@ -248,7 +268,7 @@ class MediaFile(object):
 
 
         :return: The custom_fields of this MediaFile.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, str)
         """
         return self._custom_fields
 
@@ -258,7 +278,7 @@ class MediaFile(object):
 
 
         :param custom_fields: The custom_fields of this MediaFile.  # noqa: E501
-        :type: object
+        :type: dict(str, str)
         """
 
         self._custom_fields = custom_fields
@@ -453,6 +473,48 @@ class MediaFile(object):
         self._is_hardlink = is_hardlink
 
     @property
+    def is_bookmarked(self):
+        """Gets the is_bookmarked of this MediaFile.  # noqa: E501
+
+
+        :return: The is_bookmarked of this MediaFile.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_bookmarked
+
+    @is_bookmarked.setter
+    def is_bookmarked(self, is_bookmarked):
+        """Sets the is_bookmarked of this MediaFile.
+
+
+        :param is_bookmarked: The is_bookmarked of this MediaFile.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_bookmarked = is_bookmarked
+
+    @property
+    def child_count(self):
+        """Gets the child_count of this MediaFile.  # noqa: E501
+
+
+        :return: The child_count of this MediaFile.  # noqa: E501
+        :rtype: int
+        """
+        return self._child_count
+
+    @child_count.setter
+    def child_count(self, child_count):
+        """Sets the child_count of this MediaFile.
+
+
+        :param child_count: The child_count of this MediaFile.  # noqa: E501
+        :type: int
+        """
+
+        self._child_count = child_count
+
+    @property
     def name(self):
         """Gets the name of this MediaFile.  # noqa: E501
 
@@ -523,6 +585,30 @@ class MediaFile(object):
             raise ValueError("Invalid value for `pathhash`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._pathhash = pathhash
+
+    @property
+    def ancestry(self):
+        """Gets the ancestry of this MediaFile.  # noqa: E501
+
+
+        :return: The ancestry of this MediaFile.  # noqa: E501
+        :rtype: str
+        """
+        return self._ancestry
+
+    @ancestry.setter
+    def ancestry(self, ancestry):
+        """Sets the ancestry of this MediaFile.
+
+
+        :param ancestry: The ancestry of this MediaFile.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                ancestry is not None and len(ancestry) < 1):
+            raise ValueError("Invalid value for `ancestry`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._ancestry = ancestry
 
     @property
     def is_dir(self):
@@ -754,6 +840,27 @@ class MediaFile(object):
         """
 
         self._bundle = bundle
+
+    @property
+    def bookmarked_by(self):
+        """Gets the bookmarked_by of this MediaFile.  # noqa: E501
+
+
+        :return: The bookmarked_by of this MediaFile.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._bookmarked_by
+
+    @bookmarked_by.setter
+    def bookmarked_by(self, bookmarked_by):
+        """Sets the bookmarked_by of this MediaFile.
+
+
+        :param bookmarked_by: The bookmarked_by of this MediaFile.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._bookmarked_by = bookmarked_by
 
     def to_dict(self):
         """Returns the model properties as a dict"""

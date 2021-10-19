@@ -40,7 +40,6 @@ class ProxyProfile(object):
         'bitrate': 'int',
         'audio_bitrate': 'int',
         'variants_limit': 'int',
-        'enable_realtime_read': 'bool',
         'enable_dense_filmstrip': 'bool',
         'enable_watermark': 'bool',
         'watermark_image': 'str',
@@ -71,7 +70,6 @@ class ProxyProfile(object):
         'bitrate': 'bitrate',
         'audio_bitrate': 'audio_bitrate',
         'variants_limit': 'variants_limit',
-        'enable_realtime_read': 'enable_realtime_read',
         'enable_dense_filmstrip': 'enable_dense_filmstrip',
         'enable_watermark': 'enable_watermark',
         'watermark_image': 'watermark_image',
@@ -92,7 +90,7 @@ class ProxyProfile(object):
         'external_transcoder': 'external_transcoder'
     }
 
-    def __init__(self, id=None, name=None, proxy_generator=None, resolution=None, rate_control=None, crf=None, bitrate=None, audio_bitrate=None, variants_limit=None, enable_realtime_read=None, enable_dense_filmstrip=None, enable_watermark=None, watermark_image=None, watermark_position=None, watermark_opacity=None, watermark_size=None, enable_timecode=None, timecode_position=None, timecode_opacity=None, timecode_size=None, lut=None, hotfolder_copy_to=None, hotfolder_read_from=None, hotfolder_queue_timeout=None, hotfolder_encode_timeout=None, vantage_workflow_id=None, external_transcoder_staging_path=None, external_transcoder=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, proxy_generator=None, resolution=None, rate_control=None, crf=None, bitrate=None, audio_bitrate=None, variants_limit=None, enable_dense_filmstrip=None, enable_watermark=None, watermark_image=None, watermark_position=None, watermark_opacity=None, watermark_size=None, enable_timecode=None, timecode_position=None, timecode_opacity=None, timecode_size=None, lut=None, hotfolder_copy_to=None, hotfolder_read_from=None, hotfolder_queue_timeout=None, hotfolder_encode_timeout=None, vantage_workflow_id=None, external_transcoder_staging_path=None, external_transcoder=None, local_vars_configuration=None):  # noqa: E501
         """ProxyProfile - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -107,7 +105,6 @@ class ProxyProfile(object):
         self._bitrate = None
         self._audio_bitrate = None
         self._variants_limit = None
-        self._enable_realtime_read = None
         self._enable_dense_filmstrip = None
         self._enable_watermark = None
         self._watermark_image = None
@@ -142,8 +139,6 @@ class ProxyProfile(object):
             self.audio_bitrate = audio_bitrate
         if variants_limit is not None:
             self.variants_limit = variants_limit
-        if enable_realtime_read is not None:
-            self.enable_realtime_read = enable_realtime_read
         if enable_dense_filmstrip is not None:
             self.enable_dense_filmstrip = enable_dense_filmstrip
         if enable_watermark is not None:
@@ -242,7 +237,7 @@ class ProxyProfile(object):
         :param proxy_generator: The proxy_generator of this ProxyProfile.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ffmpeg", "hotfolder", "transkoder", "vantage"]  # noqa: E501
+        allowed_values = ["ffmpeg", "hotfolder", "transkoder", "vantage", "noop"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and proxy_generator not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `proxy_generator` ({0}), must be one of {1}"  # noqa: E501
@@ -293,6 +288,12 @@ class ProxyProfile(object):
         :param rate_control: The rate_control of this ProxyProfile.  # noqa: E501
         :type: int
         """
+        allowed_values = [0, 1, 2]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and rate_control not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `rate_control` ({0}), must be one of {1}"  # noqa: E501
+                .format(rate_control, allowed_values)
+            )
 
         self._rate_control = rate_control
 
@@ -381,27 +382,6 @@ class ProxyProfile(object):
         self._variants_limit = variants_limit
 
     @property
-    def enable_realtime_read(self):
-        """Gets the enable_realtime_read of this ProxyProfile.  # noqa: E501
-
-
-        :return: The enable_realtime_read of this ProxyProfile.  # noqa: E501
-        :rtype: bool
-        """
-        return self._enable_realtime_read
-
-    @enable_realtime_read.setter
-    def enable_realtime_read(self, enable_realtime_read):
-        """Sets the enable_realtime_read of this ProxyProfile.
-
-
-        :param enable_realtime_read: The enable_realtime_read of this ProxyProfile.  # noqa: E501
-        :type: bool
-        """
-
-        self._enable_realtime_read = enable_realtime_read
-
-    @property
     def enable_dense_filmstrip(self):
         """Gets the enable_dense_filmstrip of this ProxyProfile.  # noqa: E501
 
@@ -485,6 +465,12 @@ class ProxyProfile(object):
         :param watermark_position: The watermark_position of this ProxyProfile.  # noqa: E501
         :type: int
         """
+        allowed_values = [1, 2, 3, 4, 5]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and watermark_position not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `watermark_position` ({0}), must be one of {1}"  # noqa: E501
+                .format(watermark_position, allowed_values)
+            )
 
         self._watermark_position = watermark_position
 
@@ -569,6 +555,12 @@ class ProxyProfile(object):
         :param timecode_position: The timecode_position of this ProxyProfile.  # noqa: E501
         :type: int
         """
+        allowed_values = [1, 2, 3, 4, 5]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and timecode_position not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `timecode_position` ({0}), must be one of {1}"  # noqa: E501
+                .format(timecode_position, allowed_values)
+            )
 
         self._timecode_position = timecode_position
 

@@ -32,10 +32,10 @@ class Comment(object):
     """
     openapi_types = {
         'id': 'int',
-        'assignee': 'ElementsUserMini',
-        'user': 'ElementsUserMini',
+        'assignee': 'ElementsUserMiniReference',
+        'user': 'ElementsUserMiniReference',
         'drawing': 'dict(str, str)',
-        'tags': 'list[Tag]',
+        'tags': 'list[TagReference]',
         'full_asset': 'Asset',
         'sync_id': 'str',
         'date': 'datetime',
@@ -146,7 +146,7 @@ class Comment(object):
 
 
         :return: The assignee of this Comment.  # noqa: E501
-        :rtype: ElementsUserMini
+        :rtype: ElementsUserMiniReference
         """
         return self._assignee
 
@@ -156,7 +156,7 @@ class Comment(object):
 
 
         :param assignee: The assignee of this Comment.  # noqa: E501
-        :type: ElementsUserMini
+        :type: ElementsUserMiniReference
         """
 
         self._assignee = assignee
@@ -167,7 +167,7 @@ class Comment(object):
 
 
         :return: The user of this Comment.  # noqa: E501
-        :rtype: ElementsUserMini
+        :rtype: ElementsUserMiniReference
         """
         return self._user
 
@@ -177,7 +177,7 @@ class Comment(object):
 
 
         :param user: The user of this Comment.  # noqa: E501
-        :type: ElementsUserMini
+        :type: ElementsUserMiniReference
         """
 
         self._user = user
@@ -209,7 +209,7 @@ class Comment(object):
 
 
         :return: The tags of this Comment.  # noqa: E501
-        :rtype: list[Tag]
+        :rtype: list[TagReference]
         """
         return self._tags
 
@@ -219,7 +219,7 @@ class Comment(object):
 
 
         :param tags: The tags of this Comment.  # noqa: E501
-        :type: list[Tag]
+        :type: list[TagReference]
         """
 
         self._tags = tags

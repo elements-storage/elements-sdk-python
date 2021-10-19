@@ -188,6 +188,12 @@ class DownloadArchivePartialUpdate(object):
         :param progress_unit: The progress_unit of this DownloadArchivePartialUpdate.  # noqa: E501
         :type: int
         """
+        allowed_values = [0, 1]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and progress_unit not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `progress_unit` ({0}), must be one of {1}"  # noqa: E501
+                .format(progress_unit, allowed_values)
+            )
 
         self._progress_unit = progress_unit
 

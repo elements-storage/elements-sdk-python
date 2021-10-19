@@ -31,7 +31,7 @@ class TapeGroupPartialUpdate(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'tapes': 'list[Tape]',
+        'tapes': 'list[TapeReference]',
         'name': 'str'
     }
 
@@ -61,7 +61,7 @@ class TapeGroupPartialUpdate(object):
 
 
         :return: The tapes of this TapeGroupPartialUpdate.  # noqa: E501
-        :rtype: list[Tape]
+        :rtype: list[TapeReference]
         """
         return self._tapes
 
@@ -71,7 +71,7 @@ class TapeGroupPartialUpdate(object):
 
 
         :param tapes: The tapes of this TapeGroupPartialUpdate.  # noqa: E501
-        :type: list[Tape]
+        :type: list[TapeReference]
         """
 
         self._tapes = tapes

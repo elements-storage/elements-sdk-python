@@ -32,25 +32,29 @@ class TasksSummary(object):
     """
     openapi_types = {
         'running': 'list[TaskInfo]',
+        'recent_finished': 'list[TaskInfo]',
         'pending_count': 'int'
     }
 
     attribute_map = {
         'running': 'running',
+        'recent_finished': 'recent_finished',
         'pending_count': 'pending_count'
     }
 
-    def __init__(self, running=None, pending_count=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, running=None, recent_finished=None, pending_count=None, local_vars_configuration=None):  # noqa: E501
         """TasksSummary - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._running = None
+        self._recent_finished = None
         self._pending_count = None
         self.discriminator = None
 
         self.running = running
+        self.recent_finished = recent_finished
         self.pending_count = pending_count
 
     @property
@@ -75,6 +79,29 @@ class TasksSummary(object):
             raise ValueError("Invalid value for `running`, must not be `None`")  # noqa: E501
 
         self._running = running
+
+    @property
+    def recent_finished(self):
+        """Gets the recent_finished of this TasksSummary.  # noqa: E501
+
+
+        :return: The recent_finished of this TasksSummary.  # noqa: E501
+        :rtype: list[TaskInfo]
+        """
+        return self._recent_finished
+
+    @recent_finished.setter
+    def recent_finished(self, recent_finished):
+        """Sets the recent_finished of this TasksSummary.
+
+
+        :param recent_finished: The recent_finished of this TasksSummary.  # noqa: E501
+        :type: list[TaskInfo]
+        """
+        if self.local_vars_configuration.client_side_validation and recent_finished is None:  # noqa: E501
+            raise ValueError("Invalid value for `recent_finished`, must not be `None`")  # noqa: E501
+
+        self._recent_finished = recent_finished
 
     @property
     def pending_count(self):

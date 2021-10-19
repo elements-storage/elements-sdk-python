@@ -229,12 +229,9 @@ class Subtask(object):
         :param trigger: The trigger of this Subtask.  # noqa: E501
         :type: str
         """
-        allowed_values = [None,"finish", "success", "warning", "error", "noop"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and trigger not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `trigger` ({0}), must be one of {1}"  # noqa: E501
-                .format(trigger, allowed_values)
-            )
+        if (self.local_vars_configuration.client_side_validation and
+                trigger is not None and len(trigger) > 255):
+            raise ValueError("Invalid value for `trigger`, length must be less than or equal to `255`")  # noqa: E501
 
         self._trigger = trigger
 

@@ -84,8 +84,7 @@ class MediaLibraryShareRequest(object):
             self.email = email
         if link_type is not None:
             self.link_type = link_type
-        if password is not None:
-            self.password = password
+        self.password = password
 
     @property
     def bundles(self):

@@ -33,7 +33,7 @@ class OneTimeAccessToken(object):
     openapi_types = {
         'id': 'int',
         'activity': 'list[OneTimeAccessTokenActivity]',
-        'user': 'ElementsUserMini',
+        'user': 'ElementsUserMiniReference',
         'created_by': 'ElementsUserMini',
         'media_root_permissions': 'str',
         'shared_bundles': 'list[OneTimeAccessTokenSharedObject]',
@@ -41,6 +41,7 @@ class OneTimeAccessToken(object):
         'full_url': 'str',
         'url': 'str',
         'token': 'str',
+        'created_at': 'datetime',
         'view_limit_enabled': 'bool',
         'view_limit_left': 'int',
         'expires': 'datetime',
@@ -60,6 +61,7 @@ class OneTimeAccessToken(object):
         'full_url': 'full_url',
         'url': 'url',
         'token': 'token',
+        'created_at': 'created_at',
         'view_limit_enabled': 'view_limit_enabled',
         'view_limit_left': 'view_limit_left',
         'expires': 'expires',
@@ -68,7 +70,7 @@ class OneTimeAccessToken(object):
         'is_easy_sharing_for_directory': 'is_easy_sharing_for_directory'
     }
 
-    def __init__(self, id=None, activity=None, user=None, created_by=None, media_root_permissions=None, shared_bundles=None, shared_directories=None, full_url=None, url=None, token=None, view_limit_enabled=None, view_limit_left=None, expires=None, require_login=None, is_easy_sharing_for_bundle=None, is_easy_sharing_for_directory=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, activity=None, user=None, created_by=None, media_root_permissions=None, shared_bundles=None, shared_directories=None, full_url=None, url=None, token=None, created_at=None, view_limit_enabled=None, view_limit_left=None, expires=None, require_login=None, is_easy_sharing_for_bundle=None, is_easy_sharing_for_directory=None, local_vars_configuration=None):  # noqa: E501
         """OneTimeAccessToken - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -84,6 +86,7 @@ class OneTimeAccessToken(object):
         self._full_url = None
         self._url = None
         self._token = None
+        self._created_at = None
         self._view_limit_enabled = None
         self._view_limit_left = None
         self._expires = None
@@ -109,6 +112,8 @@ class OneTimeAccessToken(object):
             self.full_url = full_url
         self.url = url
         self.token = token
+        if created_at is not None:
+            self.created_at = created_at
         if view_limit_enabled is not None:
             self.view_limit_enabled = view_limit_enabled
         if view_limit_left is not None:
@@ -169,7 +174,7 @@ class OneTimeAccessToken(object):
 
 
         :return: The user of this OneTimeAccessToken.  # noqa: E501
-        :rtype: ElementsUserMini
+        :rtype: ElementsUserMiniReference
         """
         return self._user
 
@@ -179,7 +184,7 @@ class OneTimeAccessToken(object):
 
 
         :param user: The user of this OneTimeAccessToken.  # noqa: E501
-        :type: ElementsUserMini
+        :type: ElementsUserMiniReference
         """
         if self.local_vars_configuration.client_side_validation and user is None:  # noqa: E501
             raise ValueError("Invalid value for `user`, must not be `None`")  # noqa: E501
@@ -348,6 +353,27 @@ class OneTimeAccessToken(object):
             raise ValueError("Invalid value for `token`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._token = token
+
+    @property
+    def created_at(self):
+        """Gets the created_at of this OneTimeAccessToken.  # noqa: E501
+
+
+        :return: The created_at of this OneTimeAccessToken.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._created_at
+
+    @created_at.setter
+    def created_at(self, created_at):
+        """Sets the created_at of this OneTimeAccessToken.
+
+
+        :param created_at: The created_at of this OneTimeAccessToken.  # noqa: E501
+        :type: datetime
+        """
+
+        self._created_at = created_at
 
     @property
     def view_limit_enabled(self):

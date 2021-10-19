@@ -40,7 +40,6 @@ class ProxyGeneratorProperties(object):
         'supports_watermark': 'bool',
         'supports_timecode_burn_in': 'bool',
         'supports_audio_channels': 'bool',
-        'supports_realtime_read': 'bool',
         'supports_staging_path': 'bool'
     }
 
@@ -54,11 +53,10 @@ class ProxyGeneratorProperties(object):
         'supports_watermark': 'supports_watermark',
         'supports_timecode_burn_in': 'supports_timecode_burn_in',
         'supports_audio_channels': 'supports_audio_channels',
-        'supports_realtime_read': 'supports_realtime_read',
         'supports_staging_path': 'supports_staging_path'
     }
 
-    def __init__(self, supports_video_bitrate=None, supports_video_crf=None, supports_video_vbr=None, supports_audio_bitrate=None, supports_lut=None, supports_resolution=None, supports_watermark=None, supports_timecode_burn_in=None, supports_audio_channels=None, supports_realtime_read=None, supports_staging_path=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, supports_video_bitrate=None, supports_video_crf=None, supports_video_vbr=None, supports_audio_bitrate=None, supports_lut=None, supports_resolution=None, supports_watermark=None, supports_timecode_burn_in=None, supports_audio_channels=None, supports_staging_path=None, local_vars_configuration=None):  # noqa: E501
         """ProxyGeneratorProperties - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -73,7 +71,6 @@ class ProxyGeneratorProperties(object):
         self._supports_watermark = None
         self._supports_timecode_burn_in = None
         self._supports_audio_channels = None
-        self._supports_realtime_read = None
         self._supports_staging_path = None
         self.discriminator = None
 
@@ -95,8 +92,6 @@ class ProxyGeneratorProperties(object):
             self.supports_timecode_burn_in = supports_timecode_burn_in
         if supports_audio_channels is not None:
             self.supports_audio_channels = supports_audio_channels
-        if supports_realtime_read is not None:
-            self.supports_realtime_read = supports_realtime_read
         if supports_staging_path is not None:
             self.supports_staging_path = supports_staging_path
 
@@ -288,27 +283,6 @@ class ProxyGeneratorProperties(object):
         """
 
         self._supports_audio_channels = supports_audio_channels
-
-    @property
-    def supports_realtime_read(self):
-        """Gets the supports_realtime_read of this ProxyGeneratorProperties.  # noqa: E501
-
-
-        :return: The supports_realtime_read of this ProxyGeneratorProperties.  # noqa: E501
-        :rtype: bool
-        """
-        return self._supports_realtime_read
-
-    @supports_realtime_read.setter
-    def supports_realtime_read(self, supports_realtime_read):
-        """Sets the supports_realtime_read of this ProxyGeneratorProperties.
-
-
-        :param supports_realtime_read: The supports_realtime_read of this ProxyGeneratorProperties.  # noqa: E501
-        :type: bool
-        """
-
-        self._supports_realtime_read = supports_realtime_read
 
     @property
     def supports_staging_path(self):

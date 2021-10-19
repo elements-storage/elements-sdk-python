@@ -31,13 +31,13 @@ class SubclipPartialUpdate(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'asset': 'AssetMini',
-        'rendered': 'AssetMini',
+        'asset': 'AssetMiniReference',
+        'rendered': 'AssetMiniReference',
         'shared': 'bool',
         'name': 'str',
         't_in': 'float',
         't_out': 'float',
-        'root': 'MediaRootMini'
+        'root': 'MediaRootMiniReference'
     }
 
     attribute_map = {
@@ -85,7 +85,7 @@ class SubclipPartialUpdate(object):
 
 
         :return: The asset of this SubclipPartialUpdate.  # noqa: E501
-        :rtype: AssetMini
+        :rtype: AssetMiniReference
         """
         return self._asset
 
@@ -95,7 +95,7 @@ class SubclipPartialUpdate(object):
 
 
         :param asset: The asset of this SubclipPartialUpdate.  # noqa: E501
-        :type: AssetMini
+        :type: AssetMiniReference
         """
 
         self._asset = asset
@@ -106,7 +106,7 @@ class SubclipPartialUpdate(object):
 
 
         :return: The rendered of this SubclipPartialUpdate.  # noqa: E501
-        :rtype: AssetMini
+        :rtype: AssetMiniReference
         """
         return self._rendered
 
@@ -116,7 +116,7 @@ class SubclipPartialUpdate(object):
 
 
         :param rendered: The rendered of this SubclipPartialUpdate.  # noqa: E501
-        :type: AssetMini
+        :type: AssetMiniReference
         """
 
         self._rendered = rendered
@@ -211,7 +211,7 @@ class SubclipPartialUpdate(object):
 
 
         :return: The root of this SubclipPartialUpdate.  # noqa: E501
-        :rtype: MediaRootMini
+        :rtype: MediaRootMiniReference
         """
         return self._root
 
@@ -221,7 +221,7 @@ class SubclipPartialUpdate(object):
 
 
         :param root: The root of this SubclipPartialUpdate.  # noqa: E501
-        :type: MediaRootMini
+        :type: MediaRootMiniReference
         """
         if self.local_vars_configuration.client_side_validation and root is None:  # noqa: E501
             raise ValueError("Invalid value for `root`, must not be `None`")  # noqa: E501

@@ -32,7 +32,7 @@ class AssetRating(object):
     """
     openapi_types = {
         'id': 'int',
-        'user': 'ElementsUserMini',
+        'user': 'ElementsUserMiniReference',
         'rating': 'int',
         'date': 'datetime',
         'asset': 'int'
@@ -95,7 +95,7 @@ class AssetRating(object):
 
 
         :return: The user of this AssetRating.  # noqa: E501
-        :rtype: ElementsUserMini
+        :rtype: ElementsUserMiniReference
         """
         return self._user
 
@@ -105,7 +105,7 @@ class AssetRating(object):
 
 
         :param user: The user of this AssetRating.  # noqa: E501
-        :type: ElementsUserMini
+        :type: ElementsUserMiniReference
         """
         if self.local_vars_configuration.client_side_validation and user is None:  # noqa: E501
             raise ValueError("Invalid value for `user`, must not be `None`")  # noqa: E501

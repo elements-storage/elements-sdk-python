@@ -31,60 +31,34 @@ class ExternalTranscoderPartialUpdate(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'path_mappings': 'list[str]',
         'name': 'str',
         'type': 'str',
         'address': 'str'
     }
 
     attribute_map = {
-        'path_mappings': 'path_mappings',
         'name': 'name',
         'type': 'type',
         'address': 'address'
     }
 
-    def __init__(self, path_mappings=None, name=None, type=None, address=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, type=None, address=None, local_vars_configuration=None):  # noqa: E501
         """ExternalTranscoderPartialUpdate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._path_mappings = None
         self._name = None
         self._type = None
         self._address = None
         self.discriminator = None
 
-        if path_mappings is not None:
-            self.path_mappings = path_mappings
         if name is not None:
             self.name = name
         if type is not None:
             self.type = type
         if address is not None:
             self.address = address
-
-    @property
-    def path_mappings(self):
-        """Gets the path_mappings of this ExternalTranscoderPartialUpdate.  # noqa: E501
-
-
-        :return: The path_mappings of this ExternalTranscoderPartialUpdate.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._path_mappings
-
-    @path_mappings.setter
-    def path_mappings(self, path_mappings):
-        """Sets the path_mappings of this ExternalTranscoderPartialUpdate.
-
-
-        :param path_mappings: The path_mappings of this ExternalTranscoderPartialUpdate.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._path_mappings = path_mappings
 
     @property
     def name(self):

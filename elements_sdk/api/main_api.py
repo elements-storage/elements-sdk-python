@@ -51,7 +51,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -77,7 +77,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -111,10 +111,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -126,7 +122,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -151,7 +147,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -177,7 +173,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -211,10 +207,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -226,7 +218,115 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def check_certificate(self, certificate, **kwargs):  # noqa: E501
+        """check_certificate  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.check_certificate(certificate, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param Certificate certificate: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.check_certificate_with_http_info(certificate, **kwargs)  # noqa: E501
+
+    def check_certificate_with_http_info(self, certificate, **kwargs):  # noqa: E501
+        """check_certificate  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.check_certificate_with_http_info(certificate, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param Certificate certificate: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['certificate']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method check_certificate" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'certificate' is set
+        if self.api_client.client_side_validation and ('certificate' not in local_var_params or  # noqa: E501
+                                                        local_var_params['certificate'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `certificate` when calling `check_certificate`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'certificate' in local_var_params:
+            body_params = local_var_params['certificate']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/system/certificate/check', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -253,7 +353,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -281,7 +381,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -319,10 +419,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -334,7 +430,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -442,17 +538,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def check_stor_next_license(self, data, **kwargs):  # noqa: E501
+    def check_stor_next_license(self, stornext_license, **kwargs):  # noqa: E501
         """check_stor_next_license  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   * License component: stornext_mdc   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.check_stor_next_license(data, async_req=True)
+        >>> thread = api.check_stor_next_license(stornext_license, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param StornextLicense data: (required)
+        :param StornextLicense stornext_license: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -465,19 +561,19 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.check_stor_next_license_with_http_info(data, **kwargs)  # noqa: E501
+        return self.check_stor_next_license_with_http_info(stornext_license, **kwargs)  # noqa: E501
 
-    def check_stor_next_license_with_http_info(self, data, **kwargs):  # noqa: E501
+    def check_stor_next_license_with_http_info(self, stornext_license, **kwargs):  # noqa: E501
         """check_stor_next_license  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   * License component: stornext_mdc   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.check_stor_next_license_with_http_info(data, async_req=True)
+        >>> thread = api.check_stor_next_license_with_http_info(stornext_license, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param StornextLicense data: (required)
+        :param StornextLicense stornext_license: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -494,7 +590,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['stornext_license']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -508,10 +604,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `check_stor_next_license`")  # noqa: E501
+        # verify the required parameter 'stornext_license' is set
+        if self.api_client.client_side_validation and ('stornext_license' not in local_var_params or  # noqa: E501
+                                                        local_var_params['stornext_license'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `stornext_license` when calling `check_stor_next_license`")  # noqa: E501
 
         collection_formats = {}
 
@@ -525,8 +621,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'stornext_license' in local_var_params:
+            body_params = local_var_params['stornext_license']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -654,17 +750,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_archive(self, data, **kwargs):  # noqa: E501
+    def create_archive(self, create_download_archive, **kwargs):  # noqa: E501
         """create_archive  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_archive(data, async_req=True)
+        >>> thread = api.create_archive(create_download_archive, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param CreateDownloadArchive data: (required)
+        :param CreateDownloadArchive create_download_archive: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -677,19 +773,19 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_archive_with_http_info(data, **kwargs)  # noqa: E501
+        return self.create_archive_with_http_info(create_download_archive, **kwargs)  # noqa: E501
 
-    def create_archive_with_http_info(self, data, **kwargs):  # noqa: E501
+    def create_archive_with_http_info(self, create_download_archive, **kwargs):  # noqa: E501
         """create_archive  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_archive_with_http_info(data, async_req=True)
+        >>> thread = api.create_archive_with_http_info(create_download_archive, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param CreateDownloadArchive data: (required)
+        :param CreateDownloadArchive create_download_archive: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -706,7 +802,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['create_download_archive']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -720,10 +816,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `create_archive`")  # noqa: E501
+        # verify the required parameter 'create_download_archive' is set
+        if self.api_client.client_side_validation and ('create_download_archive' not in local_var_params or  # noqa: E501
+                                                        local_var_params['create_download_archive'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `create_download_archive` when calling `create_archive`")  # noqa: E501
 
         collection_formats = {}
 
@@ -737,8 +833,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'create_download_archive' in local_var_params:
+            body_params = local_var_params['create_download_archive']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -766,17 +862,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_group(self, data, **kwargs):  # noqa: E501
+    def create_group(self, elements_group_detail, **kwargs):  # noqa: E501
         """create_group  # noqa: E501
 
         ### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_group(data, async_req=True)
+        >>> thread = api.create_group(elements_group_detail, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param ElementsGroupDetail data: (required)
+        :param ElementsGroupDetail elements_group_detail: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -789,19 +885,19 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_group_with_http_info(data, **kwargs)  # noqa: E501
+        return self.create_group_with_http_info(elements_group_detail, **kwargs)  # noqa: E501
 
-    def create_group_with_http_info(self, data, **kwargs):  # noqa: E501
+    def create_group_with_http_info(self, elements_group_detail, **kwargs):  # noqa: E501
         """create_group  # noqa: E501
 
         ### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_group_with_http_info(data, async_req=True)
+        >>> thread = api.create_group_with_http_info(elements_group_detail, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param ElementsGroupDetail data: (required)
+        :param ElementsGroupDetail elements_group_detail: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -818,7 +914,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['elements_group_detail']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -832,10 +928,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `create_group`")  # noqa: E501
+        # verify the required parameter 'elements_group_detail' is set
+        if self.api_client.client_side_validation and ('elements_group_detail' not in local_var_params or  # noqa: E501
+                                                        local_var_params['elements_group_detail'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `elements_group_detail` when calling `create_group`")  # noqa: E501
 
         collection_formats = {}
 
@@ -849,8 +945,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'elements_group_detail' in local_var_params:
+            body_params = local_var_params['elements_group_detail']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -878,18 +974,18 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_home_workspace(self, id, data, **kwargs):  # noqa: E501
+    def create_home_workspace(self, id, create_home_workspace_request, **kwargs):  # noqa: E501
         """create_home_workspace  # noqa: E501
 
         ### Required permissions    * User account permission: `users:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_home_workspace(id, data, async_req=True)
+        >>> thread = api.create_home_workspace(id, create_home_workspace_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this User. (required)
-        :param CreateHomeWorkspaceRequest data: (required)
+        :param CreateHomeWorkspaceRequest create_home_workspace_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -902,20 +998,20 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_home_workspace_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.create_home_workspace_with_http_info(id, create_home_workspace_request, **kwargs)  # noqa: E501
 
-    def create_home_workspace_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def create_home_workspace_with_http_info(self, id, create_home_workspace_request, **kwargs):  # noqa: E501
         """create_home_workspace  # noqa: E501
 
         ### Required permissions    * User account permission: `users:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_home_workspace_with_http_info(id, data, async_req=True)
+        >>> thread = api.create_home_workspace_with_http_info(id, create_home_workspace_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this User. (required)
-        :param CreateHomeWorkspaceRequest data: (required)
+        :param CreateHomeWorkspaceRequest create_home_workspace_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -932,7 +1028,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'create_home_workspace_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -950,10 +1046,10 @@ class MainApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `create_home_workspace`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `create_home_workspace`")  # noqa: E501
+        # verify the required parameter 'create_home_workspace_request' is set
+        if self.api_client.client_side_validation and ('create_home_workspace_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['create_home_workspace_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `create_home_workspace_request` when calling `create_home_workspace`")  # noqa: E501
 
         collection_formats = {}
 
@@ -969,8 +1065,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'create_home_workspace_request' in local_var_params:
+            body_params = local_var_params['create_home_workspace_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -998,17 +1094,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_ntp_server(self, data, **kwargs):  # noqa: E501
+    def create_ntp_server(self, ntp_server, **kwargs):  # noqa: E501
         """create_ntp_server  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_ntp_server(data, async_req=True)
+        >>> thread = api.create_ntp_server(ntp_server, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param NTPServer data: (required)
+        :param NTPServer ntp_server: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1021,19 +1117,19 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_ntp_server_with_http_info(data, **kwargs)  # noqa: E501
+        return self.create_ntp_server_with_http_info(ntp_server, **kwargs)  # noqa: E501
 
-    def create_ntp_server_with_http_info(self, data, **kwargs):  # noqa: E501
+    def create_ntp_server_with_http_info(self, ntp_server, **kwargs):  # noqa: E501
         """create_ntp_server  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_ntp_server_with_http_info(data, async_req=True)
+        >>> thread = api.create_ntp_server_with_http_info(ntp_server, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param NTPServer data: (required)
+        :param NTPServer ntp_server: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1050,7 +1146,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['ntp_server']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1064,10 +1160,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `create_ntp_server`")  # noqa: E501
+        # verify the required parameter 'ntp_server' is set
+        if self.api_client.client_side_validation and ('ntp_server' not in local_var_params or  # noqa: E501
+                                                        local_var_params['ntp_server'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `ntp_server` when calling `create_ntp_server`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1081,8 +1177,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'ntp_server' in local_var_params:
+            body_params = local_var_params['ntp_server']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1110,17 +1206,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_user(self, data, **kwargs):  # noqa: E501
+    def create_user(self, elements_user_detail, **kwargs):  # noqa: E501
         """create_user  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_user(data, async_req=True)
+        >>> thread = api.create_user(elements_user_detail, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param ElementsUserDetail data: (required)
+        :param ElementsUserDetail elements_user_detail: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1133,19 +1229,19 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_user_with_http_info(data, **kwargs)  # noqa: E501
+        return self.create_user_with_http_info(elements_user_detail, **kwargs)  # noqa: E501
 
-    def create_user_with_http_info(self, data, **kwargs):  # noqa: E501
+    def create_user_with_http_info(self, elements_user_detail, **kwargs):  # noqa: E501
         """create_user  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_user_with_http_info(data, async_req=True)
+        >>> thread = api.create_user_with_http_info(elements_user_detail, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param ElementsUserDetail data: (required)
+        :param ElementsUserDetail elements_user_detail: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1162,7 +1258,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['elements_user_detail']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1176,10 +1272,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `create_user`")  # noqa: E501
+        # verify the required parameter 'elements_user_detail' is set
+        if self.api_client.client_side_validation and ('elements_user_detail' not in local_var_params or  # noqa: E501
+                                                        local_var_params['elements_user_detail'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `elements_user_detail` when calling `create_user`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1193,8 +1289,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'elements_user_detail' in local_var_params:
+            body_params = local_var_params['elements_user_detail']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1222,17 +1318,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_workstation(self, data, **kwargs):  # noqa: E501
+    def create_workstation(self, workstation, **kwargs):  # noqa: E501
         """create_workstation  # noqa: E501
 
         ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_workstation(data, async_req=True)
+        >>> thread = api.create_workstation(workstation, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Workstation data: (required)
+        :param Workstation workstation: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1245,19 +1341,19 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_workstation_with_http_info(data, **kwargs)  # noqa: E501
+        return self.create_workstation_with_http_info(workstation, **kwargs)  # noqa: E501
 
-    def create_workstation_with_http_info(self, data, **kwargs):  # noqa: E501
+    def create_workstation_with_http_info(self, workstation, **kwargs):  # noqa: E501
         """create_workstation  # noqa: E501
 
         ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_workstation_with_http_info(data, async_req=True)
+        >>> thread = api.create_workstation_with_http_info(workstation, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Workstation data: (required)
+        :param Workstation workstation: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1274,7 +1370,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['workstation']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1288,10 +1384,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `create_workstation`")  # noqa: E501
+        # verify the required parameter 'workstation' is set
+        if self.api_client.client_side_validation and ('workstation' not in local_var_params or  # noqa: E501
+                                                        local_var_params['workstation'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `workstation` when calling `create_workstation`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1305,8 +1401,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'workstation' in local_var_params:
+            body_params = local_var_params['workstation']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1352,7 +1448,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1379,7 +1475,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1419,10 +1515,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -1434,7 +1526,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1460,7 +1552,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1487,7 +1579,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1527,10 +1619,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -1542,7 +1630,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1568,7 +1656,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1595,7 +1683,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1635,10 +1723,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -1650,7 +1734,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1676,7 +1760,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1703,7 +1787,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1743,10 +1827,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -1758,7 +1838,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1784,7 +1864,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1811,7 +1891,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1851,10 +1931,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -1866,7 +1942,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1892,7 +1968,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1919,7 +1995,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1959,10 +2035,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -1974,7 +2046,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1999,7 +2071,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2025,7 +2097,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2065,10 +2137,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -2080,7 +2148,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2088,17 +2156,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def enable_user_totp(self, id, data, **kwargs):  # noqa: E501
+    def enable_user_totp(self, id, enable_totp_request, **kwargs):  # noqa: E501
         """enable_user_totp  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.enable_user_totp(id, data, async_req=True)
+        >>> thread = api.enable_user_totp(id, enable_totp_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this User. (required)
-        :param EnableTOTPRequest data: (required)
+        :param EnableTOTPRequest enable_totp_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2106,24 +2174,24 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.enable_user_totp_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.enable_user_totp_with_http_info(id, enable_totp_request, **kwargs)  # noqa: E501
 
-    def enable_user_totp_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def enable_user_totp_with_http_info(self, id, enable_totp_request, **kwargs):  # noqa: E501
         """enable_user_totp  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.enable_user_totp_with_http_info(id, data, async_req=True)
+        >>> thread = api.enable_user_totp_with_http_info(id, enable_totp_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this User. (required)
-        :param EnableTOTPRequest data: (required)
+        :param EnableTOTPRequest enable_totp_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2133,14 +2201,14 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'enable_totp_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2158,10 +2226,10 @@ class MainApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `enable_user_totp`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `enable_user_totp`")  # noqa: E501
+        # verify the required parameter 'enable_totp_request' is set
+        if self.api_client.client_side_validation and ('enable_totp_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['enable_totp_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `enable_totp_request` when calling `enable_user_totp`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2177,12 +2245,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'enable_totp_request' in local_var_params:
+            body_params = local_var_params['enable_totp_request']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -2198,7 +2262,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2206,17 +2270,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def finish_upload(self, data, **kwargs):  # noqa: E501
+    def finish_upload(self, finish_upload_endpoint_request, **kwargs):  # noqa: E501
         """finish_upload  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.finish_upload(data, async_req=True)
+        >>> thread = api.finish_upload(finish_upload_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param FinishUploadEndpointRequest data: (required)
+        :param FinishUploadEndpointRequest finish_upload_endpoint_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2224,24 +2288,24 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.finish_upload_with_http_info(data, **kwargs)  # noqa: E501
+        return self.finish_upload_with_http_info(finish_upload_endpoint_request, **kwargs)  # noqa: E501
 
-    def finish_upload_with_http_info(self, data, **kwargs):  # noqa: E501
+    def finish_upload_with_http_info(self, finish_upload_endpoint_request, **kwargs):  # noqa: E501
         """finish_upload  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.finish_upload_with_http_info(data, async_req=True)
+        >>> thread = api.finish_upload_with_http_info(finish_upload_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param FinishUploadEndpointRequest data: (required)
+        :param FinishUploadEndpointRequest finish_upload_endpoint_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2251,14 +2315,14 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['finish_upload_endpoint_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2272,10 +2336,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `finish_upload`")  # noqa: E501
+        # verify the required parameter 'finish_upload_endpoint_request' is set
+        if self.api_client.client_side_validation and ('finish_upload_endpoint_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['finish_upload_endpoint_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `finish_upload_endpoint_request` when calling `finish_upload`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2289,12 +2353,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'finish_upload_endpoint_request' in local_var_params:
+            body_params = local_var_params['finish_upload_endpoint_request']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -2310,7 +2370,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2336,7 +2396,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2363,7 +2423,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2403,10 +2463,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -2418,7 +2474,131 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_all_client_sessions(self, **kwargs):  # noqa: E501
+        """get_all_client_sessions  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_client_sessions(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str user: Filter the returned list by `user`.
+        :param str mounted_workspaces__mount_node: Filter the returned list by `mounted_workspaces__mount_node`.
+        :param str workstation: Filter the returned list by `workstation`.
+        :param str ordering: Which field to use when ordering the results.
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: list[ClientSession]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_all_client_sessions_with_http_info(**kwargs)  # noqa: E501
+
+    def get_all_client_sessions_with_http_info(self, **kwargs):  # noqa: E501
+        """get_all_client_sessions  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_client_sessions_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str user: Filter the returned list by `user`.
+        :param str mounted_workspaces__mount_node: Filter the returned list by `mounted_workspaces__mount_node`.
+        :param str workstation: Filter the returned list by `workstation`.
+        :param str ordering: Which field to use when ordering the results.
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(list[ClientSession], status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['user', 'mounted_workspaces__mount_node', 'workstation', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_all_client_sessions" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'user' in local_var_params and local_var_params['user'] is not None:  # noqa: E501
+            query_params.append(('user', local_var_params['user']))  # noqa: E501
+        if 'mounted_workspaces__mount_node' in local_var_params and local_var_params['mounted_workspaces__mount_node'] is not None:  # noqa: E501
+            query_params.append(('mounted_workspaces__mount_node', local_var_params['mounted_workspaces__mount_node']))  # noqa: E501
+        if 'workstation' in local_var_params and local_var_params['workstation'] is not None:  # noqa: E501
+            query_params.append(('workstation', local_var_params['workstation']))  # noqa: E501
+        if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
+            query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/client-sessions', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[ClientSession]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2548,6 +2728,7 @@ class MainApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str name: Filter the returned list by `name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -2575,6 +2756,7 @@ class MainApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str name: Filter the returned list by `name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -2594,7 +2776,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['name', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2614,6 +2796,8 @@ class MainApi(object):
         path_params = {}
 
         query_params = []
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -2660,6 +2844,7 @@ class MainApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str name: Filter the returned list by `name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -2687,6 +2872,7 @@ class MainApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str name: Filter the returned list by `name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -2706,7 +2892,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['name', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2726,6 +2912,8 @@ class MainApi(object):
         path_params = {}
 
         query_params = []
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -3002,6 +3190,8 @@ class MainApi(object):
         :param async_req bool: execute request asynchronously
         :param str type: Filter the returned list by `type`.
         :param str backend: Filter the returned list by `backend`.
+        :param str name: Filter the returned list by `name`.
+        :param str address: Filter the returned list by `address`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -3032,6 +3222,8 @@ class MainApi(object):
         :param async_req bool: execute request asynchronously
         :param str type: Filter the returned list by `type`.
         :param str backend: Filter the returned list by `backend`.
+        :param str name: Filter the returned list by `name`.
+        :param str address: Filter the returned list by `address`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -3052,7 +3244,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['type', 'backend', 'ordering', 'limit', 'offset', 'include_status']  # noqa: E501
+        all_params = ['type', 'backend', 'name', 'address', 'ordering', 'limit', 'offset', 'include_status']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3076,6 +3268,10 @@ class MainApi(object):
             query_params.append(('type', local_var_params['type']))  # noqa: E501
         if 'backend' in local_var_params and local_var_params['backend'] is not None:  # noqa: E501
             query_params.append(('backend', local_var_params['backend']))  # noqa: E501
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if 'address' in local_var_params and local_var_params['address'] is not None:  # noqa: E501
+            query_params.append(('address', local_var_params['address']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -3126,11 +3322,11 @@ class MainApi(object):
         :param async_req bool: execute request asynchronously
         :param str username: Filter the returned list by `username`.
         :param str home: Filter the returned list by `home`.
+        :param str full_name: Filter the returned list by `full_name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param bool include_allowed_fs_paths:
-        :param bool include_client_sessions:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3157,11 +3353,11 @@ class MainApi(object):
         :param async_req bool: execute request asynchronously
         :param str username: Filter the returned list by `username`.
         :param str home: Filter the returned list by `home`.
+        :param str full_name: Filter the returned list by `full_name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param bool include_allowed_fs_paths:
-        :param bool include_client_sessions:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3178,7 +3374,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['username', 'home', 'ordering', 'limit', 'offset', 'include_allowed_fs_paths', 'include_client_sessions']  # noqa: E501
+        all_params = ['username', 'home', 'full_name', 'ordering', 'limit', 'offset', 'include_allowed_fs_paths']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3202,6 +3398,8 @@ class MainApi(object):
             query_params.append(('username', local_var_params['username']))  # noqa: E501
         if 'home' in local_var_params and local_var_params['home'] is not None:  # noqa: E501
             query_params.append(('home', local_var_params['home']))  # noqa: E501
+        if 'full_name' in local_var_params and local_var_params['full_name'] is not None:  # noqa: E501
+            query_params.append(('full_name', local_var_params['full_name']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -3210,8 +3408,6 @@ class MainApi(object):
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
         if 'include_allowed_fs_paths' in local_var_params and local_var_params['include_allowed_fs_paths'] is not None:  # noqa: E501
             query_params.append(('include_allowed_fs_paths', local_var_params['include_allowed_fs_paths']))  # noqa: E501
-        if 'include_client_sessions' in local_var_params and local_var_params['include_client_sessions'] is not None:  # noqa: E501
-            query_params.append(('include_client_sessions', local_var_params['include_client_sessions']))  # noqa: E501
 
         header_params = {}
 
@@ -3252,6 +3448,8 @@ class MainApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str hostname: Filter the returned list by `hostname`.
+        :param str name: Filter the returned list by `name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -3279,6 +3477,8 @@ class MainApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str hostname: Filter the returned list by `hostname`.
+        :param str name: Filter the returned list by `name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -3298,7 +3498,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['hostname', 'name', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3318,6 +3518,10 @@ class MainApi(object):
         path_params = {}
 
         query_params = []
+        if 'hostname' in local_var_params and local_var_params['hostname'] is not None:  # noqa: E501
+            query_params.append(('hostname', local_var_params['hostname']))  # noqa: E501
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -3354,6 +3558,106 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_certificate_configuration(self, **kwargs):  # noqa: E501
+        """get_certificate_configuration  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_certificate_configuration(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Certificate
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_certificate_configuration_with_http_info(**kwargs)  # noqa: E501
+
+    def get_certificate_configuration_with_http_info(self, **kwargs):  # noqa: E501
+        """get_certificate_configuration  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_certificate_configuration_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Certificate, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_certificate_configuration" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/system/certificate', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Certificate',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_client_download_file(self, file, **kwargs):  # noqa: E501
         """get_client_download_file  # noqa: E501
 
@@ -3372,7 +3676,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3399,7 +3703,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3439,10 +3743,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -3454,7 +3754,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3562,10 +3862,118 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_client_session(self, id, **kwargs):  # noqa: E501
+        """get_client_session  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_client_session(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this client session. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: ClientSession
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_client_session_with_http_info(id, **kwargs)  # noqa: E501
+
+    def get_client_session_with_http_info(self, id, **kwargs):  # noqa: E501
+        """get_client_session  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_client_session_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this client session. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(ClientSession, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_client_session" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `get_client_session`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/client-sessions/{id}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ClientSession',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_current_workstation(self, **kwargs):  # noqa: E501
         """get_current_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_current_workstation(async_req=True)
@@ -3592,7 +4000,7 @@ class MainApi(object):
     def get_current_workstation_with_http_info(self, **kwargs):  # noqa: E501
         """get_current_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_current_workstation_with_http_info(async_req=True)
@@ -3908,7 +4316,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3935,7 +4343,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3975,10 +4383,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -3990,7 +4394,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -4016,7 +4420,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4043,7 +4447,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4083,10 +4487,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -4098,7 +4498,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -4124,7 +4524,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4151,7 +4551,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4191,10 +4591,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -4206,7 +4602,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5081,7 +5477,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5109,7 +5505,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5153,10 +5549,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -5168,7 +5560,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6568,17 +6960,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def install_stor_next_license(self, data, **kwargs):  # noqa: E501
+    def install_stor_next_license(self, stornext_license, **kwargs):  # noqa: E501
         """install_stor_next_license  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   * License component: stornext_mdc   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.install_stor_next_license(data, async_req=True)
+        >>> thread = api.install_stor_next_license(stornext_license, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param StornextLicense data: (required)
+        :param StornextLicense stornext_license: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -6591,19 +6983,19 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.install_stor_next_license_with_http_info(data, **kwargs)  # noqa: E501
+        return self.install_stor_next_license_with_http_info(stornext_license, **kwargs)  # noqa: E501
 
-    def install_stor_next_license_with_http_info(self, data, **kwargs):  # noqa: E501
+    def install_stor_next_license_with_http_info(self, stornext_license, **kwargs):  # noqa: E501
         """install_stor_next_license  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   * License component: stornext_mdc   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.install_stor_next_license_with_http_info(data, async_req=True)
+        >>> thread = api.install_stor_next_license_with_http_info(stornext_license, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param StornextLicense data: (required)
+        :param StornextLicense stornext_license: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6620,7 +7012,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['stornext_license']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6634,10 +7026,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `install_stor_next_license`")  # noqa: E501
+        # verify the required parameter 'stornext_license' is set
+        if self.api_client.client_side_validation and ('stornext_license' not in local_var_params or  # noqa: E501
+                                                        local_var_params['stornext_license'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `stornext_license` when calling `install_stor_next_license`")  # noqa: E501
 
         collection_formats = {}
 
@@ -6651,8 +7043,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'stornext_license' in local_var_params:
+            body_params = local_var_params['stornext_license']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -6680,17 +7072,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_current_workstation(self, data, **kwargs):  # noqa: E501
+    def patch_current_workstation(self, workstation_partial_update, **kwargs):  # noqa: E501
         """patch_current_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_current_workstation(data, async_req=True)
+        >>> thread = api.patch_current_workstation(workstation_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param WorkstationPartialUpdate data: (required)
+        :param WorkstationPartialUpdate workstation_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -6703,19 +7095,19 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_current_workstation_with_http_info(data, **kwargs)  # noqa: E501
+        return self.patch_current_workstation_with_http_info(workstation_partial_update, **kwargs)  # noqa: E501
 
-    def patch_current_workstation_with_http_info(self, data, **kwargs):  # noqa: E501
+    def patch_current_workstation_with_http_info(self, workstation_partial_update, **kwargs):  # noqa: E501
         """patch_current_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_current_workstation_with_http_info(data, async_req=True)
+        >>> thread = api.patch_current_workstation_with_http_info(workstation_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param WorkstationPartialUpdate data: (required)
+        :param WorkstationPartialUpdate workstation_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6732,7 +7124,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['workstation_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6746,10 +7138,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_current_workstation`")  # noqa: E501
+        # verify the required parameter 'workstation_partial_update' is set
+        if self.api_client.client_side_validation and ('workstation_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['workstation_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `workstation_partial_update` when calling `patch_current_workstation`")  # noqa: E501
 
         collection_formats = {}
 
@@ -6763,8 +7155,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'workstation_partial_update' in local_var_params:
+            body_params = local_var_params['workstation_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -6792,18 +7184,18 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_download_archive(self, id, data, **kwargs):  # noqa: E501
+    def patch_download_archive(self, id, download_archive_partial_update, **kwargs):  # noqa: E501
         """patch_download_archive  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_download_archive(id, data, async_req=True)
+        >>> thread = api.patch_download_archive(id, download_archive_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: A UUID string identifying this download archive. (required)
-        :param DownloadArchivePartialUpdate data: (required)
+        :param DownloadArchivePartialUpdate download_archive_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -6816,20 +7208,20 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_download_archive_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.patch_download_archive_with_http_info(id, download_archive_partial_update, **kwargs)  # noqa: E501
 
-    def patch_download_archive_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def patch_download_archive_with_http_info(self, id, download_archive_partial_update, **kwargs):  # noqa: E501
         """patch_download_archive  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_download_archive_with_http_info(id, data, async_req=True)
+        >>> thread = api.patch_download_archive_with_http_info(id, download_archive_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: A UUID string identifying this download archive. (required)
-        :param DownloadArchivePartialUpdate data: (required)
+        :param DownloadArchivePartialUpdate download_archive_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6846,7 +7238,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'download_archive_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6864,10 +7256,10 @@ class MainApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `patch_download_archive`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_download_archive`")  # noqa: E501
+        # verify the required parameter 'download_archive_partial_update' is set
+        if self.api_client.client_side_validation and ('download_archive_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['download_archive_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `download_archive_partial_update` when calling `patch_download_archive`")  # noqa: E501
 
         collection_formats = {}
 
@@ -6883,8 +7275,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'download_archive_partial_update' in local_var_params:
+            body_params = local_var_params['download_archive_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -6912,18 +7304,18 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_group(self, id, data, **kwargs):  # noqa: E501
+    def patch_group(self, id, elements_group_detail_partial_update, **kwargs):  # noqa: E501
         """patch_group  # noqa: E501
 
         ### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_group(id, data, async_req=True)
+        >>> thread = api.patch_group(id, elements_group_detail_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Group. (required)
-        :param ElementsGroupDetailPartialUpdate data: (required)
+        :param ElementsGroupDetailPartialUpdate elements_group_detail_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -6936,20 +7328,20 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_group_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.patch_group_with_http_info(id, elements_group_detail_partial_update, **kwargs)  # noqa: E501
 
-    def patch_group_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def patch_group_with_http_info(self, id, elements_group_detail_partial_update, **kwargs):  # noqa: E501
         """patch_group  # noqa: E501
 
         ### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_group_with_http_info(id, data, async_req=True)
+        >>> thread = api.patch_group_with_http_info(id, elements_group_detail_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Group. (required)
-        :param ElementsGroupDetailPartialUpdate data: (required)
+        :param ElementsGroupDetailPartialUpdate elements_group_detail_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6966,7 +7358,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'elements_group_detail_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6984,10 +7376,10 @@ class MainApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `patch_group`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_group`")  # noqa: E501
+        # verify the required parameter 'elements_group_detail_partial_update' is set
+        if self.api_client.client_side_validation and ('elements_group_detail_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['elements_group_detail_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `elements_group_detail_partial_update` when calling `patch_group`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7003,8 +7395,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'elements_group_detail_partial_update' in local_var_params:
+            body_params = local_var_params['elements_group_detail_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -7032,18 +7424,18 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_ntp_server(self, id, data, **kwargs):  # noqa: E501
+    def patch_ntp_server(self, id, ntp_server_partial_update, **kwargs):  # noqa: E501
         """patch_ntp_server  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_ntp_server(id, data, async_req=True)
+        >>> thread = api.patch_ntp_server(id, ntp_server_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this NTP Server. (required)
-        :param NTPServerPartialUpdate data: (required)
+        :param NTPServerPartialUpdate ntp_server_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7056,20 +7448,20 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_ntp_server_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.patch_ntp_server_with_http_info(id, ntp_server_partial_update, **kwargs)  # noqa: E501
 
-    def patch_ntp_server_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def patch_ntp_server_with_http_info(self, id, ntp_server_partial_update, **kwargs):  # noqa: E501
         """patch_ntp_server  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_ntp_server_with_http_info(id, data, async_req=True)
+        >>> thread = api.patch_ntp_server_with_http_info(id, ntp_server_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this NTP Server. (required)
-        :param NTPServerPartialUpdate data: (required)
+        :param NTPServerPartialUpdate ntp_server_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7086,7 +7478,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'ntp_server_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7104,10 +7496,10 @@ class MainApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `patch_ntp_server`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_ntp_server`")  # noqa: E501
+        # verify the required parameter 'ntp_server_partial_update' is set
+        if self.api_client.client_side_validation and ('ntp_server_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['ntp_server_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `ntp_server_partial_update` when calling `patch_ntp_server`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7123,8 +7515,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'ntp_server_partial_update' in local_var_params:
+            body_params = local_var_params['ntp_server_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -7152,17 +7544,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_profile(self, data, **kwargs):  # noqa: E501
+    def patch_profile(self, elements_user_profile_partial_update, **kwargs):  # noqa: E501
         """patch_profile  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_profile(data, async_req=True)
+        >>> thread = api.patch_profile(elements_user_profile_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param ElementsUserProfilePartialUpdate data: (required)
+        :param ElementsUserProfilePartialUpdate elements_user_profile_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7175,19 +7567,19 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_profile_with_http_info(data, **kwargs)  # noqa: E501
+        return self.patch_profile_with_http_info(elements_user_profile_partial_update, **kwargs)  # noqa: E501
 
-    def patch_profile_with_http_info(self, data, **kwargs):  # noqa: E501
+    def patch_profile_with_http_info(self, elements_user_profile_partial_update, **kwargs):  # noqa: E501
         """patch_profile  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_profile_with_http_info(data, async_req=True)
+        >>> thread = api.patch_profile_with_http_info(elements_user_profile_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param ElementsUserProfilePartialUpdate data: (required)
+        :param ElementsUserProfilePartialUpdate elements_user_profile_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7204,7 +7596,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['elements_user_profile_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7218,10 +7610,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_profile`")  # noqa: E501
+        # verify the required parameter 'elements_user_profile_partial_update' is set
+        if self.api_client.client_side_validation and ('elements_user_profile_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['elements_user_profile_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `elements_user_profile_partial_update` when calling `patch_profile`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7235,8 +7627,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'elements_user_profile_partial_update' in local_var_params:
+            body_params = local_var_params['elements_user_profile_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -7264,18 +7656,18 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_user(self, id, data, **kwargs):  # noqa: E501
+    def patch_user(self, id, elements_user_detail_partial_update, **kwargs):  # noqa: E501
         """patch_user  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_user(id, data, async_req=True)
+        >>> thread = api.patch_user(id, elements_user_detail_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this User. (required)
-        :param ElementsUserDetailPartialUpdate data: (required)
+        :param ElementsUserDetailPartialUpdate elements_user_detail_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7288,20 +7680,20 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_user_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.patch_user_with_http_info(id, elements_user_detail_partial_update, **kwargs)  # noqa: E501
 
-    def patch_user_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def patch_user_with_http_info(self, id, elements_user_detail_partial_update, **kwargs):  # noqa: E501
         """patch_user  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_user_with_http_info(id, data, async_req=True)
+        >>> thread = api.patch_user_with_http_info(id, elements_user_detail_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this User. (required)
-        :param ElementsUserDetailPartialUpdate data: (required)
+        :param ElementsUserDetailPartialUpdate elements_user_detail_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7318,7 +7710,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'elements_user_detail_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7336,10 +7728,10 @@ class MainApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `patch_user`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_user`")  # noqa: E501
+        # verify the required parameter 'elements_user_detail_partial_update' is set
+        if self.api_client.client_side_validation and ('elements_user_detail_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['elements_user_detail_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `elements_user_detail_partial_update` when calling `patch_user`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7355,8 +7747,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'elements_user_detail_partial_update' in local_var_params:
+            body_params = local_var_params['elements_user_detail_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -7384,18 +7776,18 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_workstation(self, id, data, **kwargs):  # noqa: E501
+    def patch_workstation(self, id, workstation_partial_update, **kwargs):  # noqa: E501
         """patch_workstation  # noqa: E501
 
         ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_workstation(id, data, async_req=True)
+        >>> thread = api.patch_workstation(id, workstation_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: A unique value identifying this workstation. (required)
-        :param WorkstationPartialUpdate data: (required)
+        :param WorkstationPartialUpdate workstation_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7408,20 +7800,20 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_workstation_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.patch_workstation_with_http_info(id, workstation_partial_update, **kwargs)  # noqa: E501
 
-    def patch_workstation_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def patch_workstation_with_http_info(self, id, workstation_partial_update, **kwargs):  # noqa: E501
         """patch_workstation  # noqa: E501
 
         ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_workstation_with_http_info(id, data, async_req=True)
+        >>> thread = api.patch_workstation_with_http_info(id, workstation_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: A unique value identifying this workstation. (required)
-        :param WorkstationPartialUpdate data: (required)
+        :param WorkstationPartialUpdate workstation_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7438,7 +7830,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'workstation_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7456,10 +7848,10 @@ class MainApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `patch_workstation`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_workstation`")  # noqa: E501
+        # verify the required parameter 'workstation_partial_update' is set
+        if self.api_client.client_side_validation and ('workstation_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['workstation_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `workstation_partial_update` when calling `patch_workstation`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7475,8 +7867,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'workstation_partial_update' in local_var_params:
+            body_params = local_var_params['workstation_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -7504,16 +7896,16 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def preview_user(self, data, **kwargs):  # noqa: E501
+    def preview_user(self, user_preview_request, **kwargs):  # noqa: E501
         """preview_user  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.preview_user(data, async_req=True)
+        >>> thread = api.preview_user(user_preview_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param UserPreviewRequest data: (required)
+        :param UserPreviewRequest user_preview_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7526,18 +7918,18 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.preview_user_with_http_info(data, **kwargs)  # noqa: E501
+        return self.preview_user_with_http_info(user_preview_request, **kwargs)  # noqa: E501
 
-    def preview_user_with_http_info(self, data, **kwargs):  # noqa: E501
+    def preview_user_with_http_info(self, user_preview_request, **kwargs):  # noqa: E501
         """preview_user  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.preview_user_with_http_info(data, async_req=True)
+        >>> thread = api.preview_user_with_http_info(user_preview_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param UserPreviewRequest data: (required)
+        :param UserPreviewRequest user_preview_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7554,7 +7946,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['user_preview_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7568,10 +7960,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `preview_user`")  # noqa: E501
+        # verify the required parameter 'user_preview_request' is set
+        if self.api_client.client_side_validation and ('user_preview_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['user_preview_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_preview_request` when calling `preview_user`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7585,8 +7977,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'user_preview_request' in local_var_params:
+            body_params = local_var_params['user_preview_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -7631,7 +8023,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7657,7 +8049,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7691,10 +8083,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -7706,7 +8094,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7714,17 +8102,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def register_upload(self, data, **kwargs):  # noqa: E501
+    def register_upload(self, register_upload_endpoint_request, **kwargs):  # noqa: E501
         """register_upload  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.register_upload(data, async_req=True)
+        >>> thread = api.register_upload(register_upload_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param RegisterUploadEndpointRequest data: (required)
+        :param RegisterUploadEndpointRequest register_upload_endpoint_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7732,24 +8120,24 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.register_upload_with_http_info(data, **kwargs)  # noqa: E501
+        return self.register_upload_with_http_info(register_upload_endpoint_request, **kwargs)  # noqa: E501
 
-    def register_upload_with_http_info(self, data, **kwargs):  # noqa: E501
+    def register_upload_with_http_info(self, register_upload_endpoint_request, **kwargs):  # noqa: E501
         """register_upload  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.register_upload_with_http_info(data, async_req=True)
+        >>> thread = api.register_upload_with_http_info(register_upload_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param RegisterUploadEndpointRequest data: (required)
+        :param RegisterUploadEndpointRequest register_upload_endpoint_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7759,14 +8147,14 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['register_upload_endpoint_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7780,10 +8168,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `register_upload`")  # noqa: E501
+        # verify the required parameter 'register_upload_endpoint_request' is set
+        if self.api_client.client_side_validation and ('register_upload_endpoint_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['register_upload_endpoint_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `register_upload_endpoint_request` when calling `register_upload`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7797,12 +8185,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'register_upload_endpoint_request' in local_var_params:
+            body_params = local_var_params['register_upload_endpoint_request']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -7818,7 +8202,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7826,17 +8210,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def render_email_template_preview(self, data, **kwargs):  # noqa: E501
-        """render_email_template_preview  # noqa: E501
+    def register_upload_metadata(self, register_upload_metadata_endpoint_request, **kwargs):  # noqa: E501
+        """register_upload_metadata  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.render_email_template_preview(data, async_req=True)
+        >>> thread = api.register_upload_metadata(register_upload_metadata_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param EmailPreview data: (required)
+        :param RegisterUploadMetadataEndpointRequest register_upload_metadata_endpoint_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7844,24 +8228,24 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.render_email_template_preview_with_http_info(data, **kwargs)  # noqa: E501
+        return self.register_upload_metadata_with_http_info(register_upload_metadata_endpoint_request, **kwargs)  # noqa: E501
 
-    def render_email_template_preview_with_http_info(self, data, **kwargs):  # noqa: E501
-        """render_email_template_preview  # noqa: E501
+    def register_upload_metadata_with_http_info(self, register_upload_metadata_endpoint_request, **kwargs):  # noqa: E501
+        """register_upload_metadata  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.render_email_template_preview_with_http_info(data, async_req=True)
+        >>> thread = api.register_upload_metadata_with_http_info(register_upload_metadata_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param EmailPreview data: (required)
+        :param RegisterUploadMetadataEndpointRequest register_upload_metadata_endpoint_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7871,14 +8255,14 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['register_upload_metadata_endpoint_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7888,14 +8272,14 @@ class MainApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method render_email_template_preview" % key
+                    " to method register_upload_metadata" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `render_email_template_preview`")  # noqa: E501
+        # verify the required parameter 'register_upload_metadata_endpoint_request' is set
+        if self.api_client.client_side_validation and ('register_upload_metadata_endpoint_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['register_upload_metadata_endpoint_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `register_upload_metadata_endpoint_request` when calling `register_upload_metadata`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7909,12 +8293,116 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        if 'register_upload_metadata_endpoint_request' in local_var_params:
+            body_params = local_var_params['register_upload_metadata_endpoint_request']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
 
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/uploads/metadata', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def render_email_template_preview(self, email_preview, **kwargs):  # noqa: E501
+        """render_email_template_preview  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.render_email_template_preview(email_preview, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param EmailPreview email_preview: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.render_email_template_preview_with_http_info(email_preview, **kwargs)  # noqa: E501
+
+    def render_email_template_preview_with_http_info(self, email_preview, **kwargs):  # noqa: E501
+        """render_email_template_preview  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.render_email_template_preview_with_http_info(email_preview, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param EmailPreview email_preview: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['email_preview']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method render_email_template_preview" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'email_preview' is set
+        if self.api_client.client_side_validation and ('email_preview' not in local_var_params or  # noqa: E501
+                                                        local_var_params['email_preview'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `email_preview` when calling `render_email_template_preview`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'email_preview' in local_var_params:
+            body_params = local_var_params['email_preview']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -7930,7 +8418,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7938,18 +8426,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def reset_user_password(self, id, data, **kwargs):  # noqa: E501
+    def reset_user_password(self, id, **kwargs):  # noqa: E501
         """reset_user_password  # noqa: E501
 
         ### Required permissions    * User account permission: `users:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reset_user_password(id, data, async_req=True)
+        >>> thread = api.reset_user_password(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this User. (required)
-        :param object data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7957,25 +8444,24 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.reset_user_password_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.reset_user_password_with_http_info(id, **kwargs)  # noqa: E501
 
-    def reset_user_password_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def reset_user_password_with_http_info(self, id, **kwargs):  # noqa: E501
         """reset_user_password  # noqa: E501
 
         ### Required permissions    * User account permission: `users:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reset_user_password_with_http_info(id, data, async_req=True)
+        >>> thread = api.reset_user_password_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this User. (required)
-        :param object data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7985,14 +8471,14 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -8010,10 +8496,6 @@ class MainApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `reset_user_password`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `reset_user_password`")  # noqa: E501
 
         collection_formats = {}
 
@@ -8029,16 +8511,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -8050,7 +8522,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8078,7 +8550,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8107,7 +8579,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8159,10 +8631,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -8174,7 +8642,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8182,18 +8650,18 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def set_ipmi_configuration(self, id, data, **kwargs):  # noqa: E501
+    def set_ipmi_configuration(self, id, ipmi, **kwargs):  # noqa: E501
         """set_ipmi_configuration  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_ipmi_configuration(id, data, async_req=True)
+        >>> thread = api.set_ipmi_configuration(id, ipmi, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Storage Node. (required)
-        :param Ipmi data: (required)
+        :param Ipmi ipmi: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8206,20 +8674,20 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.set_ipmi_configuration_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.set_ipmi_configuration_with_http_info(id, ipmi, **kwargs)  # noqa: E501
 
-    def set_ipmi_configuration_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def set_ipmi_configuration_with_http_info(self, id, ipmi, **kwargs):  # noqa: E501
         """set_ipmi_configuration  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_ipmi_configuration_with_http_info(id, data, async_req=True)
+        >>> thread = api.set_ipmi_configuration_with_http_info(id, ipmi, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Storage Node. (required)
-        :param Ipmi data: (required)
+        :param Ipmi ipmi: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8236,7 +8704,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'ipmi']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -8254,10 +8722,10 @@ class MainApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `set_ipmi_configuration`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `set_ipmi_configuration`")  # noqa: E501
+        # verify the required parameter 'ipmi' is set
+        if self.api_client.client_side_validation and ('ipmi' not in local_var_params or  # noqa: E501
+                                                        local_var_params['ipmi'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `ipmi` when calling `set_ipmi_configuration`")  # noqa: E501
 
         collection_formats = {}
 
@@ -8273,8 +8741,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'ipmi' in local_var_params:
+            body_params = local_var_params['ipmi']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -8302,17 +8770,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def set_local_time(self, data, **kwargs):  # noqa: E501
+    def set_local_time(self, time_endpoint_request, **kwargs):  # noqa: E501
         """set_local_time  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_local_time(data, async_req=True)
+        >>> thread = api.set_local_time(time_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param TimeEndpointRequest data: (required)
+        :param TimeEndpointRequest time_endpoint_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8325,19 +8793,19 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.set_local_time_with_http_info(data, **kwargs)  # noqa: E501
+        return self.set_local_time_with_http_info(time_endpoint_request, **kwargs)  # noqa: E501
 
-    def set_local_time_with_http_info(self, data, **kwargs):  # noqa: E501
+    def set_local_time_with_http_info(self, time_endpoint_request, **kwargs):  # noqa: E501
         """set_local_time  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_local_time_with_http_info(data, async_req=True)
+        >>> thread = api.set_local_time_with_http_info(time_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param TimeEndpointRequest data: (required)
+        :param TimeEndpointRequest time_endpoint_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8354,7 +8822,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['time_endpoint_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -8368,10 +8836,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `set_local_time`")  # noqa: E501
+        # verify the required parameter 'time_endpoint_request' is set
+        if self.api_client.client_side_validation and ('time_endpoint_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['time_endpoint_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `time_endpoint_request` when calling `set_local_time`")  # noqa: E501
 
         collection_formats = {}
 
@@ -8385,8 +8853,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'time_endpoint_request' in local_var_params:
+            body_params = local_var_params['time_endpoint_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -8414,17 +8882,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def set_my_password(self, data, **kwargs):  # noqa: E501
+    def set_my_password(self, change_own_password_request, **kwargs):  # noqa: E501
         """set_my_password  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_my_password(data, async_req=True)
+        >>> thread = api.set_my_password(change_own_password_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param ChangeOwnPasswordRequest data: (required)
+        :param ChangeOwnPasswordRequest change_own_password_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8432,24 +8900,24 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.set_my_password_with_http_info(data, **kwargs)  # noqa: E501
+        return self.set_my_password_with_http_info(change_own_password_request, **kwargs)  # noqa: E501
 
-    def set_my_password_with_http_info(self, data, **kwargs):  # noqa: E501
+    def set_my_password_with_http_info(self, change_own_password_request, **kwargs):  # noqa: E501
         """set_my_password  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_my_password_with_http_info(data, async_req=True)
+        >>> thread = api.set_my_password_with_http_info(change_own_password_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param ChangeOwnPasswordRequest data: (required)
+        :param ChangeOwnPasswordRequest change_own_password_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8459,14 +8927,14 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['change_own_password_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -8480,10 +8948,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `set_my_password`")  # noqa: E501
+        # verify the required parameter 'change_own_password_request' is set
+        if self.api_client.client_side_validation and ('change_own_password_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['change_own_password_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `change_own_password_request` when calling `set_my_password`")  # noqa: E501
 
         collection_formats = {}
 
@@ -8497,12 +8965,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'change_own_password_request' in local_var_params:
+            body_params = local_var_params['change_own_password_request']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -8518,7 +8982,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8526,18 +8990,18 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def set_user_password(self, id, data, **kwargs):  # noqa: E501
+    def set_user_password(self, id, change_password_request, **kwargs):  # noqa: E501
         """set_user_password  # noqa: E501
 
         ### Required permissions    * User account permission: `users:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_user_password(id, data, async_req=True)
+        >>> thread = api.set_user_password(id, change_password_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this User. (required)
-        :param ChangePasswordRequest data: (required)
+        :param ChangePasswordRequest change_password_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8545,25 +9009,25 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.set_user_password_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.set_user_password_with_http_info(id, change_password_request, **kwargs)  # noqa: E501
 
-    def set_user_password_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def set_user_password_with_http_info(self, id, change_password_request, **kwargs):  # noqa: E501
         """set_user_password  # noqa: E501
 
         ### Required permissions    * User account permission: `users:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_user_password_with_http_info(id, data, async_req=True)
+        >>> thread = api.set_user_password_with_http_info(id, change_password_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this User. (required)
-        :param ChangePasswordRequest data: (required)
+        :param ChangePasswordRequest change_password_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8573,14 +9037,14 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'change_password_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -8598,10 +9062,10 @@ class MainApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `set_user_password`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `set_user_password`")  # noqa: E501
+        # verify the required parameter 'change_password_request' is set
+        if self.api_client.client_side_validation and ('change_password_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['change_password_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `change_password_request` when calling `set_user_password`")  # noqa: E501
 
         collection_formats = {}
 
@@ -8617,12 +9081,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'change_password_request' in local_var_params:
+            body_params = local_var_params['change_password_request']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -8638,7 +9098,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8663,7 +9123,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8689,7 +9149,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8723,10 +9183,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -8738,7 +9194,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8946,17 +9402,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def start_system_backup(self, data, **kwargs):  # noqa: E501
+    def start_system_backup(self, path, **kwargs):  # noqa: E501
         """start_system_backup  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.start_system_backup(data, async_req=True)
+        >>> thread = api.start_system_backup(path, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Path data: (required)
+        :param Path path: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8969,19 +9425,19 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.start_system_backup_with_http_info(data, **kwargs)  # noqa: E501
+        return self.start_system_backup_with_http_info(path, **kwargs)  # noqa: E501
 
-    def start_system_backup_with_http_info(self, data, **kwargs):  # noqa: E501
+    def start_system_backup_with_http_info(self, path, **kwargs):  # noqa: E501
         """start_system_backup  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.start_system_backup_with_http_info(data, async_req=True)
+        >>> thread = api.start_system_backup_with_http_info(path, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Path data: (required)
+        :param Path path: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8998,7 +9454,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['path']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -9012,10 +9468,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `start_system_backup`")  # noqa: E501
+        # verify the required parameter 'path' is set
+        if self.api_client.client_side_validation and ('path' not in local_var_params or  # noqa: E501
+                                                        local_var_params['path'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `path` when calling `start_system_backup`")  # noqa: E501
 
         collection_formats = {}
 
@@ -9029,8 +9485,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'path' in local_var_params:
+            body_params = local_var_params['path']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -9076,7 +9532,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9103,7 +9559,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9143,10 +9599,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -9158,7 +9610,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9184,7 +9636,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9211,7 +9663,7 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9251,10 +9703,6 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -9266,7 +9714,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9274,17 +9722,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def sync_time(self, data, **kwargs):  # noqa: E501
+    def sync_time(self, time_sync_endpoint_request, **kwargs):  # noqa: E501
         """sync_time  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.sync_time(data, async_req=True)
+        >>> thread = api.sync_time(time_sync_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param TimeSyncEndpointRequest data: (required)
+        :param TimeSyncEndpointRequest time_sync_endpoint_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9297,19 +9745,19 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.sync_time_with_http_info(data, **kwargs)  # noqa: E501
+        return self.sync_time_with_http_info(time_sync_endpoint_request, **kwargs)  # noqa: E501
 
-    def sync_time_with_http_info(self, data, **kwargs):  # noqa: E501
+    def sync_time_with_http_info(self, time_sync_endpoint_request, **kwargs):  # noqa: E501
         """sync_time  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.sync_time_with_http_info(data, async_req=True)
+        >>> thread = api.sync_time_with_http_info(time_sync_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param TimeSyncEndpointRequest data: (required)
+        :param TimeSyncEndpointRequest time_sync_endpoint_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9326,7 +9774,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['time_sync_endpoint_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -9340,10 +9788,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `sync_time`")  # noqa: E501
+        # verify the required parameter 'time_sync_endpoint_request' is set
+        if self.api_client.client_side_validation and ('time_sync_endpoint_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['time_sync_endpoint_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `time_sync_endpoint_request` when calling `sync_time`")  # noqa: E501
 
         collection_formats = {}
 
@@ -9357,8 +9805,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'time_sync_endpoint_request' in local_var_params:
+            body_params = local_var_params['time_sync_endpoint_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -9386,17 +9834,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def sync_user_totp(self, id, data, **kwargs):  # noqa: E501
+    def sync_user_totp(self, id, sync_totp_request, **kwargs):  # noqa: E501
         """sync_user_totp  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.sync_user_totp(id, data, async_req=True)
+        >>> thread = api.sync_user_totp(id, sync_totp_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this User. (required)
-        :param SyncTOTPRequest data: (required)
+        :param SyncTOTPRequest sync_totp_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9409,19 +9857,19 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.sync_user_totp_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.sync_user_totp_with_http_info(id, sync_totp_request, **kwargs)  # noqa: E501
 
-    def sync_user_totp_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def sync_user_totp_with_http_info(self, id, sync_totp_request, **kwargs):  # noqa: E501
         """sync_user_totp  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.sync_user_totp_with_http_info(id, data, async_req=True)
+        >>> thread = api.sync_user_totp_with_http_info(id, sync_totp_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this User. (required)
-        :param SyncTOTPRequest data: (required)
+        :param SyncTOTPRequest sync_totp_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9438,7 +9886,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'sync_totp_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -9456,10 +9904,10 @@ class MainApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `sync_user_totp`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `sync_user_totp`")  # noqa: E501
+        # verify the required parameter 'sync_totp_request' is set
+        if self.api_client.client_side_validation and ('sync_totp_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['sync_totp_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `sync_totp_request` when calling `sync_user_totp`")  # noqa: E501
 
         collection_formats = {}
 
@@ -9475,8 +9923,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'sync_totp_request' in local_var_params:
+            body_params = local_var_params['sync_totp_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -9504,17 +9952,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def test_smtp_configuration(self, data, **kwargs):  # noqa: E501
+    def test_smtp_configuration(self, test_smtp, **kwargs):  # noqa: E501
         """test_smtp_configuration  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.test_smtp_configuration(data, async_req=True)
+        >>> thread = api.test_smtp_configuration(test_smtp, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param TestSMTP data: (required)
+        :param TestSMTP test_smtp: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9522,24 +9970,24 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.test_smtp_configuration_with_http_info(data, **kwargs)  # noqa: E501
+        return self.test_smtp_configuration_with_http_info(test_smtp, **kwargs)  # noqa: E501
 
-    def test_smtp_configuration_with_http_info(self, data, **kwargs):  # noqa: E501
+    def test_smtp_configuration_with_http_info(self, test_smtp, **kwargs):  # noqa: E501
         """test_smtp_configuration  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.test_smtp_configuration_with_http_info(data, async_req=True)
+        >>> thread = api.test_smtp_configuration_with_http_info(test_smtp, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param TestSMTP data: (required)
+        :param TestSMTP test_smtp: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9549,14 +9997,14 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['test_smtp']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -9570,10 +10018,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `test_smtp_configuration`")  # noqa: E501
+        # verify the required parameter 'test_smtp' is set
+        if self.api_client.client_side_validation and ('test_smtp' not in local_var_params or  # noqa: E501
+                                                        local_var_params['test_smtp'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `test_smtp` when calling `test_smtp_configuration`")  # noqa: E501
 
         collection_formats = {}
 
@@ -9587,12 +10035,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'test_smtp' in local_var_params:
+            body_params = local_var_params['test_smtp']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -9608,7 +10052,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9616,17 +10060,129 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_current_workstation(self, data, **kwargs):  # noqa: E501
-        """update_current_workstation  # noqa: E501
+    def update_certificate_configuration(self, certificate, **kwargs):  # noqa: E501
+        """update_certificate_configuration  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_current_workstation(data, async_req=True)
+        >>> thread = api.update_certificate_configuration(certificate, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Workstation data: (required)
+        :param Certificate certificate: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Certificate
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.update_certificate_configuration_with_http_info(certificate, **kwargs)  # noqa: E501
+
+    def update_certificate_configuration_with_http_info(self, certificate, **kwargs):  # noqa: E501
+        """update_certificate_configuration  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_certificate_configuration_with_http_info(certificate, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param Certificate certificate: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Certificate, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['certificate']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_certificate_configuration" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'certificate' is set
+        if self.api_client.client_side_validation and ('certificate' not in local_var_params or  # noqa: E501
+                                                        local_var_params['certificate'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `certificate` when calling `update_certificate_configuration`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'certificate' in local_var_params:
+            body_params = local_var_params['certificate']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/system/certificate', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Certificate',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_current_workstation(self, workstation, **kwargs):  # noqa: E501
+        """update_current_workstation  # noqa: E501
+
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_current_workstation(workstation, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param Workstation workstation: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9639,19 +10195,19 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_current_workstation_with_http_info(data, **kwargs)  # noqa: E501
+        return self.update_current_workstation_with_http_info(workstation, **kwargs)  # noqa: E501
 
-    def update_current_workstation_with_http_info(self, data, **kwargs):  # noqa: E501
+    def update_current_workstation_with_http_info(self, workstation, **kwargs):  # noqa: E501
         """update_current_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_current_workstation_with_http_info(data, async_req=True)
+        >>> thread = api.update_current_workstation_with_http_info(workstation, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Workstation data: (required)
+        :param Workstation workstation: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9668,7 +10224,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['workstation']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -9682,10 +10238,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_current_workstation`")  # noqa: E501
+        # verify the required parameter 'workstation' is set
+        if self.api_client.client_side_validation and ('workstation' not in local_var_params or  # noqa: E501
+                                                        local_var_params['workstation'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `workstation` when calling `update_current_workstation`")  # noqa: E501
 
         collection_formats = {}
 
@@ -9699,8 +10255,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'workstation' in local_var_params:
+            body_params = local_var_params['workstation']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -9728,18 +10284,18 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_download_archive(self, id, data, **kwargs):  # noqa: E501
+    def update_download_archive(self, id, download_archive, **kwargs):  # noqa: E501
         """update_download_archive  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_download_archive(id, data, async_req=True)
+        >>> thread = api.update_download_archive(id, download_archive, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: A UUID string identifying this download archive. (required)
-        :param DownloadArchive data: (required)
+        :param DownloadArchive download_archive: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9752,20 +10308,20 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_download_archive_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.update_download_archive_with_http_info(id, download_archive, **kwargs)  # noqa: E501
 
-    def update_download_archive_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def update_download_archive_with_http_info(self, id, download_archive, **kwargs):  # noqa: E501
         """update_download_archive  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_download_archive_with_http_info(id, data, async_req=True)
+        >>> thread = api.update_download_archive_with_http_info(id, download_archive, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: A UUID string identifying this download archive. (required)
-        :param DownloadArchive data: (required)
+        :param DownloadArchive download_archive: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9782,7 +10338,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'download_archive']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -9800,10 +10356,10 @@ class MainApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_download_archive`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_download_archive`")  # noqa: E501
+        # verify the required parameter 'download_archive' is set
+        if self.api_client.client_side_validation and ('download_archive' not in local_var_params or  # noqa: E501
+                                                        local_var_params['download_archive'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `download_archive` when calling `update_download_archive`")  # noqa: E501
 
         collection_formats = {}
 
@@ -9819,8 +10375,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'download_archive' in local_var_params:
+            body_params = local_var_params['download_archive']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -9848,18 +10404,18 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_group(self, id, data, **kwargs):  # noqa: E501
+    def update_group(self, id, elements_group_detail, **kwargs):  # noqa: E501
         """update_group  # noqa: E501
 
         ### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_group(id, data, async_req=True)
+        >>> thread = api.update_group(id, elements_group_detail, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Group. (required)
-        :param ElementsGroupDetail data: (required)
+        :param ElementsGroupDetail elements_group_detail: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9872,20 +10428,20 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_group_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.update_group_with_http_info(id, elements_group_detail, **kwargs)  # noqa: E501
 
-    def update_group_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def update_group_with_http_info(self, id, elements_group_detail, **kwargs):  # noqa: E501
         """update_group  # noqa: E501
 
         ### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_group_with_http_info(id, data, async_req=True)
+        >>> thread = api.update_group_with_http_info(id, elements_group_detail, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this Group. (required)
-        :param ElementsGroupDetail data: (required)
+        :param ElementsGroupDetail elements_group_detail: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9902,7 +10458,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'elements_group_detail']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -9920,10 +10476,10 @@ class MainApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_group`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_group`")  # noqa: E501
+        # verify the required parameter 'elements_group_detail' is set
+        if self.api_client.client_side_validation and ('elements_group_detail' not in local_var_params or  # noqa: E501
+                                                        local_var_params['elements_group_detail'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `elements_group_detail` when calling `update_group`")  # noqa: E501
 
         collection_formats = {}
 
@@ -9939,8 +10495,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'elements_group_detail' in local_var_params:
+            body_params = local_var_params['elements_group_detail']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -9968,18 +10524,18 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_ntp_server(self, id, data, **kwargs):  # noqa: E501
+    def update_ntp_server(self, id, ntp_server, **kwargs):  # noqa: E501
         """update_ntp_server  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_ntp_server(id, data, async_req=True)
+        >>> thread = api.update_ntp_server(id, ntp_server, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this NTP Server. (required)
-        :param NTPServer data: (required)
+        :param NTPServer ntp_server: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9992,20 +10548,20 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_ntp_server_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.update_ntp_server_with_http_info(id, ntp_server, **kwargs)  # noqa: E501
 
-    def update_ntp_server_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def update_ntp_server_with_http_info(self, id, ntp_server, **kwargs):  # noqa: E501
         """update_ntp_server  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_ntp_server_with_http_info(id, data, async_req=True)
+        >>> thread = api.update_ntp_server_with_http_info(id, ntp_server, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this NTP Server. (required)
-        :param NTPServer data: (required)
+        :param NTPServer ntp_server: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -10022,7 +10578,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'ntp_server']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -10040,10 +10596,10 @@ class MainApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_ntp_server`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_ntp_server`")  # noqa: E501
+        # verify the required parameter 'ntp_server' is set
+        if self.api_client.client_side_validation and ('ntp_server' not in local_var_params or  # noqa: E501
+                                                        local_var_params['ntp_server'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `ntp_server` when calling `update_ntp_server`")  # noqa: E501
 
         collection_formats = {}
 
@@ -10059,8 +10615,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'ntp_server' in local_var_params:
+            body_params = local_var_params['ntp_server']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -10088,17 +10644,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_parameters(self, data, **kwargs):  # noqa: E501
+    def update_parameters(self, parameters, **kwargs):  # noqa: E501
         """update_parameters  # noqa: E501
 
         ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_parameters(data, async_req=True)
+        >>> thread = api.update_parameters(parameters, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Parameters data: (required)
+        :param Parameters parameters: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -10111,19 +10667,19 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_parameters_with_http_info(data, **kwargs)  # noqa: E501
+        return self.update_parameters_with_http_info(parameters, **kwargs)  # noqa: E501
 
-    def update_parameters_with_http_info(self, data, **kwargs):  # noqa: E501
+    def update_parameters_with_http_info(self, parameters, **kwargs):  # noqa: E501
         """update_parameters  # noqa: E501
 
         ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_parameters_with_http_info(data, async_req=True)
+        >>> thread = api.update_parameters_with_http_info(parameters, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Parameters data: (required)
+        :param Parameters parameters: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -10140,7 +10696,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['parameters']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -10154,10 +10710,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_parameters`")  # noqa: E501
+        # verify the required parameter 'parameters' is set
+        if self.api_client.client_side_validation and ('parameters' not in local_var_params or  # noqa: E501
+                                                        local_var_params['parameters'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `parameters` when calling `update_parameters`")  # noqa: E501
 
         collection_formats = {}
 
@@ -10171,8 +10727,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'parameters' in local_var_params:
+            body_params = local_var_params['parameters']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -10200,17 +10756,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_profile(self, data, **kwargs):  # noqa: E501
+    def update_profile(self, elements_user_profile, **kwargs):  # noqa: E501
         """update_profile  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_profile(data, async_req=True)
+        >>> thread = api.update_profile(elements_user_profile, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param ElementsUserProfile data: (required)
+        :param ElementsUserProfile elements_user_profile: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -10223,19 +10779,19 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_profile_with_http_info(data, **kwargs)  # noqa: E501
+        return self.update_profile_with_http_info(elements_user_profile, **kwargs)  # noqa: E501
 
-    def update_profile_with_http_info(self, data, **kwargs):  # noqa: E501
+    def update_profile_with_http_info(self, elements_user_profile, **kwargs):  # noqa: E501
         """update_profile  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_profile_with_http_info(data, async_req=True)
+        >>> thread = api.update_profile_with_http_info(elements_user_profile, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param ElementsUserProfile data: (required)
+        :param ElementsUserProfile elements_user_profile: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -10252,7 +10808,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['elements_user_profile']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -10266,10 +10822,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_profile`")  # noqa: E501
+        # verify the required parameter 'elements_user_profile' is set
+        if self.api_client.client_side_validation and ('elements_user_profile' not in local_var_params or  # noqa: E501
+                                                        local_var_params['elements_user_profile'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `elements_user_profile` when calling `update_profile`")  # noqa: E501
 
         collection_formats = {}
 
@@ -10283,8 +10839,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'elements_user_profile' in local_var_params:
+            body_params = local_var_params['elements_user_profile']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -10312,17 +10868,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_smtp_configuration(self, data, **kwargs):  # noqa: E501
+    def update_smtp_configuration(self, smtp_configuration, **kwargs):  # noqa: E501
         """update_smtp_configuration  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_smtp_configuration(data, async_req=True)
+        >>> thread = api.update_smtp_configuration(smtp_configuration, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param SMTPConfiguration data: (required)
+        :param SMTPConfiguration smtp_configuration: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -10335,19 +10891,19 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_smtp_configuration_with_http_info(data, **kwargs)  # noqa: E501
+        return self.update_smtp_configuration_with_http_info(smtp_configuration, **kwargs)  # noqa: E501
 
-    def update_smtp_configuration_with_http_info(self, data, **kwargs):  # noqa: E501
+    def update_smtp_configuration_with_http_info(self, smtp_configuration, **kwargs):  # noqa: E501
         """update_smtp_configuration  # noqa: E501
 
         ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_smtp_configuration_with_http_info(data, async_req=True)
+        >>> thread = api.update_smtp_configuration_with_http_info(smtp_configuration, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param SMTPConfiguration data: (required)
+        :param SMTPConfiguration smtp_configuration: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -10364,7 +10920,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['smtp_configuration']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -10378,10 +10934,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_smtp_configuration`")  # noqa: E501
+        # verify the required parameter 'smtp_configuration' is set
+        if self.api_client.client_side_validation and ('smtp_configuration' not in local_var_params or  # noqa: E501
+                                                        local_var_params['smtp_configuration'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `smtp_configuration` when calling `update_smtp_configuration`")  # noqa: E501
 
         collection_formats = {}
 
@@ -10395,8 +10951,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'smtp_configuration' in local_var_params:
+            body_params = local_var_params['smtp_configuration']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -10424,18 +10980,18 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_user(self, id, data, **kwargs):  # noqa: E501
+    def update_user(self, id, elements_user_detail, **kwargs):  # noqa: E501
         """update_user  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_user(id, data, async_req=True)
+        >>> thread = api.update_user(id, elements_user_detail, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this User. (required)
-        :param ElementsUserDetail data: (required)
+        :param ElementsUserDetail elements_user_detail: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -10448,20 +11004,20 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_user_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.update_user_with_http_info(id, elements_user_detail, **kwargs)  # noqa: E501
 
-    def update_user_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def update_user_with_http_info(self, id, elements_user_detail, **kwargs):  # noqa: E501
         """update_user  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_user_with_http_info(id, data, async_req=True)
+        >>> thread = api.update_user_with_http_info(id, elements_user_detail, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this User. (required)
-        :param ElementsUserDetail data: (required)
+        :param ElementsUserDetail elements_user_detail: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -10478,7 +11034,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'elements_user_detail']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -10496,10 +11052,10 @@ class MainApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_user`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_user`")  # noqa: E501
+        # verify the required parameter 'elements_user_detail' is set
+        if self.api_client.client_side_validation and ('elements_user_detail' not in local_var_params or  # noqa: E501
+                                                        local_var_params['elements_user_detail'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `elements_user_detail` when calling `update_user`")  # noqa: E501
 
         collection_formats = {}
 
@@ -10515,8 +11071,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'elements_user_detail' in local_var_params:
+            body_params = local_var_params['elements_user_detail']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -10544,18 +11100,18 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_workstation(self, id, data, **kwargs):  # noqa: E501
+    def update_workstation(self, id, workstation, **kwargs):  # noqa: E501
         """update_workstation  # noqa: E501
 
         ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_workstation(id, data, async_req=True)
+        >>> thread = api.update_workstation(id, workstation, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: A unique value identifying this workstation. (required)
-        :param Workstation data: (required)
+        :param Workstation workstation: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -10568,20 +11124,20 @@ class MainApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_workstation_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.update_workstation_with_http_info(id, workstation, **kwargs)  # noqa: E501
 
-    def update_workstation_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def update_workstation_with_http_info(self, id, workstation, **kwargs):  # noqa: E501
         """update_workstation  # noqa: E501
 
         ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_workstation_with_http_info(id, data, async_req=True)
+        >>> thread = api.update_workstation_with_http_info(id, workstation, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: A unique value identifying this workstation. (required)
-        :param Workstation data: (required)
+        :param Workstation workstation: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -10598,7 +11154,7 @@ class MainApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'workstation']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -10616,10 +11172,10 @@ class MainApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_workstation`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_workstation`")  # noqa: E501
+        # verify the required parameter 'workstation' is set
+        if self.api_client.client_side_validation and ('workstation' not in local_var_params or  # noqa: E501
+                                                        local_var_params['workstation'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `workstation` when calling `update_workstation`")  # noqa: E501
 
         collection_formats = {}
 
@@ -10635,8 +11191,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'workstation' in local_var_params:
+            body_params = local_var_params['workstation']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -10664,17 +11220,17 @@ class MainApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def upload_chunk(self, data, **kwargs):  # noqa: E501
+    def upload_chunk(self, upload_chunk_endpoint_request, **kwargs):  # noqa: E501
         """upload_chunk  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.upload_chunk(data, async_req=True)
+        >>> thread = api.upload_chunk(upload_chunk_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param UploadChunkEndpointRequest data: (required)
+        :param UploadChunkEndpointRequest upload_chunk_endpoint_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -10682,24 +11238,24 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.upload_chunk_with_http_info(data, **kwargs)  # noqa: E501
+        return self.upload_chunk_with_http_info(upload_chunk_endpoint_request, **kwargs)  # noqa: E501
 
-    def upload_chunk_with_http_info(self, data, **kwargs):  # noqa: E501
+    def upload_chunk_with_http_info(self, upload_chunk_endpoint_request, **kwargs):  # noqa: E501
         """upload_chunk  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.upload_chunk_with_http_info(data, async_req=True)
+        >>> thread = api.upload_chunk_with_http_info(upload_chunk_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param UploadChunkEndpointRequest data: (required)
+        :param UploadChunkEndpointRequest upload_chunk_endpoint_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -10709,14 +11265,14 @@ class MainApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['upload_chunk_endpoint_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -10730,10 +11286,10 @@ class MainApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `upload_chunk`")  # noqa: E501
+        # verify the required parameter 'upload_chunk_endpoint_request' is set
+        if self.api_client.client_side_validation and ('upload_chunk_endpoint_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload_chunk_endpoint_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload_chunk_endpoint_request` when calling `upload_chunk`")  # noqa: E501
 
         collection_formats = {}
 
@@ -10747,12 +11303,8 @@ class MainApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'upload_chunk_endpoint_request' in local_var_params:
+            body_params = local_var_params['upload_chunk_endpoint_request']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -10768,7 +11320,7 @@ class MainApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

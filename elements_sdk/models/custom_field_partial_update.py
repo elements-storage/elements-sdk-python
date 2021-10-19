@@ -31,7 +31,6 @@ class CustomFieldPartialUpdate(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'labels': 'list[str]',
         'options': 'list[str]',
         'name': 'str',
         'order': 'int',
@@ -46,11 +45,11 @@ class CustomFieldPartialUpdate(object):
         'number_of_digits': 'int',
         'metadata_prefill': 'str',
         'highlight_expiration': 'bool',
-        'multiple_response': 'bool'
+        'multiple_response': 'bool',
+        'help_text': 'str'
     }
 
     attribute_map = {
-        'labels': 'labels',
         'options': 'options',
         'name': 'name',
         'order': 'order',
@@ -65,16 +64,16 @@ class CustomFieldPartialUpdate(object):
         'number_of_digits': 'number_of_digits',
         'metadata_prefill': 'metadata_prefill',
         'highlight_expiration': 'highlight_expiration',
-        'multiple_response': 'multiple_response'
+        'multiple_response': 'multiple_response',
+        'help_text': 'help_text'
     }
 
-    def __init__(self, labels=None, options=None, name=None, order=None, type=None, use_for_uploads=None, require_to_upload=None, non_user_editable=None, validation=None, regex=None, range_min=None, range_max=None, number_of_digits=None, metadata_prefill=None, highlight_expiration=None, multiple_response=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, options=None, name=None, order=None, type=None, use_for_uploads=None, require_to_upload=None, non_user_editable=None, validation=None, regex=None, range_min=None, range_max=None, number_of_digits=None, metadata_prefill=None, highlight_expiration=None, multiple_response=None, help_text=None, local_vars_configuration=None):  # noqa: E501
         """CustomFieldPartialUpdate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._labels = None
         self._options = None
         self._name = None
         self._order = None
@@ -90,10 +89,9 @@ class CustomFieldPartialUpdate(object):
         self._metadata_prefill = None
         self._highlight_expiration = None
         self._multiple_response = None
+        self._help_text = None
         self.discriminator = None
 
-        if labels is not None:
-            self.labels = labels
         if options is not None:
             self.options = options
         if name is not None:
@@ -118,27 +116,7 @@ class CustomFieldPartialUpdate(object):
             self.highlight_expiration = highlight_expiration
         if multiple_response is not None:
             self.multiple_response = multiple_response
-
-    @property
-    def labels(self):
-        """Gets the labels of this CustomFieldPartialUpdate.  # noqa: E501
-
-
-        :return: The labels of this CustomFieldPartialUpdate.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._labels
-
-    @labels.setter
-    def labels(self, labels):
-        """Sets the labels of this CustomFieldPartialUpdate.
-
-
-        :param labels: The labels of this CustomFieldPartialUpdate.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._labels = labels
+        self.help_text = help_text
 
     @property
     def options(self):
@@ -484,6 +462,30 @@ class CustomFieldPartialUpdate(object):
         """
 
         self._multiple_response = multiple_response
+
+    @property
+    def help_text(self):
+        """Gets the help_text of this CustomFieldPartialUpdate.  # noqa: E501
+
+
+        :return: The help_text of this CustomFieldPartialUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._help_text
+
+    @help_text.setter
+    def help_text(self, help_text):
+        """Sets the help_text of this CustomFieldPartialUpdate.
+
+
+        :param help_text: The help_text of this CustomFieldPartialUpdate.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                help_text is not None and len(help_text) > 255):
+            raise ValueError("Invalid value for `help_text`, length must be less than or equal to `255`")  # noqa: E501
+
+        self._help_text = help_text
 
     def to_dict(self):
         """Returns the model properties as a dict"""

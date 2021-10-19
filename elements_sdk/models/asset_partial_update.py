@@ -32,7 +32,7 @@ class AssetPartialUpdate(object):
     """
     openapi_types = {
         'custom_fields': 'dict(str, str)',
-        'tags': 'list[Tag]',
+        'tags': 'list[int]',
         'set': 'int'
     }
 
@@ -86,7 +86,7 @@ class AssetPartialUpdate(object):
 
 
         :return: The tags of this AssetPartialUpdate.  # noqa: E501
-        :rtype: list[Tag]
+        :rtype: list[int]
         """
         return self._tags
 
@@ -96,7 +96,7 @@ class AssetPartialUpdate(object):
 
 
         :param tags: The tags of this AssetPartialUpdate.  # noqa: E501
-        :type: list[Tag]
+        :type: list[int]
         """
 
         self._tags = tags

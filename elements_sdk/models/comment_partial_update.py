@@ -31,10 +31,10 @@ class CommentPartialUpdate(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'assignee': 'ElementsUserMini',
-        'user': 'ElementsUserMini',
+        'assignee': 'ElementsUserMiniReference',
+        'user': 'ElementsUserMiniReference',
         'drawing': 'dict(str, str)',
-        'tags': 'list[Tag]',
+        'tags': 'list[TagReference]',
         'text': 'str',
         'time': 'float',
         'is_cloud': 'bool',
@@ -106,7 +106,7 @@ class CommentPartialUpdate(object):
 
 
         :return: The assignee of this CommentPartialUpdate.  # noqa: E501
-        :rtype: ElementsUserMini
+        :rtype: ElementsUserMiniReference
         """
         return self._assignee
 
@@ -116,7 +116,7 @@ class CommentPartialUpdate(object):
 
 
         :param assignee: The assignee of this CommentPartialUpdate.  # noqa: E501
-        :type: ElementsUserMini
+        :type: ElementsUserMiniReference
         """
 
         self._assignee = assignee
@@ -127,7 +127,7 @@ class CommentPartialUpdate(object):
 
 
         :return: The user of this CommentPartialUpdate.  # noqa: E501
-        :rtype: ElementsUserMini
+        :rtype: ElementsUserMiniReference
         """
         return self._user
 
@@ -137,7 +137,7 @@ class CommentPartialUpdate(object):
 
 
         :param user: The user of this CommentPartialUpdate.  # noqa: E501
-        :type: ElementsUserMini
+        :type: ElementsUserMiniReference
         """
 
         self._user = user
@@ -169,7 +169,7 @@ class CommentPartialUpdate(object):
 
 
         :return: The tags of this CommentPartialUpdate.  # noqa: E501
-        :rtype: list[Tag]
+        :rtype: list[TagReference]
         """
         return self._tags
 
@@ -179,7 +179,7 @@ class CommentPartialUpdate(object):
 
 
         :param tags: The tags of this CommentPartialUpdate.  # noqa: E501
-        :type: list[Tag]
+        :type: list[TagReference]
         """
 
         self._tags = tags

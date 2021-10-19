@@ -31,9 +31,9 @@ class WorkspaceDetailPartialUpdate(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'production': 'Production',
-        'volume': 'Volume',
-        'sharing_nfs_permissions': 'object',
+        'production': 'ProductionReference',
+        'volume': 'VolumeReference',
+        'sharing_nfs_permissions': 'list[str]',
         'name': 'str',
         'description': 'str',
         'long_description': 'str',
@@ -51,6 +51,7 @@ class WorkspaceDetailPartialUpdate(object):
         'sharing_require_login': 'bool',
         'sharing_read_only': 'bool',
         'sharing_allow_execute': 'bool',
+        'enable_quota': 'bool',
         'quota_size_hard': 'int',
         'quota_size_soft': 'int',
         'affinity': 'str',
@@ -93,6 +94,7 @@ class WorkspaceDetailPartialUpdate(object):
         'sharing_require_login': 'sharing_require_login',
         'sharing_read_only': 'sharing_read_only',
         'sharing_allow_execute': 'sharing_allow_execute',
+        'enable_quota': 'enable_quota',
         'quota_size_hard': 'quota_size_hard',
         'quota_size_soft': 'quota_size_soft',
         'affinity': 'affinity',
@@ -114,7 +116,7 @@ class WorkspaceDetailPartialUpdate(object):
         'template': 'template'
     }
 
-    def __init__(self, production=None, volume=None, sharing_nfs_permissions=None, name=None, description=None, long_description=None, is_template=None, active=None, mac_protocol=None, win_protocol=None, win_drive=None, linux_protocol=None, linux_mountpoint=None, share_name=None, share_nfs=None, share_afp=None, sharing_hidden=None, sharing_require_login=None, sharing_read_only=None, sharing_allow_execute=None, quota_size_hard=None, quota_size_soft=None, affinity=None, emulate_avid=None, emulate_capture=None, emulate_preopen=None, emulate_ntfs_streams=None, emulate_recycle_bin=None, emulate_fruit=None, smb_extra_config=None, afp_extra_config=None, recycle_bin_exclude=None, is_external=None, external_mac_url=None, external_win_url=None, external_linux_url=None, allow_symlinks=None, rw_permission_priority=None, template=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, production=None, volume=None, sharing_nfs_permissions=None, name=None, description=None, long_description=None, is_template=None, active=None, mac_protocol=None, win_protocol=None, win_drive=None, linux_protocol=None, linux_mountpoint=None, share_name=None, share_nfs=None, share_afp=None, sharing_hidden=None, sharing_require_login=None, sharing_read_only=None, sharing_allow_execute=None, enable_quota=None, quota_size_hard=None, quota_size_soft=None, affinity=None, emulate_avid=None, emulate_capture=None, emulate_preopen=None, emulate_ntfs_streams=None, emulate_recycle_bin=None, emulate_fruit=None, smb_extra_config=None, afp_extra_config=None, recycle_bin_exclude=None, is_external=None, external_mac_url=None, external_win_url=None, external_linux_url=None, allow_symlinks=None, rw_permission_priority=None, template=None, local_vars_configuration=None):  # noqa: E501
         """WorkspaceDetailPartialUpdate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -140,6 +142,7 @@ class WorkspaceDetailPartialUpdate(object):
         self._sharing_require_login = None
         self._sharing_read_only = None
         self._sharing_allow_execute = None
+        self._enable_quota = None
         self._quota_size_hard = None
         self._quota_size_soft = None
         self._affinity = None
@@ -197,8 +200,12 @@ class WorkspaceDetailPartialUpdate(object):
             self.sharing_read_only = sharing_read_only
         if sharing_allow_execute is not None:
             self.sharing_allow_execute = sharing_allow_execute
-        self.quota_size_hard = quota_size_hard
-        self.quota_size_soft = quota_size_soft
+        if enable_quota is not None:
+            self.enable_quota = enable_quota
+        if quota_size_hard is not None:
+            self.quota_size_hard = quota_size_hard
+        if quota_size_soft is not None:
+            self.quota_size_soft = quota_size_soft
         self.affinity = affinity
         if emulate_avid is not None:
             self.emulate_avid = emulate_avid
@@ -234,7 +241,7 @@ class WorkspaceDetailPartialUpdate(object):
 
 
         :return: The production of this WorkspaceDetailPartialUpdate.  # noqa: E501
-        :rtype: Production
+        :rtype: ProductionReference
         """
         return self._production
 
@@ -244,7 +251,7 @@ class WorkspaceDetailPartialUpdate(object):
 
 
         :param production: The production of this WorkspaceDetailPartialUpdate.  # noqa: E501
-        :type: Production
+        :type: ProductionReference
         """
 
         self._production = production
@@ -255,7 +262,7 @@ class WorkspaceDetailPartialUpdate(object):
 
 
         :return: The volume of this WorkspaceDetailPartialUpdate.  # noqa: E501
-        :rtype: Volume
+        :rtype: VolumeReference
         """
         return self._volume
 
@@ -265,7 +272,7 @@ class WorkspaceDetailPartialUpdate(object):
 
 
         :param volume: The volume of this WorkspaceDetailPartialUpdate.  # noqa: E501
-        :type: Volume
+        :type: VolumeReference
         """
 
         self._volume = volume
@@ -276,7 +283,7 @@ class WorkspaceDetailPartialUpdate(object):
 
 
         :return: The sharing_nfs_permissions of this WorkspaceDetailPartialUpdate.  # noqa: E501
-        :rtype: object
+        :rtype: list[str]
         """
         return self._sharing_nfs_permissions
 
@@ -286,7 +293,7 @@ class WorkspaceDetailPartialUpdate(object):
 
 
         :param sharing_nfs_permissions: The sharing_nfs_permissions of this WorkspaceDetailPartialUpdate.  # noqa: E501
-        :type: object
+        :type: list[str]
         """
 
         self._sharing_nfs_permissions = sharing_nfs_permissions
@@ -686,6 +693,27 @@ class WorkspaceDetailPartialUpdate(object):
         """
 
         self._sharing_allow_execute = sharing_allow_execute
+
+    @property
+    def enable_quota(self):
+        """Gets the enable_quota of this WorkspaceDetailPartialUpdate.  # noqa: E501
+
+
+        :return: The enable_quota of this WorkspaceDetailPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_quota
+
+    @enable_quota.setter
+    def enable_quota(self, enable_quota):
+        """Sets the enable_quota of this WorkspaceDetailPartialUpdate.
+
+
+        :param enable_quota: The enable_quota of this WorkspaceDetailPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_quota = enable_quota
 
     @property
     def quota_size_hard(self):

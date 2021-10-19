@@ -31,12 +31,12 @@ class MediaRootPartialUpdate(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'custom_fields': 'list[CustomField]',
+        'custom_fields': 'list[CustomFieldReference]',
         'workflow': 'dict(str, str)',
         'ai_config': 'dict(str, str)',
         'veritone_config': 'dict(str, str)',
-        'volume': 'VolumeMini',
-        'jobs': 'list[Job]',
+        'volume': 'VolumeMiniReference',
+        'jobs': 'list[JobReference]',
         'name': 'str',
         'path': 'str',
         'needs_rescan': 'bool',
@@ -50,6 +50,7 @@ class MediaRootPartialUpdate(object):
         'show_ratings': 'bool',
         'show_subclips': 'bool',
         'show_markers': 'bool',
+        'show_history': 'bool',
         'show_ai_metadata': 'bool',
         'prefetch_thumbnail_strips': 'bool',
         'cover': 'str',
@@ -62,7 +63,8 @@ class MediaRootPartialUpdate(object):
         'veritone_proxy_profile': 'int',
         'ai_connection': 'int',
         'ai_proxy_profile': 'int',
-        'proxy_profiles': 'list[int]'
+        'proxy_profiles': 'list[int]',
+        'tags': 'list[int]'
     }
 
     attribute_map = {
@@ -85,6 +87,7 @@ class MediaRootPartialUpdate(object):
         'show_ratings': 'show_ratings',
         'show_subclips': 'show_subclips',
         'show_markers': 'show_markers',
+        'show_history': 'show_history',
         'show_ai_metadata': 'show_ai_metadata',
         'prefetch_thumbnail_strips': 'prefetch_thumbnail_strips',
         'cover': 'cover',
@@ -97,10 +100,11 @@ class MediaRootPartialUpdate(object):
         'veritone_proxy_profile': 'veritone_proxy_profile',
         'ai_connection': 'ai_connection',
         'ai_proxy_profile': 'ai_proxy_profile',
-        'proxy_profiles': 'proxy_profiles'
+        'proxy_profiles': 'proxy_profiles',
+        'tags': 'tags'
     }
 
-    def __init__(self, custom_fields=None, workflow=None, ai_config=None, veritone_config=None, volume=None, jobs=None, name=None, path=None, needs_rescan=None, view_mode=None, view_style=None, view_default_tab=None, show_tags=None, show_comments=None, show_locations=None, show_custom_fields=None, show_ratings=None, show_subclips=None, show_markers=None, show_ai_metadata=None, prefetch_thumbnail_strips=None, cover=None, name_field=None, share_comments=None, share_link_duration=None, default_proxy_profile=None, cloud_proxy_profile=None, veritone_connection=None, veritone_proxy_profile=None, ai_connection=None, ai_proxy_profile=None, proxy_profiles=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, custom_fields=None, workflow=None, ai_config=None, veritone_config=None, volume=None, jobs=None, name=None, path=None, needs_rescan=None, view_mode=None, view_style=None, view_default_tab=None, show_tags=None, show_comments=None, show_locations=None, show_custom_fields=None, show_ratings=None, show_subclips=None, show_markers=None, show_history=None, show_ai_metadata=None, prefetch_thumbnail_strips=None, cover=None, name_field=None, share_comments=None, share_link_duration=None, default_proxy_profile=None, cloud_proxy_profile=None, veritone_connection=None, veritone_proxy_profile=None, ai_connection=None, ai_proxy_profile=None, proxy_profiles=None, tags=None, local_vars_configuration=None):  # noqa: E501
         """MediaRootPartialUpdate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -125,6 +129,7 @@ class MediaRootPartialUpdate(object):
         self._show_ratings = None
         self._show_subclips = None
         self._show_markers = None
+        self._show_history = None
         self._show_ai_metadata = None
         self._prefetch_thumbnail_strips = None
         self._cover = None
@@ -138,6 +143,7 @@ class MediaRootPartialUpdate(object):
         self._ai_connection = None
         self._ai_proxy_profile = None
         self._proxy_profiles = None
+        self._tags = None
         self.discriminator = None
 
         if custom_fields is not None:
@@ -175,6 +181,8 @@ class MediaRootPartialUpdate(object):
             self.show_subclips = show_subclips
         if show_markers is not None:
             self.show_markers = show_markers
+        if show_history is not None:
+            self.show_history = show_history
         if show_ai_metadata is not None:
             self.show_ai_metadata = show_ai_metadata
         if prefetch_thumbnail_strips is not None:
@@ -193,6 +201,8 @@ class MediaRootPartialUpdate(object):
         self.ai_proxy_profile = ai_proxy_profile
         if proxy_profiles is not None:
             self.proxy_profiles = proxy_profiles
+        if tags is not None:
+            self.tags = tags
 
     @property
     def custom_fields(self):
@@ -200,7 +210,7 @@ class MediaRootPartialUpdate(object):
 
 
         :return: The custom_fields of this MediaRootPartialUpdate.  # noqa: E501
-        :rtype: list[CustomField]
+        :rtype: list[CustomFieldReference]
         """
         return self._custom_fields
 
@@ -210,7 +220,7 @@ class MediaRootPartialUpdate(object):
 
 
         :param custom_fields: The custom_fields of this MediaRootPartialUpdate.  # noqa: E501
-        :type: list[CustomField]
+        :type: list[CustomFieldReference]
         """
 
         self._custom_fields = custom_fields
@@ -284,7 +294,7 @@ class MediaRootPartialUpdate(object):
 
 
         :return: The volume of this MediaRootPartialUpdate.  # noqa: E501
-        :rtype: VolumeMini
+        :rtype: VolumeMiniReference
         """
         return self._volume
 
@@ -294,7 +304,7 @@ class MediaRootPartialUpdate(object):
 
 
         :param volume: The volume of this MediaRootPartialUpdate.  # noqa: E501
-        :type: VolumeMini
+        :type: VolumeMiniReference
         """
 
         self._volume = volume
@@ -305,7 +315,7 @@ class MediaRootPartialUpdate(object):
 
 
         :return: The jobs of this MediaRootPartialUpdate.  # noqa: E501
-        :rtype: list[Job]
+        :rtype: list[JobReference]
         """
         return self._jobs
 
@@ -315,7 +325,7 @@ class MediaRootPartialUpdate(object):
 
 
         :param jobs: The jobs of this MediaRootPartialUpdate.  # noqa: E501
-        :type: list[Job]
+        :type: list[JobReference]
         """
 
         self._jobs = jobs
@@ -621,6 +631,27 @@ class MediaRootPartialUpdate(object):
         self._show_markers = show_markers
 
     @property
+    def show_history(self):
+        """Gets the show_history of this MediaRootPartialUpdate.  # noqa: E501
+
+
+        :return: The show_history of this MediaRootPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_history
+
+    @show_history.setter
+    def show_history(self, show_history):
+        """Sets the show_history of this MediaRootPartialUpdate.
+
+
+        :param show_history: The show_history of this MediaRootPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._show_history = show_history
+
+    @property
     def show_ai_metadata(self):
         """Gets the show_ai_metadata of this MediaRootPartialUpdate.  # noqa: E501
 
@@ -898,6 +929,27 @@ class MediaRootPartialUpdate(object):
         """
 
         self._proxy_profiles = proxy_profiles
+
+    @property
+    def tags(self):
+        """Gets the tags of this MediaRootPartialUpdate.  # noqa: E501
+
+
+        :return: The tags of this MediaRootPartialUpdate.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this MediaRootPartialUpdate.
+
+
+        :param tags: The tags of this MediaRootPartialUpdate.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

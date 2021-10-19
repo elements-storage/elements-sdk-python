@@ -61,7 +61,8 @@ class ExternalTranscoder(object):
 
         if id is not None:
             self.id = id
-        self.path_mappings = path_mappings
+        if path_mappings is not None:
+            self.path_mappings = path_mappings
         self.name = name
         if type is not None:
             self.type = type
@@ -106,8 +107,6 @@ class ExternalTranscoder(object):
         :param path_mappings: The path_mappings of this ExternalTranscoder.  # noqa: E501
         :type: list[str]
         """
-        if self.local_vars_configuration.client_side_validation and path_mappings is None:  # noqa: E501
-            raise ValueError("Invalid value for `path_mappings`, must not be `None`")  # noqa: E501
 
         self._path_mappings = path_mappings
 

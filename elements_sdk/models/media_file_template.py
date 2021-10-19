@@ -32,7 +32,7 @@ class MediaFileTemplate(object):
     """
     openapi_types = {
         'id': 'int',
-        'file': 'MediaFile',
+        'file': 'MediaFileReference',
         'name': 'str'
     }
 
@@ -85,7 +85,7 @@ class MediaFileTemplate(object):
 
 
         :return: The file of this MediaFileTemplate.  # noqa: E501
-        :rtype: MediaFile
+        :rtype: MediaFileReference
         """
         return self._file
 
@@ -95,7 +95,7 @@ class MediaFileTemplate(object):
 
 
         :param file: The file of this MediaFileTemplate.  # noqa: E501
-        :type: MediaFile
+        :type: MediaFileReference
         """
         if self.local_vars_configuration.client_side_validation and file is None:  # noqa: E501
             raise ValueError("Invalid value for `file`, must not be `None`")  # noqa: E501

@@ -31,296 +31,150 @@ class Parameters(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'int',
-        'media_force_show_deleted': 'bool',
         'analytics': 'bool',
-        'identify_command': 'str',
-        'external_url': 'str',
         'branding_css': 'str',
         'branding_logo': 'str',
-        'fm_new_directory_mode': 'str',
-        'icap_server': 'str',
-        'icap_port': 'int',
-        'icap_service': 'str',
+        'external_url': 'str',
+        'file_manager_recycle_bin': 'bool',
+        'https_redirect': 'str',
+        'language': 'str',
         'ltfs_default_restore_to_original_location': 'bool',
         'ltfs_default_search_directories': 'bool',
         'ltfs_library_address': 'str',
+        'mail_styling': 'dict(str, str)',
         'media_auto_play': 'bool',
-        'media_auto_transport': 'bool',
-        'media_auto_scan': 'bool',
         'media_auto_proxy': 'bool',
+        'media_auto_scan': 'bool',
+        'media_auto_transport': 'bool',
         'media_auto_veritone_upload': 'bool',
-        'media_proxy_h264_preset': 'str',
         'media_default_custom_field_type': 'str',
         'media_default_delete_behaviour': 'str',
+        'media_force_show_deleted': 'bool',
+        'media_keep_selection_when_browsing': 'bool',
         'media_recycle_bin': 'bool',
-        'file_manager_recycle_bin': 'bool',
         'ntp_offer_sync': 'bool',
-        'slugify_workspace_path': 'bool',
-        'slugify_shares': 'bool',
-        'smtp_from': 'str',
-        'smtp_server': 'str',
-        'smtp_port': 'int',
-        'smtp_tls': 'str',
-        'smtp_username': 'str',
-        'smtp_ehlo': 'str',
-        'mail_styling': 'str',
-        'tasks_limit': 'int',
-        'tasks_hard_limit': 'int',
-        'umask_afp': 'str',
-        'umask_smb': 'str',
+        'otp_policy': 'str',
+        'tasks_run_scheduled': 'bool',
         'users_default_permissions': 'str',
         'workspaces_folder_template_path': 'str',
-        'workspaces_mode': 'str',
-        'workspaces_path': 'str',
-        'language': 'str',
-        'email_logo_url': 'str',
-        'media_keep_selection_when_browsing': 'bool',
-        'tasks_run_scheduled': 'bool',
-        'https_redirect': 'str',
-        'otp_policy': 'str'
+        'workspaces_path': 'str'
     }
 
     attribute_map = {
-        'id': 'id',
-        'media_force_show_deleted': 'media_force_show_deleted',
         'analytics': 'analytics',
-        'identify_command': 'identify_command',
-        'external_url': 'external_url',
         'branding_css': 'branding_css',
         'branding_logo': 'branding_logo',
-        'fm_new_directory_mode': 'fm_new_directory_mode',
-        'icap_server': 'icap_server',
-        'icap_port': 'icap_port',
-        'icap_service': 'icap_service',
+        'external_url': 'external_url',
+        'file_manager_recycle_bin': 'file_manager_recycle_bin',
+        'https_redirect': 'https_redirect',
+        'language': 'language',
         'ltfs_default_restore_to_original_location': 'ltfs_default_restore_to_original_location',
         'ltfs_default_search_directories': 'ltfs_default_search_directories',
         'ltfs_library_address': 'ltfs_library_address',
+        'mail_styling': 'mail_styling',
         'media_auto_play': 'media_auto_play',
-        'media_auto_transport': 'media_auto_transport',
-        'media_auto_scan': 'media_auto_scan',
         'media_auto_proxy': 'media_auto_proxy',
+        'media_auto_scan': 'media_auto_scan',
+        'media_auto_transport': 'media_auto_transport',
         'media_auto_veritone_upload': 'media_auto_veritone_upload',
-        'media_proxy_h264_preset': 'media_proxy_h264_preset',
         'media_default_custom_field_type': 'media_default_custom_field_type',
         'media_default_delete_behaviour': 'media_default_delete_behaviour',
+        'media_force_show_deleted': 'media_force_show_deleted',
+        'media_keep_selection_when_browsing': 'media_keep_selection_when_browsing',
         'media_recycle_bin': 'media_recycle_bin',
-        'file_manager_recycle_bin': 'file_manager_recycle_bin',
         'ntp_offer_sync': 'ntp_offer_sync',
-        'slugify_workspace_path': 'slugify_workspace_path',
-        'slugify_shares': 'slugify_shares',
-        'smtp_from': 'smtp_from',
-        'smtp_server': 'smtp_server',
-        'smtp_port': 'smtp_port',
-        'smtp_tls': 'smtp_tls',
-        'smtp_username': 'smtp_username',
-        'smtp_ehlo': 'smtp_ehlo',
-        'mail_styling': 'mail_styling',
-        'tasks_limit': 'tasks_limit',
-        'tasks_hard_limit': 'tasks_hard_limit',
-        'umask_afp': 'umask_afp',
-        'umask_smb': 'umask_smb',
+        'otp_policy': 'otp_policy',
+        'tasks_run_scheduled': 'tasks_run_scheduled',
         'users_default_permissions': 'users_default_permissions',
         'workspaces_folder_template_path': 'workspaces_folder_template_path',
-        'workspaces_mode': 'workspaces_mode',
-        'workspaces_path': 'workspaces_path',
-        'language': 'language',
-        'email_logo_url': 'email_logo_url',
-        'media_keep_selection_when_browsing': 'media_keep_selection_when_browsing',
-        'tasks_run_scheduled': 'tasks_run_scheduled',
-        'https_redirect': 'https_redirect',
-        'otp_policy': 'otp_policy'
+        'workspaces_path': 'workspaces_path'
     }
 
-    def __init__(self, id=None, media_force_show_deleted=None, analytics=None, identify_command=None, external_url=None, branding_css=None, branding_logo=None, fm_new_directory_mode=None, icap_server=None, icap_port=None, icap_service=None, ltfs_default_restore_to_original_location=None, ltfs_default_search_directories=None, ltfs_library_address=None, media_auto_play=None, media_auto_transport=None, media_auto_scan=None, media_auto_proxy=None, media_auto_veritone_upload=None, media_proxy_h264_preset=None, media_default_custom_field_type=None, media_default_delete_behaviour=None, media_recycle_bin=None, file_manager_recycle_bin=None, ntp_offer_sync=None, slugify_workspace_path=None, slugify_shares=None, smtp_from=None, smtp_server=None, smtp_port=None, smtp_tls=None, smtp_username=None, smtp_ehlo=None, mail_styling=None, tasks_limit=None, tasks_hard_limit=None, umask_afp=None, umask_smb=None, users_default_permissions=None, workspaces_folder_template_path=None, workspaces_mode=None, workspaces_path=None, language=None, email_logo_url=None, media_keep_selection_when_browsing=None, tasks_run_scheduled=None, https_redirect=None, otp_policy=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, analytics=None, branding_css=None, branding_logo=None, external_url=None, file_manager_recycle_bin=None, https_redirect=None, language=None, ltfs_default_restore_to_original_location=None, ltfs_default_search_directories=None, ltfs_library_address=None, mail_styling=None, media_auto_play=None, media_auto_proxy=None, media_auto_scan=None, media_auto_transport=None, media_auto_veritone_upload=None, media_default_custom_field_type=None, media_default_delete_behaviour=None, media_force_show_deleted=None, media_keep_selection_when_browsing=None, media_recycle_bin=None, ntp_offer_sync=None, otp_policy=None, tasks_run_scheduled=None, users_default_permissions=None, workspaces_folder_template_path=None, workspaces_path=None, local_vars_configuration=None):  # noqa: E501
         """Parameters - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._id = None
-        self._media_force_show_deleted = None
         self._analytics = None
-        self._identify_command = None
-        self._external_url = None
         self._branding_css = None
         self._branding_logo = None
-        self._fm_new_directory_mode = None
-        self._icap_server = None
-        self._icap_port = None
-        self._icap_service = None
+        self._external_url = None
+        self._file_manager_recycle_bin = None
+        self._https_redirect = None
+        self._language = None
         self._ltfs_default_restore_to_original_location = None
         self._ltfs_default_search_directories = None
         self._ltfs_library_address = None
+        self._mail_styling = None
         self._media_auto_play = None
-        self._media_auto_transport = None
-        self._media_auto_scan = None
         self._media_auto_proxy = None
+        self._media_auto_scan = None
+        self._media_auto_transport = None
         self._media_auto_veritone_upload = None
-        self._media_proxy_h264_preset = None
         self._media_default_custom_field_type = None
         self._media_default_delete_behaviour = None
+        self._media_force_show_deleted = None
+        self._media_keep_selection_when_browsing = None
         self._media_recycle_bin = None
-        self._file_manager_recycle_bin = None
         self._ntp_offer_sync = None
-        self._slugify_workspace_path = None
-        self._slugify_shares = None
-        self._smtp_from = None
-        self._smtp_server = None
-        self._smtp_port = None
-        self._smtp_tls = None
-        self._smtp_username = None
-        self._smtp_ehlo = None
-        self._mail_styling = None
-        self._tasks_limit = None
-        self._tasks_hard_limit = None
-        self._umask_afp = None
-        self._umask_smb = None
+        self._otp_policy = None
+        self._tasks_run_scheduled = None
         self._users_default_permissions = None
         self._workspaces_folder_template_path = None
-        self._workspaces_mode = None
         self._workspaces_path = None
-        self._language = None
-        self._email_logo_url = None
-        self._media_keep_selection_when_browsing = None
-        self._tasks_run_scheduled = None
-        self._https_redirect = None
-        self._otp_policy = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
-        self.media_force_show_deleted = media_force_show_deleted
         if analytics is not None:
             self.analytics = analytics
-        if identify_command is not None:
-            self.identify_command = identify_command
-        self.external_url = external_url
         if branding_css is not None:
             self.branding_css = branding_css
         if branding_logo is not None:
             self.branding_logo = branding_logo
-        if fm_new_directory_mode is not None:
-            self.fm_new_directory_mode = fm_new_directory_mode
-        if icap_server is not None:
-            self.icap_server = icap_server
-        if icap_port is not None:
-            self.icap_port = icap_port
-        if icap_service is not None:
-            self.icap_service = icap_service
+        self.external_url = external_url
+        if file_manager_recycle_bin is not None:
+            self.file_manager_recycle_bin = file_manager_recycle_bin
+        self.https_redirect = https_redirect
+        if language is not None:
+            self.language = language
         if ltfs_default_restore_to_original_location is not None:
             self.ltfs_default_restore_to_original_location = ltfs_default_restore_to_original_location
         if ltfs_default_search_directories is not None:
             self.ltfs_default_search_directories = ltfs_default_search_directories
         self.ltfs_library_address = ltfs_library_address
+        if mail_styling is not None:
+            self.mail_styling = mail_styling
         if media_auto_play is not None:
             self.media_auto_play = media_auto_play
-        if media_auto_transport is not None:
-            self.media_auto_transport = media_auto_transport
-        if media_auto_scan is not None:
-            self.media_auto_scan = media_auto_scan
         if media_auto_proxy is not None:
             self.media_auto_proxy = media_auto_proxy
+        if media_auto_scan is not None:
+            self.media_auto_scan = media_auto_scan
+        if media_auto_transport is not None:
+            self.media_auto_transport = media_auto_transport
         if media_auto_veritone_upload is not None:
             self.media_auto_veritone_upload = media_auto_veritone_upload
-        if media_proxy_h264_preset is not None:
-            self.media_proxy_h264_preset = media_proxy_h264_preset
         if media_default_custom_field_type is not None:
             self.media_default_custom_field_type = media_default_custom_field_type
         if media_default_delete_behaviour is not None:
             self.media_default_delete_behaviour = media_default_delete_behaviour
+        self.media_force_show_deleted = media_force_show_deleted
+        if media_keep_selection_when_browsing is not None:
+            self.media_keep_selection_when_browsing = media_keep_selection_when_browsing
         if media_recycle_bin is not None:
             self.media_recycle_bin = media_recycle_bin
-        if file_manager_recycle_bin is not None:
-            self.file_manager_recycle_bin = file_manager_recycle_bin
         if ntp_offer_sync is not None:
             self.ntp_offer_sync = ntp_offer_sync
-        if slugify_workspace_path is not None:
-            self.slugify_workspace_path = slugify_workspace_path
-        if slugify_shares is not None:
-            self.slugify_shares = slugify_shares
-        if smtp_from is not None:
-            self.smtp_from = smtp_from
-        if smtp_server is not None:
-            self.smtp_server = smtp_server
-        if smtp_port is not None:
-            self.smtp_port = smtp_port
-        if smtp_tls is not None:
-            self.smtp_tls = smtp_tls
-        if smtp_username is not None:
-            self.smtp_username = smtp_username
-        if smtp_ehlo is not None:
-            self.smtp_ehlo = smtp_ehlo
-        if mail_styling is not None:
-            self.mail_styling = mail_styling
-        if tasks_limit is not None:
-            self.tasks_limit = tasks_limit
-        if tasks_hard_limit is not None:
-            self.tasks_hard_limit = tasks_hard_limit
-        if umask_afp is not None:
-            self.umask_afp = umask_afp
-        if umask_smb is not None:
-            self.umask_smb = umask_smb
+        if otp_policy is not None:
+            self.otp_policy = otp_policy
+        if tasks_run_scheduled is not None:
+            self.tasks_run_scheduled = tasks_run_scheduled
         if users_default_permissions is not None:
             self.users_default_permissions = users_default_permissions
         if workspaces_folder_template_path is not None:
             self.workspaces_folder_template_path = workspaces_folder_template_path
-        if workspaces_mode is not None:
-            self.workspaces_mode = workspaces_mode
         if workspaces_path is not None:
             self.workspaces_path = workspaces_path
-        if language is not None:
-            self.language = language
-        self.email_logo_url = email_logo_url
-        if media_keep_selection_when_browsing is not None:
-            self.media_keep_selection_when_browsing = media_keep_selection_when_browsing
-        if tasks_run_scheduled is not None:
-            self.tasks_run_scheduled = tasks_run_scheduled
-        self.https_redirect = https_redirect
-        if otp_policy is not None:
-            self.otp_policy = otp_policy
-
-    @property
-    def id(self):
-        """Gets the id of this Parameters.  # noqa: E501
-
-
-        :return: The id of this Parameters.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Parameters.
-
-
-        :param id: The id of this Parameters.  # noqa: E501
-        :type: int
-        """
-
-        self._id = id
-
-    @property
-    def media_force_show_deleted(self):
-        """Gets the media_force_show_deleted of this Parameters.  # noqa: E501
-
-
-        :return: The media_force_show_deleted of this Parameters.  # noqa: E501
-        :rtype: bool
-        """
-        return self._media_force_show_deleted
-
-    @media_force_show_deleted.setter
-    def media_force_show_deleted(self, media_force_show_deleted):
-        """Sets the media_force_show_deleted of this Parameters.
-
-
-        :param media_force_show_deleted: The media_force_show_deleted of this Parameters.  # noqa: E501
-        :type: bool
-        """
-
-        self._media_force_show_deleted = media_force_show_deleted
 
     @property
     def analytics(self):
@@ -342,56 +196,6 @@ class Parameters(object):
         """
 
         self._analytics = analytics
-
-    @property
-    def identify_command(self):
-        """Gets the identify_command of this Parameters.  # noqa: E501
-
-
-        :return: The identify_command of this Parameters.  # noqa: E501
-        :rtype: str
-        """
-        return self._identify_command
-
-    @identify_command.setter
-    def identify_command(self, identify_command):
-        """Sets the identify_command of this Parameters.
-
-
-        :param identify_command: The identify_command of this Parameters.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                identify_command is not None and len(identify_command) < 1):
-            raise ValueError("Invalid value for `identify_command`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._identify_command = identify_command
-
-    @property
-    def external_url(self):
-        """Gets the external_url of this Parameters.  # noqa: E501
-
-        http://host/  # noqa: E501
-
-        :return: The external_url of this Parameters.  # noqa: E501
-        :rtype: str
-        """
-        return self._external_url
-
-    @external_url.setter
-    def external_url(self, external_url):
-        """Sets the external_url of this Parameters.
-
-        http://host/  # noqa: E501
-
-        :param external_url: The external_url of this Parameters.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                external_url is not None and len(external_url) > 1023):
-            raise ValueError("Invalid value for `external_url`, length must be less than or equal to `1023`")  # noqa: E501
-
-        self._external_url = external_url
 
     @property
     def branding_css(self):
@@ -436,97 +240,107 @@ class Parameters(object):
         self._branding_logo = branding_logo
 
     @property
-    def fm_new_directory_mode(self):
-        """Gets the fm_new_directory_mode of this Parameters.  # noqa: E501
+    def external_url(self):
+        """Gets the external_url of this Parameters.  # noqa: E501
 
+        http://host/  # noqa: E501
 
-        :return: The fm_new_directory_mode of this Parameters.  # noqa: E501
+        :return: The external_url of this Parameters.  # noqa: E501
         :rtype: str
         """
-        return self._fm_new_directory_mode
+        return self._external_url
 
-    @fm_new_directory_mode.setter
-    def fm_new_directory_mode(self, fm_new_directory_mode):
-        """Sets the fm_new_directory_mode of this Parameters.
+    @external_url.setter
+    def external_url(self, external_url):
+        """Sets the external_url of this Parameters.
 
+        http://host/  # noqa: E501
 
-        :param fm_new_directory_mode: The fm_new_directory_mode of this Parameters.  # noqa: E501
+        :param external_url: The external_url of this Parameters.  # noqa: E501
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                fm_new_directory_mode is not None and len(fm_new_directory_mode) > 255):
-            raise ValueError("Invalid value for `fm_new_directory_mode`, length must be less than or equal to `255`")  # noqa: E501
+                external_url is not None and len(external_url) > 1023):
+            raise ValueError("Invalid value for `external_url`, length must be less than or equal to `1023`")  # noqa: E501
 
-        self._fm_new_directory_mode = fm_new_directory_mode
+        self._external_url = external_url
 
     @property
-    def icap_server(self):
-        """Gets the icap_server of this Parameters.  # noqa: E501
+    def file_manager_recycle_bin(self):
+        """Gets the file_manager_recycle_bin of this Parameters.  # noqa: E501
+
+        Recycle bins are usually either in Workspace/Share or Volume folder  # noqa: E501
+
+        :return: The file_manager_recycle_bin of this Parameters.  # noqa: E501
+        :rtype: bool
+        """
+        return self._file_manager_recycle_bin
+
+    @file_manager_recycle_bin.setter
+    def file_manager_recycle_bin(self, file_manager_recycle_bin):
+        """Sets the file_manager_recycle_bin of this Parameters.
+
+        Recycle bins are usually either in Workspace/Share or Volume folder  # noqa: E501
+
+        :param file_manager_recycle_bin: The file_manager_recycle_bin of this Parameters.  # noqa: E501
+        :type: bool
+        """
+
+        self._file_manager_recycle_bin = file_manager_recycle_bin
+
+    @property
+    def https_redirect(self):
+        """Gets the https_redirect of this Parameters.  # noqa: E501
 
 
-        :return: The icap_server of this Parameters.  # noqa: E501
+        :return: The https_redirect of this Parameters.  # noqa: E501
         :rtype: str
         """
-        return self._icap_server
+        return self._https_redirect
 
-    @icap_server.setter
-    def icap_server(self, icap_server):
-        """Sets the icap_server of this Parameters.
+    @https_redirect.setter
+    def https_redirect(self, https_redirect):
+        """Sets the https_redirect of this Parameters.
 
 
-        :param icap_server: The icap_server of this Parameters.  # noqa: E501
+        :param https_redirect: The https_redirect of this Parameters.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                icap_server is not None and len(icap_server) > 255):
-            raise ValueError("Invalid value for `icap_server`, length must be less than or equal to `255`")  # noqa: E501
+        allowed_values = [None,"domain", "on"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and https_redirect not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `https_redirect` ({0}), must be one of {1}"  # noqa: E501
+                .format(https_redirect, allowed_values)
+            )
 
-        self._icap_server = icap_server
-
-    @property
-    def icap_port(self):
-        """Gets the icap_port of this Parameters.  # noqa: E501
-
-
-        :return: The icap_port of this Parameters.  # noqa: E501
-        :rtype: int
-        """
-        return self._icap_port
-
-    @icap_port.setter
-    def icap_port(self, icap_port):
-        """Sets the icap_port of this Parameters.
-
-
-        :param icap_port: The icap_port of this Parameters.  # noqa: E501
-        :type: int
-        """
-
-        self._icap_port = icap_port
+        self._https_redirect = https_redirect
 
     @property
-    def icap_service(self):
-        """Gets the icap_service of this Parameters.  # noqa: E501
+    def language(self):
+        """Gets the language of this Parameters.  # noqa: E501
 
 
-        :return: The icap_service of this Parameters.  # noqa: E501
+        :return: The language of this Parameters.  # noqa: E501
         :rtype: str
         """
-        return self._icap_service
+        return self._language
 
-    @icap_service.setter
-    def icap_service(self, icap_service):
-        """Sets the icap_service of this Parameters.
+    @language.setter
+    def language(self, language):
+        """Sets the language of this Parameters.
 
 
-        :param icap_service: The icap_service of this Parameters.  # noqa: E501
+        :param language: The language of this Parameters.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                icap_service is not None and len(icap_service) > 255):
-            raise ValueError("Invalid value for `icap_service`, length must be less than or equal to `255`")  # noqa: E501
+        allowed_values = ["en", "fr", "de", "ru"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and language not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `language` ({0}), must be one of {1}"  # noqa: E501
+                .format(language, allowed_values)
+            )
 
-        self._icap_service = icap_service
+        self._language = language
 
     @property
     def ltfs_default_restore_to_original_location(self):
@@ -595,6 +409,27 @@ class Parameters(object):
         self._ltfs_library_address = ltfs_library_address
 
     @property
+    def mail_styling(self):
+        """Gets the mail_styling of this Parameters.  # noqa: E501
+
+
+        :return: The mail_styling of this Parameters.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._mail_styling
+
+    @mail_styling.setter
+    def mail_styling(self, mail_styling):
+        """Sets the mail_styling of this Parameters.
+
+
+        :param mail_styling: The mail_styling of this Parameters.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._mail_styling = mail_styling
+
+    @property
     def media_auto_play(self):
         """Gets the media_auto_play of this Parameters.  # noqa: E501
 
@@ -614,48 +449,6 @@ class Parameters(object):
         """
 
         self._media_auto_play = media_auto_play
-
-    @property
-    def media_auto_transport(self):
-        """Gets the media_auto_transport of this Parameters.  # noqa: E501
-
-
-        :return: The media_auto_transport of this Parameters.  # noqa: E501
-        :rtype: bool
-        """
-        return self._media_auto_transport
-
-    @media_auto_transport.setter
-    def media_auto_transport(self, media_auto_transport):
-        """Sets the media_auto_transport of this Parameters.
-
-
-        :param media_auto_transport: The media_auto_transport of this Parameters.  # noqa: E501
-        :type: bool
-        """
-
-        self._media_auto_transport = media_auto_transport
-
-    @property
-    def media_auto_scan(self):
-        """Gets the media_auto_scan of this Parameters.  # noqa: E501
-
-
-        :return: The media_auto_scan of this Parameters.  # noqa: E501
-        :rtype: bool
-        """
-        return self._media_auto_scan
-
-    @media_auto_scan.setter
-    def media_auto_scan(self, media_auto_scan):
-        """Sets the media_auto_scan of this Parameters.
-
-
-        :param media_auto_scan: The media_auto_scan of this Parameters.  # noqa: E501
-        :type: bool
-        """
-
-        self._media_auto_scan = media_auto_scan
 
     @property
     def media_auto_proxy(self):
@@ -679,6 +472,48 @@ class Parameters(object):
         self._media_auto_proxy = media_auto_proxy
 
     @property
+    def media_auto_scan(self):
+        """Gets the media_auto_scan of this Parameters.  # noqa: E501
+
+
+        :return: The media_auto_scan of this Parameters.  # noqa: E501
+        :rtype: bool
+        """
+        return self._media_auto_scan
+
+    @media_auto_scan.setter
+    def media_auto_scan(self, media_auto_scan):
+        """Sets the media_auto_scan of this Parameters.
+
+
+        :param media_auto_scan: The media_auto_scan of this Parameters.  # noqa: E501
+        :type: bool
+        """
+
+        self._media_auto_scan = media_auto_scan
+
+    @property
+    def media_auto_transport(self):
+        """Gets the media_auto_transport of this Parameters.  # noqa: E501
+
+
+        :return: The media_auto_transport of this Parameters.  # noqa: E501
+        :rtype: bool
+        """
+        return self._media_auto_transport
+
+    @media_auto_transport.setter
+    def media_auto_transport(self, media_auto_transport):
+        """Sets the media_auto_transport of this Parameters.
+
+
+        :param media_auto_transport: The media_auto_transport of this Parameters.  # noqa: E501
+        :type: bool
+        """
+
+        self._media_auto_transport = media_auto_transport
+
+    @property
     def media_auto_veritone_upload(self):
         """Gets the media_auto_veritone_upload of this Parameters.  # noqa: E501
 
@@ -698,33 +533,6 @@ class Parameters(object):
         """
 
         self._media_auto_veritone_upload = media_auto_veritone_upload
-
-    @property
-    def media_proxy_h264_preset(self):
-        """Gets the media_proxy_h264_preset of this Parameters.  # noqa: E501
-
-
-        :return: The media_proxy_h264_preset of this Parameters.  # noqa: E501
-        :rtype: str
-        """
-        return self._media_proxy_h264_preset
-
-    @media_proxy_h264_preset.setter
-    def media_proxy_h264_preset(self, media_proxy_h264_preset):
-        """Sets the media_proxy_h264_preset of this Parameters.
-
-
-        :param media_proxy_h264_preset: The media_proxy_h264_preset of this Parameters.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["ultrafast", "superfast", "veryfast", "faster", "fast", "medium", "slow", "slower", "veryslow"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and media_proxy_h264_preset not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `media_proxy_h264_preset` ({0}), must be one of {1}"  # noqa: E501
-                .format(media_proxy_h264_preset, allowed_values)
-            )
-
-        self._media_proxy_h264_preset = media_proxy_h264_preset
 
     @property
     def media_default_custom_field_type(self):
@@ -781,6 +589,48 @@ class Parameters(object):
         self._media_default_delete_behaviour = media_default_delete_behaviour
 
     @property
+    def media_force_show_deleted(self):
+        """Gets the media_force_show_deleted of this Parameters.  # noqa: E501
+
+
+        :return: The media_force_show_deleted of this Parameters.  # noqa: E501
+        :rtype: bool
+        """
+        return self._media_force_show_deleted
+
+    @media_force_show_deleted.setter
+    def media_force_show_deleted(self, media_force_show_deleted):
+        """Sets the media_force_show_deleted of this Parameters.
+
+
+        :param media_force_show_deleted: The media_force_show_deleted of this Parameters.  # noqa: E501
+        :type: bool
+        """
+
+        self._media_force_show_deleted = media_force_show_deleted
+
+    @property
+    def media_keep_selection_when_browsing(self):
+        """Gets the media_keep_selection_when_browsing of this Parameters.  # noqa: E501
+
+
+        :return: The media_keep_selection_when_browsing of this Parameters.  # noqa: E501
+        :rtype: bool
+        """
+        return self._media_keep_selection_when_browsing
+
+    @media_keep_selection_when_browsing.setter
+    def media_keep_selection_when_browsing(self, media_keep_selection_when_browsing):
+        """Sets the media_keep_selection_when_browsing of this Parameters.
+
+
+        :param media_keep_selection_when_browsing: The media_keep_selection_when_browsing of this Parameters.  # noqa: E501
+        :type: bool
+        """
+
+        self._media_keep_selection_when_browsing = media_keep_selection_when_browsing
+
+    @property
     def media_recycle_bin(self):
         """Gets the media_recycle_bin of this Parameters.  # noqa: E501
 
@@ -804,29 +654,6 @@ class Parameters(object):
         self._media_recycle_bin = media_recycle_bin
 
     @property
-    def file_manager_recycle_bin(self):
-        """Gets the file_manager_recycle_bin of this Parameters.  # noqa: E501
-
-        Recycle bins are usually either in Workspace/Share or Volume folder  # noqa: E501
-
-        :return: The file_manager_recycle_bin of this Parameters.  # noqa: E501
-        :rtype: bool
-        """
-        return self._file_manager_recycle_bin
-
-    @file_manager_recycle_bin.setter
-    def file_manager_recycle_bin(self, file_manager_recycle_bin):
-        """Sets the file_manager_recycle_bin of this Parameters.
-
-        Recycle bins are usually either in Workspace/Share or Volume folder  # noqa: E501
-
-        :param file_manager_recycle_bin: The file_manager_recycle_bin of this Parameters.  # noqa: E501
-        :type: bool
-        """
-
-        self._file_manager_recycle_bin = file_manager_recycle_bin
-
-    @property
     def ntp_offer_sync(self):
         """Gets the ntp_offer_sync of this Parameters.  # noqa: E501
 
@@ -848,308 +675,52 @@ class Parameters(object):
         self._ntp_offer_sync = ntp_offer_sync
 
     @property
-    def slugify_workspace_path(self):
-        """Gets the slugify_workspace_path of this Parameters.  # noqa: E501
-
-        Affects new workspaces only  # noqa: E501
-
-        :return: The slugify_workspace_path of this Parameters.  # noqa: E501
-        :rtype: bool
-        """
-        return self._slugify_workspace_path
-
-    @slugify_workspace_path.setter
-    def slugify_workspace_path(self, slugify_workspace_path):
-        """Sets the slugify_workspace_path of this Parameters.
-
-        Affects new workspaces only  # noqa: E501
-
-        :param slugify_workspace_path: The slugify_workspace_path of this Parameters.  # noqa: E501
-        :type: bool
-        """
-
-        self._slugify_workspace_path = slugify_workspace_path
-
-    @property
-    def slugify_shares(self):
-        """Gets the slugify_shares of this Parameters.  # noqa: E501
-
-        Requires  # noqa: E501
-
-        :return: The slugify_shares of this Parameters.  # noqa: E501
-        :rtype: bool
-        """
-        return self._slugify_shares
-
-    @slugify_shares.setter
-    def slugify_shares(self, slugify_shares):
-        """Sets the slugify_shares of this Parameters.
-
-        Requires  # noqa: E501
-
-        :param slugify_shares: The slugify_shares of this Parameters.  # noqa: E501
-        :type: bool
-        """
-
-        self._slugify_shares = slugify_shares
-
-    @property
-    def smtp_from(self):
-        """Gets the smtp_from of this Parameters.  # noqa: E501
+    def otp_policy(self):
+        """Gets the otp_policy of this Parameters.  # noqa: E501
 
 
-        :return: The smtp_from of this Parameters.  # noqa: E501
+        :return: The otp_policy of this Parameters.  # noqa: E501
         :rtype: str
         """
-        return self._smtp_from
+        return self._otp_policy
 
-    @smtp_from.setter
-    def smtp_from(self, smtp_from):
-        """Sets the smtp_from of this Parameters.
+    @otp_policy.setter
+    def otp_policy(self, otp_policy):
+        """Sets the otp_policy of this Parameters.
 
 
-        :param smtp_from: The smtp_from of this Parameters.  # noqa: E501
+        :param otp_policy: The otp_policy of this Parameters.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                smtp_from is not None and len(smtp_from) > 255):
-            raise ValueError("Invalid value for `smtp_from`, length must be less than or equal to `255`")  # noqa: E501
-
-        self._smtp_from = smtp_from
-
-    @property
-    def smtp_server(self):
-        """Gets the smtp_server of this Parameters.  # noqa: E501
-
-
-        :return: The smtp_server of this Parameters.  # noqa: E501
-        :rtype: str
-        """
-        return self._smtp_server
-
-    @smtp_server.setter
-    def smtp_server(self, smtp_server):
-        """Sets the smtp_server of this Parameters.
-
-
-        :param smtp_server: The smtp_server of this Parameters.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                smtp_server is not None and len(smtp_server) > 255):
-            raise ValueError("Invalid value for `smtp_server`, length must be less than or equal to `255`")  # noqa: E501
-
-        self._smtp_server = smtp_server
-
-    @property
-    def smtp_port(self):
-        """Gets the smtp_port of this Parameters.  # noqa: E501
-
-
-        :return: The smtp_port of this Parameters.  # noqa: E501
-        :rtype: int
-        """
-        return self._smtp_port
-
-    @smtp_port.setter
-    def smtp_port(self, smtp_port):
-        """Sets the smtp_port of this Parameters.
-
-
-        :param smtp_port: The smtp_port of this Parameters.  # noqa: E501
-        :type: int
-        """
-
-        self._smtp_port = smtp_port
-
-    @property
-    def smtp_tls(self):
-        """Gets the smtp_tls of this Parameters.  # noqa: E501
-
-
-        :return: The smtp_tls of this Parameters.  # noqa: E501
-        :rtype: str
-        """
-        return self._smtp_tls
-
-    @smtp_tls.setter
-    def smtp_tls(self, smtp_tls):
-        """Sets the smtp_tls of this Parameters.
-
-
-        :param smtp_tls: The smtp_tls of this Parameters.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["none", "ssl", "starttls"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and smtp_tls not in allowed_values:  # noqa: E501
+        allowed_values = ["admin-only", "self-service-setup-only", "self-service-all"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and otp_policy not in allowed_values:  # noqa: E501
             raise ValueError(
-                "Invalid value for `smtp_tls` ({0}), must be one of {1}"  # noqa: E501
-                .format(smtp_tls, allowed_values)
+                "Invalid value for `otp_policy` ({0}), must be one of {1}"  # noqa: E501
+                .format(otp_policy, allowed_values)
             )
 
-        self._smtp_tls = smtp_tls
+        self._otp_policy = otp_policy
 
     @property
-    def smtp_username(self):
-        """Gets the smtp_username of this Parameters.  # noqa: E501
+    def tasks_run_scheduled(self):
+        """Gets the tasks_run_scheduled of this Parameters.  # noqa: E501
 
 
-        :return: The smtp_username of this Parameters.  # noqa: E501
-        :rtype: str
+        :return: The tasks_run_scheduled of this Parameters.  # noqa: E501
+        :rtype: bool
         """
-        return self._smtp_username
+        return self._tasks_run_scheduled
 
-    @smtp_username.setter
-    def smtp_username(self, smtp_username):
-        """Sets the smtp_username of this Parameters.
-
-
-        :param smtp_username: The smtp_username of this Parameters.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                smtp_username is not None and len(smtp_username) > 255):
-            raise ValueError("Invalid value for `smtp_username`, length must be less than or equal to `255`")  # noqa: E501
-
-        self._smtp_username = smtp_username
-
-    @property
-    def smtp_ehlo(self):
-        """Gets the smtp_ehlo of this Parameters.  # noqa: E501
+    @tasks_run_scheduled.setter
+    def tasks_run_scheduled(self, tasks_run_scheduled):
+        """Sets the tasks_run_scheduled of this Parameters.
 
 
-        :return: The smtp_ehlo of this Parameters.  # noqa: E501
-        :rtype: str
-        """
-        return self._smtp_ehlo
-
-    @smtp_ehlo.setter
-    def smtp_ehlo(self, smtp_ehlo):
-        """Sets the smtp_ehlo of this Parameters.
-
-
-        :param smtp_ehlo: The smtp_ehlo of this Parameters.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                smtp_ehlo is not None and len(smtp_ehlo) > 255):
-            raise ValueError("Invalid value for `smtp_ehlo`, length must be less than or equal to `255`")  # noqa: E501
-
-        self._smtp_ehlo = smtp_ehlo
-
-    @property
-    def mail_styling(self):
-        """Gets the mail_styling of this Parameters.  # noqa: E501
-
-
-        :return: The mail_styling of this Parameters.  # noqa: E501
-        :rtype: str
-        """
-        return self._mail_styling
-
-    @mail_styling.setter
-    def mail_styling(self, mail_styling):
-        """Sets the mail_styling of this Parameters.
-
-
-        :param mail_styling: The mail_styling of this Parameters.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                mail_styling is not None and len(mail_styling) < 1):
-            raise ValueError("Invalid value for `mail_styling`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._mail_styling = mail_styling
-
-    @property
-    def tasks_limit(self):
-        """Gets the tasks_limit of this Parameters.  # noqa: E501
-
-
-        :return: The tasks_limit of this Parameters.  # noqa: E501
-        :rtype: int
-        """
-        return self._tasks_limit
-
-    @tasks_limit.setter
-    def tasks_limit(self, tasks_limit):
-        """Sets the tasks_limit of this Parameters.
-
-
-        :param tasks_limit: The tasks_limit of this Parameters.  # noqa: E501
-        :type: int
+        :param tasks_run_scheduled: The tasks_run_scheduled of this Parameters.  # noqa: E501
+        :type: bool
         """
 
-        self._tasks_limit = tasks_limit
-
-    @property
-    def tasks_hard_limit(self):
-        """Gets the tasks_hard_limit of this Parameters.  # noqa: E501
-
-
-        :return: The tasks_hard_limit of this Parameters.  # noqa: E501
-        :rtype: int
-        """
-        return self._tasks_hard_limit
-
-    @tasks_hard_limit.setter
-    def tasks_hard_limit(self, tasks_hard_limit):
-        """Sets the tasks_hard_limit of this Parameters.
-
-
-        :param tasks_hard_limit: The tasks_hard_limit of this Parameters.  # noqa: E501
-        :type: int
-        """
-
-        self._tasks_hard_limit = tasks_hard_limit
-
-    @property
-    def umask_afp(self):
-        """Gets the umask_afp of this Parameters.  # noqa: E501
-
-
-        :return: The umask_afp of this Parameters.  # noqa: E501
-        :rtype: str
-        """
-        return self._umask_afp
-
-    @umask_afp.setter
-    def umask_afp(self, umask_afp):
-        """Sets the umask_afp of this Parameters.
-
-
-        :param umask_afp: The umask_afp of this Parameters.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                umask_afp is not None and len(umask_afp) > 255):
-            raise ValueError("Invalid value for `umask_afp`, length must be less than or equal to `255`")  # noqa: E501
-
-        self._umask_afp = umask_afp
-
-    @property
-    def umask_smb(self):
-        """Gets the umask_smb of this Parameters.  # noqa: E501
-
-
-        :return: The umask_smb of this Parameters.  # noqa: E501
-        :rtype: str
-        """
-        return self._umask_smb
-
-    @umask_smb.setter
-    def umask_smb(self, umask_smb):
-        """Sets the umask_smb of this Parameters.
-
-
-        :param umask_smb: The umask_smb of this Parameters.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                umask_smb is not None and len(umask_smb) > 255):
-            raise ValueError("Invalid value for `umask_smb`, length must be less than or equal to `255`")  # noqa: E501
-
-        self._umask_smb = umask_smb
+        self._tasks_run_scheduled = tasks_run_scheduled
 
     @property
     def users_default_permissions(self):
@@ -1202,30 +773,6 @@ class Parameters(object):
         self._workspaces_folder_template_path = workspaces_folder_template_path
 
     @property
-    def workspaces_mode(self):
-        """Gets the workspaces_mode of this Parameters.  # noqa: E501
-
-
-        :return: The workspaces_mode of this Parameters.  # noqa: E501
-        :rtype: str
-        """
-        return self._workspaces_mode
-
-    @workspaces_mode.setter
-    def workspaces_mode(self, workspaces_mode):
-        """Sets the workspaces_mode of this Parameters.
-
-
-        :param workspaces_mode: The workspaces_mode of this Parameters.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                workspaces_mode is not None and len(workspaces_mode) > 255):
-            raise ValueError("Invalid value for `workspaces_mode`, length must be less than or equal to `255`")  # noqa: E501
-
-        self._workspaces_mode = workspaces_mode
-
-    @property
     def workspaces_path(self):
         """Gets the workspaces_path of this Parameters.  # noqa: E501
 
@@ -1248,150 +795,6 @@ class Parameters(object):
             raise ValueError("Invalid value for `workspaces_path`, length must be less than or equal to `255`")  # noqa: E501
 
         self._workspaces_path = workspaces_path
-
-    @property
-    def language(self):
-        """Gets the language of this Parameters.  # noqa: E501
-
-
-        :return: The language of this Parameters.  # noqa: E501
-        :rtype: str
-        """
-        return self._language
-
-    @language.setter
-    def language(self, language):
-        """Sets the language of this Parameters.
-
-
-        :param language: The language of this Parameters.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["en", "fr", "de", "ru"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and language not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `language` ({0}), must be one of {1}"  # noqa: E501
-                .format(language, allowed_values)
-            )
-
-        self._language = language
-
-    @property
-    def email_logo_url(self):
-        """Gets the email_logo_url of this Parameters.  # noqa: E501
-
-
-        :return: The email_logo_url of this Parameters.  # noqa: E501
-        :rtype: str
-        """
-        return self._email_logo_url
-
-    @email_logo_url.setter
-    def email_logo_url(self, email_logo_url):
-        """Sets the email_logo_url of this Parameters.
-
-
-        :param email_logo_url: The email_logo_url of this Parameters.  # noqa: E501
-        :type: str
-        """
-
-        self._email_logo_url = email_logo_url
-
-    @property
-    def media_keep_selection_when_browsing(self):
-        """Gets the media_keep_selection_when_browsing of this Parameters.  # noqa: E501
-
-
-        :return: The media_keep_selection_when_browsing of this Parameters.  # noqa: E501
-        :rtype: bool
-        """
-        return self._media_keep_selection_when_browsing
-
-    @media_keep_selection_when_browsing.setter
-    def media_keep_selection_when_browsing(self, media_keep_selection_when_browsing):
-        """Sets the media_keep_selection_when_browsing of this Parameters.
-
-
-        :param media_keep_selection_when_browsing: The media_keep_selection_when_browsing of this Parameters.  # noqa: E501
-        :type: bool
-        """
-
-        self._media_keep_selection_when_browsing = media_keep_selection_when_browsing
-
-    @property
-    def tasks_run_scheduled(self):
-        """Gets the tasks_run_scheduled of this Parameters.  # noqa: E501
-
-
-        :return: The tasks_run_scheduled of this Parameters.  # noqa: E501
-        :rtype: bool
-        """
-        return self._tasks_run_scheduled
-
-    @tasks_run_scheduled.setter
-    def tasks_run_scheduled(self, tasks_run_scheduled):
-        """Sets the tasks_run_scheduled of this Parameters.
-
-
-        :param tasks_run_scheduled: The tasks_run_scheduled of this Parameters.  # noqa: E501
-        :type: bool
-        """
-
-        self._tasks_run_scheduled = tasks_run_scheduled
-
-    @property
-    def https_redirect(self):
-        """Gets the https_redirect of this Parameters.  # noqa: E501
-
-
-        :return: The https_redirect of this Parameters.  # noqa: E501
-        :rtype: str
-        """
-        return self._https_redirect
-
-    @https_redirect.setter
-    def https_redirect(self, https_redirect):
-        """Sets the https_redirect of this Parameters.
-
-
-        :param https_redirect: The https_redirect of this Parameters.  # noqa: E501
-        :type: str
-        """
-        allowed_values = [None,"domain", "on"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and https_redirect not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `https_redirect` ({0}), must be one of {1}"  # noqa: E501
-                .format(https_redirect, allowed_values)
-            )
-
-        self._https_redirect = https_redirect
-
-    @property
-    def otp_policy(self):
-        """Gets the otp_policy of this Parameters.  # noqa: E501
-
-
-        :return: The otp_policy of this Parameters.  # noqa: E501
-        :rtype: str
-        """
-        return self._otp_policy
-
-    @otp_policy.setter
-    def otp_policy(self, otp_policy):
-        """Sets the otp_policy of this Parameters.
-
-
-        :param otp_policy: The otp_policy of this Parameters.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["admin-only", "self-service-setup-only", "self-service-all"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and otp_policy not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `otp_policy` ({0}), must be one of {1}"  # noqa: E501
-                .format(otp_policy, allowed_values)
-            )
-
-        self._otp_policy = otp_policy
 
     def to_dict(self):
         """Returns the model properties as a dict"""

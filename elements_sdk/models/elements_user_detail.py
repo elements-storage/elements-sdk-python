@@ -57,7 +57,7 @@ class ElementsUserDetail(object):
         'is_enabled': 'bool',
         'language': 'str',
         'last_seen': 'datetime',
-        'ldap': 'LDAPServer',
+        'ldap': 'LDAPServerReference',
         'ldap_dn': 'str',
         'password_change_required': 'bool',
         'permissions': 'list[str]',
@@ -792,7 +792,7 @@ class ElementsUserDetail(object):
 
 
         :return: The ldap of this ElementsUserDetail.  # noqa: E501
-        :rtype: LDAPServer
+        :rtype: LDAPServerReference
         """
         return self._ldap
 
@@ -802,7 +802,7 @@ class ElementsUserDetail(object):
 
 
         :param ldap: The ldap of this ElementsUserDetail.  # noqa: E501
-        :type: LDAPServer
+        :type: LDAPServerReference
         """
 
         self._ldap = ldap

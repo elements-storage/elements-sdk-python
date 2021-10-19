@@ -32,9 +32,9 @@ class WorkstationPartialUpdate(object):
     """
     openapi_types = {
         'id': 'str',
-        'rdc_allow_users': 'list[ElementsUser]',
-        'rdc_allow_groups': 'list[ElementsGroup]',
-        'report': 'object',
+        'rdc_allow_users': 'list[ElementsUserReference]',
+        'rdc_allow_groups': 'list[ElementsGroupReference]',
+        'report': 'dict(str, str)',
         'name': 'str',
         'hostname': 'str',
         'rdc_last_used': 'datetime',
@@ -124,7 +124,7 @@ class WorkstationPartialUpdate(object):
 
 
         :return: The rdc_allow_users of this WorkstationPartialUpdate.  # noqa: E501
-        :rtype: list[ElementsUser]
+        :rtype: list[ElementsUserReference]
         """
         return self._rdc_allow_users
 
@@ -134,7 +134,7 @@ class WorkstationPartialUpdate(object):
 
 
         :param rdc_allow_users: The rdc_allow_users of this WorkstationPartialUpdate.  # noqa: E501
-        :type: list[ElementsUser]
+        :type: list[ElementsUserReference]
         """
 
         self._rdc_allow_users = rdc_allow_users
@@ -145,7 +145,7 @@ class WorkstationPartialUpdate(object):
 
 
         :return: The rdc_allow_groups of this WorkstationPartialUpdate.  # noqa: E501
-        :rtype: list[ElementsGroup]
+        :rtype: list[ElementsGroupReference]
         """
         return self._rdc_allow_groups
 
@@ -155,7 +155,7 @@ class WorkstationPartialUpdate(object):
 
 
         :param rdc_allow_groups: The rdc_allow_groups of this WorkstationPartialUpdate.  # noqa: E501
-        :type: list[ElementsGroup]
+        :type: list[ElementsGroupReference]
         """
 
         self._rdc_allow_groups = rdc_allow_groups
@@ -166,7 +166,7 @@ class WorkstationPartialUpdate(object):
 
 
         :return: The report of this WorkstationPartialUpdate.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, str)
         """
         return self._report
 
@@ -176,7 +176,7 @@ class WorkstationPartialUpdate(object):
 
 
         :param report: The report of this WorkstationPartialUpdate.  # noqa: E501
-        :type: object
+        :type: dict(str, str)
         """
 
         self._report = report

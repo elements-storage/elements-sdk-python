@@ -35,8 +35,8 @@ class ElementsGroupDetail(object):
         'permissions': 'list[str]',
         'members_preview': 'list[MemberPreview]',
         'effective_permissions': 'list[str]',
-        'members': 'list[ElementsUser]',
-        'ldap': 'LDAPServer',
+        'members': 'list[ElementsUserReference]',
+        'ldap': 'LDAPServerReference',
         'name': 'str',
         'ldap_dn': 'str',
         'unix_groupname': 'str',
@@ -191,7 +191,7 @@ class ElementsGroupDetail(object):
 
 
         :return: The members of this ElementsGroupDetail.  # noqa: E501
-        :rtype: list[ElementsUser]
+        :rtype: list[ElementsUserReference]
         """
         return self._members
 
@@ -201,7 +201,7 @@ class ElementsGroupDetail(object):
 
 
         :param members: The members of this ElementsGroupDetail.  # noqa: E501
-        :type: list[ElementsUser]
+        :type: list[ElementsUserReference]
         """
 
         self._members = members
@@ -212,7 +212,7 @@ class ElementsGroupDetail(object):
 
 
         :return: The ldap of this ElementsGroupDetail.  # noqa: E501
-        :rtype: LDAPServer
+        :rtype: LDAPServerReference
         """
         return self._ldap
 
@@ -222,7 +222,7 @@ class ElementsGroupDetail(object):
 
 
         :param ldap: The ldap of this ElementsGroupDetail.  # noqa: E501
-        :type: LDAPServer
+        :type: LDAPServerReference
         """
 
         self._ldap = ldap

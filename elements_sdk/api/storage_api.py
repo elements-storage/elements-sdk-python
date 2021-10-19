@@ -52,7 +52,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -79,7 +79,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -119,10 +119,6 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -134,7 +130,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -160,7 +156,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -187,7 +183,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -227,10 +223,6 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -242,7 +234,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -250,17 +242,17 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def calculate_directory_size(self, data, **kwargs):  # noqa: E501
+    def calculate_directory_size(self, path_input, **kwargs):  # noqa: E501
         """calculate_directory_size  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.calculate_directory_size(data, async_req=True)
+        >>> thread = api.calculate_directory_size(path_input, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param PathInput data: (required)
+        :param PathInput path_input: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -273,19 +265,19 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.calculate_directory_size_with_http_info(data, **kwargs)  # noqa: E501
+        return self.calculate_directory_size_with_http_info(path_input, **kwargs)  # noqa: E501
 
-    def calculate_directory_size_with_http_info(self, data, **kwargs):  # noqa: E501
+    def calculate_directory_size_with_http_info(self, path_input, **kwargs):  # noqa: E501
         """calculate_directory_size  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.calculate_directory_size_with_http_info(data, async_req=True)
+        >>> thread = api.calculate_directory_size_with_http_info(path_input, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param PathInput data: (required)
+        :param PathInput path_input: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -302,7 +294,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['path_input']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -316,10 +308,10 @@ class StorageApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `calculate_directory_size`")  # noqa: E501
+        # verify the required parameter 'path_input' is set
+        if self.api_client.client_side_validation and ('path_input' not in local_var_params or  # noqa: E501
+                                                        local_var_params['path_input'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `path_input` when calling `calculate_directory_size`")  # noqa: E501
 
         collection_formats = {}
 
@@ -333,8 +325,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'path_input' in local_var_params:
+            body_params = local_var_params['path_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -362,18 +354,18 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def check_in_into_workspace(self, id, data, **kwargs):  # noqa: E501
+    def check_in_into_workspace(self, id, workspace_check_in, **kwargs):  # noqa: E501
         """check_in_into_workspace  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.check_in_into_workspace(id, data, async_req=True)
+        >>> thread = api.check_in_into_workspace(id, workspace_check_in, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
-        :param WorkspaceCheckIn data: (required)
+        :param WorkspaceCheckIn workspace_check_in: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -381,25 +373,25 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.check_in_into_workspace_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.check_in_into_workspace_with_http_info(id, workspace_check_in, **kwargs)  # noqa: E501
 
-    def check_in_into_workspace_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def check_in_into_workspace_with_http_info(self, id, workspace_check_in, **kwargs):  # noqa: E501
         """check_in_into_workspace  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.check_in_into_workspace_with_http_info(id, data, async_req=True)
+        >>> thread = api.check_in_into_workspace_with_http_info(id, workspace_check_in, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
-        :param WorkspaceCheckIn data: (required)
+        :param WorkspaceCheckIn workspace_check_in: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -409,14 +401,14 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'workspace_check_in']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -434,10 +426,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `check_in_into_workspace`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `check_in_into_workspace`")  # noqa: E501
+        # verify the required parameter 'workspace_check_in' is set
+        if self.api_client.client_side_validation and ('workspace_check_in' not in local_var_params or  # noqa: E501
+                                                        local_var_params['workspace_check_in'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `workspace_check_in` when calling `check_in_into_workspace`")  # noqa: E501
 
         collection_formats = {}
 
@@ -453,12 +445,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'workspace_check_in' in local_var_params:
+            body_params = local_var_params['workspace_check_in']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -474,7 +462,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -500,7 +488,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -527,7 +515,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -567,10 +555,6 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -582,7 +566,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -590,17 +574,17 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def copy_files(self, data, **kwargs):  # noqa: E501
+    def copy_files(self, file_copy_endpoint_request, **kwargs):  # noqa: E501
         """copy_files  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.copy_files(data, async_req=True)
+        >>> thread = api.copy_files(file_copy_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param FileCopyEndpointRequest data: (required)
+        :param FileCopyEndpointRequest file_copy_endpoint_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -613,19 +597,19 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.copy_files_with_http_info(data, **kwargs)  # noqa: E501
+        return self.copy_files_with_http_info(file_copy_endpoint_request, **kwargs)  # noqa: E501
 
-    def copy_files_with_http_info(self, data, **kwargs):  # noqa: E501
+    def copy_files_with_http_info(self, file_copy_endpoint_request, **kwargs):  # noqa: E501
         """copy_files  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.copy_files_with_http_info(data, async_req=True)
+        >>> thread = api.copy_files_with_http_info(file_copy_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param FileCopyEndpointRequest data: (required)
+        :param FileCopyEndpointRequest file_copy_endpoint_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -642,7 +626,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['file_copy_endpoint_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -656,10 +640,10 @@ class StorageApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `copy_files`")  # noqa: E501
+        # verify the required parameter 'file_copy_endpoint_request' is set
+        if self.api_client.client_side_validation and ('file_copy_endpoint_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['file_copy_endpoint_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `file_copy_endpoint_request` when calling `copy_files`")  # noqa: E501
 
         collection_formats = {}
 
@@ -673,8 +657,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'file_copy_endpoint_request' in local_var_params:
+            body_params = local_var_params['file_copy_endpoint_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -702,17 +686,17 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_file(self, data, **kwargs):  # noqa: E501
+    def create_file(self, filesystem_file, **kwargs):  # noqa: E501
         """create_file  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_file(data, async_req=True)
+        >>> thread = api.create_file(filesystem_file, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param File data: (required)
+        :param FilesystemFile filesystem_file: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -720,24 +704,24 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: File
+        :return: FilesystemFile
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_file_with_http_info(data, **kwargs)  # noqa: E501
+        return self.create_file_with_http_info(filesystem_file, **kwargs)  # noqa: E501
 
-    def create_file_with_http_info(self, data, **kwargs):  # noqa: E501
+    def create_file_with_http_info(self, filesystem_file, **kwargs):  # noqa: E501
         """create_file  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_file_with_http_info(data, async_req=True)
+        >>> thread = api.create_file_with_http_info(filesystem_file, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param File data: (required)
+        :param FilesystemFile filesystem_file: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -747,14 +731,14 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(File, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(FilesystemFile, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['filesystem_file']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -768,10 +752,10 @@ class StorageApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `create_file`")  # noqa: E501
+        # verify the required parameter 'filesystem_file' is set
+        if self.api_client.client_side_validation and ('filesystem_file' not in local_var_params or  # noqa: E501
+                                                        local_var_params['filesystem_file'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `filesystem_file` when calling `create_file`")  # noqa: E501
 
         collection_formats = {}
 
@@ -785,8 +769,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'filesystem_file' in local_var_params:
+            body_params = local_var_params['filesystem_file']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -806,7 +790,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='File',  # noqa: E501
+            response_type='FilesystemFile',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -814,19 +798,19 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_path_quota(self, id, relative_path, data, **kwargs):  # noqa: E501
+    def create_path_quota(self, id, relative_path, create_path_quota_request, **kwargs):  # noqa: E501
         """create_path_quota  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_path_quota(id, relative_path, data, async_req=True)
+        >>> thread = api.create_path_quota(id, relative_path, create_path_quota_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this volume. (required)
         :param str relative_path: (required)
-        :param CreatePathQuotaRequest data: (required)
+        :param CreatePathQuotaRequest create_path_quota_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -834,26 +818,26 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_path_quota_with_http_info(id, relative_path, data, **kwargs)  # noqa: E501
+        return self.create_path_quota_with_http_info(id, relative_path, create_path_quota_request, **kwargs)  # noqa: E501
 
-    def create_path_quota_with_http_info(self, id, relative_path, data, **kwargs):  # noqa: E501
+    def create_path_quota_with_http_info(self, id, relative_path, create_path_quota_request, **kwargs):  # noqa: E501
         """create_path_quota  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_path_quota_with_http_info(id, relative_path, data, async_req=True)
+        >>> thread = api.create_path_quota_with_http_info(id, relative_path, create_path_quota_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this volume. (required)
         :param str relative_path: (required)
-        :param CreatePathQuotaRequest data: (required)
+        :param CreatePathQuotaRequest create_path_quota_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -863,14 +847,14 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['id', 'relative_path', 'data']  # noqa: E501
+        all_params = ['id', 'relative_path', 'create_path_quota_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -892,10 +876,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('relative_path' not in local_var_params or  # noqa: E501
                                                         local_var_params['relative_path'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `relative_path` when calling `create_path_quota`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `create_path_quota`")  # noqa: E501
+        # verify the required parameter 'create_path_quota_request' is set
+        if self.api_client.client_side_validation and ('create_path_quota_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['create_path_quota_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `create_path_quota_request` when calling `create_path_quota`")  # noqa: E501
 
         collection_formats = {}
 
@@ -913,12 +897,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'create_path_quota_request' in local_var_params:
+            body_params = local_var_params['create_path_quota_request']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -934,7 +914,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -942,17 +922,17 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_production(self, data, **kwargs):  # noqa: E501
+    def create_production(self, production, **kwargs):  # noqa: E501
         """create_production  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_production(data, async_req=True)
+        >>> thread = api.create_production(production, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Production data: (required)
+        :param Production production: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -965,19 +945,19 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_production_with_http_info(data, **kwargs)  # noqa: E501
+        return self.create_production_with_http_info(production, **kwargs)  # noqa: E501
 
-    def create_production_with_http_info(self, data, **kwargs):  # noqa: E501
+    def create_production_with_http_info(self, production, **kwargs):  # noqa: E501
         """create_production  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_production_with_http_info(data, async_req=True)
+        >>> thread = api.create_production_with_http_info(production, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Production data: (required)
+        :param Production production: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -994,7 +974,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['production']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1008,10 +988,10 @@ class StorageApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `create_production`")  # noqa: E501
+        # verify the required parameter 'production' is set
+        if self.api_client.client_side_validation and ('production' not in local_var_params or  # noqa: E501
+                                                        local_var_params['production'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `production` when calling `create_production`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1025,8 +1005,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'production' in local_var_params:
+            body_params = local_var_params['production']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1054,17 +1034,17 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_share(self, data, **kwargs):  # noqa: E501
+    def create_share(self, share, **kwargs):  # noqa: E501
         """create_share  # noqa: E501
 
         ### Required permissions    * User account permission: `shares:view` (read) / `shares:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_share(data, async_req=True)
+        >>> thread = api.create_share(share, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Share data: (required)
+        :param Share share: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1077,19 +1057,19 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_share_with_http_info(data, **kwargs)  # noqa: E501
+        return self.create_share_with_http_info(share, **kwargs)  # noqa: E501
 
-    def create_share_with_http_info(self, data, **kwargs):  # noqa: E501
+    def create_share_with_http_info(self, share, **kwargs):  # noqa: E501
         """create_share  # noqa: E501
 
         ### Required permissions    * User account permission: `shares:view` (read) / `shares:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_share_with_http_info(data, async_req=True)
+        >>> thread = api.create_share_with_http_info(share, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Share data: (required)
+        :param Share share: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1106,7 +1086,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['share']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1120,10 +1100,10 @@ class StorageApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `create_share`")  # noqa: E501
+        # verify the required parameter 'share' is set
+        if self.api_client.client_side_validation and ('share' not in local_var_params or  # noqa: E501
+                                                        local_var_params['share'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `share` when calling `create_share`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1137,8 +1117,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'share' in local_var_params:
+            body_params = local_var_params['share']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1166,17 +1146,17 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_snapshot(self, data, **kwargs):  # noqa: E501
+    def create_snapshot(self, snapshot, **kwargs):  # noqa: E501
         """create_snapshot  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_snapshot(data, async_req=True)
+        >>> thread = api.create_snapshot(snapshot, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Snapshot data: (required)
+        :param Snapshot snapshot: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1189,19 +1169,19 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_snapshot_with_http_info(data, **kwargs)  # noqa: E501
+        return self.create_snapshot_with_http_info(snapshot, **kwargs)  # noqa: E501
 
-    def create_snapshot_with_http_info(self, data, **kwargs):  # noqa: E501
+    def create_snapshot_with_http_info(self, snapshot, **kwargs):  # noqa: E501
         """create_snapshot  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_snapshot_with_http_info(data, async_req=True)
+        >>> thread = api.create_snapshot_with_http_info(snapshot, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Snapshot data: (required)
+        :param Snapshot snapshot: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1218,7 +1198,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['snapshot']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1232,10 +1212,10 @@ class StorageApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `create_snapshot`")  # noqa: E501
+        # verify the required parameter 'snapshot' is set
+        if self.api_client.client_side_validation and ('snapshot' not in local_var_params or  # noqa: E501
+                                                        local_var_params['snapshot'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `snapshot` when calling `create_snapshot`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1249,8 +1229,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'snapshot' in local_var_params:
+            body_params = local_var_params['snapshot']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1278,17 +1258,125 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_workspace(self, data, **kwargs):  # noqa: E501
+    def create_template_folder(self, create_template_folder_endpoint_request, **kwargs):  # noqa: E501
+        """create_template_folder  # noqa: E501
+
+        ### Required permissions    * User account permission: `folder_templates:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_template_folder(create_template_folder_endpoint_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param CreateTemplateFolderEndpointRequest create_template_folder_endpoint_request: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_template_folder_with_http_info(create_template_folder_endpoint_request, **kwargs)  # noqa: E501
+
+    def create_template_folder_with_http_info(self, create_template_folder_endpoint_request, **kwargs):  # noqa: E501
+        """create_template_folder  # noqa: E501
+
+        ### Required permissions    * User account permission: `folder_templates:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_template_folder_with_http_info(create_template_folder_endpoint_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param CreateTemplateFolderEndpointRequest create_template_folder_endpoint_request: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['create_template_folder_endpoint_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_template_folder" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'create_template_folder_endpoint_request' is set
+        if self.api_client.client_side_validation and ('create_template_folder_endpoint_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['create_template_folder_endpoint_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `create_template_folder_endpoint_request` when calling `create_template_folder`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'create_template_folder_endpoint_request' in local_var_params:
+            body_params = local_var_params['create_template_folder_endpoint_request']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/private/create-template-folder', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_workspace(self, workspace_detail, **kwargs):  # noqa: E501
         """create_workspace  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_workspace(data, async_req=True)
+        >>> thread = api.create_workspace(workspace_detail, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param WorkspaceDetail data: (required)
+        :param WorkspaceDetail workspace_detail: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1301,19 +1389,19 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_workspace_with_http_info(data, **kwargs)  # noqa: E501
+        return self.create_workspace_with_http_info(workspace_detail, **kwargs)  # noqa: E501
 
-    def create_workspace_with_http_info(self, data, **kwargs):  # noqa: E501
+    def create_workspace_with_http_info(self, workspace_detail, **kwargs):  # noqa: E501
         """create_workspace  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_workspace_with_http_info(data, async_req=True)
+        >>> thread = api.create_workspace_with_http_info(workspace_detail, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param WorkspaceDetail data: (required)
+        :param WorkspaceDetail workspace_detail: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1330,7 +1418,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['workspace_detail']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1344,10 +1432,10 @@ class StorageApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `create_workspace`")  # noqa: E501
+        # verify the required parameter 'workspace_detail' is set
+        if self.api_client.client_side_validation and ('workspace_detail' not in local_var_params or  # noqa: E501
+                                                        local_var_params['workspace_detail'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `workspace_detail` when calling `create_workspace`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1361,8 +1449,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'workspace_detail' in local_var_params:
+            body_params = local_var_params['workspace_detail']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1390,17 +1478,17 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_workspace_permission(self, data, **kwargs):  # noqa: E501
+    def create_workspace_permission(self, workspace_permission, **kwargs):  # noqa: E501
         """create_workspace_permission  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_workspace_permission(data, async_req=True)
+        >>> thread = api.create_workspace_permission(workspace_permission, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param WorkspacePermission data: (required)
+        :param WorkspacePermission workspace_permission: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1413,19 +1501,19 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_workspace_permission_with_http_info(data, **kwargs)  # noqa: E501
+        return self.create_workspace_permission_with_http_info(workspace_permission, **kwargs)  # noqa: E501
 
-    def create_workspace_permission_with_http_info(self, data, **kwargs):  # noqa: E501
+    def create_workspace_permission_with_http_info(self, workspace_permission, **kwargs):  # noqa: E501
         """create_workspace_permission  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_workspace_permission_with_http_info(data, async_req=True)
+        >>> thread = api.create_workspace_permission_with_http_info(workspace_permission, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param WorkspacePermission data: (required)
+        :param WorkspacePermission workspace_permission: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1442,7 +1530,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['workspace_permission']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1456,10 +1544,10 @@ class StorageApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `create_workspace_permission`")  # noqa: E501
+        # verify the required parameter 'workspace_permission' is set
+        if self.api_client.client_side_validation and ('workspace_permission' not in local_var_params or  # noqa: E501
+                                                        local_var_params['workspace_permission'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `workspace_permission` when calling `create_workspace_permission`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1473,8 +1561,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'workspace_permission' in local_var_params:
+            body_params = local_var_params['workspace_permission']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1520,7 +1608,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1547,7 +1635,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1589,10 +1677,6 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -1604,7 +1688,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1612,17 +1696,17 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_files(self, data, **kwargs):  # noqa: E501
+    def delete_files(self, file_delete_endpoint_request, **kwargs):  # noqa: E501
         """delete_files  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_files(data, async_req=True)
+        >>> thread = api.delete_files(file_delete_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param FileDeleteEndpointRequest data: (required)
+        :param FileDeleteEndpointRequest file_delete_endpoint_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1635,19 +1719,19 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.delete_files_with_http_info(data, **kwargs)  # noqa: E501
+        return self.delete_files_with_http_info(file_delete_endpoint_request, **kwargs)  # noqa: E501
 
-    def delete_files_with_http_info(self, data, **kwargs):  # noqa: E501
+    def delete_files_with_http_info(self, file_delete_endpoint_request, **kwargs):  # noqa: E501
         """delete_files  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_files_with_http_info(data, async_req=True)
+        >>> thread = api.delete_files_with_http_info(file_delete_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param FileDeleteEndpointRequest data: (required)
+        :param FileDeleteEndpointRequest file_delete_endpoint_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1664,7 +1748,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['file_delete_endpoint_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1678,10 +1762,10 @@ class StorageApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `delete_files`")  # noqa: E501
+        # verify the required parameter 'file_delete_endpoint_request' is set
+        if self.api_client.client_side_validation and ('file_delete_endpoint_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['file_delete_endpoint_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `file_delete_endpoint_request` when calling `delete_files`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1695,8 +1779,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'file_delete_endpoint_request' in local_var_params:
+            body_params = local_var_params['file_delete_endpoint_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1743,7 +1827,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1771,7 +1855,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1817,10 +1901,6 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -1832,7 +1912,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1858,7 +1938,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1885,7 +1965,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1925,10 +2005,6 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -1940,7 +2016,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1966,7 +2042,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1993,7 +2069,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2033,10 +2109,6 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -2048,7 +2120,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2074,7 +2146,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2101,7 +2173,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2141,10 +2213,6 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -2156,7 +2224,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2182,7 +2250,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2209,7 +2277,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2249,10 +2317,6 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -2264,7 +2328,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2290,7 +2354,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2317,7 +2381,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2357,10 +2421,6 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -2372,7 +2432,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2397,6 +2457,8 @@ class StorageApi(object):
         :param str volume__type: Filter the returned list by `volume__type`.
         :param str production__name: Filter the returned list by `production__name`.
         :param str production__active: Filter the returned list by `production__active`.
+        :param str name: Filter the returned list by `name`.
+        :param str is_external: Filter the returned list by `is_external`.
         :param str active: Filter the returned list by `active`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
@@ -2432,6 +2494,8 @@ class StorageApi(object):
         :param str volume__type: Filter the returned list by `volume__type`.
         :param str production__name: Filter the returned list by `production__name`.
         :param str production__active: Filter the returned list by `production__active`.
+        :param str name: Filter the returned list by `name`.
+        :param str is_external: Filter the returned list by `is_external`.
         :param str active: Filter the returned list by `active`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
@@ -2452,7 +2516,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['is_template', 'production', 'volume', 'home_for', 'volume__type', 'production__name', 'production__active', 'active', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['is_template', 'production', 'volume', 'home_for', 'volume__type', 'production__name', 'production__active', 'name', 'is_external', 'active', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2486,6 +2550,10 @@ class StorageApi(object):
             query_params.append(('production__name', local_var_params['production__name']))  # noqa: E501
         if 'production__active' in local_var_params and local_var_params['production__active'] is not None:  # noqa: E501
             query_params.append(('production__active', local_var_params['production__active']))  # noqa: E501
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if 'is_external' in local_var_params and local_var_params['is_external'] is not None:  # noqa: E501
+            query_params.append(('is_external', local_var_params['is_external']))  # noqa: E501
         if 'active' in local_var_params and local_var_params['active'] is not None:  # noqa: E501
             query_params.append(('active', local_var_params['active']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
@@ -2894,6 +2962,9 @@ class StorageApi(object):
         :param str type: Filter the returned list by `type`.
         :param str use_for_homes: Filter the returned list by `use_for_homes`.
         :param str use_for_workspaces: Filter the returned list by `use_for_workspaces`.
+        :param str name: Filter the returned list by `name`.
+        :param str display_name: Filter the returned list by `display_name`.
+        :param str visual_tag: Filter the returned list by `visual_tag`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -2926,6 +2997,9 @@ class StorageApi(object):
         :param str type: Filter the returned list by `type`.
         :param str use_for_homes: Filter the returned list by `use_for_homes`.
         :param str use_for_workspaces: Filter the returned list by `use_for_workspaces`.
+        :param str name: Filter the returned list by `name`.
+        :param str display_name: Filter the returned list by `display_name`.
+        :param str visual_tag: Filter the returned list by `visual_tag`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -2946,7 +3020,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['is_default', 'type', 'use_for_homes', 'use_for_workspaces', 'ordering', 'limit', 'offset', 'include_status']  # noqa: E501
+        all_params = ['is_default', 'type', 'use_for_homes', 'use_for_workspaces', 'name', 'display_name', 'visual_tag', 'ordering', 'limit', 'offset', 'include_status']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2974,6 +3048,12 @@ class StorageApi(object):
             query_params.append(('use_for_homes', local_var_params['use_for_homes']))  # noqa: E501
         if 'use_for_workspaces' in local_var_params and local_var_params['use_for_workspaces'] is not None:  # noqa: E501
             query_params.append(('use_for_workspaces', local_var_params['use_for_workspaces']))  # noqa: E501
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if 'display_name' in local_var_params and local_var_params['display_name'] is not None:  # noqa: E501
+            query_params.append(('display_name', local_var_params['display_name']))  # noqa: E501
+        if 'visual_tag' in local_var_params and local_var_params['visual_tag'] is not None:  # noqa: E501
+            query_params.append(('visual_tag', local_var_params['visual_tag']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -3153,6 +3233,8 @@ class StorageApi(object):
         :param str volume__type: Filter the returned list by `volume__type`.
         :param str production__name: Filter the returned list by `production__name`.
         :param str production__active: Filter the returned list by `production__active`.
+        :param str name: Filter the returned list by `name`.
+        :param str is_external: Filter the returned list by `is_external`.
         :param str active: Filter the returned list by `active`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
@@ -3191,6 +3273,8 @@ class StorageApi(object):
         :param str volume__type: Filter the returned list by `volume__type`.
         :param str production__name: Filter the returned list by `production__name`.
         :param str production__active: Filter the returned list by `production__active`.
+        :param str name: Filter the returned list by `name`.
+        :param str is_external: Filter the returned list by `is_external`.
         :param str active: Filter the returned list by `active`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
@@ -3214,7 +3298,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['is_template', 'production', 'volume', 'home_for', 'volume__type', 'production__name', 'production__active', 'active', 'ordering', 'limit', 'offset', 'resolve_access_for', 'include_endpoints', 'include_quotas']  # noqa: E501
+        all_params = ['is_template', 'production', 'volume', 'home_for', 'volume__type', 'production__name', 'production__active', 'name', 'is_external', 'active', 'ordering', 'limit', 'offset', 'resolve_access_for', 'include_endpoints', 'include_quotas']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3248,6 +3332,10 @@ class StorageApi(object):
             query_params.append(('production__name', local_var_params['production__name']))  # noqa: E501
         if 'production__active' in local_var_params and local_var_params['production__active'] is not None:  # noqa: E501
             query_params.append(('production__active', local_var_params['production__active']))  # noqa: E501
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if 'is_external' in local_var_params and local_var_params['is_external'] is not None:  # noqa: E501
+            query_params.append(('is_external', local_var_params['is_external']))  # noqa: E501
         if 'active' in local_var_params and local_var_params['active'] is not None:  # noqa: E501
             query_params.append(('active', local_var_params['active']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
@@ -3312,7 +3400,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: File
+        :return: FilesystemFile
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3341,7 +3429,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(File, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(FilesystemFile, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3402,7 +3490,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='File',  # noqa: E501
+            response_type='FilesystemFile',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3543,6 +3631,8 @@ class StorageApi(object):
         :param str volume__type: Filter the returned list by `volume__type`.
         :param str production__name: Filter the returned list by `production__name`.
         :param str production__active: Filter the returned list by `production__active`.
+        :param str name: Filter the returned list by `name`.
+        :param str is_external: Filter the returned list by `is_external`.
         :param str active: Filter the returned list by `active`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
@@ -3578,6 +3668,8 @@ class StorageApi(object):
         :param str volume__type: Filter the returned list by `volume__type`.
         :param str production__name: Filter the returned list by `production__name`.
         :param str production__active: Filter the returned list by `production__active`.
+        :param str name: Filter the returned list by `name`.
+        :param str is_external: Filter the returned list by `is_external`.
         :param str active: Filter the returned list by `active`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
@@ -3598,7 +3690,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['is_template', 'production', 'volume', 'home_for', 'volume__type', 'production__name', 'production__active', 'active', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['is_template', 'production', 'volume', 'home_for', 'volume__type', 'production__name', 'production__active', 'name', 'is_external', 'active', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3632,6 +3724,10 @@ class StorageApi(object):
             query_params.append(('production__name', local_var_params['production__name']))  # noqa: E501
         if 'production__active' in local_var_params and local_var_params['production__active'] is not None:  # noqa: E501
             query_params.append(('production__active', local_var_params['production__active']))  # noqa: E501
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if 'is_external' in local_var_params and local_var_params['is_external'] is not None:  # noqa: E501
+            query_params.append(('is_external', local_var_params['is_external']))  # noqa: E501
         if 'active' in local_var_params and local_var_params['active'] is not None:  # noqa: E501
             query_params.append(('active', local_var_params['active']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
@@ -4000,6 +4096,102 @@ class StorageApi(object):
 
         return self.api_client.call_api(
             '/api/2/files', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_samba_dfree_string(self, **kwargs):  # noqa: E501
+        """get_samba_dfree_string  # noqa: E501
+
+        ### Required permissions    * localhost only   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_samba_dfree_string(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_samba_dfree_string_with_http_info(**kwargs)  # noqa: E501
+
+    def get_samba_dfree_string_with_http_info(self, **kwargs):  # noqa: E501
+        """get_samba_dfree_string  # noqa: E501
+
+        ### Required permissions    * localhost only   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_samba_dfree_string_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_samba_dfree_string" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/private/dfree', 'POST',
             path_params,
             query_params,
             header_params,
@@ -4998,17 +5190,17 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def move_files(self, data, **kwargs):  # noqa: E501
+    def move_files(self, file_move_endpoint_request, **kwargs):  # noqa: E501
         """move_files  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.move_files(data, async_req=True)
+        >>> thread = api.move_files(file_move_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param FileMoveEndpointRequest data: (required)
+        :param FileMoveEndpointRequest file_move_endpoint_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -5021,19 +5213,19 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.move_files_with_http_info(data, **kwargs)  # noqa: E501
+        return self.move_files_with_http_info(file_move_endpoint_request, **kwargs)  # noqa: E501
 
-    def move_files_with_http_info(self, data, **kwargs):  # noqa: E501
+    def move_files_with_http_info(self, file_move_endpoint_request, **kwargs):  # noqa: E501
         """move_files  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.move_files_with_http_info(data, async_req=True)
+        >>> thread = api.move_files_with_http_info(file_move_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param FileMoveEndpointRequest data: (required)
+        :param FileMoveEndpointRequest file_move_endpoint_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5050,7 +5242,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['file_move_endpoint_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5064,10 +5256,10 @@ class StorageApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `move_files`")  # noqa: E501
+        # verify the required parameter 'file_move_endpoint_request' is set
+        if self.api_client.client_side_validation and ('file_move_endpoint_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['file_move_endpoint_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `file_move_endpoint_request` when calling `move_files`")  # noqa: E501
 
         collection_formats = {}
 
@@ -5081,8 +5273,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'file_move_endpoint_request' in local_var_params:
+            body_params = local_var_params['file_move_endpoint_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -5110,18 +5302,18 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def move_workspace(self, id, data, **kwargs):  # noqa: E501
+    def move_workspace(self, id, move_workspace_request, **kwargs):  # noqa: E501
         """move_workspace  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.move_workspace(id, data, async_req=True)
+        >>> thread = api.move_workspace(id, move_workspace_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
-        :param MoveWorkspaceRequest data: (required)
+        :param MoveWorkspaceRequest move_workspace_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -5134,20 +5326,20 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.move_workspace_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.move_workspace_with_http_info(id, move_workspace_request, **kwargs)  # noqa: E501
 
-    def move_workspace_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def move_workspace_with_http_info(self, id, move_workspace_request, **kwargs):  # noqa: E501
         """move_workspace  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.move_workspace_with_http_info(id, data, async_req=True)
+        >>> thread = api.move_workspace_with_http_info(id, move_workspace_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
-        :param MoveWorkspaceRequest data: (required)
+        :param MoveWorkspaceRequest move_workspace_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5164,7 +5356,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'move_workspace_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5182,10 +5374,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `move_workspace`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `move_workspace`")  # noqa: E501
+        # verify the required parameter 'move_workspace_request' is set
+        if self.api_client.client_side_validation and ('move_workspace_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['move_workspace_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `move_workspace_request` when calling `move_workspace`")  # noqa: E501
 
         collection_formats = {}
 
@@ -5201,8 +5393,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'move_workspace_request' in local_var_params:
+            body_params = local_var_params['move_workspace_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -5230,18 +5422,18 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def move_workspace_to_production(self, id, data, **kwargs):  # noqa: E501
+    def move_workspace_to_production(self, id, workspace_move_to_request, **kwargs):  # noqa: E501
         """move_workspace_to_production  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.move_workspace_to_production(id, data, async_req=True)
+        >>> thread = api.move_workspace_to_production(id, workspace_move_to_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
-        :param WorkspaceMoveToRequest data: (required)
+        :param WorkspaceMoveToRequest workspace_move_to_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -5249,25 +5441,25 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.move_workspace_to_production_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.move_workspace_to_production_with_http_info(id, workspace_move_to_request, **kwargs)  # noqa: E501
 
-    def move_workspace_to_production_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def move_workspace_to_production_with_http_info(self, id, workspace_move_to_request, **kwargs):  # noqa: E501
         """move_workspace_to_production  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.move_workspace_to_production_with_http_info(id, data, async_req=True)
+        >>> thread = api.move_workspace_to_production_with_http_info(id, workspace_move_to_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
-        :param WorkspaceMoveToRequest data: (required)
+        :param WorkspaceMoveToRequest workspace_move_to_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5277,14 +5469,14 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'workspace_move_to_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5302,10 +5494,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `move_workspace_to_production`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `move_workspace_to_production`")  # noqa: E501
+        # verify the required parameter 'workspace_move_to_request' is set
+        if self.api_client.client_side_validation and ('workspace_move_to_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['workspace_move_to_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `workspace_move_to_request` when calling `move_workspace_to_production`")  # noqa: E501
 
         collection_formats = {}
 
@@ -5321,12 +5513,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'workspace_move_to_request' in local_var_params:
+            body_params = local_var_params['workspace_move_to_request']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -5342,7 +5530,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5350,18 +5538,18 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_file(self, path, data, **kwargs):  # noqa: E501
+    def patch_file(self, path, file_partial_update, **kwargs):  # noqa: E501
         """patch_file  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_file(path, data, async_req=True)
+        >>> thread = api.patch_file(path, file_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str path: (required)
-        :param FilePartialUpdate data: (required)
+        :param FilePartialUpdate file_partial_update: (required)
         :param int max_depth:
         :param bool bundle:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5371,25 +5559,25 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: File
+        :return: FilesystemFile
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_file_with_http_info(path, data, **kwargs)  # noqa: E501
+        return self.patch_file_with_http_info(path, file_partial_update, **kwargs)  # noqa: E501
 
-    def patch_file_with_http_info(self, path, data, **kwargs):  # noqa: E501
+    def patch_file_with_http_info(self, path, file_partial_update, **kwargs):  # noqa: E501
         """patch_file  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_file_with_http_info(path, data, async_req=True)
+        >>> thread = api.patch_file_with_http_info(path, file_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str path: (required)
-        :param FilePartialUpdate data: (required)
+        :param FilePartialUpdate file_partial_update: (required)
         :param int max_depth:
         :param bool bundle:
         :param _return_http_data_only: response data without head status code
@@ -5401,14 +5589,14 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(File, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(FilesystemFile, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['path', 'data', 'max_depth', 'bundle']  # noqa: E501
+        all_params = ['path', 'file_partial_update', 'max_depth', 'bundle']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5426,10 +5614,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('path' not in local_var_params or  # noqa: E501
                                                         local_var_params['path'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `path` when calling `patch_file`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_file`")  # noqa: E501
+        # verify the required parameter 'file_partial_update' is set
+        if self.api_client.client_side_validation and ('file_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['file_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `file_partial_update` when calling `patch_file`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'path' in local_var_params and not re.search(r'.*', local_var_params['path']):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `path` when calling `patch_file`, must conform to the pattern `/.*/`")  # noqa: E501
@@ -5451,8 +5639,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'file_partial_update' in local_var_params:
+            body_params = local_var_params['file_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -5472,7 +5660,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='File',  # noqa: E501
+            response_type='FilesystemFile',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5480,18 +5668,18 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_production(self, id, data, **kwargs):  # noqa: E501
+    def patch_production(self, id, production_partial_update, **kwargs):  # noqa: E501
         """patch_production  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_production(id, data, async_req=True)
+        >>> thread = api.patch_production(id, production_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this production. (required)
-        :param ProductionPartialUpdate data: (required)
+        :param ProductionPartialUpdate production_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -5504,20 +5692,20 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_production_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.patch_production_with_http_info(id, production_partial_update, **kwargs)  # noqa: E501
 
-    def patch_production_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def patch_production_with_http_info(self, id, production_partial_update, **kwargs):  # noqa: E501
         """patch_production  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_production_with_http_info(id, data, async_req=True)
+        >>> thread = api.patch_production_with_http_info(id, production_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this production. (required)
-        :param ProductionPartialUpdate data: (required)
+        :param ProductionPartialUpdate production_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5534,7 +5722,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'production_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5552,10 +5740,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `patch_production`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_production`")  # noqa: E501
+        # verify the required parameter 'production_partial_update' is set
+        if self.api_client.client_side_validation and ('production_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['production_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `production_partial_update` when calling `patch_production`")  # noqa: E501
 
         collection_formats = {}
 
@@ -5571,8 +5759,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'production_partial_update' in local_var_params:
+            body_params = local_var_params['production_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -5600,18 +5788,18 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_share(self, id, data, **kwargs):  # noqa: E501
+    def patch_share(self, id, share_partial_update, **kwargs):  # noqa: E501
         """patch_share  # noqa: E501
 
         ### Required permissions    * User account permission: `shares:view` (read) / `shares:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_share(id, data, async_req=True)
+        >>> thread = api.patch_share(id, share_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this share. (required)
-        :param SharePartialUpdate data: (required)
+        :param SharePartialUpdate share_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -5624,20 +5812,20 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_share_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.patch_share_with_http_info(id, share_partial_update, **kwargs)  # noqa: E501
 
-    def patch_share_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def patch_share_with_http_info(self, id, share_partial_update, **kwargs):  # noqa: E501
         """patch_share  # noqa: E501
 
         ### Required permissions    * User account permission: `shares:view` (read) / `shares:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_share_with_http_info(id, data, async_req=True)
+        >>> thread = api.patch_share_with_http_info(id, share_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this share. (required)
-        :param SharePartialUpdate data: (required)
+        :param SharePartialUpdate share_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5654,7 +5842,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'share_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5672,10 +5860,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `patch_share`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_share`")  # noqa: E501
+        # verify the required parameter 'share_partial_update' is set
+        if self.api_client.client_side_validation and ('share_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['share_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `share_partial_update` when calling `patch_share`")  # noqa: E501
 
         collection_formats = {}
 
@@ -5691,8 +5879,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'share_partial_update' in local_var_params:
+            body_params = local_var_params['share_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -5720,18 +5908,18 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_snapshot(self, id, data, **kwargs):  # noqa: E501
+    def patch_snapshot(self, id, snapshot_partial_update, **kwargs):  # noqa: E501
         """patch_snapshot  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_snapshot(id, data, async_req=True)
+        >>> thread = api.patch_snapshot(id, snapshot_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this snapshot. (required)
-        :param SnapshotPartialUpdate data: (required)
+        :param SnapshotPartialUpdate snapshot_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -5744,20 +5932,20 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_snapshot_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.patch_snapshot_with_http_info(id, snapshot_partial_update, **kwargs)  # noqa: E501
 
-    def patch_snapshot_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def patch_snapshot_with_http_info(self, id, snapshot_partial_update, **kwargs):  # noqa: E501
         """patch_snapshot  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_snapshot_with_http_info(id, data, async_req=True)
+        >>> thread = api.patch_snapshot_with_http_info(id, snapshot_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this snapshot. (required)
-        :param SnapshotPartialUpdate data: (required)
+        :param SnapshotPartialUpdate snapshot_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5774,7 +5962,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'snapshot_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5792,10 +5980,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `patch_snapshot`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_snapshot`")  # noqa: E501
+        # verify the required parameter 'snapshot_partial_update' is set
+        if self.api_client.client_side_validation and ('snapshot_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['snapshot_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `snapshot_partial_update` when calling `patch_snapshot`")  # noqa: E501
 
         collection_formats = {}
 
@@ -5811,8 +5999,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'snapshot_partial_update' in local_var_params:
+            body_params = local_var_params['snapshot_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -5840,18 +6028,18 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_volume(self, id, data, **kwargs):  # noqa: E501
+    def patch_volume(self, id, volume_partial_update, **kwargs):  # noqa: E501
         """patch_volume  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_volume(id, data, async_req=True)
+        >>> thread = api.patch_volume(id, volume_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this volume. (required)
-        :param VolumePartialUpdate data: (required)
+        :param VolumePartialUpdate volume_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -5864,20 +6052,20 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_volume_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.patch_volume_with_http_info(id, volume_partial_update, **kwargs)  # noqa: E501
 
-    def patch_volume_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def patch_volume_with_http_info(self, id, volume_partial_update, **kwargs):  # noqa: E501
         """patch_volume  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_volume_with_http_info(id, data, async_req=True)
+        >>> thread = api.patch_volume_with_http_info(id, volume_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this volume. (required)
-        :param VolumePartialUpdate data: (required)
+        :param VolumePartialUpdate volume_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5894,7 +6082,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'volume_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5912,10 +6100,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `patch_volume`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_volume`")  # noqa: E501
+        # verify the required parameter 'volume_partial_update' is set
+        if self.api_client.client_side_validation and ('volume_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['volume_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `volume_partial_update` when calling `patch_volume`")  # noqa: E501
 
         collection_formats = {}
 
@@ -5931,8 +6119,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'volume_partial_update' in local_var_params:
+            body_params = local_var_params['volume_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -5960,18 +6148,18 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_workspace(self, id, data, **kwargs):  # noqa: E501
+    def patch_workspace(self, id, workspace_detail_partial_update, **kwargs):  # noqa: E501
         """patch_workspace  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_workspace(id, data, async_req=True)
+        >>> thread = api.patch_workspace(id, workspace_detail_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
-        :param WorkspaceDetailPartialUpdate data: (required)
+        :param WorkspaceDetailPartialUpdate workspace_detail_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -5984,20 +6172,20 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_workspace_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.patch_workspace_with_http_info(id, workspace_detail_partial_update, **kwargs)  # noqa: E501
 
-    def patch_workspace_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def patch_workspace_with_http_info(self, id, workspace_detail_partial_update, **kwargs):  # noqa: E501
         """patch_workspace  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_workspace_with_http_info(id, data, async_req=True)
+        >>> thread = api.patch_workspace_with_http_info(id, workspace_detail_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
-        :param WorkspaceDetailPartialUpdate data: (required)
+        :param WorkspaceDetailPartialUpdate workspace_detail_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6014,7 +6202,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'workspace_detail_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6032,10 +6220,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `patch_workspace`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_workspace`")  # noqa: E501
+        # verify the required parameter 'workspace_detail_partial_update' is set
+        if self.api_client.client_side_validation and ('workspace_detail_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['workspace_detail_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `workspace_detail_partial_update` when calling `patch_workspace`")  # noqa: E501
 
         collection_formats = {}
 
@@ -6051,8 +6239,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'workspace_detail_partial_update' in local_var_params:
+            body_params = local_var_params['workspace_detail_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -6080,18 +6268,18 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_workspace_permission(self, id, data, **kwargs):  # noqa: E501
+    def patch_workspace_permission(self, id, workspace_permission_partial_update, **kwargs):  # noqa: E501
         """patch_workspace_permission  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_workspace_permission(id, data, async_req=True)
+        >>> thread = api.patch_workspace_permission(id, workspace_permission_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace permission. (required)
-        :param WorkspacePermissionPartialUpdate data: (required)
+        :param WorkspacePermissionPartialUpdate workspace_permission_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -6104,20 +6292,20 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_workspace_permission_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.patch_workspace_permission_with_http_info(id, workspace_permission_partial_update, **kwargs)  # noqa: E501
 
-    def patch_workspace_permission_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def patch_workspace_permission_with_http_info(self, id, workspace_permission_partial_update, **kwargs):  # noqa: E501
         """patch_workspace_permission  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_workspace_permission_with_http_info(id, data, async_req=True)
+        >>> thread = api.patch_workspace_permission_with_http_info(id, workspace_permission_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace permission. (required)
-        :param WorkspacePermissionPartialUpdate data: (required)
+        :param WorkspacePermissionPartialUpdate workspace_permission_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6134,7 +6322,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'workspace_permission_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6152,10 +6340,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `patch_workspace_permission`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_workspace_permission`")  # noqa: E501
+        # verify the required parameter 'workspace_permission_partial_update' is set
+        if self.api_client.client_side_validation and ('workspace_permission_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['workspace_permission_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `workspace_permission_partial_update` when calling `patch_workspace_permission`")  # noqa: E501
 
         collection_formats = {}
 
@@ -6171,8 +6359,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'workspace_permission_partial_update' in local_var_params:
+            body_params = local_var_params['workspace_permission_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -6193,6 +6381,118 @@ class StorageApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='WorkspacePermission',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def record_storage_trace(self, filesystem_trace_endpoint_request, **kwargs):  # noqa: E501
+        """record_storage_trace  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.record_storage_trace(filesystem_trace_endpoint_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param FilesystemTraceEndpointRequest filesystem_trace_endpoint_request: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: FilesystemTraceEndpointResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.record_storage_trace_with_http_info(filesystem_trace_endpoint_request, **kwargs)  # noqa: E501
+
+    def record_storage_trace_with_http_info(self, filesystem_trace_endpoint_request, **kwargs):  # noqa: E501
+        """record_storage_trace  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.record_storage_trace_with_http_info(filesystem_trace_endpoint_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param FilesystemTraceEndpointRequest filesystem_trace_endpoint_request: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(FilesystemTraceEndpointResponse, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['filesystem_trace_endpoint_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method record_storage_trace" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'filesystem_trace_endpoint_request' is set
+        if self.api_client.client_side_validation and ('filesystem_trace_endpoint_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['filesystem_trace_endpoint_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `filesystem_trace_endpoint_request` when calling `record_storage_trace`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'filesystem_trace_endpoint_request' in local_var_params:
+            body_params = local_var_params['filesystem_trace_endpoint_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/filesystem/trace', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FilesystemTraceEndpointResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6308,6 +6608,114 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def share_to_home_workspace(self, share_to_home_workspace_endpoint_request, **kwargs):  # noqa: E501
+        """share_to_home_workspace  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.share_to_home_workspace(share_to_home_workspace_endpoint_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param ShareToHomeWorkspaceEndpointRequest share_to_home_workspace_endpoint_request: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.share_to_home_workspace_with_http_info(share_to_home_workspace_endpoint_request, **kwargs)  # noqa: E501
+
+    def share_to_home_workspace_with_http_info(self, share_to_home_workspace_endpoint_request, **kwargs):  # noqa: E501
+        """share_to_home_workspace  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.share_to_home_workspace_with_http_info(share_to_home_workspace_endpoint_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param ShareToHomeWorkspaceEndpointRequest share_to_home_workspace_endpoint_request: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['share_to_home_workspace_endpoint_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method share_to_home_workspace" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'share_to_home_workspace_endpoint_request' is set
+        if self.api_client.client_side_validation and ('share_to_home_workspace_endpoint_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['share_to_home_workspace_endpoint_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `share_to_home_workspace_endpoint_request` when calling `share_to_home_workspace`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'share_to_home_workspace_endpoint_request' in local_var_params:
+            body_params = local_var_params['share_to_home_workspace_endpoint_request']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/share-to-home-workspace', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def unbookmark_workspace(self, id, **kwargs):  # noqa: E501
         """unbookmark_workspace  # noqa: E501
 
@@ -6326,7 +6734,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6353,7 +6761,7 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6393,10 +6801,6 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -6408,7 +6812,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6416,17 +6820,17 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def unzip_file(self, data, **kwargs):  # noqa: E501
+    def unzip_file(self, file_unzip_endpoint_request, **kwargs):  # noqa: E501
         """unzip_file  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.unzip_file(data, async_req=True)
+        >>> thread = api.unzip_file(file_unzip_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param FileUnzipEndpointRequest data: (required)
+        :param FileUnzipEndpointRequest file_unzip_endpoint_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -6439,19 +6843,19 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.unzip_file_with_http_info(data, **kwargs)  # noqa: E501
+        return self.unzip_file_with_http_info(file_unzip_endpoint_request, **kwargs)  # noqa: E501
 
-    def unzip_file_with_http_info(self, data, **kwargs):  # noqa: E501
+    def unzip_file_with_http_info(self, file_unzip_endpoint_request, **kwargs):  # noqa: E501
         """unzip_file  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.unzip_file_with_http_info(data, async_req=True)
+        >>> thread = api.unzip_file_with_http_info(file_unzip_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param FileUnzipEndpointRequest data: (required)
+        :param FileUnzipEndpointRequest file_unzip_endpoint_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6468,7 +6872,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['file_unzip_endpoint_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6482,10 +6886,10 @@ class StorageApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `unzip_file`")  # noqa: E501
+        # verify the required parameter 'file_unzip_endpoint_request' is set
+        if self.api_client.client_side_validation and ('file_unzip_endpoint_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['file_unzip_endpoint_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `file_unzip_endpoint_request` when calling `unzip_file`")  # noqa: E501
 
         collection_formats = {}
 
@@ -6499,8 +6903,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'file_unzip_endpoint_request' in local_var_params:
+            body_params = local_var_params['file_unzip_endpoint_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -6528,19 +6932,19 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_group_quota(self, group_id, id, data, **kwargs):  # noqa: E501
+    def update_group_quota(self, group_id, id, update_quota_request, **kwargs):  # noqa: E501
         """update_group_quota  # noqa: E501
 
         ### Required permissions    * User account permission: `users:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_group_quota(group_id, id, data, async_req=True)
+        >>> thread = api.update_group_quota(group_id, id, update_quota_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str group_id: (required)
         :param int id: A unique integer value identifying this volume. (required)
-        :param UpdateQuotaRequest data: (required)
+        :param UpdateQuotaRequest update_quota_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -6548,26 +6952,26 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_group_quota_with_http_info(group_id, id, data, **kwargs)  # noqa: E501
+        return self.update_group_quota_with_http_info(group_id, id, update_quota_request, **kwargs)  # noqa: E501
 
-    def update_group_quota_with_http_info(self, group_id, id, data, **kwargs):  # noqa: E501
+    def update_group_quota_with_http_info(self, group_id, id, update_quota_request, **kwargs):  # noqa: E501
         """update_group_quota  # noqa: E501
 
         ### Required permissions    * User account permission: `users:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_group_quota_with_http_info(group_id, id, data, async_req=True)
+        >>> thread = api.update_group_quota_with_http_info(group_id, id, update_quota_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str group_id: (required)
         :param int id: A unique integer value identifying this volume. (required)
-        :param UpdateQuotaRequest data: (required)
+        :param UpdateQuotaRequest update_quota_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6577,14 +6981,14 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['group_id', 'id', 'data']  # noqa: E501
+        all_params = ['group_id', 'id', 'update_quota_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6606,10 +7010,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_group_quota`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_group_quota`")  # noqa: E501
+        # verify the required parameter 'update_quota_request' is set
+        if self.api_client.client_side_validation and ('update_quota_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['update_quota_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `update_quota_request` when calling `update_group_quota`")  # noqa: E501
 
         collection_formats = {}
 
@@ -6627,12 +7031,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'update_quota_request' in local_var_params:
+            body_params = local_var_params['update_quota_request']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -6648,7 +7048,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6656,19 +7056,19 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_path_quota(self, id, relative_path, data, **kwargs):  # noqa: E501
+    def update_path_quota(self, id, relative_path, update_quota_request, **kwargs):  # noqa: E501
         """update_path_quota  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_path_quota(id, relative_path, data, async_req=True)
+        >>> thread = api.update_path_quota(id, relative_path, update_quota_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this volume. (required)
         :param str relative_path: (required)
-        :param UpdateQuotaRequest data: (required)
+        :param UpdateQuotaRequest update_quota_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -6676,26 +7076,26 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_path_quota_with_http_info(id, relative_path, data, **kwargs)  # noqa: E501
+        return self.update_path_quota_with_http_info(id, relative_path, update_quota_request, **kwargs)  # noqa: E501
 
-    def update_path_quota_with_http_info(self, id, relative_path, data, **kwargs):  # noqa: E501
+    def update_path_quota_with_http_info(self, id, relative_path, update_quota_request, **kwargs):  # noqa: E501
         """update_path_quota  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_path_quota_with_http_info(id, relative_path, data, async_req=True)
+        >>> thread = api.update_path_quota_with_http_info(id, relative_path, update_quota_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this volume. (required)
         :param str relative_path: (required)
-        :param UpdateQuotaRequest data: (required)
+        :param UpdateQuotaRequest update_quota_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6705,14 +7105,14 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['id', 'relative_path', 'data']  # noqa: E501
+        all_params = ['id', 'relative_path', 'update_quota_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6734,10 +7134,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('relative_path' not in local_var_params or  # noqa: E501
                                                         local_var_params['relative_path'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `relative_path` when calling `update_path_quota`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_path_quota`")  # noqa: E501
+        # verify the required parameter 'update_quota_request' is set
+        if self.api_client.client_side_validation and ('update_quota_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['update_quota_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `update_quota_request` when calling `update_path_quota`")  # noqa: E501
 
         collection_formats = {}
 
@@ -6755,12 +7155,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'update_quota_request' in local_var_params:
+            body_params = local_var_params['update_quota_request']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -6776,7 +7172,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6784,18 +7180,18 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_production(self, id, data, **kwargs):  # noqa: E501
+    def update_production(self, id, production, **kwargs):  # noqa: E501
         """update_production  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_production(id, data, async_req=True)
+        >>> thread = api.update_production(id, production, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this production. (required)
-        :param Production data: (required)
+        :param Production production: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -6808,20 +7204,20 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_production_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.update_production_with_http_info(id, production, **kwargs)  # noqa: E501
 
-    def update_production_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def update_production_with_http_info(self, id, production, **kwargs):  # noqa: E501
         """update_production  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_production_with_http_info(id, data, async_req=True)
+        >>> thread = api.update_production_with_http_info(id, production, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this production. (required)
-        :param Production data: (required)
+        :param Production production: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6838,7 +7234,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'production']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6856,10 +7252,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_production`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_production`")  # noqa: E501
+        # verify the required parameter 'production' is set
+        if self.api_client.client_side_validation and ('production' not in local_var_params or  # noqa: E501
+                                                        local_var_params['production'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `production` when calling `update_production`")  # noqa: E501
 
         collection_formats = {}
 
@@ -6875,8 +7271,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'production' in local_var_params:
+            body_params = local_var_params['production']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -6904,18 +7300,18 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_share(self, id, data, **kwargs):  # noqa: E501
+    def update_share(self, id, share, **kwargs):  # noqa: E501
         """update_share  # noqa: E501
 
         ### Required permissions    * User account permission: `shares:view` (read) / `shares:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_share(id, data, async_req=True)
+        >>> thread = api.update_share(id, share, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this share. (required)
-        :param Share data: (required)
+        :param Share share: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -6928,20 +7324,20 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_share_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.update_share_with_http_info(id, share, **kwargs)  # noqa: E501
 
-    def update_share_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def update_share_with_http_info(self, id, share, **kwargs):  # noqa: E501
         """update_share  # noqa: E501
 
         ### Required permissions    * User account permission: `shares:view` (read) / `shares:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_share_with_http_info(id, data, async_req=True)
+        >>> thread = api.update_share_with_http_info(id, share, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this share. (required)
-        :param Share data: (required)
+        :param Share share: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6958,7 +7354,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'share']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6976,10 +7372,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_share`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_share`")  # noqa: E501
+        # verify the required parameter 'share' is set
+        if self.api_client.client_side_validation and ('share' not in local_var_params or  # noqa: E501
+                                                        local_var_params['share'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `share` when calling `update_share`")  # noqa: E501
 
         collection_formats = {}
 
@@ -6995,8 +7391,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'share' in local_var_params:
+            body_params = local_var_params['share']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -7024,18 +7420,18 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_snapshot(self, id, data, **kwargs):  # noqa: E501
+    def update_snapshot(self, id, snapshot, **kwargs):  # noqa: E501
         """update_snapshot  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_snapshot(id, data, async_req=True)
+        >>> thread = api.update_snapshot(id, snapshot, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this snapshot. (required)
-        :param Snapshot data: (required)
+        :param Snapshot snapshot: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7048,20 +7444,20 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_snapshot_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.update_snapshot_with_http_info(id, snapshot, **kwargs)  # noqa: E501
 
-    def update_snapshot_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def update_snapshot_with_http_info(self, id, snapshot, **kwargs):  # noqa: E501
         """update_snapshot  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_snapshot_with_http_info(id, data, async_req=True)
+        >>> thread = api.update_snapshot_with_http_info(id, snapshot, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this snapshot. (required)
-        :param Snapshot data: (required)
+        :param Snapshot snapshot: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7078,7 +7474,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'snapshot']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7096,10 +7492,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_snapshot`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_snapshot`")  # noqa: E501
+        # verify the required parameter 'snapshot' is set
+        if self.api_client.client_side_validation and ('snapshot' not in local_var_params or  # noqa: E501
+                                                        local_var_params['snapshot'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `snapshot` when calling `update_snapshot`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7115,8 +7511,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'snapshot' in local_var_params:
+            body_params = local_var_params['snapshot']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -7144,19 +7540,19 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_user_quota(self, id, user_id, data, **kwargs):  # noqa: E501
+    def update_user_quota(self, id, user_id, update_quota_request, **kwargs):  # noqa: E501
         """update_user_quota  # noqa: E501
 
         ### Required permissions    * User account permission: `users:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_user_quota(id, user_id, data, async_req=True)
+        >>> thread = api.update_user_quota(id, user_id, update_quota_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this volume. (required)
         :param str user_id: (required)
-        :param UpdateQuotaRequest data: (required)
+        :param UpdateQuotaRequest update_quota_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7164,26 +7560,26 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_user_quota_with_http_info(id, user_id, data, **kwargs)  # noqa: E501
+        return self.update_user_quota_with_http_info(id, user_id, update_quota_request, **kwargs)  # noqa: E501
 
-    def update_user_quota_with_http_info(self, id, user_id, data, **kwargs):  # noqa: E501
+    def update_user_quota_with_http_info(self, id, user_id, update_quota_request, **kwargs):  # noqa: E501
         """update_user_quota  # noqa: E501
 
         ### Required permissions    * User account permission: `users:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_user_quota_with_http_info(id, user_id, data, async_req=True)
+        >>> thread = api.update_user_quota_with_http_info(id, user_id, update_quota_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this volume. (required)
         :param str user_id: (required)
-        :param UpdateQuotaRequest data: (required)
+        :param UpdateQuotaRequest update_quota_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7193,14 +7589,14 @@ class StorageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['id', 'user_id', 'data']  # noqa: E501
+        all_params = ['id', 'user_id', 'update_quota_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7222,10 +7618,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['user_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `user_id` when calling `update_user_quota`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_user_quota`")  # noqa: E501
+        # verify the required parameter 'update_quota_request' is set
+        if self.api_client.client_side_validation and ('update_quota_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['update_quota_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `update_quota_request` when calling `update_user_quota`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7243,12 +7639,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'update_quota_request' in local_var_params:
+            body_params = local_var_params['update_quota_request']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -7264,7 +7656,7 @@ class StorageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7272,18 +7664,18 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_volume(self, id, data, **kwargs):  # noqa: E501
+    def update_volume(self, id, volume, **kwargs):  # noqa: E501
         """update_volume  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_volume(id, data, async_req=True)
+        >>> thread = api.update_volume(id, volume, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this volume. (required)
-        :param Volume data: (required)
+        :param Volume volume: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7296,20 +7688,20 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_volume_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.update_volume_with_http_info(id, volume, **kwargs)  # noqa: E501
 
-    def update_volume_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def update_volume_with_http_info(self, id, volume, **kwargs):  # noqa: E501
         """update_volume  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_volume_with_http_info(id, data, async_req=True)
+        >>> thread = api.update_volume_with_http_info(id, volume, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this volume. (required)
-        :param Volume data: (required)
+        :param Volume volume: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7326,7 +7718,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'volume']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7344,10 +7736,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_volume`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_volume`")  # noqa: E501
+        # verify the required parameter 'volume' is set
+        if self.api_client.client_side_validation and ('volume' not in local_var_params or  # noqa: E501
+                                                        local_var_params['volume'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `volume` when calling `update_volume`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7363,8 +7755,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'volume' in local_var_params:
+            body_params = local_var_params['volume']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -7392,18 +7784,18 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_workspace(self, id, data, **kwargs):  # noqa: E501
+    def update_workspace(self, id, workspace_detail, **kwargs):  # noqa: E501
         """update_workspace  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_workspace(id, data, async_req=True)
+        >>> thread = api.update_workspace(id, workspace_detail, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
-        :param WorkspaceDetail data: (required)
+        :param WorkspaceDetail workspace_detail: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7416,20 +7808,20 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_workspace_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.update_workspace_with_http_info(id, workspace_detail, **kwargs)  # noqa: E501
 
-    def update_workspace_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def update_workspace_with_http_info(self, id, workspace_detail, **kwargs):  # noqa: E501
         """update_workspace  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_workspace_with_http_info(id, data, async_req=True)
+        >>> thread = api.update_workspace_with_http_info(id, workspace_detail, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
-        :param WorkspaceDetail data: (required)
+        :param WorkspaceDetail workspace_detail: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7446,7 +7838,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'workspace_detail']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7464,10 +7856,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_workspace`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_workspace`")  # noqa: E501
+        # verify the required parameter 'workspace_detail' is set
+        if self.api_client.client_side_validation and ('workspace_detail' not in local_var_params or  # noqa: E501
+                                                        local_var_params['workspace_detail'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `workspace_detail` when calling `update_workspace`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7483,8 +7875,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'workspace_detail' in local_var_params:
+            body_params = local_var_params['workspace_detail']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -7512,18 +7904,18 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_workspace_permission(self, id, data, **kwargs):  # noqa: E501
+    def update_workspace_permission(self, id, workspace_permission, **kwargs):  # noqa: E501
         """update_workspace_permission  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_workspace_permission(id, data, async_req=True)
+        >>> thread = api.update_workspace_permission(id, workspace_permission, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace permission. (required)
-        :param WorkspacePermission data: (required)
+        :param WorkspacePermission workspace_permission: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7536,20 +7928,20 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_workspace_permission_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.update_workspace_permission_with_http_info(id, workspace_permission, **kwargs)  # noqa: E501
 
-    def update_workspace_permission_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def update_workspace_permission_with_http_info(self, id, workspace_permission, **kwargs):  # noqa: E501
         """update_workspace_permission  # noqa: E501
 
         ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_workspace_permission_with_http_info(id, data, async_req=True)
+        >>> thread = api.update_workspace_permission_with_http_info(id, workspace_permission, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace permission. (required)
-        :param WorkspacePermission data: (required)
+        :param WorkspacePermission workspace_permission: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7566,7 +7958,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'workspace_permission']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7584,10 +7976,10 @@ class StorageApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_workspace_permission`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_workspace_permission`")  # noqa: E501
+        # verify the required parameter 'workspace_permission' is set
+        if self.api_client.client_side_validation and ('workspace_permission' not in local_var_params or  # noqa: E501
+                                                        local_var_params['workspace_permission'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `workspace_permission` when calling `update_workspace_permission`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7603,8 +7995,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'workspace_permission' in local_var_params:
+            body_params = local_var_params['workspace_permission']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -7632,17 +8024,17 @@ class StorageApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def zip_files(self, data, **kwargs):  # noqa: E501
+    def zip_files(self, file_zip_endpoint_request, **kwargs):  # noqa: E501
         """zip_files  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.zip_files(data, async_req=True)
+        >>> thread = api.zip_files(file_zip_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param FileZipEndpointRequest data: (required)
+        :param FileZipEndpointRequest file_zip_endpoint_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7655,19 +8047,19 @@ class StorageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.zip_files_with_http_info(data, **kwargs)  # noqa: E501
+        return self.zip_files_with_http_info(file_zip_endpoint_request, **kwargs)  # noqa: E501
 
-    def zip_files_with_http_info(self, data, **kwargs):  # noqa: E501
+    def zip_files_with_http_info(self, file_zip_endpoint_request, **kwargs):  # noqa: E501
         """zip_files  # noqa: E501
 
         ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.zip_files_with_http_info(data, async_req=True)
+        >>> thread = api.zip_files_with_http_info(file_zip_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param FileZipEndpointRequest data: (required)
+        :param FileZipEndpointRequest file_zip_endpoint_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7684,7 +8076,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['file_zip_endpoint_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7698,10 +8090,10 @@ class StorageApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `zip_files`")  # noqa: E501
+        # verify the required parameter 'file_zip_endpoint_request' is set
+        if self.api_client.client_side_validation and ('file_zip_endpoint_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['file_zip_endpoint_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `file_zip_endpoint_request` when calling `zip_files`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7715,8 +8107,8 @@ class StorageApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'file_zip_endpoint_request' in local_var_params:
+            body_params = local_var_params['file_zip_endpoint_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

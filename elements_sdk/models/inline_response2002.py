@@ -34,7 +34,7 @@ class InlineResponse2002(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[TaskType]'
+        'results': 'list[Event]'
     }
 
     attribute_map = {
@@ -132,7 +132,7 @@ class InlineResponse2002(object):
 
 
         :return: The results of this InlineResponse2002.  # noqa: E501
-        :rtype: list[TaskType]
+        :rtype: list[Event]
         """
         return self._results
 
@@ -142,7 +142,7 @@ class InlineResponse2002(object):
 
 
         :param results: The results of this InlineResponse2002.  # noqa: E501
-        :type: list[TaskType]
+        :type: list[Event]
         """
         if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

@@ -34,18 +34,17 @@ class AutomationApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def abort_task(self, id, data, **kwargs):  # noqa: E501
+    def abort_task(self, id, **kwargs):  # noqa: E501
         """abort_task  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.abort_task(id, data, async_req=True)
+        >>> thread = api.abort_task(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: A unique value identifying this task info. (required)
-        :param object data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -53,25 +52,24 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.abort_task_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.abort_task_with_http_info(id, **kwargs)  # noqa: E501
 
-    def abort_task_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def abort_task_with_http_info(self, id, **kwargs):  # noqa: E501
         """abort_task  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.abort_task_with_http_info(id, data, async_req=True)
+        >>> thread = api.abort_task_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: A unique value identifying this task info. (required)
-        :param object data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -81,14 +79,14 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -106,10 +104,6 @@ class AutomationApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `abort_task`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `abort_task`")  # noqa: E501
 
         collection_formats = {}
 
@@ -125,16 +119,6 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -146,7 +130,7 @@ class AutomationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -154,17 +138,17 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_job(self, data, **kwargs):  # noqa: E501
+    def create_job(self, job, **kwargs):  # noqa: E501
         """create_job  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_job(data, async_req=True)
+        >>> thread = api.create_job(job, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Job data: (required)
+        :param Job job: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -177,19 +161,19 @@ class AutomationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_job_with_http_info(data, **kwargs)  # noqa: E501
+        return self.create_job_with_http_info(job, **kwargs)  # noqa: E501
 
-    def create_job_with_http_info(self, data, **kwargs):  # noqa: E501
+    def create_job_with_http_info(self, job, **kwargs):  # noqa: E501
         """create_job  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_job_with_http_info(data, async_req=True)
+        >>> thread = api.create_job_with_http_info(job, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Job data: (required)
+        :param Job job: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -206,7 +190,7 @@ class AutomationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['job']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -220,10 +204,10 @@ class AutomationApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `create_job`")  # noqa: E501
+        # verify the required parameter 'job' is set
+        if self.api_client.client_side_validation and ('job' not in local_var_params or  # noqa: E501
+                                                        local_var_params['job'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `job` when calling `create_job`")  # noqa: E501
 
         collection_formats = {}
 
@@ -237,8 +221,8 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'job' in local_var_params:
+            body_params = local_var_params['job']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -266,17 +250,17 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_schedule(self, data, **kwargs):  # noqa: E501
+    def create_schedule(self, schedule, **kwargs):  # noqa: E501
         """create_schedule  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:view` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_schedule(data, async_req=True)
+        >>> thread = api.create_schedule(schedule, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Schedule data: (required)
+        :param Schedule schedule: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -289,19 +273,19 @@ class AutomationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_schedule_with_http_info(data, **kwargs)  # noqa: E501
+        return self.create_schedule_with_http_info(schedule, **kwargs)  # noqa: E501
 
-    def create_schedule_with_http_info(self, data, **kwargs):  # noqa: E501
+    def create_schedule_with_http_info(self, schedule, **kwargs):  # noqa: E501
         """create_schedule  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:view` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_schedule_with_http_info(data, async_req=True)
+        >>> thread = api.create_schedule_with_http_info(schedule, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Schedule data: (required)
+        :param Schedule schedule: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -318,7 +302,7 @@ class AutomationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['schedule']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -332,10 +316,10 @@ class AutomationApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `create_schedule`")  # noqa: E501
+        # verify the required parameter 'schedule' is set
+        if self.api_client.client_side_validation and ('schedule' not in local_var_params or  # noqa: E501
+                                                        local_var_params['schedule'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `schedule` when calling `create_schedule`")  # noqa: E501
 
         collection_formats = {}
 
@@ -349,8 +333,8 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'schedule' in local_var_params:
+            body_params = local_var_params['schedule']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -378,17 +362,17 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_subtask(self, data, **kwargs):  # noqa: E501
+    def create_subtask(self, subtask, **kwargs):  # noqa: E501
         """create_subtask  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:view` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_subtask(data, async_req=True)
+        >>> thread = api.create_subtask(subtask, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Subtask data: (required)
+        :param Subtask subtask: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -401,19 +385,19 @@ class AutomationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_subtask_with_http_info(data, **kwargs)  # noqa: E501
+        return self.create_subtask_with_http_info(subtask, **kwargs)  # noqa: E501
 
-    def create_subtask_with_http_info(self, data, **kwargs):  # noqa: E501
+    def create_subtask_with_http_info(self, subtask, **kwargs):  # noqa: E501
         """create_subtask  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:view` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_subtask_with_http_info(data, async_req=True)
+        >>> thread = api.create_subtask_with_http_info(subtask, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Subtask data: (required)
+        :param Subtask subtask: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -430,7 +414,7 @@ class AutomationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['subtask']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -457,8 +441,8 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'subtask' in local_var_params:
+            body_params = local_var_params['subtask']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -503,7 +487,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -529,7 +513,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -563,10 +547,6 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -578,7 +558,7 @@ class AutomationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -604,7 +584,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -631,7 +611,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -671,10 +651,6 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -686,7 +662,7 @@ class AutomationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -712,7 +688,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -739,7 +715,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -779,10 +755,6 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -794,7 +766,7 @@ class AutomationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -820,7 +792,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -847,7 +819,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -887,10 +859,6 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -902,7 +870,7 @@ class AutomationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -928,7 +896,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -955,7 +923,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -995,10 +963,6 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -1010,7 +974,7 @@ class AutomationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1035,6 +999,8 @@ class AutomationApi(object):
         :param float state__in: Multiple values may be separated by commas.
         :param str id: Filter the returned list by `id`.
         :param str id__in: Multiple values may be separated by commas.
+        :param str name: Filter the returned list by `name`.
+        :param str task_name: Filter the returned list by `task_name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -1045,7 +1011,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1069,6 +1035,8 @@ class AutomationApi(object):
         :param float state__in: Multiple values may be separated by commas.
         :param str id: Filter the returned list by `id`.
         :param str id__in: Multiple values may be separated by commas.
+        :param str name: Filter the returned list by `name`.
+        :param str task_name: Filter the returned list by `task_name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -1081,14 +1049,14 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['job_instance', 'job_instance__in', 'subtask', 'state', 'state__in', 'id', 'id__in', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['job_instance', 'job_instance__in', 'subtask', 'state', 'state__in', 'id', 'id__in', 'name', 'task_name', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1122,6 +1090,10 @@ class AutomationApi(object):
             query_params.append(('id', local_var_params['id']))  # noqa: E501
         if 'id__in' in local_var_params and local_var_params['id__in'] is not None:  # noqa: E501
             query_params.append(('id__in', local_var_params['id__in']))  # noqa: E501
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if 'task_name' in local_var_params and local_var_params['task_name'] is not None:  # noqa: E501
+            query_params.append(('task_name', local_var_params['task_name']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -1135,10 +1107,6 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -1150,7 +1118,7 @@ class AutomationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1176,7 +1144,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1203,7 +1171,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1243,10 +1211,6 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -1258,7 +1222,111 @@ class AutomationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def export_job(self, id, **kwargs):  # noqa: E501
+        """export_job  # noqa: E501
+
+        ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_job(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this job. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.export_job_with_http_info(id, **kwargs)  # noqa: E501
+
+    def export_job_with_http_info(self, id, **kwargs):  # noqa: E501
+        """export_job  # noqa: E501
+
+        ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_job_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this job. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method export_job" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `export_job`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/jobs/{id}/export', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1286,7 +1354,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse200
+        :return: InlineResponse2002
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1315,7 +1383,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse200, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2002, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1370,7 +1438,7 @@ class AutomationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse200',  # noqa: E501
+            response_type='InlineResponse2002',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1391,6 +1459,7 @@ class AutomationApi(object):
         :param str special_type: Filter the returned list by `special_type`.
         :param str special_type__isnull: Filter the returned list by `special_type__isnull`.
         :param str hook: Filter the returned list by `hook`.
+        :param str name: Filter the returned list by `name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -1421,6 +1490,7 @@ class AutomationApi(object):
         :param str special_type: Filter the returned list by `special_type`.
         :param str special_type__isnull: Filter the returned list by `special_type__isnull`.
         :param str hook: Filter the returned list by `hook`.
+        :param str name: Filter the returned list by `name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -1440,7 +1510,7 @@ class AutomationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['special_type', 'special_type__isnull', 'hook', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['special_type', 'special_type__isnull', 'hook', 'name', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1466,6 +1536,8 @@ class AutomationApi(object):
             query_params.append(('special_type__isnull', local_var_params['special_type__isnull']))  # noqa: E501
         if 'hook' in local_var_params and local_var_params['hook'] is not None:  # noqa: E501
             query_params.append(('hook', local_var_params['hook']))  # noqa: E501
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -1754,7 +1826,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2001
+        :return: InlineResponse2003
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1783,7 +1855,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2001, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2003, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1838,7 +1910,7 @@ class AutomationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2001',  # noqa: E501
+            response_type='InlineResponse2003',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1866,7 +1938,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2002
+        :return: InlineResponse2004
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1895,7 +1967,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2002, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2004, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1950,7 +2022,7 @@ class AutomationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2002',  # noqa: E501
+            response_type='InlineResponse2004',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1975,6 +2047,8 @@ class AutomationApi(object):
         :param float state__in: Multiple values may be separated by commas.
         :param str id: Filter the returned list by `id`.
         :param str id__in: Multiple values may be separated by commas.
+        :param str name: Filter the returned list by `name`.
+        :param str task_name: Filter the returned list by `task_name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -2009,6 +2083,8 @@ class AutomationApi(object):
         :param float state__in: Multiple values may be separated by commas.
         :param str id: Filter the returned list by `id`.
         :param str id__in: Multiple values may be separated by commas.
+        :param str name: Filter the returned list by `name`.
+        :param str task_name: Filter the returned list by `task_name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -2028,7 +2104,7 @@ class AutomationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['job_instance', 'job_instance__in', 'subtask', 'state', 'state__in', 'id', 'id__in', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['job_instance', 'job_instance__in', 'subtask', 'state', 'state__in', 'id', 'id__in', 'name', 'task_name', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2062,6 +2138,10 @@ class AutomationApi(object):
             query_params.append(('id', local_var_params['id']))  # noqa: E501
         if 'id__in' in local_var_params and local_var_params['id__in'] is not None:  # noqa: E501
             query_params.append(('id__in', local_var_params['id__in']))  # noqa: E501
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if 'task_name' in local_var_params and local_var_params['task_name'] is not None:  # noqa: E501
+            query_params.append(('task_name', local_var_params['task_name']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -2223,6 +2303,8 @@ class AutomationApi(object):
         :param float state__in: Multiple values may be separated by commas.
         :param str id: Filter the returned list by `id`.
         :param str id__in: Multiple values may be separated by commas.
+        :param str name: Filter the returned list by `name`.
+        :param str task_name: Filter the returned list by `task_name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -2257,6 +2339,8 @@ class AutomationApi(object):
         :param float state__in: Multiple values may be separated by commas.
         :param str id: Filter the returned list by `id`.
         :param str id__in: Multiple values may be separated by commas.
+        :param str name: Filter the returned list by `name`.
+        :param str task_name: Filter the returned list by `task_name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -2276,7 +2360,7 @@ class AutomationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['job_instance', 'job_instance__in', 'subtask', 'state', 'state__in', 'id', 'id__in', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['job_instance', 'job_instance__in', 'subtask', 'state', 'state__in', 'id', 'id__in', 'name', 'task_name', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2310,6 +2394,10 @@ class AutomationApi(object):
             query_params.append(('id', local_var_params['id']))  # noqa: E501
         if 'id__in' in local_var_params and local_var_params['id__in'] is not None:  # noqa: E501
             query_params.append(('id__in', local_var_params['id__in']))  # noqa: E501
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if 'task_name' in local_var_params and local_var_params['task_name'] is not None:  # noqa: E501
+            query_params.append(('task_name', local_var_params['task_name']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -2471,6 +2559,8 @@ class AutomationApi(object):
         :param float state__in: Multiple values may be separated by commas.
         :param str id: Filter the returned list by `id`.
         :param str id__in: Multiple values may be separated by commas.
+        :param str name: Filter the returned list by `name`.
+        :param str task_name: Filter the returned list by `task_name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -2505,6 +2595,8 @@ class AutomationApi(object):
         :param float state__in: Multiple values may be separated by commas.
         :param str id: Filter the returned list by `id`.
         :param str id__in: Multiple values may be separated by commas.
+        :param str name: Filter the returned list by `name`.
+        :param str task_name: Filter the returned list by `task_name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -2524,7 +2616,7 @@ class AutomationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['job_instance', 'job_instance__in', 'subtask', 'state', 'state__in', 'id', 'id__in', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['job_instance', 'job_instance__in', 'subtask', 'state', 'state__in', 'id', 'id__in', 'name', 'task_name', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2558,6 +2650,10 @@ class AutomationApi(object):
             query_params.append(('id', local_var_params['id']))  # noqa: E501
         if 'id__in' in local_var_params and local_var_params['id__in'] is not None:  # noqa: E501
             query_params.append(('id__in', local_var_params['id__in']))  # noqa: E501
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if 'task_name' in local_var_params and local_var_params['task_name'] is not None:  # noqa: E501
+            query_params.append(('task_name', local_var_params['task_name']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -3253,6 +3349,8 @@ class AutomationApi(object):
         :param float state__in: Multiple values may be separated by commas.
         :param str id: Filter the returned list by `id`.
         :param str id__in: Multiple values may be separated by commas.
+        :param str name: Filter the returned list by `name`.
+        :param str task_name: Filter the returned list by `task_name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -3287,6 +3385,8 @@ class AutomationApi(object):
         :param float state__in: Multiple values may be separated by commas.
         :param str id: Filter the returned list by `id`.
         :param str id__in: Multiple values may be separated by commas.
+        :param str name: Filter the returned list by `name`.
+        :param str task_name: Filter the returned list by `task_name`.
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -3306,7 +3406,7 @@ class AutomationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['job_instance', 'job_instance__in', 'subtask', 'state', 'state__in', 'id', 'id__in', 'ordering', 'limit', 'offset']  # noqa: E501
+        all_params = ['job_instance', 'job_instance__in', 'subtask', 'state', 'state__in', 'id', 'id__in', 'name', 'task_name', 'ordering', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3340,6 +3440,10 @@ class AutomationApi(object):
             query_params.append(('id', local_var_params['id']))  # noqa: E501
         if 'id__in' in local_var_params and local_var_params['id__in'] is not None:  # noqa: E501
             query_params.append(('id__in', local_var_params['id__in']))  # noqa: E501
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if 'task_name' in local_var_params and local_var_params['task_name'] is not None:  # noqa: E501
+            query_params.append(('task_name', local_var_params['task_name']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -3376,6 +3480,118 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def import_job(self, import_job_request, **kwargs):  # noqa: E501
+        """import_job  # noqa: E501
+
+        ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.import_job(import_job_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param ImportJobRequest import_job_request: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: ImportJobResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.import_job_with_http_info(import_job_request, **kwargs)  # noqa: E501
+
+    def import_job_with_http_info(self, import_job_request, **kwargs):  # noqa: E501
+        """import_job  # noqa: E501
+
+        ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.import_job_with_http_info(import_job_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param ImportJobRequest import_job_request: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(ImportJobResponse, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['import_job_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method import_job" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'import_job_request' is set
+        if self.api_client.client_side_validation and ('import_job_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['import_job_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `import_job_request` when calling `import_job`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'import_job_request' in local_var_params:
+            body_params = local_var_params['import_job_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/2/jobs/import', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ImportJobResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def kill_all_pending_tasks(self, **kwargs):  # noqa: E501
         """kill_all_pending_tasks  # noqa: E501
 
@@ -3393,7 +3609,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3419,7 +3635,7 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3453,10 +3669,6 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -3468,7 +3680,7 @@ class AutomationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3476,18 +3688,17 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def kill_task(self, id, data, **kwargs):  # noqa: E501
+    def kill_task(self, id, **kwargs):  # noqa: E501
         """kill_task  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.kill_task(id, data, async_req=True)
+        >>> thread = api.kill_task(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: A unique value identifying this task info. (required)
-        :param object data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3495,25 +3706,24 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.kill_task_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.kill_task_with_http_info(id, **kwargs)  # noqa: E501
 
-    def kill_task_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def kill_task_with_http_info(self, id, **kwargs):  # noqa: E501
         """kill_task  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.kill_task_with_http_info(id, data, async_req=True)
+        >>> thread = api.kill_task_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: A unique value identifying this task info. (required)
-        :param object data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3523,14 +3733,14 @@ class AutomationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3548,10 +3758,6 @@ class AutomationApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `kill_task`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `kill_task`")  # noqa: E501
 
         collection_formats = {}
 
@@ -3567,16 +3773,6 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -3588,7 +3784,7 @@ class AutomationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3596,18 +3792,18 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_job(self, id, data, **kwargs):  # noqa: E501
+    def patch_job(self, id, job_partial_update, **kwargs):  # noqa: E501
         """patch_job  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_job(id, data, async_req=True)
+        >>> thread = api.patch_job(id, job_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this job. (required)
-        :param JobPartialUpdate data: (required)
+        :param JobPartialUpdate job_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3620,20 +3816,20 @@ class AutomationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_job_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.patch_job_with_http_info(id, job_partial_update, **kwargs)  # noqa: E501
 
-    def patch_job_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def patch_job_with_http_info(self, id, job_partial_update, **kwargs):  # noqa: E501
         """patch_job  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_job_with_http_info(id, data, async_req=True)
+        >>> thread = api.patch_job_with_http_info(id, job_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this job. (required)
-        :param JobPartialUpdate data: (required)
+        :param JobPartialUpdate job_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3650,7 +3846,7 @@ class AutomationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'job_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3668,10 +3864,10 @@ class AutomationApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `patch_job`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_job`")  # noqa: E501
+        # verify the required parameter 'job_partial_update' is set
+        if self.api_client.client_side_validation and ('job_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['job_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `job_partial_update` when calling `patch_job`")  # noqa: E501
 
         collection_formats = {}
 
@@ -3687,8 +3883,8 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'job_partial_update' in local_var_params:
+            body_params = local_var_params['job_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -3716,18 +3912,18 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_schedule(self, id, data, **kwargs):  # noqa: E501
+    def patch_schedule(self, id, schedule_partial_update, **kwargs):  # noqa: E501
         """patch_schedule  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:view` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_schedule(id, data, async_req=True)
+        >>> thread = api.patch_schedule(id, schedule_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this schedule. (required)
-        :param SchedulePartialUpdate data: (required)
+        :param SchedulePartialUpdate schedule_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3740,20 +3936,20 @@ class AutomationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_schedule_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.patch_schedule_with_http_info(id, schedule_partial_update, **kwargs)  # noqa: E501
 
-    def patch_schedule_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def patch_schedule_with_http_info(self, id, schedule_partial_update, **kwargs):  # noqa: E501
         """patch_schedule  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:view` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_schedule_with_http_info(id, data, async_req=True)
+        >>> thread = api.patch_schedule_with_http_info(id, schedule_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this schedule. (required)
-        :param SchedulePartialUpdate data: (required)
+        :param SchedulePartialUpdate schedule_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3770,7 +3966,7 @@ class AutomationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'schedule_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3788,10 +3984,10 @@ class AutomationApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `patch_schedule`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_schedule`")  # noqa: E501
+        # verify the required parameter 'schedule_partial_update' is set
+        if self.api_client.client_side_validation and ('schedule_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['schedule_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `schedule_partial_update` when calling `patch_schedule`")  # noqa: E501
 
         collection_formats = {}
 
@@ -3807,8 +4003,8 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'schedule_partial_update' in local_var_params:
+            body_params = local_var_params['schedule_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -3836,18 +4032,18 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_subtask(self, id, data, **kwargs):  # noqa: E501
+    def patch_subtask(self, id, subtask_partial_update, **kwargs):  # noqa: E501
         """patch_subtask  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:view` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_subtask(id, data, async_req=True)
+        >>> thread = api.patch_subtask(id, subtask_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this subtask. (required)
-        :param SubtaskPartialUpdate data: (required)
+        :param SubtaskPartialUpdate subtask_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3860,20 +4056,20 @@ class AutomationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_subtask_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.patch_subtask_with_http_info(id, subtask_partial_update, **kwargs)  # noqa: E501
 
-    def patch_subtask_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def patch_subtask_with_http_info(self, id, subtask_partial_update, **kwargs):  # noqa: E501
         """patch_subtask  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:view` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_subtask_with_http_info(id, data, async_req=True)
+        >>> thread = api.patch_subtask_with_http_info(id, subtask_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this subtask. (required)
-        :param SubtaskPartialUpdate data: (required)
+        :param SubtaskPartialUpdate subtask_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3890,7 +4086,7 @@ class AutomationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'subtask_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3908,10 +4104,10 @@ class AutomationApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `patch_subtask`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_subtask`")  # noqa: E501
+        # verify the required parameter 'subtask_partial_update' is set
+        if self.api_client.client_side_validation and ('subtask_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['subtask_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `subtask_partial_update` when calling `patch_subtask`")  # noqa: E501
 
         collection_formats = {}
 
@@ -3927,8 +4123,8 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'subtask_partial_update' in local_var_params:
+            body_params = local_var_params['subtask_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -3956,18 +4152,17 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def restart_task(self, id, data, **kwargs):  # noqa: E501
+    def restart_task(self, id, **kwargs):  # noqa: E501
         """restart_task  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.restart_task(id, data, async_req=True)
+        >>> thread = api.restart_task(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: A unique value identifying this task info. (required)
-        :param object data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3980,20 +4175,19 @@ class AutomationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.restart_task_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.restart_task_with_http_info(id, **kwargs)  # noqa: E501
 
-    def restart_task_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def restart_task_with_http_info(self, id, **kwargs):  # noqa: E501
         """restart_task  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.restart_task_with_http_info(id, data, async_req=True)
+        >>> thread = api.restart_task_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: A unique value identifying this task info. (required)
-        :param object data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4010,7 +4204,7 @@ class AutomationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4028,10 +4222,6 @@ class AutomationApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `restart_task`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `restart_task`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4047,14 +4237,8 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
 
         # Authentication setting
@@ -4076,17 +4260,17 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def start_job(self, id, data, **kwargs):  # noqa: E501
+    def start_job(self, id, start_job_request, **kwargs):  # noqa: E501
         """start_job  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.start_job(id, data, async_req=True)
+        >>> thread = api.start_job(id, start_job_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this job. (required)
-        :param StartJobRequest data: (required)
+        :param StartJobRequest start_job_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4099,19 +4283,19 @@ class AutomationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.start_job_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.start_job_with_http_info(id, start_job_request, **kwargs)  # noqa: E501
 
-    def start_job_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def start_job_with_http_info(self, id, start_job_request, **kwargs):  # noqa: E501
         """start_job  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.start_job_with_http_info(id, data, async_req=True)
+        >>> thread = api.start_job_with_http_info(id, start_job_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this job. (required)
-        :param StartJobRequest data: (required)
+        :param StartJobRequest start_job_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4128,7 +4312,7 @@ class AutomationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'start_job_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4146,10 +4330,10 @@ class AutomationApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `start_job`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `start_job`")  # noqa: E501
+        # verify the required parameter 'start_job_request' is set
+        if self.api_client.client_side_validation and ('start_job_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['start_job_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `start_job_request` when calling `start_job`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4165,8 +4349,8 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'start_job_request' in local_var_params:
+            body_params = local_var_params['start_job_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -4194,17 +4378,17 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def start_task(self, data, **kwargs):  # noqa: E501
+    def start_task(self, start_task_request, **kwargs):  # noqa: E501
         """start_task  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.start_task(data, async_req=True)
+        >>> thread = api.start_task(start_task_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param StartTaskRequest data: (required)
+        :param StartTaskRequest start_task_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4217,19 +4401,19 @@ class AutomationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.start_task_with_http_info(data, **kwargs)  # noqa: E501
+        return self.start_task_with_http_info(start_task_request, **kwargs)  # noqa: E501
 
-    def start_task_with_http_info(self, data, **kwargs):  # noqa: E501
+    def start_task_with_http_info(self, start_task_request, **kwargs):  # noqa: E501
         """start_task  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.start_task_with_http_info(data, async_req=True)
+        >>> thread = api.start_task_with_http_info(start_task_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param StartTaskRequest data: (required)
+        :param StartTaskRequest start_task_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4246,7 +4430,7 @@ class AutomationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['start_task_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4260,10 +4444,10 @@ class AutomationApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `start_task`")  # noqa: E501
+        # verify the required parameter 'start_task_request' is set
+        if self.api_client.client_side_validation and ('start_task_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['start_task_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `start_task_request` when calling `start_task`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4277,8 +4461,8 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'start_task_request' in local_var_params:
+            body_params = local_var_params['start_task_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -4306,18 +4490,18 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_job(self, id, data, **kwargs):  # noqa: E501
+    def update_job(self, id, job, **kwargs):  # noqa: E501
         """update_job  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_job(id, data, async_req=True)
+        >>> thread = api.update_job(id, job, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this job. (required)
-        :param Job data: (required)
+        :param Job job: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4330,20 +4514,20 @@ class AutomationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_job_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.update_job_with_http_info(id, job, **kwargs)  # noqa: E501
 
-    def update_job_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def update_job_with_http_info(self, id, job, **kwargs):  # noqa: E501
         """update_job  # noqa: E501
 
         ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_job_with_http_info(id, data, async_req=True)
+        >>> thread = api.update_job_with_http_info(id, job, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this job. (required)
-        :param Job data: (required)
+        :param Job job: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4360,7 +4544,7 @@ class AutomationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'job']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4378,10 +4562,10 @@ class AutomationApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_job`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_job`")  # noqa: E501
+        # verify the required parameter 'job' is set
+        if self.api_client.client_side_validation and ('job' not in local_var_params or  # noqa: E501
+                                                        local_var_params['job'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `job` when calling `update_job`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4397,8 +4581,8 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'job' in local_var_params:
+            body_params = local_var_params['job']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -4426,18 +4610,18 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_schedule(self, id, data, **kwargs):  # noqa: E501
+    def update_schedule(self, id, schedule, **kwargs):  # noqa: E501
         """update_schedule  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:view` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_schedule(id, data, async_req=True)
+        >>> thread = api.update_schedule(id, schedule, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this schedule. (required)
-        :param Schedule data: (required)
+        :param Schedule schedule: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4450,20 +4634,20 @@ class AutomationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_schedule_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.update_schedule_with_http_info(id, schedule, **kwargs)  # noqa: E501
 
-    def update_schedule_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def update_schedule_with_http_info(self, id, schedule, **kwargs):  # noqa: E501
         """update_schedule  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:view` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_schedule_with_http_info(id, data, async_req=True)
+        >>> thread = api.update_schedule_with_http_info(id, schedule, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this schedule. (required)
-        :param Schedule data: (required)
+        :param Schedule schedule: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4480,7 +4664,7 @@ class AutomationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'schedule']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4498,10 +4682,10 @@ class AutomationApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_schedule`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_schedule`")  # noqa: E501
+        # verify the required parameter 'schedule' is set
+        if self.api_client.client_side_validation and ('schedule' not in local_var_params or  # noqa: E501
+                                                        local_var_params['schedule'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `schedule` when calling `update_schedule`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4517,8 +4701,8 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'schedule' in local_var_params:
+            body_params = local_var_params['schedule']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -4546,18 +4730,18 @@ class AutomationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_subtask(self, id, data, **kwargs):  # noqa: E501
+    def update_subtask(self, id, subtask, **kwargs):  # noqa: E501
         """update_subtask  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:view` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_subtask(id, data, async_req=True)
+        >>> thread = api.update_subtask(id, subtask, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this subtask. (required)
-        :param Subtask data: (required)
+        :param Subtask subtask: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4570,20 +4754,20 @@ class AutomationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_subtask_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.update_subtask_with_http_info(id, subtask, **kwargs)  # noqa: E501
 
-    def update_subtask_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def update_subtask_with_http_info(self, id, subtask, **kwargs):  # noqa: E501
         """update_subtask  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:view` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_subtask_with_http_info(id, data, async_req=True)
+        >>> thread = api.update_subtask_with_http_info(id, subtask, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this subtask. (required)
-        :param Subtask data: (required)
+        :param Subtask subtask: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4600,7 +4784,7 @@ class AutomationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'subtask']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4633,8 +4817,8 @@ class AutomationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'subtask' in local_var_params:
+            body_params = local_var_params['subtask']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

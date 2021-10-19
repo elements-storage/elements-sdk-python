@@ -32,8 +32,8 @@ class SubclipClipboardEntry(object):
     """
     openapi_types = {
         'id': 'int',
-        'cut': 'Subclip',
-        'bundle': 'MediaFileBundleMini',
+        'cut': 'SubclipReference',
+        'bundle': 'MediaFileBundleMiniReference',
         'date': 'datetime'
     }
 
@@ -91,7 +91,7 @@ class SubclipClipboardEntry(object):
 
 
         :return: The cut of this SubclipClipboardEntry.  # noqa: E501
-        :rtype: Subclip
+        :rtype: SubclipReference
         """
         return self._cut
 
@@ -101,7 +101,7 @@ class SubclipClipboardEntry(object):
 
 
         :param cut: The cut of this SubclipClipboardEntry.  # noqa: E501
-        :type: Subclip
+        :type: SubclipReference
         """
         if self.local_vars_configuration.client_side_validation and cut is None:  # noqa: E501
             raise ValueError("Invalid value for `cut`, must not be `None`")  # noqa: E501
@@ -114,7 +114,7 @@ class SubclipClipboardEntry(object):
 
 
         :return: The bundle of this SubclipClipboardEntry.  # noqa: E501
-        :rtype: MediaFileBundleMini
+        :rtype: MediaFileBundleMiniReference
         """
         return self._bundle
 
@@ -124,7 +124,7 @@ class SubclipClipboardEntry(object):
 
 
         :param bundle: The bundle of this SubclipClipboardEntry.  # noqa: E501
-        :type: MediaFileBundleMini
+        :type: MediaFileBundleMiniReference
         """
 
         self._bundle = bundle

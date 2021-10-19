@@ -32,11 +32,11 @@ class WorkspaceDetail(object):
     """
     openapi_types = {
         'id': 'int',
-        'production': 'Production',
-        'volume': 'Volume',
+        'production': 'ProductionReference',
+        'volume': 'VolumeReference',
         'volume_path': 'str',
         'path': 'str',
-        'sharing_nfs_permissions': 'object',
+        'sharing_nfs_permissions': 'list[str]',
         'full_path': 'str',
         'current_share_name': 'str',
         'endpoints': 'list[WorkspaceEndpoint]',
@@ -66,6 +66,7 @@ class WorkspaceDetail(object):
         'sharing_require_login': 'bool',
         'sharing_read_only': 'bool',
         'sharing_allow_execute': 'bool',
+        'enable_quota': 'bool',
         'quota_size_hard': 'int',
         'quota_size_soft': 'int',
         'affinity': 'str',
@@ -124,6 +125,7 @@ class WorkspaceDetail(object):
         'sharing_require_login': 'sharing_require_login',
         'sharing_read_only': 'sharing_read_only',
         'sharing_allow_execute': 'sharing_allow_execute',
+        'enable_quota': 'enable_quota',
         'quota_size_hard': 'quota_size_hard',
         'quota_size_soft': 'quota_size_soft',
         'affinity': 'affinity',
@@ -146,7 +148,7 @@ class WorkspaceDetail(object):
         'home_for': 'home_for'
     }
 
-    def __init__(self, id=None, production=None, volume=None, volume_path=None, path=None, sharing_nfs_permissions=None, full_path=None, current_share_name=None, endpoints=None, quota=None, size_used=None, size_total=None, bookmarked=None, resolved_permissions=None, resolved_read_only=None, recycle_bin_path=None, name=None, directory=None, description=None, long_description=None, is_template=None, last_login=None, active=None, mac_protocol=None, win_protocol=None, win_drive=None, linux_protocol=None, linux_mountpoint=None, share_name=None, share_nfs=None, share_afp=None, sharing_hidden=None, sharing_require_login=None, sharing_read_only=None, sharing_allow_execute=None, quota_size_hard=None, quota_size_soft=None, affinity=None, emulate_avid=None, emulate_capture=None, emulate_preopen=None, emulate_ntfs_streams=None, emulate_recycle_bin=None, emulate_fruit=None, smb_extra_config=None, afp_extra_config=None, recycle_bin_exclude=None, is_external=None, external_mac_url=None, external_win_url=None, external_linux_url=None, allow_symlinks=None, rw_permission_priority=None, template=None, home_for=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, production=None, volume=None, volume_path=None, path=None, sharing_nfs_permissions=None, full_path=None, current_share_name=None, endpoints=None, quota=None, size_used=None, size_total=None, bookmarked=None, resolved_permissions=None, resolved_read_only=None, recycle_bin_path=None, name=None, directory=None, description=None, long_description=None, is_template=None, last_login=None, active=None, mac_protocol=None, win_protocol=None, win_drive=None, linux_protocol=None, linux_mountpoint=None, share_name=None, share_nfs=None, share_afp=None, sharing_hidden=None, sharing_require_login=None, sharing_read_only=None, sharing_allow_execute=None, enable_quota=None, quota_size_hard=None, quota_size_soft=None, affinity=None, emulate_avid=None, emulate_capture=None, emulate_preopen=None, emulate_ntfs_streams=None, emulate_recycle_bin=None, emulate_fruit=None, smb_extra_config=None, afp_extra_config=None, recycle_bin_exclude=None, is_external=None, external_mac_url=None, external_win_url=None, external_linux_url=None, allow_symlinks=None, rw_permission_priority=None, template=None, home_for=None, local_vars_configuration=None):  # noqa: E501
         """WorkspaceDetail - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -187,6 +189,7 @@ class WorkspaceDetail(object):
         self._sharing_require_login = None
         self._sharing_read_only = None
         self._sharing_allow_execute = None
+        self._enable_quota = None
         self._quota_size_hard = None
         self._quota_size_soft = None
         self._affinity = None
@@ -226,7 +229,8 @@ class WorkspaceDetail(object):
             self.current_share_name = current_share_name
         if endpoints is not None:
             self.endpoints = endpoints
-        self.quota = quota
+        if quota is not None:
+            self.quota = quota
         if size_used is not None:
             self.size_used = size_used
         if size_total is not None:
@@ -273,8 +277,12 @@ class WorkspaceDetail(object):
             self.sharing_read_only = sharing_read_only
         if sharing_allow_execute is not None:
             self.sharing_allow_execute = sharing_allow_execute
-        self.quota_size_hard = quota_size_hard
-        self.quota_size_soft = quota_size_soft
+        if enable_quota is not None:
+            self.enable_quota = enable_quota
+        if quota_size_hard is not None:
+            self.quota_size_hard = quota_size_hard
+        if quota_size_soft is not None:
+            self.quota_size_soft = quota_size_soft
         self.affinity = affinity
         if emulate_avid is not None:
             self.emulate_avid = emulate_avid
@@ -333,7 +341,7 @@ class WorkspaceDetail(object):
 
 
         :return: The production of this WorkspaceDetail.  # noqa: E501
-        :rtype: Production
+        :rtype: ProductionReference
         """
         return self._production
 
@@ -343,7 +351,7 @@ class WorkspaceDetail(object):
 
 
         :param production: The production of this WorkspaceDetail.  # noqa: E501
-        :type: Production
+        :type: ProductionReference
         """
         if self.local_vars_configuration.client_side_validation and production is None:  # noqa: E501
             raise ValueError("Invalid value for `production`, must not be `None`")  # noqa: E501
@@ -356,7 +364,7 @@ class WorkspaceDetail(object):
 
 
         :return: The volume of this WorkspaceDetail.  # noqa: E501
-        :rtype: Volume
+        :rtype: VolumeReference
         """
         return self._volume
 
@@ -366,7 +374,7 @@ class WorkspaceDetail(object):
 
 
         :param volume: The volume of this WorkspaceDetail.  # noqa: E501
-        :type: Volume
+        :type: VolumeReference
         """
 
         self._volume = volume
@@ -425,7 +433,7 @@ class WorkspaceDetail(object):
 
 
         :return: The sharing_nfs_permissions of this WorkspaceDetail.  # noqa: E501
-        :rtype: object
+        :rtype: list[str]
         """
         return self._sharing_nfs_permissions
 
@@ -435,7 +443,7 @@ class WorkspaceDetail(object):
 
 
         :param sharing_nfs_permissions: The sharing_nfs_permissions of this WorkspaceDetail.  # noqa: E501
-        :type: object
+        :type: list[str]
         """
 
         self._sharing_nfs_permissions = sharing_nfs_permissions
@@ -1093,6 +1101,27 @@ class WorkspaceDetail(object):
         """
 
         self._sharing_allow_execute = sharing_allow_execute
+
+    @property
+    def enable_quota(self):
+        """Gets the enable_quota of this WorkspaceDetail.  # noqa: E501
+
+
+        :return: The enable_quota of this WorkspaceDetail.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_quota
+
+    @enable_quota.setter
+    def enable_quota(self, enable_quota):
+        """Sets the enable_quota of this WorkspaceDetail.
+
+
+        :param enable_quota: The enable_quota of this WorkspaceDetail.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_quota = enable_quota
 
     @property
     def quota_size_hard(self):

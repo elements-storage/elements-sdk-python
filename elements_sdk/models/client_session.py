@@ -36,7 +36,7 @@ class ClientSession(object):
         'mounted_workspaces': 'str',
         'started': 'datetime',
         'last_updated': 'datetime',
-        'workstation': 'str'
+        'workstation': 'WorkstationMini'
     }
 
     attribute_map = {
@@ -186,7 +186,7 @@ class ClientSession(object):
 
 
         :return: The workstation of this ClientSession.  # noqa: E501
-        :rtype: str
+        :rtype: WorkstationMini
         """
         return self._workstation
 
@@ -196,7 +196,7 @@ class ClientSession(object):
 
 
         :param workstation: The workstation of this ClientSession.  # noqa: E501
-        :type: str
+        :type: WorkstationMini
         """
         if self.local_vars_configuration.client_side_validation and workstation is None:  # noqa: E501
             raise ValueError("Invalid value for `workstation`, must not be `None`")  # noqa: E501

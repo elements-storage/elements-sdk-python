@@ -34,17 +34,17 @@ class AWSApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_aws_account(self, data, **kwargs):  # noqa: E501
+    def create_aws_account(self, aws_account, **kwargs):  # noqa: E501
         """create_aws_account  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:manage` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_aws_account(data, async_req=True)
+        >>> thread = api.create_aws_account(aws_account, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param AWSAccount data: (required)
+        :param AWSAccount aws_account: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -57,19 +57,19 @@ class AWSApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_aws_account_with_http_info(data, **kwargs)  # noqa: E501
+        return self.create_aws_account_with_http_info(aws_account, **kwargs)  # noqa: E501
 
-    def create_aws_account_with_http_info(self, data, **kwargs):  # noqa: E501
+    def create_aws_account_with_http_info(self, aws_account, **kwargs):  # noqa: E501
         """create_aws_account  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:manage` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_aws_account_with_http_info(data, async_req=True)
+        >>> thread = api.create_aws_account_with_http_info(aws_account, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param AWSAccount data: (required)
+        :param AWSAccount aws_account: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -86,7 +86,7 @@ class AWSApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['aws_account']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -100,10 +100,10 @@ class AWSApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `create_aws_account`")  # noqa: E501
+        # verify the required parameter 'aws_account' is set
+        if self.api_client.client_side_validation and ('aws_account' not in local_var_params or  # noqa: E501
+                                                        local_var_params['aws_account'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `aws_account` when calling `create_aws_account`")  # noqa: E501
 
         collection_formats = {}
 
@@ -117,8 +117,8 @@ class AWSApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'aws_account' in local_var_params:
+            body_params = local_var_params['aws_account']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -164,7 +164,7 @@ class AWSApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -191,7 +191,7 @@ class AWSApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -231,10 +231,6 @@ class AWSApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -246,7 +242,7 @@ class AWSApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -698,18 +694,18 @@ class AWSApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_aws_account(self, id, data, **kwargs):  # noqa: E501
+    def patch_aws_account(self, id, aws_account_partial_update, **kwargs):  # noqa: E501
         """patch_aws_account  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:manage` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_aws_account(id, data, async_req=True)
+        >>> thread = api.patch_aws_account(id, aws_account_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this AWS Account. (required)
-        :param AWSAccountPartialUpdate data: (required)
+        :param AWSAccountPartialUpdate aws_account_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -722,20 +718,20 @@ class AWSApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_aws_account_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.patch_aws_account_with_http_info(id, aws_account_partial_update, **kwargs)  # noqa: E501
 
-    def patch_aws_account_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def patch_aws_account_with_http_info(self, id, aws_account_partial_update, **kwargs):  # noqa: E501
         """patch_aws_account  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:manage` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_aws_account_with_http_info(id, data, async_req=True)
+        >>> thread = api.patch_aws_account_with_http_info(id, aws_account_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this AWS Account. (required)
-        :param AWSAccountPartialUpdate data: (required)
+        :param AWSAccountPartialUpdate aws_account_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -752,7 +748,7 @@ class AWSApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'aws_account_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -770,10 +766,10 @@ class AWSApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `patch_aws_account`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_aws_account`")  # noqa: E501
+        # verify the required parameter 'aws_account_partial_update' is set
+        if self.api_client.client_side_validation and ('aws_account_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['aws_account_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `aws_account_partial_update` when calling `patch_aws_account`")  # noqa: E501
 
         collection_formats = {}
 
@@ -789,8 +785,8 @@ class AWSApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'aws_account_partial_update' in local_var_params:
+            body_params = local_var_params['aws_account_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -818,17 +814,17 @@ class AWSApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def test_aws_account_credentials(self, data, **kwargs):  # noqa: E501
+    def test_aws_account_credentials(self, test_aws_credentials_request, **kwargs):  # noqa: E501
         """test_aws_account_credentials  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:manage` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.test_aws_account_credentials(data, async_req=True)
+        >>> thread = api.test_aws_account_credentials(test_aws_credentials_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param TestAWSCredentialsRequest data: (required)
+        :param TestAWSCredentialsRequest test_aws_credentials_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -841,19 +837,19 @@ class AWSApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.test_aws_account_credentials_with_http_info(data, **kwargs)  # noqa: E501
+        return self.test_aws_account_credentials_with_http_info(test_aws_credentials_request, **kwargs)  # noqa: E501
 
-    def test_aws_account_credentials_with_http_info(self, data, **kwargs):  # noqa: E501
+    def test_aws_account_credentials_with_http_info(self, test_aws_credentials_request, **kwargs):  # noqa: E501
         """test_aws_account_credentials  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:manage` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.test_aws_account_credentials_with_http_info(data, async_req=True)
+        >>> thread = api.test_aws_account_credentials_with_http_info(test_aws_credentials_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param TestAWSCredentialsRequest data: (required)
+        :param TestAWSCredentialsRequest test_aws_credentials_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -870,7 +866,7 @@ class AWSApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['test_aws_credentials_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -884,10 +880,10 @@ class AWSApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `test_aws_account_credentials`")  # noqa: E501
+        # verify the required parameter 'test_aws_credentials_request' is set
+        if self.api_client.client_side_validation and ('test_aws_credentials_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['test_aws_credentials_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `test_aws_credentials_request` when calling `test_aws_account_credentials`")  # noqa: E501
 
         collection_formats = {}
 
@@ -901,8 +897,8 @@ class AWSApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'test_aws_credentials_request' in local_var_params:
+            body_params = local_var_params['test_aws_credentials_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -930,18 +926,18 @@ class AWSApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_aws_account(self, id, data, **kwargs):  # noqa: E501
+    def update_aws_account(self, id, aws_account, **kwargs):  # noqa: E501
         """update_aws_account  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:manage` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_aws_account(id, data, async_req=True)
+        >>> thread = api.update_aws_account(id, aws_account, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this AWS Account. (required)
-        :param AWSAccount data: (required)
+        :param AWSAccount aws_account: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -954,20 +950,20 @@ class AWSApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_aws_account_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.update_aws_account_with_http_info(id, aws_account, **kwargs)  # noqa: E501
 
-    def update_aws_account_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def update_aws_account_with_http_info(self, id, aws_account, **kwargs):  # noqa: E501
         """update_aws_account  # noqa: E501
 
         ### Required permissions    * User account permission: `tasks:manage` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_aws_account_with_http_info(id, data, async_req=True)
+        >>> thread = api.update_aws_account_with_http_info(id, aws_account, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this AWS Account. (required)
-        :param AWSAccount data: (required)
+        :param AWSAccount aws_account: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -984,7 +980,7 @@ class AWSApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'aws_account']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1002,10 +998,10 @@ class AWSApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_aws_account`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_aws_account`")  # noqa: E501
+        # verify the required parameter 'aws_account' is set
+        if self.api_client.client_side_validation and ('aws_account' not in local_var_params or  # noqa: E501
+                                                        local_var_params['aws_account'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `aws_account` when calling `update_aws_account`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1021,8 +1017,8 @@ class AWSApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'aws_account' in local_var_params:
+            body_params = local_var_params['aws_account']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

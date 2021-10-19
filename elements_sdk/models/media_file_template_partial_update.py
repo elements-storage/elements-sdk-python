@@ -31,7 +31,7 @@ class MediaFileTemplatePartialUpdate(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'file': 'MediaFile',
+        'file': 'MediaFileReference',
         'name': 'str'
     }
 
@@ -61,7 +61,7 @@ class MediaFileTemplatePartialUpdate(object):
 
 
         :return: The file of this MediaFileTemplatePartialUpdate.  # noqa: E501
-        :rtype: MediaFile
+        :rtype: MediaFileReference
         """
         return self._file
 
@@ -71,7 +71,7 @@ class MediaFileTemplatePartialUpdate(object):
 
 
         :param file: The file of this MediaFileTemplatePartialUpdate.  # noqa: E501
-        :type: MediaFile
+        :type: MediaFileReference
         """
 
         self._file = file

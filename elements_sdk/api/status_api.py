@@ -279,7 +279,7 @@ class StatusApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: list[object]
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -305,7 +305,7 @@ class StatusApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(list[object], status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -339,10 +339,6 @@ class StatusApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['*/*'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -354,7 +350,7 @@ class StatusApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[object]',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -362,18 +358,18 @@ class StatusApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def patch_alert(self, id, data, **kwargs):  # noqa: E501
+    def patch_alert(self, id, alert_partial_update, **kwargs):  # noqa: E501
         """patch_alert  # noqa: E501
 
         ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_alert(id, data, async_req=True)
+        >>> thread = api.patch_alert(id, alert_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this alert. (required)
-        :param AlertPartialUpdate data: (required)
+        :param AlertPartialUpdate alert_partial_update: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -386,20 +382,20 @@ class StatusApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_alert_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.patch_alert_with_http_info(id, alert_partial_update, **kwargs)  # noqa: E501
 
-    def patch_alert_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def patch_alert_with_http_info(self, id, alert_partial_update, **kwargs):  # noqa: E501
         """patch_alert  # noqa: E501
 
         ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.patch_alert_with_http_info(id, data, async_req=True)
+        >>> thread = api.patch_alert_with_http_info(id, alert_partial_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this alert. (required)
-        :param AlertPartialUpdate data: (required)
+        :param AlertPartialUpdate alert_partial_update: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -416,7 +412,7 @@ class StatusApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'alert_partial_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -434,10 +430,10 @@ class StatusApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `patch_alert`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `patch_alert`")  # noqa: E501
+        # verify the required parameter 'alert_partial_update' is set
+        if self.api_client.client_side_validation and ('alert_partial_update' not in local_var_params or  # noqa: E501
+                                                        local_var_params['alert_partial_update'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `alert_partial_update` when calling `patch_alert`")  # noqa: E501
 
         collection_formats = {}
 
@@ -453,8 +449,8 @@ class StatusApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'alert_partial_update' in local_var_params:
+            body_params = local_var_params['alert_partial_update']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -482,16 +478,16 @@ class StatusApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def submit_kapacitor_alert(self, data, **kwargs):  # noqa: E501
+    def submit_kapacitor_alert(self, kapacitor_alert, **kwargs):  # noqa: E501
         """submit_kapacitor_alert  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.submit_kapacitor_alert(data, async_req=True)
+        >>> thread = api.submit_kapacitor_alert(kapacitor_alert, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param KapacitorAlert data: (required)
+        :param KapacitorAlert kapacitor_alert: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -499,23 +495,23 @@ class StatusApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.submit_kapacitor_alert_with_http_info(data, **kwargs)  # noqa: E501
+        return self.submit_kapacitor_alert_with_http_info(kapacitor_alert, **kwargs)  # noqa: E501
 
-    def submit_kapacitor_alert_with_http_info(self, data, **kwargs):  # noqa: E501
+    def submit_kapacitor_alert_with_http_info(self, kapacitor_alert, **kwargs):  # noqa: E501
         """submit_kapacitor_alert  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.submit_kapacitor_alert_with_http_info(data, async_req=True)
+        >>> thread = api.submit_kapacitor_alert_with_http_info(kapacitor_alert, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param KapacitorAlert data: (required)
+        :param KapacitorAlert kapacitor_alert: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -525,14 +521,14 @@ class StatusApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
+        all_params = ['kapacitor_alert']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -546,10 +542,10 @@ class StatusApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `submit_kapacitor_alert`")  # noqa: E501
+        # verify the required parameter 'kapacitor_alert' is set
+        if self.api_client.client_side_validation and ('kapacitor_alert' not in local_var_params or  # noqa: E501
+                                                        local_var_params['kapacitor_alert'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `kapacitor_alert` when calling `submit_kapacitor_alert`")  # noqa: E501
 
         collection_formats = {}
 
@@ -563,12 +559,8 @@ class StatusApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'kapacitor_alert' in local_var_params:
+            body_params = local_var_params['kapacitor_alert']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -584,7 +576,7 @@ class StatusApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -592,18 +584,18 @@ class StatusApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_alert(self, id, data, **kwargs):  # noqa: E501
+    def update_alert(self, id, alert, **kwargs):  # noqa: E501
         """update_alert  # noqa: E501
 
         ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_alert(id, data, async_req=True)
+        >>> thread = api.update_alert(id, alert, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this alert. (required)
-        :param Alert data: (required)
+        :param Alert alert: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -616,20 +608,20 @@ class StatusApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_alert_with_http_info(id, data, **kwargs)  # noqa: E501
+        return self.update_alert_with_http_info(id, alert, **kwargs)  # noqa: E501
 
-    def update_alert_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def update_alert_with_http_info(self, id, alert, **kwargs):  # noqa: E501
         """update_alert  # noqa: E501
 
         ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_alert_with_http_info(id, data, async_req=True)
+        >>> thread = api.update_alert_with_http_info(id, alert, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this alert. (required)
-        :param Alert data: (required)
+        :param Alert alert: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -646,7 +638,7 @@ class StatusApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
+        all_params = ['id', 'alert']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -664,10 +656,10 @@ class StatusApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_alert`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `update_alert`")  # noqa: E501
+        # verify the required parameter 'alert' is set
+        if self.api_client.client_side_validation and ('alert' not in local_var_params or  # noqa: E501
+                                                        local_var_params['alert'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `alert` when calling `update_alert`")  # noqa: E501
 
         collection_formats = {}
 
@@ -683,8 +675,8 @@ class StatusApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if 'alert' in local_var_params:
+            body_params = local_var_params['alert']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
