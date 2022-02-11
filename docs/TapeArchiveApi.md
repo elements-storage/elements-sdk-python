@@ -1,7 +1,7 @@
 # elements_sdk.TapeArchiveApi
 
 All URIs are relative to *https://elements.local*
->
+
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**archive_to_tape**](TapeArchiveApi.md#archive_to_tape) | **POST** `/api/2/archive/tape/archive` | 
@@ -40,12 +40,8 @@ Method | HTTP request | Description
 [**update_tape_group**](TapeArchiveApi.md#update_tape_group) | **PUT** `/api/2/archive/tape/groups/{id}` | 
 
 
-
-***
-
 # **archive_to_tape**
-
-    def archive_to_tape(archive_endpoint_request) -> list[TapeJob] 
+> [TapeJob] archive_to_tape(archive_endpoint_request)
 
 
 
@@ -54,29 +50,48 @@ Method | HTTP request | Description
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.archive_endpoint_request import ArchiveEndpointRequest
+from elements_sdk.model.tape_job import TapeJob
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    archive_endpoint_request = elements_sdk.ArchiveEndpointRequest() # ArchiveEndpointRequest | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    archive_endpoint_request = ArchiveEndpointRequest(
+        source=[
+            TapeJobSource(
+                path="path_example",
+                options={
+                    "key": "key_example",
+                },
+                include="include_example",
+            ),
+        ],
+        start_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        name="name_example",
+        group=1,
+        group2=1,
+        export=True,
+        export2=True,
+    ) # ArchiveEndpointRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.archive_to_tape(archive_endpoint_request)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->archive_to_tape: %s\n" % e)
 ```
 
@@ -85,20 +100,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **archive_endpoint_request** | [**ArchiveEndpointRequest**](ArchiveEndpointRequest.md)|  | 
+ **archive_endpoint_request** | [**ArchiveEndpointRequest**](ArchiveEndpointRequest.md)|  |
 
 ### Return type
 
-[**list[TapeJob]**](TapeJob.md)
+[**[TapeJob]**](TapeJob.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **cancel_all_tape_archive_jobs**
-
-    def cancel_all_tape_archive_jobs()
+> cancel_all_tape_archive_jobs()
 
 
 
@@ -107,46 +133,58 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_instance.cancel_all_tape_archive_jobs()
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->cancel_all_tape_archive_jobs: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **check_tape**
-
-    def check_tape(tape_library_fsck_endpoint_request)
+> check_tape(tape_library_fsck_endpoint_request)
 
 
 
@@ -155,28 +193,32 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape_library_fsck_endpoint_request import TapeLibraryFsckEndpointRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    tape_library_fsck_endpoint_request = elements_sdk.TapeLibraryFsckEndpointRequest() # TapeLibraryFsckEndpointRequest | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    tape_library_fsck_endpoint_request = TapeLibraryFsckEndpointRequest(
+        barcode="barcode_example",
+    ) # TapeLibraryFsckEndpointRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.check_tape(tape_library_fsck_endpoint_request)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->check_tape: %s\n" % e)
 ```
 
@@ -185,20 +227,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tape_library_fsck_endpoint_request** | [**TapeLibraryFsckEndpointRequest**](TapeLibraryFsckEndpointRequest.md)|  | 
+ **tape_library_fsck_endpoint_request** | [**TapeLibraryFsckEndpointRequest**](TapeLibraryFsckEndpointRequest.md)|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **create_tape**
-
-    def create_tape(tape) -> Tape 
+> Tape create_tape(tape_update)
 
 
 
@@ -207,29 +260,47 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape import Tape
+from elements_sdk.model.tape_update import TapeUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    tape = elements_sdk.Tape() # Tape | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    tape_update = TapeUpdate(
+        name="name_example",
+        uuid="uuid_example",
+        generation=-2147483648,
+        custom_a="custom_a_example",
+        custom_b="custom_b_example",
+        custom_c="custom_c_example",
+        custom_d="custom_d_example",
+        free_space=-9223372036854776000,
+        load_counter=-9223372036854776000,
+        error_counter=-9223372036854776000,
+        error_reason="error_reason_example",
+        active=True,
+        lto="5",
+        group=1,
+    ) # TapeUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.create_tape(tape)
+        api_response = api_instance.create_tape(tape_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->create_tape: %s\n" % e)
 ```
 
@@ -238,20 +309,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tape** | [**Tape**](Tape.md)|  | 
+ **tape_update** | [**TapeUpdate**](TapeUpdate.md)|  |
 
 ### Return type
 
 [**Tape**](Tape.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **create_tape_group**
-
-    def create_tape_group(tape_group) -> TapeGroup 
+> TapeGroup create_tape_group(tape_group_update)
 
 
 
@@ -260,29 +342,39 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape_group_update import TapeGroupUpdate
+from elements_sdk.model.tape_group import TapeGroup
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    tape_group = elements_sdk.TapeGroup() # TapeGroup | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    tape_group_update = TapeGroupUpdate(
+        tapes=[
+            TapeReference(
+                id=1,
+            ),
+        ],
+        name="name_example",
+    ) # TapeGroupUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.create_tape_group(tape_group)
+        api_response = api_instance.create_tape_group(tape_group_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->create_tape_group: %s\n" % e)
 ```
 
@@ -291,20 +383,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tape_group** | [**TapeGroup**](TapeGroup.md)|  | 
+ **tape_group_update** | [**TapeGroupUpdate**](TapeGroupUpdate.md)|  |
 
 ### Return type
 
 [**TapeGroup**](TapeGroup.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_tape**
-
-    def delete_tape(id)
+> delete_tape(id)
 
 
 
@@ -313,28 +416,29 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 56 # int | A unique integer value identifying this tape.
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = 1 # int | A unique integer value identifying this tape.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.delete_tape(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->delete_tape: %s\n" % e)
 ```
 
@@ -343,20 +447,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this tape. | 
+ **id** | **int**| A unique integer value identifying this tape. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_tape_archive_job**
-
-    def delete_tape_archive_job(id)
+> delete_tape_archive_job(id)
 
 
 
@@ -365,28 +480,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 'id_example' # str | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = "0" # str | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.delete_tape_archive_job(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->delete_tape_archive_job: %s\n" % e)
 ```
 
@@ -395,20 +511,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
+ **id** | **str**|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_tape_group**
-
-    def delete_tape_group(id)
+> delete_tape_group(id)
 
 
 
@@ -417,28 +544,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 56 # int | A unique integer value identifying this tape group.
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = 1 # int | A unique integer value identifying this tape group.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.delete_tape_group(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->delete_tape_group: %s\n" % e)
 ```
 
@@ -447,20 +575,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this tape group. | 
+ **id** | **int**| A unique integer value identifying this tape group. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **format_tape**
-
-    def format_tape(tape_library_format_endpoint_request)
+> format_tape(tape_library_format_endpoint_request)
 
 
 
@@ -469,28 +608,32 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape_library_format_endpoint_request import TapeLibraryFormatEndpointRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    tape_library_format_endpoint_request = elements_sdk.TapeLibraryFormatEndpointRequest() # TapeLibraryFormatEndpointRequest | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    tape_library_format_endpoint_request = TapeLibraryFormatEndpointRequest(
+        barcode="barcode_example",
+    ) # TapeLibraryFormatEndpointRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.format_tape(tape_library_format_endpoint_request)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->format_tape: %s\n" % e)
 ```
 
@@ -499,20 +642,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tape_library_format_endpoint_request** | [**TapeLibraryFormatEndpointRequest**](TapeLibraryFormatEndpointRequest.md)|  | 
+ **tape_library_format_endpoint_request** | [**TapeLibraryFormatEndpointRequest**](TapeLibraryFormatEndpointRequest.md)|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_archived_file_entries**
-
-    def get_all_archived_file_entries(id=id, is_dir=is_dir, name=name, fullpath=fullpath, parent=parent, ordering=ordering, limit=limit, offset=offset) -> list[TapeFile] 
+> [TapeFile] get_all_archived_file_entries()
 
 
 
@@ -521,36 +675,39 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape_file import TapeFile
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 3.4 # float | Filter the returned list by `id`. (optional)
-is_dir = 'is_dir_example' # str | Filter the returned list by `is_dir`. (optional)
-name = 'name_example' # str | Filter the returned list by `name`. (optional)
-fullpath = 'fullpath_example' # str | Filter the returned list by `fullpath`. (optional)
-parent = 'parent_example' # str | Filter the returned list by `parent`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = 3.14 # float | Filter the returned list by `id`. (optional)
+    is_dir = "is_dir_example" # str | Filter the returned list by `is_dir`. (optional)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    fullpath = "fullpath_example" # str | Filter the returned list by `fullpath`. (optional)
+    parent = 3.14 # float | Filter the returned list by `parent`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_archived_file_entries(id=id, is_dir=is_dir, name=name, fullpath=fullpath, parent=parent, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->get_all_archived_file_entries: %s\n" % e)
 ```
 
@@ -559,27 +716,38 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Filter the returned list by &#x60;id&#x60;. | [optional] 
- **is_dir** | **str**| Filter the returned list by &#x60;is_dir&#x60;. | [optional] 
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional] 
- **fullpath** | **str**| Filter the returned list by &#x60;fullpath&#x60;. | [optional] 
- **parent** | **str**| Filter the returned list by &#x60;parent&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **id** | **float**| Filter the returned list by &#x60;id&#x60;. | [optional]
+ **is_dir** | **str**| Filter the returned list by &#x60;is_dir&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **fullpath** | **str**| Filter the returned list by &#x60;fullpath&#x60;. | [optional]
+ **parent** | **float**| Filter the returned list by &#x60;parent&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[TapeFile]**](TapeFile.md)
+[**[TapeFile]**](TapeFile.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_tape_archive_jobs**
-
-    def get_all_tape_archive_jobs(ordering=ordering, limit=limit, offset=offset) -> list[TapeJob] 
+> [TapeJob] get_all_tape_archive_jobs()
 
 
 
@@ -588,31 +756,34 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape_job import TapeJob
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_tape_archive_jobs(ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->get_all_tape_archive_jobs: %s\n" % e)
 ```
 
@@ -621,22 +792,33 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[TapeJob]**](TapeJob.md)
+[**[TapeJob]**](TapeJob.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_tape_groups**
-
-    def get_all_tape_groups(id=id, name=name, ordering=ordering, limit=limit, offset=offset) -> list[TapeGroup] 
+> [TapeGroup] get_all_tape_groups()
 
 
 
@@ -645,33 +827,36 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape_group import TapeGroup
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 3.4 # float | Filter the returned list by `id`. (optional)
-name = 'name_example' # str | Filter the returned list by `name`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = 3.14 # float | Filter the returned list by `id`. (optional)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_tape_groups(id=id, name=name, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->get_all_tape_groups: %s\n" % e)
 ```
 
@@ -680,24 +865,35 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Filter the returned list by &#x60;id&#x60;. | [optional] 
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **id** | **float**| Filter the returned list by &#x60;id&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[TapeGroup]**](TapeGroup.md)
+[**[TapeGroup]**](TapeGroup.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_tapes**
-
-    def get_all_tapes(id=id, name=name, group=group, group__isnull=group__isnull, ordering=ordering, limit=limit, offset=offset) -> list[Tape] 
+> [Tape] get_all_tapes()
 
 
 
@@ -706,35 +902,38 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape import Tape
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 3.4 # float | Filter the returned list by `id`. (optional)
-name = 'name_example' # str | Filter the returned list by `name`. (optional)
-group = 'group_example' # str | Filter the returned list by `group`. (optional)
-group__isnull = 'group__isnull_example' # str | Filter the returned list by `group__isnull`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = 3.14 # float | Filter the returned list by `id`. (optional)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    group = 3.14 # float | Filter the returned list by `group`. (optional)
+    group__isnull = "group__isnull_example" # str | Filter the returned list by `group__isnull`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_tapes(id=id, name=name, group=group, group__isnull=group__isnull, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->get_all_tapes: %s\n" % e)
 ```
 
@@ -743,26 +942,37 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Filter the returned list by &#x60;id&#x60;. | [optional] 
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional] 
- **group** | **str**| Filter the returned list by &#x60;group&#x60;. | [optional] 
- **group__isnull** | **str**| Filter the returned list by &#x60;group__isnull&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **id** | **float**| Filter the returned list by &#x60;id&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **group** | **float**| Filter the returned list by &#x60;group&#x60;. | [optional]
+ **group__isnull** | **str**| Filter the returned list by &#x60;group__isnull&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[Tape]**](Tape.md)
+[**[Tape]**](Tape.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_archived_file_entry**
-
-    def get_archived_file_entry(id) -> TapeFile 
+> TapeFile get_archived_file_entry(id)
 
 
 
@@ -771,29 +981,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape_file import TapeFile
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 56 # int | A unique integer value identifying this Archived file entry.
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = 1 # int | A unique integer value identifying this Archived file entry.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_archived_file_entry(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->get_archived_file_entry: %s\n" % e)
 ```
 
@@ -802,20 +1014,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Archived file entry. | 
+ **id** | **int**| A unique integer value identifying this Archived file entry. |
 
 ### Return type
 
 [**TapeFile**](TapeFile.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_tape**
-
-    def get_tape(id) -> Tape 
+> Tape get_tape(id)
 
 
 
@@ -824,29 +1047,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape import Tape
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 56 # int | A unique integer value identifying this tape.
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = 1 # int | A unique integer value identifying this tape.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_tape(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->get_tape: %s\n" % e)
 ```
 
@@ -855,20 +1080,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this tape. | 
+ **id** | **int**| A unique integer value identifying this tape. |
 
 ### Return type
 
 [**Tape**](Tape.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_tape_archive_job**
-
-    def get_tape_archive_job(id) -> TapeJob 
+> TapeJob get_tape_archive_job(id)
 
 
 
@@ -877,29 +1113,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape_job import TapeJob
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 'id_example' # str | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = "0" # str | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_tape_archive_job(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->get_tape_archive_job: %s\n" % e)
 ```
 
@@ -908,20 +1146,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
+ **id** | **str**|  |
 
 ### Return type
 
 [**TapeJob**](TapeJob.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_tape_archive_job_sources**
-
-    def get_tape_archive_job_sources(id) -> list[TapeJobSource] 
+> [TapeJobSource] get_tape_archive_job_sources(id)
 
 
 
@@ -930,29 +1179,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape_job_source import TapeJobSource
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 'id_example' # str | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = "0" # str | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_tape_archive_job_sources(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->get_tape_archive_job_sources: %s\n" % e)
 ```
 
@@ -961,20 +1212,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
+ **id** | **str**|  |
 
 ### Return type
 
-[**list[TapeJobSource]**](TapeJobSource.md)
+[**[TapeJobSource]**](TapeJobSource.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_tape_group**
-
-    def get_tape_group(id) -> TapeGroup 
+> TapeGroup get_tape_group(id)
 
 
 
@@ -983,29 +1245,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape_group import TapeGroup
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 56 # int | A unique integer value identifying this tape group.
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = 1 # int | A unique integer value identifying this tape group.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_tape_group(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->get_tape_group: %s\n" % e)
 ```
 
@@ -1014,20 +1278,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this tape group. | 
+ **id** | **int**| A unique integer value identifying this tape group. |
 
 ### Return type
 
 [**TapeGroup**](TapeGroup.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_tape_library_state**
-
-    def get_tape_library_state() -> TapeLibraryEndpointResponse 
+> TapeLibraryEndpointResponse get_tape_library_state()
 
 
 
@@ -1036,47 +1311,60 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape_library_endpoint_response import TapeLibraryEndpointResponse
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_response = api_instance.get_tape_library_state()
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->get_tape_library_state: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 [**TapeLibraryEndpointResponse**](TapeLibraryEndpointResponse.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **load_tape**
-
-    def load_tape(tape_library_load_endpoint_request)
+> load_tape(tape_library_load_endpoint_request)
 
 
 
@@ -1085,28 +1373,32 @@ This endpoint does not need any parameters.
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape_library_load_endpoint_request import TapeLibraryLoadEndpointRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    tape_library_load_endpoint_request = elements_sdk.TapeLibraryLoadEndpointRequest() # TapeLibraryLoadEndpointRequest | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    tape_library_load_endpoint_request = TapeLibraryLoadEndpointRequest(
+        barcode="barcode_example",
+    ) # TapeLibraryLoadEndpointRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.load_tape(tape_library_load_endpoint_request)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->load_tape: %s\n" % e)
 ```
 
@@ -1115,20 +1407,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tape_library_load_endpoint_request** | [**TapeLibraryLoadEndpointRequest**](TapeLibraryLoadEndpointRequest.md)|  | 
+ **tape_library_load_endpoint_request** | [**TapeLibraryLoadEndpointRequest**](TapeLibraryLoadEndpointRequest.md)|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **move_tape**
-
-    def move_tape(tape_library_move_endpoint_request)
+> move_tape(tape_library_move_endpoint_request)
 
 
 
@@ -1137,28 +1440,33 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape_library_move_endpoint_request import TapeLibraryMoveEndpointRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    tape_library_move_endpoint_request = elements_sdk.TapeLibraryMoveEndpointRequest() # TapeLibraryMoveEndpointRequest | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    tape_library_move_endpoint_request = TapeLibraryMoveEndpointRequest(
+        barcode="barcode_example",
+        slot=1,
+    ) # TapeLibraryMoveEndpointRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.move_tape(tape_library_move_endpoint_request)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->move_tape: %s\n" % e)
 ```
 
@@ -1167,20 +1475,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tape_library_move_endpoint_request** | [**TapeLibraryMoveEndpointRequest**](TapeLibraryMoveEndpointRequest.md)|  | 
+ **tape_library_move_endpoint_request** | [**TapeLibraryMoveEndpointRequest**](TapeLibraryMoveEndpointRequest.md)|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **patch_tape**
-
-    def patch_tape(id, tape_partial_update) -> Tape 
+> Tape patch_tape(id, tape_partial_update)
 
 
 
@@ -1189,30 +1508,48 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape import Tape
+from elements_sdk.model.tape_partial_update import TapePartialUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 56 # int | A unique integer value identifying this tape.
-tape_partial_update = elements_sdk.TapePartialUpdate() # TapePartialUpdate | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = 1 # int | A unique integer value identifying this tape.
+    tape_partial_update = TapePartialUpdate(
+        name="name_example",
+        uuid="uuid_example",
+        generation=-2147483648,
+        custom_a="custom_a_example",
+        custom_b="custom_b_example",
+        custom_c="custom_c_example",
+        custom_d="custom_d_example",
+        free_space=-9223372036854776000,
+        load_counter=-9223372036854776000,
+        error_counter=-9223372036854776000,
+        error_reason="error_reason_example",
+        active=True,
+        lto="5",
+        group=1,
+    ) # TapePartialUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.patch_tape(id, tape_partial_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->patch_tape: %s\n" % e)
 ```
 
@@ -1221,21 +1558,32 @@ tape_partial_update = elements_sdk.TapePartialUpdate() # TapePartialUpdate |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this tape. | 
- **tape_partial_update** | [**TapePartialUpdate**](TapePartialUpdate.md)|  | 
+ **id** | **int**| A unique integer value identifying this tape. |
+ **tape_partial_update** | [**TapePartialUpdate**](TapePartialUpdate.md)|  |
 
 ### Return type
 
 [**Tape**](Tape.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **patch_tape_group**
-
-    def patch_tape_group(id, tape_group_partial_update) -> TapeGroup 
+> TapeGroup patch_tape_group(id, tape_group_partial_update)
 
 
 
@@ -1244,30 +1592,40 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape_group import TapeGroup
+from elements_sdk.model.tape_group_partial_update import TapeGroupPartialUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 56 # int | A unique integer value identifying this tape group.
-tape_group_partial_update = elements_sdk.TapeGroupPartialUpdate() # TapeGroupPartialUpdate | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = 1 # int | A unique integer value identifying this tape group.
+    tape_group_partial_update = TapeGroupPartialUpdate(
+        tapes=[
+            TapeReference(
+                id=1,
+            ),
+        ],
+        name="name_example",
+    ) # TapeGroupPartialUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.patch_tape_group(id, tape_group_partial_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->patch_tape_group: %s\n" % e)
 ```
 
@@ -1276,21 +1634,32 @@ tape_group_partial_update = elements_sdk.TapeGroupPartialUpdate() # TapeGroupPar
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this tape group. | 
- **tape_group_partial_update** | [**TapeGroupPartialUpdate**](TapeGroupPartialUpdate.md)|  | 
+ **id** | **int**| A unique integer value identifying this tape group. |
+ **tape_group_partial_update** | [**TapeGroupPartialUpdate**](TapeGroupPartialUpdate.md)|  |
 
 ### Return type
 
 [**TapeGroup**](TapeGroup.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **pause_tape_archive_job**
-
-    def pause_tape_archive_job(id)
+> pause_tape_archive_job(id)
 
 
 
@@ -1299,28 +1668,29 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 'id_example' # str | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = "0" # str | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.pause_tape_archive_job(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->pause_tape_archive_job: %s\n" % e)
 ```
 
@@ -1329,20 +1699,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
+ **id** | **str**|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **refresh_tape_library_state**
-
-    def refresh_tape_library_state()
+> refresh_tape_library_state()
 
 
 
@@ -1351,46 +1732,58 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_instance.refresh_tape_library_state()
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->refresh_tape_library_state: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **reindex_tape**
-
-    def reindex_tape(tape_library_reindex_endpoint_request)
+> reindex_tape(tape_library_reindex_endpoint_request)
 
 
 
@@ -1399,28 +1792,32 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape_library_reindex_endpoint_request import TapeLibraryReindexEndpointRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    tape_library_reindex_endpoint_request = elements_sdk.TapeLibraryReindexEndpointRequest() # TapeLibraryReindexEndpointRequest | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    tape_library_reindex_endpoint_request = TapeLibraryReindexEndpointRequest(
+        barcode="barcode_example",
+    ) # TapeLibraryReindexEndpointRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.reindex_tape(tape_library_reindex_endpoint_request)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->reindex_tape: %s\n" % e)
 ```
 
@@ -1429,20 +1826,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tape_library_reindex_endpoint_request** | [**TapeLibraryReindexEndpointRequest**](TapeLibraryReindexEndpointRequest.md)|  | 
+ **tape_library_reindex_endpoint_request** | [**TapeLibraryReindexEndpointRequest**](TapeLibraryReindexEndpointRequest.md)|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **remove_finished_tape_archive_jobs**
-
-    def remove_finished_tape_archive_jobs()
+> remove_finished_tape_archive_jobs()
 
 
 
@@ -1451,46 +1859,58 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_instance.remove_finished_tape_archive_jobs()
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->remove_finished_tape_archive_jobs: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **restart_tape_archive_job**
-
-    def restart_tape_archive_job(id)
+> restart_tape_archive_job(id)
 
 
 
@@ -1499,28 +1919,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 'id_example' # str | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = "0" # str | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.restart_tape_archive_job(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->restart_tape_archive_job: %s\n" % e)
 ```
 
@@ -1529,20 +1950,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
+ **id** | **str**|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **restore_from_tape**
-
-    def restore_from_tape(restore_endpoint_request) -> TapeJob 
+> TapeJob restore_from_tape(restore_endpoint_request)
 
 
 
@@ -1551,29 +1983,49 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.restore_endpoint_request import RestoreEndpointRequest
+from elements_sdk.model.tape_job import TapeJob
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    restore_endpoint_request = elements_sdk.RestoreEndpointRequest() # RestoreEndpointRequest | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    restore_endpoint_request = RestoreEndpointRequest(
+        name="name_example",
+        source=[
+            TapeJobSource(
+                path="path_example",
+                options={
+                    "key": "key_example",
+                },
+                include="include_example",
+            ),
+        ],
+        exclude=[
+            "exclude_example",
+        ],
+        tape="tape_example",
+        export=True,
+        start_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
+    ) # RestoreEndpointRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.restore_from_tape(restore_endpoint_request)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->restore_from_tape: %s\n" % e)
 ```
 
@@ -1582,20 +2034,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **restore_endpoint_request** | [**RestoreEndpointRequest**](RestoreEndpointRequest.md)|  | 
+ **restore_endpoint_request** | [**RestoreEndpointRequest**](RestoreEndpointRequest.md)|  |
 
 ### Return type
 
 [**TapeJob**](TapeJob.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **resume_tape_archive_job**
-
-    def resume_tape_archive_job(id)
+> resume_tape_archive_job(id)
 
 
 
@@ -1604,28 +2067,29 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 'id_example' # str | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = "0" # str | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.resume_tape_archive_job(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->resume_tape_archive_job: %s\n" % e)
 ```
 
@@ -1634,20 +2098,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
+ **id** | **str**|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **search_tape_archive**
-
-    def search_tape_archive(search_endpoint_request) -> SearchEndpointResponse 
+> SearchEndpointResponse search_tape_archive(search_endpoint_request)
 
 
 
@@ -1656,29 +2131,40 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.search_endpoint_request import SearchEndpointRequest
+from elements_sdk.model.search_endpoint_response import SearchEndpointResponse
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    search_endpoint_request = elements_sdk.SearchEndpointRequest() # SearchEndpointRequest | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    search_endpoint_request = SearchEndpointRequest(
+        query="query_example",
+        exclude="exclude_example",
+        offset=1,
+        limit=1,
+        dirs_only=True,
+        names_only=True,
+        tapes=True,
+    ) # SearchEndpointRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.search_tape_archive(search_endpoint_request)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->search_tape_archive: %s\n" % e)
 ```
 
@@ -1687,20 +2173,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **search_endpoint_request** | [**SearchEndpointRequest**](SearchEndpointRequest.md)|  | 
+ **search_endpoint_request** | [**SearchEndpointRequest**](SearchEndpointRequest.md)|  |
 
 ### Return type
 
 [**SearchEndpointResponse**](SearchEndpointResponse.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **unload_tape**
-
-    def unload_tape(tape_library_unload_endpoint_request)
+> unload_tape(tape_library_unload_endpoint_request)
 
 
 
@@ -1709,28 +2206,32 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape_library_unload_endpoint_request import TapeLibraryUnloadEndpointRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    tape_library_unload_endpoint_request = elements_sdk.TapeLibraryUnloadEndpointRequest() # TapeLibraryUnloadEndpointRequest | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    tape_library_unload_endpoint_request = TapeLibraryUnloadEndpointRequest(
+        barcode="barcode_example",
+    ) # TapeLibraryUnloadEndpointRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.unload_tape(tape_library_unload_endpoint_request)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->unload_tape: %s\n" % e)
 ```
 
@@ -1739,20 +2240,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tape_library_unload_endpoint_request** | [**TapeLibraryUnloadEndpointRequest**](TapeLibraryUnloadEndpointRequest.md)|  | 
+ **tape_library_unload_endpoint_request** | [**TapeLibraryUnloadEndpointRequest**](TapeLibraryUnloadEndpointRequest.md)|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **update_tape**
-
-    def update_tape(id, tape) -> Tape 
+> Tape update_tape(id, tape_update)
 
 
 
@@ -1761,30 +2273,48 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape import Tape
+from elements_sdk.model.tape_update import TapeUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 56 # int | A unique integer value identifying this tape.
-tape = elements_sdk.Tape() # Tape | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = 1 # int | A unique integer value identifying this tape.
+    tape_update = TapeUpdate(
+        name="name_example",
+        uuid="uuid_example",
+        generation=-2147483648,
+        custom_a="custom_a_example",
+        custom_b="custom_b_example",
+        custom_c="custom_c_example",
+        custom_d="custom_d_example",
+        free_space=-9223372036854776000,
+        load_counter=-9223372036854776000,
+        error_counter=-9223372036854776000,
+        error_reason="error_reason_example",
+        active=True,
+        lto="5",
+        group=1,
+    ) # TapeUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.update_tape(id, tape)
+        api_response = api_instance.update_tape(id, tape_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->update_tape: %s\n" % e)
 ```
 
@@ -1793,21 +2323,32 @@ tape = elements_sdk.Tape() # Tape |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this tape. | 
- **tape** | [**Tape**](Tape.md)|  | 
+ **id** | **int**| A unique integer value identifying this tape. |
+ **tape_update** | [**TapeUpdate**](TapeUpdate.md)|  |
 
 ### Return type
 
 [**Tape**](Tape.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **update_tape_group**
-
-    def update_tape_group(id, tape_group) -> TapeGroup 
+> TapeGroup update_tape_group(id, tape_group_update)
 
 
 
@@ -1816,30 +2357,40 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import tape_archive_api
+from elements_sdk.model.tape_group_update import TapeGroupUpdate
+from elements_sdk.model.tape_group import TapeGroup
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.TapeArchiveApi(api_client)
-    id = 56 # int | A unique integer value identifying this tape group.
-tape_group = elements_sdk.TapeGroup() # TapeGroup | 
+    api_instance = tape_archive_api.TapeArchiveApi(api_client)
+    id = 1 # int | A unique integer value identifying this tape group.
+    tape_group_update = TapeGroupUpdate(
+        tapes=[
+            TapeReference(
+                id=1,
+            ),
+        ],
+        name="name_example",
+    ) # TapeGroupUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.update_tape_group(id, tape_group)
+        api_response = api_instance.update_tape_group(id, tape_group_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling TapeArchiveApi->update_tape_group: %s\n" % e)
 ```
 
@@ -1848,12 +2399,27 @@ tape_group = elements_sdk.TapeGroup() # TapeGroup |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this tape group. | 
- **tape_group** | [**TapeGroup**](TapeGroup.md)|  | 
+ **id** | **int**| A unique integer value identifying this tape group. |
+ **tape_group_update** | [**TapeGroupUpdate**](TapeGroupUpdate.md)|  |
 
 ### Return type
 
 [**TapeGroup**](TapeGroup.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 

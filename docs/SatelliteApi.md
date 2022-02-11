@@ -1,7 +1,7 @@
 # elements_sdk.SatelliteApi
 
 All URIs are relative to *https://elements.local*
->
+
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**activate_satellite_host**](SatelliteApi.md#activate_satellite_host) | **POST** `/api/2/rdc/hosts/{id}/activate` | 
@@ -14,12 +14,8 @@ Method | HTTP request | Description
 [**get_satellite_session**](SatelliteApi.md#get_satellite_session) | **GET** `/api/2/rdc/sessions/{id}` | 
 
 
-
-***
-
 # **activate_satellite_host**
-
-    def activate_satellite_host(id) -> RDCActivation 
+> RDCActivation activate_satellite_host(id)
 
 
 
@@ -28,29 +24,31 @@ Method | HTTP request | Description
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import satellite_api
+from elements_sdk.model.rdc_activation import RDCActivation
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.SatelliteApi(api_client)
-    id = 56 # int | A unique integer value identifying this Satellite host.
+    api_instance = satellite_api.SatelliteApi(api_client)
+    id = 1 # int | A unique integer value identifying this Satellite host.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.activate_satellite_host(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling SatelliteApi->activate_satellite_host: %s\n" % e)
 ```
 
@@ -59,67 +57,91 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Satellite host. | 
+ **id** | **int**| A unique integer value identifying this Satellite host. |
 
 ### Return type
 
 [**RDCActivation**](RDCActivation.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **announce_satellite_host**
-
-    def announce_satellite_host() -> RDCHost 
+> RDCHost announce_satellite_host()
 
 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import satellite_api
+from elements_sdk.model.rdc_host import RDCHost
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.SatelliteApi(api_client)
-    
+    api_instance = satellite_api.SatelliteApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_response = api_instance.announce_satellite_host()
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling SatelliteApi->announce_satellite_host: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 [**RDCHost**](RDCHost.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **create_satellite_session**
-
-    def create_satellite_session(rdc_session_create) -> RDCSession 
+> RDCSession create_satellite_session(rdc_session_create)
 
 
 
@@ -128,29 +150,37 @@ This endpoint does not need any parameters.
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import satellite_api
+from elements_sdk.model.rdc_session import RDCSession
+from elements_sdk.model.rdc_session_create import RDCSessionCreate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.SatelliteApi(api_client)
-    rdc_session_create = elements_sdk.RDCSessionCreate() # RDCSessionCreate | 
+    api_instance = satellite_api.SatelliteApi(api_client)
+    rdc_session_create = RDCSessionCreate(
+        id=1,
+        user=ElementsUserMiniReference(
+            id=1,
+        ),
+    ) # RDCSessionCreate | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.create_satellite_session(rdc_session_create)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling SatelliteApi->create_satellite_session: %s\n" % e)
 ```
 
@@ -159,20 +189,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rdc_session_create** | [**RDCSessionCreate**](RDCSessionCreate.md)|  | 
+ **rdc_session_create** | [**RDCSessionCreate**](RDCSessionCreate.md)|  |
 
 ### Return type
 
 [**RDCSession**](RDCSession.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_satellite_session**
-
-    def delete_satellite_session(id)
+> delete_satellite_session(id)
 
 
 
@@ -181,28 +222,29 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import satellite_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.SatelliteApi(api_client)
-    id = 56 # int | A unique integer value identifying this Satellite session.
+    api_instance = satellite_api.SatelliteApi(api_client)
+    id = 1 # int | A unique integer value identifying this Satellite session.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.delete_satellite_session(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling SatelliteApi->delete_satellite_session: %s\n" % e)
 ```
 
@@ -211,20 +253,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Satellite session. | 
+ **id** | **int**| A unique integer value identifying this Satellite session. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_satellite_hosts**
-
-    def get_all_satellite_hosts(ordering=ordering, limit=limit, offset=offset) -> list[RDCHost] 
+> [RDCHost] get_all_satellite_hosts()
 
 
 
@@ -233,31 +286,34 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import satellite_api
+from elements_sdk.model.rdc_host import RDCHost
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.SatelliteApi(api_client)
-    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = satellite_api.SatelliteApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_satellite_hosts(ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling SatelliteApi->get_all_satellite_hosts: %s\n" % e)
 ```
 
@@ -266,22 +322,33 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[RDCHost]**](RDCHost.md)
+[**[RDCHost]**](RDCHost.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_satellite_sessions**
-
-    def get_all_satellite_sessions(ordering=ordering, limit=limit, offset=offset) -> list[RDCSession] 
+> [RDCSession] get_all_satellite_sessions()
 
 
 
@@ -290,31 +357,34 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import satellite_api
+from elements_sdk.model.rdc_session import RDCSession
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.SatelliteApi(api_client)
-    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = satellite_api.SatelliteApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_satellite_sessions(ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling SatelliteApi->get_all_satellite_sessions: %s\n" % e)
 ```
 
@@ -323,22 +393,33 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[RDCSession]**](RDCSession.md)
+[**[RDCSession]**](RDCSession.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_satellite_host**
-
-    def get_satellite_host(id) -> RDCHost 
+> RDCHost get_satellite_host(id)
 
 
 
@@ -347,29 +428,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import satellite_api
+from elements_sdk.model.rdc_host import RDCHost
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.SatelliteApi(api_client)
-    id = 56 # int | A unique integer value identifying this Satellite host.
+    api_instance = satellite_api.SatelliteApi(api_client)
+    id = 1 # int | A unique integer value identifying this Satellite host.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_satellite_host(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling SatelliteApi->get_satellite_host: %s\n" % e)
 ```
 
@@ -378,20 +461,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Satellite host. | 
+ **id** | **int**| A unique integer value identifying this Satellite host. |
 
 ### Return type
 
 [**RDCHost**](RDCHost.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_satellite_session**
-
-    def get_satellite_session(id) -> RDCSession 
+> RDCSession get_satellite_session(id)
 
 
 
@@ -400,29 +494,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import satellite_api
+from elements_sdk.model.rdc_session import RDCSession
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.SatelliteApi(api_client)
-    id = 56 # int | A unique integer value identifying this Satellite session.
+    api_instance = satellite_api.SatelliteApi(api_client)
+    id = 1 # int | A unique integer value identifying this Satellite session.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_satellite_session(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling SatelliteApi->get_satellite_session: %s\n" % e)
 ```
 
@@ -431,11 +527,26 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Satellite session. | 
+ **id** | **int**| A unique integer value identifying this Satellite session. |
 
 ### Return type
 
 [**RDCSession**](RDCSession.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 

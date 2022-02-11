@@ -1,10 +1,11 @@
 # elements_sdk.AIApi
 
 All URIs are relative to *https://elements.local*
->
+
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**abort_ai_dataset_model_creation**](AIApi.md#abort_ai_dataset_model_creation) | **POST** `/api/2/ai/models/{id}/abort` | 
+[**activate_ai_model**](AIApi.md#activate_ai_model) | **POST** `/api/2/ai/models/{id}/activate` | 
 [**create_ai_annotation_track**](AIApi.md#create_ai_annotation_track) | **POST** `/api/2/ai/annotations/tracks/create` | 
 [**create_ai_category**](AIApi.md#create_ai_category) | **POST** `/api/2/ai/categories` | 
 [**create_ai_dataset**](AIApi.md#create_ai_dataset) | **POST** `/api/2/ai/datasets` | 
@@ -16,12 +17,13 @@ Method | HTTP request | Description
 [**delete_ai_category**](AIApi.md#delete_ai_category) | **DELETE** `/api/2/ai/categories/{id}` | 
 [**delete_ai_dataset**](AIApi.md#delete_ai_dataset) | **DELETE** `/api/2/ai/datasets/{id}` | 
 [**delete_ai_model**](AIApi.md#delete_ai_model) | **DELETE** `/api/2/ai/models/{id}` | 
+[**export_ai_dataset**](AIApi.md#export_ai_dataset) | **POST** `/api/2/ai/datasets/{id}/export` | 
+[**export_ai_model**](AIApi.md#export_ai_model) | **POST** `/api/2/ai/models/{id}/export` | 
 [**get_ai_annotation**](AIApi.md#get_ai_annotation) | **GET** `/api/2/ai/annotations/{id}` | 
 [**get_ai_annotation_image**](AIApi.md#get_ai_annotation_image) | **GET** `/api/2/ai/annotations/{id}/image` | 
 [**get_ai_category**](AIApi.md#get_ai_category) | **GET** `/api/2/ai/categories/{id}` | 
 [**get_ai_connection**](AIApi.md#get_ai_connection) | **GET** `/api/2/ai/connections/{id}` | 
 [**get_ai_dataset**](AIApi.md#get_ai_dataset) | **GET** `/api/2/ai/datasets/{id}` | 
-[**get_ai_dataset_model_stats**](AIApi.md#get_ai_dataset_model_stats) | **GET** `/api/2/ai/models/{id}/stats` | 
 [**get_ai_image**](AIApi.md#get_ai_image) | **GET** `/api/2/ai/images/{id}` | 
 [**get_ai_image_content**](AIApi.md#get_ai_image_content) | **GET** `/api/2/ai/images/{id}/content` | 
 [**get_ai_metadata**](AIApi.md#get_ai_metadata) | **GET** `/api/2/ai/metadata/{id}` | 
@@ -34,51 +36,53 @@ Method | HTTP request | Description
 [**get_all_ai_images**](AIApi.md#get_all_ai_images) | **GET** `/api/2/ai/images` | 
 [**get_all_ai_metadata**](AIApi.md#get_all_ai_metadata) | **GET** `/api/2/ai/metadata` | 
 [**get_all_ai_models**](AIApi.md#get_all_ai_models) | **GET** `/api/2/ai/models` | 
+[**import_ai_datasets**](AIApi.md#import_ai_datasets) | **POST** `/api/2/ai/datasets/import` | 
+[**import_ai_models**](AIApi.md#import_ai_models) | **POST** `/api/2/ai/datasets/{id}/import-models` | 
+[**patch_ai_annotation**](AIApi.md#patch_ai_annotation) | **PATCH** `/api/2/ai/annotations/{id}` | 
 [**patch_ai_category**](AIApi.md#patch_ai_category) | **PATCH** `/api/2/ai/categories/{id}` | 
 [**patch_ai_dataset**](AIApi.md#patch_ai_dataset) | **PATCH** `/api/2/ai/datasets/{id}` | 
 [**patch_ai_model**](AIApi.md#patch_ai_model) | **PATCH** `/api/2/ai/models/{id}` | 
+[**run_ai_model_inference**](AIApi.md#run_ai_model_inference) | **POST** `/api/2/ai/models/{id}/inference` | 
+[**update_ai_annotation**](AIApi.md#update_ai_annotation) | **PUT** `/api/2/ai/annotations/{id}` | 
 [**update_ai_category**](AIApi.md#update_ai_category) | **PUT** `/api/2/ai/categories/{id}` | 
 [**update_ai_dataset**](AIApi.md#update_ai_dataset) | **PUT** `/api/2/ai/datasets/{id}` | 
 [**update_ai_model**](AIApi.md#update_ai_model) | **PUT** `/api/2/ai/models/{id}` | 
+[**upload_ai_image**](AIApi.md#upload_ai_image) | **POST** `/api/2/ai/images/upload` | 
 
-
-
-***
 
 # **abort_ai_dataset_model_creation**
-
-    def abort_ai_dataset_model_creation(id) -> object 
-
+> abort_ai_dataset_model_creation(id)
 
 
-### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Model.
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Model.
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.abort_ai_dataset_model_creation(id)
-        pprint(api_response)
-    except ApiException as e:
+        api_instance.abort_ai_dataset_model_creation(id)
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->abort_ai_dataset_model_creation: %s\n" % e)
 ```
 
@@ -87,51 +91,137 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Model. | 
+ **id** | **str**| A UUID string identifying this AI Model. |
 
 ### Return type
 
-**object**
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
-# **create_ai_annotation_track**
-
-    def create_ai_annotation_track(data) -> list[AIAnnotation] 
+# **activate_ai_model**
+> activate_ai_model(id)
 
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    data = elements_sdk.AIAnnotationCreateRequest() # AIAnnotationCreateRequest | 
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Model.
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.create_ai_annotation_track(data)
+        api_instance.activate_ai_model(id)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling AIApi->activate_ai_model: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| A UUID string identifying this AI Model. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **create_ai_annotation_track**
+> [AIAnnotation] create_ai_annotation_track(ai_annotation_create_request)
+
+
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_annotation import AIAnnotation
+from elements_sdk.model.ai_annotation_create_request import AIAnnotationCreateRequest
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ai_api.AIApi(api_client)
+    ai_annotation_create_request = AIAnnotationCreateRequest(
+        proxy=1,
+        category="category_example",
+        frame=1,
+        relative_left=3.14,
+        relative_top=3.14,
+        relative_width=3.14,
+        relative_height=3.14,
+    ) # AIAnnotationCreateRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.create_ai_annotation_track(ai_annotation_create_request)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->create_ai_annotation_track: %s\n" % e)
 ```
 
@@ -140,51 +230,110 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**AIAnnotationCreateRequest**](AIAnnotationCreateRequest.md)|  | 
+ **ai_annotation_create_request** | [**AIAnnotationCreateRequest**](AIAnnotationCreateRequest.md)|  |
 
 ### Return type
 
-[**list[AIAnnotation]**](AIAnnotation.md)
+[**[AIAnnotation]**](AIAnnotation.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **create_ai_category**
-
-    def create_ai_category(data) -> AICategoryDetail 
-
+> AICategoryDetail create_ai_category(ai_category_detail_update)
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_category_detail import AICategoryDetail
+from elements_sdk.model.ai_category_detail_update import AICategoryDetailUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    data = elements_sdk.AICategoryDetail() # AICategoryDetail | 
+    api_instance = ai_api.AIApi(api_client)
+    ai_category_detail_update = AICategoryDetailUpdate(
+        dataset=AIDatasetDetailReference(
+            id="id_example",
+            training_model=AIModel(
+                id="id_example",
+                progress=AIModelProgress(
+                    status={
+                        "key": "key_example",
+                    },
+                    eta=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                ),
+                dataset=AIDatasetReference(
+                    id="id_example",
+                ),
+                parameters={
+                    "key": "key_example",
+                },
+                name="name_example",
+                training_task_id="training_task_id_example",
+                threshold=3.14,
+                epoch=-2147483648,
+                preprocessing_task="preprocessing_task_example",
+            ),
+            last_finished_model=AIModel(
+                id="id_example",
+                progress=AIModelProgress(
+                    status={
+                        "key": "key_example",
+                    },
+                    eta=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                ),
+                dataset=AIDatasetReference(
+                    id="id_example",
+                ),
+                parameters={
+                    "key": "key_example",
+                },
+                name="name_example",
+                training_task_id="training_task_id_example",
+                threshold=3.14,
+                epoch=-2147483648,
+                preprocessing_task="preprocessing_task_example",
+            ),
+        ),
+        name="name_example",
+    ) # AICategoryDetailUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.create_ai_category(data)
+        api_response = api_instance.create_ai_category(ai_category_detail_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->create_ai_category: %s\n" % e)
 ```
 
@@ -193,51 +342,69 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**AICategoryDetail**](AICategoryDetail.md)|  | 
+ **ai_category_detail_update** | [**AICategoryDetailUpdate**](AICategoryDetailUpdate.md)|  |
 
 ### Return type
 
 [**AICategoryDetail**](AICategoryDetail.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **create_ai_dataset**
-
-    def create_ai_dataset(data) -> AIDatasetWithPreview 
-
+> AIDatasetWithPreview create_ai_dataset(ai_dataset_with_preview_update)
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_dataset_with_preview import AIDatasetWithPreview
+from elements_sdk.model.ai_dataset_with_preview_update import AIDatasetWithPreviewUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    data = elements_sdk.AIDatasetWithPreview() # AIDatasetWithPreview | 
+    api_instance = ai_api.AIApi(api_client)
+    ai_dataset_with_preview_update = AIDatasetWithPreviewUpdate(
+        name="name_example",
+        type="normal",
+        connection=1,
+    ) # AIDatasetWithPreviewUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.create_ai_dataset(data)
+        api_response = api_instance.create_ai_dataset(ai_dataset_with_preview_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->create_ai_dataset: %s\n" % e)
 ```
 
@@ -246,51 +413,75 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**AIDatasetWithPreview**](AIDatasetWithPreview.md)|  | 
+ **ai_dataset_with_preview_update** | [**AIDatasetWithPreviewUpdate**](AIDatasetWithPreviewUpdate.md)|  |
 
 ### Return type
 
 [**AIDatasetWithPreview**](AIDatasetWithPreview.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **create_ai_dataset_model**
-
-    def create_ai_dataset_model(data) -> AIModel 
-
+> AIModel create_ai_dataset_model(ai_model_training_request)
 
 
-### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_model import AIModel
+from elements_sdk.model.ai_model_training_request import AIModelTrainingRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    data = elements_sdk.AIModel() # AIModel | 
+    api_instance = ai_api.AIApi(api_client)
+    ai_model_training_request = AIModelTrainingRequest(
+        name="name_example",
+        dataset="dataset_example",
+        categories=[
+            "categories_example",
+        ],
+        continue_from="continue_from_example",
+        parameters={
+            "key": "key_example",
+        },
+    ) # AIModelTrainingRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.create_ai_dataset_model(data)
+        api_response = api_instance.create_ai_dataset_model(ai_model_training_request)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->create_ai_dataset_model: %s\n" % e)
 ```
 
@@ -299,51 +490,74 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**AIModel**](AIModel.md)|  | 
+ **ai_model_training_request** | [**AIModelTrainingRequest**](AIModelTrainingRequest.md)|  |
 
 ### Return type
 
 [**AIModel**](AIModel.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **create_ai_metadata**
-
-    def create_ai_metadata(data) -> object 
-
+> create_ai_metadata(ai_processing_request)
 
 
-### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+
+### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_processing_request import AIProcessingRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    data = elements_sdk.AIProcessingRequest() # AIProcessingRequest | 
+    api_instance = ai_api.AIApi(api_client)
+    ai_processing_request = AIProcessingRequest(
+        assets=[
+            1,
+        ],
+        directories=[
+            1,
+        ],
+        datasets=[
+            "datasets_example",
+        ],
+        preferred_proxy_profile=1,
+    ) # AIProcessingRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.create_ai_metadata(data)
-        pprint(api_response)
-    except ApiException as e:
+        api_instance.create_ai_metadata(ai_processing_request)
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->create_ai_metadata: %s\n" % e)
 ```
 
@@ -352,51 +566,77 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**AIProcessingRequest**](AIProcessingRequest.md)|  | 
+ **ai_processing_request** | [**AIProcessingRequest**](AIProcessingRequest.md)|  |
 
 ### Return type
 
-**object**
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **create_ai_model**
-
-    def create_ai_model(data) -> AIModel 
-
+> AIModel create_ai_model(ai_model_update)
 
 
-### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_model import AIModel
+from elements_sdk.model.ai_model_update import AIModelUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    data = elements_sdk.AIModel() # AIModel | 
+    api_instance = ai_api.AIApi(api_client)
+    ai_model_update = AIModelUpdate(
+        dataset=AIDatasetReference(
+            id="id_example",
+        ),
+        parameters={
+            "key": "key_example",
+        },
+        name="name_example",
+        training_task_id="training_task_id_example",
+        threshold=3.14,
+        epoch=-2147483648,
+        preprocessing_task="preprocessing_task_example",
+    ) # AIModelUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.create_ai_model(data)
+        api_response = api_instance.create_ai_model(ai_model_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->create_ai_model: %s\n" % e)
 ```
 
@@ -405,51 +645,62 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**AIModel**](AIModel.md)|  | 
+ **ai_model_update** | [**AIModelUpdate**](AIModelUpdate.md)|  |
 
 ### Return type
 
 [**AIModel**](AIModel.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_ai_annotation**
-
-    def delete_ai_annotation(id) -> object 
-
+> delete_ai_annotation(id)
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Annotation.
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Annotation.
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.delete_ai_annotation(id)
-        pprint(api_response)
-    except ApiException as e:
+        api_instance.delete_ai_annotation(id)
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->delete_ai_annotation: %s\n" % e)
 ```
 
@@ -458,51 +709,62 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Annotation. | 
+ **id** | **str**| A UUID string identifying this AI Annotation. |
 
 ### Return type
 
-**object**
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_ai_annotation_track**
-
-    def delete_ai_annotation_track(id) -> object 
-
+> delete_ai_annotation_track(id)
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Annotation.
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Annotation.
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.delete_ai_annotation_track(id)
-        pprint(api_response)
-    except ApiException as e:
+        api_instance.delete_ai_annotation_track(id)
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->delete_ai_annotation_track: %s\n" % e)
 ```
 
@@ -511,51 +773,62 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Annotation. | 
+ **id** | **str**| A UUID string identifying this AI Annotation. |
 
 ### Return type
 
-**object**
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_ai_category**
-
-    def delete_ai_category(id) -> object 
-
+> delete_ai_category(id)
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Category.
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Category.
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.delete_ai_category(id)
-        pprint(api_response)
-    except ApiException as e:
+        api_instance.delete_ai_category(id)
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->delete_ai_category: %s\n" % e)
 ```
 
@@ -564,51 +837,62 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Category. | 
+ **id** | **str**| A UUID string identifying this AI Category. |
 
 ### Return type
 
-**object**
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_ai_dataset**
-
-    def delete_ai_dataset(id) -> object 
-
+> delete_ai_dataset(id)
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Dataset.
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Dataset.
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.delete_ai_dataset(id)
-        pprint(api_response)
-    except ApiException as e:
+        api_instance.delete_ai_dataset(id)
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->delete_ai_dataset: %s\n" % e)
 ```
 
@@ -617,51 +901,62 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Dataset. | 
+ **id** | **str**| A UUID string identifying this AI Dataset. |
 
 ### Return type
 
-**object**
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_ai_model**
-
-    def delete_ai_model(id) -> object 
-
+> delete_ai_model(id)
 
 
-### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Model.
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Model.
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.delete_ai_model(id)
-        pprint(api_response)
-    except ApiException as e:
+        api_instance.delete_ai_model(id)
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->delete_ai_model: %s\n" % e)
 ```
 
@@ -670,51 +965,215 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Model. | 
+ **id** | **str**| A UUID string identifying this AI Model. |
 
 ### Return type
 
-**object**
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
-# **get_ai_annotation**
-
-    def get_ai_annotation(id) -> AIAnnotation 
+# **export_ai_dataset**
+> AIDatasetExportResponse export_ai_dataset(id, ai_dataset_export_request)
 
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_dataset_export_response import AIDatasetExportResponse
+from elements_sdk.model.ai_dataset_export_request import AIDatasetExportRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Annotation.
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Dataset.
+    ai_dataset_export_request = AIDatasetExportRequest(
+        path="path_example",
+    ) # AIDatasetExportRequest | 
 
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.export_ai_dataset(id, ai_dataset_export_request)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling AIApi->export_ai_dataset: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| A UUID string identifying this AI Dataset. |
+ **ai_dataset_export_request** | [**AIDatasetExportRequest**](AIDatasetExportRequest.md)|  |
+
+### Return type
+
+[**AIDatasetExportResponse**](AIDatasetExportResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **export_ai_model**
+> AIModelExportResponse export_ai_model(id, ai_model_export_request)
+
+
+
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write) 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_model_export_response import AIModelExportResponse
+from elements_sdk.model.ai_model_export_request import AIModelExportRequest
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Model.
+    ai_model_export_request = AIModelExportRequest(
+        path="path_example",
+    ) # AIModelExportRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.export_ai_model(id, ai_model_export_request)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling AIApi->export_ai_model: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| A UUID string identifying this AI Model. |
+ **ai_model_export_request** | [**AIModelExportRequest**](AIModelExportRequest.md)|  |
+
+### Return type
+
+[**AIModelExportResponse**](AIModelExportResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **get_ai_annotation**
+> AIAnnotation get_ai_annotation(id)
+
+
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_annotation import AIAnnotation
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Annotation.
+    include_transforms_for_asset = 1 # int |  (optional)
+
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_ai_annotation(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
+        print("Exception when calling AIApi->get_ai_annotation: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.get_ai_annotation(id, include_transforms_for_asset=include_transforms_for_asset)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->get_ai_annotation: %s\n" % e)
 ```
 
@@ -723,51 +1182,63 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Annotation. | 
+ **id** | **str**| A UUID string identifying this AI Annotation. |
+ **include_transforms_for_asset** | **int**|  | [optional]
 
 ### Return type
 
 [**AIAnnotation**](AIAnnotation.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_ai_annotation_image**
-
-    def get_ai_annotation_image(id) -> object 
-
+> get_ai_annotation_image(id)
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Annotation.
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Annotation.
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.get_ai_annotation_image(id)
-        pprint(api_response)
-    except ApiException as e:
+        api_instance.get_ai_annotation_image(id)
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->get_ai_annotation_image: %s\n" % e)
 ```
 
@@ -776,51 +1247,64 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Annotation. | 
+ **id** | **str**| A UUID string identifying this AI Annotation. |
 
 ### Return type
 
-**object**
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_ai_category**
-
-    def get_ai_category(id) -> AICategoryDetail 
-
+> AICategoryDetail get_ai_category(id)
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_category_detail import AICategoryDetail
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Category.
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Category.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_ai_category(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->get_ai_category: %s\n" % e)
 ```
 
@@ -829,20 +1313,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Category. | 
+ **id** | **str**| A UUID string identifying this AI Category. |
 
 ### Return type
 
 [**AICategoryDetail**](AICategoryDetail.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_ai_connection**
-
-    def get_ai_connection(id) -> AIConnection 
+> AIConnection get_ai_connection(id)
 
 
 
@@ -851,29 +1346,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_connection import AIConnection
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 56 # int | A unique integer value identifying this AI Connection.
+    api_instance = ai_api.AIApi(api_client)
+    id = 1 # int | A unique integer value identifying this AI Connection.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_ai_connection(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->get_ai_connection: %s\n" % e)
 ```
 
@@ -882,51 +1379,64 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this AI Connection. | 
+ **id** | **int**| A unique integer value identifying this AI Connection. |
 
 ### Return type
 
 [**AIConnection**](AIConnection.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_ai_dataset**
-
-    def get_ai_dataset(id) -> AIDatasetWithPreview 
-
+> AIDatasetWithPreview get_ai_dataset(id)
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_dataset_with_preview import AIDatasetWithPreview
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Dataset.
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Dataset.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_ai_dataset(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->get_ai_dataset: %s\n" % e)
 ```
 
@@ -935,104 +1445,64 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Dataset. | 
+ **id** | **str**| A UUID string identifying this AI Dataset. |
 
 ### Return type
 
 [**AIDatasetWithPreview**](AIDatasetWithPreview.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
-***
-
-# **get_ai_dataset_model_stats**
-
-    def get_ai_dataset_model_stats(id) -> AIModelStats 
-
-
-
-### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
-
-### Example
-
-* Api Key Authentication (Bearer):
-
-```python
-import elements_sdk
-from elements_sdk.rest import ApiException
-from pprint import pprint
-
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-configuration.host = "https://elements.local"
-
-# Enter a context with an instance of the API client
-with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Model.
-
-    try:
-        api_response = api_instance.get_ai_dataset_model_stats(id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling AIApi->get_ai_dataset_model_stats: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Model. | 
-
-### Return type
-
-[**AIModelStats**](AIModelStats.md)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
-
-
-***
 
 # **get_ai_image**
-
-    def get_ai_image(id) -> AIImage 
-
+> AIImage get_ai_image(id)
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_image import AIImage
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Image.
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Image.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_ai_image(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->get_ai_image: %s\n" % e)
 ```
 
@@ -1041,51 +1511,62 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Image. | 
+ **id** | **str**| A UUID string identifying this AI Image. |
 
 ### Return type
 
 [**AIImage**](AIImage.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_ai_image_content**
-
-    def get_ai_image_content(id) -> object 
-
+> get_ai_image_content(id)
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Image.
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Image.
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.get_ai_image_content(id)
-        pprint(api_response)
-    except ApiException as e:
+        api_instance.get_ai_image_content(id)
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->get_ai_image_content: %s\n" % e)
 ```
 
@@ -1094,51 +1575,64 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Image. | 
+ **id** | **str**| A UUID string identifying this AI Image. |
 
 ### Return type
 
-**object**
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_ai_metadata**
-
-    def get_ai_metadata(id) -> AIMetadata 
-
+> AIMetadata get_ai_metadata(id)
 
 
-### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+
+### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_metadata import AIMetadata
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 56 # int | A unique integer value identifying this AI Metadata.
+    api_instance = ai_api.AIApi(api_client)
+    id = 1 # int | A unique integer value identifying this AI Metadata.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_ai_metadata(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->get_ai_metadata: %s\n" % e)
 ```
 
@@ -1147,51 +1641,64 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this AI Metadata. | 
+ **id** | **int**| A unique integer value identifying this AI Metadata. |
 
 ### Return type
 
 [**AIMetadata**](AIMetadata.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_ai_model**
-
-    def get_ai_model(id) -> AIModel 
-
+> AIModel get_ai_model(id)
 
 
-### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_model import AIModel
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Model.
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Model.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_ai_model(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->get_ai_model: %s\n" % e)
 ```
 
@@ -1200,57 +1707,71 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Model. | 
+ **id** | **str**| A UUID string identifying this AI Model. |
 
 ### Return type
 
 [**AIModel**](AIModel.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_ai_annotation_tracks**
-
-    def get_all_ai_annotation_tracks(category=category, image__dataset=image__dataset, track=track, image=image, ordering=ordering, limit=limit, offset=offset) -> list[AIAnnotation] 
-
+> [AIAnnotation] get_all_ai_annotation_tracks()
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_annotation import AIAnnotation
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    category = 'category_example' # str | Filter the returned list by `category`. (optional)
-image__dataset = 'image__dataset_example' # str | Filter the returned list by `image__dataset`. (optional)
-track = 'track_example' # str | Filter the returned list by `track`. (optional)
-image = 'image_example' # str | Filter the returned list by `image`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = ai_api.AIApi(api_client)
+    category = "category_example" # str | Filter the returned list by `category`. (optional)
+    image__dataset = "image__dataset_example" # str | Filter the returned list by `image__dataset`. (optional)
+    track = "track_example" # str | Filter the returned list by `track`. (optional)
+    image = "image_example" # str | Filter the returned list by `image`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_ai_annotation_tracks(category=category, image__dataset=image__dataset, track=track, image=image, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->get_all_ai_annotation_tracks: %s\n" % e)
 ```
 
@@ -1259,63 +1780,79 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **category** | **str**| Filter the returned list by &#x60;category&#x60;. | [optional] 
- **image__dataset** | **str**| Filter the returned list by &#x60;image__dataset&#x60;. | [optional] 
- **track** | **str**| Filter the returned list by &#x60;track&#x60;. | [optional] 
- **image** | **str**| Filter the returned list by &#x60;image&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **category** | **str**| Filter the returned list by &#x60;category&#x60;. | [optional]
+ **image__dataset** | **str**| Filter the returned list by &#x60;image__dataset&#x60;. | [optional]
+ **track** | **str**| Filter the returned list by &#x60;track&#x60;. | [optional]
+ **image** | **str**| Filter the returned list by &#x60;image&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[AIAnnotation]**](AIAnnotation.md)
+[**[AIAnnotation]**](AIAnnotation.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_ai_annotations**
-
-    def get_all_ai_annotations(category=category, image__dataset=image__dataset, track=track, image=image, ordering=ordering, limit=limit, offset=offset) -> list[AIAnnotation] 
-
+> [AIAnnotation] get_all_ai_annotations()
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_annotation import AIAnnotation
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    category = 'category_example' # str | Filter the returned list by `category`. (optional)
-image__dataset = 'image__dataset_example' # str | Filter the returned list by `image__dataset`. (optional)
-track = 'track_example' # str | Filter the returned list by `track`. (optional)
-image = 'image_example' # str | Filter the returned list by `image`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = ai_api.AIApi(api_client)
+    category = "category_example" # str | Filter the returned list by `category`. (optional)
+    image__dataset = "image__dataset_example" # str | Filter the returned list by `image__dataset`. (optional)
+    image__asset = 3.14 # float | Filter the returned list by `image__asset`. (optional)
+    track = "track_example" # str | Filter the returned list by `track`. (optional)
+    image = "image_example" # str | Filter the returned list by `image`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
+    include_transforms_for_asset = 1 # int |  (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
-        api_response = api_instance.get_all_ai_annotations(category=category, image__dataset=image__dataset, track=track, image=image, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_ai_annotations(category=category, image__dataset=image__dataset, image__asset=image__asset, track=track, image=image, ordering=ordering, limit=limit, offset=offset, include_transforms_for_asset=include_transforms_for_asset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->get_all_ai_annotations: %s\n" % e)
 ```
 
@@ -1324,61 +1861,77 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **category** | **str**| Filter the returned list by &#x60;category&#x60;. | [optional] 
- **image__dataset** | **str**| Filter the returned list by &#x60;image__dataset&#x60;. | [optional] 
- **track** | **str**| Filter the returned list by &#x60;track&#x60;. | [optional] 
- **image** | **str**| Filter the returned list by &#x60;image&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **category** | **str**| Filter the returned list by &#x60;category&#x60;. | [optional]
+ **image__dataset** | **str**| Filter the returned list by &#x60;image__dataset&#x60;. | [optional]
+ **image__asset** | **float**| Filter the returned list by &#x60;image__asset&#x60;. | [optional]
+ **track** | **str**| Filter the returned list by &#x60;track&#x60;. | [optional]
+ **image** | **str**| Filter the returned list by &#x60;image&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
+ **include_transforms_for_asset** | **int**|  | [optional]
 
 ### Return type
 
-[**list[AIAnnotation]**](AIAnnotation.md)
+[**[AIAnnotation]**](AIAnnotation.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_ai_categories**
-
-    def get_all_ai_categories(dataset=dataset, name=name, ordering=ordering, limit=limit, offset=offset) -> list[AICategory] 
-
+> [AICategory] get_all_ai_categories()
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_category import AICategory
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    dataset = 'dataset_example' # str | Filter the returned list by `dataset`. (optional)
-name = 'name_example' # str | Filter the returned list by `name`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = ai_api.AIApi(api_client)
+    dataset = "dataset_example" # str | Filter the returned list by `dataset`. (optional)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_ai_categories(dataset=dataset, name=name, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->get_all_ai_categories: %s\n" % e)
 ```
 
@@ -1387,24 +1940,35 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dataset** | **str**| Filter the returned list by &#x60;dataset&#x60;. | [optional] 
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **dataset** | **str**| Filter the returned list by &#x60;dataset&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[AICategory]**](AICategory.md)
+[**[AICategory]**](AICategory.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_ai_connections**
-
-    def get_all_ai_connections(ordering=ordering, limit=limit, offset=offset) -> list[AIConnection] 
+> [AIConnection] get_all_ai_connections()
 
 
 
@@ -1413,31 +1977,34 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_connection import AIConnection
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = ai_api.AIApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_ai_connections(ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->get_all_ai_connections: %s\n" % e)
 ```
 
@@ -1446,57 +2013,71 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[AIConnection]**](AIConnection.md)
+[**[AIConnection]**](AIConnection.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_ai_datasets**
-
-    def get_all_ai_datasets(connection=connection, name=name, ordering=ordering, limit=limit, offset=offset) -> list[AIDatasetWithPreview] 
-
+> [AIDatasetWithPreview] get_all_ai_datasets()
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_dataset_with_preview import AIDatasetWithPreview
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    connection = 'connection_example' # str | Filter the returned list by `connection`. (optional)
-name = 'name_example' # str | Filter the returned list by `name`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = ai_api.AIApi(api_client)
+    connection = 3.14 # float | Filter the returned list by `connection`. (optional)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_ai_datasets(connection=connection, name=name, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->get_all_ai_datasets: %s\n" % e)
 ```
 
@@ -1505,58 +2086,72 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **connection** | **str**| Filter the returned list by &#x60;connection&#x60;. | [optional] 
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **connection** | **float**| Filter the returned list by &#x60;connection&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[AIDatasetWithPreview]**](AIDatasetWithPreview.md)
+[**[AIDatasetWithPreview]**](AIDatasetWithPreview.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_ai_images**
-
-    def get_all_ai_images(dataset=dataset, ordering=ordering, limit=limit, offset=offset) -> list[AIImage] 
-
+> [AIImage] get_all_ai_images()
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_image import AIImage
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    dataset = 'dataset_example' # str | Filter the returned list by `dataset`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = ai_api.AIApi(api_client)
+    dataset = "dataset_example" # str | Filter the returned list by `dataset`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_ai_images(dataset=dataset, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->get_all_ai_images: %s\n" % e)
 ```
 
@@ -1565,58 +2160,72 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dataset** | **str**| Filter the returned list by &#x60;dataset&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **dataset** | **str**| Filter the returned list by &#x60;dataset&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[AIImage]**](AIImage.md)
+[**[AIImage]**](AIImage.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_ai_metadata**
-
-    def get_all_ai_metadata(asset=asset, id=id, ordering=ordering, limit=limit, offset=offset) -> list[AIMetadata] 
-
+> [AIMetadata] get_all_ai_metadata()
 
 
-### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+
+### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_metadata import AIMetadata
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    asset = 'asset_example' # str | Filter the returned list by `asset`. (optional)
-id = 3.4 # float | Filter the returned list by `id`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = ai_api.AIApi(api_client)
+    asset = 3.14 # float | Filter the returned list by `asset`. (optional)
+    id = 3.14 # float | Filter the returned list by `id`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_ai_metadata(asset=asset, id=id, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->get_all_ai_metadata: %s\n" % e)
 ```
 
@@ -1625,58 +2234,72 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **asset** | **str**| Filter the returned list by &#x60;asset&#x60;. | [optional] 
- **id** | **float**| Filter the returned list by &#x60;id&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **asset** | **float**| Filter the returned list by &#x60;asset&#x60;. | [optional]
+ **id** | **float**| Filter the returned list by &#x60;id&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[AIMetadata]**](AIMetadata.md)
+[**[AIMetadata]**](AIMetadata.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_ai_models**
-
-    def get_all_ai_models(dataset=dataset, ordering=ordering, limit=limit, offset=offset) -> list[AIModel] 
-
+> [AIModel] get_all_ai_models()
 
 
-### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_model import AIModel
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    dataset = 'dataset_example' # str | Filter the returned list by `dataset`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = ai_api.AIApi(api_client)
+    dataset = "dataset_example" # str | Filter the returned list by `dataset`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_ai_models(dataset=dataset, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->get_all_ai_models: %s\n" % e)
 ```
 
@@ -1685,55 +2308,339 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dataset** | **str**| Filter the returned list by &#x60;dataset&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **dataset** | **str**| Filter the returned list by &#x60;dataset&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[AIModel]**](AIModel.md)
+[**[AIModel]**](AIModel.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
-# **patch_ai_category**
-
-    def patch_ai_category(id, data) -> AICategoryDetail 
+# **import_ai_datasets**
+> ImportAIDatasetResponse import_ai_datasets(import_ai_dataset_request)
 
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.import_ai_dataset_response import ImportAIDatasetResponse
+from elements_sdk.model.import_ai_dataset_request import ImportAIDatasetRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Category.
-data = elements_sdk.AICategoryDetail() # AICategoryDetail | 
+    api_instance = ai_api.AIApi(api_client)
+    import_ai_dataset_request = ImportAIDatasetRequest(
+        connection=1,
+        path="path_example",
+        replace=True,
+        rename="rename_example",
+    ) # ImportAIDatasetRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.patch_ai_category(id, data)
+        api_response = api_instance.import_ai_datasets(import_ai_dataset_request)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
+        print("Exception when calling AIApi->import_ai_datasets: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **import_ai_dataset_request** | [**ImportAIDatasetRequest**](ImportAIDatasetRequest.md)|  |
+
+### Return type
+
+[**ImportAIDatasetResponse**](ImportAIDatasetResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **import_ai_models**
+> ImportAIModelResponse import_ai_models(id, import_ai_model_request)
+
+
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import ai_api
+from elements_sdk.model.import_ai_model_request import ImportAIModelRequest
+from elements_sdk.model.import_ai_model_response import ImportAIModelResponse
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Dataset.
+    import_ai_model_request = ImportAIModelRequest(
+        path="path_example",
+    ) # ImportAIModelRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.import_ai_models(id, import_ai_model_request)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling AIApi->import_ai_models: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| A UUID string identifying this AI Dataset. |
+ **import_ai_model_request** | [**ImportAIModelRequest**](ImportAIModelRequest.md)|  |
+
+### Return type
+
+[**ImportAIModelResponse**](ImportAIModelResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **patch_ai_annotation**
+> AIAnnotation patch_ai_annotation(id, ai_annotation_partial_update)
+
+
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_annotation_partial_update import AIAnnotationPartialUpdate
+from elements_sdk.model.ai_annotation import AIAnnotation
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Annotation.
+    ai_annotation_partial_update = AIAnnotationPartialUpdate(
+        image=AIImageReference(
+            id="id_example",
+        ),
+        category=AICategoryMiniReference(
+            id="id_example",
+        ),
+        relative_left=3.14,
+        relative_top=3.14,
+        relative_width=3.14,
+        relative_height=3.14,
+        track="track_example",
+        created_by=1,
+    ) # AIAnnotationPartialUpdate | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.patch_ai_annotation(id, ai_annotation_partial_update)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling AIApi->patch_ai_annotation: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| A UUID string identifying this AI Annotation. |
+ **ai_annotation_partial_update** | [**AIAnnotationPartialUpdate**](AIAnnotationPartialUpdate.md)|  |
+
+### Return type
+
+[**AIAnnotation**](AIAnnotation.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **patch_ai_category**
+> AICategoryDetail patch_ai_category(id, ai_category_detail_partial_update)
+
+
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_category_detail import AICategoryDetail
+from elements_sdk.model.ai_category_detail_partial_update import AICategoryDetailPartialUpdate
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Category.
+    ai_category_detail_partial_update = AICategoryDetailPartialUpdate(
+        dataset=AIDatasetDetailReference(
+            id="id_example",
+            training_model=AIModel(
+                id="id_example",
+                progress=AIModelProgress(
+                    status={
+                        "key": "key_example",
+                    },
+                    eta=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                ),
+                dataset=AIDatasetReference(
+                    id="id_example",
+                ),
+                parameters={
+                    "key": "key_example",
+                },
+                name="name_example",
+                training_task_id="training_task_id_example",
+                threshold=3.14,
+                epoch=-2147483648,
+                preprocessing_task="preprocessing_task_example",
+            ),
+            last_finished_model=AIModel(
+                id="id_example",
+                progress=AIModelProgress(
+                    status={
+                        "key": "key_example",
+                    },
+                    eta=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                ),
+                dataset=AIDatasetReference(
+                    id="id_example",
+                ),
+                parameters={
+                    "key": "key_example",
+                },
+                name="name_example",
+                training_task_id="training_task_id_example",
+                threshold=3.14,
+                epoch=-2147483648,
+                preprocessing_task="preprocessing_task_example",
+            ),
+        ),
+        name="name_example",
+    ) # AICategoryDetailPartialUpdate | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.patch_ai_category(id, ai_category_detail_partial_update)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->patch_ai_category: %s\n" % e)
 ```
 
@@ -1742,53 +2649,71 @@ data = elements_sdk.AICategoryDetail() # AICategoryDetail |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Category. | 
- **data** | [**AICategoryDetail**](AICategoryDetail.md)|  | 
+ **id** | **str**| A UUID string identifying this AI Category. |
+ **ai_category_detail_partial_update** | [**AICategoryDetailPartialUpdate**](AICategoryDetailPartialUpdate.md)|  |
 
 ### Return type
 
 [**AICategoryDetail**](AICategoryDetail.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **patch_ai_dataset**
-
-    def patch_ai_dataset(id, data) -> AIDatasetWithPreview 
-
+> AIDatasetWithPreview patch_ai_dataset(id, ai_dataset_with_preview_partial_update)
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_dataset_with_preview import AIDatasetWithPreview
+from elements_sdk.model.ai_dataset_with_preview_partial_update import AIDatasetWithPreviewPartialUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Dataset.
-data = elements_sdk.AIDatasetWithPreview() # AIDatasetWithPreview | 
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Dataset.
+    ai_dataset_with_preview_partial_update = AIDatasetWithPreviewPartialUpdate(
+        name="name_example",
+        type="normal",
+        connection=1,
+    ) # AIDatasetWithPreviewPartialUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.patch_ai_dataset(id, data)
+        api_response = api_instance.patch_ai_dataset(id, ai_dataset_with_preview_partial_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->patch_ai_dataset: %s\n" % e)
 ```
 
@@ -1797,53 +2722,79 @@ data = elements_sdk.AIDatasetWithPreview() # AIDatasetWithPreview |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Dataset. | 
- **data** | [**AIDatasetWithPreview**](AIDatasetWithPreview.md)|  | 
+ **id** | **str**| A UUID string identifying this AI Dataset. |
+ **ai_dataset_with_preview_partial_update** | [**AIDatasetWithPreviewPartialUpdate**](AIDatasetWithPreviewPartialUpdate.md)|  |
 
 ### Return type
 
 [**AIDatasetWithPreview**](AIDatasetWithPreview.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **patch_ai_model**
-
-    def patch_ai_model(id, data) -> AIModel 
-
+> AIModel patch_ai_model(id, ai_model_partial_update)
 
 
-### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_model import AIModel
+from elements_sdk.model.ai_model_partial_update import AIModelPartialUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Model.
-data = elements_sdk.AIModel() # AIModel | 
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Model.
+    ai_model_partial_update = AIModelPartialUpdate(
+        dataset=AIDatasetReference(
+            id="id_example",
+        ),
+        parameters={
+            "key": "key_example",
+        },
+        name="name_example",
+        training_task_id="training_task_id_example",
+        threshold=3.14,
+        epoch=-2147483648,
+        preprocessing_task="preprocessing_task_example",
+    ) # AIModelPartialUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.patch_ai_model(id, data)
+        api_response = api_instance.patch_ai_model(id, ai_model_partial_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->patch_ai_model: %s\n" % e)
 ```
 
@@ -1852,53 +2803,270 @@ data = elements_sdk.AIModel() # AIModel |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Model. | 
- **data** | [**AIModel**](AIModel.md)|  | 
+ **id** | **str**| A UUID string identifying this AI Model. |
+ **ai_model_partial_update** | [**AIModelPartialUpdate**](AIModelPartialUpdate.md)|  |
 
 ### Return type
 
 [**AIModel**](AIModel.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
-# **update_ai_category**
-
-    def update_ai_category(id, data) -> AICategoryDetail 
+# **run_ai_model_inference**
+> AIModelInferenceResponse run_ai_model_inference(id, ai_model_inference_request)
 
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_model_inference_request import AIModelInferenceRequest
+from elements_sdk.model.ai_model_inference_response import AIModelInferenceResponse
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Category.
-data = elements_sdk.AICategoryDetail() # AICategoryDetail | 
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Model.
+    ai_model_inference_request = AIModelInferenceRequest(
+        proxy=1,
+        frame_start=1,
+        frame_end=1,
+        frame_step=1,
+        skip_step=1,
+        combine_threshold=1,
+    ) # AIModelInferenceRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.update_ai_category(id, data)
+        api_response = api_instance.run_ai_model_inference(id, ai_model_inference_request)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
+        print("Exception when calling AIApi->run_ai_model_inference: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| A UUID string identifying this AI Model. |
+ **ai_model_inference_request** | [**AIModelInferenceRequest**](AIModelInferenceRequest.md)|  |
+
+### Return type
+
+[**AIModelInferenceResponse**](AIModelInferenceResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **update_ai_annotation**
+> AIAnnotation update_ai_annotation(id, ai_annotation_update)
+
+
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_annotation_update import AIAnnotationUpdate
+from elements_sdk.model.ai_annotation import AIAnnotation
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Annotation.
+    ai_annotation_update = AIAnnotationUpdate(
+        image=AIImageReference(
+            id="id_example",
+        ),
+        category=AICategoryMiniReference(
+            id="id_example",
+        ),
+        relative_left=3.14,
+        relative_top=3.14,
+        relative_width=3.14,
+        relative_height=3.14,
+        track="track_example",
+        created_by=1,
+    ) # AIAnnotationUpdate | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.update_ai_annotation(id, ai_annotation_update)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling AIApi->update_ai_annotation: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| A UUID string identifying this AI Annotation. |
+ **ai_annotation_update** | [**AIAnnotationUpdate**](AIAnnotationUpdate.md)|  |
+
+### Return type
+
+[**AIAnnotation**](AIAnnotation.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **update_ai_category**
+> AICategoryDetail update_ai_category(id, ai_category_detail_update)
+
+
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_category_detail import AICategoryDetail
+from elements_sdk.model.ai_category_detail_update import AICategoryDetailUpdate
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Category.
+    ai_category_detail_update = AICategoryDetailUpdate(
+        dataset=AIDatasetDetailReference(
+            id="id_example",
+            training_model=AIModel(
+                id="id_example",
+                progress=AIModelProgress(
+                    status={
+                        "key": "key_example",
+                    },
+                    eta=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                ),
+                dataset=AIDatasetReference(
+                    id="id_example",
+                ),
+                parameters={
+                    "key": "key_example",
+                },
+                name="name_example",
+                training_task_id="training_task_id_example",
+                threshold=3.14,
+                epoch=-2147483648,
+                preprocessing_task="preprocessing_task_example",
+            ),
+            last_finished_model=AIModel(
+                id="id_example",
+                progress=AIModelProgress(
+                    status={
+                        "key": "key_example",
+                    },
+                    eta=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                ),
+                dataset=AIDatasetReference(
+                    id="id_example",
+                ),
+                parameters={
+                    "key": "key_example",
+                },
+                name="name_example",
+                training_task_id="training_task_id_example",
+                threshold=3.14,
+                epoch=-2147483648,
+                preprocessing_task="preprocessing_task_example",
+            ),
+        ),
+        name="name_example",
+    ) # AICategoryDetailUpdate | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.update_ai_category(id, ai_category_detail_update)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->update_ai_category: %s\n" % e)
 ```
 
@@ -1907,53 +3075,71 @@ data = elements_sdk.AICategoryDetail() # AICategoryDetail |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Category. | 
- **data** | [**AICategoryDetail**](AICategoryDetail.md)|  | 
+ **id** | **str**| A UUID string identifying this AI Category. |
+ **ai_category_detail_update** | [**AICategoryDetailUpdate**](AICategoryDetailUpdate.md)|  |
 
 ### Return type
 
 [**AICategoryDetail**](AICategoryDetail.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **update_ai_dataset**
-
-    def update_ai_dataset(id, data) -> AIDatasetWithPreview 
-
+> AIDatasetWithPreview update_ai_dataset(id, ai_dataset_with_preview_update)
 
 
-### Required permissions    * User account permission: None (read) / media:roots:manage (write) 
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_dataset_with_preview import AIDatasetWithPreview
+from elements_sdk.model.ai_dataset_with_preview_update import AIDatasetWithPreviewUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Dataset.
-data = elements_sdk.AIDatasetWithPreview() # AIDatasetWithPreview | 
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Dataset.
+    ai_dataset_with_preview_update = AIDatasetWithPreviewUpdate(
+        name="name_example",
+        type="normal",
+        connection=1,
+    ) # AIDatasetWithPreviewUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.update_ai_dataset(id, data)
+        api_response = api_instance.update_ai_dataset(id, ai_dataset_with_preview_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->update_ai_dataset: %s\n" % e)
 ```
 
@@ -1962,53 +3148,79 @@ data = elements_sdk.AIDatasetWithPreview() # AIDatasetWithPreview |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Dataset. | 
- **data** | [**AIDatasetWithPreview**](AIDatasetWithPreview.md)|  | 
+ **id** | **str**| A UUID string identifying this AI Dataset. |
+ **ai_dataset_with_preview_update** | [**AIDatasetWithPreviewUpdate**](AIDatasetWithPreviewUpdate.md)|  |
 
 ### Return type
 
 [**AIDatasetWithPreview**](AIDatasetWithPreview.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **update_ai_model**
-
-    def update_ai_model(id, data) -> AIModel 
-
+> AIModel update_ai_model(id, ai_model_update)
 
 
-### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+
+### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import ai_api
+from elements_sdk.model.ai_model import AIModel
+from elements_sdk.model.ai_model_update import AIModelUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AIApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this AI Model.
-data = elements_sdk.AIModel() # AIModel | 
+    api_instance = ai_api.AIApi(api_client)
+    id = "id_example" # str | A UUID string identifying this AI Model.
+    ai_model_update = AIModelUpdate(
+        dataset=AIDatasetReference(
+            id="id_example",
+        ),
+        parameters={
+            "key": "key_example",
+        },
+        name="name_example",
+        training_task_id="training_task_id_example",
+        threshold=3.14,
+        epoch=-2147483648,
+        preprocessing_task="preprocessing_task_example",
+    ) # AIModelUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.update_ai_model(id, data)
+        api_response = api_instance.update_ai_model(id, ai_model_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AIApi->update_ai_model: %s\n" % e)
 ```
 
@@ -2017,12 +3229,97 @@ data = elements_sdk.AIModel() # AIModel |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this AI Model. | 
- **data** | [**AIModel**](AIModel.md)|  | 
+ **id** | **str**| A UUID string identifying this AI Model. |
+ **ai_model_update** | [**AIModelUpdate**](AIModelUpdate.md)|  |
 
 ### Return type
 
 [**AIModel**](AIModel.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **upload_ai_image**
+> AIImage upload_ai_image(upload_ai_image_request)
+
+
+
+### Required permissions    * User account permission: `None` (read) / `media:roots:manage` (write) 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import ai_api
+from elements_sdk.model.upload_ai_image_request import UploadAIImageRequest
+from elements_sdk.model.ai_image import AIImage
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ai_api.AIApi(api_client)
+    upload_ai_image_request = UploadAIImageRequest(
+        content="content_example",
+        category="category_example",
+    ) # UploadAIImageRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.upload_ai_image(upload_ai_image_request)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling AIApi->upload_ai_image: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **upload_ai_image_request** | [**UploadAIImageRequest**](UploadAIImageRequest.md)|  |
+
+### Return type
+
+[**AIImage**](AIImage.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 

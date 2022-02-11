@@ -1,26 +1,21 @@
 # elements_sdk.AWSApi
 
 All URIs are relative to *https://elements.local*
->
+
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_aws_account**](AWSApi.md#create_aws_account) | **POST** `/api/2/aws-accounts` | 
 [**delete_aws_account**](AWSApi.md#delete_aws_account) | **DELETE** `/api/2/aws-accounts/{id}` | 
 [**get_all_aws_accounts**](AWSApi.md#get_all_aws_accounts) | **GET** `/api/2/aws-accounts` | 
 [**get_aws_account**](AWSApi.md#get_aws_account) | **GET** `/api/2/aws-accounts/{id}` | 
-[**get_aws_account_buckets**](AWSApi.md#get_aws_account_buckets) | **GET** `/api/2/aws-accounts/{id}/buckets` | 
 [**get_aws_account_sns_topics**](AWSApi.md#get_aws_account_sns_topics) | **GET** `/api/2/aws-accounts/{id}/sns/topics` | 
 [**patch_aws_account**](AWSApi.md#patch_aws_account) | **PATCH** `/api/2/aws-accounts/{id}` | 
 [**test_aws_account_credentials**](AWSApi.md#test_aws_account_credentials) | **POST** `/api/2/aws-accounts/test-credentials` | 
 [**update_aws_account**](AWSApi.md#update_aws_account) | **PUT** `/api/2/aws-accounts/{id}` | 
 
 
-
-***
-
 # **create_aws_account**
-
-    def create_aws_account(aws_account) -> AWSAccount 
+> CloudAccountMini create_aws_account(cloud_account_mini_update)
 
 
 
@@ -29,29 +24,35 @@ Method | HTTP request | Description
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import aws_api
+from elements_sdk.model.cloud_account_mini import CloudAccountMini
+from elements_sdk.model.cloud_account_mini_update import CloudAccountMiniUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AWSApi(api_client)
-    aws_account = elements_sdk.AWSAccount() # AWSAccount | 
+    api_instance = aws_api.AWSApi(api_client)
+    cloud_account_mini_update = CloudAccountMiniUpdate(
+        provider="azure",
+        name="name_example",
+    ) # CloudAccountMiniUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.create_aws_account(aws_account)
+        api_response = api_instance.create_aws_account(cloud_account_mini_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AWSApi->create_aws_account: %s\n" % e)
 ```
 
@@ -60,20 +61,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **aws_account** | [**AWSAccount**](AWSAccount.md)|  | 
+ **cloud_account_mini_update** | [**CloudAccountMiniUpdate**](CloudAccountMiniUpdate.md)|  |
 
 ### Return type
 
-[**AWSAccount**](AWSAccount.md)
+[**CloudAccountMini**](CloudAccountMini.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_aws_account**
-
-    def delete_aws_account(id)
+> delete_aws_account(id)
 
 
 
@@ -82,28 +94,29 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import aws_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AWSApi(api_client)
-    id = 56 # int | A unique integer value identifying this AWS Account.
+    api_instance = aws_api.AWSApi(api_client)
+    id = 1 # int | A unique integer value identifying this cloud account.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.delete_aws_account(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AWSApi->delete_aws_account: %s\n" % e)
 ```
 
@@ -112,20 +125,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this AWS Account. | 
+ **id** | **int**| A unique integer value identifying this cloud account. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_aws_accounts**
-
-    def get_all_aws_accounts(name=name, id=id, ordering=ordering, limit=limit, offset=offset) -> list[AWSAccount] 
+> [CloudAccountMini] get_all_aws_accounts()
 
 
 
@@ -134,33 +158,36 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import aws_api
+from elements_sdk.model.cloud_account_mini import CloudAccountMini
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AWSApi(api_client)
-    name = 'name_example' # str | Filter the returned list by `name`. (optional)
-id = 3.4 # float | Filter the returned list by `id`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = aws_api.AWSApi(api_client)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    id = 3.14 # float | Filter the returned list by `id`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_aws_accounts(name=name, id=id, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AWSApi->get_all_aws_accounts: %s\n" % e)
 ```
 
@@ -169,24 +196,35 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional] 
- **id** | **float**| Filter the returned list by &#x60;id&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **id** | **float**| Filter the returned list by &#x60;id&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[AWSAccount]**](AWSAccount.md)
+[**[CloudAccountMini]**](CloudAccountMini.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_aws_account**
-
-    def get_aws_account(id) -> AWSAccount 
+> CloudAccountMini get_aws_account(id)
 
 
 
@@ -195,29 +233,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import aws_api
+from elements_sdk.model.cloud_account_mini import CloudAccountMini
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AWSApi(api_client)
-    id = 56 # int | A unique integer value identifying this AWS Account.
+    api_instance = aws_api.AWSApi(api_client)
+    id = 1 # int | A unique integer value identifying this cloud account.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_aws_account(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AWSApi->get_aws_account: %s\n" % e)
 ```
 
@@ -226,73 +266,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this AWS Account. | 
+ **id** | **int**| A unique integer value identifying this cloud account. |
 
 ### Return type
 
-[**AWSAccount**](AWSAccount.md)
+[**CloudAccountMini**](CloudAccountMini.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
-
-
-***
-
-# **get_aws_account_buckets**
-
-    def get_aws_account_buckets(id) -> ListBuckets 
-
-
-
-### Required permissions    * User account permission: `tasks:manage` (read) / `system:admin-access` (write) 
-
-### Example
-
-* Api Key Authentication (Bearer):
-
-```python
-import elements_sdk
-from elements_sdk.rest import ApiException
-from pprint import pprint
-
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-configuration.host = "https://elements.local"
-
-# Enter a context with an instance of the API client
-with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = elements_sdk.AWSApi(api_client)
-    id = 56 # int | A unique integer value identifying this AWS Account.
-
-    try:
-        api_response = api_instance.get_aws_account_buckets(id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling AWSApi->get_aws_account_buckets: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this AWS Account. | 
-
-### Return type
-
-[**ListBuckets**](ListBuckets.md)
-
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
-
-
-***
 
 # **get_aws_account_sns_topics**
-
-    def get_aws_account_sns_topics(id) -> ListTopics 
+> ListTopics get_aws_account_sns_topics(id)
 
 
 
@@ -301,29 +299,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import aws_api
+from elements_sdk.model.list_topics import ListTopics
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AWSApi(api_client)
-    id = 56 # int | A unique integer value identifying this AWS Account.
+    api_instance = aws_api.AWSApi(api_client)
+    id = 1 # int | A unique integer value identifying this cloud account.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_aws_account_sns_topics(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AWSApi->get_aws_account_sns_topics: %s\n" % e)
 ```
 
@@ -332,20 +332,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this AWS Account. | 
+ **id** | **int**| A unique integer value identifying this cloud account. |
 
 ### Return type
 
 [**ListTopics**](ListTopics.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **patch_aws_account**
-
-    def patch_aws_account(id, aws_account_partial_update) -> AWSAccount 
+> CloudAccountMini patch_aws_account(id, cloud_account_mini_partial_update)
 
 
 
@@ -354,30 +365,36 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import aws_api
+from elements_sdk.model.cloud_account_mini_partial_update import CloudAccountMiniPartialUpdate
+from elements_sdk.model.cloud_account_mini import CloudAccountMini
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AWSApi(api_client)
-    id = 56 # int | A unique integer value identifying this AWS Account.
-aws_account_partial_update = elements_sdk.AWSAccountPartialUpdate() # AWSAccountPartialUpdate | 
+    api_instance = aws_api.AWSApi(api_client)
+    id = 1 # int | A unique integer value identifying this cloud account.
+    cloud_account_mini_partial_update = CloudAccountMiniPartialUpdate(
+        provider="azure",
+        name="name_example",
+    ) # CloudAccountMiniPartialUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.patch_aws_account(id, aws_account_partial_update)
+        api_response = api_instance.patch_aws_account(id, cloud_account_mini_partial_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AWSApi->patch_aws_account: %s\n" % e)
 ```
 
@@ -386,21 +403,32 @@ aws_account_partial_update = elements_sdk.AWSAccountPartialUpdate() # AWSAccount
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this AWS Account. | 
- **aws_account_partial_update** | [**AWSAccountPartialUpdate**](AWSAccountPartialUpdate.md)|  | 
+ **id** | **int**| A unique integer value identifying this cloud account. |
+ **cloud_account_mini_partial_update** | [**CloudAccountMiniPartialUpdate**](CloudAccountMiniPartialUpdate.md)|  |
 
 ### Return type
 
-[**AWSAccount**](AWSAccount.md)
+[**CloudAccountMini**](CloudAccountMini.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **test_aws_account_credentials**
-
-    def test_aws_account_credentials(test_aws_credentials_request) -> TestAWSCredentialsResponse 
+> TestAWSCredentialsResponse test_aws_account_credentials(test_aws_credentials_request)
 
 
 
@@ -409,29 +437,35 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import aws_api
+from elements_sdk.model.test_aws_credentials_request import TestAWSCredentialsRequest
+from elements_sdk.model.test_aws_credentials_response import TestAWSCredentialsResponse
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AWSApi(api_client)
-    test_aws_credentials_request = elements_sdk.TestAWSCredentialsRequest() # TestAWSCredentialsRequest | 
+    api_instance = aws_api.AWSApi(api_client)
+    test_aws_credentials_request = TestAWSCredentialsRequest(
+        access_key_id="access_key_id_example",
+        secret_access_key="secret_access_key_example",
+    ) # TestAWSCredentialsRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.test_aws_account_credentials(test_aws_credentials_request)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AWSApi->test_aws_account_credentials: %s\n" % e)
 ```
 
@@ -440,20 +474,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_aws_credentials_request** | [**TestAWSCredentialsRequest**](TestAWSCredentialsRequest.md)|  | 
+ **test_aws_credentials_request** | [**TestAWSCredentialsRequest**](TestAWSCredentialsRequest.md)|  |
 
 ### Return type
 
 [**TestAWSCredentialsResponse**](TestAWSCredentialsResponse.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **update_aws_account**
-
-    def update_aws_account(id, aws_account) -> AWSAccount 
+> CloudAccountMini update_aws_account(id, cloud_account_mini_update)
 
 
 
@@ -462,30 +507,36 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import aws_api
+from elements_sdk.model.cloud_account_mini import CloudAccountMini
+from elements_sdk.model.cloud_account_mini_update import CloudAccountMiniUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AWSApi(api_client)
-    id = 56 # int | A unique integer value identifying this AWS Account.
-aws_account = elements_sdk.AWSAccount() # AWSAccount | 
+    api_instance = aws_api.AWSApi(api_client)
+    id = 1 # int | A unique integer value identifying this cloud account.
+    cloud_account_mini_update = CloudAccountMiniUpdate(
+        provider="azure",
+        name="name_example",
+    ) # CloudAccountMiniUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.update_aws_account(id, aws_account)
+        api_response = api_instance.update_aws_account(id, cloud_account_mini_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AWSApi->update_aws_account: %s\n" % e)
 ```
 
@@ -494,12 +545,27 @@ aws_account = elements_sdk.AWSAccount() # AWSAccount |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this AWS Account. | 
- **aws_account** | [**AWSAccount**](AWSAccount.md)|  | 
+ **id** | **int**| A unique integer value identifying this cloud account. |
+ **cloud_account_mini_update** | [**CloudAccountMiniUpdate**](CloudAccountMiniUpdate.md)|  |
 
 ### Return type
 
-[**AWSAccount**](AWSAccount.md)
+[**CloudAccountMini**](CloudAccountMini.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 

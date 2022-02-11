@@ -1,7 +1,7 @@
 # elements_sdk.IntegrationsApi
 
 All URIs are relative to *https://elements.local*
->
+
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_slack_connection**](IntegrationsApi.md#delete_slack_connection) | **DELETE** `/api/2/integrations/slack/{id}` | 
@@ -27,12 +27,8 @@ Method | HTTP request | Description
 [**update_teams_connection**](IntegrationsApi.md#update_teams_connection) | **PUT** `/api/2/integrations/teams/{id}` | 
 
 
-
-***
-
 # **delete_slack_connection**
-
-    def delete_slack_connection(id)
+> delete_slack_connection(id)
 
 
 
@@ -41,28 +37,29 @@ Method | HTTP request | Description
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this Slack connection.
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    id = 1 # int | A unique integer value identifying this Slack connection.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.delete_slack_connection(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->delete_slack_connection: %s\n" % e)
 ```
 
@@ -71,20 +68,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Slack connection. | 
+ **id** | **int**| A unique integer value identifying this Slack connection. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_teams_connection**
-
-    def delete_teams_connection(id)
+> delete_teams_connection(id)
 
 
 
@@ -93,28 +101,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this Teams connection.
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    id = 1 # int | A unique integer value identifying this Teams connection.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.delete_teams_connection(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->delete_teams_connection: %s\n" % e)
 ```
 
@@ -123,20 +132,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Teams connection. | 
+ **id** | **int**| A unique integer value identifying this Teams connection. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_slack_connections**
-
-    def get_all_slack_connections(ordering=ordering, limit=limit, offset=offset) -> list[SlackConnection] 
+> [SlackConnection] get_all_slack_connections()
 
 
 
@@ -145,31 +165,34 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
+from elements_sdk.model.slack_connection import SlackConnection
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_slack_connections(ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->get_all_slack_connections: %s\n" % e)
 ```
 
@@ -178,22 +201,33 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[SlackConnection]**](SlackConnection.md)
+[**[SlackConnection]**](SlackConnection.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_teams_connections**
-
-    def get_all_teams_connections(ordering=ordering, limit=limit, offset=offset) -> list[TeamsConnection] 
+> [TeamsConnection] get_all_teams_connections()
 
 
 
@@ -202,31 +236,34 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
+from elements_sdk.model.teams_connection import TeamsConnection
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_teams_connections(ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->get_all_teams_connections: %s\n" % e)
 ```
 
@@ -235,22 +272,33 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[TeamsConnection]**](TeamsConnection.md)
+[**[TeamsConnection]**](TeamsConnection.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_slack_channels**
-
-    def get_slack_channels(id) -> list[SlackChannel] 
+> [SlackChannel] get_slack_channels(id)
 
 
 
@@ -259,29 +307,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
+from elements_sdk.model.slack_channel import SlackChannel
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this Slack connection.
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    id = 1 # int | A unique integer value identifying this Slack connection.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_slack_channels(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->get_slack_channels: %s\n" % e)
 ```
 
@@ -290,20 +340,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Slack connection. | 
+ **id** | **int**| A unique integer value identifying this Slack connection. |
 
 ### Return type
 
-[**list[SlackChannel]**](SlackChannel.md)
+[**[SlackChannel]**](SlackChannel.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_slack_connection**
-
-    def get_slack_connection(id) -> SlackConnection 
+> SlackConnection get_slack_connection(id)
 
 
 
@@ -312,29 +373,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
+from elements_sdk.model.slack_connection import SlackConnection
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this Slack connection.
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    id = 1 # int | A unique integer value identifying this Slack connection.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_slack_connection(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->get_slack_connection: %s\n" % e)
 ```
 
@@ -343,20 +406,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Slack connection. | 
+ **id** | **int**| A unique integer value identifying this Slack connection. |
 
 ### Return type
 
 [**SlackConnection**](SlackConnection.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_slack_emoji**
-
-    def get_slack_emoji(id) -> list[SlackEmoji] 
+> [SlackEmoji] get_slack_emoji(id)
 
 
 
@@ -365,29 +439,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
+from elements_sdk.model.slack_emoji import SlackEmoji
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this Slack connection.
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    id = 1 # int | A unique integer value identifying this Slack connection.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_slack_emoji(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->get_slack_emoji: %s\n" % e)
 ```
 
@@ -396,20 +472,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Slack connection. | 
+ **id** | **int**| A unique integer value identifying this Slack connection. |
 
 ### Return type
 
-[**list[SlackEmoji]**](SlackEmoji.md)
+[**[SlackEmoji]**](SlackEmoji.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_slack_users**
-
-    def get_slack_users(id) -> list[SlackUser] 
+> [SlackUser] get_slack_users(id)
 
 
 
@@ -418,29 +505,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
+from elements_sdk.model.slack_user import SlackUser
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this Slack connection.
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    id = 1 # int | A unique integer value identifying this Slack connection.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_slack_users(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->get_slack_users: %s\n" % e)
 ```
 
@@ -449,20 +538,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Slack connection. | 
+ **id** | **int**| A unique integer value identifying this Slack connection. |
 
 ### Return type
 
-[**list[SlackUser]**](SlackUser.md)
+[**[SlackUser]**](SlackUser.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_teams_channels**
-
-    def get_teams_channels(id) -> list[TeamsRecipient] 
+> [TeamsRecipient] get_teams_channels(id)
 
 
 
@@ -471,29 +571,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
+from elements_sdk.model.teams_recipient import TeamsRecipient
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this Teams connection.
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    id = 1 # int | A unique integer value identifying this Teams connection.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_teams_channels(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->get_teams_channels: %s\n" % e)
 ```
 
@@ -502,20 +604,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Teams connection. | 
+ **id** | **int**| A unique integer value identifying this Teams connection. |
 
 ### Return type
 
-[**list[TeamsRecipient]**](TeamsRecipient.md)
+[**[TeamsRecipient]**](TeamsRecipient.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_teams_connection**
-
-    def get_teams_connection(id) -> TeamsConnection 
+> TeamsConnection get_teams_connection(id)
 
 
 
@@ -524,29 +637,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
+from elements_sdk.model.teams_connection import TeamsConnection
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this Teams connection.
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    id = 1 # int | A unique integer value identifying this Teams connection.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_teams_connection(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->get_teams_connection: %s\n" % e)
 ```
 
@@ -555,20 +670,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Teams connection. | 
+ **id** | **int**| A unique integer value identifying this Teams connection. |
 
 ### Return type
 
 [**TeamsConnection**](TeamsConnection.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_teams_users**
-
-    def get_teams_users(id) -> list[TeamsRecipient] 
+> [TeamsRecipient] get_teams_users(id)
 
 
 
@@ -577,29 +703,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
+from elements_sdk.model.teams_recipient import TeamsRecipient
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this Teams connection.
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    id = 1 # int | A unique integer value identifying this Teams connection.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_teams_users(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->get_teams_users: %s\n" % e)
 ```
 
@@ -608,20 +736,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Teams connection. | 
+ **id** | **int**| A unique integer value identifying this Teams connection. |
 
 ### Return type
 
-[**list[TeamsRecipient]**](TeamsRecipient.md)
+[**[TeamsRecipient]**](TeamsRecipient.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **patch_slack_connection**
-
-    def patch_slack_connection(id, slack_connection_partial_update) -> SlackConnection 
+> SlackConnection patch_slack_connection(id, slack_connection_partial_update)
 
 
 
@@ -630,30 +769,35 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
+from elements_sdk.model.slack_connection_partial_update import SlackConnectionPartialUpdate
+from elements_sdk.model.slack_connection import SlackConnection
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this Slack connection.
-slack_connection_partial_update = elements_sdk.SlackConnectionPartialUpdate() # SlackConnectionPartialUpdate | 
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    id = 1 # int | A unique integer value identifying this Slack connection.
+    slack_connection_partial_update = SlackConnectionPartialUpdate(
+        name="name_example",
+    ) # SlackConnectionPartialUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.patch_slack_connection(id, slack_connection_partial_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->patch_slack_connection: %s\n" % e)
 ```
 
@@ -662,21 +806,32 @@ slack_connection_partial_update = elements_sdk.SlackConnectionPartialUpdate() # 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Slack connection. | 
- **slack_connection_partial_update** | [**SlackConnectionPartialUpdate**](SlackConnectionPartialUpdate.md)|  | 
+ **id** | **int**| A unique integer value identifying this Slack connection. |
+ **slack_connection_partial_update** | [**SlackConnectionPartialUpdate**](SlackConnectionPartialUpdate.md)|  |
 
 ### Return type
 
 [**SlackConnection**](SlackConnection.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **patch_teams_connection**
-
-    def patch_teams_connection(id, teams_connection_partial_update) -> TeamsConnection 
+> TeamsConnection patch_teams_connection(id, teams_connection_partial_update)
 
 
 
@@ -685,30 +840,35 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
+from elements_sdk.model.teams_connection import TeamsConnection
+from elements_sdk.model.teams_connection_partial_update import TeamsConnectionPartialUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this Teams connection.
-teams_connection_partial_update = elements_sdk.TeamsConnectionPartialUpdate() # TeamsConnectionPartialUpdate | 
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    id = 1 # int | A unique integer value identifying this Teams connection.
+    teams_connection_partial_update = TeamsConnectionPartialUpdate(
+        name="name_example",
+    ) # TeamsConnectionPartialUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.patch_teams_connection(id, teams_connection_partial_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->patch_teams_connection: %s\n" % e)
 ```
 
@@ -717,21 +877,32 @@ teams_connection_partial_update = elements_sdk.TeamsConnectionPartialUpdate() # 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Teams connection. | 
- **teams_connection_partial_update** | [**TeamsConnectionPartialUpdate**](TeamsConnectionPartialUpdate.md)|  | 
+ **id** | **int**| A unique integer value identifying this Teams connection. |
+ **teams_connection_partial_update** | [**TeamsConnectionPartialUpdate**](TeamsConnectionPartialUpdate.md)|  |
 
 ### Return type
 
 [**TeamsConnection**](TeamsConnection.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **send_slack_message**
-
-    def send_slack_message(id, slack_message)
+> send_slack_message(id, slack_message)
 
 
 
@@ -740,29 +911,36 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
+from elements_sdk.model.slack_message import SlackMessage
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this Slack connection.
-slack_message = elements_sdk.SlackMessage() # SlackMessage | 
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    id = 1 # int | A unique integer value identifying this Slack connection.
+    slack_message = SlackMessage(
+        recipient="recipient_example",
+        text="text_example",
+        username="username_example",
+        emoji="emoji_example",
+    ) # SlackMessage | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.send_slack_message(id, slack_message)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->send_slack_message: %s\n" % e)
 ```
 
@@ -771,21 +949,32 @@ slack_message = elements_sdk.SlackMessage() # SlackMessage |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Slack connection. | 
- **slack_message** | [**SlackMessage**](SlackMessage.md)|  | 
+ **id** | **int**| A unique integer value identifying this Slack connection. |
+ **slack_message** | [**SlackMessage**](SlackMessage.md)|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **send_teams_message**
-
-    def send_teams_message(id, teams_message)
+> send_teams_message(id, teams_message)
 
 
 
@@ -794,29 +983,34 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
+from elements_sdk.model.teams_message import TeamsMessage
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this Teams connection.
-teams_message = elements_sdk.TeamsMessage() # TeamsMessage | 
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    id = 1 # int | A unique integer value identifying this Teams connection.
+    teams_message = TeamsMessage(
+        recipient="recipient_example",
+        text="text_example",
+    ) # TeamsMessage | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.send_teams_message(id, teams_message)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->send_teams_message: %s\n" % e)
 ```
 
@@ -825,21 +1019,32 @@ teams_message = elements_sdk.TeamsMessage() # TeamsMessage |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Teams connection. | 
- **teams_message** | [**TeamsMessage**](TeamsMessage.md)|  | 
+ **id** | **int**| A unique integer value identifying this Teams connection. |
+ **teams_message** | [**TeamsMessage**](TeamsMessage.md)|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **start_slack_connection_flow**
-
-    def start_slack_connection_flow(ordering=ordering, limit=limit, offset=offset)
+> start_slack_connection_flow()
 
 
 
@@ -848,30 +1053,32 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_instance.start_slack_connection_flow(ordering=ordering, limit=limit, offset=offset)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->start_slack_connection_flow: %s\n" % e)
 ```
 
@@ -880,22 +1087,33 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **start_slack_connection_token_refresh_flow**
-
-    def start_slack_connection_token_refresh_flow(id)
+> start_slack_connection_token_refresh_flow(id)
 
 
 
@@ -904,28 +1122,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this Slack connection.
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    id = 1 # int | A unique integer value identifying this Slack connection.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.start_slack_connection_token_refresh_flow(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->start_slack_connection_token_refresh_flow: %s\n" % e)
 ```
 
@@ -934,20 +1153,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Slack connection. | 
+ **id** | **int**| A unique integer value identifying this Slack connection. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **start_teams_connection_flow**
-
-    def start_teams_connection_flow(ordering=ordering, limit=limit, offset=offset, team=team)
+> start_teams_connection_flow()
 
 
 
@@ -956,31 +1186,33 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
-team = 'team_example' # str |  (optional)
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
+    team = "team_example" # str |  (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_instance.start_teams_connection_flow(ordering=ordering, limit=limit, offset=offset, team=team)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->start_teams_connection_flow: %s\n" % e)
 ```
 
@@ -989,23 +1221,34 @@ team = 'team_example' # str |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
- **team** | **str**|  | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
+ **team** | **str**|  | [optional]
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**301** | Redirects to setup page |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **start_teams_connection_token_refresh_flow**
-
-    def start_teams_connection_token_refresh_flow(id, team=team)
+> start_teams_connection_token_refresh_flow(id)
 
 
 
@@ -1014,29 +1257,37 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this Teams connection.
-team = 'team_example' # str |  (optional)
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    id = 1 # int | A unique integer value identifying this Teams connection.
+    team = "team_example" # str |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        api_instance.start_teams_connection_token_refresh_flow(id)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling IntegrationsApi->start_teams_connection_token_refresh_flow: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_instance.start_teams_connection_token_refresh_flow(id, team=team)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->start_teams_connection_token_refresh_flow: %s\n" % e)
 ```
 
@@ -1045,21 +1296,32 @@ team = 'team_example' # str |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Teams connection. | 
- **team** | **str**|  | [optional] 
+ **id** | **int**| A unique integer value identifying this Teams connection. |
+ **team** | **str**|  | [optional]
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**301** | Redirects to setup page |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **update_slack_connection**
-
-    def update_slack_connection(id, slack_connection) -> SlackConnection 
+> SlackConnection update_slack_connection(id, slack_connection_update)
 
 
 
@@ -1068,30 +1330,35 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
+from elements_sdk.model.slack_connection_update import SlackConnectionUpdate
+from elements_sdk.model.slack_connection import SlackConnection
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this Slack connection.
-slack_connection = elements_sdk.SlackConnection() # SlackConnection | 
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    id = 1 # int | A unique integer value identifying this Slack connection.
+    slack_connection_update = SlackConnectionUpdate(
+        name="name_example",
+    ) # SlackConnectionUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.update_slack_connection(id, slack_connection)
+        api_response = api_instance.update_slack_connection(id, slack_connection_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->update_slack_connection: %s\n" % e)
 ```
 
@@ -1100,21 +1367,32 @@ slack_connection = elements_sdk.SlackConnection() # SlackConnection |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Slack connection. | 
- **slack_connection** | [**SlackConnection**](SlackConnection.md)|  | 
+ **id** | **int**| A unique integer value identifying this Slack connection. |
+ **slack_connection_update** | [**SlackConnectionUpdate**](SlackConnectionUpdate.md)|  |
 
 ### Return type
 
 [**SlackConnection**](SlackConnection.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **update_teams_connection**
-
-    def update_teams_connection(id, teams_connection) -> TeamsConnection 
+> TeamsConnection update_teams_connection(id, teams_connection_update)
 
 
 
@@ -1123,30 +1401,35 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import integrations_api
+from elements_sdk.model.teams_connection_update import TeamsConnectionUpdate
+from elements_sdk.model.teams_connection import TeamsConnection
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.IntegrationsApi(api_client)
-    id = 56 # int | A unique integer value identifying this Teams connection.
-teams_connection = elements_sdk.TeamsConnection() # TeamsConnection | 
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    id = 1 # int | A unique integer value identifying this Teams connection.
+    teams_connection_update = TeamsConnectionUpdate(
+        name="name_example",
+    ) # TeamsConnectionUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.update_teams_connection(id, teams_connection)
+        api_response = api_instance.update_teams_connection(id, teams_connection_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling IntegrationsApi->update_teams_connection: %s\n" % e)
 ```
 
@@ -1155,12 +1438,27 @@ teams_connection = elements_sdk.TeamsConnection() # TeamsConnection |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Teams connection. | 
- **teams_connection** | [**TeamsConnection**](TeamsConnection.md)|  | 
+ **id** | **int**| A unique integer value identifying this Teams connection. |
+ **teams_connection_update** | [**TeamsConnectionUpdate**](TeamsConnectionUpdate.md)|  |
 
 ### Return type
 
 [**TeamsConnection**](TeamsConnection.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 

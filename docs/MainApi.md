@@ -1,7 +1,7 @@
 # elements_sdk.MainApi
 
 All URIs are relative to *https://elements.local*
->
+
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**apply_configuration**](MainApi.md#apply_configuration) | **POST** `/api/2/configuration/apply` | 
@@ -12,12 +12,16 @@ Method | HTTP request | Description
 [**check_stor_next_license**](MainApi.md#check_stor_next_license) | **POST** `/api/2/stornext-license/check` | 
 [**collect_diagnostics**](MainApi.md#collect_diagnostics) | **POST** `/api/2/system/collect-diagnostics` | 
 [**create_archive**](MainApi.md#create_archive) | **POST** `/api/2/download-archive/create` | 
+[**create_cloud_account**](MainApi.md#create_cloud_account) | **POST** `/api/2/cloud/accounts` | 
+[**create_filesystem_permission**](MainApi.md#create_filesystem_permission) | **POST** `/api/2/filesystem-permissions` | 
 [**create_group**](MainApi.md#create_group) | **POST** `/api/2/groups` | 
 [**create_home_workspace**](MainApi.md#create_home_workspace) | **POST** `/api/2/users/{id}/home` | 
 [**create_ntp_server**](MainApi.md#create_ntp_server) | **POST** `/api/2/system/time/servers` | 
 [**create_user**](MainApi.md#create_user) | **POST** `/api/2/users` | 
 [**create_workstation**](MainApi.md#create_workstation) | **POST** `/api/2/workstations` | 
+[**delete_cloud_account**](MainApi.md#delete_cloud_account) | **DELETE** `/api/2/cloud/accounts/{id}` | 
 [**delete_download_archive**](MainApi.md#delete_download_archive) | **DELETE** `/api/2/download-archive/{id}` | 
+[**delete_filesystem_permission**](MainApi.md#delete_filesystem_permission) | **DELETE** `/api/2/filesystem-permissions/{id}` | 
 [**delete_group**](MainApi.md#delete_group) | **DELETE** `/api/2/groups/{id}` | 
 [**delete_home_workspace**](MainApi.md#delete_home_workspace) | **DELETE** `/api/2/users/{id}/home` | 
 [**delete_ntp_server**](MainApi.md#delete_ntp_server) | **DELETE** `/api/2/system/time/servers/{id}` | 
@@ -28,8 +32,10 @@ Method | HTTP request | Description
 [**finish_upload**](MainApi.md#finish_upload) | **POST** `/api/2/uploads/finish` | 
 [**fix_ldap_group_memberships**](MainApi.md#fix_ldap_group_memberships) | **POST** `/api/2/ldap-servers/{id}/fix-memberships` | 
 [**get_all_client_sessions**](MainApi.md#get_all_client_sessions) | **GET** `/api/2/client-sessions` | 
+[**get_all_cloud_accounts**](MainApi.md#get_all_cloud_accounts) | **GET** `/api/2/cloud/accounts` | 
 [**get_all_download_archives**](MainApi.md#get_all_download_archives) | **GET** `/api/2/download-archive` | 
 [**get_all_downloads**](MainApi.md#get_all_downloads) | **GET** `/api/2/downloads` | 
+[**get_all_filesystem_permissions**](MainApi.md#get_all_filesystem_permissions) | **GET** `/api/2/filesystem-permissions` | 
 [**get_all_groups**](MainApi.md#get_all_groups) | **GET** `/api/2/groups` | 
 [**get_all_ldap_servers**](MainApi.md#get_all_ldap_servers) | **GET** `/api/2/ldap-servers` | 
 [**get_all_ntp_servers**](MainApi.md#get_all_ntp_servers) | **GET** `/api/2/system/time/servers` | 
@@ -40,12 +46,15 @@ Method | HTTP request | Description
 [**get_client_download_file**](MainApi.md#get_client_download_file) | **GET** `/api/2/downloads/clients/{file}` | 
 [**get_client_downloads**](MainApi.md#get_client_downloads) | **GET** `/api/2/downloads/clients` | 
 [**get_client_session**](MainApi.md#get_client_session) | **GET** `/api/2/client-sessions/{id}` | 
+[**get_cloud_account**](MainApi.md#get_cloud_account) | **GET** `/api/2/cloud/accounts/{id}` | 
+[**get_cloud_account_storage_roots**](MainApi.md#get_cloud_account_storage_roots) | **GET** `/api/2/cloud/accounts/{id}/storage-roots` | 
 [**get_current_workstation**](MainApi.md#get_current_workstation) | **GET** `/api/2/workstations/current` | 
 [**get_download**](MainApi.md#get_download) | **GET** `/api/2/downloads/{id}` | 
 [**get_download_archive**](MainApi.md#get_download_archive) | **GET** `/api/2/download-archive/{id}` | 
 [**get_download_archive_file**](MainApi.md#get_download_archive_file) | **GET** `/api/2/download-archive/{id}/download` | 
 [**get_download_file**](MainApi.md#get_download_file) | **GET** `/api/2/downloads/{id}/download` | 
 [**get_download_icon**](MainApi.md#get_download_icon) | **GET** `/api/2/downloads/{id}/icon` | 
+[**get_filesystem_permission**](MainApi.md#get_filesystem_permission) | **GET** `/api/2/filesystem-permissions/{id}` | 
 [**get_group**](MainApi.md#get_group) | **GET** `/api/2/groups/{id}` | 
 [**get_home_workspace**](MainApi.md#get_home_workspace) | **GET** `/api/2/users/{id}/home` | 
 [**get_ipmi_configuration**](MainApi.md#get_ipmi_configuration) | **GET** `/api/2/nodes/{id}/ipmi` | 
@@ -69,8 +78,10 @@ Method | HTTP request | Description
 [**get_user**](MainApi.md#get_user) | **GET** `/api/2/users/{id}` | 
 [**get_workstation**](MainApi.md#get_workstation) | **GET** `/api/2/workstations/{id}` | 
 [**install_stor_next_license**](MainApi.md#install_stor_next_license) | **POST** `/api/2/stornext-license` | 
+[**patch_cloud_account**](MainApi.md#patch_cloud_account) | **PATCH** `/api/2/cloud/accounts/{id}` | 
 [**patch_current_workstation**](MainApi.md#patch_current_workstation) | **PATCH** `/api/2/workstations/current` | 
 [**patch_download_archive**](MainApi.md#patch_download_archive) | **PATCH** `/api/2/download-archive/{id}` | 
+[**patch_filesystem_permission**](MainApi.md#patch_filesystem_permission) | **PATCH** `/api/2/filesystem-permissions/{id}` | 
 [**patch_group**](MainApi.md#patch_group) | **PATCH** `/api/2/groups/{id}` | 
 [**patch_ntp_server**](MainApi.md#patch_ntp_server) | **PATCH** `/api/2/system/time/servers/{id}` | 
 [**patch_profile**](MainApi.md#patch_profile) | **PATCH** `/api/2/users/me` | 
@@ -82,6 +93,7 @@ Method | HTTP request | Description
 [**register_upload_metadata**](MainApi.md#register_upload_metadata) | **POST** `/api/2/uploads/metadata` | 
 [**render_email_template_preview**](MainApi.md#render_email_template_preview) | **POST** `/api/2/system/smtp/preview` | 
 [**reset_user_password**](MainApi.md#reset_user_password) | **POST** `/api/2/users/{id}/password/reset` | 
+[**restart_web_ui**](MainApi.md#restart_web_ui) | **POST** `/api/2/system/restart-webui` | 
 [**run_service_operation**](MainApi.md#run_service_operation) | **POST** `/api/2/nodes/{id}/services/{service}/{operation}` | 
 [**set_ipmi_configuration**](MainApi.md#set_ipmi_configuration) | **PUT** `/api/2/nodes/{id}/ipmi` | 
 [**set_local_time**](MainApi.md#set_local_time) | **POST** `/api/2/system/time` | 
@@ -95,10 +107,13 @@ Method | HTTP request | Description
 [**sync_ldap_users**](MainApi.md#sync_ldap_users) | **POST** `/api/2/ldap-servers/{id}/sync-users` | 
 [**sync_time**](MainApi.md#sync_time) | **POST** `/api/2/system/time/sync` | 
 [**sync_user_totp**](MainApi.md#sync_user_totp) | **PUT** `/api/2/users/{id}/totp` | 
+[**test_cloud_account_credentials**](MainApi.md#test_cloud_account_credentials) | **POST** `/api/2/cloud/accounts/test-credentials` | 
 [**test_smtp_configuration**](MainApi.md#test_smtp_configuration) | **POST** `/api/2/system/smtp/test` | 
 [**update_certificate_configuration**](MainApi.md#update_certificate_configuration) | **PUT** `/api/2/system/certificate` | 
+[**update_cloud_account**](MainApi.md#update_cloud_account) | **PUT** `/api/2/cloud/accounts/{id}` | 
 [**update_current_workstation**](MainApi.md#update_current_workstation) | **PUT** `/api/2/workstations/current` | 
 [**update_download_archive**](MainApi.md#update_download_archive) | **PUT** `/api/2/download-archive/{id}` | 
+[**update_filesystem_permission**](MainApi.md#update_filesystem_permission) | **PUT** `/api/2/filesystem-permissions/{id}` | 
 [**update_group**](MainApi.md#update_group) | **PUT** `/api/2/groups/{id}` | 
 [**update_ntp_server**](MainApi.md#update_ntp_server) | **PUT** `/api/2/system/time/servers/{id}` | 
 [**update_parameters**](MainApi.md#update_parameters) | **PUT** `/api/2/parameters` | 
@@ -109,12 +124,8 @@ Method | HTTP request | Description
 [**upload_chunk**](MainApi.md#upload_chunk) | **POST** `/api/2/uploads/chunk` | 
 
 
-
-***
-
 # **apply_configuration**
-
-    def apply_configuration()
+> apply_configuration()
 
 
 
@@ -123,46 +134,58 @@ Method | HTTP request | Description
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    
+    api_instance = main_api.MainApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_instance.apply_configuration()
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->apply_configuration: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **beep**
-
-    def beep()
+> beep()
 
 
 
@@ -171,46 +194,58 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    
+    api_instance = main_api.MainApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_instance.beep()
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->beep: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **check_certificate**
-
-    def check_certificate(certificate)
+> check_certificate(certificate)
 
 
 
@@ -219,28 +254,33 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.certificate import Certificate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    certificate = elements_sdk.Certificate() # Certificate | 
+    api_instance = main_api.MainApi(api_client)
+    certificate = Certificate(
+        certificate="certificate_example",
+        key="key_example",
+    ) # Certificate | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.check_certificate(certificate)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->check_certificate: %s\n" % e)
 ```
 
@@ -249,20 +289,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **certificate** | [**Certificate**](Certificate.md)|  | 
+ **certificate** | [**Certificate**](Certificate.md)|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **check_chunk_uploaded**
-
-    def check_chunk_uploaded(upload_id=upload_id, chunk_number=chunk_number)
+> check_chunk_uploaded()
 
 
 
@@ -271,29 +322,31 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    upload_id = 'upload_id_example' # str |  (optional)
-chunk_number = 'chunk_number_example' # str |  (optional)
+    api_instance = main_api.MainApi(api_client)
+    upload_id = "upload_id_example" # str |  (optional)
+    chunk_number = "chunk_number_example" # str |  (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_instance.check_chunk_uploaded(upload_id=upload_id, chunk_number=chunk_number)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->check_chunk_uploaded: %s\n" % e)
 ```
 
@@ -302,21 +355,32 @@ chunk_number = 'chunk_number_example' # str |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upload_id** | **str**|  | [optional] 
- **chunk_number** | **str**|  | [optional] 
+ **upload_id** | **str**|  | [optional]
+ **chunk_number** | **str**|  | [optional]
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **check_internet_connectivity**
-
-    def check_internet_connectivity() -> CheckConnectivityEndpointResponse 
+> CheckConnectivityEndpointResponse check_internet_connectivity()
 
 
 
@@ -325,47 +389,60 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.check_connectivity_endpoint_response import CheckConnectivityEndpointResponse
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    
+    api_instance = main_api.MainApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_response = api_instance.check_internet_connectivity()
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->check_internet_connectivity: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 [**CheckConnectivityEndpointResponse**](CheckConnectivityEndpointResponse.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **check_stor_next_license**
-
-    def check_stor_next_license(stornext_license) -> list[StorNextLicenseCheckEndpointResponse] 
+> [StorNextLicenseCheckEndpointResponse] check_stor_next_license(stornext_license)
 
 
 
@@ -374,29 +451,34 @@ This endpoint does not need any parameters.
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.stor_next_license_check_endpoint_response import StorNextLicenseCheckEndpointResponse
+from elements_sdk.model.stornext_license import StornextLicense
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    stornext_license = elements_sdk.StornextLicense() # StornextLicense | 
+    api_instance = main_api.MainApi(api_client)
+    stornext_license = StornextLicense(
+        license="license_example",
+    ) # StornextLicense | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.check_stor_next_license(stornext_license)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->check_stor_next_license: %s\n" % e)
 ```
 
@@ -405,20 +487,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stornext_license** | [**StornextLicense**](StornextLicense.md)|  | 
+ **stornext_license** | [**StornextLicense**](StornextLicense.md)|  |
 
 ### Return type
 
-[**list[StorNextLicenseCheckEndpointResponse]**](StorNextLicenseCheckEndpointResponse.md)
+[**[StorNextLicenseCheckEndpointResponse]**](StorNextLicenseCheckEndpointResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **collect_diagnostics**
-
-    def collect_diagnostics() -> DownloadArchive 
+> DownloadArchive collect_diagnostics()
 
 
 
@@ -427,47 +520,60 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.download_archive import DownloadArchive
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    
+    api_instance = main_api.MainApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_response = api_instance.collect_diagnostics()
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->collect_diagnostics: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 [**DownloadArchive**](DownloadArchive.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **create_archive**
-
-    def create_archive(create_download_archive) -> DownloadArchive 
+> DownloadArchive create_archive(create_download_archive)
 
 
 
@@ -476,29 +582,44 @@ This endpoint does not need any parameters.
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.create_download_archive import CreateDownloadArchive
+from elements_sdk.model.download_archive import DownloadArchive
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    create_download_archive = elements_sdk.CreateDownloadArchive() # CreateDownloadArchive | 
+    api_instance = main_api.MainApi(api_client)
+    create_download_archive = CreateDownloadArchive(
+        paths=[
+            "paths_example",
+        ],
+        file_ids=[
+            1,
+        ],
+        bundle_ids=[
+            1,
+        ],
+        proxy=True,
+        for_root=1,
+    ) # CreateDownloadArchive | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.create_archive(create_download_archive)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->create_archive: %s\n" % e)
 ```
 
@@ -507,20 +628,179 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_download_archive** | [**CreateDownloadArchive**](CreateDownloadArchive.md)|  | 
+ **create_download_archive** | [**CreateDownloadArchive**](CreateDownloadArchive.md)|  |
 
 ### Return type
 
 [**DownloadArchive**](DownloadArchive.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **create_cloud_account**
+> CloudAccount create_cloud_account(cloud_account_update)
 
-***
+
+
+### Required permissions    * Authenticated user 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.cloud_account_update import CloudAccountUpdate
+from elements_sdk.model.cloud_account import CloudAccount
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    cloud_account_update = CloudAccountUpdate(
+        name="name_example",
+        provider="azure",
+        access_id="access_id_example",
+        secret="secret_example",
+        tenant="tenant_example",
+        subscription="subscription_example",
+        endpoint="endpoint_example",
+        mount_credentials_management="mount_credentials_management_example",
+    ) # CloudAccountUpdate | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.create_cloud_account(cloud_account_update)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->create_cloud_account: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cloud_account_update** | [**CloudAccountUpdate**](CloudAccountUpdate.md)|  |
+
+### Return type
+
+[**CloudAccount**](CloudAccount.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **create_filesystem_permission**
+> FilesystemPermission create_filesystem_permission(filesystem_permission_update)
+
+
+
+### Required permissions    * User account permission: `None` (read) / `users:manage` (write) 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.filesystem_permission_update import FilesystemPermissionUpdate
+from elements_sdk.model.filesystem_permission import FilesystemPermission
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    filesystem_permission_update = FilesystemPermissionUpdate(
+        path="path_example",
+        read_only=True,
+        user=1,
+        group=1,
+    ) # FilesystemPermissionUpdate | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.create_filesystem_permission(filesystem_permission_update)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->create_filesystem_permission: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filesystem_permission_update** | [**FilesystemPermissionUpdate**](FilesystemPermissionUpdate.md)|  |
+
+### Return type
+
+[**FilesystemPermission**](FilesystemPermission.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_group**
-
-    def create_group(elements_group_detail) -> ElementsGroupDetail 
+> ElementsGroupDetail create_group(elements_group_detail_update)
 
 
 
@@ -529,29 +809,46 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.elements_group_detail_update import ElementsGroupDetailUpdate
+from elements_sdk.model.elements_group_detail import ElementsGroupDetail
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    elements_group_detail = elements_sdk.ElementsGroupDetail() # ElementsGroupDetail | 
+    api_instance = main_api.MainApi(api_client)
+    elements_group_detail_update = ElementsGroupDetailUpdate(
+        permissions=[
+            "permissions_example",
+        ],
+        members=[
+            ElementsUserReference(
+                id=1,
+            ),
+        ],
+        ldap=None,
+        name="name_example",
+        ldap_dn="ldap_dn_example",
+        unix_groupname="unix_groupname_example",
+        gid=-2147483648,
+    ) # ElementsGroupDetailUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.create_group(elements_group_detail)
+        api_response = api_instance.create_group(elements_group_detail_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->create_group: %s\n" % e)
 ```
 
@@ -560,20 +857,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **elements_group_detail** | [**ElementsGroupDetail**](ElementsGroupDetail.md)|  | 
+ **elements_group_detail_update** | [**ElementsGroupDetailUpdate**](ElementsGroupDetailUpdate.md)|  |
 
 ### Return type
 
 [**ElementsGroupDetail**](ElementsGroupDetail.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **create_home_workspace**
-
-    def create_home_workspace(id, create_home_workspace_request) -> Workspace 
+> Workspace create_home_workspace(id, create_home_workspace_request)
 
 
 
@@ -582,30 +890,35 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.workspace import Workspace
+from elements_sdk.model.create_home_workspace_request import CreateHomeWorkspaceRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this User.
-create_home_workspace_request = elements_sdk.CreateHomeWorkspaceRequest() # CreateHomeWorkspaceRequest | 
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this User.
+    create_home_workspace_request = CreateHomeWorkspaceRequest(
+        volume=1,
+    ) # CreateHomeWorkspaceRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.create_home_workspace(id, create_home_workspace_request)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->create_home_workspace: %s\n" % e)
 ```
 
@@ -614,21 +927,32 @@ create_home_workspace_request = elements_sdk.CreateHomeWorkspaceRequest() # Crea
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this User. | 
- **create_home_workspace_request** | [**CreateHomeWorkspaceRequest**](CreateHomeWorkspaceRequest.md)|  | 
+ **id** | **int**| A unique integer value identifying this User. |
+ **create_home_workspace_request** | [**CreateHomeWorkspaceRequest**](CreateHomeWorkspaceRequest.md)|  |
 
 ### Return type
 
 [**Workspace**](Workspace.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **create_ntp_server**
-
-    def create_ntp_server(ntp_server) -> NTPServer 
+> NTPServer create_ntp_server(ntp_server_update)
 
 
 
@@ -637,29 +961,35 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.ntp_server_update import NTPServerUpdate
+from elements_sdk.model.ntp_server import NTPServer
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    ntp_server = elements_sdk.NTPServer() # NTPServer | 
+    api_instance = main_api.MainApi(api_client)
+    ntp_server_update = NTPServerUpdate(
+        address="address_example",
+        options="options_example",
+    ) # NTPServerUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.create_ntp_server(ntp_server)
+        api_response = api_instance.create_ntp_server(ntp_server_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->create_ntp_server: %s\n" % e)
 ```
 
@@ -668,20 +998,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ntp_server** | [**NTPServer**](NTPServer.md)|  | 
+ **ntp_server_update** | [**NTPServerUpdate**](NTPServerUpdate.md)|  |
 
 ### Return type
 
 [**NTPServer**](NTPServer.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **create_user**
-
-    def create_user(elements_user_detail) -> ElementsUserDetail 
+> ElementsUserDetail create_user(elements_user_detail_update)
 
 
 
@@ -690,29 +1031,66 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.elements_user_detail import ElementsUserDetail
+from elements_sdk.model.elements_user_detail_update import ElementsUserDetailUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    elements_user_detail = elements_sdk.ElementsUserDetail() # ElementsUserDetail | 
+    api_instance = main_api.MainApi(api_client)
+    elements_user_detail_update = ElementsUserDetailUpdate(
+        allow_changing_password=True,
+        allow_wan_login=True,
+        avatar="avatar_example",
+        default_page="default_page_example",
+        email="email_example",
+        expiry=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        fm_bookmarks=[
+            "fm_bookmarks_example",
+        ],
+        full_name="full_name_example",
+        gid=-2147483648,
+        home=1,
+        is_external=True,
+        is_cloud=True,
+        is_cloud_default=True,
+        is_enabled=True,
+        language="en",
+        last_seen=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        ldap=None,
+        ldap_dn="ldap_dn_example",
+        password_change_required=True,
+        permissions=[
+            "permissions_example",
+        ],
+        shaper_ceiling=0,
+        shaper_rate=0,
+        totp_enabled=True,
+        uid=-2147483648,
+        unix_username="unix_username_example",
+        username="username_example",
+        groups=[
+            1,
+        ],
+    ) # ElementsUserDetailUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.create_user(elements_user_detail)
+        api_response = api_instance.create_user(elements_user_detail_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->create_user: %s\n" % e)
 ```
 
@@ -721,20 +1099,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **elements_user_detail** | [**ElementsUserDetail**](ElementsUserDetail.md)|  | 
+ **elements_user_detail_update** | [**ElementsUserDetailUpdate**](ElementsUserDetailUpdate.md)|  |
 
 ### Return type
 
 [**ElementsUserDetail**](ElementsUserDetail.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **create_workstation**
-
-    def create_workstation(workstation) -> Workstation 
+> Workstation create_workstation(workstation_update)
 
 
 
@@ -743,29 +1132,52 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.workstation_update import WorkstationUpdate
+from elements_sdk.model.workstation import Workstation
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    workstation = elements_sdk.Workstation() # Workstation | 
+    api_instance = main_api.MainApi(api_client)
+    workstation_update = WorkstationUpdate(
+        rdc_allow_users=[
+            ElementsUserReference(
+                id=1,
+            ),
+        ],
+        rdc_allow_groups=[
+            ElementsGroupReference(
+                id=1,
+            ),
+        ],
+        report={
+            "key": "key_example",
+        },
+        name="name_example",
+        hostname="hostname_example",
+        rdc_last_used=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        rdc_disable_upnp=True,
+        rdc_client_port=-2147483648,
+        rdc_host_port=-2147483648,
+    ) # WorkstationUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.create_workstation(workstation)
+        api_response = api_instance.create_workstation(workstation_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->create_workstation: %s\n" % e)
 ```
 
@@ -774,20 +1186,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workstation** | [**Workstation**](Workstation.md)|  | 
+ **workstation_update** | [**WorkstationUpdate**](WorkstationUpdate.md)|  |
 
 ### Return type
 
 [**Workstation**](Workstation.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
-# **delete_download_archive**
-
-    def delete_download_archive(id)
+# **delete_cloud_account**
+> delete_cloud_account(id)
 
 
 
@@ -796,28 +1219,93 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this download archive.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this cloud account.
 
+    # example passing only required values which don't have defaults set
+    try:
+        api_instance.delete_cloud_account(id)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->delete_cloud_account: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this cloud account. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **delete_download_archive**
+> delete_download_archive(id)
+
+
+
+### Required permissions    * Authenticated user 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    id = "id_example" # str | A UUID string identifying this download archive.
+
+    # example passing only required values which don't have defaults set
     try:
         api_instance.delete_download_archive(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->delete_download_archive: %s\n" % e)
 ```
 
@@ -826,20 +1314,95 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this download archive. | 
+ **id** | **str**| A UUID string identifying this download archive. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **delete_filesystem_permission**
+> delete_filesystem_permission(id)
 
-***
+
+
+### Required permissions    * User account permission: `None` (read) / `users:manage` (write) 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this filesystem permission.
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_instance.delete_filesystem_permission(id)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->delete_filesystem_permission: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this filesystem permission. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_group**
-
-    def delete_group(id)
+> delete_group(id)
 
 
 
@@ -848,28 +1411,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this Group.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this Group.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.delete_group(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->delete_group: %s\n" % e)
 ```
 
@@ -878,20 +1442,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Group. | 
+ **id** | **int**| A unique integer value identifying this Group. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_home_workspace**
-
-    def delete_home_workspace(id)
+> delete_home_workspace(id)
 
 
 
@@ -900,28 +1475,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this User.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this User.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.delete_home_workspace(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->delete_home_workspace: %s\n" % e)
 ```
 
@@ -930,20 +1506,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this User. | 
+ **id** | **int**| A unique integer value identifying this User. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_ntp_server**
-
-    def delete_ntp_server(id)
+> delete_ntp_server(id)
 
 
 
@@ -952,28 +1539,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this NTP Server.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this NTP Server.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.delete_ntp_server(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->delete_ntp_server: %s\n" % e)
 ```
 
@@ -982,20 +1570,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this NTP Server. | 
+ **id** | **int**| A unique integer value identifying this NTP Server. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_user**
-
-    def delete_user(id)
+> delete_user(id)
 
 
 
@@ -1004,28 +1603,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this User.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this User.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.delete_user(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->delete_user: %s\n" % e)
 ```
 
@@ -1034,20 +1634,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this User. | 
+ **id** | **int**| A unique integer value identifying this User. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_workstation**
-
-    def delete_workstation(id)
+> delete_workstation(id)
 
 
 
@@ -1056,28 +1667,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 'id_example' # str | A unique value identifying this workstation.
+    api_instance = main_api.MainApi(api_client)
+    id = "id_example" # str | A unique value identifying this workstation.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.delete_workstation(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->delete_workstation: %s\n" % e)
 ```
 
@@ -1086,48 +1698,60 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| A unique value identifying this workstation. | 
+ **id** | **str**| A unique value identifying this workstation. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **disable_user_totp**
-
-    def disable_user_totp(id)
+> disable_user_totp(id)
 
 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this User.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this User.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.disable_user_totp(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->disable_user_totp: %s\n" % e)
 ```
 
@@ -1136,49 +1760,65 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this User. | 
+ **id** | **int**| A unique integer value identifying this User. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **enable_user_totp**
-
-    def enable_user_totp(id, enable_totp_request)
+> enable_user_totp(id, enable_totp_request)
 
 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.enable_totp_request import EnableTOTPRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this User.
-enable_totp_request = elements_sdk.EnableTOTPRequest() # EnableTOTPRequest | 
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this User.
+    enable_totp_request = EnableTOTPRequest(
+        key="key_example",
+        otp="otp_example",
+    ) # EnableTOTPRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.enable_user_totp(id, enable_totp_request)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->enable_user_totp: %s\n" % e)
 ```
 
@@ -1187,21 +1827,32 @@ enable_totp_request = elements_sdk.EnableTOTPRequest() # EnableTOTPRequest |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this User. | 
- **enable_totp_request** | [**EnableTOTPRequest**](EnableTOTPRequest.md)|  | 
+ **id** | **int**| A unique integer value identifying this User. |
+ **enable_totp_request** | [**EnableTOTPRequest**](EnableTOTPRequest.md)|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **finish_upload**
-
-    def finish_upload(finish_upload_endpoint_request)
+> finish_upload(finish_upload_endpoint_request)
 
 
 
@@ -1210,28 +1861,32 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.finish_upload_endpoint_request import FinishUploadEndpointRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    finish_upload_endpoint_request = elements_sdk.FinishUploadEndpointRequest() # FinishUploadEndpointRequest | 
+    api_instance = main_api.MainApi(api_client)
+    finish_upload_endpoint_request = FinishUploadEndpointRequest(
+        upload_id="upload_id_example",
+    ) # FinishUploadEndpointRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.finish_upload(finish_upload_endpoint_request)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->finish_upload: %s\n" % e)
 ```
 
@@ -1240,20 +1895,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **finish_upload_endpoint_request** | [**FinishUploadEndpointRequest**](FinishUploadEndpointRequest.md)|  | 
+ **finish_upload_endpoint_request** | [**FinishUploadEndpointRequest**](FinishUploadEndpointRequest.md)|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **fix_ldap_group_memberships**
-
-    def fix_ldap_group_memberships(id)
+> fix_ldap_group_memberships(id)
 
 
 
@@ -1262,28 +1928,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this LDAP Server.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this LDAP Server.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.fix_ldap_group_memberships(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->fix_ldap_group_memberships: %s\n" % e)
 ```
 
@@ -1292,20 +1959,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this LDAP Server. | 
+ **id** | **int**| A unique integer value identifying this LDAP Server. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_client_sessions**
-
-    def get_all_client_sessions(user=user, mounted_workspaces__mount_node=mounted_workspaces__mount_node, workstation=workstation, ordering=ordering, limit=limit, offset=offset) -> list[ClientSession] 
+> [ClientSession] get_all_client_sessions()
 
 
 
@@ -1314,34 +1992,37 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.client_session import ClientSession
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    user = 'user_example' # str | Filter the returned list by `user`. (optional)
-mounted_workspaces__mount_node = 'mounted_workspaces__mount_node_example' # str | Filter the returned list by `mounted_workspaces__mount_node`. (optional)
-workstation = 'workstation_example' # str | Filter the returned list by `workstation`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = main_api.MainApi(api_client)
+    user = 3.14 # float | Filter the returned list by `user`. (optional)
+    mounted_workspaces__mount_node = 3.14 # float | Filter the returned list by `mounted_workspaces__mount_node`. (optional)
+    workstation = "workstation_example" # str | Filter the returned list by `workstation`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_client_sessions(user=user, mounted_workspaces__mount_node=mounted_workspaces__mount_node, workstation=workstation, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_all_client_sessions: %s\n" % e)
 ```
 
@@ -1350,25 +2031,36 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user** | **str**| Filter the returned list by &#x60;user&#x60;. | [optional] 
- **mounted_workspaces__mount_node** | **str**| Filter the returned list by &#x60;mounted_workspaces__mount_node&#x60;. | [optional] 
- **workstation** | **str**| Filter the returned list by &#x60;workstation&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **user** | **float**| Filter the returned list by &#x60;user&#x60;. | [optional]
+ **mounted_workspaces__mount_node** | **float**| Filter the returned list by &#x60;mounted_workspaces__mount_node&#x60;. | [optional]
+ **workstation** | **str**| Filter the returned list by &#x60;workstation&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[ClientSession]**](ClientSession.md)
+[**[ClientSession]**](ClientSession.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
-# **get_all_download_archives**
-
-    def get_all_download_archives(ordering=ordering, limit=limit, offset=offset) -> list[DownloadArchive] 
+# **get_all_cloud_accounts**
+> [CloudAccount] get_all_cloud_accounts()
 
 
 
@@ -1377,31 +2069,109 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.cloud_account import CloudAccount
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = main_api.MainApi(api_client)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    provider = "provider_example" # str | Filter the returned list by `provider`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.get_all_cloud_accounts(name=name, provider=provider, ordering=ordering, limit=limit, offset=offset)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->get_all_cloud_accounts: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **provider** | **str**| Filter the returned list by &#x60;provider&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
+
+### Return type
+
+[**[CloudAccount]**](CloudAccount.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **get_all_download_archives**
+> [DownloadArchive] get_all_download_archives()
+
+
+
+### Required permissions    * Authenticated user 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.download_archive import DownloadArchive
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_download_archives(ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_all_download_archives: %s\n" % e)
 ```
 
@@ -1410,22 +2180,33 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[DownloadArchive]**](DownloadArchive.md)
+[**[DownloadArchive]**](DownloadArchive.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_downloads**
-
-    def get_all_downloads(name=name, ordering=ordering, limit=limit, offset=offset) -> list[Download] 
+> [Download] get_all_downloads()
 
 
 
@@ -1434,32 +2215,35 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.download import Download
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    name = 'name_example' # str | Filter the returned list by `name`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = main_api.MainApi(api_client)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_downloads(name=name, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_all_downloads: %s\n" % e)
 ```
 
@@ -1468,23 +2252,111 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[Download]**](Download.md)
+[**[Download]**](Download.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **get_all_filesystem_permissions**
+> [FilesystemPermission] get_all_filesystem_permissions()
 
-***
+
+
+### Required permissions    * User account permission: `None` (read) / `users:manage` (write) 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.filesystem_permission import FilesystemPermission
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    user = 3.14 # float | Filter the returned list by `user`. (optional)
+    group = 3.14 # float | Filter the returned list by `group`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
+    for_user = 1 # int |  (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.get_all_filesystem_permissions(user=user, group=group, ordering=ordering, limit=limit, offset=offset, for_user=for_user)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->get_all_filesystem_permissions: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user** | **float**| Filter the returned list by &#x60;user&#x60;. | [optional]
+ **group** | **float**| Filter the returned list by &#x60;group&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
+ **for_user** | **int**|  | [optional]
+
+### Return type
+
+[**[FilesystemPermission]**](FilesystemPermission.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_groups**
-
-    def get_all_groups(name=name, ordering=ordering, limit=limit, offset=offset) -> list[ElementsGroup] 
+> [ElementsGroup] get_all_groups()
 
 
 
@@ -1493,32 +2365,35 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.elements_group import ElementsGroup
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    name = 'name_example' # str | Filter the returned list by `name`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = main_api.MainApi(api_client)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_groups(name=name, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_all_groups: %s\n" % e)
 ```
 
@@ -1527,23 +2402,34 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[ElementsGroup]**](ElementsGroup.md)
+[**[ElementsGroup]**](ElementsGroup.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_ldap_servers**
-
-    def get_all_ldap_servers(ordering=ordering, limit=limit, offset=offset) -> list[LDAPServer] 
+> [LDAPServer] get_all_ldap_servers()
 
 
 
@@ -1552,31 +2438,34 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.ldap_server import LDAPServer
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = main_api.MainApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_ldap_servers(ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_all_ldap_servers: %s\n" % e)
 ```
 
@@ -1585,22 +2474,33 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[LDAPServer]**](LDAPServer.md)
+[**[LDAPServer]**](LDAPServer.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_ntp_servers**
-
-    def get_all_ntp_servers(address=address, ordering=ordering, limit=limit, offset=offset) -> list[NTPServer] 
+> [NTPServer] get_all_ntp_servers()
 
 
 
@@ -1609,32 +2509,35 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.ntp_server import NTPServer
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    address = 'address_example' # str | Filter the returned list by `address`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = main_api.MainApi(api_client)
+    address = "address_example" # str | Filter the returned list by `address`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_ntp_servers(address=address, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_all_ntp_servers: %s\n" % e)
 ```
 
@@ -1643,23 +2546,34 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **address** | **str**| Filter the returned list by &#x60;address&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **address** | **str**| Filter the returned list by &#x60;address&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[NTPServer]**](NTPServer.md)
+[**[NTPServer]**](NTPServer.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_storage_nodes**
-
-    def get_all_storage_nodes(type=type, backend=backend, name=name, address=address, ordering=ordering, limit=limit, offset=offset, include_status=include_status) -> list[StorageNode] 
+> [StorageNode] get_all_storage_nodes()
 
 
 
@@ -1668,36 +2582,39 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.storage_node import StorageNode
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    type = 'type_example' # str | Filter the returned list by `type`. (optional)
-backend = 'backend_example' # str | Filter the returned list by `backend`. (optional)
-name = 'name_example' # str | Filter the returned list by `name`. (optional)
-address = 'address_example' # str | Filter the returned list by `address`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
-include_status = True # bool |  (optional)
+    api_instance = main_api.MainApi(api_client)
+    type = "type_example" # str | Filter the returned list by `type`. (optional)
+    backend = "backend_example" # str | Filter the returned list by `backend`. (optional)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    address = "address_example" # str | Filter the returned list by `address`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
+    include_status = True # bool |  (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_storage_nodes(type=type, backend=backend, name=name, address=address, ordering=ordering, limit=limit, offset=offset, include_status=include_status)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_all_storage_nodes: %s\n" % e)
 ```
 
@@ -1706,27 +2623,38 @@ include_status = True # bool |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **str**| Filter the returned list by &#x60;type&#x60;. | [optional] 
- **backend** | **str**| Filter the returned list by &#x60;backend&#x60;. | [optional] 
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional] 
- **address** | **str**| Filter the returned list by &#x60;address&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
- **include_status** | **bool**|  | [optional] 
+ **type** | **str**| Filter the returned list by &#x60;type&#x60;. | [optional]
+ **backend** | **str**| Filter the returned list by &#x60;backend&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **address** | **str**| Filter the returned list by &#x60;address&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
+ **include_status** | **bool**|  | [optional]
 
 ### Return type
 
-[**list[StorageNode]**](StorageNode.md)
+[**[StorageNode]**](StorageNode.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_users**
-
-    def get_all_users(username=username, home=home, full_name=full_name, ordering=ordering, limit=limit, offset=offset, include_allowed_fs_paths=include_allowed_fs_paths) -> list[ElementsUser] 
+> [ElementsUser] get_all_users()
 
 
 
@@ -1735,35 +2663,38 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.elements_user import ElementsUser
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    username = 'username_example' # str | Filter the returned list by `username`. (optional)
-home = 'home_example' # str | Filter the returned list by `home`. (optional)
-full_name = 'full_name_example' # str | Filter the returned list by `full_name`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
-include_allowed_fs_paths = True # bool |  (optional)
+    api_instance = main_api.MainApi(api_client)
+    username = "username_example" # str | Filter the returned list by `username`. (optional)
+    home = "home_example" # str | Filter the returned list by `home`. (optional)
+    full_name = "full_name_example" # str | Filter the returned list by `full_name`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
+    include_allowed_fs_paths = True # bool |  (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_users(username=username, home=home, full_name=full_name, ordering=ordering, limit=limit, offset=offset, include_allowed_fs_paths=include_allowed_fs_paths)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_all_users: %s\n" % e)
 ```
 
@@ -1772,26 +2703,37 @@ include_allowed_fs_paths = True # bool |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| Filter the returned list by &#x60;username&#x60;. | [optional] 
- **home** | **str**| Filter the returned list by &#x60;home&#x60;. | [optional] 
- **full_name** | **str**| Filter the returned list by &#x60;full_name&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
- **include_allowed_fs_paths** | **bool**|  | [optional] 
+ **username** | **str**| Filter the returned list by &#x60;username&#x60;. | [optional]
+ **home** | **str**| Filter the returned list by &#x60;home&#x60;. | [optional]
+ **full_name** | **str**| Filter the returned list by &#x60;full_name&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
+ **include_allowed_fs_paths** | **bool**|  | [optional]
 
 ### Return type
 
-[**list[ElementsUser]**](ElementsUser.md)
+[**[ElementsUser]**](ElementsUser.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_workstations**
-
-    def get_all_workstations(hostname=hostname, name=name, ordering=ordering, limit=limit, offset=offset) -> list[Workstation] 
+> [Workstation] get_all_workstations()
 
 
 
@@ -1800,33 +2742,36 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.workstation import Workstation
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    hostname = 'hostname_example' # str | Filter the returned list by `hostname`. (optional)
-name = 'name_example' # str | Filter the returned list by `name`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = main_api.MainApi(api_client)
+    hostname = "hostname_example" # str | Filter the returned list by `hostname`. (optional)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_workstations(hostname=hostname, name=name, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_all_workstations: %s\n" % e)
 ```
 
@@ -1835,24 +2780,35 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hostname** | **str**| Filter the returned list by &#x60;hostname&#x60;. | [optional] 
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **hostname** | **str**| Filter the returned list by &#x60;hostname&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[Workstation]**](Workstation.md)
+[**[Workstation]**](Workstation.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_certificate_configuration**
-
-    def get_certificate_configuration() -> Certificate 
+> Certificate get_certificate_configuration()
 
 
 
@@ -1861,47 +2817,60 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.certificate import Certificate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    
+    api_instance = main_api.MainApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_response = api_instance.get_certificate_configuration()
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_certificate_configuration: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 [**Certificate**](Certificate.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_client_download_file**
-
-    def get_client_download_file(file)
+> get_client_download_file(file)
 
 
 
@@ -1910,28 +2879,29 @@ This endpoint does not need any parameters.
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    file = 'file_example' # str | 
+    api_instance = main_api.MainApi(api_client)
+    file = "file_example" # str | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.get_client_download_file(file)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_client_download_file: %s\n" % e)
 ```
 
@@ -1940,20 +2910,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **str**|  | 
+ **file** | **str**|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_client_downloads**
-
-    def get_client_downloads() -> list[ClientsEndpointResponse] 
+> [ClientsEndpointResponse] get_client_downloads()
 
 
 
@@ -1962,47 +2943,60 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.clients_endpoint_response import ClientsEndpointResponse
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    
+    api_instance = main_api.MainApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_response = api_instance.get_client_downloads()
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_client_downloads: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**list[ClientsEndpointResponse]**](ClientsEndpointResponse.md)
+[**[ClientsEndpointResponse]**](ClientsEndpointResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_client_session**
-
-    def get_client_session(id) -> ClientSession 
+> ClientSession get_client_session(id)
 
 
 
@@ -2011,29 +3005,31 @@ This endpoint does not need any parameters.
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.client_session import ClientSession
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this client session.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this client session.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_client_session(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_client_session: %s\n" % e)
 ```
 
@@ -2042,20 +3038,163 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this client session. | 
+ **id** | **int**| A unique integer value identifying this client session. |
 
 ### Return type
 
 [**ClientSession**](ClientSession.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **get_cloud_account**
+> CloudAccount get_cloud_account(id)
 
-***
+
+
+### Required permissions    * Authenticated user 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.cloud_account import CloudAccount
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this cloud account.
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.get_cloud_account(id)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->get_cloud_account: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this cloud account. |
+
+### Return type
+
+[**CloudAccount**](CloudAccount.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **get_cloud_account_storage_roots**
+> [StorageRoot] get_cloud_account_storage_roots(id)
+
+
+
+### Required permissions    * User account permission: `system:admin-access` 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.storage_root import StorageRoot
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this cloud account.
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.get_cloud_account_storage_roots(id)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->get_cloud_account_storage_roots: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this cloud account. |
+
+### Return type
+
+[**[StorageRoot]**](StorageRoot.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_current_workstation**
-
-    def get_current_workstation(ordering=ordering, limit=limit, offset=offset) -> Workstation 
+> Workstation get_current_workstation()
 
 
 
@@ -2064,31 +3203,34 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.workstation import Workstation
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = main_api.MainApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_current_workstation(ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_current_workstation: %s\n" % e)
 ```
 
@@ -2097,22 +3239,33 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
 [**Workstation**](Workstation.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_download**
-
-    def get_download(id) -> Download 
+> Download get_download(id)
 
 
 
@@ -2121,29 +3274,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.download import Download
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this download.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this download.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_download(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_download: %s\n" % e)
 ```
 
@@ -2152,20 +3307,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this download. | 
+ **id** | **int**| A unique integer value identifying this download. |
 
 ### Return type
 
 [**Download**](Download.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_download_archive**
-
-    def get_download_archive(id) -> DownloadArchive 
+> DownloadArchive get_download_archive(id)
 
 
 
@@ -2174,29 +3340,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.download_archive import DownloadArchive
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this download archive.
+    api_instance = main_api.MainApi(api_client)
+    id = "id_example" # str | A UUID string identifying this download archive.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_download_archive(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_download_archive: %s\n" % e)
 ```
 
@@ -2205,20 +3373,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this download archive. | 
+ **id** | **str**| A UUID string identifying this download archive. |
 
 ### Return type
 
 [**DownloadArchive**](DownloadArchive.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_download_archive_file**
-
-    def get_download_archive_file(id)
+> get_download_archive_file(id)
 
 
 
@@ -2227,28 +3406,29 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this download archive.
+    api_instance = main_api.MainApi(api_client)
+    id = "id_example" # str | A UUID string identifying this download archive.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.get_download_archive_file(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_download_archive_file: %s\n" % e)
 ```
 
@@ -2257,20 +3437,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this download archive. | 
+ **id** | **str**| A UUID string identifying this download archive. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_download_file**
-
-    def get_download_file(id)
+> get_download_file(id)
 
 
 
@@ -2279,28 +3470,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this download.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this download.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.get_download_file(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_download_file: %s\n" % e)
 ```
 
@@ -2309,20 +3501,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this download. | 
+ **id** | **int**| A unique integer value identifying this download. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_download_icon**
-
-    def get_download_icon(id)
+> get_download_icon(id)
 
 
 
@@ -2331,28 +3534,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this download.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this download.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.get_download_icon(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_download_icon: %s\n" % e)
 ```
 
@@ -2361,20 +3565,97 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this download. | 
+ **id** | **int**| A unique integer value identifying this download. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **get_filesystem_permission**
+> FilesystemPermission get_filesystem_permission(id)
 
-***
+
+
+### Required permissions    * User account permission: `None` (read) / `users:manage` (write) 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.filesystem_permission import FilesystemPermission
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this filesystem permission.
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.get_filesystem_permission(id)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->get_filesystem_permission: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this filesystem permission. |
+
+### Return type
+
+[**FilesystemPermission**](FilesystemPermission.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_group**
-
-    def get_group(id) -> ElementsGroupDetail 
+> ElementsGroupDetail get_group(id)
 
 
 
@@ -2383,29 +3664,31 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.elements_group_detail import ElementsGroupDetail
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this Group.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this Group.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_group(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_group: %s\n" % e)
 ```
 
@@ -2414,20 +3697,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Group. | 
+ **id** | **int**| A unique integer value identifying this Group. |
 
 ### Return type
 
 [**ElementsGroupDetail**](ElementsGroupDetail.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_home_workspace**
-
-    def get_home_workspace(id) -> Workspace 
+> Workspace get_home_workspace(id)
 
 
 
@@ -2436,29 +3730,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.workspace import Workspace
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this User.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this User.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_home_workspace(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_home_workspace: %s\n" % e)
 ```
 
@@ -2467,20 +3763,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this User. | 
+ **id** | **int**| A unique integer value identifying this User. |
 
 ### Return type
 
 [**Workspace**](Workspace.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_ipmi_configuration**
-
-    def get_ipmi_configuration(id) -> Ipmi 
+> Ipmi get_ipmi_configuration(id)
 
 
 
@@ -2489,29 +3796,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.ipmi import Ipmi
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this Storage Node.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this Storage Node.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_ipmi_configuration(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_ipmi_configuration: %s\n" % e)
 ```
 
@@ -2520,20 +3829,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Storage Node. | 
+ **id** | **int**| A unique integer value identifying this Storage Node. |
 
 ### Return type
 
 [**Ipmi**](Ipmi.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_ldap_server**
-
-    def get_ldap_server(id) -> LDAPServer 
+> LDAPServer get_ldap_server(id)
 
 
 
@@ -2542,29 +3862,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.ldap_server import LDAPServer
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this LDAP Server.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this LDAP Server.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_ldap_server(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_ldap_server: %s\n" % e)
 ```
 
@@ -2573,20 +3895,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this LDAP Server. | 
+ **id** | **int**| A unique integer value identifying this LDAP Server. |
 
 ### Return type
 
 [**LDAPServer**](LDAPServer.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_ldap_server_groups**
-
-    def get_ldap_server_groups(id) -> LDAPServerGroups 
+> LDAPServerGroups get_ldap_server_groups(id)
 
 
 
@@ -2595,29 +3928,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.ldap_server_groups import LDAPServerGroups
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this LDAP Server.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this LDAP Server.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_ldap_server_groups(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_ldap_server_groups: %s\n" % e)
 ```
 
@@ -2626,20 +3961,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this LDAP Server. | 
+ **id** | **int**| A unique integer value identifying this LDAP Server. |
 
 ### Return type
 
 [**LDAPServerGroups**](LDAPServerGroups.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_ldap_server_users**
-
-    def get_ldap_server_users(id) -> LDAPServerUsers 
+> LDAPServerUsers get_ldap_server_users(id)
 
 
 
@@ -2648,29 +3994,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.ldap_server_users import LDAPServerUsers
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this LDAP Server.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this LDAP Server.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_ldap_server_users(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_ldap_server_users: %s\n" % e)
 ```
 
@@ -2679,20 +4027,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this LDAP Server. | 
+ **id** | **int**| A unique integer value identifying this LDAP Server. |
 
 ### Return type
 
 [**LDAPServerUsers**](LDAPServerUsers.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_license**
-
-    def get_license() -> License 
+> License get_license()
 
 
 
@@ -2701,47 +4060,60 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.license import License
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    
+    api_instance = main_api.MainApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_response = api_instance.get_license()
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_license: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 [**License**](License.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_local_time**
-
-    def get_local_time() -> TimeEndpointResponse 
+> TimeEndpointResponse get_local_time()
 
 
 
@@ -2750,47 +4122,60 @@ This endpoint does not need any parameters.
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.time_endpoint_response import TimeEndpointResponse
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    
+    api_instance = main_api.MainApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_response = api_instance.get_local_time()
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_local_time: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 [**TimeEndpointResponse**](TimeEndpointResponse.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_log**
-
-    def get_log(path, offset=offset)
+> get_log(path)
 
 
 
@@ -2799,29 +4184,37 @@ This endpoint does not need any parameters.
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    path = 'path_example' # str | 
-offset = 56 # int |  (optional)
+    api_instance = main_api.MainApi(api_client)
+    path = "/" # str | 
+    offset = 1 # int |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        api_instance.get_log(path)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->get_log: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_instance.get_log(path, offset=offset)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_log: %s\n" % e)
 ```
 
@@ -2830,21 +4223,32 @@ offset = 56 # int |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **str**|  | 
- **offset** | **int**|  | [optional] 
+ **path** | **str**|  |
+ **offset** | **int**|  | [optional]
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_node_ipmi_sensors**
-
-    def get_node_ipmi_sensors(id) -> Sensors 
+> Sensors get_node_ipmi_sensors(id)
 
 
 
@@ -2853,29 +4257,31 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.sensors import Sensors
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this Storage Node.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this Storage Node.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_node_ipmi_sensors(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_node_ipmi_sensors: %s\n" % e)
 ```
 
@@ -2884,20 +4290,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Storage Node. | 
+ **id** | **int**| A unique integer value identifying this Storage Node. |
 
 ### Return type
 
 [**Sensors**](Sensors.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_node_stats**
-
-    def get_node_stats(id) -> Stats 
+> Stats get_node_stats(id)
 
 
 
@@ -2906,29 +4323,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.stats import Stats
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this Storage Node.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this Storage Node.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_node_stats(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_node_stats: %s\n" % e)
 ```
 
@@ -2937,20 +4356,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Storage Node. | 
+ **id** | **int**| A unique integer value identifying this Storage Node. |
 
 ### Return type
 
 [**Stats**](Stats.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_ntp_server**
-
-    def get_ntp_server(id) -> NTPServer 
+> NTPServer get_ntp_server(id)
 
 
 
@@ -2959,29 +4389,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.ntp_server import NTPServer
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this NTP Server.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this NTP Server.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_ntp_server(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_ntp_server: %s\n" % e)
 ```
 
@@ -2990,20 +4422,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this NTP Server. | 
+ **id** | **int**| A unique integer value identifying this NTP Server. |
 
 ### Return type
 
 [**NTPServer**](NTPServer.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_parameters**
-
-    def get_parameters(ordering=ordering, limit=limit, offset=offset) -> Parameters 
+> Parameters get_parameters()
 
 
 
@@ -3012,31 +4455,34 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.parameters import Parameters
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = main_api.MainApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_parameters(ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_parameters: %s\n" % e)
 ```
 
@@ -3045,22 +4491,33 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
 [**Parameters**](Parameters.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_profile**
-
-    def get_profile(ordering=ordering, limit=limit, offset=offset) -> ElementsUserProfile 
+> ElementsUserProfile get_profile()
 
 
 
@@ -3069,31 +4526,34 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.elements_user_profile import ElementsUserProfile
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = main_api.MainApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_profile(ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_profile: %s\n" % e)
 ```
 
@@ -3102,22 +4562,33 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
 [**ElementsUserProfile**](ElementsUserProfile.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_release_notes**
-
-    def get_release_notes() -> list[ReleaseNotesEndpointResponse] 
+> [ReleaseNotesEndpointResponse] get_release_notes()
 
 
 
@@ -3126,47 +4597,60 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.release_notes_endpoint_response import ReleaseNotesEndpointResponse
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    
+    api_instance = main_api.MainApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_response = api_instance.get_release_notes()
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_release_notes: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**list[ReleaseNotesEndpointResponse]**](ReleaseNotesEndpointResponse.md)
+[**[ReleaseNotesEndpointResponse]**](ReleaseNotesEndpointResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_service_status**
-
-    def get_service_status(id, service) -> ServiceStatus 
+> ServiceStatus get_service_status(id, service)
 
 
 
@@ -3175,30 +4659,32 @@ This endpoint does not need any parameters.
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.service_status import ServiceStatus
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this Storage Node.
-service = 'service_example' # str | 
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this Storage Node.
+    service = "service_example" # str | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_service_status(id, service)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_service_status: %s\n" % e)
 ```
 
@@ -3207,21 +4693,32 @@ service = 'service_example' # str |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Storage Node. | 
- **service** | **str**|  | 
+ **id** | **int**| A unique integer value identifying this Storage Node. |
+ **service** | **str**|  |
 
 ### Return type
 
 [**ServiceStatus**](ServiceStatus.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_smtp_configuration**
-
-    def get_smtp_configuration() -> SMTPConfiguration 
+> SMTPConfiguration get_smtp_configuration()
 
 
 
@@ -3230,47 +4727,60 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.smtp_configuration import SMTPConfiguration
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    
+    api_instance = main_api.MainApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_response = api_instance.get_smtp_configuration()
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_smtp_configuration: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 [**SMTPConfiguration**](SMTPConfiguration.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_stor_next_license**
-
-    def get_stor_next_license() -> StorNextLicenseEndpointResponse 
+> StorNextLicenseEndpointResponse get_stor_next_license()
 
 
 
@@ -3279,47 +4789,60 @@ This endpoint does not need any parameters.
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.stor_next_license_endpoint_response import StorNextLicenseEndpointResponse
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    
+    api_instance = main_api.MainApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_response = api_instance.get_stor_next_license()
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_stor_next_license: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 [**StorNextLicenseEndpointResponse**](StorNextLicenseEndpointResponse.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_storage_node**
-
-    def get_storage_node(id, include_status=include_status) -> StorageNode 
+> StorageNode get_storage_node(id)
 
 
 
@@ -3328,30 +4851,40 @@ This endpoint does not need any parameters.
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.storage_node import StorageNode
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this Storage Node.
-include_status = True # bool |  (optional)
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this Storage Node.
+    include_status = True # bool |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.get_storage_node(id)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->get_storage_node: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_storage_node(id, include_status=include_status)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_storage_node: %s\n" % e)
 ```
 
@@ -3360,21 +4893,32 @@ include_status = True # bool |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Storage Node. | 
- **include_status** | **bool**|  | [optional] 
+ **id** | **int**| A unique integer value identifying this Storage Node. |
+ **include_status** | **bool**|  | [optional]
 
 ### Return type
 
 [**StorageNode**](StorageNode.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_system_info**
-
-    def get_system_info() -> SystemInfoEndpointResponse 
+> SystemInfoEndpointResponse get_system_info()
 
 
 
@@ -3383,47 +4927,60 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.system_info_endpoint_response import SystemInfoEndpointResponse
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    
+    api_instance = main_api.MainApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_response = api_instance.get_system_info()
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_system_info: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 [**SystemInfoEndpointResponse**](SystemInfoEndpointResponse.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_user**
-
-    def get_user(id) -> ElementsUserDetail 
+> ElementsUserDetail get_user(id)
 
 
 
@@ -3432,29 +4989,40 @@ This endpoint does not need any parameters.
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.elements_user_detail import ElementsUserDetail
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this User.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this User.
+    include_allowed_fs_paths = True # bool |  (optional)
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_user(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->get_user: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.get_user(id, include_allowed_fs_paths=include_allowed_fs_paths)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_user: %s\n" % e)
 ```
 
@@ -3463,20 +5031,32 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this User. | 
+ **id** | **int**| A unique integer value identifying this User. |
+ **include_allowed_fs_paths** | **bool**|  | [optional]
 
 ### Return type
 
 [**ElementsUserDetail**](ElementsUserDetail.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_workstation**
-
-    def get_workstation(id) -> Workstation 
+> Workstation get_workstation(id)
 
 
 
@@ -3485,29 +5065,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.workstation import Workstation
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 'id_example' # str | A unique value identifying this workstation.
+    api_instance = main_api.MainApi(api_client)
+    id = "id_example" # str | A unique value identifying this workstation.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_workstation(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_workstation: %s\n" % e)
 ```
 
@@ -3516,20 +5098,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| A unique value identifying this workstation. | 
+ **id** | **str**| A unique value identifying this workstation. |
 
 ### Return type
 
 [**Workstation**](Workstation.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **install_stor_next_license**
-
-    def install_stor_next_license(stornext_license) -> StorNextLicenseEndpointResponse 
+> StorNextLicenseEndpointResponse install_stor_next_license(stornext_license)
 
 
 
@@ -3538,29 +5131,34 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.stor_next_license_endpoint_response import StorNextLicenseEndpointResponse
+from elements_sdk.model.stornext_license import StornextLicense
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    stornext_license = elements_sdk.StornextLicense() # StornextLicense | 
+    api_instance = main_api.MainApi(api_client)
+    stornext_license = StornextLicense(
+        license="license_example",
+    ) # StornextLicense | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.install_stor_next_license(stornext_license)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->install_stor_next_license: %s\n" % e)
 ```
 
@@ -3569,20 +5167,109 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stornext_license** | [**StornextLicense**](StornextLicense.md)|  | 
+ **stornext_license** | [**StornextLicense**](StornextLicense.md)|  |
 
 ### Return type
 
 [**StorNextLicenseEndpointResponse**](StorNextLicenseEndpointResponse.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **patch_cloud_account**
+> CloudAccount patch_cloud_account(id, cloud_account_partial_update)
 
-***
+
+
+### Required permissions    * Authenticated user 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.cloud_account import CloudAccount
+from elements_sdk.model.cloud_account_partial_update import CloudAccountPartialUpdate
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this cloud account.
+    cloud_account_partial_update = CloudAccountPartialUpdate(
+        name="name_example",
+        provider="azure",
+        access_id="access_id_example",
+        secret="secret_example",
+        tenant="tenant_example",
+        subscription="subscription_example",
+        endpoint="endpoint_example",
+        mount_credentials_management="mount_credentials_management_example",
+    ) # CloudAccountPartialUpdate | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.patch_cloud_account(id, cloud_account_partial_update)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->patch_cloud_account: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this cloud account. |
+ **cloud_account_partial_update** | [**CloudAccountPartialUpdate**](CloudAccountPartialUpdate.md)|  |
+
+### Return type
+
+[**CloudAccount**](CloudAccount.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_current_workstation**
-
-    def patch_current_workstation(workstation_partial_update) -> Workstation 
+> Workstation patch_current_workstation(workstation_partial_update)
 
 
 
@@ -3591,29 +5278,52 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.workstation import Workstation
+from elements_sdk.model.workstation_partial_update import WorkstationPartialUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    workstation_partial_update = elements_sdk.WorkstationPartialUpdate() # WorkstationPartialUpdate | 
+    api_instance = main_api.MainApi(api_client)
+    workstation_partial_update = WorkstationPartialUpdate(
+        rdc_allow_users=[
+            ElementsUserReference(
+                id=1,
+            ),
+        ],
+        rdc_allow_groups=[
+            ElementsGroupReference(
+                id=1,
+            ),
+        ],
+        report={
+            "key": "key_example",
+        },
+        name="name_example",
+        hostname="hostname_example",
+        rdc_last_used=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        rdc_disable_upnp=True,
+        rdc_client_port=-2147483648,
+        rdc_host_port=-2147483648,
+    ) # WorkstationPartialUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.patch_current_workstation(workstation_partial_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->patch_current_workstation: %s\n" % e)
 ```
 
@@ -3622,20 +5332,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workstation_partial_update** | [**WorkstationPartialUpdate**](WorkstationPartialUpdate.md)|  | 
+ **workstation_partial_update** | [**WorkstationPartialUpdate**](WorkstationPartialUpdate.md)|  |
 
 ### Return type
 
 [**Workstation**](Workstation.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **patch_download_archive**
-
-    def patch_download_archive(id, download_archive_partial_update) -> DownloadArchive 
+> DownloadArchive patch_download_archive(id, download_archive_partial_update)
 
 
 
@@ -3644,30 +5365,120 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.download_archive_partial_update import DownloadArchivePartialUpdate
+from elements_sdk.model.download_archive import DownloadArchive
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this download archive.
-download_archive_partial_update = elements_sdk.DownloadArchivePartialUpdate() # DownloadArchivePartialUpdate | 
+    api_instance = main_api.MainApi(api_client)
+    id = "id_example" # str | A UUID string identifying this download archive.
+    download_archive_partial_update = DownloadArchivePartialUpdate(
+        task_info=TaskInfo(
+            id="id_example",
+            kwargs={
+                "key": "key_example",
+            },
+            subtask=Subtask(
+                id=1,
+                kwargs={
+                    "key": "key_example",
+                },
+                graph_layout={
+                    "key": "key_example",
+                },
+                trigger="trigger_example",
+                name="name_example",
+                noop_dont_save=True,
+                no_concurrency=True,
+                timeout=-2147483648,
+                log_variable=True,
+                task="task_example",
+                condition_variable="condition_variable_example",
+                condition_value="condition_value_example",
+                sync=True,
+                queue="queue_example",
+                enqueue_at_front=True,
+                parent=1,
+                relative_to=1,
+            ),
+            worker=StorageNodeMini(
+                id=1,
+                name="name_example",
+                address="address_example",
+                type=1,
+            ),
+            user=ElementsUserMini(
+                id=1,
+                avatar="avatar_example",
+                email="email_example",
+                full_name="full_name_example",
+                is_external=True,
+                is_cloud=True,
+                username="username_example",
+            ),
+            workstation=Workstation(
+                id="id_example",
+                rdc_allow_users=[
+                    ElementsUserReference(
+                        id=1,
+                    ),
+                ],
+                rdc_allow_groups=[
+                    ElementsGroupReference(
+                        id=1,
+                    ),
+                ],
+                report={
+                    "key": "key_example",
+                },
+                name="name_example",
+                hostname="hostname_example",
+                rdc_last_used=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                rdc_disable_upnp=True,
+                rdc_client_port=-2147483648,
+                rdc_host_port=-2147483648,
+            ),
+            progress=TaskProgress(
+                message="message_example",
+                current=1,
+                max=1,
+                bar=True,
+            ),
+            name="name_example",
+            task_name="task_name_example",
+            worker_name="worker_name_example",
+            queue="queue_example",
+            state=0,
+            state_text="state_text_example",
+            job_instance="job_instance_example",
+            exception="exception_example",
+            traceback="traceback_example",
+            schedule=1,
+        ),
+        name="name_example",
+        path="path_example",
+        progress_unit=0,
+        user=1,
+    ) # DownloadArchivePartialUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.patch_download_archive(id, download_archive_partial_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->patch_download_archive: %s\n" % e)
 ```
 
@@ -3676,21 +5487,106 @@ download_archive_partial_update = elements_sdk.DownloadArchivePartialUpdate() # 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this download archive. | 
- **download_archive_partial_update** | [**DownloadArchivePartialUpdate**](DownloadArchivePartialUpdate.md)|  | 
+ **id** | **str**| A UUID string identifying this download archive. |
+ **download_archive_partial_update** | [**DownloadArchivePartialUpdate**](DownloadArchivePartialUpdate.md)|  |
 
 ### Return type
 
 [**DownloadArchive**](DownloadArchive.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **patch_filesystem_permission**
+> FilesystemPermission patch_filesystem_permission(id, filesystem_permission_partial_update)
 
-***
+
+
+### Required permissions    * User account permission: `None` (read) / `users:manage` (write) 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.filesystem_permission_partial_update import FilesystemPermissionPartialUpdate
+from elements_sdk.model.filesystem_permission import FilesystemPermission
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this filesystem permission.
+    filesystem_permission_partial_update = FilesystemPermissionPartialUpdate(
+        path="path_example",
+        read_only=True,
+        user=1,
+        group=1,
+    ) # FilesystemPermissionPartialUpdate | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.patch_filesystem_permission(id, filesystem_permission_partial_update)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->patch_filesystem_permission: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this filesystem permission. |
+ **filesystem_permission_partial_update** | [**FilesystemPermissionPartialUpdate**](FilesystemPermissionPartialUpdate.md)|  |
+
+### Return type
+
+[**FilesystemPermission**](FilesystemPermission.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_group**
-
-    def patch_group(id, elements_group_detail_partial_update) -> ElementsGroupDetail 
+> ElementsGroupDetail patch_group(id, elements_group_detail_partial_update)
 
 
 
@@ -3699,30 +5595,47 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.elements_group_detail_partial_update import ElementsGroupDetailPartialUpdate
+from elements_sdk.model.elements_group_detail import ElementsGroupDetail
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this Group.
-elements_group_detail_partial_update = elements_sdk.ElementsGroupDetailPartialUpdate() # ElementsGroupDetailPartialUpdate | 
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this Group.
+    elements_group_detail_partial_update = ElementsGroupDetailPartialUpdate(
+        permissions=[
+            "permissions_example",
+        ],
+        members=[
+            ElementsUserReference(
+                id=1,
+            ),
+        ],
+        ldap=None,
+        name="name_example",
+        ldap_dn="ldap_dn_example",
+        unix_groupname="unix_groupname_example",
+        gid=-2147483648,
+    ) # ElementsGroupDetailPartialUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.patch_group(id, elements_group_detail_partial_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->patch_group: %s\n" % e)
 ```
 
@@ -3731,21 +5644,32 @@ elements_group_detail_partial_update = elements_sdk.ElementsGroupDetailPartialUp
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Group. | 
- **elements_group_detail_partial_update** | [**ElementsGroupDetailPartialUpdate**](ElementsGroupDetailPartialUpdate.md)|  | 
+ **id** | **int**| A unique integer value identifying this Group. |
+ **elements_group_detail_partial_update** | [**ElementsGroupDetailPartialUpdate**](ElementsGroupDetailPartialUpdate.md)|  |
 
 ### Return type
 
 [**ElementsGroupDetail**](ElementsGroupDetail.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **patch_ntp_server**
-
-    def patch_ntp_server(id, ntp_server_partial_update) -> NTPServer 
+> NTPServer patch_ntp_server(id, ntp_server_partial_update)
 
 
 
@@ -3754,30 +5678,36 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.ntp_server_partial_update import NTPServerPartialUpdate
+from elements_sdk.model.ntp_server import NTPServer
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this NTP Server.
-ntp_server_partial_update = elements_sdk.NTPServerPartialUpdate() # NTPServerPartialUpdate | 
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this NTP Server.
+    ntp_server_partial_update = NTPServerPartialUpdate(
+        address="address_example",
+        options="options_example",
+    ) # NTPServerPartialUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.patch_ntp_server(id, ntp_server_partial_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->patch_ntp_server: %s\n" % e)
 ```
 
@@ -3786,21 +5716,32 @@ ntp_server_partial_update = elements_sdk.NTPServerPartialUpdate() # NTPServerPar
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this NTP Server. | 
- **ntp_server_partial_update** | [**NTPServerPartialUpdate**](NTPServerPartialUpdate.md)|  | 
+ **id** | **int**| A unique integer value identifying this NTP Server. |
+ **ntp_server_partial_update** | [**NTPServerPartialUpdate**](NTPServerPartialUpdate.md)|  |
 
 ### Return type
 
 [**NTPServer**](NTPServer.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **patch_profile**
-
-    def patch_profile(elements_user_profile_partial_update) -> ElementsUserProfile 
+> ElementsUserProfile patch_profile(elements_user_profile_partial_update)
 
 
 
@@ -3809,29 +5750,40 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.elements_user_profile_partial_update import ElementsUserProfilePartialUpdate
+from elements_sdk.model.elements_user_profile import ElementsUserProfile
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    elements_user_profile_partial_update = elements_sdk.ElementsUserProfilePartialUpdate() # ElementsUserProfilePartialUpdate | 
+    api_instance = main_api.MainApi(api_client)
+    elements_user_profile_partial_update = ElementsUserProfilePartialUpdate(
+        avatar="avatar_example",
+        default_page="default_page_example",
+        full_name="full_name_example",
+        language="en",
+        fm_bookmarks=[
+            "fm_bookmarks_example",
+        ],
+    ) # ElementsUserProfilePartialUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.patch_profile(elements_user_profile_partial_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->patch_profile: %s\n" % e)
 ```
 
@@ -3840,20 +5792,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **elements_user_profile_partial_update** | [**ElementsUserProfilePartialUpdate**](ElementsUserProfilePartialUpdate.md)|  | 
+ **elements_user_profile_partial_update** | [**ElementsUserProfilePartialUpdate**](ElementsUserProfilePartialUpdate.md)|  |
 
 ### Return type
 
 [**ElementsUserProfile**](ElementsUserProfile.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **patch_user**
-
-    def patch_user(id, elements_user_detail_partial_update) -> ElementsUserDetail 
+> ElementsUserDetail patch_user(id, elements_user_detail_partial_update)
 
 
 
@@ -3862,30 +5825,67 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.elements_user_detail import ElementsUserDetail
+from elements_sdk.model.elements_user_detail_partial_update import ElementsUserDetailPartialUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this User.
-elements_user_detail_partial_update = elements_sdk.ElementsUserDetailPartialUpdate() # ElementsUserDetailPartialUpdate | 
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this User.
+    elements_user_detail_partial_update = ElementsUserDetailPartialUpdate(
+        allow_changing_password=True,
+        allow_wan_login=True,
+        avatar="avatar_example",
+        default_page="default_page_example",
+        email="email_example",
+        expiry=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        fm_bookmarks=[
+            "fm_bookmarks_example",
+        ],
+        full_name="full_name_example",
+        gid=-2147483648,
+        home=1,
+        is_external=True,
+        is_cloud=True,
+        is_cloud_default=True,
+        is_enabled=True,
+        language="en",
+        last_seen=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        ldap=None,
+        ldap_dn="ldap_dn_example",
+        password_change_required=True,
+        permissions=[
+            "permissions_example",
+        ],
+        shaper_ceiling=0,
+        shaper_rate=0,
+        totp_enabled=True,
+        uid=-2147483648,
+        unix_username="unix_username_example",
+        username="username_example",
+        groups=[
+            1,
+        ],
+    ) # ElementsUserDetailPartialUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.patch_user(id, elements_user_detail_partial_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->patch_user: %s\n" % e)
 ```
 
@@ -3894,21 +5894,32 @@ elements_user_detail_partial_update = elements_sdk.ElementsUserDetailPartialUpda
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this User. | 
- **elements_user_detail_partial_update** | [**ElementsUserDetailPartialUpdate**](ElementsUserDetailPartialUpdate.md)|  | 
+ **id** | **int**| A unique integer value identifying this User. |
+ **elements_user_detail_partial_update** | [**ElementsUserDetailPartialUpdate**](ElementsUserDetailPartialUpdate.md)|  |
 
 ### Return type
 
 [**ElementsUserDetail**](ElementsUserDetail.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **patch_workstation**
-
-    def patch_workstation(id, workstation_partial_update) -> Workstation 
+> Workstation patch_workstation(id, workstation_partial_update)
 
 
 
@@ -3917,30 +5928,53 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.workstation import Workstation
+from elements_sdk.model.workstation_partial_update import WorkstationPartialUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 'id_example' # str | A unique value identifying this workstation.
-workstation_partial_update = elements_sdk.WorkstationPartialUpdate() # WorkstationPartialUpdate | 
+    api_instance = main_api.MainApi(api_client)
+    id = "id_example" # str | A unique value identifying this workstation.
+    workstation_partial_update = WorkstationPartialUpdate(
+        rdc_allow_users=[
+            ElementsUserReference(
+                id=1,
+            ),
+        ],
+        rdc_allow_groups=[
+            ElementsGroupReference(
+                id=1,
+            ),
+        ],
+        report={
+            "key": "key_example",
+        },
+        name="name_example",
+        hostname="hostname_example",
+        rdc_last_used=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        rdc_disable_upnp=True,
+        rdc_client_port=-2147483648,
+        rdc_host_port=-2147483648,
+    ) # WorkstationPartialUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.patch_workstation(id, workstation_partial_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->patch_workstation: %s\n" % e)
 ```
 
@@ -3949,50 +5983,66 @@ workstation_partial_update = elements_sdk.WorkstationPartialUpdate() # Workstati
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| A unique value identifying this workstation. | 
- **workstation_partial_update** | [**WorkstationPartialUpdate**](WorkstationPartialUpdate.md)|  | 
+ **id** | **str**| A unique value identifying this workstation. |
+ **workstation_partial_update** | [**WorkstationPartialUpdate**](WorkstationPartialUpdate.md)|  |
 
 ### Return type
 
 [**Workstation**](Workstation.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **preview_user**
-
-    def preview_user(user_preview_request) -> UserPreviewResponse 
+> UserPreviewResponse preview_user(user_preview_request)
 
 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.user_preview_request import UserPreviewRequest
+from elements_sdk.model.user_preview_response import UserPreviewResponse
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    user_preview_request = elements_sdk.UserPreviewRequest() # UserPreviewRequest | 
+    api_instance = main_api.MainApi(api_client)
+    user_preview_request = UserPreviewRequest(
+        username="username_example",
+    ) # UserPreviewRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.preview_user(user_preview_request)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->preview_user: %s\n" % e)
 ```
 
@@ -4001,20 +6051,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_preview_request** | [**UserPreviewRequest**](UserPreviewRequest.md)|  | 
+ **user_preview_request** | [**UserPreviewRequest**](UserPreviewRequest.md)|  |
 
 ### Return type
 
 [**UserPreviewResponse**](UserPreviewResponse.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **reboot**
-
-    def reboot()
+> reboot()
 
 
 
@@ -4023,46 +6084,58 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    
+    api_instance = main_api.MainApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_instance.reboot()
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->reboot: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **register_upload**
-
-    def register_upload(register_upload_endpoint_request)
+> register_upload(register_upload_endpoint_request)
 
 
 
@@ -4071,28 +6144,33 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.register_upload_endpoint_request import RegisterUploadEndpointRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    register_upload_endpoint_request = elements_sdk.RegisterUploadEndpointRequest() # RegisterUploadEndpointRequest | 
+    api_instance = main_api.MainApi(api_client)
+    register_upload_endpoint_request = RegisterUploadEndpointRequest(
+        upload_id="upload_id_example",
+        path="path_example",
+    ) # RegisterUploadEndpointRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.register_upload(register_upload_endpoint_request)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->register_upload: %s\n" % e)
 ```
 
@@ -4101,20 +6179,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **register_upload_endpoint_request** | [**RegisterUploadEndpointRequest**](RegisterUploadEndpointRequest.md)|  | 
+ **register_upload_endpoint_request** | [**RegisterUploadEndpointRequest**](RegisterUploadEndpointRequest.md)|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **register_upload_metadata**
-
-    def register_upload_metadata(register_upload_metadata_endpoint_request)
+> register_upload_metadata(register_upload_metadata_endpoint_request)
 
 
 
@@ -4123,28 +6212,44 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.register_upload_metadata_endpoint_request import RegisterUploadMetadataEndpointRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    register_upload_metadata_endpoint_request = elements_sdk.RegisterUploadMetadataEndpointRequest() # RegisterUploadMetadataEndpointRequest | 
+    api_instance = main_api.MainApi(api_client)
+    register_upload_metadata_endpoint_request = RegisterUploadMetadataEndpointRequest(
+        items=[
+            MetadataItem(
+                custom_fields={
+                    "key": "key_example",
+                },
+                tags=[
+                    {
+                        "key": "key_example",
+                    },
+                ],
+                path="path_example",
+            ),
+        ],
+    ) # RegisterUploadMetadataEndpointRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.register_upload_metadata(register_upload_metadata_endpoint_request)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->register_upload_metadata: %s\n" % e)
 ```
 
@@ -4153,20 +6258,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **register_upload_metadata_endpoint_request** | [**RegisterUploadMetadataEndpointRequest**](RegisterUploadMetadataEndpointRequest.md)|  | 
+ **register_upload_metadata_endpoint_request** | [**RegisterUploadMetadataEndpointRequest**](RegisterUploadMetadataEndpointRequest.md)|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **render_email_template_preview**
-
-    def render_email_template_preview(email_preview)
+> render_email_template_preview(email_preview)
 
 
 
@@ -4175,28 +6291,34 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.email_preview import EmailPreview
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    email_preview = elements_sdk.EmailPreview() # EmailPreview | 
+    api_instance = main_api.MainApi(api_client)
+    email_preview = EmailPreview(
+        styling={
+            "key": "key_example",
+        },
+    ) # EmailPreview | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.render_email_template_preview(email_preview)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->render_email_template_preview: %s\n" % e)
 ```
 
@@ -4205,20 +6327,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email_preview** | [**EmailPreview**](EmailPreview.md)|  | 
+ **email_preview** | [**EmailPreview**](EmailPreview.md)|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **reset_user_password**
-
-    def reset_user_password(id)
+> reset_user_password(id)
 
 
 
@@ -4227,28 +6360,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this User.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this User.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.reset_user_password(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->reset_user_password: %s\n" % e)
 ```
 
@@ -4257,20 +6391,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this User. | 
+ **id** | **int**| A unique integer value identifying this User. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
-# **run_service_operation**
-
-    def run_service_operation(id, operation, service)
+# **restart_web_ui**
+> restart_web_ui()
 
 
 
@@ -4279,30 +6424,91 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this Storage Node.
-operation = 'operation_example' # str | 
-service = 'service_example' # str | 
+    api_instance = main_api.MainApi(api_client)
 
+    # example, this endpoint has no required or optional parameters
+    try:
+        api_instance.restart_web_ui()
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->restart_web_ui: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **run_service_operation**
+> run_service_operation(id, operation, service)
+
+
+
+### Required permissions    * User account permission: `system:admin-access` 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this Storage Node.
+    operation = "operation_example" # str | 
+    service = "service_example" # str | 
+
+    # example passing only required values which don't have defaults set
     try:
         api_instance.run_service_operation(id, operation, service)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->run_service_operation: %s\n" % e)
 ```
 
@@ -4311,22 +6517,33 @@ service = 'service_example' # str |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Storage Node. | 
- **operation** | **str**|  | 
- **service** | **str**|  | 
+ **id** | **int**| A unique integer value identifying this Storage Node. |
+ **operation** | **str**|  |
+ **service** | **str**|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **set_ipmi_configuration**
-
-    def set_ipmi_configuration(id, ipmi) -> Ipmi 
+> Ipmi set_ipmi_configuration(id, ipmi)
 
 
 
@@ -4335,30 +6552,36 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.ipmi import Ipmi
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this Storage Node.
-ipmi = elements_sdk.Ipmi() # Ipmi | 
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this Storage Node.
+    ipmi = Ipmi(
+        ip="ip_example",
+        netmask="netmask_example",
+        gateway="gateway_example",
+    ) # Ipmi | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.set_ipmi_configuration(id, ipmi)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->set_ipmi_configuration: %s\n" % e)
 ```
 
@@ -4367,21 +6590,32 @@ ipmi = elements_sdk.Ipmi() # Ipmi |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Storage Node. | 
- **ipmi** | [**Ipmi**](Ipmi.md)|  | 
+ **id** | **int**| A unique integer value identifying this Storage Node. |
+ **ipmi** | [**Ipmi**](Ipmi.md)|  |
 
 ### Return type
 
 [**Ipmi**](Ipmi.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **set_local_time**
-
-    def set_local_time(time_endpoint_request) -> TimeEndpointResponse 
+> TimeEndpointResponse set_local_time(time_endpoint_request)
 
 
 
@@ -4390,29 +6624,37 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.time_endpoint_response import TimeEndpointResponse
+from elements_sdk.model.time_endpoint_request import TimeEndpointRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    time_endpoint_request = elements_sdk.TimeEndpointRequest() # TimeEndpointRequest | 
+    api_instance = main_api.MainApi(api_client)
+    time_endpoint_request = TimeEndpointRequest(
+        time=3.14,
+        timezone=Timezone(
+            value="value_example",
+        ),
+    ) # TimeEndpointRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.set_local_time(time_endpoint_request)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->set_local_time: %s\n" % e)
 ```
 
@@ -4421,20 +6663,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **time_endpoint_request** | [**TimeEndpointRequest**](TimeEndpointRequest.md)|  | 
+ **time_endpoint_request** | [**TimeEndpointRequest**](TimeEndpointRequest.md)|  |
 
 ### Return type
 
 [**TimeEndpointResponse**](TimeEndpointResponse.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **set_my_password**
-
-    def set_my_password(change_own_password_request)
+> set_my_password(change_own_password_request)
 
 
 
@@ -4443,28 +6696,34 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.change_own_password_request import ChangeOwnPasswordRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    change_own_password_request = elements_sdk.ChangeOwnPasswordRequest() # ChangeOwnPasswordRequest | 
+    api_instance = main_api.MainApi(api_client)
+    change_own_password_request = ChangeOwnPasswordRequest(
+        current_password="current_password_example",
+        current_otp="current_otp_example",
+        password="password_example",
+    ) # ChangeOwnPasswordRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.set_my_password(change_own_password_request)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->set_my_password: %s\n" % e)
 ```
 
@@ -4473,20 +6732,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **change_own_password_request** | [**ChangeOwnPasswordRequest**](ChangeOwnPasswordRequest.md)|  | 
+ **change_own_password_request** | [**ChangeOwnPasswordRequest**](ChangeOwnPasswordRequest.md)|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **set_user_password**
-
-    def set_user_password(id, change_password_request)
+> set_user_password(id, change_password_request)
 
 
 
@@ -4495,29 +6765,33 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.change_password_request import ChangePasswordRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this User.
-change_password_request = elements_sdk.ChangePasswordRequest() # ChangePasswordRequest | 
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this User.
+    change_password_request = ChangePasswordRequest(
+        password="password_example",
+    ) # ChangePasswordRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.set_user_password(id, change_password_request)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->set_user_password: %s\n" % e)
 ```
 
@@ -4526,21 +6800,32 @@ change_password_request = elements_sdk.ChangePasswordRequest() # ChangePasswordR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this User. | 
- **change_password_request** | [**ChangePasswordRequest**](ChangePasswordRequest.md)|  | 
+ **id** | **int**| A unique integer value identifying this User. |
+ **change_password_request** | [**ChangePasswordRequest**](ChangePasswordRequest.md)|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **shutdown**
-
-    def shutdown()
+> shutdown()
 
 
 
@@ -4549,46 +6834,58 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    
+    api_instance = main_api.MainApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_instance.shutdown()
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->shutdown: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **start_solr_reindex**
-
-    def start_solr_reindex() -> SolrReindexEndpointResponse 
+> SolrReindexEndpointResponse start_solr_reindex()
 
 
 
@@ -4597,47 +6894,60 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.solr_reindex_endpoint_response import SolrReindexEndpointResponse
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    
+    api_instance = main_api.MainApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_response = api_instance.start_solr_reindex()
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->start_solr_reindex: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 [**SolrReindexEndpointResponse**](SolrReindexEndpointResponse.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **start_support_session**
-
-    def start_support_session() -> TaskInfo 
+> TaskInfo start_support_session()
 
 
 
@@ -4646,47 +6956,60 @@ This endpoint does not need any parameters.
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.task_info import TaskInfo
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    
+    api_instance = main_api.MainApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_response = api_instance.start_support_session()
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->start_support_session: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 [**TaskInfo**](TaskInfo.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **start_system_backup**
-
-    def start_system_backup(path) -> TaskInfo 
+> TaskInfo start_system_backup(path)
 
 
 
@@ -4695,29 +7018,34 @@ This endpoint does not need any parameters.
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.task_info import TaskInfo
+from elements_sdk.model.path import Path
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    path = elements_sdk.Path() # Path | 
+    api_instance = main_api.MainApi(api_client)
+    path = Path(
+        path="path_example",
+    ) # Path | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.start_system_backup(path)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->start_system_backup: %s\n" % e)
 ```
 
@@ -4726,20 +7054,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | [**Path**](Path.md)|  | 
+ **path** | [**Path**](Path.md)|  |
 
 ### Return type
 
 [**TaskInfo**](TaskInfo.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **sync_ldap_group**
-
-    def sync_ldap_group(id)
+> sync_ldap_group(id)
 
 
 
@@ -4748,28 +7087,29 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this Group.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this Group.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.sync_ldap_group(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->sync_ldap_group: %s\n" % e)
 ```
 
@@ -4778,20 +7118,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Group. | 
+ **id** | **int**| A unique integer value identifying this Group. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **sync_ldap_users**
-
-    def sync_ldap_users(id)
+> sync_ldap_users(id)
 
 
 
@@ -4800,28 +7151,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this LDAP Server.
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this LDAP Server.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.sync_ldap_users(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->sync_ldap_users: %s\n" % e)
 ```
 
@@ -4830,20 +7182,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this LDAP Server. | 
+ **id** | **int**| A unique integer value identifying this LDAP Server. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **sync_time**
-
-    def sync_time(time_sync_endpoint_request) -> TimeSyncEndpointResponse 
+> TimeSyncEndpointResponse sync_time(time_sync_endpoint_request)
 
 
 
@@ -4852,29 +7215,34 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.time_sync_endpoint_request import TimeSyncEndpointRequest
+from elements_sdk.model.time_sync_endpoint_response import TimeSyncEndpointResponse
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    time_sync_endpoint_request = elements_sdk.TimeSyncEndpointRequest() # TimeSyncEndpointRequest | 
+    api_instance = main_api.MainApi(api_client)
+    time_sync_endpoint_request = TimeSyncEndpointRequest(
+        server="server_example",
+    ) # TimeSyncEndpointRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.sync_time(time_sync_endpoint_request)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->sync_time: %s\n" % e)
 ```
 
@@ -4883,50 +7251,66 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **time_sync_endpoint_request** | [**TimeSyncEndpointRequest**](TimeSyncEndpointRequest.md)|  | 
+ **time_sync_endpoint_request** | [**TimeSyncEndpointRequest**](TimeSyncEndpointRequest.md)|  |
 
 ### Return type
 
 [**TimeSyncEndpointResponse**](TimeSyncEndpointResponse.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **sync_user_totp**
-
-    def sync_user_totp(id, sync_totp_request) -> SyncTOTP 
+> SyncTOTP sync_user_totp(id, sync_totp_request)
 
 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.sync_totp import SyncTOTP
+from elements_sdk.model.sync_totp_request import SyncTOTPRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this User.
-sync_totp_request = elements_sdk.SyncTOTPRequest() # SyncTOTPRequest | 
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this User.
+    sync_totp_request = SyncTOTPRequest(
+        otp="otp_example",
+    ) # SyncTOTPRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.sync_user_totp(id, sync_totp_request)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->sync_user_totp: %s\n" % e)
 ```
 
@@ -4935,21 +7319,32 @@ sync_totp_request = elements_sdk.SyncTOTPRequest() # SyncTOTPRequest |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this User. | 
- **sync_totp_request** | [**SyncTOTPRequest**](SyncTOTPRequest.md)|  | 
+ **id** | **int**| A unique integer value identifying this User. |
+ **sync_totp_request** | [**SyncTOTPRequest**](SyncTOTPRequest.md)|  |
 
 ### Return type
 
 [**SyncTOTP**](SyncTOTP.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
-# **test_smtp_configuration**
-
-    def test_smtp_configuration(test_smtp)
+# **test_cloud_account_credentials**
+> TestCloudAccountCredentialsResponse test_cloud_account_credentials(test_cloud_account_credentials_request)
 
 
 
@@ -4958,28 +7353,108 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.test_cloud_account_credentials_response import TestCloudAccountCredentialsResponse
+from elements_sdk.model.test_cloud_account_credentials_request import TestCloudAccountCredentialsRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    test_smtp = elements_sdk.TestSMTP() # TestSMTP | 
+    api_instance = main_api.MainApi(api_client)
+    test_cloud_account_credentials_request = TestCloudAccountCredentialsRequest(
+        name="name_example",
+        provider="azure",
+        access_id="access_id_example",
+        secret="secret_example",
+        tenant="tenant_example",
+        subscription="subscription_example",
+        endpoint="endpoint_example",
+        mount_credentials_management="mount_credentials_management_example",
+    ) # TestCloudAccountCredentialsRequest | 
 
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.test_cloud_account_credentials(test_cloud_account_credentials_request)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->test_cloud_account_credentials: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **test_cloud_account_credentials_request** | [**TestCloudAccountCredentialsRequest**](TestCloudAccountCredentialsRequest.md)|  |
+
+### Return type
+
+[**TestCloudAccountCredentialsResponse**](TestCloudAccountCredentialsResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **test_smtp_configuration**
+> test_smtp_configuration(test_smtp)
+
+
+
+### Required permissions    * User account permission: `system:admin-access` 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.test_smtp import TestSMTP
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    test_smtp = TestSMTP(
+        email="email_example",
+    ) # TestSMTP | 
+
+    # example passing only required values which don't have defaults set
     try:
         api_instance.test_smtp_configuration(test_smtp)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->test_smtp_configuration: %s\n" % e)
 ```
 
@@ -4988,20 +7463,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_smtp** | [**TestSMTP**](TestSMTP.md)|  | 
+ **test_smtp** | [**TestSMTP**](TestSMTP.md)|  |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **update_certificate_configuration**
-
-    def update_certificate_configuration(certificate) -> Certificate 
+> Certificate update_certificate_configuration(certificate_update)
 
 
 
@@ -5010,29 +7496,35 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.certificate_update import CertificateUpdate
+from elements_sdk.model.certificate import Certificate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    certificate = elements_sdk.Certificate() # Certificate | 
+    api_instance = main_api.MainApi(api_client)
+    certificate_update = CertificateUpdate(
+        certificate="certificate_example",
+        key="key_example",
+    ) # CertificateUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.update_certificate_configuration(certificate)
+        api_response = api_instance.update_certificate_configuration(certificate_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->update_certificate_configuration: %s\n" % e)
 ```
 
@@ -5041,20 +7533,109 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **certificate** | [**Certificate**](Certificate.md)|  | 
+ **certificate_update** | [**CertificateUpdate**](CertificateUpdate.md)|  |
 
 ### Return type
 
 [**Certificate**](Certificate.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **update_cloud_account**
+> CloudAccount update_cloud_account(id, cloud_account_update)
 
-***
+
+
+### Required permissions    * Authenticated user 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.cloud_account_update import CloudAccountUpdate
+from elements_sdk.model.cloud_account import CloudAccount
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this cloud account.
+    cloud_account_update = CloudAccountUpdate(
+        name="name_example",
+        provider="azure",
+        access_id="access_id_example",
+        secret="secret_example",
+        tenant="tenant_example",
+        subscription="subscription_example",
+        endpoint="endpoint_example",
+        mount_credentials_management="mount_credentials_management_example",
+    ) # CloudAccountUpdate | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.update_cloud_account(id, cloud_account_update)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->update_cloud_account: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this cloud account. |
+ **cloud_account_update** | [**CloudAccountUpdate**](CloudAccountUpdate.md)|  |
+
+### Return type
+
+[**CloudAccount**](CloudAccount.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_current_workstation**
-
-    def update_current_workstation(workstation) -> Workstation 
+> Workstation update_current_workstation(workstation_update)
 
 
 
@@ -5063,29 +7644,52 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.workstation_update import WorkstationUpdate
+from elements_sdk.model.workstation import Workstation
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    workstation = elements_sdk.Workstation() # Workstation | 
+    api_instance = main_api.MainApi(api_client)
+    workstation_update = WorkstationUpdate(
+        rdc_allow_users=[
+            ElementsUserReference(
+                id=1,
+            ),
+        ],
+        rdc_allow_groups=[
+            ElementsGroupReference(
+                id=1,
+            ),
+        ],
+        report={
+            "key": "key_example",
+        },
+        name="name_example",
+        hostname="hostname_example",
+        rdc_last_used=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        rdc_disable_upnp=True,
+        rdc_client_port=-2147483648,
+        rdc_host_port=-2147483648,
+    ) # WorkstationUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.update_current_workstation(workstation)
+        api_response = api_instance.update_current_workstation(workstation_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->update_current_workstation: %s\n" % e)
 ```
 
@@ -5094,20 +7698,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workstation** | [**Workstation**](Workstation.md)|  | 
+ **workstation_update** | [**WorkstationUpdate**](WorkstationUpdate.md)|  |
 
 ### Return type
 
 [**Workstation**](Workstation.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **update_download_archive**
-
-    def update_download_archive(id, download_archive) -> DownloadArchive 
+> DownloadArchive update_download_archive(id, download_archive_update)
 
 
 
@@ -5116,30 +7731,120 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.download_archive_update import DownloadArchiveUpdate
+from elements_sdk.model.download_archive import DownloadArchive
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 'id_example' # str | A UUID string identifying this download archive.
-download_archive = elements_sdk.DownloadArchive() # DownloadArchive | 
+    api_instance = main_api.MainApi(api_client)
+    id = "id_example" # str | A UUID string identifying this download archive.
+    download_archive_update = DownloadArchiveUpdate(
+        task_info=TaskInfo(
+            id="id_example",
+            kwargs={
+                "key": "key_example",
+            },
+            subtask=Subtask(
+                id=1,
+                kwargs={
+                    "key": "key_example",
+                },
+                graph_layout={
+                    "key": "key_example",
+                },
+                trigger="trigger_example",
+                name="name_example",
+                noop_dont_save=True,
+                no_concurrency=True,
+                timeout=-2147483648,
+                log_variable=True,
+                task="task_example",
+                condition_variable="condition_variable_example",
+                condition_value="condition_value_example",
+                sync=True,
+                queue="queue_example",
+                enqueue_at_front=True,
+                parent=1,
+                relative_to=1,
+            ),
+            worker=StorageNodeMini(
+                id=1,
+                name="name_example",
+                address="address_example",
+                type=1,
+            ),
+            user=ElementsUserMini(
+                id=1,
+                avatar="avatar_example",
+                email="email_example",
+                full_name="full_name_example",
+                is_external=True,
+                is_cloud=True,
+                username="username_example",
+            ),
+            workstation=Workstation(
+                id="id_example",
+                rdc_allow_users=[
+                    ElementsUserReference(
+                        id=1,
+                    ),
+                ],
+                rdc_allow_groups=[
+                    ElementsGroupReference(
+                        id=1,
+                    ),
+                ],
+                report={
+                    "key": "key_example",
+                },
+                name="name_example",
+                hostname="hostname_example",
+                rdc_last_used=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                rdc_disable_upnp=True,
+                rdc_client_port=-2147483648,
+                rdc_host_port=-2147483648,
+            ),
+            progress=TaskProgress(
+                message="message_example",
+                current=1,
+                max=1,
+                bar=True,
+            ),
+            name="name_example",
+            task_name="task_name_example",
+            worker_name="worker_name_example",
+            queue="queue_example",
+            state=0,
+            state_text="state_text_example",
+            job_instance="job_instance_example",
+            exception="exception_example",
+            traceback="traceback_example",
+            schedule=1,
+        ),
+        name="name_example",
+        path="path_example",
+        progress_unit=0,
+        user=1,
+    ) # DownloadArchiveUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.update_download_archive(id, download_archive)
+        api_response = api_instance.update_download_archive(id, download_archive_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->update_download_archive: %s\n" % e)
 ```
 
@@ -5148,290 +7853,32 @@ download_archive = elements_sdk.DownloadArchive() # DownloadArchive |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)| A UUID string identifying this download archive. | 
- **download_archive** | [**DownloadArchive**](DownloadArchive.md)|  | 
+ **id** | **str**| A UUID string identifying this download archive. |
+ **download_archive_update** | [**DownloadArchiveUpdate**](DownloadArchiveUpdate.md)|  |
 
 ### Return type
 
 [**DownloadArchive**](DownloadArchive.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
-***
-
-# **update_group**
-
-    def update_group(id, elements_group_detail) -> ElementsGroupDetail 
-
-
-
-### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write) 
-
-### Example
-
-* Api Key Authentication (Bearer):
-
-```python
-import elements_sdk
-from elements_sdk.rest import ApiException
-from pprint import pprint
-
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-configuration.host = "https://elements.local"
-
-# Enter a context with an instance of the API client
-with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this Group.
-elements_group_detail = elements_sdk.ElementsGroupDetail() # ElementsGroupDetail | 
-
-    try:
-        api_response = api_instance.update_group(id, elements_group_detail)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling MainApi->update_group: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this Group. | 
- **elements_group_detail** | [**ElementsGroupDetail**](ElementsGroupDetail.md)|  | 
-
-### Return type
-
-[**ElementsGroupDetail**](ElementsGroupDetail.md)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
-# **update_ntp_server**
-
-    def update_ntp_server(id, ntp_server) -> NTPServer 
-
-
-
-### Required permissions    * User account permission: `system:admin-access` 
-
-### Example
-
-* Api Key Authentication (Bearer):
-
-```python
-import elements_sdk
-from elements_sdk.rest import ApiException
-from pprint import pprint
-
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-configuration.host = "https://elements.local"
-
-# Enter a context with an instance of the API client
-with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this NTP Server.
-ntp_server = elements_sdk.NTPServer() # NTPServer | 
-
-    try:
-        api_response = api_instance.update_ntp_server(id, ntp_server)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling MainApi->update_ntp_server: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this NTP Server. | 
- **ntp_server** | [**NTPServer**](NTPServer.md)|  | 
-
-### Return type
-
-[**NTPServer**](NTPServer.md)
-
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
-
-
-***
-
-# **update_parameters**
-
-    def update_parameters(parameters) -> Parameters 
-
-
-
-### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
-
-### Example
-
-* Api Key Authentication (Bearer):
-
-```python
-import elements_sdk
-from elements_sdk.rest import ApiException
-from pprint import pprint
-
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-configuration.host = "https://elements.local"
-
-# Enter a context with an instance of the API client
-with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    parameters = elements_sdk.Parameters() # Parameters | 
-
-    try:
-        api_response = api_instance.update_parameters(parameters)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling MainApi->update_parameters: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **parameters** | [**Parameters**](Parameters.md)|  | 
-
-### Return type
-
-[**Parameters**](Parameters.md)
-
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
-
-
-***
-
-# **update_profile**
-
-    def update_profile(elements_user_profile) -> ElementsUserProfile 
-
-
-
-### Required permissions    * Authenticated user 
-
-### Example
-
-* Api Key Authentication (Bearer):
-
-```python
-import elements_sdk
-from elements_sdk.rest import ApiException
-from pprint import pprint
-
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-configuration.host = "https://elements.local"
-
-# Enter a context with an instance of the API client
-with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    elements_user_profile = elements_sdk.ElementsUserProfile() # ElementsUserProfile | 
-
-    try:
-        api_response = api_instance.update_profile(elements_user_profile)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling MainApi->update_profile: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **elements_user_profile** | [**ElementsUserProfile**](ElementsUserProfile.md)|  | 
-
-### Return type
-
-[**ElementsUserProfile**](ElementsUserProfile.md)
-
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
-
-
-***
-
-# **update_smtp_configuration**
-
-    def update_smtp_configuration(smtp_configuration) -> SMTPConfiguration 
-
-
-
-### Required permissions    * User account permission: `system:admin-access` 
-
-### Example
-
-* Api Key Authentication (Bearer):
-
-```python
-import elements_sdk
-from elements_sdk.rest import ApiException
-from pprint import pprint
-
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-configuration.host = "https://elements.local"
-
-# Enter a context with an instance of the API client
-with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    smtp_configuration = elements_sdk.SMTPConfiguration() # SMTPConfiguration | 
-
-    try:
-        api_response = api_instance.update_smtp_configuration(smtp_configuration)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling MainApi->update_smtp_configuration: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **smtp_configuration** | [**SMTPConfiguration**](SMTPConfiguration.md)|  | 
-
-### Return type
-
-[**SMTPConfiguration**](SMTPConfiguration.md)
-
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
-
-
-***
-
-# **update_user**
-
-    def update_user(id, elements_user_detail) -> ElementsUserDetail 
+# **update_filesystem_permission**
+> FilesystemPermission update_filesystem_permission(id, filesystem_permission_update)
 
 
 
@@ -5440,31 +7887,39 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.filesystem_permission_update import FilesystemPermissionUpdate
+from elements_sdk.model.filesystem_permission import FilesystemPermission
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 56 # int | A unique integer value identifying this User.
-elements_user_detail = elements_sdk.ElementsUserDetail() # ElementsUserDetail | 
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this filesystem permission.
+    filesystem_permission_update = FilesystemPermissionUpdate(
+        path="path_example",
+        read_only=True,
+        user=1,
+        group=1,
+    ) # FilesystemPermissionUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.update_user(id, elements_user_detail)
+        api_response = api_instance.update_filesystem_permission(id, filesystem_permission_update)
         pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling MainApi->update_user: %s\n" % e)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->update_filesystem_permission: %s\n" % e)
 ```
 
 
@@ -5472,54 +7927,82 @@ elements_user_detail = elements_sdk.ElementsUserDetail() # ElementsUserDetail |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this User. | 
- **elements_user_detail** | [**ElementsUserDetail**](ElementsUserDetail.md)|  | 
+ **id** | **int**| A unique integer value identifying this filesystem permission. |
+ **filesystem_permission_update** | [**FilesystemPermissionUpdate**](FilesystemPermissionUpdate.md)|  |
 
 ### Return type
 
-[**ElementsUserDetail**](ElementsUserDetail.md)
+[**FilesystemPermission**](FilesystemPermission.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
-# **update_workstation**
-
-    def update_workstation(id, workstation) -> Workstation 
+# **update_group**
+> ElementsGroupDetail update_group(id, elements_group_detail_update)
 
 
 
-### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write) 
+### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write) 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.elements_group_detail_update import ElementsGroupDetailUpdate
+from elements_sdk.model.elements_group_detail import ElementsGroupDetail
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    id = 'id_example' # str | A unique value identifying this workstation.
-workstation = elements_sdk.Workstation() # Workstation | 
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this Group.
+    elements_group_detail_update = ElementsGroupDetailUpdate(
+        permissions=[
+            "permissions_example",
+        ],
+        members=[
+            ElementsUserReference(
+                id=1,
+            ),
+        ],
+        ldap=None,
+        name="name_example",
+        ldap_dn="ldap_dn_example",
+        unix_groupname="unix_groupname_example",
+        gid=-2147483648,
+    ) # ElementsGroupDetailUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.update_workstation(id, workstation)
+        api_response = api_instance.update_group(id, elements_group_detail_update)
         pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling MainApi->update_workstation: %s\n" % e)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->update_group: %s\n" % e)
 ```
 
 
@@ -5527,21 +8010,202 @@ workstation = elements_sdk.Workstation() # Workstation |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| A unique value identifying this workstation. | 
- **workstation** | [**Workstation**](Workstation.md)|  | 
+ **id** | **int**| A unique integer value identifying this Group. |
+ **elements_group_detail_update** | [**ElementsGroupDetailUpdate**](ElementsGroupDetailUpdate.md)|  |
 
 ### Return type
 
-[**Workstation**](Workstation.md)
+[**ElementsGroupDetail**](ElementsGroupDetail.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **update_ntp_server**
+> NTPServer update_ntp_server(id, ntp_server_update)
 
-***
 
-# **upload_chunk**
 
-    def upload_chunk(upload_chunk_endpoint_request)
+### Required permissions    * User account permission: `system:admin-access` 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.ntp_server_update import NTPServerUpdate
+from elements_sdk.model.ntp_server import NTPServer
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this NTP Server.
+    ntp_server_update = NTPServerUpdate(
+        address="address_example",
+        options="options_example",
+    ) # NTPServerUpdate | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.update_ntp_server(id, ntp_server_update)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->update_ntp_server: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this NTP Server. |
+ **ntp_server_update** | [**NTPServerUpdate**](NTPServerUpdate.md)|  |
+
+### Return type
+
+[**NTPServer**](NTPServer.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **update_parameters**
+> Parameters update_parameters(parameters_update)
+
+
+
+### Required permissions    * <class 'rest_framework.permissions.AllowAny'> 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.parameters import Parameters
+from elements_sdk.model.parameters_update import ParametersUpdate
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    parameters_update = ParametersUpdate(
+        analytics=True,
+        branding_css="branding_css_example",
+        branding_logo="branding_logo_example",
+        client_offer_file_search=True,
+        external_url="external_url_example",
+        file_manager_recycle_bin=True,
+        https_redirect="domain",
+        language="en",
+        ltfs_default_restore_to_original_location=True,
+        ltfs_default_search_directories=True,
+        ltfs_library_address="ltfs_library_address_example",
+        mail_styling={
+            "key": "key_example",
+        },
+        media_auto_play=True,
+        media_auto_proxy=True,
+        media_auto_scan=True,
+        media_auto_transport=True,
+        media_auto_veritone_upload=True,
+        media_default_custom_field_type="file",
+        media_default_delete_behaviour="disk",
+        media_force_show_deleted=True,
+        media_keep_selection_when_browsing=True,
+        media_recycle_bin=True,
+        ntp_offer_sync=True,
+        otp_policy="admin-only",
+        tasks_run_scheduled=True,
+        users_default_permissions="users_default_permissions_example",
+        workspaces_folder_template_path="workspaces_folder_template_path_example",
+        workspaces_path="workspaces_path_example",
+    ) # ParametersUpdate | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.update_parameters(parameters_update)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->update_parameters: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **parameters_update** | [**ParametersUpdate**](ParametersUpdate.md)|  |
+
+### Return type
+
+[**Parameters**](Parameters.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **update_profile**
+> ElementsUserProfile update_profile(elements_user_profile_update)
 
 
 
@@ -5550,28 +8214,375 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import main_api
+from elements_sdk.model.elements_user_profile_update import ElementsUserProfileUpdate
+from elements_sdk.model.elements_user_profile import ElementsUserProfile
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.MainApi(api_client)
-    upload_chunk_endpoint_request = elements_sdk.UploadChunkEndpointRequest() # UploadChunkEndpointRequest | 
+    api_instance = main_api.MainApi(api_client)
+    elements_user_profile_update = ElementsUserProfileUpdate(
+        avatar="avatar_example",
+        default_page="default_page_example",
+        full_name="full_name_example",
+        language="en",
+        fm_bookmarks=[
+            "fm_bookmarks_example",
+        ],
+    ) # ElementsUserProfileUpdate | 
 
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.update_profile(elements_user_profile_update)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->update_profile: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **elements_user_profile_update** | [**ElementsUserProfileUpdate**](ElementsUserProfileUpdate.md)|  |
+
+### Return type
+
+[**ElementsUserProfile**](ElementsUserProfile.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **update_smtp_configuration**
+> SMTPConfiguration update_smtp_configuration(smtp_configuration_update)
+
+
+
+### Required permissions    * User account permission: `system:admin-access` 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.smtp_configuration import SMTPConfiguration
+from elements_sdk.model.smtp_configuration_update import SMTPConfigurationUpdate
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    smtp_configuration_update = SMTPConfigurationUpdate(
+        from_address="from_address_example",
+        server="server_example",
+        port=1,
+        tls="tls_example",
+        username="username_example",
+        password="password_example",
+    ) # SMTPConfigurationUpdate | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.update_smtp_configuration(smtp_configuration_update)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->update_smtp_configuration: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **smtp_configuration_update** | [**SMTPConfigurationUpdate**](SMTPConfigurationUpdate.md)|  |
+
+### Return type
+
+[**SMTPConfiguration**](SMTPConfiguration.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **update_user**
+> ElementsUserDetail update_user(id, elements_user_detail_update)
+
+
+
+### Required permissions    * User account permission: `None` (read) / `users:manage` (write) 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.elements_user_detail import ElementsUserDetail
+from elements_sdk.model.elements_user_detail_update import ElementsUserDetailUpdate
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | A unique integer value identifying this User.
+    elements_user_detail_update = ElementsUserDetailUpdate(
+        allow_changing_password=True,
+        allow_wan_login=True,
+        avatar="avatar_example",
+        default_page="default_page_example",
+        email="email_example",
+        expiry=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        fm_bookmarks=[
+            "fm_bookmarks_example",
+        ],
+        full_name="full_name_example",
+        gid=-2147483648,
+        home=1,
+        is_external=True,
+        is_cloud=True,
+        is_cloud_default=True,
+        is_enabled=True,
+        language="en",
+        last_seen=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        ldap=None,
+        ldap_dn="ldap_dn_example",
+        password_change_required=True,
+        permissions=[
+            "permissions_example",
+        ],
+        shaper_ceiling=0,
+        shaper_rate=0,
+        totp_enabled=True,
+        uid=-2147483648,
+        unix_username="unix_username_example",
+        username="username_example",
+        groups=[
+            1,
+        ],
+    ) # ElementsUserDetailUpdate | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.update_user(id, elements_user_detail_update)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->update_user: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this User. |
+ **elements_user_detail_update** | [**ElementsUserDetailUpdate**](ElementsUserDetailUpdate.md)|  |
+
+### Return type
+
+[**ElementsUserDetail**](ElementsUserDetail.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **update_workstation**
+> Workstation update_workstation(id, workstation_update)
+
+
+
+### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write) 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.workstation_update import WorkstationUpdate
+from elements_sdk.model.workstation import Workstation
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    id = "id_example" # str | A unique value identifying this workstation.
+    workstation_update = WorkstationUpdate(
+        rdc_allow_users=[
+            ElementsUserReference(
+                id=1,
+            ),
+        ],
+        rdc_allow_groups=[
+            ElementsGroupReference(
+                id=1,
+            ),
+        ],
+        report={
+            "key": "key_example",
+        },
+        name="name_example",
+        hostname="hostname_example",
+        rdc_last_used=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        rdc_disable_upnp=True,
+        rdc_client_port=-2147483648,
+        rdc_host_port=-2147483648,
+    ) # WorkstationUpdate | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.update_workstation(id, workstation_update)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->update_workstation: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| A unique value identifying this workstation. |
+ **workstation_update** | [**WorkstationUpdate**](WorkstationUpdate.md)|  |
+
+### Return type
+
+[**Workstation**](Workstation.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **upload_chunk**
+> upload_chunk(upload_chunk_endpoint_request)
+
+
+
+### Required permissions    * Authenticated user 
+
+### Example
+
+* Api Key Authentication (Bearer):
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.upload_chunk_endpoint_request import UploadChunkEndpointRequest
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+# Enter a context with an instance of the API client
+with elements_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = main_api.MainApi(api_client)
+    upload_chunk_endpoint_request = UploadChunkEndpointRequest(
+        upload_id="upload_id_example",
+        chunk_number=1,
+        total_chunks=1,
+    ) # UploadChunkEndpointRequest | 
+
+    # example passing only required values which don't have defaults set
     try:
         api_instance.upload_chunk(upload_chunk_endpoint_request)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->upload_chunk: %s\n" % e)
 ```
 
@@ -5580,11 +8591,26 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upload_chunk_endpoint_request** | [**UploadChunkEndpointRequest**](UploadChunkEndpointRequest.md)|  | 
+ **upload_chunk_endpoint_request** | [**UploadChunkEndpointRequest**](UploadChunkEndpointRequest.md)|  |
 
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 

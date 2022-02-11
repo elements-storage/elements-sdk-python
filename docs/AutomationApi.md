@@ -1,7 +1,7 @@
 # elements_sdk.AutomationApi
 
 All URIs are relative to *https://elements.local*
->
+
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**abort_task**](AutomationApi.md#abort_task) | **POST** `/api/2/tasks/{id}/abort` | 
@@ -48,12 +48,8 @@ Method | HTTP request | Description
 [**update_subtask**](AutomationApi.md#update_subtask) | **PUT** `/api/2/subtasks/{id}` | 
 
 
-
-***
-
 # **abort_task**
-
-    def abort_task(id)
+> abort_task(id)
 
 
 
@@ -62,28 +58,29 @@ Method | HTTP request | Description
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 'id_example' # str | A unique value identifying this task info.
+    api_instance = automation_api.AutomationApi(api_client)
+    id = "id_example" # str | A unique value identifying this task info.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.abort_task(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->abort_task: %s\n" % e)
 ```
 
@@ -92,20 +89,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| A unique value identifying this task info. | 
+ **id** | **str**| A unique value identifying this task info. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **create_job**
-
-    def create_job(job) -> Job 
+> Job create_job(job_update)
 
 
 
@@ -114,29 +122,72 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.job_update import JobUpdate
+from elements_sdk.model.job import Job
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    job = elements_sdk.Job() # Job | 
+    api_instance = automation_api.AutomationApi(api_client)
+    job_update = JobUpdate(
+        subtasks=[
+            SubtaskReference(
+                id=1,
+            ),
+        ],
+        schedules=[
+            ScheduleReference(
+                id=1,
+            ),
+        ],
+        allow_users=[
+            ElementsUserReference(
+                id=1,
+            ),
+        ],
+        allow_groups=[
+            ElementsGroupReference(
+                id=1,
+            ),
+        ],
+        variable_definitions=[
+            {
+                "key": "key_example",
+            },
+        ],
+        media_roots=[
+            1,
+        ],
+        special_type=2,
+        name="name_example",
+        enabled=True,
+        allow_others_to_start=True,
+        allow_client_to_start=True,
+        show_as_button=True,
+        input_type="path",
+        hook="hook_example",
+        webhook_secret="webhook_secret_example",
+        security_context=1,
+        part_of_workflow_for=1,
+    ) # JobUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.create_job(job)
+        api_response = api_instance.create_job(job_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->create_job: %s\n" % e)
 ```
 
@@ -145,20 +196,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job** | [**Job**](Job.md)|  | 
+ **job_update** | [**JobUpdate**](JobUpdate.md)|  |
 
 ### Return type
 
 [**Job**](Job.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **create_schedule**
-
-    def create_schedule(schedule) -> Schedule 
+> Schedule create_schedule(schedule_update)
 
 
 
@@ -167,29 +229,47 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.schedule import Schedule
+from elements_sdk.model.schedule_update import ScheduleUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    schedule = elements_sdk.Schedule() # Schedule | 
+    api_instance = automation_api.AutomationApi(api_client)
+    schedule_update = ScheduleUpdate(
+        variables={
+            "key": "key_example",
+        },
+        type=1,
+        enabled=True,
+        last_run=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        every=-2147483648,
+        period="minutes",
+        crontab_day_of_month="crontab_day_of_month_example",
+        crontab_day_of_week="crontab_day_of_week_example",
+        crontab_hour="crontab_hour_example",
+        crontab_minute="crontab_minute_example",
+        crontab_month_of_year="crontab_month_of_year_example",
+        job=1,
+    ) # ScheduleUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.create_schedule(schedule)
+        api_response = api_instance.create_schedule(schedule_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->create_schedule: %s\n" % e)
 ```
 
@@ -198,20 +278,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **schedule** | [**Schedule**](Schedule.md)|  | 
+ **schedule_update** | [**ScheduleUpdate**](ScheduleUpdate.md)|  |
 
 ### Return type
 
 [**Schedule**](Schedule.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **create_subtask**
-
-    def create_subtask(subtask) -> Subtask 
+> Subtask create_subtask(subtask_update)
 
 
 
@@ -220,29 +311,53 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.subtask import Subtask
+from elements_sdk.model.subtask_update import SubtaskUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    subtask = elements_sdk.Subtask() # Subtask | 
+    api_instance = automation_api.AutomationApi(api_client)
+    subtask_update = SubtaskUpdate(
+        kwargs={
+            "key": "key_example",
+        },
+        graph_layout={
+            "key": "key_example",
+        },
+        trigger="trigger_example",
+        name="name_example",
+        noop_dont_save=True,
+        no_concurrency=True,
+        timeout=-2147483648,
+        log_variable=True,
+        task="task_example",
+        condition_variable="condition_variable_example",
+        condition_value="condition_value_example",
+        sync=True,
+        queue="queue_example",
+        enqueue_at_front=True,
+        parent=1,
+        relative_to=1,
+    ) # SubtaskUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.create_subtask(subtask)
+        api_response = api_instance.create_subtask(subtask_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->create_subtask: %s\n" % e)
 ```
 
@@ -251,20 +366,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subtask** | [**Subtask**](Subtask.md)|  | 
+ **subtask_update** | [**SubtaskUpdate**](SubtaskUpdate.md)|  |
 
 ### Return type
 
 [**Subtask**](Subtask.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_finished_tasks**
-
-    def delete_finished_tasks()
+> delete_finished_tasks()
 
 
 
@@ -273,46 +399,58 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    
+    api_instance = automation_api.AutomationApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_instance.delete_finished_tasks()
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->delete_finished_tasks: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_job**
-
-    def delete_job(id)
+> delete_job(id)
 
 
 
@@ -321,28 +459,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 56 # int | A unique integer value identifying this job.
+    api_instance = automation_api.AutomationApi(api_client)
+    id = 1 # int | A unique integer value identifying this job.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.delete_job(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->delete_job: %s\n" % e)
 ```
 
@@ -351,20 +490,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this job. | 
+ **id** | **int**| A unique integer value identifying this job. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_schedule**
-
-    def delete_schedule(id)
+> delete_schedule(id)
 
 
 
@@ -373,28 +523,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 56 # int | A unique integer value identifying this schedule.
+    api_instance = automation_api.AutomationApi(api_client)
+    id = 1 # int | A unique integer value identifying this schedule.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.delete_schedule(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->delete_schedule: %s\n" % e)
 ```
 
@@ -403,20 +554,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this schedule. | 
+ **id** | **int**| A unique integer value identifying this schedule. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_subtask**
-
-    def delete_subtask(id)
+> delete_subtask(id)
 
 
 
@@ -425,28 +587,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 56 # int | A unique integer value identifying this subtask.
+    api_instance = automation_api.AutomationApi(api_client)
+    id = 1 # int | A unique integer value identifying this subtask.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.delete_subtask(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->delete_subtask: %s\n" % e)
 ```
 
@@ -455,20 +618,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this subtask. | 
+ **id** | **int**| A unique integer value identifying this subtask. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **delete_task**
-
-    def delete_task(id)
+> delete_task(id)
 
 
 
@@ -477,28 +651,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 'id_example' # str | A unique value identifying this task info.
+    api_instance = automation_api.AutomationApi(api_client)
+    id = "id_example" # str | A unique value identifying this task info.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.delete_task(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->delete_task: %s\n" % e)
 ```
 
@@ -507,20 +682,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| A unique value identifying this task info. | 
+ **id** | **str**| A unique value identifying this task info. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **download_all_task_logs**
-
-    def download_all_task_logs(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, name=name, task_name=task_name, ordering=ordering, limit=limit, offset=offset)
+> download_all_task_logs()
 
 
 
@@ -529,39 +715,41 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    job_instance = 'job_instance_example' # str | Filter the returned list by `job_instance`. (optional)
-job_instance__in = 'job_instance__in_example' # str | Multiple values may be separated by commas. (optional)
-subtask = 'subtask_example' # str | Filter the returned list by `subtask`. (optional)
-state = 'state_example' # str | Filter the returned list by `state`. (optional)
-state__in = 3.4 # float | Multiple values may be separated by commas. (optional)
-id = 'id_example' # str | Filter the returned list by `id`. (optional)
-id__in = 'id__in_example' # str | Multiple values may be separated by commas. (optional)
-name = 'name_example' # str | Filter the returned list by `name`. (optional)
-task_name = 'task_name_example' # str | Filter the returned list by `task_name`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = automation_api.AutomationApi(api_client)
+    job_instance = "job_instance_example" # str | Filter the returned list by `job_instance`. (optional)
+    job_instance__in = "job_instance__in_example" # str | Multiple values may be separated by commas. (optional)
+    subtask = 3.14 # float | Filter the returned list by `subtask`. (optional)
+    state = "state_example" # str | Filter the returned list by `state`. (optional)
+    state__in = 3.14 # float | Multiple values may be separated by commas. (optional)
+    id = "id_example" # str | Filter the returned list by `id`. (optional)
+    id__in = "id__in_example" # str | Multiple values may be separated by commas. (optional)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    task_name = "task_name_example" # str | Filter the returned list by `task_name`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_instance.download_all_task_logs(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, name=name, task_name=task_name, ordering=ordering, limit=limit, offset=offset)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->download_all_task_logs: %s\n" % e)
 ```
 
@@ -570,31 +758,42 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60;. | [optional] 
- **job_instance__in** | **str**| Multiple values may be separated by commas. | [optional] 
- **subtask** | **str**| Filter the returned list by &#x60;subtask&#x60;. | [optional] 
- **state** | **str**| Filter the returned list by &#x60;state&#x60;. | [optional] 
- **state__in** | **float**| Multiple values may be separated by commas. | [optional] 
- **id** | **str**| Filter the returned list by &#x60;id&#x60;. | [optional] 
- **id__in** | **str**| Multiple values may be separated by commas. | [optional] 
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional] 
- **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60;. | [optional]
+ **job_instance__in** | **str**| Multiple values may be separated by commas. | [optional]
+ **subtask** | **float**| Filter the returned list by &#x60;subtask&#x60;. | [optional]
+ **state** | **str**| Filter the returned list by &#x60;state&#x60;. | [optional]
+ **state__in** | **float**| Multiple values may be separated by commas. | [optional]
+ **id** | **str**| Filter the returned list by &#x60;id&#x60;. | [optional]
+ **id__in** | **str**| Multiple values may be separated by commas. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **download_task_log**
-
-    def download_task_log(id)
+> download_task_log(id)
 
 
 
@@ -603,28 +802,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 'id_example' # str | A unique value identifying this task info.
+    api_instance = automation_api.AutomationApi(api_client)
+    id = "id_example" # str | A unique value identifying this task info.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.download_task_log(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->download_task_log: %s\n" % e)
 ```
 
@@ -633,20 +833,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| A unique value identifying this task info. | 
+ **id** | **str**| A unique value identifying this task info. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **export_job**
-
-    def export_job(id)
+> export_job(id)
 
 
 
@@ -655,28 +866,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 56 # int | A unique integer value identifying this job.
+    api_instance = automation_api.AutomationApi(api_client)
+    id = 1 # int | A unique integer value identifying this job.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.export_job(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->export_job: %s\n" % e)
 ```
 
@@ -685,20 +897,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this job. | 
+ **id** | **int**| A unique integer value identifying this job. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_events**
-
-    def get_all_events(ordering=ordering, limit=limit, offset=offset) -> InlineResponse2002 
+> [Event] get_all_events()
 
 
 
@@ -707,31 +930,34 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.event import Event
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = automation_api.AutomationApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_events(ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_all_events: %s\n" % e)
 ```
 
@@ -740,22 +966,33 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**[Event]**](Event.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_jobs**
-
-    def get_all_jobs(special_type=special_type, special_type__isnull=special_type__isnull, hook=hook, name=name, ordering=ordering, limit=limit, offset=offset) -> list[Job] 
+> [Job] get_all_jobs()
 
 
 
@@ -764,35 +1001,38 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.job import Job
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    special_type = 'special_type_example' # str | Filter the returned list by `special_type`. (optional)
-special_type__isnull = 'special_type__isnull_example' # str | Filter the returned list by `special_type__isnull`. (optional)
-hook = 'hook_example' # str | Filter the returned list by `hook`. (optional)
-name = 'name_example' # str | Filter the returned list by `name`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = automation_api.AutomationApi(api_client)
+    special_type = "special_type_example" # str | Filter the returned list by `special_type`. (optional)
+    special_type__isnull = "special_type__isnull_example" # str | Filter the returned list by `special_type__isnull`. (optional)
+    hook = "hook_example" # str | Filter the returned list by `hook`. (optional)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_jobs(special_type=special_type, special_type__isnull=special_type__isnull, hook=hook, name=name, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_all_jobs: %s\n" % e)
 ```
 
@@ -801,26 +1041,37 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **special_type** | **str**| Filter the returned list by &#x60;special_type&#x60;. | [optional] 
- **special_type__isnull** | **str**| Filter the returned list by &#x60;special_type__isnull&#x60;. | [optional] 
- **hook** | **str**| Filter the returned list by &#x60;hook&#x60;. | [optional] 
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **special_type** | **str**| Filter the returned list by &#x60;special_type&#x60;. | [optional]
+ **special_type__isnull** | **str**| Filter the returned list by &#x60;special_type__isnull&#x60;. | [optional]
+ **hook** | **str**| Filter the returned list by &#x60;hook&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[Job]**](Job.md)
+[**[Job]**](Job.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_schedules**
-
-    def get_all_schedules(job=job, ordering=ordering, limit=limit, offset=offset) -> list[Schedule] 
+> [Schedule] get_all_schedules()
 
 
 
@@ -829,32 +1080,35 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.schedule import Schedule
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    job = 'job_example' # str | Filter the returned list by `job`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = automation_api.AutomationApi(api_client)
+    job = 3.14 # float | Filter the returned list by `job`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_schedules(job=job, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_all_schedules: %s\n" % e)
 ```
 
@@ -863,23 +1117,34 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job** | **str**| Filter the returned list by &#x60;job&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **job** | **float**| Filter the returned list by &#x60;job&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[Schedule]**](Schedule.md)
+[**[Schedule]**](Schedule.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_subtasks**
-
-    def get_all_subtasks(parent=parent, ordering=ordering, limit=limit, offset=offset) -> list[Subtask] 
+> [Subtask] get_all_subtasks()
 
 
 
@@ -888,32 +1153,35 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.subtask import Subtask
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    parent = 'parent_example' # str | Filter the returned list by `parent`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = automation_api.AutomationApi(api_client)
+    parent = 3.14 # float | Filter the returned list by `parent`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_subtasks(parent=parent, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_all_subtasks: %s\n" % e)
 ```
 
@@ -922,23 +1190,34 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parent** | **str**| Filter the returned list by &#x60;parent&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **parent** | **float**| Filter the returned list by &#x60;parent&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[Subtask]**](Subtask.md)
+[**[Subtask]**](Subtask.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_task_queues**
-
-    def get_all_task_queues(ordering=ordering, limit=limit, offset=offset) -> InlineResponse2003 
+> [Queue] get_all_task_queues()
 
 
 
@@ -947,31 +1226,34 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.queue import Queue
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = automation_api.AutomationApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_task_queues(ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_all_task_queues: %s\n" % e)
 ```
 
@@ -980,22 +1262,33 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**[Queue]**](Queue.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_task_types**
-
-    def get_all_task_types(ordering=ordering, limit=limit, offset=offset) -> InlineResponse2004 
+> [TaskType] get_all_task_types()
 
 
 
@@ -1004,31 +1297,34 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.task_type import TaskType
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = automation_api.AutomationApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_task_types(ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_all_task_types: %s\n" % e)
 ```
 
@@ -1037,22 +1333,33 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**[TaskType]**](TaskType.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_all_tasks**
-
-    def get_all_tasks(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, name=name, task_name=task_name, ordering=ordering, limit=limit, offset=offset) -> list[TaskInfo] 
+> [TaskInfo] get_all_tasks()
 
 
 
@@ -1061,40 +1368,43 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.task_info import TaskInfo
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    job_instance = 'job_instance_example' # str | Filter the returned list by `job_instance`. (optional)
-job_instance__in = 'job_instance__in_example' # str | Multiple values may be separated by commas. (optional)
-subtask = 'subtask_example' # str | Filter the returned list by `subtask`. (optional)
-state = 'state_example' # str | Filter the returned list by `state`. (optional)
-state__in = 3.4 # float | Multiple values may be separated by commas. (optional)
-id = 'id_example' # str | Filter the returned list by `id`. (optional)
-id__in = 'id__in_example' # str | Multiple values may be separated by commas. (optional)
-name = 'name_example' # str | Filter the returned list by `name`. (optional)
-task_name = 'task_name_example' # str | Filter the returned list by `task_name`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = automation_api.AutomationApi(api_client)
+    job_instance = "job_instance_example" # str | Filter the returned list by `job_instance`. (optional)
+    job_instance__in = "job_instance__in_example" # str | Multiple values may be separated by commas. (optional)
+    subtask = 3.14 # float | Filter the returned list by `subtask`. (optional)
+    state = "state_example" # str | Filter the returned list by `state`. (optional)
+    state__in = 3.14 # float | Multiple values may be separated by commas. (optional)
+    id = "id_example" # str | Filter the returned list by `id`. (optional)
+    id__in = "id__in_example" # str | Multiple values may be separated by commas. (optional)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    task_name = "task_name_example" # str | Filter the returned list by `task_name`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_all_tasks(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, name=name, task_name=task_name, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_all_tasks: %s\n" % e)
 ```
 
@@ -1103,31 +1413,42 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60;. | [optional] 
- **job_instance__in** | **str**| Multiple values may be separated by commas. | [optional] 
- **subtask** | **str**| Filter the returned list by &#x60;subtask&#x60;. | [optional] 
- **state** | **str**| Filter the returned list by &#x60;state&#x60;. | [optional] 
- **state__in** | **float**| Multiple values may be separated by commas. | [optional] 
- **id** | **str**| Filter the returned list by &#x60;id&#x60;. | [optional] 
- **id__in** | **str**| Multiple values may be separated by commas. | [optional] 
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional] 
- **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60;. | [optional]
+ **job_instance__in** | **str**| Multiple values may be separated by commas. | [optional]
+ **subtask** | **float**| Filter the returned list by &#x60;subtask&#x60;. | [optional]
+ **state** | **str**| Filter the returned list by &#x60;state&#x60;. | [optional]
+ **state__in** | **float**| Multiple values may be separated by commas. | [optional]
+ **id** | **str**| Filter the returned list by &#x60;id&#x60;. | [optional]
+ **id__in** | **str**| Multiple values may be separated by commas. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[TaskInfo]**](TaskInfo.md)
+[**[TaskInfo]**](TaskInfo.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_event**
-
-    def get_event(id) -> Event 
+> Event get_event(id)
 
 
 
@@ -1136,29 +1457,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.event import Event
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 'id_example' # str | 
+    api_instance = automation_api.AutomationApi(api_client)
+    id = "id_example" # str | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_event(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_event: %s\n" % e)
 ```
 
@@ -1167,20 +1490,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
+ **id** | **str**|  |
 
 ### Return type
 
 [**Event**](Event.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_finished_tasks**
-
-    def get_finished_tasks(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, name=name, task_name=task_name, ordering=ordering, limit=limit, offset=offset) -> list[TaskInfo] 
+> [TaskInfo] get_finished_tasks()
 
 
 
@@ -1189,40 +1523,43 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.task_info import TaskInfo
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    job_instance = 'job_instance_example' # str | Filter the returned list by `job_instance`. (optional)
-job_instance__in = 'job_instance__in_example' # str | Multiple values may be separated by commas. (optional)
-subtask = 'subtask_example' # str | Filter the returned list by `subtask`. (optional)
-state = 'state_example' # str | Filter the returned list by `state`. (optional)
-state__in = 3.4 # float | Multiple values may be separated by commas. (optional)
-id = 'id_example' # str | Filter the returned list by `id`. (optional)
-id__in = 'id__in_example' # str | Multiple values may be separated by commas. (optional)
-name = 'name_example' # str | Filter the returned list by `name`. (optional)
-task_name = 'task_name_example' # str | Filter the returned list by `task_name`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = automation_api.AutomationApi(api_client)
+    job_instance = "job_instance_example" # str | Filter the returned list by `job_instance`. (optional)
+    job_instance__in = "job_instance__in_example" # str | Multiple values may be separated by commas. (optional)
+    subtask = 3.14 # float | Filter the returned list by `subtask`. (optional)
+    state = "state_example" # str | Filter the returned list by `state`. (optional)
+    state__in = 3.14 # float | Multiple values may be separated by commas. (optional)
+    id = "id_example" # str | Filter the returned list by `id`. (optional)
+    id__in = "id__in_example" # str | Multiple values may be separated by commas. (optional)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    task_name = "task_name_example" # str | Filter the returned list by `task_name`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_finished_tasks(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, name=name, task_name=task_name, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_finished_tasks: %s\n" % e)
 ```
 
@@ -1231,31 +1568,42 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60;. | [optional] 
- **job_instance__in** | **str**| Multiple values may be separated by commas. | [optional] 
- **subtask** | **str**| Filter the returned list by &#x60;subtask&#x60;. | [optional] 
- **state** | **str**| Filter the returned list by &#x60;state&#x60;. | [optional] 
- **state__in** | **float**| Multiple values may be separated by commas. | [optional] 
- **id** | **str**| Filter the returned list by &#x60;id&#x60;. | [optional] 
- **id__in** | **str**| Multiple values may be separated by commas. | [optional] 
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional] 
- **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60;. | [optional]
+ **job_instance__in** | **str**| Multiple values may be separated by commas. | [optional]
+ **subtask** | **float**| Filter the returned list by &#x60;subtask&#x60;. | [optional]
+ **state** | **str**| Filter the returned list by &#x60;state&#x60;. | [optional]
+ **state__in** | **float**| Multiple values may be separated by commas. | [optional]
+ **id** | **str**| Filter the returned list by &#x60;id&#x60;. | [optional]
+ **id__in** | **str**| Multiple values may be separated by commas. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[TaskInfo]**](TaskInfo.md)
+[**[TaskInfo]**](TaskInfo.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_job**
-
-    def get_job(id) -> Job 
+> Job get_job(id)
 
 
 
@@ -1264,29 +1612,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.job import Job
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 56 # int | A unique integer value identifying this job.
+    api_instance = automation_api.AutomationApi(api_client)
+    id = 1 # int | A unique integer value identifying this job.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_job(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_job: %s\n" % e)
 ```
 
@@ -1295,20 +1645,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this job. | 
+ **id** | **int**| A unique integer value identifying this job. |
 
 ### Return type
 
 [**Job**](Job.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_pending_tasks**
-
-    def get_pending_tasks(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, name=name, task_name=task_name, ordering=ordering, limit=limit, offset=offset) -> list[TaskInfo] 
+> [TaskInfo] get_pending_tasks()
 
 
 
@@ -1317,40 +1678,43 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.task_info import TaskInfo
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    job_instance = 'job_instance_example' # str | Filter the returned list by `job_instance`. (optional)
-job_instance__in = 'job_instance__in_example' # str | Multiple values may be separated by commas. (optional)
-subtask = 'subtask_example' # str | Filter the returned list by `subtask`. (optional)
-state = 'state_example' # str | Filter the returned list by `state`. (optional)
-state__in = 3.4 # float | Multiple values may be separated by commas. (optional)
-id = 'id_example' # str | Filter the returned list by `id`. (optional)
-id__in = 'id__in_example' # str | Multiple values may be separated by commas. (optional)
-name = 'name_example' # str | Filter the returned list by `name`. (optional)
-task_name = 'task_name_example' # str | Filter the returned list by `task_name`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = automation_api.AutomationApi(api_client)
+    job_instance = "job_instance_example" # str | Filter the returned list by `job_instance`. (optional)
+    job_instance__in = "job_instance__in_example" # str | Multiple values may be separated by commas. (optional)
+    subtask = 3.14 # float | Filter the returned list by `subtask`. (optional)
+    state = "state_example" # str | Filter the returned list by `state`. (optional)
+    state__in = 3.14 # float | Multiple values may be separated by commas. (optional)
+    id = "id_example" # str | Filter the returned list by `id`. (optional)
+    id__in = "id__in_example" # str | Multiple values may be separated by commas. (optional)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    task_name = "task_name_example" # str | Filter the returned list by `task_name`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_pending_tasks(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, name=name, task_name=task_name, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_pending_tasks: %s\n" % e)
 ```
 
@@ -1359,31 +1723,42 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60;. | [optional] 
- **job_instance__in** | **str**| Multiple values may be separated by commas. | [optional] 
- **subtask** | **str**| Filter the returned list by &#x60;subtask&#x60;. | [optional] 
- **state** | **str**| Filter the returned list by &#x60;state&#x60;. | [optional] 
- **state__in** | **float**| Multiple values may be separated by commas. | [optional] 
- **id** | **str**| Filter the returned list by &#x60;id&#x60;. | [optional] 
- **id__in** | **str**| Multiple values may be separated by commas. | [optional] 
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional] 
- **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60;. | [optional]
+ **job_instance__in** | **str**| Multiple values may be separated by commas. | [optional]
+ **subtask** | **float**| Filter the returned list by &#x60;subtask&#x60;. | [optional]
+ **state** | **str**| Filter the returned list by &#x60;state&#x60;. | [optional]
+ **state__in** | **float**| Multiple values may be separated by commas. | [optional]
+ **id** | **str**| Filter the returned list by &#x60;id&#x60;. | [optional]
+ **id__in** | **str**| Multiple values may be separated by commas. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**list[TaskInfo]**](TaskInfo.md)
+[**[TaskInfo]**](TaskInfo.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_python_environments**
-
-    def get_python_environments() -> list[PythonEnvironment] 
+> [PythonEnvironment] get_python_environments()
 
 
 
@@ -1392,47 +1767,60 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.python_environment import PythonEnvironment
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    
+    api_instance = automation_api.AutomationApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_response = api_instance.get_python_environments()
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_python_environments: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**list[PythonEnvironment]**](PythonEnvironment.md)
+[**[PythonEnvironment]**](PythonEnvironment.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_schedule**
-
-    def get_schedule(id) -> Schedule 
+> Schedule get_schedule(id)
 
 
 
@@ -1441,29 +1829,31 @@ This endpoint does not need any parameters.
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.schedule import Schedule
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 56 # int | A unique integer value identifying this schedule.
+    api_instance = automation_api.AutomationApi(api_client)
+    id = 1 # int | A unique integer value identifying this schedule.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_schedule(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_schedule: %s\n" % e)
 ```
 
@@ -1472,20 +1862,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this schedule. | 
+ **id** | **int**| A unique integer value identifying this schedule. |
 
 ### Return type
 
 [**Schedule**](Schedule.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_subtask**
-
-    def get_subtask(id) -> Subtask 
+> Subtask get_subtask(id)
 
 
 
@@ -1494,29 +1895,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.subtask import Subtask
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 56 # int | A unique integer value identifying this subtask.
+    api_instance = automation_api.AutomationApi(api_client)
+    id = 1 # int | A unique integer value identifying this subtask.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_subtask(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_subtask: %s\n" % e)
 ```
 
@@ -1525,20 +1928,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this subtask. | 
+ **id** | **int**| A unique integer value identifying this subtask. |
 
 ### Return type
 
 [**Subtask**](Subtask.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_task**
-
-    def get_task(id) -> TaskInfo 
+> TaskInfo get_task(id)
 
 
 
@@ -1547,29 +1961,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.task_info import TaskInfo
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 'id_example' # str | A unique value identifying this task info.
+    api_instance = automation_api.AutomationApi(api_client)
+    id = "id_example" # str | A unique value identifying this task info.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_task(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_task: %s\n" % e)
 ```
 
@@ -1578,20 +1994,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| A unique value identifying this task info. | 
+ **id** | **str**| A unique value identifying this task info. |
 
 ### Return type
 
 [**TaskInfo**](TaskInfo.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_task_log**
-
-    def get_task_log(id) -> TaskLog 
+> TaskLog get_task_log(id)
 
 
 
@@ -1600,29 +2027,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.task_log import TaskLog
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 'id_example' # str | A unique value identifying this task info.
+    api_instance = automation_api.AutomationApi(api_client)
+    id = "id_example" # str | A unique value identifying this task info.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_task_log(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_task_log: %s\n" % e)
 ```
 
@@ -1631,20 +2060,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| A unique value identifying this task info. | 
+ **id** | **str**| A unique value identifying this task info. |
 
 ### Return type
 
 [**TaskLog**](TaskLog.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_task_type**
-
-    def get_task_type(type) -> TaskType 
+> TaskType get_task_type(type)
 
 
 
@@ -1653,29 +2093,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.task_type import TaskType
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    type = 'type_example' # str | 
+    api_instance = automation_api.AutomationApi(api_client)
+    type = "o" # str | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_task_type(type)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_task_type: %s\n" % e)
 ```
 
@@ -1684,20 +2126,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **str**|  | 
+ **type** | **str**|  |
 
 ### Return type
 
 [**TaskType**](TaskType.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **get_tasks_summary**
-
-    def get_tasks_summary(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, name=name, task_name=task_name, ordering=ordering, limit=limit, offset=offset) -> TasksSummary 
+> TasksSummary get_tasks_summary()
 
 
 
@@ -1706,40 +2159,43 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.tasks_summary import TasksSummary
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    job_instance = 'job_instance_example' # str | Filter the returned list by `job_instance`. (optional)
-job_instance__in = 'job_instance__in_example' # str | Multiple values may be separated by commas. (optional)
-subtask = 'subtask_example' # str | Filter the returned list by `subtask`. (optional)
-state = 'state_example' # str | Filter the returned list by `state`. (optional)
-state__in = 3.4 # float | Multiple values may be separated by commas. (optional)
-id = 'id_example' # str | Filter the returned list by `id`. (optional)
-id__in = 'id__in_example' # str | Multiple values may be separated by commas. (optional)
-name = 'name_example' # str | Filter the returned list by `name`. (optional)
-task_name = 'task_name_example' # str | Filter the returned list by `task_name`. (optional)
-ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
+    api_instance = automation_api.AutomationApi(api_client)
+    job_instance = "job_instance_example" # str | Filter the returned list by `job_instance`. (optional)
+    job_instance__in = "job_instance__in_example" # str | Multiple values may be separated by commas. (optional)
+    subtask = 3.14 # float | Filter the returned list by `subtask`. (optional)
+    state = "state_example" # str | Filter the returned list by `state`. (optional)
+    state__in = 3.14 # float | Multiple values may be separated by commas. (optional)
+    id = "id_example" # str | Filter the returned list by `id`. (optional)
+    id__in = "id__in_example" # str | Multiple values may be separated by commas. (optional)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    task_name = "task_name_example" # str | Filter the returned list by `task_name`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.get_tasks_summary(job_instance=job_instance, job_instance__in=job_instance__in, subtask=subtask, state=state, state__in=state__in, id=id, id__in=id__in, name=name, task_name=task_name, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->get_tasks_summary: %s\n" % e)
 ```
 
@@ -1748,31 +2204,42 @@ offset = 56 # int | The initial index from which to return the results. (optiona
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60;. | [optional] 
- **job_instance__in** | **str**| Multiple values may be separated by commas. | [optional] 
- **subtask** | **str**| Filter the returned list by &#x60;subtask&#x60;. | [optional] 
- **state** | **str**| Filter the returned list by &#x60;state&#x60;. | [optional] 
- **state__in** | **float**| Multiple values may be separated by commas. | [optional] 
- **id** | **str**| Filter the returned list by &#x60;id&#x60;. | [optional] 
- **id__in** | **str**| Multiple values may be separated by commas. | [optional] 
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional] 
- **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60;. | [optional] 
- **ordering** | **str**| Which field to use when ordering the results. | [optional] 
- **limit** | **int**| Number of results to return per page. | [optional] 
- **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60;. | [optional]
+ **job_instance__in** | **str**| Multiple values may be separated by commas. | [optional]
+ **subtask** | **float**| Filter the returned list by &#x60;subtask&#x60;. | [optional]
+ **state** | **str**| Filter the returned list by &#x60;state&#x60;. | [optional]
+ **state__in** | **float**| Multiple values may be separated by commas. | [optional]
+ **id** | **str**| Filter the returned list by &#x60;id&#x60;. | [optional]
+ **id__in** | **str**| Multiple values may be separated by commas. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
 [**TasksSummary**](TasksSummary.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **import_job**
-
-    def import_job(import_job_request) -> ImportJobResponse 
+> ImportJobResponse import_job(import_job_request)
 
 
 
@@ -1781,29 +2248,36 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.import_job_request import ImportJobRequest
+from elements_sdk.model.import_job_response import ImportJobResponse
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    import_job_request = elements_sdk.ImportJobRequest() # ImportJobRequest | 
+    api_instance = automation_api.AutomationApi(api_client)
+    import_job_request = ImportJobRequest(
+        content="content_example",
+        replace=True,
+        rename="rename_example",
+    ) # ImportJobRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.import_job(import_job_request)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->import_job: %s\n" % e)
 ```
 
@@ -1812,20 +2286,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **import_job_request** | [**ImportJobRequest**](ImportJobRequest.md)|  | 
+ **import_job_request** | [**ImportJobRequest**](ImportJobRequest.md)|  |
 
 ### Return type
 
 [**ImportJobResponse**](ImportJobResponse.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **kill_all_pending_tasks**
-
-    def kill_all_pending_tasks()
+> kill_all_pending_tasks()
 
 
 
@@ -1834,46 +2319,58 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    
+    api_instance = automation_api.AutomationApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         api_instance.kill_all_pending_tasks()
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->kill_all_pending_tasks: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameters.
+This endpoint does not need any parameter.
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **kill_task**
-
-    def kill_task(id)
+> kill_task(id)
 
 
 
@@ -1882,28 +2379,29 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 'id_example' # str | A unique value identifying this task info.
+    api_instance = automation_api.AutomationApi(api_client)
+    id = "id_example" # str | A unique value identifying this task info.
 
+    # example passing only required values which don't have defaults set
     try:
         api_instance.kill_task(id)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->kill_task: %s\n" % e)
 ```
 
@@ -1912,20 +2410,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| A unique value identifying this task info. | 
+ **id** | **str**| A unique value identifying this task info. |
 
 ### Return type
 
 void (empty response body)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No body |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **patch_job**
-
-    def patch_job(id, job_partial_update) -> Job 
+> Job patch_job(id, job_partial_update)
 
 
 
@@ -1934,30 +2443,73 @@ void (empty response body)
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.job_partial_update import JobPartialUpdate
+from elements_sdk.model.job import Job
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 56 # int | A unique integer value identifying this job.
-job_partial_update = elements_sdk.JobPartialUpdate() # JobPartialUpdate | 
+    api_instance = automation_api.AutomationApi(api_client)
+    id = 1 # int | A unique integer value identifying this job.
+    job_partial_update = JobPartialUpdate(
+        subtasks=[
+            SubtaskReference(
+                id=1,
+            ),
+        ],
+        schedules=[
+            ScheduleReference(
+                id=1,
+            ),
+        ],
+        allow_users=[
+            ElementsUserReference(
+                id=1,
+            ),
+        ],
+        allow_groups=[
+            ElementsGroupReference(
+                id=1,
+            ),
+        ],
+        variable_definitions=[
+            {
+                "key": "key_example",
+            },
+        ],
+        media_roots=[
+            1,
+        ],
+        special_type=2,
+        name="name_example",
+        enabled=True,
+        allow_others_to_start=True,
+        allow_client_to_start=True,
+        show_as_button=True,
+        input_type="path",
+        hook="hook_example",
+        webhook_secret="webhook_secret_example",
+        security_context=1,
+        part_of_workflow_for=1,
+    ) # JobPartialUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.patch_job(id, job_partial_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->patch_job: %s\n" % e)
 ```
 
@@ -1966,21 +2518,32 @@ job_partial_update = elements_sdk.JobPartialUpdate() # JobPartialUpdate |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this job. | 
- **job_partial_update** | [**JobPartialUpdate**](JobPartialUpdate.md)|  | 
+ **id** | **int**| A unique integer value identifying this job. |
+ **job_partial_update** | [**JobPartialUpdate**](JobPartialUpdate.md)|  |
 
 ### Return type
 
 [**Job**](Job.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **patch_schedule**
-
-    def patch_schedule(id, schedule_partial_update) -> Schedule 
+> Schedule patch_schedule(id, schedule_partial_update)
 
 
 
@@ -1989,30 +2552,48 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.schedule import Schedule
+from elements_sdk.model.schedule_partial_update import SchedulePartialUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 56 # int | A unique integer value identifying this schedule.
-schedule_partial_update = elements_sdk.SchedulePartialUpdate() # SchedulePartialUpdate | 
+    api_instance = automation_api.AutomationApi(api_client)
+    id = 1 # int | A unique integer value identifying this schedule.
+    schedule_partial_update = SchedulePartialUpdate(
+        variables={
+            "key": "key_example",
+        },
+        type=1,
+        enabled=True,
+        last_run=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        every=-2147483648,
+        period="minutes",
+        crontab_day_of_month="crontab_day_of_month_example",
+        crontab_day_of_week="crontab_day_of_week_example",
+        crontab_hour="crontab_hour_example",
+        crontab_minute="crontab_minute_example",
+        crontab_month_of_year="crontab_month_of_year_example",
+        job=1,
+    ) # SchedulePartialUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.patch_schedule(id, schedule_partial_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->patch_schedule: %s\n" % e)
 ```
 
@@ -2021,21 +2602,32 @@ schedule_partial_update = elements_sdk.SchedulePartialUpdate() # SchedulePartial
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this schedule. | 
- **schedule_partial_update** | [**SchedulePartialUpdate**](SchedulePartialUpdate.md)|  | 
+ **id** | **int**| A unique integer value identifying this schedule. |
+ **schedule_partial_update** | [**SchedulePartialUpdate**](SchedulePartialUpdate.md)|  |
 
 ### Return type
 
 [**Schedule**](Schedule.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **patch_subtask**
-
-    def patch_subtask(id, subtask_partial_update) -> Subtask 
+> Subtask patch_subtask(id, subtask_partial_update)
 
 
 
@@ -2044,30 +2636,54 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.subtask import Subtask
+from elements_sdk.model.subtask_partial_update import SubtaskPartialUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 56 # int | A unique integer value identifying this subtask.
-subtask_partial_update = elements_sdk.SubtaskPartialUpdate() # SubtaskPartialUpdate | 
+    api_instance = automation_api.AutomationApi(api_client)
+    id = 1 # int | A unique integer value identifying this subtask.
+    subtask_partial_update = SubtaskPartialUpdate(
+        kwargs={
+            "key": "key_example",
+        },
+        graph_layout={
+            "key": "key_example",
+        },
+        trigger="trigger_example",
+        name="name_example",
+        noop_dont_save=True,
+        no_concurrency=True,
+        timeout=-2147483648,
+        log_variable=True,
+        task="task_example",
+        condition_variable="condition_variable_example",
+        condition_value="condition_value_example",
+        sync=True,
+        queue="queue_example",
+        enqueue_at_front=True,
+        parent=1,
+        relative_to=1,
+    ) # SubtaskPartialUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.patch_subtask(id, subtask_partial_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->patch_subtask: %s\n" % e)
 ```
 
@@ -2076,21 +2692,32 @@ subtask_partial_update = elements_sdk.SubtaskPartialUpdate() # SubtaskPartialUpd
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this subtask. | 
- **subtask_partial_update** | [**SubtaskPartialUpdate**](SubtaskPartialUpdate.md)|  | 
+ **id** | **int**| A unique integer value identifying this subtask. |
+ **subtask_partial_update** | [**SubtaskPartialUpdate**](SubtaskPartialUpdate.md)|  |
 
 ### Return type
 
 [**Subtask**](Subtask.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **restart_task**
-
-    def restart_task(id) -> TaskInfo 
+> TaskInfo restart_task(id)
 
 
 
@@ -2099,29 +2726,31 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.task_info import TaskInfo
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 'id_example' # str | A unique value identifying this task info.
+    api_instance = automation_api.AutomationApi(api_client)
+    id = "id_example" # str | A unique value identifying this task info.
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.restart_task(id)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->restart_task: %s\n" % e)
 ```
 
@@ -2130,50 +2759,69 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| A unique value identifying this task info. | 
+ **id** | **str**| A unique value identifying this task info. |
 
 ### Return type
 
 [**TaskInfo**](TaskInfo.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **start_job**
-
-    def start_job(id, start_job_request) -> list[TaskInfo] 
+> [TaskInfo] start_job(id, start_job_request)
 
 
 
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.task_info import TaskInfo
+from elements_sdk.model.start_job_request import StartJobRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 56 # int | A unique integer value identifying this job.
-start_job_request = elements_sdk.StartJobRequest() # StartJobRequest | 
+    api_instance = automation_api.AutomationApi(api_client)
+    id = 1 # int | A unique integer value identifying this job.
+    start_job_request = StartJobRequest(
+        variables={
+            "key": "key_example",
+        },
+        secret="secret_example",
+    ) # StartJobRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.start_job(id, start_job_request)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->start_job: %s\n" % e)
 ```
 
@@ -2182,21 +2830,32 @@ start_job_request = elements_sdk.StartJobRequest() # StartJobRequest |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this job. | 
- **start_job_request** | [**StartJobRequest**](StartJobRequest.md)|  | 
+ **id** | **int**| A unique integer value identifying this job. |
+ **start_job_request** | [**StartJobRequest**](StartJobRequest.md)|  |
 
 ### Return type
 
-[**list[TaskInfo]**](TaskInfo.md)
+[**[TaskInfo]**](TaskInfo.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **start_task**
-
-    def start_task(start_task_request) -> TaskInfo 
+> TaskInfo start_task(start_task_request)
 
 
 
@@ -2205,29 +2864,38 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.task_info import TaskInfo
+from elements_sdk.model.start_task_request import StartTaskRequest
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    start_task_request = elements_sdk.StartTaskRequest() # StartTaskRequest | 
+    api_instance = automation_api.AutomationApi(api_client)
+    start_task_request = StartTaskRequest(
+        task_type="task_type_example",
+        parameters={
+            "key": "key_example",
+        },
+        sync=False,
+    ) # StartTaskRequest | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.start_task(start_task_request)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->start_task: %s\n" % e)
 ```
 
@@ -2236,20 +2904,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **start_task_request** | [**StartTaskRequest**](StartTaskRequest.md)|  | 
+ **start_task_request** | [**StartTaskRequest**](StartTaskRequest.md)|  |
 
 ### Return type
 
 [**TaskInfo**](TaskInfo.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **update_job**
-
-    def update_job(id, job) -> Job 
+> Job update_job(id, job_update)
 
 
 
@@ -2258,30 +2937,73 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.job_update import JobUpdate
+from elements_sdk.model.job import Job
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 56 # int | A unique integer value identifying this job.
-job = elements_sdk.Job() # Job | 
+    api_instance = automation_api.AutomationApi(api_client)
+    id = 1 # int | A unique integer value identifying this job.
+    job_update = JobUpdate(
+        subtasks=[
+            SubtaskReference(
+                id=1,
+            ),
+        ],
+        schedules=[
+            ScheduleReference(
+                id=1,
+            ),
+        ],
+        allow_users=[
+            ElementsUserReference(
+                id=1,
+            ),
+        ],
+        allow_groups=[
+            ElementsGroupReference(
+                id=1,
+            ),
+        ],
+        variable_definitions=[
+            {
+                "key": "key_example",
+            },
+        ],
+        media_roots=[
+            1,
+        ],
+        special_type=2,
+        name="name_example",
+        enabled=True,
+        allow_others_to_start=True,
+        allow_client_to_start=True,
+        show_as_button=True,
+        input_type="path",
+        hook="hook_example",
+        webhook_secret="webhook_secret_example",
+        security_context=1,
+        part_of_workflow_for=1,
+    ) # JobUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.update_job(id, job)
+        api_response = api_instance.update_job(id, job_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->update_job: %s\n" % e)
 ```
 
@@ -2290,21 +3012,32 @@ job = elements_sdk.Job() # Job |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this job. | 
- **job** | [**Job**](Job.md)|  | 
+ **id** | **int**| A unique integer value identifying this job. |
+ **job_update** | [**JobUpdate**](JobUpdate.md)|  |
 
 ### Return type
 
 [**Job**](Job.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **update_schedule**
-
-    def update_schedule(id, schedule) -> Schedule 
+> Schedule update_schedule(id, schedule_update)
 
 
 
@@ -2313,30 +3046,48 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.schedule import Schedule
+from elements_sdk.model.schedule_update import ScheduleUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 56 # int | A unique integer value identifying this schedule.
-schedule = elements_sdk.Schedule() # Schedule | 
+    api_instance = automation_api.AutomationApi(api_client)
+    id = 1 # int | A unique integer value identifying this schedule.
+    schedule_update = ScheduleUpdate(
+        variables={
+            "key": "key_example",
+        },
+        type=1,
+        enabled=True,
+        last_run=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        every=-2147483648,
+        period="minutes",
+        crontab_day_of_month="crontab_day_of_month_example",
+        crontab_day_of_week="crontab_day_of_week_example",
+        crontab_hour="crontab_hour_example",
+        crontab_minute="crontab_minute_example",
+        crontab_month_of_year="crontab_month_of_year_example",
+        job=1,
+    ) # ScheduleUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.update_schedule(id, schedule)
+        api_response = api_instance.update_schedule(id, schedule_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->update_schedule: %s\n" % e)
 ```
 
@@ -2345,21 +3096,32 @@ schedule = elements_sdk.Schedule() # Schedule |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this schedule. | 
- **schedule** | [**Schedule**](Schedule.md)|  | 
+ **id** | **int**| A unique integer value identifying this schedule. |
+ **schedule_update** | [**ScheduleUpdate**](ScheduleUpdate.md)|  |
 
 ### Return type
 
 [**Schedule**](Schedule.md)
 
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-
-***
-
 # **update_subtask**
-
-    def update_subtask(id, subtask) -> Subtask 
+> Subtask update_subtask(id, subtask_update)
 
 
 
@@ -2368,30 +3130,54 @@ Name | Type | Description  | Notes
 ### Example
 
 * Api Key Authentication (Bearer):
-
 ```python
 import elements_sdk
-from elements_sdk.rest import ApiException
+from elements_sdk.api import automation_api
+from elements_sdk.model.subtask import Subtask
+from elements_sdk.model.subtask_update import SubtaskUpdate
 from pprint import pprint
 
-configuration = elements_sdk.Configuration()
-# Configure API key authorization: Bearer
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local",
+)
 
-configuration.host = "https://elements.local"
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 # Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = elements_sdk.AutomationApi(api_client)
-    id = 56 # int | A unique integer value identifying this subtask.
-subtask = elements_sdk.Subtask() # Subtask | 
+    api_instance = automation_api.AutomationApi(api_client)
+    id = 1 # int | A unique integer value identifying this subtask.
+    subtask_update = SubtaskUpdate(
+        kwargs={
+            "key": "key_example",
+        },
+        graph_layout={
+            "key": "key_example",
+        },
+        trigger="trigger_example",
+        name="name_example",
+        noop_dont_save=True,
+        no_concurrency=True,
+        timeout=-2147483648,
+        log_variable=True,
+        task="task_example",
+        condition_variable="condition_variable_example",
+        condition_value="condition_value_example",
+        sync=True,
+        queue="queue_example",
+        enqueue_at_front=True,
+        parent=1,
+        relative_to=1,
+    ) # SubtaskUpdate | 
 
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.update_subtask(id, subtask)
+        api_response = api_instance.update_subtask(id, subtask_update)
         pprint(api_response)
-    except ApiException as e:
+    except elements_sdk.ApiException as e:
         print("Exception when calling AutomationApi->update_subtask: %s\n" % e)
 ```
 
@@ -2400,12 +3186,27 @@ subtask = elements_sdk.Subtask() # Subtask |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this subtask. | 
- **subtask** | [**Subtask**](Subtask.md)|  | 
+ **id** | **int**| A unique integer value identifying this subtask. |
+ **subtask_update** | [**SubtaskUpdate**](SubtaskUpdate.md)|  |
 
 ### Return type
 
 [**Subtask**](Subtask.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
