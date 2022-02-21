@@ -1,6 +1,6 @@
 # elements_sdk.PrivateApi
 
-All URIs are relative to *https://elements.local*
+
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,7 +30,7 @@ Method | HTTP request | Description
 
 
 # **delete_stored_image**
-> delete_stored_image(name)
+    def delete_stored_image(name)
 
 
 
@@ -38,7 +38,7 @@ Method | HTTP request | Description
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -52,9 +52,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     name = "name_example" # str | 
 
@@ -76,25 +74,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_veritone_tdo**
-> delete_veritone_tdo(id, tdo_id)
+    def delete_veritone_tdo(id, tdo_id)
 
 
 
@@ -102,7 +85,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -116,9 +99,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     id = 1 # int | A unique integer value identifying this Veritone connection.
     tdo_id = "tdo_id_example" # str | 
@@ -142,25 +123,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **export_non_proxied_assets**
-> export_non_proxied_assets(root_id)
+    def export_non_proxied_assets(root_id)
 
 
 
@@ -168,7 +134,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -182,9 +148,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     root_id = "root_id_example" # str | 
 
@@ -206,25 +170,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **export_non_proxied_assets_for_path**
-> export_non_proxied_assets_for_path(path, root_id)
+    def export_non_proxied_assets_for_path(path, root_id)
 
 
 
@@ -232,7 +181,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -246,9 +195,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     path = "path_example" # str | 
     root_id = "root_id_example" # str | 
@@ -272,25 +219,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **export_updates**
-> export_updates(root_id)
+    def export_updates(root_id)
 
 
 
@@ -298,7 +230,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -312,9 +244,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     root_id = "root_id_example" # str | 
 
@@ -336,25 +266,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get**
-> BootstrapData get()
+    def BootstrapData get()
 
 
 
@@ -362,7 +277,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -377,9 +292,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
 
     # example, this endpoint has no required or optional parameters
@@ -398,25 +311,10 @@ This endpoint does not need any parameter.
 
 [**BootstrapData**](BootstrapData.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_veritone_connections**
-> [VeritoneConnection] get_all_veritone_connections()
+    def [VeritoneConnection] get_all_veritone_connections()
 
 
 
@@ -424,7 +322,7 @@ This endpoint does not need any parameter.
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -439,9 +337,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
@@ -469,25 +365,10 @@ Name | Type | Description  | Notes
 
 [**[VeritoneConnection]**](VeritoneConnection.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_veritone_metadata**
-> [VeritoneMetadata] get_all_veritone_metadata()
+    def [VeritoneMetadata] get_all_veritone_metadata()
 
 
 
@@ -495,7 +376,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -510,9 +391,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     asset = 3.14 # float | Filter the returned list by `asset`. (optional)
     is_parsed = "is_parsed_example" # str | Filter the returned list by `is_parsed`. (optional)
@@ -544,25 +423,10 @@ Name | Type | Description  | Notes
 
 [**[VeritoneMetadata]**](VeritoneMetadata.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_client_side_url**
-> ClientSidePathEndpointResponse get_client_side_url(client_side_path_endpoint_request)
+    def ClientSidePathEndpointResponse get_client_side_url(client_side_path_endpoint_request)
 
 
 
@@ -570,7 +434,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -586,9 +450,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     client_side_path_endpoint_request = ClientSidePathEndpointRequest(
         server_side_path="server_side_path_example",
@@ -614,25 +476,10 @@ Name | Type | Description  | Notes
 
 [**ClientSidePathEndpointResponse**](ClientSidePathEndpointResponse.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_help_page**
-> HelpEndpointResponse get_help_page(id)
+    def HelpEndpointResponse get_help_page(id)
 
 
 
@@ -640,7 +487,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -655,9 +502,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     id = "id_example" # str | 
 
@@ -680,25 +525,10 @@ Name | Type | Description  | Notes
 
 [**HelpEndpointResponse**](HelpEndpointResponse.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_locale**
-> LocaleEndpointResponse get_locale(lang)
+    def LocaleEndpointResponse get_locale(lang)
 
 
 
@@ -706,7 +536,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -721,9 +551,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     lang = "lang_example" # str | 
 
@@ -746,25 +574,10 @@ Name | Type | Description  | Notes
 
 [**LocaleEndpointResponse**](LocaleEndpointResponse.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_proxy_fs_size**
-> ProxyFSSizeEndpointResponse get_proxy_fs_size()
+    def ProxyFSSizeEndpointResponse get_proxy_fs_size()
 
 
 
@@ -772,7 +585,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -787,9 +600,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
 
     # example, this endpoint has no required or optional parameters
@@ -808,25 +619,10 @@ This endpoint does not need any parameter.
 
 [**ProxyFSSizeEndpointResponse**](ProxyFSSizeEndpointResponse.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_stored_image**
-> get_stored_image(name)
+    def get_stored_image(name)
 
 
 
@@ -834,7 +630,7 @@ This endpoint does not need any parameter.
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -848,9 +644,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     name = "name_example" # str | 
 
@@ -872,25 +666,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_veritone_connection**
-> VeritoneConnection get_veritone_connection(id)
+    def VeritoneConnection get_veritone_connection(id)
 
 
 
@@ -898,7 +677,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -913,9 +692,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     id = 1 # int | A unique integer value identifying this Veritone connection.
 
@@ -938,25 +715,10 @@ Name | Type | Description  | Notes
 
 [**VeritoneConnection**](VeritoneConnection.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_veritone_engines**
-> VeritoneEngineList get_veritone_engines(id)
+    def VeritoneEngineList get_veritone_engines(id)
 
 
 
@@ -964,7 +726,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -979,9 +741,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     id = 1 # int | A unique integer value identifying this Veritone connection.
 
@@ -1004,25 +764,10 @@ Name | Type | Description  | Notes
 
 [**VeritoneEngineList**](VeritoneEngineList.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_veritone_jobs**
-> VeritoneJobList get_veritone_jobs(id)
+    def VeritoneJobList get_veritone_jobs(id)
 
 
 
@@ -1030,7 +775,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -1045,9 +790,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     id = 1 # int | A unique integer value identifying this Veritone connection.
     offset = 1 # int |  (optional)
@@ -1082,25 +825,10 @@ Name | Type | Description  | Notes
 
 [**VeritoneJobList**](VeritoneJobList.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_veritone_metadata**
-> VeritoneMetadata get_veritone_metadata(id)
+    def VeritoneMetadata get_veritone_metadata(id)
 
 
 
@@ -1108,7 +836,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -1123,9 +851,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     id = 1 # int | A unique integer value identifying this Veritone metadata.
 
@@ -1148,25 +874,10 @@ Name | Type | Description  | Notes
 
 [**VeritoneMetadata**](VeritoneMetadata.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **install_license**
-> install_license(install_license_endpoint_request)
+    def install_license(install_license_endpoint_request)
 
 
 
@@ -1174,7 +885,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -1189,9 +900,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     install_license_endpoint_request = InstallLicenseEndpointRequest(
         license="license_example",
@@ -1216,25 +925,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **language_server_request**
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} language_server_request(language)
+    def {str: (bool, date, datetime, dict, float, int, list, str, none_type)} language_server_request(language)
 
 
 
@@ -1242,7 +936,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -1256,9 +950,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     language = "language_example" # str | 
 
@@ -1281,25 +973,10 @@ Name | Type | Description  | Notes
 
 **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **locate_file**
-> LocateResult locate_file(locate_endpoint_request)
+    def LocateResult locate_file(locate_endpoint_request)
 
 
 
@@ -1307,7 +984,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -1323,9 +1000,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     locate_endpoint_request = LocateEndpointRequest(
         path="path_example",
@@ -1351,25 +1026,10 @@ Name | Type | Description  | Notes
 
 [**LocateResult**](LocateResult.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **locate_proxies**
-> [LocateProxiesEndpointResponse] locate_proxies(locate_proxies_endpoint_request)
+    def [LocateProxiesEndpointResponse] locate_proxies(locate_proxies_endpoint_request)
 
 
 
@@ -1377,7 +1037,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -1393,9 +1053,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     locate_proxies_endpoint_request = LocateProxiesEndpointRequest(
         paths=[
@@ -1422,25 +1080,10 @@ Name | Type | Description  | Notes
 
 [**[LocateProxiesEndpointResponse]**](LocateProxiesEndpointResponse.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **upload_stored_image**
-> upload_stored_image(upload_image_endpoint_request)
+    def upload_stored_image(upload_image_endpoint_request)
 
 
 
@@ -1448,7 +1091,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -1463,9 +1106,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     upload_image_endpoint_request = UploadImageEndpointRequest(
         name="name_example",
@@ -1490,25 +1131,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **upload_to_veritone**
-> upload_to_veritone(id, veritone_upload_request)
+    def upload_to_veritone(id, veritone_upload_request)
 
 
 
@@ -1516,7 +1142,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
@@ -1531,9 +1157,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = private_api.PrivateApi(api_client)
     id = 1 # int | A unique integer value identifying this Veritone connection.
     veritone_upload_request = VeritoneUploadRequest(
@@ -1560,21 +1184,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
-
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 

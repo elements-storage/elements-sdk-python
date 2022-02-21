@@ -1,6 +1,6 @@
 # elements_sdk.StatusApi
 
-All URIs are relative to *https://elements.local*
+
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **get_alert**
-> Alert get_alert(id)
+    def Alert get_alert(id)
 
 
 
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import status_api
@@ -36,9 +36,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = status_api.StatusApi(api_client)
     id = 1 # int | A unique integer value identifying this alert.
 
@@ -61,25 +59,10 @@ Name | Type | Description  | Notes
 
 [**Alert**](Alert.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_alerts**
-> [Alert] get_all_alerts()
+    def [Alert] get_all_alerts()
 
 
 
@@ -87,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import status_api
@@ -102,9 +85,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = status_api.StatusApi(api_client)
     is_open = "is_open_example" # str | Filter the returned list by `is_open`. (optional)
     id = 3.14 # float | Filter the returned list by `id`. (optional)
@@ -136,25 +117,10 @@ Name | Type | Description  | Notes
 
 [**[Alert]**](Alert.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_telegraf_stats**
-> get_telegraf_stats()
+    def get_telegraf_stats()
 
 
 
@@ -162,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import status_api
@@ -176,9 +142,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = status_api.StatusApi(api_client)
 
     # example, this endpoint has no required or optional parameters
@@ -196,25 +160,10 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_alert**
-> Alert patch_alert(id, alert_partial_update)
+    def Alert patch_alert(id, alert_partial_update)
 
 
 
@@ -222,7 +171,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import status_api
@@ -238,9 +187,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = status_api.StatusApi(api_client)
     id = 1 # int | A unique integer value identifying this alert.
     alert_partial_update = AlertPartialUpdate(
@@ -271,31 +218,16 @@ Name | Type | Description  | Notes
 
 [**Alert**](Alert.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **submit_kapacitor_alert**
-> submit_kapacitor_alert(kapacitor_alert)
+    def submit_kapacitor_alert(kapacitor_alert)
 
 
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import status_api
@@ -310,9 +242,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = status_api.StatusApi(api_client)
     kapacitor_alert = KapacitorAlert(
         id="id_example",
@@ -342,25 +272,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_alert**
-> Alert update_alert(id, alert_update)
+    def Alert update_alert(id, alert_update)
 
 
 
@@ -368,7 +283,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import status_api
@@ -384,9 +299,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = status_api.StatusApi(api_client)
     id = 1 # int | A unique integer value identifying this alert.
     alert_update = AlertUpdate(
@@ -416,21 +329,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Alert**](Alert.md)
-
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 

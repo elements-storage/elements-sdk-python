@@ -17,16 +17,19 @@ import elements_sdk
 
 ## Example
 ```python
-from elements_sdk import ApiClient, Configuration, StorageApi, Share, Volume
+import elements_sdk
+from elements_sdk.api.storage_api import StorageApi
+from elements_sdk.model.volume import Volume
 
-config = Configuration(
+config = elements_sdk.Configuration(
     host='http://elements.local',
 )
 config.api_key['Bearer'] = 'Bearer your-api-token-here'
 config.client_side_validation = False
 config.debug = True
 
-with ApiClient(config) as api_client:
+
+with elements_sdk.ApiClient(config) as api_client:
     storage_api = StorageApi(api_client)
 
     volume: Volume = storage_api.get_all_volumes()[0]

@@ -1,6 +1,6 @@
 # elements_sdk.StorageApi
 
-All URIs are relative to *https://elements.local*
+
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -78,7 +78,7 @@ Method | HTTP request | Description
 
 
 # **apply_workspace_affinity**
-> apply_workspace_affinity(id)
+    def apply_workspace_affinity(id)
 
 
 
@@ -86,7 +86,7 @@ Method | HTTP request | Description
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -100,9 +100,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this workspace.
 
@@ -124,25 +122,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **bookmark_workspace**
-> bookmark_workspace(id)
+    def bookmark_workspace(id)
 
 
 
@@ -150,7 +133,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -164,9 +147,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this workspace.
 
@@ -188,25 +169,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **calculate_directory_size**
-> FileSizeEndpointResponse calculate_directory_size(path_input)
+    def FileSizeEndpointResponse calculate_directory_size(path_input)
 
 
 
@@ -214,7 +180,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -230,9 +196,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     path_input = PathInput(
         input=[
@@ -259,25 +223,10 @@ Name | Type | Description  | Notes
 
 [**FileSizeEndpointResponse**](FileSizeEndpointResponse.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **check_in_into_workspace**
-> check_in_into_workspace(id, workspace_check_in)
+    def check_in_into_workspace(id, workspace_check_in)
 
 
 
@@ -285,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -300,9 +249,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this workspace.
     workspace_check_in = WorkspaceCheckIn(
@@ -330,25 +277,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **check_out_of_workspace**
-> check_out_of_workspace(id)
+    def check_out_of_workspace(id)
 
 
 
@@ -356,7 +288,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -370,9 +302,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this workspace.
 
@@ -394,25 +324,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **copy_files**
-> TaskInfo copy_files(file_copy_endpoint_request)
+    def TaskInfo copy_files(file_copy_endpoint_request)
 
 
 
@@ -420,7 +335,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -436,9 +351,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     file_copy_endpoint_request = FileCopyEndpointRequest(
         input=[
@@ -470,25 +383,10 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_file**
-> FilesystemFile create_file(file_update)
+    def FilesystemFile create_file(file_update)
 
 
 
@@ -496,7 +394,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -512,9 +410,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     file_update = FileUpdate(
         name="name_example",
@@ -567,25 +463,10 @@ Name | Type | Description  | Notes
 
 [**FilesystemFile**](FilesystemFile.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_path_quota**
-> create_path_quota(id, relative_path, create_path_quota_request)
+    def create_path_quota(id, relative_path, create_path_quota_request)
 
 
 
@@ -593,7 +474,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -608,9 +489,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this volume.
     relative_path = "relative_path_example" # str | 
@@ -638,25 +517,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_production**
-> Production create_production(production_update)
+    def Production create_production(production_update)
 
 
 
@@ -664,7 +528,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -680,9 +544,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     production_update = ProductionUpdate(
         name="name_example",
@@ -713,25 +575,10 @@ Name | Type | Description  | Notes
 
 [**Production**](Production.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_share**
-> Share create_share(share_update)
+    def Share create_share(share_update)
 
 
 
@@ -739,7 +586,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -755,9 +602,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     share_update = ShareUpdate(
         sharing_nfs_permissions=[
@@ -935,25 +780,10 @@ Name | Type | Description  | Notes
 
 [**Share**](Share.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_snapshot**
-> Snapshot create_snapshot(snapshot_update)
+    def Snapshot create_snapshot(snapshot_update)
 
 
 
@@ -961,7 +791,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -977,9 +807,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     snapshot_update = SnapshotUpdate(
         workspace=1,
@@ -1005,25 +833,10 @@ Name | Type | Description  | Notes
 
 [**Snapshot**](Snapshot.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_template_folder**
-> create_template_folder(create_template_folder_endpoint_request)
+    def create_template_folder(create_template_folder_endpoint_request)
 
 
 
@@ -1031,7 +844,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -1046,9 +859,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     create_template_folder_endpoint_request = CreateTemplateFolderEndpointRequest(
         group=1,
@@ -1074,25 +885,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_volume**
-> Volume create_volume(volume_update)
+    def Volume create_volume(volume_update)
 
 
 
@@ -1100,7 +896,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -1116,9 +912,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     volume_update = VolumeUpdate(
         path="path_example",
@@ -1156,25 +950,10 @@ Name | Type | Description  | Notes
 
 [**Volume**](Volume.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_workspace**
-> WorkspaceDetail create_workspace(workspace_detail_update)
+    def WorkspaceDetail create_workspace(workspace_detail_update)
 
 
 
@@ -1182,7 +961,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -1198,9 +977,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     workspace_detail_update = WorkspaceDetailUpdate(
         production=ProductionReference(
@@ -1272,25 +1049,10 @@ Name | Type | Description  | Notes
 
 [**WorkspaceDetail**](WorkspaceDetail.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_workspace_permission**
-> WorkspacePermission create_workspace_permission(workspace_permission_update)
+    def WorkspacePermission create_workspace_permission(workspace_permission_update)
 
 
 
@@ -1298,7 +1060,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -1314,9 +1076,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     workspace_permission_update = WorkspacePermissionUpdate(
         user=None,
@@ -1344,25 +1104,10 @@ Name | Type | Description  | Notes
 
 [**WorkspacePermission**](WorkspacePermission.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_file**
-> delete_file(path)
+    def delete_file(path)
 
 
 
@@ -1370,7 +1115,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -1384,9 +1129,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     path = "/" # str | 
 
@@ -1408,25 +1151,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_files**
-> TaskInfo delete_files(file_delete_endpoint_request)
+    def TaskInfo delete_files(file_delete_endpoint_request)
 
 
 
@@ -1434,7 +1162,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -1450,9 +1178,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     file_delete_endpoint_request = FileDeleteEndpointRequest(
         input=[
@@ -1480,25 +1206,10 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_path_quota**
-> delete_path_quota(id, relative_path)
+    def delete_path_quota(id, relative_path)
 
 
 
@@ -1506,7 +1217,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -1520,9 +1231,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this volume.
     relative_path = "relative_path_example" # str | 
@@ -1546,25 +1255,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_production**
-> delete_production(id)
+    def delete_production(id)
 
 
 
@@ -1572,7 +1266,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -1586,9 +1280,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this production.
 
@@ -1610,25 +1302,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_share**
-> delete_share(id)
+    def delete_share(id)
 
 
 
@@ -1636,7 +1313,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -1650,9 +1327,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this share.
 
@@ -1674,25 +1349,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_snapshot**
-> delete_snapshot(id)
+    def delete_snapshot(id)
 
 
 
@@ -1700,7 +1360,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -1714,9 +1374,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this snapshot.
 
@@ -1738,25 +1396,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_workspace**
-> delete_workspace(id)
+    def delete_workspace(id)
 
 
 
@@ -1764,7 +1407,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -1778,9 +1421,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this workspace.
 
@@ -1802,25 +1443,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_workspace_permission**
-> delete_workspace_permission(id)
+    def delete_workspace_permission(id)
 
 
 
@@ -1828,7 +1454,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -1842,9 +1468,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this workspace permission.
 
@@ -1866,25 +1490,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_deleted_workspaces**
-> [DeletedWorkspace] get_all_deleted_workspaces()
+    def [DeletedWorkspace] get_all_deleted_workspaces()
 
 
 
@@ -1892,7 +1501,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -1907,9 +1516,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     is_template = "is_template_example" # str | Filter the returned list by `is_template`. (optional)
     production = 3.14 # float | Filter the returned list by `production`. (optional)
@@ -1957,25 +1564,10 @@ Name | Type | Description  | Notes
 
 [**[DeletedWorkspace]**](DeletedWorkspace.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_productions**
-> [Production] get_all_productions()
+    def [Production] get_all_productions()
 
 
 
@@ -1983,7 +1575,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -1998,9 +1590,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     active = "active_example" # str | Filter the returned list by `active`. (optional)
     name = "name_example" # str | Filter the returned list by `name`. (optional)
@@ -2036,25 +1626,10 @@ Name | Type | Description  | Notes
 
 [**[Production]**](Production.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_shares**
-> [Share] get_all_shares()
+    def [Share] get_all_shares()
 
 
 
@@ -2062,7 +1637,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -2077,9 +1652,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
@@ -2107,25 +1680,10 @@ Name | Type | Description  | Notes
 
 [**[Share]**](Share.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_snapshots**
-> [Snapshot] get_all_snapshots()
+    def [Snapshot] get_all_snapshots()
 
 
 
@@ -2133,7 +1691,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -2148,9 +1706,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     workspace = 3.14 # float | Filter the returned list by `workspace`. (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
@@ -2180,25 +1736,10 @@ Name | Type | Description  | Notes
 
 [**[Snapshot]**](Snapshot.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_volumes**
-> [Volume] get_all_volumes()
+    def [Volume] get_all_volumes()
 
 
 
@@ -2206,7 +1747,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -2221,9 +1762,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     is_default = "is_default_example" # str | Filter the returned list by `is_default`. (optional)
     type = "type_example" # str | Filter the returned list by `type`. (optional)
@@ -2265,25 +1804,10 @@ Name | Type | Description  | Notes
 
 [**[Volume]**](Volume.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_workspace_permissions**
-> [WorkspacePermission] get_all_workspace_permissions()
+    def [WorkspacePermission] get_all_workspace_permissions()
 
 
 
@@ -2291,7 +1815,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -2306,9 +1830,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     workspace = 3.14 # float | Filter the returned list by `workspace`. (optional)
     user = 3.14 # float | Filter the returned list by `user`. (optional)
@@ -2342,25 +1864,10 @@ Name | Type | Description  | Notes
 
 [**[WorkspacePermission]**](WorkspacePermission.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_workspaces**
-> [Workspace] get_all_workspaces()
+    def [Workspace] get_all_workspaces()
 
 
 
@@ -2368,7 +1875,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -2383,9 +1890,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     is_template = "is_template_example" # str | Filter the returned list by `is_template`. (optional)
     production = 3.14 # float | Filter the returned list by `production`. (optional)
@@ -2400,6 +1905,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
+    full_path = "full_path_example" # str |  (optional)
     resolve_access_for = 1 # int |  (optional)
     include_endpoints = True # bool |  (optional)
     include_quotas = True # bool |  (optional)
@@ -2407,7 +1913,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.get_all_workspaces(is_template=is_template, production=production, volume=volume, home_for=home_for, volume__type=volume__type, production__name=production__name, production__active=production__active, name=name, is_external=is_external, active=active, ordering=ordering, limit=limit, offset=offset, resolve_access_for=resolve_access_for, include_endpoints=include_endpoints, include_quotas=include_quotas)
+        api_response = api_instance.get_all_workspaces(is_template=is_template, production=production, volume=volume, home_for=home_for, volume__type=volume__type, production__name=production__name, production__active=production__active, name=name, is_external=is_external, active=active, ordering=ordering, limit=limit, offset=offset, full_path=full_path, resolve_access_for=resolve_access_for, include_endpoints=include_endpoints, include_quotas=include_quotas)
         pprint(api_response)
     except elements_sdk.ApiException as e:
         print("Exception when calling StorageApi->get_all_workspaces: %s\n" % e)
@@ -2431,6 +1937,7 @@ Name | Type | Description  | Notes
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
+ **full_path** | **str**|  | [optional]
  **resolve_access_for** | **int**|  | [optional]
  **include_endpoints** | **bool**|  | [optional]
  **include_quotas** | **bool**|  | [optional]
@@ -2439,25 +1946,10 @@ Name | Type | Description  | Notes
 
 [**[Workspace]**](Workspace.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_file**
-> FilesystemFile get_file(path)
+    def FilesystemFile get_file(path)
 
 
 
@@ -2465,7 +1957,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -2480,9 +1972,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     path = "/" # str | 
     max_depth = 1 # int |  (optional)
@@ -2517,25 +2007,10 @@ Name | Type | Description  | Notes
 
 [**FilesystemFile**](FilesystemFile.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_group_quota**
-> Quota get_group_quota(group_id, id)
+    def Quota get_group_quota(group_id, id)
 
 
 
@@ -2543,7 +2018,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -2558,9 +2033,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     group_id = "group_id_example" # str | 
     id = 1 # int | A unique integer value identifying this volume.
@@ -2585,25 +2058,10 @@ Name | Type | Description  | Notes
 
 [**Quota**](Quota.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_my_workspaces**
-> [Workspace] get_my_workspaces()
+    def [Workspace] get_my_workspaces()
 
 
 
@@ -2611,7 +2069,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -2626,9 +2084,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     is_template = "is_template_example" # str | Filter the returned list by `is_template`. (optional)
     production = 3.14 # float | Filter the returned list by `production`. (optional)
@@ -2676,25 +2132,10 @@ Name | Type | Description  | Notes
 
 [**[Workspace]**](Workspace.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_path_quota**
-> Quota get_path_quota(id, relative_path)
+    def Quota get_path_quota(id, relative_path)
 
 
 
@@ -2702,7 +2143,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -2717,9 +2158,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this volume.
     relative_path = "relative_path_example" # str | 
@@ -2744,25 +2183,10 @@ Name | Type | Description  | Notes
 
 [**Quota**](Quota.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_production**
-> Production get_production(id)
+    def Production get_production(id)
 
 
 
@@ -2770,7 +2194,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -2785,9 +2209,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this production.
     copy_template_content = True # bool |  (optional)
@@ -2822,25 +2244,10 @@ Name | Type | Description  | Notes
 
 [**Production**](Production.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_root_directory**
-> get_root_directory()
+    def get_root_directory()
 
 
 
@@ -2848,7 +2255,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -2863,9 +2270,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
@@ -2892,25 +2297,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**301** | Redirects to root file |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_samba_dfree_string**
-> get_samba_dfree_string()
+    def get_samba_dfree_string()
 
 
 
@@ -2918,7 +2308,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -2932,9 +2322,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
 
     # example, this endpoint has no required or optional parameters
@@ -2952,25 +2340,10 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_share**
-> Share get_share(id)
+    def Share get_share(id)
 
 
 
@@ -2978,7 +2351,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -2993,9 +2366,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this share.
 
@@ -3018,25 +2389,10 @@ Name | Type | Description  | Notes
 
 [**Share**](Share.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_snapshot**
-> Snapshot get_snapshot(id)
+    def Snapshot get_snapshot(id)
 
 
 
@@ -3044,7 +2400,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -3059,9 +2415,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this snapshot.
 
@@ -3084,25 +2438,10 @@ Name | Type | Description  | Notes
 
 [**Snapshot**](Snapshot.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_user_quota**
-> Quota get_user_quota(id, user_id)
+    def Quota get_user_quota(id, user_id)
 
 
 
@@ -3110,7 +2449,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -3125,9 +2464,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this volume.
     user_id = "user_id_example" # str | 
@@ -3152,25 +2489,10 @@ Name | Type | Description  | Notes
 
 [**Quota**](Quota.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_volume**
-> Volume get_volume(id)
+    def Volume get_volume(id)
 
 
 
@@ -3178,7 +2500,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -3193,9 +2515,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this volume.
     include_status = True # bool |  (optional)
@@ -3228,25 +2548,10 @@ Name | Type | Description  | Notes
 
 [**Volume**](Volume.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_volume_active_connections**
-> StorNextConnections get_volume_active_connections(id)
+    def StorNextConnections get_volume_active_connections(id)
 
 
 
@@ -3254,7 +2559,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -3269,9 +2574,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this volume.
 
@@ -3294,25 +2597,10 @@ Name | Type | Description  | Notes
 
 [**StorNextConnections**](StorNextConnections.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_volume_file_size_distribution**
-> FileSizeDistribution get_volume_file_size_distribution(id)
+    def FileSizeDistribution get_volume_file_size_distribution(id)
 
 
 
@@ -3320,7 +2608,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -3335,9 +2623,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this volume.
 
@@ -3360,25 +2646,10 @@ Name | Type | Description  | Notes
 
 [**FileSizeDistribution**](FileSizeDistribution.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_volume_stats**
-> VolumeStats get_volume_stats(id)
+    def VolumeStats get_volume_stats(id)
 
 
 
@@ -3386,7 +2657,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -3401,9 +2672,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this volume.
 
@@ -3426,25 +2695,10 @@ Name | Type | Description  | Notes
 
 [**VolumeStats**](VolumeStats.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_workspace**
-> WorkspaceDetail get_workspace(id)
+    def WorkspaceDetail get_workspace(id)
 
 
 
@@ -3452,7 +2706,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -3467,9 +2721,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this workspace.
 
@@ -3492,25 +2744,10 @@ Name | Type | Description  | Notes
 
 [**WorkspaceDetail**](WorkspaceDetail.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_workspace_permission**
-> WorkspacePermission get_workspace_permission(id)
+    def WorkspacePermission get_workspace_permission(id)
 
 
 
@@ -3518,7 +2755,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -3533,9 +2770,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this workspace permission.
 
@@ -3558,25 +2793,10 @@ Name | Type | Description  | Notes
 
 [**WorkspacePermission**](WorkspacePermission.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **move_files**
-> TaskInfo move_files(file_move_endpoint_request)
+    def TaskInfo move_files(file_move_endpoint_request)
 
 
 
@@ -3584,7 +2804,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -3600,9 +2820,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     file_move_endpoint_request = FileMoveEndpointRequest(
         input=[
@@ -3632,25 +2850,10 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **move_workspace**
-> TaskInfo move_workspace(id, move_workspace_request)
+    def TaskInfo move_workspace(id, move_workspace_request)
 
 
 
@@ -3658,7 +2861,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -3674,9 +2877,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this workspace.
     move_workspace_request = MoveWorkspaceRequest(
@@ -3705,25 +2906,10 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **move_workspace_to_production**
-> move_workspace_to_production(id, workspace_move_to_request)
+    def move_workspace_to_production(id, workspace_move_to_request)
 
 
 
@@ -3731,7 +2917,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -3746,9 +2932,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this workspace.
     workspace_move_to_request = WorkspaceMoveToRequest(
@@ -3774,25 +2958,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_file**
-> FilesystemFile patch_file(path, file_partial_update)
+    def FilesystemFile patch_file(path, file_partial_update)
 
 
 
@@ -3800,7 +2969,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -3816,9 +2985,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     path = "/" # str | 
     file_partial_update = FilePartialUpdate(
@@ -3885,25 +3052,10 @@ Name | Type | Description  | Notes
 
 [**FilesystemFile**](FilesystemFile.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_production**
-> Production patch_production(id, production_partial_update)
+    def Production patch_production(id, production_partial_update)
 
 
 
@@ -3911,7 +3063,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -3927,9 +3079,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this production.
     production_partial_update = ProductionPartialUpdate(
@@ -3962,25 +3112,10 @@ Name | Type | Description  | Notes
 
 [**Production**](Production.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_share**
-> Share patch_share(id, share_partial_update)
+    def Share patch_share(id, share_partial_update)
 
 
 
@@ -3988,7 +3123,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -4004,9 +3139,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this share.
     share_partial_update = SharePartialUpdate(
@@ -4186,25 +3319,10 @@ Name | Type | Description  | Notes
 
 [**Share**](Share.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_snapshot**
-> Snapshot patch_snapshot(id, snapshot_partial_update)
+    def Snapshot patch_snapshot(id, snapshot_partial_update)
 
 
 
@@ -4212,7 +3330,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -4228,9 +3346,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this snapshot.
     snapshot_partial_update = SnapshotPartialUpdate(
@@ -4258,25 +3374,10 @@ Name | Type | Description  | Notes
 
 [**Snapshot**](Snapshot.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_volume**
-> Volume patch_volume(id, volume_partial_update)
+    def Volume patch_volume(id, volume_partial_update)
 
 
 
@@ -4284,7 +3385,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -4300,9 +3401,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this volume.
     volume_partial_update = VolumePartialUpdate(
@@ -4342,25 +3441,10 @@ Name | Type | Description  | Notes
 
 [**Volume**](Volume.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_workspace**
-> WorkspaceDetail patch_workspace(id, workspace_detail_partial_update)
+    def WorkspaceDetail patch_workspace(id, workspace_detail_partial_update)
 
 
 
@@ -4368,7 +3452,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -4384,9 +3468,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this workspace.
     workspace_detail_partial_update = WorkspaceDetailPartialUpdate(
@@ -4460,25 +3542,10 @@ Name | Type | Description  | Notes
 
 [**WorkspaceDetail**](WorkspaceDetail.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_workspace_permission**
-> WorkspacePermission patch_workspace_permission(id, workspace_permission_partial_update)
+    def WorkspacePermission patch_workspace_permission(id, workspace_permission_partial_update)
 
 
 
@@ -4486,7 +3553,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -4502,9 +3569,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this workspace permission.
     workspace_permission_partial_update = WorkspacePermissionPartialUpdate(
@@ -4534,25 +3599,10 @@ Name | Type | Description  | Notes
 
 [**WorkspacePermission**](WorkspacePermission.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **record_storage_trace**
-> FilesystemTraceEndpointResponse record_storage_trace(filesystem_trace_endpoint_request)
+    def FilesystemTraceEndpointResponse record_storage_trace(filesystem_trace_endpoint_request)
 
 
 
@@ -4560,7 +3610,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -4576,9 +3626,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     filesystem_trace_endpoint_request = FilesystemTraceEndpointRequest(
         duration=1,
@@ -4603,25 +3651,10 @@ Name | Type | Description  | Notes
 
 [**FilesystemTraceEndpointResponse**](FilesystemTraceEndpointResponse.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **repair_workspace_permissions**
-> TaskInfo repair_workspace_permissions(id)
+    def TaskInfo repair_workspace_permissions(id)
 
 
 
@@ -4629,7 +3662,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -4644,9 +3677,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this workspace.
 
@@ -4669,25 +3700,10 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **share_to_home_workspace**
-> share_to_home_workspace(share_to_home_workspace_endpoint_request)
+    def share_to_home_workspace(share_to_home_workspace_endpoint_request)
 
 
 
@@ -4695,7 +3711,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -4710,9 +3726,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     share_to_home_workspace_endpoint_request = ShareToHomeWorkspaceEndpointRequest(
         paths=[
@@ -4743,25 +3757,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **unbookmark_workspace**
-> unbookmark_workspace(id)
+    def unbookmark_workspace(id)
 
 
 
@@ -4769,7 +3768,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -4783,9 +3782,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this workspace.
 
@@ -4807,25 +3804,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **unzip_file**
-> TaskInfo unzip_file(file_unzip_endpoint_request)
+    def TaskInfo unzip_file(file_unzip_endpoint_request)
 
 
 
@@ -4833,7 +3815,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -4849,9 +3831,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     file_unzip_endpoint_request = FileUnzipEndpointRequest(
         input="input_example",
@@ -4877,25 +3857,10 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_group_quota**
-> update_group_quota(group_id, id, update_quota_request)
+    def update_group_quota(group_id, id, update_quota_request)
 
 
 
@@ -4903,7 +3868,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -4918,9 +3883,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     group_id = "group_id_example" # str | 
     id = 1 # int | A unique integer value identifying this volume.
@@ -4949,25 +3912,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_path_quota**
-> update_path_quota(id, relative_path, update_quota_request)
+    def update_path_quota(id, relative_path, update_quota_request)
 
 
 
@@ -4975,7 +3923,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -4990,9 +3938,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this volume.
     relative_path = "relative_path_example" # str | 
@@ -5021,25 +3967,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_production**
-> Production update_production(id, production_update)
+    def Production update_production(id, production_update)
 
 
 
@@ -5047,7 +3978,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -5063,9 +3994,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this production.
     production_update = ProductionUpdate(
@@ -5098,25 +4027,10 @@ Name | Type | Description  | Notes
 
 [**Production**](Production.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_share**
-> Share update_share(id, share_update)
+    def Share update_share(id, share_update)
 
 
 
@@ -5124,7 +4038,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -5140,9 +4054,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this share.
     share_update = ShareUpdate(
@@ -5322,25 +4234,10 @@ Name | Type | Description  | Notes
 
 [**Share**](Share.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_snapshot**
-> Snapshot update_snapshot(id, snapshot_update)
+    def Snapshot update_snapshot(id, snapshot_update)
 
 
 
@@ -5348,7 +4245,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -5364,9 +4261,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this snapshot.
     snapshot_update = SnapshotUpdate(
@@ -5394,25 +4289,10 @@ Name | Type | Description  | Notes
 
 [**Snapshot**](Snapshot.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_user_quota**
-> update_user_quota(id, user_id, update_quota_request)
+    def update_user_quota(id, user_id, update_quota_request)
 
 
 
@@ -5420,7 +4300,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -5435,9 +4315,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this volume.
     user_id = "user_id_example" # str | 
@@ -5466,25 +4344,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_volume**
-> Volume update_volume(id, volume_update)
+    def Volume update_volume(id, volume_update)
 
 
 
@@ -5492,7 +4355,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -5508,9 +4371,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this volume.
     volume_update = VolumeUpdate(
@@ -5550,25 +4411,10 @@ Name | Type | Description  | Notes
 
 [**Volume**](Volume.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_workspace**
-> WorkspaceDetail update_workspace(id, workspace_detail_update)
+    def WorkspaceDetail update_workspace(id, workspace_detail_update)
 
 
 
@@ -5576,7 +4422,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -5592,9 +4438,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this workspace.
     workspace_detail_update = WorkspaceDetailUpdate(
@@ -5668,25 +4512,10 @@ Name | Type | Description  | Notes
 
 [**WorkspaceDetail**](WorkspaceDetail.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_workspace_permission**
-> WorkspacePermission update_workspace_permission(id, workspace_permission_update)
+    def WorkspacePermission update_workspace_permission(id, workspace_permission_update)
 
 
 
@@ -5694,7 +4523,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -5710,9 +4539,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     id = 1 # int | A unique integer value identifying this workspace permission.
     workspace_permission_update = WorkspacePermissionUpdate(
@@ -5742,25 +4569,10 @@ Name | Type | Description  | Notes
 
 [**WorkspacePermission**](WorkspacePermission.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **zip_files**
-> TaskInfo zip_files(file_zip_endpoint_request)
+    def TaskInfo zip_files(file_zip_endpoint_request)
 
 
 
@@ -5768,7 +4580,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import storage_api
@@ -5784,9 +4596,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = storage_api.StorageApi(api_client)
     file_zip_endpoint_request = FileZipEndpointRequest(
         input=[
@@ -5814,21 +4624,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TaskInfo**](TaskInfo.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 

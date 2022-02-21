@@ -1,6 +1,6 @@
 # elements_sdk.AIApi
 
-All URIs are relative to *https://elements.local*
+
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -51,7 +51,7 @@ Method | HTTP request | Description
 
 
 # **abort_ai_dataset_model_creation**
-> abort_ai_dataset_model_creation(id)
+    def abort_ai_dataset_model_creation(id)
 
 
 
@@ -59,7 +59,7 @@ Method | HTTP request | Description
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -73,9 +73,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Model.
 
@@ -97,25 +95,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **activate_ai_model**
-> activate_ai_model(id)
+    def activate_ai_model(id)
 
 
 
@@ -123,7 +106,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -137,9 +120,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Model.
 
@@ -161,25 +142,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_ai_annotation_track**
-> [AIAnnotation] create_ai_annotation_track(ai_annotation_create_request)
+    def [AIAnnotation] create_ai_annotation_track(ai_annotation_create_request)
 
 
 
@@ -187,7 +153,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -203,9 +169,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     ai_annotation_create_request = AIAnnotationCreateRequest(
         proxy=1,
@@ -236,25 +200,10 @@ Name | Type | Description  | Notes
 
 [**[AIAnnotation]**](AIAnnotation.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_ai_category**
-> AICategoryDetail create_ai_category(ai_category_detail_update)
+    def AICategoryDetail create_ai_category(ai_category_detail_update)
 
 
 
@@ -262,7 +211,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -278,9 +227,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     ai_category_detail_update = AICategoryDetailUpdate(
         dataset=AIDatasetDetailReference(
@@ -348,25 +295,10 @@ Name | Type | Description  | Notes
 
 [**AICategoryDetail**](AICategoryDetail.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_ai_dataset**
-> AIDatasetWithPreview create_ai_dataset(ai_dataset_with_preview_update)
+    def AIDatasetWithPreview create_ai_dataset(ai_dataset_with_preview_update)
 
 
 
@@ -374,7 +306,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -390,9 +322,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     ai_dataset_with_preview_update = AIDatasetWithPreviewUpdate(
         name="name_example",
@@ -419,25 +349,10 @@ Name | Type | Description  | Notes
 
 [**AIDatasetWithPreview**](AIDatasetWithPreview.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_ai_dataset_model**
-> AIModel create_ai_dataset_model(ai_model_training_request)
+    def AIModel create_ai_dataset_model(ai_model_training_request)
 
 
 
@@ -445,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -461,9 +376,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     ai_model_training_request = AIModelTrainingRequest(
         name="name_example",
@@ -496,25 +409,10 @@ Name | Type | Description  | Notes
 
 [**AIModel**](AIModel.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_ai_metadata**
-> create_ai_metadata(ai_processing_request)
+    def create_ai_metadata(ai_processing_request)
 
 
 
@@ -522,7 +420,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -537,9 +435,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     ai_processing_request = AIProcessingRequest(
         assets=[
@@ -572,25 +468,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_ai_model**
-> AIModel create_ai_model(ai_model_update)
+    def AIModel create_ai_model(ai_model_update)
 
 
 
@@ -598,7 +479,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -614,9 +495,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     ai_model_update = AIModelUpdate(
         dataset=AIDatasetReference(
@@ -651,25 +530,10 @@ Name | Type | Description  | Notes
 
 [**AIModel**](AIModel.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_ai_annotation**
-> delete_ai_annotation(id)
+    def delete_ai_annotation(id)
 
 
 
@@ -677,7 +541,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -691,9 +555,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Annotation.
 
@@ -715,25 +577,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_ai_annotation_track**
-> delete_ai_annotation_track(id)
+    def delete_ai_annotation_track(id)
 
 
 
@@ -741,7 +588,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -755,9 +602,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Annotation.
 
@@ -779,25 +624,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_ai_category**
-> delete_ai_category(id)
+    def delete_ai_category(id)
 
 
 
@@ -805,7 +635,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -819,9 +649,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Category.
 
@@ -843,25 +671,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_ai_dataset**
-> delete_ai_dataset(id)
+    def delete_ai_dataset(id)
 
 
 
@@ -869,7 +682,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -883,9 +696,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Dataset.
 
@@ -907,25 +718,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_ai_model**
-> delete_ai_model(id)
+    def delete_ai_model(id)
 
 
 
@@ -933,7 +729,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -947,9 +743,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Model.
 
@@ -971,25 +765,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **export_ai_dataset**
-> AIDatasetExportResponse export_ai_dataset(id, ai_dataset_export_request)
+    def AIDatasetExportResponse export_ai_dataset(id, ai_dataset_export_request)
 
 
 
@@ -997,7 +776,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -1013,9 +792,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Dataset.
     ai_dataset_export_request = AIDatasetExportRequest(
@@ -1042,25 +819,10 @@ Name | Type | Description  | Notes
 
 [**AIDatasetExportResponse**](AIDatasetExportResponse.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **export_ai_model**
-> AIModelExportResponse export_ai_model(id, ai_model_export_request)
+    def AIModelExportResponse export_ai_model(id, ai_model_export_request)
 
 
 
@@ -1068,7 +830,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -1084,9 +846,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Model.
     ai_model_export_request = AIModelExportRequest(
@@ -1113,25 +873,10 @@ Name | Type | Description  | Notes
 
 [**AIModelExportResponse**](AIModelExportResponse.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_ai_annotation**
-> AIAnnotation get_ai_annotation(id)
+    def AIAnnotation get_ai_annotation(id)
 
 
 
@@ -1139,7 +884,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -1154,9 +899,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Annotation.
     include_transforms_for_asset = 1 # int |  (optional)
@@ -1189,25 +932,10 @@ Name | Type | Description  | Notes
 
 [**AIAnnotation**](AIAnnotation.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_ai_annotation_image**
-> get_ai_annotation_image(id)
+    def get_ai_annotation_image(id)
 
 
 
@@ -1215,7 +943,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -1229,9 +957,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Annotation.
 
@@ -1253,25 +979,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_ai_category**
-> AICategoryDetail get_ai_category(id)
+    def AICategoryDetail get_ai_category(id)
 
 
 
@@ -1279,7 +990,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -1294,9 +1005,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Category.
 
@@ -1319,25 +1028,10 @@ Name | Type | Description  | Notes
 
 [**AICategoryDetail**](AICategoryDetail.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_ai_connection**
-> AIConnection get_ai_connection(id)
+    def AIConnection get_ai_connection(id)
 
 
 
@@ -1345,7 +1039,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -1360,9 +1054,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = 1 # int | A unique integer value identifying this AI Connection.
 
@@ -1385,25 +1077,10 @@ Name | Type | Description  | Notes
 
 [**AIConnection**](AIConnection.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_ai_dataset**
-> AIDatasetWithPreview get_ai_dataset(id)
+    def AIDatasetWithPreview get_ai_dataset(id)
 
 
 
@@ -1411,7 +1088,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -1426,9 +1103,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Dataset.
 
@@ -1451,25 +1126,10 @@ Name | Type | Description  | Notes
 
 [**AIDatasetWithPreview**](AIDatasetWithPreview.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_ai_image**
-> AIImage get_ai_image(id)
+    def AIImage get_ai_image(id)
 
 
 
@@ -1477,7 +1137,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -1492,9 +1152,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Image.
 
@@ -1517,25 +1175,10 @@ Name | Type | Description  | Notes
 
 [**AIImage**](AIImage.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_ai_image_content**
-> get_ai_image_content(id)
+    def get_ai_image_content(id)
 
 
 
@@ -1543,7 +1186,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -1557,9 +1200,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Image.
 
@@ -1581,25 +1222,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_ai_metadata**
-> AIMetadata get_ai_metadata(id)
+    def AIMetadata get_ai_metadata(id)
 
 
 
@@ -1607,7 +1233,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -1622,9 +1248,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = 1 # int | A unique integer value identifying this AI Metadata.
 
@@ -1647,25 +1271,10 @@ Name | Type | Description  | Notes
 
 [**AIMetadata**](AIMetadata.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_ai_model**
-> AIModel get_ai_model(id)
+    def AIModel get_ai_model(id)
 
 
 
@@ -1673,7 +1282,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -1688,9 +1297,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Model.
 
@@ -1713,25 +1320,10 @@ Name | Type | Description  | Notes
 
 [**AIModel**](AIModel.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_ai_annotation_tracks**
-> [AIAnnotation] get_all_ai_annotation_tracks()
+    def [AIAnnotation] get_all_ai_annotation_tracks()
 
 
 
@@ -1739,7 +1331,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -1754,9 +1346,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     category = "category_example" # str | Filter the returned list by `category`. (optional)
     image__dataset = "image__dataset_example" # str | Filter the returned list by `image__dataset`. (optional)
@@ -1792,25 +1382,10 @@ Name | Type | Description  | Notes
 
 [**[AIAnnotation]**](AIAnnotation.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_ai_annotations**
-> [AIAnnotation] get_all_ai_annotations()
+    def [AIAnnotation] get_all_ai_annotations()
 
 
 
@@ -1818,7 +1393,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -1833,9 +1408,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     category = "category_example" # str | Filter the returned list by `category`. (optional)
     image__dataset = "image__dataset_example" # str | Filter the returned list by `image__dataset`. (optional)
@@ -1875,25 +1448,10 @@ Name | Type | Description  | Notes
 
 [**[AIAnnotation]**](AIAnnotation.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_ai_categories**
-> [AICategory] get_all_ai_categories()
+    def [AICategory] get_all_ai_categories()
 
 
 
@@ -1901,7 +1459,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -1916,9 +1474,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     dataset = "dataset_example" # str | Filter the returned list by `dataset`. (optional)
     name = "name_example" # str | Filter the returned list by `name`. (optional)
@@ -1950,25 +1506,10 @@ Name | Type | Description  | Notes
 
 [**[AICategory]**](AICategory.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_ai_connections**
-> [AIConnection] get_all_ai_connections()
+    def [AIConnection] get_all_ai_connections()
 
 
 
@@ -1976,7 +1517,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -1991,9 +1532,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
@@ -2021,25 +1560,10 @@ Name | Type | Description  | Notes
 
 [**[AIConnection]**](AIConnection.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_ai_datasets**
-> [AIDatasetWithPreview] get_all_ai_datasets()
+    def [AIDatasetWithPreview] get_all_ai_datasets()
 
 
 
@@ -2047,7 +1571,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -2062,9 +1586,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     connection = 3.14 # float | Filter the returned list by `connection`. (optional)
     name = "name_example" # str | Filter the returned list by `name`. (optional)
@@ -2096,25 +1618,10 @@ Name | Type | Description  | Notes
 
 [**[AIDatasetWithPreview]**](AIDatasetWithPreview.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_ai_images**
-> [AIImage] get_all_ai_images()
+    def [AIImage] get_all_ai_images()
 
 
 
@@ -2122,7 +1629,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -2137,9 +1644,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     dataset = "dataset_example" # str | Filter the returned list by `dataset`. (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
@@ -2169,25 +1674,10 @@ Name | Type | Description  | Notes
 
 [**[AIImage]**](AIImage.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_ai_metadata**
-> [AIMetadata] get_all_ai_metadata()
+    def [AIMetadata] get_all_ai_metadata()
 
 
 
@@ -2195,7 +1685,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -2210,9 +1700,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     asset = 3.14 # float | Filter the returned list by `asset`. (optional)
     id = 3.14 # float | Filter the returned list by `id`. (optional)
@@ -2244,25 +1732,10 @@ Name | Type | Description  | Notes
 
 [**[AIMetadata]**](AIMetadata.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_ai_models**
-> [AIModel] get_all_ai_models()
+    def [AIModel] get_all_ai_models()
 
 
 
@@ -2270,7 +1743,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -2285,9 +1758,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     dataset = "dataset_example" # str | Filter the returned list by `dataset`. (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
@@ -2317,25 +1788,10 @@ Name | Type | Description  | Notes
 
 [**[AIModel]**](AIModel.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **import_ai_datasets**
-> ImportAIDatasetResponse import_ai_datasets(import_ai_dataset_request)
+    def ImportAIDatasetResponse import_ai_datasets(import_ai_dataset_request)
 
 
 
@@ -2343,7 +1799,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -2359,9 +1815,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     import_ai_dataset_request = ImportAIDatasetRequest(
         connection=1,
@@ -2389,25 +1843,10 @@ Name | Type | Description  | Notes
 
 [**ImportAIDatasetResponse**](ImportAIDatasetResponse.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **import_ai_models**
-> ImportAIModelResponse import_ai_models(id, import_ai_model_request)
+    def ImportAIModelResponse import_ai_models(id, import_ai_model_request)
 
 
 
@@ -2415,7 +1854,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -2431,9 +1870,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Dataset.
     import_ai_model_request = ImportAIModelRequest(
@@ -2460,25 +1897,10 @@ Name | Type | Description  | Notes
 
 [**ImportAIModelResponse**](ImportAIModelResponse.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_ai_annotation**
-> AIAnnotation patch_ai_annotation(id, ai_annotation_partial_update)
+    def AIAnnotation patch_ai_annotation(id, ai_annotation_partial_update)
 
 
 
@@ -2486,7 +1908,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -2502,9 +1924,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Annotation.
     ai_annotation_partial_update = AIAnnotationPartialUpdate(
@@ -2542,25 +1962,10 @@ Name | Type | Description  | Notes
 
 [**AIAnnotation**](AIAnnotation.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_ai_category**
-> AICategoryDetail patch_ai_category(id, ai_category_detail_partial_update)
+    def AICategoryDetail patch_ai_category(id, ai_category_detail_partial_update)
 
 
 
@@ -2568,7 +1973,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -2584,9 +1989,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Category.
     ai_category_detail_partial_update = AICategoryDetailPartialUpdate(
@@ -2656,25 +2059,10 @@ Name | Type | Description  | Notes
 
 [**AICategoryDetail**](AICategoryDetail.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_ai_dataset**
-> AIDatasetWithPreview patch_ai_dataset(id, ai_dataset_with_preview_partial_update)
+    def AIDatasetWithPreview patch_ai_dataset(id, ai_dataset_with_preview_partial_update)
 
 
 
@@ -2682,7 +2070,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -2698,9 +2086,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Dataset.
     ai_dataset_with_preview_partial_update = AIDatasetWithPreviewPartialUpdate(
@@ -2729,25 +2115,10 @@ Name | Type | Description  | Notes
 
 [**AIDatasetWithPreview**](AIDatasetWithPreview.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_ai_model**
-> AIModel patch_ai_model(id, ai_model_partial_update)
+    def AIModel patch_ai_model(id, ai_model_partial_update)
 
 
 
@@ -2755,7 +2126,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -2771,9 +2142,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Model.
     ai_model_partial_update = AIModelPartialUpdate(
@@ -2810,25 +2179,10 @@ Name | Type | Description  | Notes
 
 [**AIModel**](AIModel.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **run_ai_model_inference**
-> AIModelInferenceResponse run_ai_model_inference(id, ai_model_inference_request)
+    def AIModelInferenceResponse run_ai_model_inference(id, ai_model_inference_request)
 
 
 
@@ -2836,7 +2190,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -2852,9 +2206,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Model.
     ai_model_inference_request = AIModelInferenceRequest(
@@ -2886,25 +2238,10 @@ Name | Type | Description  | Notes
 
 [**AIModelInferenceResponse**](AIModelInferenceResponse.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_ai_annotation**
-> AIAnnotation update_ai_annotation(id, ai_annotation_update)
+    def AIAnnotation update_ai_annotation(id, ai_annotation_update)
 
 
 
@@ -2912,7 +2249,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -2928,9 +2265,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Annotation.
     ai_annotation_update = AIAnnotationUpdate(
@@ -2968,25 +2303,10 @@ Name | Type | Description  | Notes
 
 [**AIAnnotation**](AIAnnotation.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_ai_category**
-> AICategoryDetail update_ai_category(id, ai_category_detail_update)
+    def AICategoryDetail update_ai_category(id, ai_category_detail_update)
 
 
 
@@ -2994,7 +2314,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -3010,9 +2330,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Category.
     ai_category_detail_update = AICategoryDetailUpdate(
@@ -3082,25 +2400,10 @@ Name | Type | Description  | Notes
 
 [**AICategoryDetail**](AICategoryDetail.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_ai_dataset**
-> AIDatasetWithPreview update_ai_dataset(id, ai_dataset_with_preview_update)
+    def AIDatasetWithPreview update_ai_dataset(id, ai_dataset_with_preview_update)
 
 
 
@@ -3108,7 +2411,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -3124,9 +2427,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Dataset.
     ai_dataset_with_preview_update = AIDatasetWithPreviewUpdate(
@@ -3155,25 +2456,10 @@ Name | Type | Description  | Notes
 
 [**AIDatasetWithPreview**](AIDatasetWithPreview.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_ai_model**
-> AIModel update_ai_model(id, ai_model_update)
+    def AIModel update_ai_model(id, ai_model_update)
 
 
 
@@ -3181,7 +2467,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -3197,9 +2483,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     id = "id_example" # str | A UUID string identifying this AI Model.
     ai_model_update = AIModelUpdate(
@@ -3236,25 +2520,10 @@ Name | Type | Description  | Notes
 
 [**AIModel**](AIModel.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **upload_ai_image**
-> AIImage upload_ai_image(upload_ai_image_request)
+    def AIImage upload_ai_image(upload_ai_image_request)
 
 
 
@@ -3262,7 +2531,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import ai_api
@@ -3278,9 +2547,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = ai_api.AIApi(api_client)
     upload_ai_image_request = UploadAIImageRequest(
         content="content_example",
@@ -3305,21 +2572,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AIImage**](AIImage.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 

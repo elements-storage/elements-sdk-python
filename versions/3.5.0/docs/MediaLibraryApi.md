@@ -1,6 +1,6 @@
 # elements_sdk.MediaLibraryApi
 
-All URIs are relative to *https://elements.local*
+
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -177,7 +177,7 @@ Method | HTTP request | Description
 
 
 # **bookmark_media_directory**
-> bookmark_media_directory(id)
+    def bookmark_media_directory(id)
 
 
 
@@ -185,7 +185,7 @@ Method | HTTP request | Description
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -199,9 +199,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
 
@@ -223,25 +221,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **clear_subclip_clipboard**
-> clear_subclip_clipboard()
+    def clear_subclip_clipboard()
 
 
 
@@ -249,7 +232,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -263,9 +246,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
 
     # example, this endpoint has no required or optional parameters
@@ -283,25 +264,10 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **clear_subtitle_clipboard**
-> clear_subtitle_clipboard()
+    def clear_subtitle_clipboard()
 
 
 
@@ -309,7 +275,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -323,9 +289,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
 
     # example, this endpoint has no required or optional parameters
@@ -343,25 +307,10 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **combine_assets_into_set**
-> combine_assets_into_set(multiple_assets_request)
+    def combine_assets_into_set(multiple_assets_request)
 
 
 
@@ -369,7 +318,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -384,9 +333,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     multiple_assets_request = MultipleAssetsRequest(
         assets=[
@@ -412,25 +359,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_asset**
-> Asset create_asset(asset_update)
+    def Asset create_asset(asset_update)
 
 
 
@@ -438,7 +370,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -454,9 +386,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset_update = AssetUpdate(
         custom_fields={
@@ -487,25 +417,10 @@ Name | Type | Description  | Notes
 
 [**Asset**](Asset.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_asset_rating**
-> AssetRating create_asset_rating(asset_rating_update)
+    def AssetRating create_asset_rating(asset_rating_update)
 
 
 
@@ -513,7 +428,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -529,9 +444,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset_rating_update = AssetRatingUpdate(
         user=ElementsUserMiniReference(
@@ -570,25 +483,10 @@ Name | Type | Description  | Notes
 
 [**AssetRating**](AssetRating.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_asset_subtitle_link**
-> AssetSubtitleLink create_asset_subtitle_link(asset_subtitle_link_update)
+    def AssetSubtitleLink create_asset_subtitle_link(asset_subtitle_link_update)
 
 
 
@@ -596,7 +494,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -612,9 +510,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset_subtitle_link_update = AssetSubtitleLinkUpdate(
         subtitle=AssetMiniReference(
@@ -659,25 +555,10 @@ Name | Type | Description  | Notes
 
 [**AssetSubtitleLink**](AssetSubtitleLink.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_comment**
-> Comment create_comment(comment_update)
+    def Comment create_comment(comment_update)
 
 
 
@@ -685,7 +566,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -701,9 +582,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     comment_update = CommentUpdate(
         assignee=None,
@@ -757,25 +636,10 @@ Name | Type | Description  | Notes
 
 [**Comment**](Comment.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_custom_field**
-> CustomField create_custom_field(custom_field_update)
+    def CustomField create_custom_field(custom_field_update)
 
 
 
@@ -783,7 +647,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -799,9 +663,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     custom_field_update = CustomFieldUpdate(
         labels=[
@@ -848,25 +710,10 @@ Name | Type | Description  | Notes
 
 [**CustomField**](CustomField.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_editor_project**
-> EditorProject create_editor_project(editor_project_update)
+    def EditorProject create_editor_project(editor_project_update)
 
 
 
@@ -874,7 +721,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -890,9 +737,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     editor_project_update = EditorProjectUpdate(
         file=1,
@@ -922,25 +767,10 @@ Name | Type | Description  | Notes
 
 [**EditorProject**](EditorProject.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_editor_subtitle**
-> EditorSubtitle create_editor_subtitle(editor_subtitle_update)
+    def EditorSubtitle create_editor_subtitle(editor_subtitle_update)
 
 
 
@@ -948,7 +778,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -964,9 +794,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     editor_subtitle_update = EditorSubtitleUpdate(
         file=1,
@@ -1018,25 +846,10 @@ Name | Type | Description  | Notes
 
 [**EditorSubtitle**](EditorSubtitle.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_external_transcoder**
-> ExternalTranscoder create_external_transcoder(external_transcoder_update)
+    def ExternalTranscoder create_external_transcoder(external_transcoder_update)
 
 
 
@@ -1044,7 +857,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -1060,9 +873,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     external_transcoder_update = ExternalTranscoderUpdate(
         path_mappings=[
@@ -1094,25 +905,10 @@ Name | Type | Description  | Notes
 
 [**ExternalTranscoder**](ExternalTranscoder.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_marker**
-> Marker create_marker(marker_update)
+    def Marker create_marker(marker_update)
 
 
 
@@ -1120,7 +916,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -1136,9 +932,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     marker_update = MarkerUpdate(
         title="title_example",
@@ -1167,25 +961,10 @@ Name | Type | Description  | Notes
 
 [**Marker**](Marker.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_media_file_template**
-> MediaFileTemplate create_media_file_template(media_file_template_update)
+    def MediaFileTemplate create_media_file_template(media_file_template_update)
 
 
 
@@ -1193,7 +972,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -1209,9 +988,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     media_file_template_update = MediaFileTemplateUpdate(
         file=MediaFileReference(
@@ -1297,25 +1074,10 @@ Name | Type | Description  | Notes
 
 [**MediaFileTemplate**](MediaFileTemplate.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_media_root**
-> MediaRootDetail create_media_root(media_root_detail_update)
+    def MediaRootDetail create_media_root(media_root_detail_update)
 
 
 
@@ -1323,7 +1085,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -1339,9 +1101,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     media_root_detail_update = MediaRootDetailUpdate(
         custom_fields=[
@@ -1420,25 +1180,10 @@ Name | Type | Description  | Notes
 
 [**MediaRootDetail**](MediaRootDetail.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_media_root_permission**
-> MediaRootPermission create_media_root_permission(media_root_permission_update)
+    def MediaRootPermission create_media_root_permission(media_root_permission_update)
 
 
 
@@ -1446,7 +1191,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -1462,9 +1207,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     media_root_permission_update = MediaRootPermissionUpdate(
         user=None,
@@ -1513,25 +1256,10 @@ Name | Type | Description  | Notes
 
 [**MediaRootPermission**](MediaRootPermission.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_media_tag**
-> UnfilteredTag create_media_tag(unfiltered_tag_update)
+    def UnfilteredTag create_media_tag(unfiltered_tag_update)
 
 
 
@@ -1539,7 +1267,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -1555,9 +1283,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     unfiltered_tag_update = UnfilteredTagUpdate(
         roots=[
@@ -1587,25 +1313,10 @@ Name | Type | Description  | Notes
 
 [**UnfilteredTag**](UnfilteredTag.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_proxy_profile**
-> ProxyProfile create_proxy_profile(proxy_profile_update)
+    def ProxyProfile create_proxy_profile(proxy_profile_update)
 
 
 
@@ -1613,7 +1324,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -1629,9 +1340,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     proxy_profile_update = ProxyProfileUpdate(
         name="name_example",
@@ -1681,25 +1390,10 @@ Name | Type | Description  | Notes
 
 [**ProxyProfile**](ProxyProfile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_saved_search**
-> SavedSearch create_saved_search(saved_search_update)
+    def SavedSearch create_saved_search(saved_search_update)
 
 
 
@@ -1707,7 +1401,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -1723,9 +1417,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     saved_search_update = SavedSearchUpdate(
         root=None,
@@ -1755,25 +1447,10 @@ Name | Type | Description  | Notes
 
 [**SavedSearch**](SavedSearch.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_subclip**
-> Subclip create_subclip(subclip_update)
+    def Subclip create_subclip(subclip_update)
 
 
 
@@ -1781,7 +1458,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -1797,9 +1474,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     subclip_update = SubclipUpdate(
         asset=AssetMiniReference(
@@ -1853,25 +1528,10 @@ Name | Type | Description  | Notes
 
 [**Subclip**](Subclip.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_subclip_clipboard_entry**
-> SubclipClipboardEntry create_subclip_clipboard_entry(subclip_clipboard_entry_update)
+    def SubclipClipboardEntry create_subclip_clipboard_entry(subclip_clipboard_entry_update)
 
 
 
@@ -1879,7 +1539,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -1895,9 +1555,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     subclip_clipboard_entry_update = SubclipClipboardEntryUpdate(
         cut=SubclipReference(
@@ -1951,25 +1609,10 @@ Name | Type | Description  | Notes
 
 [**SubclipClipboardEntry**](SubclipClipboardEntry.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_subtitle_clipboard_entry**
-> SubtitleClipboardEntry create_subtitle_clipboard_entry(subtitle_clipboard_entry_update)
+    def SubtitleClipboardEntry create_subtitle_clipboard_entry(subtitle_clipboard_entry_update)
 
 
 
@@ -1977,7 +1620,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -1993,9 +1636,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     subtitle_clipboard_entry_update = SubtitleClipboardEntryUpdate(
         subtitle=AssetMiniReference(
@@ -2038,25 +1679,10 @@ Name | Type | Description  | Notes
 
 [**SubtitleClipboardEntry**](SubtitleClipboardEntry.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_asset**
-> delete_asset(id)
+    def delete_asset(id)
 
 
 
@@ -2064,7 +1690,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -2078,9 +1704,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Asset.
 
@@ -2102,25 +1726,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_asset_rating**
-> delete_asset_rating(id)
+    def delete_asset_rating(id)
 
 
 
@@ -2128,7 +1737,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -2142,9 +1751,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Rating.
     root = 1 # int |  (optional)
@@ -2175,25 +1782,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_asset_subtitle_link**
-> delete_asset_subtitle_link(id)
+    def delete_asset_subtitle_link(id)
 
 
 
@@ -2201,7 +1793,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -2215,9 +1807,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Asset subtitle file link.
 
@@ -2239,25 +1829,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_comment**
-> delete_comment(id)
+    def delete_comment(id)
 
 
 
@@ -2265,7 +1840,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -2279,9 +1854,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Comment.
 
@@ -2303,25 +1876,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_custom_field**
-> delete_custom_field(id)
+    def delete_custom_field(id)
 
 
 
@@ -2329,7 +1887,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -2343,9 +1901,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Custom field.
 
@@ -2367,25 +1923,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_easy_sharing_token_for_bundle**
-> delete_easy_sharing_token_for_bundle(id)
+    def delete_easy_sharing_token_for_bundle(id)
 
 
 
@@ -2393,7 +1934,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -2407,9 +1948,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Bundle.
 
@@ -2431,25 +1970,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_easy_sharing_token_for_directory**
-> delete_easy_sharing_token_for_directory(id)
+    def delete_easy_sharing_token_for_directory(id)
 
 
 
@@ -2457,7 +1981,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -2471,9 +1995,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
 
@@ -2495,25 +2017,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_external_transcoder**
-> delete_external_transcoder(id)
+    def delete_external_transcoder(id)
 
 
 
@@ -2521,7 +2028,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -2535,9 +2042,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this external transcoder.
 
@@ -2559,25 +2064,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_marker**
-> delete_marker(id)
+    def delete_marker(id)
 
 
 
@@ -2585,7 +2075,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -2599,9 +2089,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this marker.
 
@@ -2623,25 +2111,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_media_file_template**
-> delete_media_file_template(id)
+    def delete_media_file_template(id)
 
 
 
@@ -2649,7 +2122,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -2663,9 +2136,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Template.
 
@@ -2687,25 +2158,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_media_library_objects**
-> [TaskInfo] delete_media_library_objects(media_library_delete_request)
+    def [TaskInfo] delete_media_library_objects(media_library_delete_request)
 
 
 
@@ -2713,7 +2169,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -2729,9 +2185,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     media_library_delete_request = MediaLibraryDeleteRequest(
         bundles=[
@@ -2766,25 +2220,10 @@ Name | Type | Description  | Notes
 
 [**[TaskInfo]**](TaskInfo.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_media_root**
-> delete_media_root(id)
+    def delete_media_root(id)
 
 
 
@@ -2792,7 +2231,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -2806,9 +2245,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this media root.
 
@@ -2830,25 +2267,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_media_root_permission**
-> delete_media_root_permission(id)
+    def delete_media_root_permission(id)
 
 
 
@@ -2856,7 +2278,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -2870,9 +2292,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Media Root Permission.
 
@@ -2894,25 +2314,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_media_tag**
-> delete_media_tag(id)
+    def delete_media_tag(id)
 
 
 
@@ -2920,7 +2325,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -2934,9 +2339,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Tag.
 
@@ -2958,25 +2361,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_media_update**
-> delete_media_update(id)
+    def delete_media_update(id)
 
 
 
@@ -2984,7 +2372,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -2998,9 +2386,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Update.
 
@@ -3022,25 +2408,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_proxy**
-> delete_proxy(id)
+    def delete_proxy(id)
 
 
 
@@ -3048,7 +2419,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -3062,9 +2433,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this proxy.
 
@@ -3086,25 +2455,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_proxy_profile**
-> delete_proxy_profile(id)
+    def delete_proxy_profile(id)
 
 
 
@@ -3112,7 +2466,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -3126,9 +2480,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this proxy profile.
 
@@ -3150,25 +2502,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_saved_search**
-> delete_saved_search(id)
+    def delete_saved_search(id)
 
 
 
@@ -3176,7 +2513,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -3190,9 +2527,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this saved search.
 
@@ -3214,25 +2549,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_subclip**
-> delete_subclip(id)
+    def delete_subclip(id)
 
 
 
@@ -3240,7 +2560,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -3254,9 +2574,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this subclip.
 
@@ -3278,25 +2596,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_subclip_clipboard_entry**
-> delete_subclip_clipboard_entry(id)
+    def delete_subclip_clipboard_entry(id)
 
 
 
@@ -3304,7 +2607,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -3318,9 +2621,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this subclip clipboard entry.
 
@@ -3342,25 +2643,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_subtitle_clipboard_entry**
-> delete_subtitle_clipboard_entry(id)
+    def delete_subtitle_clipboard_entry(id)
 
 
 
@@ -3368,7 +2654,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -3382,9 +2668,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this subtitle clipboard entry.
 
@@ -3406,25 +2690,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **discover_media**
-> MediaFile discover_media(scanner_discover_endpoint_request)
+    def MediaFile discover_media(scanner_discover_endpoint_request)
 
 
 
@@ -3432,7 +2701,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -3448,9 +2717,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     scanner_discover_endpoint_request = ScannerDiscoverEndpointRequest(
         path="path_example",
@@ -3476,25 +2743,10 @@ Name | Type | Description  | Notes
 
 [**MediaFile**](MediaFile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **download_asset_proxy_file**
-> download_asset_proxy_file(filename, id)
+    def download_asset_proxy_file(filename, id)
 
 
 
@@ -3502,7 +2754,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -3516,9 +2768,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     filename = "filename_example" # str | 
     id = 1 # int | A unique integer value identifying this Asset.
@@ -3542,25 +2792,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **download_media_file**
-> download_media_file(id)
+    def download_media_file(id)
 
 
 
@@ -3568,7 +2803,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -3582,9 +2817,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
 
@@ -3606,25 +2839,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **download_proxy**
-> download_proxy(id)
+    def download_proxy(id)
 
 
 
@@ -3632,7 +2850,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -3646,9 +2864,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this proxy.
 
@@ -3670,25 +2886,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **editor_export_xml_for_assset**
-> editor_export_xml_for_assset(asset_ids)
+    def editor_export_xml_for_assset(asset_ids)
 
 
 
@@ -3696,7 +2897,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -3710,9 +2911,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset_ids = "asset_ids_example" # str | 
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
@@ -3747,25 +2946,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **editor_export_xml_for_bundle**
-> editor_export_xml_for_bundle(bundle_ids)
+    def editor_export_xml_for_bundle(bundle_ids)
 
 
 
@@ -3773,7 +2957,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -3787,9 +2971,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     bundle_ids = "bundle_ids_example" # str | 
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
@@ -3824,25 +3006,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **editor_export_xml_for_project**
-> editor_export_xml_for_project(id)
+    def editor_export_xml_for_project(id)
 
 
 
@@ -3850,7 +3017,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -3864,9 +3031,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
 
@@ -3888,25 +3053,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **export_comments_for_avid**
-> export_comments_for_avid(asset_id, export_format)
+    def export_comments_for_avid(asset_id, export_format)
 
 
 
@@ -3914,7 +3064,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -3928,9 +3078,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset_id = "asset_id_example" # str | 
     export_format = "export_format_example" # str | 
@@ -3967,25 +3115,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **export_editor_timeline**
-> export_editor_timeline(timeline_export_request)
+    def export_editor_timeline(timeline_export_request)
 
 
 
@@ -3993,7 +3126,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -4008,9 +3141,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     timeline_export_request = TimelineExportRequest(
         project={},
@@ -4036,25 +3167,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **extract_stream**
-> TaskInfo extract_stream(id, extract_request)
+    def TaskInfo extract_stream(id, extract_request)
 
 
 
@@ -4062,7 +3178,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -4078,9 +3194,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Asset.
     extract_request = ExtractRequest(
@@ -4108,25 +3222,10 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **forget_deleted_media_files**
-> forget_deleted_media_files(id)
+    def forget_deleted_media_files(id)
 
 
 
@@ -4134,7 +3233,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -4148,9 +3247,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
 
@@ -4172,25 +3269,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **generate_proxies**
-> [TaskInfo] generate_proxies(generate_proxies_request)
+    def [TaskInfo] generate_proxies(generate_proxies_request)
 
 
 
@@ -4198,7 +3280,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -4214,9 +3296,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     generate_proxies_request = GenerateProxiesRequest(
         bundles=[
@@ -4251,25 +3331,10 @@ Name | Type | Description  | Notes
 
 [**[TaskInfo]**](TaskInfo.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_asset_project_links**
-> [AssetProjectLink] get_all_asset_project_links()
+    def [AssetProjectLink] get_all_asset_project_links()
 
 
 
@@ -4277,7 +3342,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -4292,9 +3357,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset = 3.14 # float | Filter the returned list by `asset`. (optional)
     project = 3.14 # float | Filter the returned list by `project`. (optional)
@@ -4326,25 +3389,10 @@ Name | Type | Description  | Notes
 
 [**[AssetProjectLink]**](AssetProjectLink.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_asset_ratings**
-> [AssetRating] get_all_asset_ratings()
+    def [AssetRating] get_all_asset_ratings()
 
 
 
@@ -4352,7 +3400,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -4367,9 +3415,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     user = 3.14 # float | Filter the returned list by `user`. (optional)
     asset = 3.14 # float | Filter the returned list by `asset`. (optional)
@@ -4401,25 +3447,10 @@ Name | Type | Description  | Notes
 
 [**[AssetRating]**](AssetRating.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_asset_subtitle_links**
-> [AssetSubtitleLink] get_all_asset_subtitle_links()
+    def [AssetSubtitleLink] get_all_asset_subtitle_links()
 
 
 
@@ -4427,7 +3458,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -4442,9 +3473,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset = 3.14 # float | Filter the returned list by `asset`. (optional)
     subtitle = 3.14 # float | Filter the returned list by `subtitle`. (optional)
@@ -4476,25 +3505,10 @@ Name | Type | Description  | Notes
 
 [**[AssetSubtitleLink]**](AssetSubtitleLink.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_asset_tape_backups**
-> [AssetBackup] get_all_asset_tape_backups()
+    def [AssetBackup] get_all_asset_tape_backups()
 
 
 
@@ -4502,7 +3516,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -4517,9 +3531,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset = 3.14 # float | Filter the returned list by `asset`. (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
@@ -4553,25 +3565,10 @@ Name | Type | Description  | Notes
 
 [**[AssetBackup]**](AssetBackup.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_assets**
-> [Asset] get_all_assets()
+    def [Asset] get_all_assets()
 
 
 
@@ -4579,7 +3576,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -4594,9 +3591,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     sync_id = "sync_id_example" # str | Filter the returned list by `sync_id`. (optional)
     display_name = "display_name_example" # str | Filter the returned list by `display_name`. (optional)
@@ -4638,25 +3633,10 @@ Name | Type | Description  | Notes
 
 [**[Asset]**](Asset.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_bundles_for_media_root**
-> [MediaFileBundle] get_all_bundles_for_media_root(root)
+    def [MediaFileBundle] get_all_bundles_for_media_root(root)
 
 
 
@@ -4664,7 +3644,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -4679,9 +3659,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     root = "root_example" # str | 
     asset = 3.14 # float | Filter the returned list by `asset`. (optional)
@@ -4728,25 +3706,10 @@ Name | Type | Description  | Notes
 
 [**[MediaFileBundle]**](MediaFileBundle.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_bundles_in_subtree**
-> [MediaFileBundle] get_all_bundles_in_subtree(file)
+    def [MediaFileBundle] get_all_bundles_in_subtree(file)
 
 
 
@@ -4754,7 +3717,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -4769,9 +3732,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     file = "file_example" # str | 
     asset = 3.14 # float | Filter the returned list by `asset`. (optional)
@@ -4818,25 +3779,10 @@ Name | Type | Description  | Notes
 
 [**[MediaFileBundle]**](MediaFileBundle.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_click_links**
-> [AssetCloudLink] get_all_click_links()
+    def [AssetCloudLink] get_all_click_links()
 
 
 
@@ -4844,7 +3790,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -4859,9 +3805,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset = 3.14 # float | Filter the returned list by `asset`. (optional)
     connection = 3.14 # float | Filter the returned list by `connection`. (optional)
@@ -4893,25 +3837,10 @@ Name | Type | Description  | Notes
 
 [**[AssetCloudLink]**](AssetCloudLink.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_comments**
-> [Comment] get_all_comments()
+    def [Comment] get_all_comments()
 
 
 
@@ -4919,7 +3848,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -4934,9 +3863,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset = 3.14 # float | Filter the returned list by `asset`. (optional)
     root = 3.14 # float | Filter the returned list by `root`. (optional)
@@ -4978,25 +3905,10 @@ Name | Type | Description  | Notes
 
 [**[Comment]**](Comment.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_custom_fields**
-> [CustomField] get_all_custom_fields()
+    def [CustomField] get_all_custom_fields()
 
 
 
@@ -5004,7 +3916,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -5019,9 +3931,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
@@ -5049,25 +3959,10 @@ Name | Type | Description  | Notes
 
 [**[CustomField]**](CustomField.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_external_transcoders**
-> [ExternalTranscoder] get_all_external_transcoders()
+    def [ExternalTranscoder] get_all_external_transcoders()
 
 
 
@@ -5075,7 +3970,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -5090,9 +3985,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     name = "name_example" # str | Filter the returned list by `name`. (optional)
     id = 3.14 # float | Filter the returned list by `id`. (optional)
@@ -5124,25 +4017,10 @@ Name | Type | Description  | Notes
 
 [**[ExternalTranscoder]**](ExternalTranscoder.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_markers**
-> [Marker] get_all_markers()
+    def [Marker] get_all_markers()
 
 
 
@@ -5150,7 +4028,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -5165,9 +4043,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset = 3.14 # float | Filter the returned list by `asset`. (optional)
     user = 3.14 # float | Filter the returned list by `user`. (optional)
@@ -5199,25 +4075,10 @@ Name | Type | Description  | Notes
 
 [**[Marker]**](Marker.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_media_file_bundles**
-> [MediaFileBundle] get_all_media_file_bundles()
+    def [MediaFileBundle] get_all_media_file_bundles()
 
 
 
@@ -5225,7 +4086,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -5240,9 +4101,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset = 3.14 # float | Filter the returned list by `asset`. (optional)
     location = 3.14 # float | Filter the returned list by `location`. (optional)
@@ -5290,25 +4149,10 @@ Name | Type | Description  | Notes
 
 [**[MediaFileBundle]**](MediaFileBundle.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_media_file_templates**
-> [MediaFileTemplate] get_all_media_file_templates()
+    def [MediaFileTemplate] get_all_media_file_templates()
 
 
 
@@ -5316,7 +4160,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -5331,9 +4175,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
@@ -5361,25 +4203,10 @@ Name | Type | Description  | Notes
 
 [**[MediaFileTemplate]**](MediaFileTemplate.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_media_files**
-> [MediaFile] get_all_media_files()
+    def [MediaFile] get_all_media_files()
 
 
 
@@ -5387,7 +4214,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -5402,9 +4229,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     bundle = 3.14 # float | Filter the returned list by `bundle`. (optional)
     bundle__in = "bundle__in_example" # str | Multiple values may be separated by commas. (optional)
@@ -5466,25 +4291,10 @@ Name | Type | Description  | Notes
 
 [**[MediaFile]**](MediaFile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_media_files_for_bundles**
-> [MediaFile] get_all_media_files_for_bundles(all_media_files_for_bundles_request)
+    def [MediaFile] get_all_media_files_for_bundles(all_media_files_for_bundles_request)
 
 
 
@@ -5492,7 +4302,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -5508,9 +4318,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     all_media_files_for_bundles_request = AllMediaFilesForBundlesRequest(
         bundles=[
@@ -5537,25 +4345,10 @@ Name | Type | Description  | Notes
 
 [**[MediaFile]**](MediaFile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_media_files_for_media_root**
-> [MediaFile] get_all_media_files_for_media_root(root)
+    def [MediaFile] get_all_media_files_for_media_root(root)
 
 
 
@@ -5563,7 +4356,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -5578,9 +4371,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     root = "root_example" # str | 
     bundle = 3.14 # float | Filter the returned list by `bundle`. (optional)
@@ -5639,25 +4430,10 @@ Name | Type | Description  | Notes
 
 [**[MediaFile]**](MediaFile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_media_files_in_subtree**
-> [MediaFile] get_all_media_files_in_subtree(file)
+    def [MediaFile] get_all_media_files_in_subtree(file)
 
 
 
@@ -5665,7 +4441,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -5680,9 +4456,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     file = "file_example" # str | 
     bundle = 3.14 # float | Filter the returned list by `bundle`. (optional)
@@ -5741,25 +4515,10 @@ Name | Type | Description  | Notes
 
 [**[MediaFile]**](MediaFile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_media_root_permissions**
-> [MediaRootPermission] get_all_media_root_permissions()
+    def [MediaRootPermission] get_all_media_root_permissions()
 
 
 
@@ -5767,7 +4526,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -5782,9 +4541,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     root = 3.14 # float | Filter the returned list by `root`. (optional)
     id = 3.14 # float | Filter the returned list by `id`. (optional)
@@ -5816,25 +4573,10 @@ Name | Type | Description  | Notes
 
 [**[MediaRootPermission]**](MediaRootPermission.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_media_roots**
-> [MediaRoot] get_all_media_roots()
+    def [MediaRoot] get_all_media_roots()
 
 
 
@@ -5842,7 +4584,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -5857,9 +4599,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     path = "path_example" # str | Filter the returned list by `path`. (optional)
     volume = 3.14 # float | Filter the returned list by `volume`. (optional)
@@ -5895,25 +4635,10 @@ Name | Type | Description  | Notes
 
 [**[MediaRoot]**](MediaRoot.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_media_tags**
-> [UnfilteredTag] get_all_media_tags()
+    def [UnfilteredTag] get_all_media_tags()
 
 
 
@@ -5921,7 +4646,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -5936,9 +4661,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     name = "name_example" # str | Filter the returned list by `name`. (optional)
     name__icontains = "name__icontains_example" # str | Filter the returned list by `name__icontains`. (optional)
@@ -5978,25 +4701,10 @@ Name | Type | Description  | Notes
 
 [**[UnfilteredTag]**](UnfilteredTag.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_media_updates**
-> [MediaUpdate] get_all_media_updates()
+    def [MediaUpdate] get_all_media_updates()
 
 
 
@@ -6004,7 +4712,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -6019,9 +4727,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset = 3.14 # float | Filter the returned list by `asset`. (optional)
     user = 3.14 # float | Filter the returned list by `user`. (optional)
@@ -6055,25 +4761,10 @@ Name | Type | Description  | Notes
 
 [**[MediaUpdate]**](MediaUpdate.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_proxy_generators**
-> [ProxyGenerator] get_all_proxy_generators()
+    def [ProxyGenerator] get_all_proxy_generators()
 
 
 
@@ -6081,7 +4772,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -6096,9 +4787,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
@@ -6126,25 +4815,10 @@ Name | Type | Description  | Notes
 
 [**[ProxyGenerator]**](ProxyGenerator.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_proxy_profiles**
-> [ProxyProfile] get_all_proxy_profiles()
+    def [ProxyProfile] get_all_proxy_profiles()
 
 
 
@@ -6152,7 +4826,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -6167,9 +4841,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     name = "name_example" # str | Filter the returned list by `name`. (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
@@ -6201,25 +4873,10 @@ Name | Type | Description  | Notes
 
 [**[ProxyProfile]**](ProxyProfile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_saved_searches**
-> [SavedSearch] get_all_saved_searches()
+    def [SavedSearch] get_all_saved_searches()
 
 
 
@@ -6227,7 +4884,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -6242,9 +4899,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     shared = "shared_example" # str | Filter the returned list by `shared`. (optional)
     name = "name_example" # str | Filter the returned list by `name`. (optional)
@@ -6280,25 +4935,10 @@ Name | Type | Description  | Notes
 
 [**[SavedSearch]**](SavedSearch.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_subclip_clipboard_entries**
-> [SubclipClipboardEntry] get_all_subclip_clipboard_entries()
+    def [SubclipClipboardEntry] get_all_subclip_clipboard_entries()
 
 
 
@@ -6306,7 +4946,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -6321,9 +4961,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     cut = 3.14 # float | Filter the returned list by `cut`. (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
@@ -6353,25 +4991,10 @@ Name | Type | Description  | Notes
 
 [**[SubclipClipboardEntry]**](SubclipClipboardEntry.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_subclips**
-> [Subclip] get_all_subclips()
+    def [Subclip] get_all_subclips()
 
 
 
@@ -6379,7 +5002,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -6394,9 +5017,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset = 3.14 # float | Filter the returned list by `asset`. (optional)
     asset__in = "asset__in_example" # str | Multiple values may be separated by commas. (optional)
@@ -6432,25 +5053,10 @@ Name | Type | Description  | Notes
 
 [**[Subclip]**](Subclip.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_subtitle_clipboard_entries**
-> [SubtitleClipboardEntry] get_all_subtitle_clipboard_entries()
+    def [SubtitleClipboardEntry] get_all_subtitle_clipboard_entries()
 
 
 
@@ -6458,7 +5064,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -6473,9 +5079,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     subtitle = 3.14 # float | Filter the returned list by `subtitle`. (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
@@ -6505,25 +5109,10 @@ Name | Type | Description  | Notes
 
 [**[SubtitleClipboardEntry]**](SubtitleClipboardEntry.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_transcoder_profiles**
-> [TranscoderProfile] get_all_transcoder_profiles()
+    def [TranscoderProfile] get_all_transcoder_profiles()
 
 
 
@@ -6531,7 +5120,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -6546,9 +5135,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
@@ -6576,25 +5163,10 @@ Name | Type | Description  | Notes
 
 [**[TranscoderProfile]**](TranscoderProfile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_asset**
-> Asset get_asset(id)
+    def Asset get_asset(id)
 
 
 
@@ -6602,7 +5174,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -6617,9 +5189,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Asset.
     include_proxies = True # bool |  (optional)
@@ -6658,25 +5228,10 @@ Name | Type | Description  | Notes
 
 [**Asset**](Asset.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_asset_rating**
-> AssetRating get_asset_rating(id)
+    def AssetRating get_asset_rating(id)
 
 
 
@@ -6684,7 +5239,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -6699,9 +5254,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Rating.
 
@@ -6724,25 +5277,10 @@ Name | Type | Description  | Notes
 
 [**AssetRating**](AssetRating.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_asset_subtitle_link**
-> AssetSubtitleLink get_asset_subtitle_link(id)
+    def AssetSubtitleLink get_asset_subtitle_link(id)
 
 
 
@@ -6750,7 +5288,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -6765,9 +5303,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Asset subtitle file link.
 
@@ -6790,25 +5326,10 @@ Name | Type | Description  | Notes
 
 [**AssetSubtitleLink**](AssetSubtitleLink.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_bookmarked_media_files_directories**
-> [MediaFile] get_bookmarked_media_files_directories()
+    def [MediaFile] get_bookmarked_media_files_directories()
 
 
 
@@ -6816,7 +5337,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -6831,9 +5352,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     bundle = 3.14 # float | Filter the returned list by `bundle`. (optional)
     bundle__in = "bundle__in_example" # str | Multiple values may be separated by commas. (optional)
@@ -6883,25 +5402,10 @@ Name | Type | Description  | Notes
 
 [**[MediaFile]**](MediaFile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_comment**
-> Comment get_comment(id)
+    def Comment get_comment(id)
 
 
 
@@ -6909,7 +5413,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -6924,9 +5428,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Comment.
     for_root = 1 # int |  (optional)
@@ -6965,25 +5467,10 @@ Name | Type | Description  | Notes
 
 [**Comment**](Comment.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_custom_field**
-> CustomField get_custom_field(id)
+    def CustomField get_custom_field(id)
 
 
 
@@ -6991,7 +5478,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -7006,9 +5493,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Custom field.
 
@@ -7031,25 +5516,10 @@ Name | Type | Description  | Notes
 
 [**CustomField**](CustomField.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_easy_sharing_token_for_bundle**
-> OneTimeAccessToken get_easy_sharing_token_for_bundle(id)
+    def OneTimeAccessToken get_easy_sharing_token_for_bundle(id)
 
 
 
@@ -7057,7 +5527,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -7072,9 +5542,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Bundle.
 
@@ -7097,25 +5565,10 @@ Name | Type | Description  | Notes
 
 [**OneTimeAccessToken**](OneTimeAccessToken.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_easy_sharing_token_for_directory**
-> OneTimeAccessToken get_easy_sharing_token_for_directory(id)
+    def OneTimeAccessToken get_easy_sharing_token_for_directory(id)
 
 
 
@@ -7123,7 +5576,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -7138,9 +5591,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
 
@@ -7163,25 +5614,10 @@ Name | Type | Description  | Notes
 
 [**OneTimeAccessToken**](OneTimeAccessToken.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_editor_project**
-> EditorProject get_editor_project(id)
+    def EditorProject get_editor_project(id)
 
 
 
@@ -7189,7 +5625,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -7204,9 +5640,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
 
@@ -7229,25 +5663,10 @@ Name | Type | Description  | Notes
 
 [**EditorProject**](EditorProject.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_editor_subtitle**
-> EditorSubtitle get_editor_subtitle(id)
+    def EditorSubtitle get_editor_subtitle(id)
 
 
 
@@ -7255,7 +5674,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -7270,9 +5689,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
 
@@ -7295,25 +5712,10 @@ Name | Type | Description  | Notes
 
 [**EditorSubtitle**](EditorSubtitle.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_external_transcoder**
-> ExternalTranscoder get_external_transcoder(id)
+    def ExternalTranscoder get_external_transcoder(id)
 
 
 
@@ -7321,7 +5723,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -7336,9 +5738,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this external transcoder.
 
@@ -7361,25 +5761,10 @@ Name | Type | Description  | Notes
 
 [**ExternalTranscoder**](ExternalTranscoder.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_frame**
-> file_type get_frame(frame, id)
+    def file_type get_frame(frame, id)
 
 
 
@@ -7387,7 +5772,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -7401,9 +5786,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     frame = "frame_example" # str | 
     id = 1 # int | A unique integer value identifying this Asset.
@@ -7428,25 +5811,10 @@ Name | Type | Description  | Notes
 
 **file_type**
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: image/png, image/jpeg
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | File |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_latest_media_update**
-> MediaUpdate get_latest_media_update()
+    def MediaUpdate get_latest_media_update()
 
 
 
@@ -7454,7 +5822,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -7469,9 +5837,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset = 3.14 # float | Filter the returned list by `asset`. (optional)
     user = 3.14 # float | Filter the returned list by `user`. (optional)
@@ -7505,25 +5871,10 @@ Name | Type | Description  | Notes
 
 [**MediaUpdate**](MediaUpdate.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_marker**
-> Marker get_marker(id)
+    def Marker get_marker(id)
 
 
 
@@ -7531,7 +5882,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -7546,9 +5897,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this marker.
 
@@ -7571,25 +5920,10 @@ Name | Type | Description  | Notes
 
 [**Marker**](Marker.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_media_file**
-> MediaFile get_media_file(id)
+    def MediaFile get_media_file(id)
 
 
 
@@ -7597,7 +5931,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -7612,9 +5946,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
     resolve_file_permission = True # bool |  (optional)
@@ -7657,25 +5989,10 @@ Name | Type | Description  | Notes
 
 [**MediaFile**](MediaFile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_media_file_bundle**
-> MediaFileBundle get_media_file_bundle(id)
+    def MediaFileBundle get_media_file_bundle(id)
 
 
 
@@ -7683,7 +6000,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -7698,9 +6015,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Bundle.
     exclude_deleted = True # bool |  (optional)
@@ -7745,25 +6060,10 @@ Name | Type | Description  | Notes
 
 [**MediaFileBundle**](MediaFileBundle.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_media_file_contents**
-> MediaFileContents get_media_file_contents(id)
+    def MediaFileContents get_media_file_contents(id)
 
 
 
@@ -7771,7 +6071,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -7786,9 +6086,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
     exclude_deleted = True # bool |  (optional)
@@ -7827,25 +6125,10 @@ Name | Type | Description  | Notes
 
 [**MediaFileContents**](MediaFileContents.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_media_file_template**
-> MediaFileTemplate get_media_file_template(id)
+    def MediaFileTemplate get_media_file_template(id)
 
 
 
@@ -7853,7 +6136,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -7868,9 +6151,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Template.
 
@@ -7893,25 +6174,10 @@ Name | Type | Description  | Notes
 
 [**MediaFileTemplate**](MediaFileTemplate.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_media_root**
-> MediaRootDetail get_media_root(id)
+    def MediaRootDetail get_media_root(id)
 
 
 
@@ -7919,7 +6185,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -7934,9 +6200,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this media root.
     resolve_permissions = True # bool |  (optional)
@@ -7969,25 +6233,10 @@ Name | Type | Description  | Notes
 
 [**MediaRootDetail**](MediaRootDetail.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_media_root_permission**
-> MediaRootPermission get_media_root_permission(id)
+    def MediaRootPermission get_media_root_permission(id)
 
 
 
@@ -7995,7 +6244,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -8010,9 +6259,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Media Root Permission.
 
@@ -8035,25 +6282,10 @@ Name | Type | Description  | Notes
 
 [**MediaRootPermission**](MediaRootPermission.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_media_tag**
-> UnfilteredTag get_media_tag(id)
+    def UnfilteredTag get_media_tag(id)
 
 
 
@@ -8061,7 +6293,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -8076,9 +6308,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Tag.
     for_root = 1 # int |  (optional)
@@ -8111,25 +6341,10 @@ Name | Type | Description  | Notes
 
 [**UnfilteredTag**](UnfilteredTag.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_multiple_assets**
-> [Asset] get_multiple_assets(multiple_assets_request)
+    def [Asset] get_multiple_assets(multiple_assets_request)
 
 
 
@@ -8137,7 +6352,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -8153,9 +6368,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     multiple_assets_request = MultipleAssetsRequest(
         assets=[
@@ -8182,25 +6395,10 @@ Name | Type | Description  | Notes
 
 [**[Asset]**](Asset.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_multiple_bundles**
-> [MediaFileBundle] get_multiple_bundles(get_multiple_bundles_request)
+    def [MediaFileBundle] get_multiple_bundles(get_multiple_bundles_request)
 
 
 
@@ -8208,7 +6406,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -8224,9 +6422,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     get_multiple_bundles_request = GetMultipleBundlesRequest(
         bundles=[
@@ -8256,25 +6452,10 @@ Name | Type | Description  | Notes
 
 [**[MediaFileBundle]**](MediaFileBundle.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_multiple_files**
-> [MediaFile] get_multiple_files(get_multiple_files_request)
+    def [MediaFile] get_multiple_files(get_multiple_files_request)
 
 
 
@@ -8282,7 +6463,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -8298,9 +6479,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     get_multiple_files_request = GetMultipleFilesRequest(
         files=[
@@ -8327,25 +6506,10 @@ Name | Type | Description  | Notes
 
 [**[MediaFile]**](MediaFile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_my_media_root_permissions**
-> [MediaRootPermission] get_my_media_root_permissions()
+    def [MediaRootPermission] get_my_media_root_permissions()
 
 
 
@@ -8353,7 +6517,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -8368,9 +6532,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     root = 3.14 # float | Filter the returned list by `root`. (optional)
     id = 3.14 # float | Filter the returned list by `id`. (optional)
@@ -8402,25 +6564,10 @@ Name | Type | Description  | Notes
 
 [**[MediaRootPermission]**](MediaRootPermission.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_my_resolved_media_root_permissions**
-> [MediaRootPermission] get_my_resolved_media_root_permissions()
+    def [MediaRootPermission] get_my_resolved_media_root_permissions()
 
 
 
@@ -8428,7 +6575,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -8443,9 +6590,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     root = 3.14 # float | Filter the returned list by `root`. (optional)
     id = 3.14 # float | Filter the returned list by `id`. (optional)
@@ -8477,25 +6622,10 @@ Name | Type | Description  | Notes
 
 [**[MediaRootPermission]**](MediaRootPermission.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_proxy**
-> Proxy get_proxy(id)
+    def Proxy get_proxy(id)
 
 
 
@@ -8503,7 +6633,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -8518,9 +6648,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this proxy.
 
@@ -8543,25 +6671,10 @@ Name | Type | Description  | Notes
 
 [**Proxy**](Proxy.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_proxy_generator**
-> ProxyGenerator get_proxy_generator(id)
+    def ProxyGenerator get_proxy_generator(id)
 
 
 
@@ -8569,7 +6682,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -8584,9 +6697,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = "id_example" # str | 
 
@@ -8609,25 +6720,10 @@ Name | Type | Description  | Notes
 
 [**ProxyGenerator**](ProxyGenerator.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_proxy_profile**
-> ProxyProfile get_proxy_profile(id)
+    def ProxyProfile get_proxy_profile(id)
 
 
 
@@ -8635,7 +6731,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -8650,9 +6746,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this proxy profile.
     for_root = 1 # int |  (optional)
@@ -8685,25 +6779,10 @@ Name | Type | Description  | Notes
 
 [**ProxyProfile**](ProxyProfile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_proxy_profile_proxy_count**
-> ProxyCount get_proxy_profile_proxy_count(id)
+    def ProxyCount get_proxy_profile_proxy_count(id)
 
 
 
@@ -8711,7 +6790,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -8726,9 +6805,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this proxy profile.
 
@@ -8751,25 +6828,10 @@ Name | Type | Description  | Notes
 
 [**ProxyCount**](ProxyCount.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_saved_search**
-> SavedSearch get_saved_search(id)
+    def SavedSearch get_saved_search(id)
 
 
 
@@ -8777,7 +6839,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -8792,9 +6854,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this saved search.
 
@@ -8817,25 +6877,10 @@ Name | Type | Description  | Notes
 
 [**SavedSearch**](SavedSearch.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_subclip**
-> Subclip get_subclip(id)
+    def Subclip get_subclip(id)
 
 
 
@@ -8843,7 +6888,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -8858,9 +6903,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this subclip.
 
@@ -8883,25 +6926,10 @@ Name | Type | Description  | Notes
 
 [**Subclip**](Subclip.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_subtitles**
-> file_type get_subtitles(id, title)
+    def file_type get_subtitles(id, title)
 
 
 
@@ -8909,7 +6937,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -8923,9 +6951,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Asset.
     title = "title_example" # str | 
@@ -8950,25 +6976,10 @@ Name | Type | Description  | Notes
 
 **file_type**
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/x-ssa, application/x-subrip, text/vtt, application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | File |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_transcoder_profile**
-> TranscoderProfile get_transcoder_profile(id)
+    def TranscoderProfile get_transcoder_profile(id)
 
 
 
@@ -8976,7 +6987,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -8991,9 +7002,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this transcoder profile.
 
@@ -9016,25 +7025,10 @@ Name | Type | Description  | Notes
 
 [**TranscoderProfile**](TranscoderProfile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_vantage_workflows**
-> VantageWorkflows get_vantage_workflows(id)
+    def VantageWorkflows get_vantage_workflows(id)
 
 
 
@@ -9042,7 +7036,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -9057,9 +7051,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this external transcoder.
 
@@ -9082,25 +7074,10 @@ Name | Type | Description  | Notes
 
 [**VantageWorkflows**](VantageWorkflows.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **instantiate_media_file_template**
-> instantiate_media_file_template(id, instantiate_file_template_request)
+    def instantiate_media_file_template(id, instantiate_file_template_request)
 
 
 
@@ -9108,7 +7085,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -9123,9 +7100,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Template.
     instantiate_file_template_request = InstantiateFileTemplateRequest(
@@ -9155,25 +7130,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **locate_editor_project_paths**
-> [LocateResult] locate_editor_project_paths(id)
+    def [LocateResult] locate_editor_project_paths(id)
 
 
 
@@ -9181,7 +7141,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -9196,9 +7156,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
 
@@ -9221,25 +7179,10 @@ Name | Type | Description  | Notes
 
 [**[LocateResult]**](LocateResult.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **lookup_media_files**
-> [MediaFile] lookup_media_files(media_files_lookup_request)
+    def [MediaFile] lookup_media_files(media_files_lookup_request)
 
 
 
@@ -9247,7 +7190,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -9263,9 +7206,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     media_files_lookup_request = MediaFilesLookupRequest(
         query="query_example",
@@ -9290,25 +7231,10 @@ Name | Type | Description  | Notes
 
 [**[MediaFile]**](MediaFile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **mark_media_directory_as_showroom**
-> mark_media_directory_as_showroom(id)
+    def mark_media_directory_as_showroom(id)
 
 
 
@@ -9316,7 +7242,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -9330,9 +7256,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
 
@@ -9354,25 +7278,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_asset**
-> Asset patch_asset(id, asset_partial_update)
+    def Asset patch_asset(id, asset_partial_update)
 
 
 
@@ -9380,7 +7289,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -9396,9 +7305,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Asset.
     asset_partial_update = AssetPartialUpdate(
@@ -9441,25 +7348,10 @@ Name | Type | Description  | Notes
 
 [**Asset**](Asset.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_asset_rating**
-> AssetRating patch_asset_rating(id, asset_rating_partial_update)
+    def AssetRating patch_asset_rating(id, asset_rating_partial_update)
 
 
 
@@ -9467,7 +7359,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -9483,9 +7375,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Rating.
     asset_rating_partial_update = AssetRatingPartialUpdate(
@@ -9516,25 +7406,10 @@ Name | Type | Description  | Notes
 
 [**AssetRating**](AssetRating.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_asset_subtitle_link**
-> AssetSubtitleLink patch_asset_subtitle_link(id, asset_subtitle_link_partial_update)
+    def AssetSubtitleLink patch_asset_subtitle_link(id, asset_subtitle_link_partial_update)
 
 
 
@@ -9542,7 +7417,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -9558,9 +7433,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Asset subtitle file link.
     asset_subtitle_link_partial_update = AssetSubtitleLinkPartialUpdate(
@@ -9607,25 +7480,10 @@ Name | Type | Description  | Notes
 
 [**AssetSubtitleLink**](AssetSubtitleLink.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_comment**
-> Comment patch_comment(id, comment_partial_update)
+    def Comment patch_comment(id, comment_partial_update)
 
 
 
@@ -9633,7 +7491,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -9649,9 +7507,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Comment.
     comment_partial_update = CommentPartialUpdate(
@@ -9695,25 +7551,10 @@ Name | Type | Description  | Notes
 
 [**Comment**](Comment.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_custom_field**
-> CustomField patch_custom_field(id, custom_field_partial_update)
+    def CustomField patch_custom_field(id, custom_field_partial_update)
 
 
 
@@ -9721,7 +7562,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -9737,9 +7578,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Custom field.
     custom_field_partial_update = CustomFieldPartialUpdate(
@@ -9788,25 +7627,10 @@ Name | Type | Description  | Notes
 
 [**CustomField**](CustomField.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_editor_project**
-> EditorProject patch_editor_project(id, editor_project_partial_update)
+    def EditorProject patch_editor_project(id, editor_project_partial_update)
 
 
 
@@ -9814,7 +7638,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -9830,9 +7654,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
     editor_project_partial_update = EditorProjectPartialUpdate(
@@ -9864,25 +7686,10 @@ Name | Type | Description  | Notes
 
 [**EditorProject**](EditorProject.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_editor_subtitle**
-> EditorSubtitle patch_editor_subtitle(id, editor_subtitle_partial_update)
+    def EditorSubtitle patch_editor_subtitle(id, editor_subtitle_partial_update)
 
 
 
@@ -9890,7 +7697,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -9906,9 +7713,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
     editor_subtitle_partial_update = EditorSubtitlePartialUpdate(
@@ -9962,25 +7767,10 @@ Name | Type | Description  | Notes
 
 [**EditorSubtitle**](EditorSubtitle.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_external_transcoder**
-> ExternalTranscoder patch_external_transcoder(id, external_transcoder_partial_update)
+    def ExternalTranscoder patch_external_transcoder(id, external_transcoder_partial_update)
 
 
 
@@ -9988,7 +7778,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -10004,9 +7794,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this external transcoder.
     external_transcoder_partial_update = ExternalTranscoderPartialUpdate(
@@ -10040,25 +7828,10 @@ Name | Type | Description  | Notes
 
 [**ExternalTranscoder**](ExternalTranscoder.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_marker**
-> Marker patch_marker(id, marker_partial_update)
+    def Marker patch_marker(id, marker_partial_update)
 
 
 
@@ -10066,7 +7839,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -10082,9 +7855,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this marker.
     marker_partial_update = MarkerPartialUpdate(
@@ -10115,25 +7886,10 @@ Name | Type | Description  | Notes
 
 [**Marker**](Marker.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_media_file**
-> MediaFile patch_media_file(id, media_file_partial_update)
+    def MediaFile patch_media_file(id, media_file_partial_update)
 
 
 
@@ -10141,7 +7897,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -10157,9 +7913,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
     media_file_partial_update = MediaFilePartialUpdate(
@@ -10206,25 +7960,10 @@ Name | Type | Description  | Notes
 
 [**MediaFile**](MediaFile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_media_file_template**
-> MediaFileTemplate patch_media_file_template(id, media_file_template_partial_update)
+    def MediaFileTemplate patch_media_file_template(id, media_file_template_partial_update)
 
 
 
@@ -10232,7 +7971,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -10248,9 +7987,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Template.
     media_file_template_partial_update = MediaFileTemplatePartialUpdate(
@@ -10338,25 +8075,10 @@ Name | Type | Description  | Notes
 
 [**MediaFileTemplate**](MediaFileTemplate.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_media_root**
-> MediaRootDetail patch_media_root(id, media_root_detail_partial_update)
+    def MediaRootDetail patch_media_root(id, media_root_detail_partial_update)
 
 
 
@@ -10364,7 +8086,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -10380,9 +8102,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this media root.
     media_root_detail_partial_update = MediaRootDetailPartialUpdate(
@@ -10462,25 +8182,10 @@ Name | Type | Description  | Notes
 
 [**MediaRootDetail**](MediaRootDetail.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_media_root_permission**
-> MediaRootPermission patch_media_root_permission(id, media_root_permission_partial_update)
+    def MediaRootPermission patch_media_root_permission(id, media_root_permission_partial_update)
 
 
 
@@ -10488,7 +8193,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -10504,9 +8209,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Media Root Permission.
     media_root_permission_partial_update = MediaRootPermissionPartialUpdate(
@@ -10557,25 +8260,10 @@ Name | Type | Description  | Notes
 
 [**MediaRootPermission**](MediaRootPermission.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_media_tag**
-> UnfilteredTag patch_media_tag(id, unfiltered_tag_partial_update)
+    def UnfilteredTag patch_media_tag(id, unfiltered_tag_partial_update)
 
 
 
@@ -10583,7 +8271,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -10599,9 +8287,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Tag.
     unfiltered_tag_partial_update = UnfilteredTagPartialUpdate(
@@ -10633,25 +8319,10 @@ Name | Type | Description  | Notes
 
 [**UnfilteredTag**](UnfilteredTag.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_proxy_profile**
-> ProxyProfile patch_proxy_profile(id, proxy_profile_partial_update)
+    def ProxyProfile patch_proxy_profile(id, proxy_profile_partial_update)
 
 
 
@@ -10659,7 +8330,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -10675,9 +8346,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this proxy profile.
     proxy_profile_partial_update = ProxyProfilePartialUpdate(
@@ -10729,25 +8398,10 @@ Name | Type | Description  | Notes
 
 [**ProxyProfile**](ProxyProfile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_saved_search**
-> SavedSearch patch_saved_search(id, saved_search_partial_update)
+    def SavedSearch patch_saved_search(id, saved_search_partial_update)
 
 
 
@@ -10755,7 +8409,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -10771,9 +8425,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this saved search.
     saved_search_partial_update = SavedSearchPartialUpdate(
@@ -10805,25 +8457,10 @@ Name | Type | Description  | Notes
 
 [**SavedSearch**](SavedSearch.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_subclip**
-> Subclip patch_subclip(id, subclip_partial_update)
+    def Subclip patch_subclip(id, subclip_partial_update)
 
 
 
@@ -10831,7 +8468,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -10847,9 +8484,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this subclip.
     subclip_partial_update = SubclipPartialUpdate(
@@ -10905,25 +8540,10 @@ Name | Type | Description  | Notes
 
 [**Subclip**](Subclip.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **recursively_tag_media_directory**
-> recursively_tag_media_directory(id, tag_media_directory_request)
+    def recursively_tag_media_directory(id, tag_media_directory_request)
 
 
 
@@ -10931,7 +8551,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -10946,9 +8566,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
     tag_media_directory_request = TagMediaDirectoryRequest(
@@ -10975,25 +8593,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **reindex_media_directory**
-> reindex_media_directory(id)
+    def reindex_media_directory(id)
 
 
 
@@ -11001,7 +8604,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -11015,9 +8618,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
 
@@ -11039,25 +8640,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **rename_custom_field**
-> TaskInfo rename_custom_field(id, rename_custom_field_request)
+    def TaskInfo rename_custom_field(id, rename_custom_field_request)
 
 
 
@@ -11065,7 +8651,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -11081,9 +8667,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Custom field.
     rename_custom_field_request = RenameCustomFieldRequest(
@@ -11110,25 +8694,10 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **render_sequence**
-> TaskInfo render_sequence(render_endpoint_request)
+    def TaskInfo render_sequence(render_endpoint_request)
 
 
 
@@ -11136,7 +8705,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -11152,9 +8721,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     render_endpoint_request = RenderEndpointRequest(
         sequence={},
@@ -11181,25 +8748,10 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **render_subclip**
-> TaskInfo render_subclip(id, render_request)
+    def TaskInfo render_subclip(id, render_request)
 
 
 
@@ -11207,7 +8759,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -11223,9 +8775,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this subclip.
     render_request = RenderRequest(
@@ -11252,25 +8802,10 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **request_media_scan**
-> request_media_scan(scanner_scan_endpoint_request)
+    def request_media_scan(scanner_scan_endpoint_request)
 
 
 
@@ -11278,7 +8813,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -11293,9 +8828,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     scanner_scan_endpoint_request = ScannerScanEndpointRequest(
         path="path_example",
@@ -11322,25 +8855,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **resolve_comment**
-> Comment resolve_comment(id)
+    def Comment resolve_comment(id)
 
 
 
@@ -11348,7 +8866,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -11363,9 +8881,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Comment.
 
@@ -11388,25 +8904,10 @@ Name | Type | Description  | Notes
 
 [**Comment**](Comment.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **share_media_library_objects**
-> OneTimeAccessToken share_media_library_objects(media_library_share_request)
+    def OneTimeAccessToken share_media_library_objects(media_library_share_request)
 
 
 
@@ -11414,7 +8915,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -11430,9 +8931,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     media_library_share_request = MediaLibraryShareRequest(
         bundles=[
@@ -11490,25 +8989,10 @@ Name | Type | Description  | Notes
 
 [**OneTimeAccessToken**](OneTimeAccessToken.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **test_external_transcoder_connection**
-> TestExternalTranscoderConnectionResponse test_external_transcoder_connection(test_external_transcoder_connection_request)
+    def TestExternalTranscoderConnectionResponse test_external_transcoder_connection(test_external_transcoder_connection_request)
 
 
 
@@ -11516,7 +9000,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -11532,9 +9016,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     test_external_transcoder_connection_request = TestExternalTranscoderConnectionRequest(
         type="type_example",
@@ -11560,25 +9042,10 @@ Name | Type | Description  | Notes
 
 [**TestExternalTranscoderConnectionResponse**](TestExternalTranscoderConnectionResponse.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **transition_workflow**
-> WorkflowTransitionResponse transition_workflow(workflow_transition_request)
+    def WorkflowTransitionResponse transition_workflow(workflow_transition_request)
 
 
 
@@ -11586,7 +9053,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -11602,9 +9069,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     workflow_transition_request = WorkflowTransitionRequest(
         bundles=[
@@ -11639,25 +9104,10 @@ Name | Type | Description  | Notes
 
 [**WorkflowTransitionResponse**](WorkflowTransitionResponse.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **unbookmark_media_directory**
-> unbookmark_media_directory(id)
+    def unbookmark_media_directory(id)
 
 
 
@@ -11665,7 +9115,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -11679,9 +9129,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
 
@@ -11703,25 +9151,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **unmark_media_directory_as_showroom**
-> unmark_media_directory_as_showroom(id)
+    def unmark_media_directory_as_showroom(id)
 
 
 
@@ -11729,7 +9162,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -11743,9 +9176,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
 
@@ -11767,25 +9198,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **unresolve_comment**
-> Comment unresolve_comment(id)
+    def Comment unresolve_comment(id)
 
 
 
@@ -11793,7 +9209,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -11808,9 +9224,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Comment.
 
@@ -11833,25 +9247,10 @@ Name | Type | Description  | Notes
 
 [**Comment**](Comment.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_asset**
-> Asset update_asset(id, asset_update)
+    def Asset update_asset(id, asset_update)
 
 
 
@@ -11859,7 +9258,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -11875,9 +9274,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Asset.
     asset_update = AssetUpdate(
@@ -11920,25 +9317,10 @@ Name | Type | Description  | Notes
 
 [**Asset**](Asset.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_asset_rating**
-> AssetRating update_asset_rating(id, asset_rating_update)
+    def AssetRating update_asset_rating(id, asset_rating_update)
 
 
 
@@ -11946,7 +9328,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -11962,9 +9344,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Rating.
     asset_rating_update = AssetRatingUpdate(
@@ -11995,25 +9375,10 @@ Name | Type | Description  | Notes
 
 [**AssetRating**](AssetRating.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_asset_subtitle_link**
-> AssetSubtitleLink update_asset_subtitle_link(id, asset_subtitle_link_update)
+    def AssetSubtitleLink update_asset_subtitle_link(id, asset_subtitle_link_update)
 
 
 
@@ -12021,7 +9386,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -12037,9 +9402,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Asset subtitle file link.
     asset_subtitle_link_update = AssetSubtitleLinkUpdate(
@@ -12086,25 +9449,10 @@ Name | Type | Description  | Notes
 
 [**AssetSubtitleLink**](AssetSubtitleLink.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_comment**
-> Comment update_comment(id, comment_update)
+    def Comment update_comment(id, comment_update)
 
 
 
@@ -12112,7 +9460,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -12128,9 +9476,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Comment.
     comment_update = CommentUpdate(
@@ -12174,25 +9520,10 @@ Name | Type | Description  | Notes
 
 [**Comment**](Comment.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_custom_field**
-> CustomField update_custom_field(id, custom_field_update)
+    def CustomField update_custom_field(id, custom_field_update)
 
 
 
@@ -12200,7 +9531,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -12216,9 +9547,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Custom field.
     custom_field_update = CustomFieldUpdate(
@@ -12267,25 +9596,10 @@ Name | Type | Description  | Notes
 
 [**CustomField**](CustomField.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_editor_project**
-> EditorProject update_editor_project(id, editor_project_update)
+    def EditorProject update_editor_project(id, editor_project_update)
 
 
 
@@ -12293,7 +9607,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -12309,9 +9623,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
     editor_project_update = EditorProjectUpdate(
@@ -12343,25 +9655,10 @@ Name | Type | Description  | Notes
 
 [**EditorProject**](EditorProject.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_editor_subtitle**
-> EditorSubtitle update_editor_subtitle(id, editor_subtitle_update)
+    def EditorSubtitle update_editor_subtitle(id, editor_subtitle_update)
 
 
 
@@ -12369,7 +9666,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -12385,9 +9682,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
     editor_subtitle_update = EditorSubtitleUpdate(
@@ -12441,25 +9736,10 @@ Name | Type | Description  | Notes
 
 [**EditorSubtitle**](EditorSubtitle.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_external_transcoder**
-> ExternalTranscoder update_external_transcoder(id, external_transcoder_update)
+    def ExternalTranscoder update_external_transcoder(id, external_transcoder_update)
 
 
 
@@ -12467,7 +9747,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -12483,9 +9763,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this external transcoder.
     external_transcoder_update = ExternalTranscoderUpdate(
@@ -12519,25 +9797,10 @@ Name | Type | Description  | Notes
 
 [**ExternalTranscoder**](ExternalTranscoder.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_marker**
-> Marker update_marker(id, marker_update)
+    def Marker update_marker(id, marker_update)
 
 
 
@@ -12545,7 +9808,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -12561,9 +9824,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this marker.
     marker_update = MarkerUpdate(
@@ -12594,25 +9855,10 @@ Name | Type | Description  | Notes
 
 [**Marker**](Marker.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_media_file**
-> MediaFile update_media_file(id, media_file_update)
+    def MediaFile update_media_file(id, media_file_update)
 
 
 
@@ -12620,7 +9866,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -12636,9 +9882,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
     media_file_update = MediaFileUpdate(
@@ -12685,25 +9929,10 @@ Name | Type | Description  | Notes
 
 [**MediaFile**](MediaFile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_media_file_template**
-> MediaFileTemplate update_media_file_template(id, media_file_template_update)
+    def MediaFileTemplate update_media_file_template(id, media_file_template_update)
 
 
 
@@ -12711,7 +9940,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -12727,9 +9956,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Template.
     media_file_template_update = MediaFileTemplateUpdate(
@@ -12817,25 +10044,10 @@ Name | Type | Description  | Notes
 
 [**MediaFileTemplate**](MediaFileTemplate.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_media_root**
-> MediaRootDetail update_media_root(id, media_root_detail_update)
+    def MediaRootDetail update_media_root(id, media_root_detail_update)
 
 
 
@@ -12843,7 +10055,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -12859,9 +10071,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this media root.
     media_root_detail_update = MediaRootDetailUpdate(
@@ -12942,25 +10152,10 @@ Name | Type | Description  | Notes
 
 [**MediaRootDetail**](MediaRootDetail.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_media_root_permission**
-> MediaRootPermission update_media_root_permission(id, media_root_permission_update)
+    def MediaRootPermission update_media_root_permission(id, media_root_permission_update)
 
 
 
@@ -12968,7 +10163,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -12984,9 +10179,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Media Root Permission.
     media_root_permission_update = MediaRootPermissionUpdate(
@@ -13037,25 +10230,10 @@ Name | Type | Description  | Notes
 
 [**MediaRootPermission**](MediaRootPermission.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_media_tag**
-> UnfilteredTag update_media_tag(id, unfiltered_tag_update)
+    def UnfilteredTag update_media_tag(id, unfiltered_tag_update)
 
 
 
@@ -13063,7 +10241,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -13079,9 +10257,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Tag.
     unfiltered_tag_update = UnfilteredTagUpdate(
@@ -13113,25 +10289,10 @@ Name | Type | Description  | Notes
 
 [**UnfilteredTag**](UnfilteredTag.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_proxy_profile**
-> ProxyProfile update_proxy_profile(id, proxy_profile_update)
+    def ProxyProfile update_proxy_profile(id, proxy_profile_update)
 
 
 
@@ -13139,7 +10300,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -13155,9 +10316,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this proxy profile.
     proxy_profile_update = ProxyProfileUpdate(
@@ -13209,25 +10368,10 @@ Name | Type | Description  | Notes
 
 [**ProxyProfile**](ProxyProfile.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_saved_search**
-> SavedSearch update_saved_search(id, saved_search_update)
+    def SavedSearch update_saved_search(id, saved_search_update)
 
 
 
@@ -13235,7 +10379,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -13251,9 +10395,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this saved search.
     saved_search_update = SavedSearchUpdate(
@@ -13285,25 +10427,10 @@ Name | Type | Description  | Notes
 
 [**SavedSearch**](SavedSearch.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **update_subclip**
-> Subclip update_subclip(id, subclip_update)
+    def Subclip update_subclip(id, subclip_update)
 
 
 
@@ -13311,7 +10438,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import media_library_api
@@ -13327,9 +10454,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this subclip.
     subclip_update = SubclipUpdate(
@@ -13384,21 +10509,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Subclip**](Subclip.md)
-
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 

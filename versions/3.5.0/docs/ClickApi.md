@@ -1,6 +1,6 @@
 # elements_sdk.ClickApi
 
-All URIs are relative to *https://elements.local*
+
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **abort_click_upload**
-> abort_click_upload(upload_id)
+    def abort_click_upload(upload_id)
 
 
 
@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import click_api
@@ -41,9 +41,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = click_api.ClickApi(api_client)
     upload_id = "upload_id_example" # str | 
 
@@ -65,25 +63,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **add_assets_to_click_gallery**
-> ClickGallery add_assets_to_click_gallery(connection_id, id, add_assets_to_click_gallery)
+    def ClickGallery add_assets_to_click_gallery(connection_id, id, add_assets_to_click_gallery)
 
 
 
@@ -91,7 +74,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import click_api
@@ -107,9 +90,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = click_api.ClickApi(api_client)
     connection_id = "connection_id_example" # str | 
     id = "0" # str | 
@@ -140,25 +121,10 @@ Name | Type | Description  | Notes
 
 [**ClickGallery**](ClickGallery.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **continue_click_upload_in_background**
-> continue_click_upload_in_background(upload_id, click_background_upload_endpoint_request)
+    def continue_click_upload_in_background(upload_id, click_background_upload_endpoint_request)
 
 
 
@@ -166,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import click_api
@@ -181,9 +147,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = click_api.ClickApi(api_client)
     upload_id = "upload_id_example" # str | 
     click_background_upload_endpoint_request = ClickBackgroundUploadEndpointRequest(
@@ -213,25 +177,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_click_gallery**
-> ClickGallery create_click_gallery(connection_id, click_gallery_update)
+    def ClickGallery create_click_gallery(connection_id, click_gallery_update)
 
 
 
@@ -239,7 +188,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import click_api
@@ -255,9 +204,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = click_api.ClickApi(api_client)
     connection_id = "connection_id_example" # str | 
     click_gallery_update = ClickGalleryUpdate(
@@ -285,25 +232,10 @@ Name | Type | Description  | Notes
 
 [**ClickGallery**](ClickGallery.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_click_gallery_link**
-> ClickGalleryLink create_click_gallery_link(connection_id, click_gallery_link)
+    def ClickGalleryLink create_click_gallery_link(connection_id, click_gallery_link)
 
 
 
@@ -311,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import click_api
@@ -326,9 +258,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = click_api.ClickApi(api_client)
     connection_id = "connection_id_example" # str | 
     click_gallery_link = ClickGalleryLink(
@@ -367,25 +297,10 @@ Name | Type | Description  | Notes
 
 [**ClickGalleryLink**](ClickGalleryLink.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **delete_click_gallery_link**
-> delete_click_gallery_link(connection_id, id)
+    def delete_click_gallery_link(connection_id, id)
 
 
 
@@ -393,7 +308,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import click_api
@@ -407,9 +322,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = click_api.ClickApi(api_client)
     connection_id = "connection_id_example" # str | 
     id = "0" # str | 
@@ -433,25 +346,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**204** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_click_galleries**
-> [ClickGallery] get_all_click_galleries(connection_id)
+    def [ClickGallery] get_all_click_galleries(connection_id)
 
 
 
@@ -459,7 +357,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import click_api
@@ -474,9 +372,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = click_api.ClickApi(api_client)
     connection_id = "connection_id_example" # str | 
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
@@ -513,25 +409,10 @@ Name | Type | Description  | Notes
 
 [**[ClickGallery]**](ClickGallery.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_all_click_gallery_links**
-> InlineResponse200 get_all_click_gallery_links(connection_id)
+    def InlineResponse200 get_all_click_gallery_links(connection_id)
 
 
 
@@ -539,7 +420,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import click_api
@@ -554,9 +435,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = click_api.ClickApi(api_client)
     connection_id = "connection_id_example" # str | 
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
@@ -593,25 +472,10 @@ Name | Type | Description  | Notes
 
 [**InlineResponse200**](InlineResponse200.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_click_gallery**
-> ClickGallery get_click_gallery(connection_id, id)
+    def ClickGallery get_click_gallery(connection_id, id)
 
 
 
@@ -619,7 +483,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import click_api
@@ -634,9 +498,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = click_api.ClickApi(api_client)
     connection_id = "connection_id_example" # str | 
     id = "0" # str | 
@@ -661,25 +523,10 @@ Name | Type | Description  | Notes
 
 [**ClickGallery**](ClickGallery.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_click_gallery_link**
-> ClickGalleryLink get_click_gallery_link(connection_id, id)
+    def ClickGalleryLink get_click_gallery_link(connection_id, id)
 
 
 
@@ -687,7 +534,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import click_api
@@ -702,9 +549,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = click_api.ClickApi(api_client)
     connection_id = "connection_id_example" # str | 
     id = "0" # str | 
@@ -729,25 +574,10 @@ Name | Type | Description  | Notes
 
 [**ClickGalleryLink**](ClickGalleryLink.md)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **send_click_gallery_link_email**
-> send_click_gallery_link_email(connection_id, link_id)
+    def send_click_gallery_link_email(connection_id, link_id)
 
 
 
@@ -755,7 +585,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import click_api
@@ -769,9 +599,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = click_api.ClickApi(api_client)
     connection_id = "connection_id_example" # str | 
     link_id = "link_id_example" # str | 
@@ -795,25 +623,10 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | No body |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **start_click_upload**
-> TaskInfo start_click_upload(click_start_upload_endpoint_request)
+    def TaskInfo start_click_upload(click_start_upload_endpoint_request)
 
 
 
@@ -821,7 +634,7 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import click_api
@@ -837,9 +650,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = click_api.ClickApi(api_client)
     click_start_upload_endpoint_request = ClickStartUploadEndpointRequest(
         connection=1,
@@ -866,21 +677,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TaskInfo**](TaskInfo.md)
-
-### Authorization
-
-[Bearer](../#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 

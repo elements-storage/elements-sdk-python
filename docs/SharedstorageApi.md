@@ -1,6 +1,6 @@
 # elements_sdk.SharedstorageApi
 
-All URIs are relative to *https://elements.local*
+
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **get_shared_storage_value**
-> StorageResponse get_shared_storage_value(name)
+    def StorageResponse get_shared_storage_value(name)
 
 
 
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import sharedstorage_api
@@ -34,9 +34,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = sharedstorage_api.SharedstorageApi(api_client)
     name = "name_example" # str | 
 
@@ -59,25 +57,10 @@ Name | Type | Description  | Notes
 
 [**StorageResponse**](StorageResponse.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **get_user_storage_value**
-> StorageResponse get_user_storage_value(name)
+    def StorageResponse get_user_storage_value(name)
 
 
 
@@ -85,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import sharedstorage_api
@@ -100,9 +83,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = sharedstorage_api.SharedstorageApi(api_client)
     name = "name_example" # str | 
 
@@ -125,25 +106,10 @@ Name | Type | Description  | Notes
 
 [**StorageResponse**](StorageResponse.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **set_shared_storage_value**
-> StorageResponse set_shared_storage_value(name, storage_request)
+    def StorageResponse set_shared_storage_value(name, storage_request)
 
 
 
@@ -151,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import sharedstorage_api
@@ -167,9 +133,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = sharedstorage_api.SharedstorageApi(api_client)
     name = "name_example" # str | 
     storage_request = StorageRequest(
@@ -197,25 +161,10 @@ Name | Type | Description  | Notes
 
 [**StorageResponse**](StorageResponse.md)
 
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **set_user_storage_value**
-> StorageResponse set_user_storage_value(name, storage_request)
+    def StorageResponse set_user_storage_value(name, storage_request)
 
 
 
@@ -223,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (Bearer):
+
 ```python
 import elements_sdk
 from elements_sdk.api import sharedstorage_api
@@ -239,9 +188,7 @@ configuration = elements_sdk.Configuration(
 configuration.client_side_validation = False
 configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
-# Enter a context with an instance of the API client
 with elements_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
     api_instance = sharedstorage_api.SharedstorageApi(api_client)
     name = "name_example" # str | 
     storage_request = StorageRequest(
@@ -268,21 +215,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StorageResponse**](StorageResponse.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
