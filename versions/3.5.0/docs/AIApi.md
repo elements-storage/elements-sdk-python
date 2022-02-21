@@ -68,6 +68,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -115,6 +116,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -164,6 +166,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -222,6 +225,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -317,6 +321,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -371,6 +376,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -430,6 +436,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -490,6 +497,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -550,6 +558,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -597,6 +606,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -644,6 +654,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -691,6 +702,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -738,6 +750,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -787,6 +800,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -841,6 +855,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -894,6 +909,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -952,6 +968,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1000,6 +1017,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1049,6 +1067,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1098,6 +1117,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1147,6 +1167,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1195,6 +1216,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1243,6 +1265,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1292,6 +1315,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1341,6 +1365,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1403,6 +1428,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1469,6 +1495,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1527,6 +1554,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1581,6 +1609,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1639,6 +1668,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1695,6 +1725,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1753,6 +1784,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1810,6 +1842,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1865,6 +1898,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1919,6 +1953,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -1984,6 +2019,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -2081,6 +2117,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -2137,6 +2174,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -2201,6 +2239,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -2260,6 +2299,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -2325,6 +2365,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -2422,6 +2463,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -2478,6 +2520,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False
@@ -2542,6 +2585,7 @@ from pprint import pprint
 # See configuration.py for a list of all supported configuration parameters.
 configuration = elements_sdk.Configuration(
     host="https://elements.local",
+    discard_unknown_keys=True,
 )
 
 configuration.client_side_validation = False

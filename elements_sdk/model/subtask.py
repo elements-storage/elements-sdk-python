@@ -108,7 +108,7 @@ class Subtask(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
-            'kwargs': ({str: (str, none_type)},),  # noqa: E501
+            'kwargs': ({str: (str,)},),  # noqa: E501
             'validation_error': (str,),  # noqa: E501
             'parent': (int,),  # noqa: E501
             'graph_layout': ({str: (str, none_type)},),  # noqa: E501
@@ -166,7 +166,7 @@ class Subtask(ModelNormal):
 
         Args:
             id (int):
-            kwargs ({str: (str, none_type)}):
+            kwargs ({str: (str,)}):
             validation_error (str):
             parent (int):
 
@@ -273,7 +273,7 @@ class Subtask(ModelNormal):
 
         Args:
             id (int):
-            kwargs ({str: (str, none_type)}):
+            kwargs ({str: (str,)}):
             parent (int):
 
         Keyword Args:

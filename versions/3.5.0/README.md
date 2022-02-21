@@ -23,6 +23,7 @@ from elements_sdk.model.volume import Volume
 
 config = elements_sdk.Configuration(
     host='http://elements.local',
+    discard_unknown_keys=True,
 )
 config.api_key['Bearer'] = 'Bearer your-api-token-here'
 config.client_side_validation = False

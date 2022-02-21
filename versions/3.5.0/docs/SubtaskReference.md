@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
-**kwargs** | **{str: (str, none_type)}** |  | [optional] [readonly] 
+**kwargs** | **{str: (str,)}** |  | [optional] [readonly] 
 **graph_layout** | **{str: (str, none_type)}** |  | [optional] [readonly] 
 **validation_error** | **str** |  | [optional] [readonly] 
 **trigger** | **str, none_type** |  | [optional] [readonly] 

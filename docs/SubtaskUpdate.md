@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**kwargs** | **{str: (str, none_type)}** |  | 
+**kwargs** | **{str: (str,)}** |  | 
 **parent** | **int** |  | 
 **graph_layout** | **{str: (str, none_type)}** |  | [optional] 
 **trigger** | **str, none_type** |  | [optional] 
