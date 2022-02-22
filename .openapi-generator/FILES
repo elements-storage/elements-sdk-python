@@ -647,10 +647,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_import_job_request.py
-test/test_import_job_response.py
-test/test_production_mini_reference.py
-test/test_unfiltered_tag.py
-test/test_unfiltered_tag_partial_update.py
-test/test_workstation_mini.py
 tox.ini

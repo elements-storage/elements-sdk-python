@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] [readonly] 
-**kwargs** | **dict(str, str)** |  | 
-**graph_layout** | **dict(str, str)** |  | [optional] 
+**kwargs** | **dict(str, object)** |  | 
+**graph_layout** | **dict(str, object)** |  | [optional] 
 **validation_error** | **str** |  | [optional] [readonly] 
 **trigger** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 

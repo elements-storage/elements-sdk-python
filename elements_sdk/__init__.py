@@ -12,7 +12,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "3.4.0"
+__version__ = "3.4.1"
 
 # import apis into sdk package
 from elements_sdk.api.aws_api import AWSApi

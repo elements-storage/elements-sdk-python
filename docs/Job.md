@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **allow_users** | [**list[ElementsUserReference]**](ElementsUserReference.md) |  | [optional] 
 **allow_groups** | [**list[ElementsGroupReference]**](ElementsGroupReference.md) |  | [optional] 
 **startable** | **bool** |  | [optional] [readonly] 
-**variable_definitions** | **list[dict(str, str)]** |  | [optional] 
+**variable_definitions** | **list[dict(str, object)]** |  | [optional] 
 **media_roots** | **list[int]** |  | [optional] 
 **webhook_url** | **str** |  | [optional] [readonly] 
 **special_type** | **int** |  | [optional] 

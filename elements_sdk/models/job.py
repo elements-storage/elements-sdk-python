@@ -37,7 +37,7 @@ class Job(object):
         'allow_users': 'list[ElementsUserReference]',
         'allow_groups': 'list[ElementsGroupReference]',
         'startable': 'bool',
-        'variable_definitions': 'list[dict(str, str)]',
+        'variable_definitions': 'list[dict(str, object)]',
         'media_roots': 'list[int]',
         'webhook_url': 'str',
         'special_type': 'int',
@@ -270,7 +270,7 @@ class Job(object):
 
 
         :return: The variable_definitions of this Job.  # noqa: E501
-        :rtype: list[dict(str, str)]
+        :rtype: list[dict(str, object)]
         """
         return self._variable_definitions
 
@@ -280,7 +280,7 @@ class Job(object):
 
 
         :param variable_definitions: The variable_definitions of this Job.  # noqa: E501
-        :type: list[dict(str, str)]
+        :type: list[dict(str, object)]
         """
 
         self._variable_definitions = variable_definitions

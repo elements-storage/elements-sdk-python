@@ -2,7 +2,7 @@
 
 - API version: 2
 - Python 2.7 and 3.4+
-- Latest build: 3.4.0
+- Latest build: 3.4.1
 
 ## Installation & Usage
 
