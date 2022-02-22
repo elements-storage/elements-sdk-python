@@ -126,7 +126,7 @@ class Job(ModelNormal):
             'schedules': ([ScheduleReference],),  # noqa: E501
             'allow_users': ([ElementsUserReference],),  # noqa: E501
             'allow_groups': ([ElementsGroupReference],),  # noqa: E501
-            'variable_definitions': ([{str: (str, none_type)}],),  # noqa: E501
+            'variable_definitions': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'media_roots': ([int],),  # noqa: E501
             'special_type': (int, none_type,),  # noqa: E501
             'enabled': (bool,),  # noqa: E501
@@ -221,7 +221,7 @@ class Job(ModelNormal):
             schedules ([ScheduleReference]): [optional]  # noqa: E501
             allow_users ([ElementsUserReference]): [optional]  # noqa: E501
             allow_groups ([ElementsGroupReference]): [optional]  # noqa: E501
-            variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
+            variable_definitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             media_roots ([int]): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501
@@ -328,7 +328,7 @@ class Job(ModelNormal):
             schedules ([ScheduleReference]): [optional]  # noqa: E501
             allow_users ([ElementsUserReference]): [optional]  # noqa: E501
             allow_groups ([ElementsGroupReference]): [optional]  # noqa: E501
-            variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
+            variable_definitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             media_roots ([int]): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501

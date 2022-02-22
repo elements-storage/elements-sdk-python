@@ -107,7 +107,7 @@ class SubtaskUpdate(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'kwargs': ({str: (str,)},),  # noqa: E501
+            'kwargs': ({str: (str, none_type)},),  # noqa: E501
             'parent': (int,),  # noqa: E501
             'graph_layout': ({str: (str, none_type)},),  # noqa: E501
             'trigger': (str, none_type,),  # noqa: E501
@@ -160,7 +160,7 @@ class SubtaskUpdate(ModelNormal):
         """SubtaskUpdate - a model defined in OpenAPI
 
         Args:
-            kwargs ({str: (str,)}):
+            kwargs ({str: (str, none_type)}):
             parent (int):
 
         Keyword Args:
@@ -263,7 +263,7 @@ class SubtaskUpdate(ModelNormal):
         """SubtaskUpdate - a model defined in OpenAPI
 
         Args:
-            kwargs ({str: (str,)}):
+            kwargs ({str: (str, none_type)}):
             parent (int):
 
         Keyword Args:

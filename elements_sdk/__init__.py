@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "3.5.0"
+__version__ = "3.5.1"
 
 # import ApiClient
 from elements_sdk.api_client import ApiClient
