@@ -295,7 +295,7 @@ class MediaRootMini(ModelNormal):
         self.id = id
         self.name = name
         self.volume = volume
-        for var_name, var_value in kwargs.items():
+        for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
                         self._configuration.discard_unknown_keys and \
@@ -306,3 +306,4 @@ class MediaRootMini(ModelNormal):
             if var_name in self.read_only_vars:
                 raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
                                      f"class with read only attributes.")
+

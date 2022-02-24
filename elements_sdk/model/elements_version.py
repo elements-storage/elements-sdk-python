@@ -275,7 +275,7 @@ class ElementsVersion(ModelNormal):
         self.branch = branch
         self.patch_count = patch_count
         self.patch_commit_count = patch_commit_count
-        for var_name, var_value in kwargs.items():
+        for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
                         self._configuration.discard_unknown_keys and \
@@ -286,3 +286,4 @@ class ElementsVersion(ModelNormal):
             if var_name in self.read_only_vars:
                 raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
                                      f"class with read only attributes.")
+
