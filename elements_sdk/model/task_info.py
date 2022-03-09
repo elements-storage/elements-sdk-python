@@ -102,6 +102,12 @@ class TaskInfo(ModelNormal):
         ('state_text',): {
             'max_length': 1023,
         },
+        ('exception',): {
+            'max_length': 4096,
+        },
+        ('traceback',): {
+            'max_length': 4096,
+        },
     }
 
     @cached_property

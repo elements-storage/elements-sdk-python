@@ -65,14 +65,6 @@ class ElementsUserDetail(ModelNormal):
     }
 
     validations = {
-        ('shaper_ceiling',): {
-            'inclusive_maximum': 4611686018427388000,
-            'inclusive_minimum': 0,
-        },
-        ('shaper_rate',): {
-            'inclusive_maximum': 4611686018427388000,
-            'inclusive_minimum': 0,
-        },
         ('username',): {
             'max_length': 255,
             'min_length': 1,
@@ -101,6 +93,14 @@ class ElementsUserDetail(ModelNormal):
         },
         ('ldap_dn',): {
             'max_length': 255,
+        },
+        ('shaper_ceiling',): {
+            'inclusive_maximum': 4611686018427388000,
+            'inclusive_minimum': 0,
+        },
+        ('shaper_rate',): {
+            'inclusive_maximum': 4611686018427388000,
+            'inclusive_minimum': 0,
         },
         ('uid',): {
             'inclusive_maximum': 2147483647,
@@ -140,8 +140,6 @@ class ElementsUserDetail(ModelNormal):
             'group_permissions': ([str, none_type],),  # noqa: E501
             'has_password': (bool,),  # noqa: E501
             'permissions': ([str, none_type],),  # noqa: E501
-            'shaper_ceiling': (int, none_type,),  # noqa: E501
-            'shaper_rate': (int, none_type,),  # noqa: E501
             'sync_id': (str,),  # noqa: E501
             'username': (str,),  # noqa: E501
             'groups': ([int],),  # noqa: E501
@@ -166,6 +164,8 @@ class ElementsUserDetail(ModelNormal):
             'ldap': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'ldap_dn': (str, none_type,),  # noqa: E501
             'password_change_required': (bool,),  # noqa: E501
+            'shaper_ceiling': (int, none_type,),  # noqa: E501
+            'shaper_rate': (int, none_type,),  # noqa: E501
             'totp_enabled': (bool,),  # noqa: E501
             'uid': (int, none_type,),  # noqa: E501
             'unix_username': (str, none_type,),  # noqa: E501
@@ -185,8 +185,6 @@ class ElementsUserDetail(ModelNormal):
         'group_permissions': 'group_permissions',  # noqa: E501
         'has_password': 'has_password',  # noqa: E501
         'permissions': 'permissions',  # noqa: E501
-        'shaper_ceiling': 'shaper_ceiling',  # noqa: E501
-        'shaper_rate': 'shaper_rate',  # noqa: E501
         'sync_id': 'sync_id',  # noqa: E501
         'username': 'username',  # noqa: E501
         'groups': 'groups',  # noqa: E501
@@ -211,6 +209,8 @@ class ElementsUserDetail(ModelNormal):
         'ldap': 'ldap',  # noqa: E501
         'ldap_dn': 'ldap_dn',  # noqa: E501
         'password_change_required': 'password_change_required',  # noqa: E501
+        'shaper_ceiling': 'shaper_ceiling',  # noqa: E501
+        'shaper_rate': 'shaper_rate',  # noqa: E501
         'totp_enabled': 'totp_enabled',  # noqa: E501
         'uid': 'uid',  # noqa: E501
         'unix_username': 'unix_username',  # noqa: E501
@@ -232,7 +232,7 @@ class ElementsUserDetail(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, allowed_fs_paths, allowed_fs_write_paths, display_name, effective_permissions, group_permissions, has_password, permissions, shaper_ceiling, shaper_rate, sync_id, username, groups, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, allowed_fs_paths, allowed_fs_write_paths, display_name, effective_permissions, group_permissions, has_password, permissions, sync_id, username, groups, *args, **xkwargs):  # noqa: E501
         """ElementsUserDetail - a model defined in OpenAPI
 
         Args:
@@ -244,8 +244,6 @@ class ElementsUserDetail(ModelNormal):
             group_permissions ([str, none_type]):
             has_password (bool):
             permissions ([str, none_type]):
-            shaper_ceiling (int, none_type):
-            shaper_rate (int, none_type):
             sync_id (str):
             username (str):
             groups ([int]):
@@ -302,6 +300,8 @@ class ElementsUserDetail(ModelNormal):
             ldap (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
             password_change_required (bool): [optional]  # noqa: E501
+            shaper_ceiling (int, none_type): [optional]  # noqa: E501
+            shaper_rate (int, none_type): [optional]  # noqa: E501
             totp_enabled (bool): [optional]  # noqa: E501
             uid (int, none_type): [optional]  # noqa: E501
             unix_username (str, none_type): [optional]  # noqa: E501
@@ -341,8 +341,6 @@ class ElementsUserDetail(ModelNormal):
         self.group_permissions = group_permissions
         self.has_password = has_password
         self.permissions = permissions
-        self.shaper_ceiling = shaper_ceiling
-        self.shaper_rate = shaper_rate
         self.sync_id = sync_id
         self.username = username
         self.groups = groups
@@ -367,14 +365,12 @@ class ElementsUserDetail(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, permissions, shaper_ceiling, shaper_rate, username, groups, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, permissions, username, groups, *args, **xkwargs):  # noqa: E501
         """ElementsUserDetail - a model defined in OpenAPI
 
         Args:
             id (int):
             permissions ([str, none_type]):
-            shaper_ceiling (int, none_type):
-            shaper_rate (int, none_type):
             username (str):
             groups ([int]):
 
@@ -430,6 +426,8 @@ class ElementsUserDetail(ModelNormal):
             ldap (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
             password_change_required (bool): [optional]  # noqa: E501
+            shaper_ceiling (int, none_type): [optional]  # noqa: E501
+            shaper_rate (int, none_type): [optional]  # noqa: E501
             totp_enabled (bool): [optional]  # noqa: E501
             uid (int, none_type): [optional]  # noqa: E501
             unix_username (str, none_type): [optional]  # noqa: E501
@@ -461,8 +459,6 @@ class ElementsUserDetail(ModelNormal):
 
         self.id = id
         self.permissions = permissions
-        self.shaper_ceiling = shaper_ceiling
-        self.shaper_rate = shaper_rate
         self.username = username
         self.groups = groups
         for var_name, var_value in xkwargs.items():

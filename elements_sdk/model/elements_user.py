@@ -65,14 +65,6 @@ class ElementsUser(ModelNormal):
     }
 
     validations = {
-        ('shaper_ceiling',): {
-            'inclusive_maximum': 4611686018427388000,
-            'inclusive_minimum': 0,
-        },
-        ('shaper_rate',): {
-            'inclusive_maximum': 4611686018427388000,
-            'inclusive_minimum': 0,
-        },
         ('username',): {
             'max_length': 255,
             'min_length': 1,
@@ -101,6 +93,14 @@ class ElementsUser(ModelNormal):
         },
         ('ldap_dn',): {
             'min_length': 1,
+        },
+        ('shaper_ceiling',): {
+            'inclusive_maximum': 4611686018427388000,
+            'inclusive_minimum': 0,
+        },
+        ('shaper_rate',): {
+            'inclusive_maximum': 4611686018427388000,
+            'inclusive_minimum': 0,
         },
         ('uid',): {
             'inclusive_maximum': 2147483647,
@@ -141,8 +141,6 @@ class ElementsUser(ModelNormal):
             'has_password': (bool,),  # noqa: E501
             'is_cloud_default': (bool,),  # noqa: E501
             'permissions': ([str, none_type],),  # noqa: E501
-            'shaper_ceiling': (int, none_type,),  # noqa: E501
-            'shaper_rate': (int, none_type,),  # noqa: E501
             'sync_id': (str,),  # noqa: E501
             'totp_enabled': (bool,),  # noqa: E501
             'username': (str,),  # noqa: E501
@@ -166,6 +164,8 @@ class ElementsUser(ModelNormal):
             'ldap': (int, none_type,),  # noqa: E501
             'ldap_dn': (str, none_type,),  # noqa: E501
             'password_change_required': (bool,),  # noqa: E501
+            'shaper_ceiling': (int, none_type,),  # noqa: E501
+            'shaper_rate': (int, none_type,),  # noqa: E501
             'uid': (int, none_type,),  # noqa: E501
             'unix_username': (str, none_type,),  # noqa: E501
         }
@@ -185,8 +185,6 @@ class ElementsUser(ModelNormal):
         'has_password': 'has_password',  # noqa: E501
         'is_cloud_default': 'is_cloud_default',  # noqa: E501
         'permissions': 'permissions',  # noqa: E501
-        'shaper_ceiling': 'shaper_ceiling',  # noqa: E501
-        'shaper_rate': 'shaper_rate',  # noqa: E501
         'sync_id': 'sync_id',  # noqa: E501
         'totp_enabled': 'totp_enabled',  # noqa: E501
         'username': 'username',  # noqa: E501
@@ -210,6 +208,8 @@ class ElementsUser(ModelNormal):
         'ldap': 'ldap',  # noqa: E501
         'ldap_dn': 'ldap_dn',  # noqa: E501
         'password_change_required': 'password_change_required',  # noqa: E501
+        'shaper_ceiling': 'shaper_ceiling',  # noqa: E501
+        'shaper_rate': 'shaper_rate',  # noqa: E501
         'uid': 'uid',  # noqa: E501
         'unix_username': 'unix_username',  # noqa: E501
     }
@@ -235,7 +235,7 @@ class ElementsUser(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, allowed_fs_paths, allowed_fs_write_paths, display_name, effective_permissions, group_permissions, has_password, is_cloud_default, permissions, shaper_ceiling, shaper_rate, sync_id, totp_enabled, username, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, allowed_fs_paths, allowed_fs_write_paths, display_name, effective_permissions, group_permissions, has_password, is_cloud_default, permissions, sync_id, totp_enabled, username, *args, **xkwargs):  # noqa: E501
         """ElementsUser - a model defined in OpenAPI
 
         Args:
@@ -248,8 +248,6 @@ class ElementsUser(ModelNormal):
             has_password (bool):
             is_cloud_default (bool):
             permissions ([str, none_type]):
-            shaper_ceiling (int, none_type):
-            shaper_rate (int, none_type):
             sync_id (str):
             totp_enabled (bool):
             username (str):
@@ -305,6 +303,8 @@ class ElementsUser(ModelNormal):
             ldap (int, none_type): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
             password_change_required (bool): [optional]  # noqa: E501
+            shaper_ceiling (int, none_type): [optional]  # noqa: E501
+            shaper_rate (int, none_type): [optional]  # noqa: E501
             uid (int, none_type): [optional]  # noqa: E501
             unix_username (str, none_type): [optional]  # noqa: E501
         """
@@ -344,8 +344,6 @@ class ElementsUser(ModelNormal):
         self.has_password = has_password
         self.is_cloud_default = is_cloud_default
         self.permissions = permissions
-        self.shaper_ceiling = shaper_ceiling
-        self.shaper_rate = shaper_rate
         self.sync_id = sync_id
         self.totp_enabled = totp_enabled
         self.username = username
@@ -370,14 +368,12 @@ class ElementsUser(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, permissions, shaper_ceiling, shaper_rate, username, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, permissions, username, *args, **xkwargs):  # noqa: E501
         """ElementsUser - a model defined in OpenAPI
 
         Args:
             id (int):
             permissions ([str, none_type]):
-            shaper_ceiling (int, none_type):
-            shaper_rate (int, none_type):
             username (str):
 
         Keyword Args:
@@ -431,6 +427,8 @@ class ElementsUser(ModelNormal):
             ldap (int, none_type): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
             password_change_required (bool): [optional]  # noqa: E501
+            shaper_ceiling (int, none_type): [optional]  # noqa: E501
+            shaper_rate (int, none_type): [optional]  # noqa: E501
             uid (int, none_type): [optional]  # noqa: E501
             unix_username (str, none_type): [optional]  # noqa: E501
         """
@@ -461,8 +459,6 @@ class ElementsUser(ModelNormal):
 
         self.id = id
         self.permissions = permissions
-        self.shaper_ceiling = shaper_ceiling
-        self.shaper_rate = shaper_rate
         self.username = username
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
