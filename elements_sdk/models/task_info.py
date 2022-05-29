@@ -568,6 +568,9 @@ class TaskInfo(object):
         :param exception: The exception of this TaskInfo.  # noqa: E501
         :type: str
         """
+        if (self.local_vars_configuration.client_side_validation and
+                exception is not None and len(exception) > 4096):
+            raise ValueError("Invalid value for `exception`, length must be less than or equal to `4096`")  # noqa: E501
 
         self._exception = exception
 
@@ -589,6 +592,9 @@ class TaskInfo(object):
         :param traceback: The traceback of this TaskInfo.  # noqa: E501
         :type: str
         """
+        if (self.local_vars_configuration.client_side_validation and
+                traceback is not None and len(traceback) > 4096):
+            raise ValueError("Invalid value for `traceback`, length must be less than or equal to `4096`")  # noqa: E501
 
         self._traceback = traceback
 

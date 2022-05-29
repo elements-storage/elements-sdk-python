@@ -32,8 +32,8 @@ class Subtask(object):
     """
     openapi_types = {
         'id': 'int',
-        'kwargs': 'dict(str, object)',
-        'graph_layout': 'dict(str, object)',
+        'kwargs': 'dict(str, str)',
+        'graph_layout': 'dict(str, str)',
         'validation_error': 'str',
         'trigger': 'str',
         'name': 'str',
@@ -152,7 +152,7 @@ class Subtask(object):
 
 
         :return: The kwargs of this Subtask.  # noqa: E501
-        :rtype: dict(str, object)
+        :rtype: dict(str, str)
         """
         return self._kwargs
 
@@ -162,7 +162,7 @@ class Subtask(object):
 
 
         :param kwargs: The kwargs of this Subtask.  # noqa: E501
-        :type: dict(str, object)
+        :type: dict(str, str)
         """
         if self.local_vars_configuration.client_side_validation and kwargs is None:  # noqa: E501
             raise ValueError("Invalid value for `kwargs`, must not be `None`")  # noqa: E501
@@ -175,7 +175,7 @@ class Subtask(object):
 
 
         :return: The graph_layout of this Subtask.  # noqa: E501
-        :rtype: dict(str, object)
+        :rtype: dict(str, str)
         """
         return self._graph_layout
 
@@ -185,7 +185,7 @@ class Subtask(object):
 
 
         :param graph_layout: The graph_layout of this Subtask.  # noqa: E501
-        :type: dict(str, object)
+        :type: dict(str, str)
         """
 
         self._graph_layout = graph_layout

@@ -36,7 +36,8 @@ class RestoreEndpointRequest(object):
         'exclude': 'list[str]',
         'tape': 'str',
         'export': 'bool',
-        'start_date': 'datetime'
+        'start_date': 'datetime',
+        'destination': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class RestoreEndpointRequest(object):
         'exclude': 'exclude',
         'tape': 'tape',
         'export': 'export',
-        'start_date': 'start_date'
+        'start_date': 'start_date',
+        'destination': 'destination'
     }
 
-    def __init__(self, name=None, source=None, exclude=None, tape=None, export=None, start_date=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, source=None, exclude=None, tape=None, export=None, start_date=None, destination=None, local_vars_configuration=None):  # noqa: E501
         """RestoreEndpointRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,6 +62,7 @@ class RestoreEndpointRequest(object):
         self._tape = None
         self._export = None
         self._start_date = None
+        self._destination = None
         self.discriminator = None
 
         self.name = name
@@ -69,6 +72,7 @@ class RestoreEndpointRequest(object):
         if export is not None:
             self.export = export
         self.start_date = start_date
+        self.destination = destination
 
     @property
     def name(self):
@@ -211,6 +215,30 @@ class RestoreEndpointRequest(object):
             raise ValueError("Invalid value for `start_date`, must not be `None`")  # noqa: E501
 
         self._start_date = start_date
+
+    @property
+    def destination(self):
+        """Gets the destination of this RestoreEndpointRequest.  # noqa: E501
+
+
+        :return: The destination of this RestoreEndpointRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination
+
+    @destination.setter
+    def destination(self, destination):
+        """Sets the destination of this RestoreEndpointRequest.
+
+
+        :param destination: The destination of this RestoreEndpointRequest.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                destination is not None and len(destination) < 1):
+            raise ValueError("Invalid value for `destination`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._destination = destination
 
     def to_dict(self):
         """Returns the model properties as a dict"""

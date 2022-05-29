@@ -2243,6 +2243,7 @@ class StorageApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
+        :param bool delete_content:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2268,6 +2269,7 @@ class StorageApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
+        :param bool delete_content:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2284,7 +2286,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id']  # noqa: E501
+        all_params = ['id', 'delete_content']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2310,6 +2312,8 @@ class StorageApi(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
+        if 'delete_content' in local_var_params and local_var_params['delete_content'] is not None:  # noqa: E501
+            query_params.append(('delete_content', local_var_params['delete_content']))  # noqa: E501
 
         header_params = {}
 
@@ -4985,6 +4989,7 @@ class StorageApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
+        :param bool delete_content:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -5010,6 +5015,7 @@ class StorageApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
+        :param bool delete_content:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5026,7 +5032,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id']  # noqa: E501
+        all_params = ['id', 'delete_content']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5052,6 +5058,8 @@ class StorageApi(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
+        if 'delete_content' in local_var_params and local_var_params['delete_content'] is not None:  # noqa: E501
+            query_params.append(('delete_content', local_var_params['delete_content']))  # noqa: E501
 
         header_params = {}
 
@@ -6160,6 +6168,7 @@ class StorageApi(object):
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
         :param WorkspaceDetailPartialUpdate workspace_detail_partial_update: (required)
+        :param bool delete_content:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -6186,6 +6195,7 @@ class StorageApi(object):
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
         :param WorkspaceDetailPartialUpdate workspace_detail_partial_update: (required)
+        :param bool delete_content:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6202,7 +6212,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'workspace_detail_partial_update']  # noqa: E501
+        all_params = ['id', 'workspace_detail_partial_update', 'delete_content']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6232,6 +6242,8 @@ class StorageApi(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
+        if 'delete_content' in local_var_params and local_var_params['delete_content'] is not None:  # noqa: E501
+            query_params.append(('delete_content', local_var_params['delete_content']))  # noqa: E501
 
         header_params = {}
 
@@ -7796,6 +7808,7 @@ class StorageApi(object):
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
         :param WorkspaceDetail workspace_detail: (required)
+        :param bool delete_content:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7822,6 +7835,7 @@ class StorageApi(object):
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this workspace. (required)
         :param WorkspaceDetail workspace_detail: (required)
+        :param bool delete_content:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7838,7 +7852,7 @@ class StorageApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'workspace_detail']  # noqa: E501
+        all_params = ['id', 'workspace_detail', 'delete_content']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7868,6 +7882,8 @@ class StorageApi(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
+        if 'delete_content' in local_var_params and local_var_params['delete_content'] is not None:  # noqa: E501
+            query_params.append(('delete_content', local_var_params['delete_content']))  # noqa: E501
 
         header_params = {}
 

@@ -32,7 +32,7 @@ class CustomField(object):
     """
     openapi_types = {
         'id': 'int',
-        'labels': 'list[str]',
+        'labels': 'list[dict(str, str)]',
         'options': 'list[str]',
         'name': 'str',
         'order': 'int',
@@ -100,8 +100,7 @@ class CustomField(object):
 
         if id is not None:
             self.id = id
-        if labels is not None:
-            self.labels = labels
+        self.labels = labels
         self.options = options
         self.name = name
         if order is not None:
@@ -152,7 +151,7 @@ class CustomField(object):
 
 
         :return: The labels of this CustomField.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[dict(str, str)]
         """
         return self._labels
 
@@ -162,8 +161,10 @@ class CustomField(object):
 
 
         :param labels: The labels of this CustomField.  # noqa: E501
-        :type: list[str]
+        :type: list[dict(str, str)]
         """
+        if self.local_vars_configuration.client_side_validation and labels is None:  # noqa: E501
+            raise ValueError("Invalid value for `labels`, must not be `None`")  # noqa: E501
 
         self._labels = labels
 

@@ -32,7 +32,7 @@ class CustomFieldReference(object):
     """
     openapi_types = {
         'id': 'int',
-        'labels': 'list[str]',
+        'labels': 'list[dict(str, str)]',
         'options': 'list[str]',
         'name': 'str',
         'order': 'int',
@@ -155,7 +155,7 @@ class CustomFieldReference(object):
 
 
         :return: The labels of this CustomFieldReference.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[dict(str, str)]
         """
         return self._labels
 
@@ -165,7 +165,7 @@ class CustomFieldReference(object):
 
 
         :param labels: The labels of this CustomFieldReference.  # noqa: E501
-        :type: list[str]
+        :type: list[dict(str, str)]
         """
 
         self._labels = labels

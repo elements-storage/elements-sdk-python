@@ -54,7 +54,8 @@ class TimelineExportRequest(object):
         self.discriminator = None
 
         self.project = project
-        self.sequence = sequence
+        if sequence is not None:
+            self.sequence = sequence
         self.format = format
 
     @property
@@ -98,8 +99,6 @@ class TimelineExportRequest(object):
         :param sequence: The sequence of this TimelineExportRequest.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and sequence is None:  # noqa: E501
-            raise ValueError("Invalid value for `sequence`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 sequence is not None and len(sequence) < 1):
             raise ValueError("Invalid value for `sequence`, length must be greater than or equal to `1`")  # noqa: E501
