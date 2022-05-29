@@ -1185,6 +1185,7 @@ class StorageApi(object):
             params_map={
                 'all': [
                     'id',
+                    'delete_content',
                 ],
                 'required': [
                     'id',
@@ -1204,12 +1205,16 @@ class StorageApi(object):
                 'openapi_types': {
                     'id':
                         (int,),
+                    'delete_content':
+                        (bool,),
                 },
                 'attribute_map': {
                     'id': 'id',
+                    'delete_content': 'delete_content',
                 },
                 'location_map': {
                     'id': 'path',
+                    'delete_content': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -5897,6 +5902,7 @@ class StorageApi(object):
             id (int): A unique integer value identifying this workspace.
 
         Keyword Args:
+            delete_content (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

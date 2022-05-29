@@ -91,7 +91,7 @@ class VolumeStatus(ModelNormal):
         """
         lazy_import()
         return {
-            'online': (bool,),  # noqa: E501
+            'online': (bool, none_type,),  # noqa: E501
             'size_total': (int, none_type,),  # noqa: E501
             'size_used': (int, none_type,),  # noqa: E501
             'size_free': (int, none_type,),  # noqa: E501
@@ -126,7 +126,7 @@ class VolumeStatus(ModelNormal):
         """VolumeStatus - a model defined in OpenAPI
 
         Args:
-            online (bool):
+            online (bool, none_type):
             size_total (int, none_type):
             size_used (int, none_type):
             size_free (int, none_type):
@@ -222,7 +222,7 @@ class VolumeStatus(ModelNormal):
         """VolumeStatus - a model defined in OpenAPI
 
         Args:
-            online (bool):
+            online (bool, none_type):
             size_total (int, none_type):
             size_used (int, none_type):
             size_free (int, none_type):
