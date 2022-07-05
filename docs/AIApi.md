@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **activate_ai_model**
     def activate_ai_model(id)
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_ai_annotation_track**
     def [AIAnnotation] create_ai_annotation_track(ai_annotation_create_request)
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 [**[AIAnnotation]**](AIAnnotation.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_ai_category**
     def AICategoryDetail create_ai_category(ai_category_detail_update)
@@ -299,7 +299,7 @@ Name | Type | Description  | Notes
 
 [**AICategoryDetail**](AICategoryDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_ai_dataset**
     def AIDatasetWithPreview create_ai_dataset(ai_dataset_with_preview_update)
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 
 [**AIDatasetWithPreview**](AIDatasetWithPreview.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_ai_dataset_model**
     def AIModel create_ai_dataset_model(ai_model_training_request)
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 
 [**AIModel**](AIModel.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_ai_metadata**
     def create_ai_metadata(ai_processing_request)
@@ -475,7 +475,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_ai_model**
     def AIModel create_ai_model(ai_model_update)
@@ -538,7 +538,7 @@ Name | Type | Description  | Notes
 
 [**AIModel**](AIModel.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_ai_annotation**
     def delete_ai_annotation(id)
@@ -586,7 +586,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_ai_annotation_track**
     def delete_ai_annotation_track(id)
@@ -634,7 +634,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_ai_category**
     def delete_ai_category(id)
@@ -682,7 +682,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_ai_dataset**
     def delete_ai_dataset(id)
@@ -730,7 +730,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_ai_model**
     def delete_ai_model(id)
@@ -778,7 +778,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **export_ai_dataset**
     def AIDatasetExportResponse export_ai_dataset(id, ai_dataset_export_request)
@@ -833,7 +833,7 @@ Name | Type | Description  | Notes
 
 [**AIDatasetExportResponse**](AIDatasetExportResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **export_ai_model**
     def AIModelExportResponse export_ai_model(id, ai_model_export_request)
@@ -888,7 +888,7 @@ Name | Type | Description  | Notes
 
 [**AIModelExportResponse**](AIModelExportResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_ai_annotation**
     def AIAnnotation get_ai_annotation(id)
@@ -948,7 +948,7 @@ Name | Type | Description  | Notes
 
 [**AIAnnotation**](AIAnnotation.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_ai_annotation_image**
     def get_ai_annotation_image(id)
@@ -996,7 +996,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_ai_category**
     def AICategoryDetail get_ai_category(id)
@@ -1046,7 +1046,7 @@ Name | Type | Description  | Notes
 
 [**AICategoryDetail**](AICategoryDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_ai_connection**
     def AIConnection get_ai_connection(id)
@@ -1096,7 +1096,7 @@ Name | Type | Description  | Notes
 
 [**AIConnection**](AIConnection.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_ai_dataset**
     def AIDatasetWithPreview get_ai_dataset(id)
@@ -1146,7 +1146,7 @@ Name | Type | Description  | Notes
 
 [**AIDatasetWithPreview**](AIDatasetWithPreview.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_ai_image**
     def AIImage get_ai_image(id)
@@ -1196,7 +1196,7 @@ Name | Type | Description  | Notes
 
 [**AIImage**](AIImage.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_ai_image_content**
     def get_ai_image_content(id)
@@ -1244,7 +1244,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_ai_metadata**
     def AIMetadata get_ai_metadata(id)
@@ -1294,7 +1294,7 @@ Name | Type | Description  | Notes
 
 [**AIMetadata**](AIMetadata.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_ai_model**
     def AIModel get_ai_model(id)
@@ -1344,7 +1344,7 @@ Name | Type | Description  | Notes
 
 [**AIModel**](AIModel.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_ai_annotation_tracks**
     def [AIAnnotation] get_all_ai_annotation_tracks()
@@ -1407,7 +1407,7 @@ Name | Type | Description  | Notes
 
 [**[AIAnnotation]**](AIAnnotation.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_ai_annotations**
     def [AIAnnotation] get_all_ai_annotations()
@@ -1474,7 +1474,7 @@ Name | Type | Description  | Notes
 
 [**[AIAnnotation]**](AIAnnotation.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_ai_categories**
     def [AICategory] get_all_ai_categories()
@@ -1533,7 +1533,7 @@ Name | Type | Description  | Notes
 
 [**[AICategory]**](AICategory.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_ai_connections**
     def [AIConnection] get_all_ai_connections()
@@ -1588,7 +1588,7 @@ Name | Type | Description  | Notes
 
 [**[AIConnection]**](AIConnection.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_ai_datasets**
     def [AIDatasetWithPreview] get_all_ai_datasets()
@@ -1647,7 +1647,7 @@ Name | Type | Description  | Notes
 
 [**[AIDatasetWithPreview]**](AIDatasetWithPreview.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_ai_images**
     def [AIImage] get_all_ai_images()
@@ -1704,7 +1704,7 @@ Name | Type | Description  | Notes
 
 [**[AIImage]**](AIImage.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_ai_metadata**
     def [AIMetadata] get_all_ai_metadata()
@@ -1763,7 +1763,7 @@ Name | Type | Description  | Notes
 
 [**[AIMetadata]**](AIMetadata.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_ai_models**
     def [AIModel] get_all_ai_models()
@@ -1820,7 +1820,7 @@ Name | Type | Description  | Notes
 
 [**[AIModel]**](AIModel.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **import_ai_datasets**
     def ImportAIDatasetResponse import_ai_datasets(import_ai_dataset_request)
@@ -1876,7 +1876,7 @@ Name | Type | Description  | Notes
 
 [**ImportAIDatasetResponse**](ImportAIDatasetResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **import_ai_models**
     def ImportAIModelResponse import_ai_models(id, import_ai_model_request)
@@ -1931,7 +1931,7 @@ Name | Type | Description  | Notes
 
 [**ImportAIModelResponse**](ImportAIModelResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_ai_annotation**
     def AIAnnotation patch_ai_annotation(id, ai_annotation_partial_update)
@@ -1997,7 +1997,7 @@ Name | Type | Description  | Notes
 
 [**AIAnnotation**](AIAnnotation.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_ai_category**
     def AICategoryDetail patch_ai_category(id, ai_category_detail_partial_update)
@@ -2095,7 +2095,7 @@ Name | Type | Description  | Notes
 
 [**AICategoryDetail**](AICategoryDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_ai_dataset**
     def AIDatasetWithPreview patch_ai_dataset(id, ai_dataset_with_preview_partial_update)
@@ -2152,7 +2152,7 @@ Name | Type | Description  | Notes
 
 [**AIDatasetWithPreview**](AIDatasetWithPreview.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_ai_model**
     def AIModel patch_ai_model(id, ai_model_partial_update)
@@ -2217,7 +2217,7 @@ Name | Type | Description  | Notes
 
 [**AIModel**](AIModel.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **run_ai_model_inference**
     def AIModelInferenceResponse run_ai_model_inference(id, ai_model_inference_request)
@@ -2277,7 +2277,7 @@ Name | Type | Description  | Notes
 
 [**AIModelInferenceResponse**](AIModelInferenceResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_ai_annotation**
     def AIAnnotation update_ai_annotation(id, ai_annotation_update)
@@ -2343,7 +2343,7 @@ Name | Type | Description  | Notes
 
 [**AIAnnotation**](AIAnnotation.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_ai_category**
     def AICategoryDetail update_ai_category(id, ai_category_detail_update)
@@ -2441,7 +2441,7 @@ Name | Type | Description  | Notes
 
 [**AICategoryDetail**](AICategoryDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_ai_dataset**
     def AIDatasetWithPreview update_ai_dataset(id, ai_dataset_with_preview_update)
@@ -2498,7 +2498,7 @@ Name | Type | Description  | Notes
 
 [**AIDatasetWithPreview**](AIDatasetWithPreview.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_ai_model**
     def AIModel update_ai_model(id, ai_model_update)
@@ -2563,7 +2563,7 @@ Name | Type | Description  | Notes
 
 [**AIModel**](AIModel.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **upload_ai_image**
     def AIImage upload_ai_image(upload_ai_image_request)
@@ -2617,5 +2617,5 @@ Name | Type | Description  | Notes
 
 [**AIImage**](AIImage.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

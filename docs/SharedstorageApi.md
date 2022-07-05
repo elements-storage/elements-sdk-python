@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 [**StorageResponse**](StorageResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_user_storage_value**
     def StorageResponse get_user_storage_value(name)
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 [**StorageResponse**](StorageResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **set_shared_storage_value**
     def StorageResponse set_shared_storage_value(name, storage_request)
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 [**StorageResponse**](StorageResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **set_user_storage_value**
     def StorageResponse set_user_storage_value(name, storage_request)
@@ -220,5 +220,5 @@ Name | Type | Description  | Notes
 
 [**StorageResponse**](StorageResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

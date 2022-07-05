@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **clear_subclip_clipboard**
     def clear_subclip_clipboard()
@@ -266,7 +266,7 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **clear_subtitle_clipboard**
     def clear_subtitle_clipboard()
@@ -310,7 +310,7 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **combine_assets_into_set**
     def combine_assets_into_set(multiple_assets_request)
@@ -363,7 +363,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_asset**
     def Asset create_asset(asset_update)
@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 
 [**Asset**](Asset.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_asset_rating**
     def AssetRating create_asset_rating(asset_rating_update)
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
 
 [**AssetRating**](AssetRating.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_asset_subtitle_link**
     def AssetSubtitleLink create_asset_subtitle_link(asset_subtitle_link_update)
@@ -562,7 +562,7 @@ Name | Type | Description  | Notes
 
 [**AssetSubtitleLink**](AssetSubtitleLink.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_comment**
     def Comment create_comment(comment_update)
@@ -644,7 +644,7 @@ Name | Type | Description  | Notes
 
 [**Comment**](Comment.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_custom_field**
     def CustomField create_custom_field(custom_field_update)
@@ -719,7 +719,7 @@ Name | Type | Description  | Notes
 
 [**CustomField**](CustomField.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_editor_project**
     def EditorProject create_editor_project(editor_project_update)
@@ -777,7 +777,7 @@ Name | Type | Description  | Notes
 
 [**EditorProject**](EditorProject.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_editor_subtitle**
     def EditorSubtitle create_editor_subtitle(editor_subtitle_update)
@@ -857,7 +857,7 @@ Name | Type | Description  | Notes
 
 [**EditorSubtitle**](EditorSubtitle.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_external_transcoder**
     def ExternalTranscoder create_external_transcoder(external_transcoder_update)
@@ -917,7 +917,7 @@ Name | Type | Description  | Notes
 
 [**ExternalTranscoder**](ExternalTranscoder.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_marker**
     def Marker create_marker(marker_update)
@@ -974,7 +974,7 @@ Name | Type | Description  | Notes
 
 [**Marker**](Marker.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_media_file_template**
     def MediaFileTemplate create_media_file_template(media_file_template_update)
@@ -1088,7 +1088,7 @@ Name | Type | Description  | Notes
 
 [**MediaFileTemplate**](MediaFileTemplate.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_media_root**
     def MediaRootDetail create_media_root(media_root_detail_update)
@@ -1195,7 +1195,7 @@ Name | Type | Description  | Notes
 
 [**MediaRootDetail**](MediaRootDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_media_root_permission**
     def MediaRootPermission create_media_root_permission(media_root_permission_update)
@@ -1272,7 +1272,7 @@ Name | Type | Description  | Notes
 
 [**MediaRootPermission**](MediaRootPermission.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_media_tag**
     def UnfilteredTag create_media_tag(unfiltered_tag_update)
@@ -1330,7 +1330,7 @@ Name | Type | Description  | Notes
 
 [**UnfilteredTag**](UnfilteredTag.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_proxy_profile**
     def ProxyProfile create_proxy_profile(proxy_profile_update)
@@ -1408,7 +1408,7 @@ Name | Type | Description  | Notes
 
 [**ProxyProfile**](ProxyProfile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_saved_search**
     def SavedSearch create_saved_search(saved_search_update)
@@ -1466,7 +1466,7 @@ Name | Type | Description  | Notes
 
 [**SavedSearch**](SavedSearch.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_subclip**
     def Subclip create_subclip(subclip_update)
@@ -1548,7 +1548,7 @@ Name | Type | Description  | Notes
 
 [**Subclip**](Subclip.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_subclip_clipboard_entry**
     def SubclipClipboardEntry create_subclip_clipboard_entry(subclip_clipboard_entry_update)
@@ -1630,7 +1630,7 @@ Name | Type | Description  | Notes
 
 [**SubclipClipboardEntry**](SubclipClipboardEntry.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_subtitle_clipboard_entry**
     def SubtitleClipboardEntry create_subtitle_clipboard_entry(subtitle_clipboard_entry_update)
@@ -1701,7 +1701,7 @@ Name | Type | Description  | Notes
 
 [**SubtitleClipboardEntry**](SubtitleClipboardEntry.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_asset**
     def delete_asset(id)
@@ -1749,7 +1749,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_asset_rating**
     def delete_asset_rating(id)
@@ -1806,7 +1806,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_asset_subtitle_link**
     def delete_asset_subtitle_link(id)
@@ -1854,7 +1854,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_comment**
     def delete_comment(id)
@@ -1902,7 +1902,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_custom_field**
     def delete_custom_field(id)
@@ -1950,7 +1950,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_easy_sharing_token_for_bundle**
     def delete_easy_sharing_token_for_bundle(id)
@@ -1998,7 +1998,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_easy_sharing_token_for_directory**
     def delete_easy_sharing_token_for_directory(id)
@@ -2046,7 +2046,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_external_transcoder**
     def delete_external_transcoder(id)
@@ -2094,7 +2094,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_marker**
     def delete_marker(id)
@@ -2142,7 +2142,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_media_file_template**
     def delete_media_file_template(id)
@@ -2190,7 +2190,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_media_library_objects**
     def [TaskInfo] delete_media_library_objects(media_library_delete_request)
@@ -2253,7 +2253,7 @@ Name | Type | Description  | Notes
 
 [**[TaskInfo]**](TaskInfo.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_media_root**
     def delete_media_root(id)
@@ -2301,7 +2301,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_media_root_permission**
     def delete_media_root_permission(id)
@@ -2349,7 +2349,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_media_tag**
     def delete_media_tag(id)
@@ -2397,7 +2397,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_media_update**
     def delete_media_update(id)
@@ -2445,7 +2445,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_proxy**
     def delete_proxy(id)
@@ -2493,7 +2493,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_proxy_profile**
     def delete_proxy_profile(id)
@@ -2541,7 +2541,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_saved_search**
     def delete_saved_search(id)
@@ -2589,7 +2589,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_subclip**
     def delete_subclip(id)
@@ -2637,7 +2637,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_subclip_clipboard_entry**
     def delete_subclip_clipboard_entry(id)
@@ -2685,7 +2685,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_subtitle_clipboard_entry**
     def delete_subtitle_clipboard_entry(id)
@@ -2733,7 +2733,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **discover_media**
     def MediaFile discover_media(scanner_discover_endpoint_request)
@@ -2787,7 +2787,7 @@ Name | Type | Description  | Notes
 
 [**MediaFile**](MediaFile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **download_asset_proxy_file**
     def download_asset_proxy_file(filename, id)
@@ -2837,7 +2837,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **download_media_file**
     def download_media_file(id)
@@ -2885,7 +2885,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **download_proxy**
     def download_proxy(id)
@@ -2933,7 +2933,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **editor_export_xml_for_assset**
     def editor_export_xml_for_assset(asset_ids)
@@ -2994,7 +2994,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **editor_export_xml_for_bundle**
     def editor_export_xml_for_bundle(bundle_ids)
@@ -3055,7 +3055,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **editor_export_xml_for_project**
     def editor_export_xml_for_project(id)
@@ -3103,7 +3103,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **export_comments_for_avid**
     def export_comments_for_avid(asset_id, export_format)
@@ -3166,7 +3166,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **export_editor_timeline**
     def export_editor_timeline(timeline_export_request)
@@ -3219,7 +3219,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **extract_stream**
     def TaskInfo extract_stream(id, extract_request)
@@ -3275,7 +3275,7 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **forget_deleted_media_files**
     def forget_deleted_media_files(id)
@@ -3323,7 +3323,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **generate_proxies**
     def [TaskInfo] generate_proxies(generate_proxies_request)
@@ -3386,7 +3386,7 @@ Name | Type | Description  | Notes
 
 [**[TaskInfo]**](TaskInfo.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_asset_project_links**
     def [AssetProjectLink] get_all_asset_project_links()
@@ -3445,7 +3445,7 @@ Name | Type | Description  | Notes
 
 [**[AssetProjectLink]**](AssetProjectLink.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_asset_ratings**
     def [AssetRating] get_all_asset_ratings()
@@ -3504,7 +3504,7 @@ Name | Type | Description  | Notes
 
 [**[AssetRating]**](AssetRating.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_asset_subtitle_links**
     def [AssetSubtitleLink] get_all_asset_subtitle_links()
@@ -3563,7 +3563,7 @@ Name | Type | Description  | Notes
 
 [**[AssetSubtitleLink]**](AssetSubtitleLink.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_asset_tape_backups**
     def [AssetBackup] get_all_asset_tape_backups()
@@ -3624,7 +3624,7 @@ Name | Type | Description  | Notes
 
 [**[AssetBackup]**](AssetBackup.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_assets**
     def [Asset] get_all_assets()
@@ -3693,7 +3693,7 @@ Name | Type | Description  | Notes
 
 [**[Asset]**](Asset.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_bundles_for_media_root**
     def [MediaFileBundle] get_all_bundles_for_media_root(root)
@@ -3767,7 +3767,7 @@ Name | Type | Description  | Notes
 
 [**[MediaFileBundle]**](MediaFileBundle.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_bundles_in_subtree**
     def [MediaFileBundle] get_all_bundles_in_subtree(file)
@@ -3841,7 +3841,7 @@ Name | Type | Description  | Notes
 
 [**[MediaFileBundle]**](MediaFileBundle.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_click_links**
     def [AssetCloudLink] get_all_click_links()
@@ -3900,7 +3900,7 @@ Name | Type | Description  | Notes
 
 [**[AssetCloudLink]**](AssetCloudLink.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_comments**
     def [Comment] get_all_comments()
@@ -3969,7 +3969,7 @@ Name | Type | Description  | Notes
 
 [**[Comment]**](Comment.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_custom_fields**
     def [CustomField] get_all_custom_fields()
@@ -4024,7 +4024,7 @@ Name | Type | Description  | Notes
 
 [**[CustomField]**](CustomField.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_external_transcoders**
     def [ExternalTranscoder] get_all_external_transcoders()
@@ -4083,7 +4083,7 @@ Name | Type | Description  | Notes
 
 [**[ExternalTranscoder]**](ExternalTranscoder.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_markers**
     def [Marker] get_all_markers()
@@ -4142,7 +4142,7 @@ Name | Type | Description  | Notes
 
 [**[Marker]**](Marker.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_media_file_bundles**
     def [MediaFileBundle] get_all_media_file_bundles()
@@ -4217,7 +4217,7 @@ Name | Type | Description  | Notes
 
 [**[MediaFileBundle]**](MediaFileBundle.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_media_file_templates**
     def [MediaFileTemplate] get_all_media_file_templates()
@@ -4272,7 +4272,7 @@ Name | Type | Description  | Notes
 
 [**[MediaFileTemplate]**](MediaFileTemplate.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_media_files**
     def [MediaFile] get_all_media_files()
@@ -4361,7 +4361,7 @@ Name | Type | Description  | Notes
 
 [**[MediaFile]**](MediaFile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_media_files_for_bundles**
     def [MediaFile] get_all_media_files_for_bundles(all_media_files_for_bundles_request)
@@ -4416,7 +4416,7 @@ Name | Type | Description  | Notes
 
 [**[MediaFile]**](MediaFile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_media_files_for_media_root**
     def [MediaFile] get_all_media_files_for_media_root(root)
@@ -4502,7 +4502,7 @@ Name | Type | Description  | Notes
 
 [**[MediaFile]**](MediaFile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_media_files_in_subtree**
     def [MediaFile] get_all_media_files_in_subtree(file)
@@ -4588,7 +4588,7 @@ Name | Type | Description  | Notes
 
 [**[MediaFile]**](MediaFile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_media_root_permissions**
     def [MediaRootPermission] get_all_media_root_permissions()
@@ -4647,7 +4647,7 @@ Name | Type | Description  | Notes
 
 [**[MediaRootPermission]**](MediaRootPermission.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_media_roots**
     def [MediaRoot] get_all_media_roots()
@@ -4710,7 +4710,7 @@ Name | Type | Description  | Notes
 
 [**[MediaRoot]**](MediaRoot.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_media_tags**
     def [UnfilteredTag] get_all_media_tags()
@@ -4777,7 +4777,7 @@ Name | Type | Description  | Notes
 
 [**[UnfilteredTag]**](UnfilteredTag.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_media_updates**
     def [MediaUpdate] get_all_media_updates()
@@ -4838,7 +4838,7 @@ Name | Type | Description  | Notes
 
 [**[MediaUpdate]**](MediaUpdate.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_proxy_generators**
     def [ProxyGenerator] get_all_proxy_generators()
@@ -4893,7 +4893,7 @@ Name | Type | Description  | Notes
 
 [**[ProxyGenerator]**](ProxyGenerator.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_proxy_profiles**
     def [ProxyProfile] get_all_proxy_profiles()
@@ -4952,7 +4952,7 @@ Name | Type | Description  | Notes
 
 [**[ProxyProfile]**](ProxyProfile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_saved_searches**
     def [SavedSearch] get_all_saved_searches()
@@ -5015,7 +5015,7 @@ Name | Type | Description  | Notes
 
 [**[SavedSearch]**](SavedSearch.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_subclip_clipboard_entries**
     def [SubclipClipboardEntry] get_all_subclip_clipboard_entries()
@@ -5072,7 +5072,7 @@ Name | Type | Description  | Notes
 
 [**[SubclipClipboardEntry]**](SubclipClipboardEntry.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_subclips**
     def [Subclip] get_all_subclips()
@@ -5135,7 +5135,7 @@ Name | Type | Description  | Notes
 
 [**[Subclip]**](Subclip.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_subtitle_clipboard_entries**
     def [SubtitleClipboardEntry] get_all_subtitle_clipboard_entries()
@@ -5192,7 +5192,7 @@ Name | Type | Description  | Notes
 
 [**[SubtitleClipboardEntry]**](SubtitleClipboardEntry.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_transcoder_profiles**
     def [TranscoderProfile] get_all_transcoder_profiles()
@@ -5247,7 +5247,7 @@ Name | Type | Description  | Notes
 
 [**[TranscoderProfile]**](TranscoderProfile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_asset**
     def Asset get_asset(id)
@@ -5313,7 +5313,7 @@ Name | Type | Description  | Notes
 
 [**Asset**](Asset.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_asset_rating**
     def AssetRating get_asset_rating(id)
@@ -5363,7 +5363,7 @@ Name | Type | Description  | Notes
 
 [**AssetRating**](AssetRating.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_asset_subtitle_link**
     def AssetSubtitleLink get_asset_subtitle_link(id)
@@ -5413,7 +5413,7 @@ Name | Type | Description  | Notes
 
 [**AssetSubtitleLink**](AssetSubtitleLink.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_bookmarked_media_files_directories**
     def [MediaFile] get_bookmarked_media_files_directories()
@@ -5490,7 +5490,7 @@ Name | Type | Description  | Notes
 
 [**[MediaFile]**](MediaFile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_comment**
     def Comment get_comment(id)
@@ -5556,7 +5556,7 @@ Name | Type | Description  | Notes
 
 [**Comment**](Comment.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_custom_field**
     def CustomField get_custom_field(id)
@@ -5606,7 +5606,7 @@ Name | Type | Description  | Notes
 
 [**CustomField**](CustomField.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_easy_sharing_token_for_bundle**
     def OneTimeAccessToken get_easy_sharing_token_for_bundle(id)
@@ -5656,7 +5656,7 @@ Name | Type | Description  | Notes
 
 [**OneTimeAccessToken**](OneTimeAccessToken.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_easy_sharing_token_for_directory**
     def OneTimeAccessToken get_easy_sharing_token_for_directory(id)
@@ -5706,7 +5706,7 @@ Name | Type | Description  | Notes
 
 [**OneTimeAccessToken**](OneTimeAccessToken.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_editor_project**
     def EditorProject get_editor_project(id)
@@ -5756,7 +5756,7 @@ Name | Type | Description  | Notes
 
 [**EditorProject**](EditorProject.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_editor_subtitle**
     def EditorSubtitle get_editor_subtitle(id)
@@ -5806,7 +5806,7 @@ Name | Type | Description  | Notes
 
 [**EditorSubtitle**](EditorSubtitle.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_external_transcoder**
     def ExternalTranscoder get_external_transcoder(id)
@@ -5856,7 +5856,7 @@ Name | Type | Description  | Notes
 
 [**ExternalTranscoder**](ExternalTranscoder.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_frame**
     def file_type get_frame(frame, id)
@@ -5907,7 +5907,7 @@ Name | Type | Description  | Notes
 
 **file_type**
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_latest_media_update**
     def MediaUpdate get_latest_media_update()
@@ -5968,7 +5968,7 @@ Name | Type | Description  | Notes
 
 [**MediaUpdate**](MediaUpdate.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_marker**
     def Marker get_marker(id)
@@ -6018,7 +6018,7 @@ Name | Type | Description  | Notes
 
 [**Marker**](Marker.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_media_file**
     def MediaFile get_media_file(id)
@@ -6088,7 +6088,7 @@ Name | Type | Description  | Notes
 
 [**MediaFile**](MediaFile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_media_file_bundle**
     def MediaFileBundle get_media_file_bundle(id)
@@ -6160,7 +6160,7 @@ Name | Type | Description  | Notes
 
 [**MediaFileBundle**](MediaFileBundle.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_media_file_contents**
     def MediaFileContents get_media_file_contents(id)
@@ -6226,7 +6226,7 @@ Name | Type | Description  | Notes
 
 [**MediaFileContents**](MediaFileContents.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_media_file_template**
     def MediaFileTemplate get_media_file_template(id)
@@ -6276,7 +6276,7 @@ Name | Type | Description  | Notes
 
 [**MediaFileTemplate**](MediaFileTemplate.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_media_root**
     def MediaRootDetail get_media_root(id)
@@ -6336,7 +6336,7 @@ Name | Type | Description  | Notes
 
 [**MediaRootDetail**](MediaRootDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_media_root_permission**
     def MediaRootPermission get_media_root_permission(id)
@@ -6386,7 +6386,7 @@ Name | Type | Description  | Notes
 
 [**MediaRootPermission**](MediaRootPermission.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_media_tag**
     def UnfilteredTag get_media_tag(id)
@@ -6446,7 +6446,7 @@ Name | Type | Description  | Notes
 
 [**UnfilteredTag**](UnfilteredTag.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_multiple_assets**
     def [Asset] get_multiple_assets(multiple_assets_request)
@@ -6501,7 +6501,7 @@ Name | Type | Description  | Notes
 
 [**[Asset]**](Asset.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_multiple_bundles**
     def [MediaFileBundle] get_multiple_bundles(get_multiple_bundles_request)
@@ -6559,7 +6559,7 @@ Name | Type | Description  | Notes
 
 [**[MediaFileBundle]**](MediaFileBundle.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_multiple_files**
     def [MediaFile] get_multiple_files(get_multiple_files_request)
@@ -6614,7 +6614,7 @@ Name | Type | Description  | Notes
 
 [**[MediaFile]**](MediaFile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_my_media_root_permissions**
     def [MediaRootPermission] get_my_media_root_permissions()
@@ -6673,7 +6673,7 @@ Name | Type | Description  | Notes
 
 [**[MediaRootPermission]**](MediaRootPermission.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_my_resolved_media_root_permissions**
     def [MediaRootPermission] get_my_resolved_media_root_permissions()
@@ -6732,7 +6732,7 @@ Name | Type | Description  | Notes
 
 [**[MediaRootPermission]**](MediaRootPermission.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_proxy**
     def Proxy get_proxy(id)
@@ -6782,7 +6782,7 @@ Name | Type | Description  | Notes
 
 [**Proxy**](Proxy.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_proxy_generator**
     def ProxyGenerator get_proxy_generator(id)
@@ -6832,7 +6832,7 @@ Name | Type | Description  | Notes
 
 [**ProxyGenerator**](ProxyGenerator.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_proxy_profile**
     def ProxyProfile get_proxy_profile(id)
@@ -6892,7 +6892,7 @@ Name | Type | Description  | Notes
 
 [**ProxyProfile**](ProxyProfile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_proxy_profile_proxy_count**
     def ProxyCount get_proxy_profile_proxy_count(id)
@@ -6942,7 +6942,7 @@ Name | Type | Description  | Notes
 
 [**ProxyCount**](ProxyCount.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_saved_search**
     def SavedSearch get_saved_search(id)
@@ -6992,7 +6992,7 @@ Name | Type | Description  | Notes
 
 [**SavedSearch**](SavedSearch.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_subclip**
     def Subclip get_subclip(id)
@@ -7042,7 +7042,7 @@ Name | Type | Description  | Notes
 
 [**Subclip**](Subclip.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_subtitles**
     def file_type get_subtitles(id, title)
@@ -7093,7 +7093,7 @@ Name | Type | Description  | Notes
 
 **file_type**
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_transcoder_profile**
     def TranscoderProfile get_transcoder_profile(id)
@@ -7143,7 +7143,7 @@ Name | Type | Description  | Notes
 
 [**TranscoderProfile**](TranscoderProfile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_vantage_workflows**
     def VantageWorkflows get_vantage_workflows(id)
@@ -7193,7 +7193,7 @@ Name | Type | Description  | Notes
 
 [**VantageWorkflows**](VantageWorkflows.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **instantiate_media_file_template**
     def instantiate_media_file_template(id, instantiate_file_template_request)
@@ -7250,7 +7250,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **locate_editor_project_paths**
     def [LocateResult] locate_editor_project_paths(id)
@@ -7300,7 +7300,7 @@ Name | Type | Description  | Notes
 
 [**[LocateResult]**](LocateResult.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **lookup_media_files**
     def [MediaFile] lookup_media_files(media_files_lookup_request)
@@ -7353,7 +7353,7 @@ Name | Type | Description  | Notes
 
 [**[MediaFile]**](MediaFile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **mark_media_directory_as_showroom**
     def mark_media_directory_as_showroom(id)
@@ -7401,7 +7401,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_asset**
     def Asset patch_asset(id, asset_partial_update)
@@ -7472,7 +7472,7 @@ Name | Type | Description  | Notes
 
 [**Asset**](Asset.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_asset_rating**
     def AssetRating patch_asset_rating(id, asset_rating_partial_update)
@@ -7531,7 +7531,7 @@ Name | Type | Description  | Notes
 
 [**AssetRating**](AssetRating.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_asset_subtitle_link**
     def AssetSubtitleLink patch_asset_subtitle_link(id, asset_subtitle_link_partial_update)
@@ -7606,7 +7606,7 @@ Name | Type | Description  | Notes
 
 [**AssetSubtitleLink**](AssetSubtitleLink.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_comment**
     def Comment patch_comment(id, comment_partial_update)
@@ -7678,7 +7678,7 @@ Name | Type | Description  | Notes
 
 [**Comment**](Comment.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_custom_field**
     def CustomField patch_custom_field(id, custom_field_partial_update)
@@ -7755,7 +7755,7 @@ Name | Type | Description  | Notes
 
 [**CustomField**](CustomField.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_editor_project**
     def EditorProject patch_editor_project(id, editor_project_partial_update)
@@ -7815,7 +7815,7 @@ Name | Type | Description  | Notes
 
 [**EditorProject**](EditorProject.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_editor_subtitle**
     def EditorSubtitle patch_editor_subtitle(id, editor_subtitle_partial_update)
@@ -7897,7 +7897,7 @@ Name | Type | Description  | Notes
 
 [**EditorSubtitle**](EditorSubtitle.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_external_transcoder**
     def ExternalTranscoder patch_external_transcoder(id, external_transcoder_partial_update)
@@ -7959,7 +7959,7 @@ Name | Type | Description  | Notes
 
 [**ExternalTranscoder**](ExternalTranscoder.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_marker**
     def Marker patch_marker(id, marker_partial_update)
@@ -8018,7 +8018,7 @@ Name | Type | Description  | Notes
 
 [**Marker**](Marker.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_media_file**
     def MediaFile patch_media_file(id, media_file_partial_update)
@@ -8093,7 +8093,7 @@ Name | Type | Description  | Notes
 
 [**MediaFile**](MediaFile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_media_file_template**
     def MediaFileTemplate patch_media_file_template(id, media_file_template_partial_update)
@@ -8209,7 +8209,7 @@ Name | Type | Description  | Notes
 
 [**MediaFileTemplate**](MediaFileTemplate.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_media_root**
     def MediaRootDetail patch_media_root(id, media_root_detail_partial_update)
@@ -8317,7 +8317,7 @@ Name | Type | Description  | Notes
 
 [**MediaRootDetail**](MediaRootDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_media_root_permission**
     def MediaRootPermission patch_media_root_permission(id, media_root_permission_partial_update)
@@ -8396,7 +8396,7 @@ Name | Type | Description  | Notes
 
 [**MediaRootPermission**](MediaRootPermission.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_media_tag**
     def UnfilteredTag patch_media_tag(id, unfiltered_tag_partial_update)
@@ -8456,7 +8456,7 @@ Name | Type | Description  | Notes
 
 [**UnfilteredTag**](UnfilteredTag.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_proxy_profile**
     def ProxyProfile patch_proxy_profile(id, proxy_profile_partial_update)
@@ -8536,7 +8536,7 @@ Name | Type | Description  | Notes
 
 [**ProxyProfile**](ProxyProfile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_saved_search**
     def SavedSearch patch_saved_search(id, saved_search_partial_update)
@@ -8596,7 +8596,7 @@ Name | Type | Description  | Notes
 
 [**SavedSearch**](SavedSearch.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_subclip**
     def Subclip patch_subclip(id, subclip_partial_update)
@@ -8680,7 +8680,7 @@ Name | Type | Description  | Notes
 
 [**Subclip**](Subclip.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **recursively_tag_media_directory**
     def recursively_tag_media_directory(id, tag_media_directory_request)
@@ -8734,7 +8734,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **reindex_media_directory**
     def reindex_media_directory(id)
@@ -8782,7 +8782,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **rename_custom_field**
     def TaskInfo rename_custom_field(id, rename_custom_field_request)
@@ -8837,7 +8837,7 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **render_sequence**
     def TaskInfo render_sequence(render_endpoint_request)
@@ -8892,7 +8892,7 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **render_subclip**
     def TaskInfo render_subclip(id, render_request)
@@ -8947,7 +8947,7 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **request_media_scan**
     def request_media_scan(scanner_scan_endpoint_request)
@@ -9001,7 +9001,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **resolve_comment**
     def Comment resolve_comment(id)
@@ -9051,7 +9051,7 @@ Name | Type | Description  | Notes
 
 [**Comment**](Comment.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **share_media_library_objects**
     def OneTimeAccessToken share_media_library_objects(media_library_share_request)
@@ -9137,7 +9137,7 @@ Name | Type | Description  | Notes
 
 [**OneTimeAccessToken**](OneTimeAccessToken.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **test_external_transcoder_connection**
     def TestExternalTranscoderConnectionResponse test_external_transcoder_connection(test_external_transcoder_connection_request)
@@ -9191,7 +9191,7 @@ Name | Type | Description  | Notes
 
 [**TestExternalTranscoderConnectionResponse**](TestExternalTranscoderConnectionResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **transition_workflow**
     def WorkflowTransitionResponse transition_workflow(workflow_transition_request)
@@ -9254,7 +9254,7 @@ Name | Type | Description  | Notes
 
 [**WorkflowTransitionResponse**](WorkflowTransitionResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **unbookmark_media_directory**
     def unbookmark_media_directory(id)
@@ -9302,7 +9302,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **unmark_media_directory_as_showroom**
     def unmark_media_directory_as_showroom(id)
@@ -9350,7 +9350,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **unresolve_comment**
     def Comment unresolve_comment(id)
@@ -9400,7 +9400,7 @@ Name | Type | Description  | Notes
 
 [**Comment**](Comment.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_asset**
     def Asset update_asset(id, asset_update)
@@ -9471,7 +9471,7 @@ Name | Type | Description  | Notes
 
 [**Asset**](Asset.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_asset_rating**
     def AssetRating update_asset_rating(id, asset_rating_update)
@@ -9530,7 +9530,7 @@ Name | Type | Description  | Notes
 
 [**AssetRating**](AssetRating.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_asset_subtitle_link**
     def AssetSubtitleLink update_asset_subtitle_link(id, asset_subtitle_link_update)
@@ -9605,7 +9605,7 @@ Name | Type | Description  | Notes
 
 [**AssetSubtitleLink**](AssetSubtitleLink.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_comment**
     def Comment update_comment(id, comment_update)
@@ -9677,7 +9677,7 @@ Name | Type | Description  | Notes
 
 [**Comment**](Comment.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_custom_field**
     def CustomField update_custom_field(id, custom_field_update)
@@ -9754,7 +9754,7 @@ Name | Type | Description  | Notes
 
 [**CustomField**](CustomField.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_editor_project**
     def EditorProject update_editor_project(id, editor_project_update)
@@ -9814,7 +9814,7 @@ Name | Type | Description  | Notes
 
 [**EditorProject**](EditorProject.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_editor_subtitle**
     def EditorSubtitle update_editor_subtitle(id, editor_subtitle_update)
@@ -9896,7 +9896,7 @@ Name | Type | Description  | Notes
 
 [**EditorSubtitle**](EditorSubtitle.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_external_transcoder**
     def ExternalTranscoder update_external_transcoder(id, external_transcoder_update)
@@ -9958,7 +9958,7 @@ Name | Type | Description  | Notes
 
 [**ExternalTranscoder**](ExternalTranscoder.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_marker**
     def Marker update_marker(id, marker_update)
@@ -10017,7 +10017,7 @@ Name | Type | Description  | Notes
 
 [**Marker**](Marker.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_media_file**
     def MediaFile update_media_file(id, media_file_update)
@@ -10092,7 +10092,7 @@ Name | Type | Description  | Notes
 
 [**MediaFile**](MediaFile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_media_file_template**
     def MediaFileTemplate update_media_file_template(id, media_file_template_update)
@@ -10208,7 +10208,7 @@ Name | Type | Description  | Notes
 
 [**MediaFileTemplate**](MediaFileTemplate.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_media_root**
     def MediaRootDetail update_media_root(id, media_root_detail_update)
@@ -10317,7 +10317,7 @@ Name | Type | Description  | Notes
 
 [**MediaRootDetail**](MediaRootDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_media_root_permission**
     def MediaRootPermission update_media_root_permission(id, media_root_permission_update)
@@ -10396,7 +10396,7 @@ Name | Type | Description  | Notes
 
 [**MediaRootPermission**](MediaRootPermission.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_media_tag**
     def UnfilteredTag update_media_tag(id, unfiltered_tag_update)
@@ -10456,7 +10456,7 @@ Name | Type | Description  | Notes
 
 [**UnfilteredTag**](UnfilteredTag.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_proxy_profile**
     def ProxyProfile update_proxy_profile(id, proxy_profile_update)
@@ -10536,7 +10536,7 @@ Name | Type | Description  | Notes
 
 [**ProxyProfile**](ProxyProfile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_saved_search**
     def SavedSearch update_saved_search(id, saved_search_update)
@@ -10596,7 +10596,7 @@ Name | Type | Description  | Notes
 
 [**SavedSearch**](SavedSearch.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_subclip**
     def Subclip update_subclip(id, subclip_update)
@@ -10680,5 +10680,5 @@ Name | Type | Description  | Notes
 
 [**Subclip**](Subclip.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

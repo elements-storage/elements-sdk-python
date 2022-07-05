@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 [**ElementsUserDetail**](ElementsUserDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_api_token**
     def APITokenWithSecret create_api_token(api_token_with_secret_update)
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 [**APITokenWithSecret**](APITokenWithSecret.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_auth_ticket**
     def Ticket create_auth_ticket()
@@ -190,7 +190,7 @@ This endpoint does not need any parameter.
 
 [**Ticket**](Ticket.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_saml_provider**
     def SAMLProvider create_saml_provider(saml_provider_update)
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 [**SAMLProvider**](SAMLProvider.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_access_token**
     def delete_access_token(id)
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_api_token**
     def delete_api_token(id)
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_saml_provider**
     def delete_saml_provider(id)
@@ -393,7 +393,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **generate_password**
     def GeneratePasswordEndpointResponse generate_password()
@@ -439,7 +439,7 @@ This endpoint does not need any parameter.
 
 [**GeneratePasswordEndpointResponse**](GeneratePasswordEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_access_token**
     def OneTimeAccessToken get_access_token(id)
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
 
 [**OneTimeAccessToken**](OneTimeAccessToken.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_access_tokens**
     def [OneTimeAccessToken] get_all_access_tokens()
@@ -554,7 +554,7 @@ Name | Type | Description  | Notes
 
 [**[OneTimeAccessToken]**](OneTimeAccessToken.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_api_tokens**
     def [APIToken] get_all_api_tokens()
@@ -611,7 +611,7 @@ Name | Type | Description  | Notes
 
 [**[APIToken]**](APIToken.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_saml_providers**
     def [SAMLProvider] get_all_saml_providers()
@@ -666,7 +666,7 @@ Name | Type | Description  | Notes
 
 [**[SAMLProvider]**](SAMLProvider.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_api_token**
     def APIToken get_api_token(id)
@@ -716,7 +716,7 @@ Name | Type | Description  | Notes
 
 [**APIToken**](APIToken.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_saml_provider**
     def SAMLProvider get_saml_provider(id)
@@ -766,7 +766,7 @@ Name | Type | Description  | Notes
 
 [**SAMLProvider**](SAMLProvider.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_saml_service_provider_metadata**
     def get_saml_service_provider_metadata(id)
@@ -812,7 +812,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **login**
     def AuthLoginEndpointResponse login(auth_login_endpoint_request)
@@ -868,7 +868,7 @@ Name | Type | Description  | Notes
 
 [**AuthLoginEndpointResponse**](AuthLoginEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **logout**
     def logout()
@@ -912,7 +912,7 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **logout_page**
     def logout_page()
@@ -956,7 +956,7 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **parse_samlidp_metadata**
     def ParsedSAMLIDPMetadata parse_samlidp_metadata(parse_samlidp_metadata_request)
@@ -1009,7 +1009,7 @@ Name | Type | Description  | Notes
 
 [**ParsedSAMLIDPMetadata**](ParsedSAMLIDPMetadata.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_api_token**
     def APIToken patch_api_token(id, api_token_partial_update)
@@ -1064,7 +1064,7 @@ Name | Type | Description  | Notes
 
 [**APIToken**](APIToken.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_saml_provider**
     def SAMLProvider patch_saml_provider(id, saml_provider_partial_update)
@@ -1125,7 +1125,7 @@ Name | Type | Description  | Notes
 
 [**SAMLProvider**](SAMLProvider.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **receive_saml_auth_assertion**
     def receive_saml_auth_assertion(id)
@@ -1171,7 +1171,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **refresh_samlidp_metadata**
     def ParsedSAMLIDPMetadata refresh_samlidp_metadata(id, parse_samlidp_metadata_request)
@@ -1226,7 +1226,7 @@ Name | Type | Description  | Notes
 
 [**ParsedSAMLIDPMetadata**](ParsedSAMLIDPMetadata.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **reset_password**
     def reset_password(password_reset_endpoint_request)
@@ -1278,7 +1278,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **return_from_saml_auth**
     def return_from_saml_auth(id)
@@ -1324,7 +1324,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **return_from_saml_logout**
     def return_from_saml_logout(id)
@@ -1370,7 +1370,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **send_access_token_email_notification**
     def send_access_token_email_notification(id, send_link_email_request)
@@ -1425,7 +1425,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **start_impersonation**
     def start_impersonation(impersonation_endpoint_request)
@@ -1476,7 +1476,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **start_saml_auth**
     def start_saml_auth(id)
@@ -1522,7 +1522,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **start_saml_logout**
     def start_saml_logout(id)
@@ -1568,7 +1568,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **stop_impersonation**
     def stop_impersonation()
@@ -1612,7 +1612,7 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_api_token**
     def APIToken update_api_token(id, api_token_update)
@@ -1667,7 +1667,7 @@ Name | Type | Description  | Notes
 
 [**APIToken**](APIToken.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_saml_provider**
     def SAMLProvider update_saml_provider(id, saml_provider_update)
@@ -1728,5 +1728,5 @@ Name | Type | Description  | Notes
 
 [**SAMLProvider**](SAMLProvider.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

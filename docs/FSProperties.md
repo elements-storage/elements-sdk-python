@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **creating_directory_quota_destroys_content** | **bool** |  | 
 **removing_directory_quota_destroys_content** | **bool** |  | 
 
-[[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
+[[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)
 
 

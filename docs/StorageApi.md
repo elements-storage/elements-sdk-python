@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **bookmark_workspace**
     def bookmark_workspace(id)
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **calculate_directory_size**
     def FileSizeEndpointResponse calculate_directory_size(path_input)
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 
 [**FileSizeEndpointResponse**](FileSizeEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **check_in_into_workspace**
     def check_in_into_workspace(id, workspace_check_in)
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **check_out_of_workspace**
     def check_out_of_workspace(id)
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **copy_files**
     def TaskInfo copy_files(file_copy_endpoint_request)
@@ -389,7 +389,7 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_file**
     def FilesystemFile create_file(file_update)
@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
 
 [**FilesystemFile**](FilesystemFile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_path_quota**
     def create_path_quota(id, relative_path, create_path_quota_request)
@@ -525,7 +525,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_production**
     def Production create_production(production_update)
@@ -584,7 +584,7 @@ Name | Type | Description  | Notes
 
 [**Production**](Production.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_share**
     def Share create_share(share_update)
@@ -790,7 +790,7 @@ Name | Type | Description  | Notes
 
 [**Share**](Share.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_snapshot**
     def Snapshot create_snapshot(snapshot_update)
@@ -844,7 +844,7 @@ Name | Type | Description  | Notes
 
 [**Snapshot**](Snapshot.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_template_folder**
     def create_template_folder(create_template_folder_endpoint_request)
@@ -897,7 +897,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_volume**
     def Volume create_volume(volume_update)
@@ -963,7 +963,7 @@ Name | Type | Description  | Notes
 
 [**Volume**](Volume.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_workspace**
     def WorkspaceDetail create_workspace(workspace_detail_update)
@@ -1063,7 +1063,7 @@ Name | Type | Description  | Notes
 
 [**WorkspaceDetail**](WorkspaceDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_workspace_permission**
     def WorkspacePermission create_workspace_permission(workspace_permission_update)
@@ -1119,7 +1119,7 @@ Name | Type | Description  | Notes
 
 [**WorkspacePermission**](WorkspacePermission.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_file**
     def delete_file(path)
@@ -1167,7 +1167,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_files**
     def TaskInfo delete_files(file_delete_endpoint_request)
@@ -1223,7 +1223,7 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_path_quota**
     def delete_path_quota(id, relative_path)
@@ -1273,7 +1273,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_production**
     def delete_production(id)
@@ -1321,7 +1321,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_share**
     def delete_share(id)
@@ -1369,7 +1369,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_snapshot**
     def delete_snapshot(id)
@@ -1417,7 +1417,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_workspace**
     def delete_workspace(id)
@@ -1474,7 +1474,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_workspace_permission**
     def delete_workspace_permission(id)
@@ -1522,7 +1522,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_deleted_workspaces**
     def [DeletedWorkspace] get_all_deleted_workspaces()
@@ -1597,7 +1597,7 @@ Name | Type | Description  | Notes
 
 [**[DeletedWorkspace]**](DeletedWorkspace.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_productions**
     def [Production] get_all_productions()
@@ -1660,7 +1660,7 @@ Name | Type | Description  | Notes
 
 [**[Production]**](Production.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_shares**
     def [Share] get_all_shares()
@@ -1715,7 +1715,7 @@ Name | Type | Description  | Notes
 
 [**[Share]**](Share.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_snapshots**
     def [Snapshot] get_all_snapshots()
@@ -1772,7 +1772,7 @@ Name | Type | Description  | Notes
 
 [**[Snapshot]**](Snapshot.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_volumes**
     def [Volume] get_all_volumes()
@@ -1841,7 +1841,7 @@ Name | Type | Description  | Notes
 
 [**[Volume]**](Volume.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_workspace_permissions**
     def [WorkspacePermission] get_all_workspace_permissions()
@@ -1902,7 +1902,7 @@ Name | Type | Description  | Notes
 
 [**[WorkspacePermission]**](WorkspacePermission.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_workspaces**
     def [Workspace] get_all_workspaces()
@@ -1983,7 +1983,7 @@ Name | Type | Description  | Notes
 
 [**[Workspace]**](Workspace.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_file**
     def FilesystemFile get_file(path)
@@ -2045,7 +2045,7 @@ Name | Type | Description  | Notes
 
 [**FilesystemFile**](FilesystemFile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_group_quota**
     def Quota get_group_quota(group_id, id)
@@ -2097,7 +2097,7 @@ Name | Type | Description  | Notes
 
 [**Quota**](Quota.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_my_workspaces**
     def [Workspace] get_my_workspaces()
@@ -2172,7 +2172,7 @@ Name | Type | Description  | Notes
 
 [**[Workspace]**](Workspace.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_path_quota**
     def Quota get_path_quota(id, relative_path)
@@ -2224,7 +2224,7 @@ Name | Type | Description  | Notes
 
 [**Quota**](Quota.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_production**
     def Production get_production(id)
@@ -2286,7 +2286,7 @@ Name | Type | Description  | Notes
 
 [**Production**](Production.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_root_directory**
     def get_root_directory()
@@ -2340,7 +2340,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_samba_dfree_string**
     def get_samba_dfree_string()
@@ -2384,7 +2384,7 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_share**
     def Share get_share(id)
@@ -2434,7 +2434,7 @@ Name | Type | Description  | Notes
 
 [**Share**](Share.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_snapshot**
     def Snapshot get_snapshot(id)
@@ -2484,7 +2484,7 @@ Name | Type | Description  | Notes
 
 [**Snapshot**](Snapshot.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_user_quota**
     def Quota get_user_quota(id, user_id)
@@ -2536,7 +2536,7 @@ Name | Type | Description  | Notes
 
 [**Quota**](Quota.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_volume**
     def Volume get_volume(id)
@@ -2596,7 +2596,7 @@ Name | Type | Description  | Notes
 
 [**Volume**](Volume.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_volume_active_connections**
     def StorNextConnections get_volume_active_connections(id)
@@ -2646,7 +2646,7 @@ Name | Type | Description  | Notes
 
 [**StorNextConnections**](StorNextConnections.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_volume_file_size_distribution**
     def FileSizeDistribution get_volume_file_size_distribution(id)
@@ -2696,7 +2696,7 @@ Name | Type | Description  | Notes
 
 [**FileSizeDistribution**](FileSizeDistribution.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_volume_stats**
     def VolumeStats get_volume_stats(id)
@@ -2746,7 +2746,7 @@ Name | Type | Description  | Notes
 
 [**VolumeStats**](VolumeStats.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_workspace**
     def WorkspaceDetail get_workspace(id)
@@ -2796,7 +2796,7 @@ Name | Type | Description  | Notes
 
 [**WorkspaceDetail**](WorkspaceDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_workspace_permission**
     def WorkspacePermission get_workspace_permission(id)
@@ -2846,7 +2846,7 @@ Name | Type | Description  | Notes
 
 [**WorkspacePermission**](WorkspacePermission.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **move_files**
     def TaskInfo move_files(file_move_endpoint_request)
@@ -2904,7 +2904,7 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **move_workspace**
     def TaskInfo move_workspace(id, move_workspace_request)
@@ -2961,7 +2961,7 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **move_workspace_to_production**
     def move_workspace_to_production(id, workspace_move_to_request)
@@ -3014,7 +3014,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_file**
     def FilesystemFile patch_file(path, file_partial_update)
@@ -3109,7 +3109,7 @@ Name | Type | Description  | Notes
 
 [**FilesystemFile**](FilesystemFile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_production**
     def Production patch_production(id, production_partial_update)
@@ -3170,7 +3170,7 @@ Name | Type | Description  | Notes
 
 [**Production**](Production.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_share**
     def Share patch_share(id, share_partial_update)
@@ -3378,7 +3378,7 @@ Name | Type | Description  | Notes
 
 [**Share**](Share.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_snapshot**
     def Snapshot patch_snapshot(id, snapshot_partial_update)
@@ -3434,7 +3434,7 @@ Name | Type | Description  | Notes
 
 [**Snapshot**](Snapshot.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_volume**
     def Volume patch_volume(id, volume_partial_update)
@@ -3502,7 +3502,7 @@ Name | Type | Description  | Notes
 
 [**Volume**](Volume.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_workspace**
     def WorkspaceDetail patch_workspace(id, workspace_detail_partial_update)
@@ -3604,7 +3604,7 @@ Name | Type | Description  | Notes
 
 [**WorkspaceDetail**](WorkspaceDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_workspace_permission**
     def WorkspacePermission patch_workspace_permission(id, workspace_permission_partial_update)
@@ -3662,7 +3662,7 @@ Name | Type | Description  | Notes
 
 [**WorkspacePermission**](WorkspacePermission.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **record_storage_trace**
     def FilesystemTraceEndpointResponse record_storage_trace(filesystem_trace_endpoint_request)
@@ -3715,7 +3715,7 @@ Name | Type | Description  | Notes
 
 [**FilesystemTraceEndpointResponse**](FilesystemTraceEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **repair_workspace_permissions**
     def TaskInfo repair_workspace_permissions(id)
@@ -3765,7 +3765,7 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **share_to_home_workspace**
     def share_to_home_workspace(share_to_home_workspace_endpoint_request)
@@ -3823,7 +3823,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **unbookmark_workspace**
     def unbookmark_workspace(id)
@@ -3871,7 +3871,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **unzip_file**
     def TaskInfo unzip_file(file_unzip_endpoint_request)
@@ -3925,7 +3925,7 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_group_quota**
     def update_group_quota(group_id, id, update_quota_request)
@@ -3981,7 +3981,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_path_quota**
     def update_path_quota(id, relative_path, update_quota_request)
@@ -4037,7 +4037,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_production**
     def Production update_production(id, production_update)
@@ -4098,7 +4098,7 @@ Name | Type | Description  | Notes
 
 [**Production**](Production.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_share**
     def Share update_share(id, share_update)
@@ -4306,7 +4306,7 @@ Name | Type | Description  | Notes
 
 [**Share**](Share.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_snapshot**
     def Snapshot update_snapshot(id, snapshot_update)
@@ -4362,7 +4362,7 @@ Name | Type | Description  | Notes
 
 [**Snapshot**](Snapshot.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_user_quota**
     def update_user_quota(id, user_id, update_quota_request)
@@ -4418,7 +4418,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_volume**
     def Volume update_volume(id, volume_update)
@@ -4486,7 +4486,7 @@ Name | Type | Description  | Notes
 
 [**Volume**](Volume.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_workspace**
     def WorkspaceDetail update_workspace(id, workspace_detail_update)
@@ -4588,7 +4588,7 @@ Name | Type | Description  | Notes
 
 [**WorkspaceDetail**](WorkspaceDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_workspace_permission**
     def WorkspacePermission update_workspace_permission(id, workspace_permission_update)
@@ -4646,7 +4646,7 @@ Name | Type | Description  | Notes
 
 [**WorkspacePermission**](WorkspacePermission.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **zip_files**
     def TaskInfo zip_files(file_zip_endpoint_request)
@@ -4703,5 +4703,5 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

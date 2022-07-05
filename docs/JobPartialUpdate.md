@@ -23,6 +23,6 @@ Name | Type | Description | Notes
 **security_context** | **int, none_type** |  | [optional] 
 **part_of_workflow_for** | **int, none_type** |  | [optional] 
 
-[[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
+[[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)
 
 

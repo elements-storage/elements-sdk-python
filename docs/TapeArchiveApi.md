@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 [**[TapeJob]**](TapeJob.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **cancel_all_tape_archive_jobs**
     def cancel_all_tape_archive_jobs()
@@ -149,7 +149,7 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **check_tape**
     def check_tape(tape_library_fsck_endpoint_request)
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_tape**
     def Tape create_tape(tape_update)
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 
 [**Tape**](Tape.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_tape_group**
     def TapeGroup create_tape_group(tape_group_update)
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 
 [**TapeGroup**](TapeGroup.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_tape**
     def delete_tape(id)
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_tape_archive_job**
     def delete_tape_archive_job(id)
@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_tape_group**
     def delete_tape_group(id)
@@ -468,7 +468,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **format_tape**
     def format_tape(tape_library_format_endpoint_request)
@@ -519,7 +519,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_archived_file_entries**
     def [TapeFile] get_all_archived_file_entries()
@@ -584,7 +584,7 @@ Name | Type | Description  | Notes
 
 [**[TapeFile]**](TapeFile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_tape_archive_jobs**
     def [TapeJob] get_all_tape_archive_jobs()
@@ -639,7 +639,7 @@ Name | Type | Description  | Notes
 
 [**[TapeJob]**](TapeJob.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_tape_groups**
     def [TapeGroup] get_all_tape_groups()
@@ -698,7 +698,7 @@ Name | Type | Description  | Notes
 
 [**[TapeGroup]**](TapeGroup.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_tapes**
     def [Tape] get_all_tapes()
@@ -761,7 +761,7 @@ Name | Type | Description  | Notes
 
 [**[Tape]**](Tape.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_archived_file_entry**
     def TapeFile get_archived_file_entry(id)
@@ -811,7 +811,7 @@ Name | Type | Description  | Notes
 
 [**TapeFile**](TapeFile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_tape**
     def Tape get_tape(id)
@@ -861,7 +861,7 @@ Name | Type | Description  | Notes
 
 [**Tape**](Tape.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_tape_archive_job**
     def TapeJob get_tape_archive_job(id)
@@ -911,7 +911,7 @@ Name | Type | Description  | Notes
 
 [**TapeJob**](TapeJob.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_tape_archive_job_sources**
     def [TapeJobSource] get_tape_archive_job_sources(id)
@@ -961,7 +961,7 @@ Name | Type | Description  | Notes
 
 [**[TapeJobSource]**](TapeJobSource.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_tape_group**
     def TapeGroup get_tape_group(id)
@@ -1011,7 +1011,7 @@ Name | Type | Description  | Notes
 
 [**TapeGroup**](TapeGroup.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_tape_library_state**
     def TapeLibraryEndpointResponse get_tape_library_state()
@@ -1057,7 +1057,7 @@ This endpoint does not need any parameter.
 
 [**TapeLibraryEndpointResponse**](TapeLibraryEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **load_tape**
     def load_tape(tape_library_load_endpoint_request)
@@ -1108,7 +1108,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **move_tape**
     def move_tape(tape_library_move_endpoint_request)
@@ -1160,7 +1160,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_tape**
     def Tape patch_tape(id, tape_partial_update)
@@ -1228,7 +1228,7 @@ Name | Type | Description  | Notes
 
 [**Tape**](Tape.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_tape_group**
     def TapeGroup patch_tape_group(id, tape_group_partial_update)
@@ -1288,7 +1288,7 @@ Name | Type | Description  | Notes
 
 [**TapeGroup**](TapeGroup.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **pause_tape_archive_job**
     def pause_tape_archive_job(id)
@@ -1336,7 +1336,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **refresh_tape_library_state**
     def refresh_tape_library_state()
@@ -1380,7 +1380,7 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **reindex_tape**
     def reindex_tape(tape_library_reindex_endpoint_request)
@@ -1431,7 +1431,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **remove_finished_tape_archive_jobs**
     def remove_finished_tape_archive_jobs()
@@ -1475,7 +1475,7 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **restart_tape_archive_job**
     def restart_tape_archive_job(id)
@@ -1523,7 +1523,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **restore_from_tape**
     def TapeJob restore_from_tape(restore_endpoint_request)
@@ -1591,7 +1591,7 @@ Name | Type | Description  | Notes
 
 [**TapeJob**](TapeJob.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **resume_tape_archive_job**
     def resume_tape_archive_job(id)
@@ -1639,7 +1639,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **search_tape_archive**
     def SearchEndpointResponse search_tape_archive(search_endpoint_request)
@@ -1698,7 +1698,7 @@ Name | Type | Description  | Notes
 
 [**SearchEndpointResponse**](SearchEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **unload_tape**
     def unload_tape(tape_library_unload_endpoint_request)
@@ -1749,7 +1749,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_tape**
     def Tape update_tape(id, tape_update)
@@ -1817,7 +1817,7 @@ Name | Type | Description  | Notes
 
 [**Tape**](Tape.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_tape_group**
     def TapeGroup update_tape_group(id, tape_group_update)
@@ -1877,5 +1877,5 @@ Name | Type | Description  | Notes
 
 [**TapeGroup**](TapeGroup.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

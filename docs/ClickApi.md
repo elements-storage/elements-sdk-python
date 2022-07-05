@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **add_assets_to_click_gallery**
     def ClickGallery add_assets_to_click_gallery(connection_id, id, add_assets_to_click_gallery)
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 [**ClickGallery**](ClickGallery.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **continue_click_upload_in_background**
     def continue_click_upload_in_background(upload_id, click_background_upload_endpoint_request)
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_click_gallery**
     def ClickGallery create_click_gallery(connection_id, click_gallery_update)
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 [**ClickGallery**](ClickGallery.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_click_gallery_link**
     def ClickGalleryLink create_click_gallery_link(connection_id, click_gallery_link)
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 [**ClickGalleryLink**](ClickGalleryLink.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_click_gallery_link**
     def delete_click_gallery_link(connection_id, id)
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_click_galleries**
     def [ClickGallery] get_all_click_galleries(connection_id)
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 
 [**[ClickGallery]**](ClickGallery.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_click_gallery_links**
     def InlineResponse200 get_all_click_gallery_links(connection_id)
@@ -480,7 +480,7 @@ Name | Type | Description  | Notes
 
 [**InlineResponse200**](InlineResponse200.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_click_gallery**
     def ClickGallery get_click_gallery(connection_id, id)
@@ -532,7 +532,7 @@ Name | Type | Description  | Notes
 
 [**ClickGallery**](ClickGallery.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_click_gallery_link**
     def ClickGalleryLink get_click_gallery_link(connection_id, id)
@@ -584,7 +584,7 @@ Name | Type | Description  | Notes
 
 [**ClickGalleryLink**](ClickGalleryLink.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **send_click_gallery_link_email**
     def send_click_gallery_link_email(connection_id, link_id)
@@ -634,7 +634,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **start_click_upload**
     def TaskInfo start_click_upload(click_start_upload_endpoint_request)
@@ -690,5 +690,5 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

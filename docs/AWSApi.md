@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 [**CloudAccountMini**](CloudAccountMini.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_aws_account**
     def delete_aws_account(id)
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_aws_accounts**
     def [CloudAccountMini] get_all_aws_accounts()
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 [**[CloudAccountMini]**](CloudAccountMini.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_aws_account**
     def CloudAccountMini get_aws_account(id)
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 [**CloudAccountMini**](CloudAccountMini.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_aws_account_sns_topics**
     def ListTopics get_aws_account_sns_topics(id)
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 [**ListTopics**](ListTopics.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_aws_account**
     def CloudAccountMini patch_aws_account(id, cloud_account_mini_partial_update)
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
 
 [**CloudAccountMini**](CloudAccountMini.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **test_aws_account_credentials**
     def TestAWSCredentialsResponse test_aws_account_credentials(test_aws_credentials_request)
@@ -383,7 +383,7 @@ Name | Type | Description  | Notes
 
 [**TestAWSCredentialsResponse**](TestAWSCredentialsResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_aws_account**
     def CloudAccountMini update_aws_account(id, cloud_account_mini_update)
@@ -439,5 +439,5 @@ Name | Type | Description  | Notes
 
 [**CloudAccountMini**](CloudAccountMini.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

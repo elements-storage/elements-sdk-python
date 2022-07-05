@@ -33,6 +33,6 @@ Name | Type | Description | Notes
 **external_transcoder_staging_path** | **str, none_type** |  | [optional] 
 **external_transcoder** | **int, none_type** |  | [optional] 
 
-[[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
+[[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)
 
 

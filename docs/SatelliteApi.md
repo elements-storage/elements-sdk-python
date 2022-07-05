@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 [**RDCActivation**](RDCActivation.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **announce_satellite_host**
     def RDCHost announce_satellite_host()
@@ -106,7 +106,7 @@ This endpoint does not need any parameter.
 
 [**RDCHost**](RDCHost.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_satellite_session**
     def RDCSession create_satellite_session(rdc_session_create)
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 [**RDCSession**](RDCSession.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_satellite_session**
     def delete_satellite_session(id)
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_satellite_hosts**
     def [RDCHost] get_all_satellite_hosts()
@@ -265,7 +265,7 @@ Name | Type | Description  | Notes
 
 [**[RDCHost]**](RDCHost.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_satellite_sessions**
     def [RDCSession] get_all_satellite_sessions()
@@ -320,7 +320,7 @@ Name | Type | Description  | Notes
 
 [**[RDCSession]**](RDCSession.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_satellite_host**
     def RDCHost get_satellite_host(id)
@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
 
 [**RDCHost**](RDCHost.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_satellite_session**
     def RDCSession get_satellite_session(id)
@@ -420,5 +420,5 @@ Name | Type | Description  | Notes
 
 [**RDCSession**](RDCSession.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

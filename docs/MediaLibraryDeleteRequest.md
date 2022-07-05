@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **delete_from_database** | **bool** |  | [optional]  if omitted the server will use the default value of False
 **delete_from_storage** | **bool** |  | [optional]  if omitted the server will use the default value of False
 
-[[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
+[[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)
 
 

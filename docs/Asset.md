@@ -35,6 +35,6 @@ Name | Type | Description | Notes
 **rating** | **int, none_type** |  | [optional] [readonly] 
 **set** | **int, none_type** |  | [optional] 
 
-[[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
+[[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)
 
 

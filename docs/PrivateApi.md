@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_veritone_tdo**
     def delete_veritone_tdo(id, tdo_id)
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **export_non_proxied_assets**
     def export_non_proxied_assets(root_id)
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **export_non_proxied_assets_for_path**
     def export_non_proxied_assets_for_path(path, root_id)
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **export_updates**
     def export_updates(root_id)
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get**
     def BootstrapData get()
@@ -317,7 +317,7 @@ This endpoint does not need any parameter.
 
 [**BootstrapData**](BootstrapData.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_veritone_connections**
     def [VeritoneConnection] get_all_veritone_connections()
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 
 [**[VeritoneConnection]**](VeritoneConnection.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_veritone_metadata**
     def [VeritoneMetadata] get_all_veritone_metadata()
@@ -431,7 +431,7 @@ Name | Type | Description  | Notes
 
 [**[VeritoneMetadata]**](VeritoneMetadata.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_client_side_url**
     def ClientSidePathEndpointResponse get_client_side_url(client_side_path_endpoint_request)
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
 
 [**ClientSidePathEndpointResponse**](ClientSidePathEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_help_page**
     def HelpEndpointResponse get_help_page(id)
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 [**HelpEndpointResponse**](HelpEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_locale**
     def LocaleEndpointResponse get_locale(lang)
@@ -585,7 +585,7 @@ Name | Type | Description  | Notes
 
 [**LocaleEndpointResponse**](LocaleEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_proxy_fs_size**
     def ProxyFSSizeEndpointResponse get_proxy_fs_size()
@@ -631,7 +631,7 @@ This endpoint does not need any parameter.
 
 [**ProxyFSSizeEndpointResponse**](ProxyFSSizeEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_stored_image**
     def get_stored_image(name)
@@ -679,7 +679,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_veritone_connection**
     def VeritoneConnection get_veritone_connection(id)
@@ -729,7 +729,7 @@ Name | Type | Description  | Notes
 
 [**VeritoneConnection**](VeritoneConnection.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_veritone_engines**
     def VeritoneEngineList get_veritone_engines(id)
@@ -779,7 +779,7 @@ Name | Type | Description  | Notes
 
 [**VeritoneEngineList**](VeritoneEngineList.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_veritone_jobs**
     def VeritoneJobList get_veritone_jobs(id)
@@ -841,7 +841,7 @@ Name | Type | Description  | Notes
 
 [**VeritoneJobList**](VeritoneJobList.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_veritone_metadata**
     def VeritoneMetadata get_veritone_metadata(id)
@@ -891,7 +891,7 @@ Name | Type | Description  | Notes
 
 [**VeritoneMetadata**](VeritoneMetadata.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **install_license**
     def install_license(install_license_endpoint_request)
@@ -943,7 +943,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **language_server_request**
     def {str: (bool, date, datetime, dict, float, int, list, str, none_type)} language_server_request(language)
@@ -992,7 +992,7 @@ Name | Type | Description  | Notes
 
 **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **locate_file**
     def LocateResult locate_file(locate_endpoint_request)
@@ -1046,7 +1046,7 @@ Name | Type | Description  | Notes
 
 [**LocateResult**](LocateResult.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **locate_proxies**
     def [LocateProxiesEndpointResponse] locate_proxies(locate_proxies_endpoint_request)
@@ -1101,7 +1101,7 @@ Name | Type | Description  | Notes
 
 [**[LocateProxiesEndpointResponse]**](LocateProxiesEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **upload_stored_image**
     def upload_stored_image(upload_image_endpoint_request)
@@ -1153,7 +1153,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **upload_to_veritone**
     def upload_to_veritone(id, veritone_upload_request)
@@ -1208,5 +1208,5 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

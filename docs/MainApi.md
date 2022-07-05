@@ -166,7 +166,7 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **beep**
     def beep()
@@ -210,7 +210,7 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **check_certificate**
     def check_certificate(certificate)
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **check_chunk_uploaded**
     def check_chunk_uploaded()
@@ -313,7 +313,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **check_internet_connectivity**
     def CheckConnectivityEndpointResponse check_internet_connectivity()
@@ -359,7 +359,7 @@ This endpoint does not need any parameter.
 
 [**CheckConnectivityEndpointResponse**](CheckConnectivityEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **check_stor_next_license**
     def [StorNextLicenseCheckEndpointResponse] check_stor_next_license(stornext_license)
@@ -412,7 +412,7 @@ Name | Type | Description  | Notes
 
 [**[StorNextLicenseCheckEndpointResponse]**](StorNextLicenseCheckEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **collect_diagnostics**
     def DownloadArchive collect_diagnostics()
@@ -458,7 +458,7 @@ This endpoint does not need any parameter.
 
 [**DownloadArchive**](DownloadArchive.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_archive**
     def DownloadArchive create_archive(create_download_archive)
@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
 
 [**DownloadArchive**](DownloadArchive.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_cloud_account**
     def CloudAccount create_cloud_account(cloud_account_update)
@@ -581,7 +581,7 @@ Name | Type | Description  | Notes
 
 [**CloudAccount**](CloudAccount.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_filesystem_permission**
     def FilesystemPermission create_filesystem_permission(filesystem_permission_update)
@@ -637,7 +637,7 @@ Name | Type | Description  | Notes
 
 [**FilesystemPermission**](FilesystemPermission.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_group**
     def ElementsGroupDetail create_group(elements_group_detail_update)
@@ -702,7 +702,7 @@ Name | Type | Description  | Notes
 
 [**ElementsGroupDetail**](ElementsGroupDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_home_workspace**
     def Workspace create_home_workspace(id, create_home_workspace_request)
@@ -757,7 +757,7 @@ Name | Type | Description  | Notes
 
 [**Workspace**](Workspace.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_ntp_server**
     def NTPServer create_ntp_server(ntp_server_update)
@@ -811,7 +811,7 @@ Name | Type | Description  | Notes
 
 [**NTPServer**](NTPServer.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_user**
     def ElementsUserDetail create_user(elements_user_detail_update)
@@ -896,7 +896,7 @@ Name | Type | Description  | Notes
 
 [**ElementsUserDetail**](ElementsUserDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **create_workstation**
     def Workstation create_workstation(workstation_update)
@@ -967,7 +967,7 @@ Name | Type | Description  | Notes
 
 [**Workstation**](Workstation.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_cloud_account**
     def delete_cloud_account(id)
@@ -1015,7 +1015,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_download_archive**
     def delete_download_archive(id)
@@ -1063,7 +1063,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_filesystem_permission**
     def delete_filesystem_permission(id)
@@ -1111,7 +1111,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_group**
     def delete_group(id)
@@ -1159,7 +1159,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_home_workspace**
     def delete_home_workspace(id)
@@ -1207,7 +1207,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_ntp_server**
     def delete_ntp_server(id)
@@ -1255,7 +1255,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_user**
     def delete_user(id)
@@ -1303,7 +1303,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **delete_workstation**
     def delete_workstation(id)
@@ -1351,7 +1351,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **disable_user_totp**
     def disable_user_totp(id)
@@ -1397,7 +1397,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **enable_user_totp**
     def enable_user_totp(id, enable_totp_request)
@@ -1449,7 +1449,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **finish_upload**
     def finish_upload(finish_upload_endpoint_request)
@@ -1500,7 +1500,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **fix_ldap_group_memberships**
     def fix_ldap_group_memberships(id)
@@ -1548,7 +1548,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_client_sessions**
     def [ClientSession] get_all_client_sessions()
@@ -1609,7 +1609,7 @@ Name | Type | Description  | Notes
 
 [**[ClientSession]**](ClientSession.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_cloud_accounts**
     def [CloudAccount] get_all_cloud_accounts()
@@ -1668,7 +1668,7 @@ Name | Type | Description  | Notes
 
 [**[CloudAccount]**](CloudAccount.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_download_archives**
     def [DownloadArchive] get_all_download_archives()
@@ -1723,7 +1723,7 @@ Name | Type | Description  | Notes
 
 [**[DownloadArchive]**](DownloadArchive.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_downloads**
     def [Download] get_all_downloads()
@@ -1780,7 +1780,7 @@ Name | Type | Description  | Notes
 
 [**[Download]**](Download.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_filesystem_permissions**
     def [FilesystemPermission] get_all_filesystem_permissions()
@@ -1841,7 +1841,7 @@ Name | Type | Description  | Notes
 
 [**[FilesystemPermission]**](FilesystemPermission.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_groups**
     def [ElementsGroup] get_all_groups()
@@ -1898,7 +1898,7 @@ Name | Type | Description  | Notes
 
 [**[ElementsGroup]**](ElementsGroup.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_ldap_servers**
     def [LDAPServer] get_all_ldap_servers()
@@ -1953,7 +1953,7 @@ Name | Type | Description  | Notes
 
 [**[LDAPServer]**](LDAPServer.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_ntp_servers**
     def [NTPServer] get_all_ntp_servers()
@@ -2010,7 +2010,7 @@ Name | Type | Description  | Notes
 
 [**[NTPServer]**](NTPServer.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_storage_nodes**
     def [StorageNode] get_all_storage_nodes()
@@ -2075,7 +2075,7 @@ Name | Type | Description  | Notes
 
 [**[StorageNode]**](StorageNode.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_users**
     def [ElementsUser] get_all_users()
@@ -2138,7 +2138,7 @@ Name | Type | Description  | Notes
 
 [**[ElementsUser]**](ElementsUser.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_all_workstations**
     def [Workstation] get_all_workstations()
@@ -2197,7 +2197,7 @@ Name | Type | Description  | Notes
 
 [**[Workstation]**](Workstation.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_certificate_configuration**
     def Certificate get_certificate_configuration()
@@ -2243,7 +2243,7 @@ This endpoint does not need any parameter.
 
 [**Certificate**](Certificate.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_client_download_file**
     def get_client_download_file(file)
@@ -2291,7 +2291,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_client_downloads**
     def [ClientsEndpointResponse] get_client_downloads()
@@ -2337,7 +2337,7 @@ This endpoint does not need any parameter.
 
 [**[ClientsEndpointResponse]**](ClientsEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_client_session**
     def ClientSession get_client_session(id)
@@ -2387,7 +2387,7 @@ Name | Type | Description  | Notes
 
 [**ClientSession**](ClientSession.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_cloud_account**
     def CloudAccount get_cloud_account(id)
@@ -2437,7 +2437,7 @@ Name | Type | Description  | Notes
 
 [**CloudAccount**](CloudAccount.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_cloud_account_storage_roots**
     def [StorageRoot] get_cloud_account_storage_roots(id)
@@ -2487,7 +2487,7 @@ Name | Type | Description  | Notes
 
 [**[StorageRoot]**](StorageRoot.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_current_workstation**
     def Workstation get_current_workstation()
@@ -2542,7 +2542,7 @@ Name | Type | Description  | Notes
 
 [**Workstation**](Workstation.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_download**
     def Download get_download(id)
@@ -2592,7 +2592,7 @@ Name | Type | Description  | Notes
 
 [**Download**](Download.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_download_archive**
     def DownloadArchive get_download_archive(id)
@@ -2642,7 +2642,7 @@ Name | Type | Description  | Notes
 
 [**DownloadArchive**](DownloadArchive.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_download_archive_file**
     def get_download_archive_file(id)
@@ -2690,7 +2690,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_download_file**
     def get_download_file(id)
@@ -2738,7 +2738,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_download_icon**
     def get_download_icon(id)
@@ -2786,7 +2786,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_filesystem_permission**
     def FilesystemPermission get_filesystem_permission(id)
@@ -2836,7 +2836,7 @@ Name | Type | Description  | Notes
 
 [**FilesystemPermission**](FilesystemPermission.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_group**
     def ElementsGroupDetail get_group(id)
@@ -2886,7 +2886,7 @@ Name | Type | Description  | Notes
 
 [**ElementsGroupDetail**](ElementsGroupDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_home_workspace**
     def Workspace get_home_workspace(id)
@@ -2936,7 +2936,7 @@ Name | Type | Description  | Notes
 
 [**Workspace**](Workspace.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_ipmi_configuration**
     def Ipmi get_ipmi_configuration(id)
@@ -2986,7 +2986,7 @@ Name | Type | Description  | Notes
 
 [**Ipmi**](Ipmi.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_ldap_server**
     def LDAPServer get_ldap_server(id)
@@ -3036,7 +3036,7 @@ Name | Type | Description  | Notes
 
 [**LDAPServer**](LDAPServer.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_ldap_server_groups**
     def LDAPServerGroups get_ldap_server_groups(id)
@@ -3086,7 +3086,7 @@ Name | Type | Description  | Notes
 
 [**LDAPServerGroups**](LDAPServerGroups.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_ldap_server_users**
     def LDAPServerUsers get_ldap_server_users(id)
@@ -3136,7 +3136,7 @@ Name | Type | Description  | Notes
 
 [**LDAPServerUsers**](LDAPServerUsers.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_license**
     def License get_license()
@@ -3182,7 +3182,7 @@ This endpoint does not need any parameter.
 
 [**License**](License.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_local_time**
     def TimeEndpointResponse get_local_time()
@@ -3228,7 +3228,7 @@ This endpoint does not need any parameter.
 
 [**TimeEndpointResponse**](TimeEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_log**
     def get_log(path)
@@ -3285,7 +3285,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_node_ipmi_sensors**
     def Sensors get_node_ipmi_sensors(id)
@@ -3335,7 +3335,7 @@ Name | Type | Description  | Notes
 
 [**Sensors**](Sensors.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_node_stats**
     def Stats get_node_stats(id)
@@ -3385,7 +3385,7 @@ Name | Type | Description  | Notes
 
 [**Stats**](Stats.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_ntp_server**
     def NTPServer get_ntp_server(id)
@@ -3435,7 +3435,7 @@ Name | Type | Description  | Notes
 
 [**NTPServer**](NTPServer.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_parameters**
     def Parameters get_parameters()
@@ -3490,7 +3490,7 @@ Name | Type | Description  | Notes
 
 [**Parameters**](Parameters.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_profile**
     def ElementsUserProfile get_profile()
@@ -3545,7 +3545,7 @@ Name | Type | Description  | Notes
 
 [**ElementsUserProfile**](ElementsUserProfile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_release_notes**
     def [ReleaseNotesEndpointResponse] get_release_notes()
@@ -3591,7 +3591,7 @@ This endpoint does not need any parameter.
 
 [**[ReleaseNotesEndpointResponse]**](ReleaseNotesEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_service_status**
     def ServiceStatus get_service_status(id, service)
@@ -3643,7 +3643,7 @@ Name | Type | Description  | Notes
 
 [**ServiceStatus**](ServiceStatus.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_smtp_configuration**
     def SMTPConfiguration get_smtp_configuration()
@@ -3689,7 +3689,7 @@ This endpoint does not need any parameter.
 
 [**SMTPConfiguration**](SMTPConfiguration.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_stor_next_license**
     def StorNextLicenseEndpointResponse get_stor_next_license()
@@ -3735,7 +3735,7 @@ This endpoint does not need any parameter.
 
 [**StorNextLicenseEndpointResponse**](StorNextLicenseEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_storage_node**
     def StorageNode get_storage_node(id)
@@ -3795,7 +3795,7 @@ Name | Type | Description  | Notes
 
 [**StorageNode**](StorageNode.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_system_info**
     def SystemInfoEndpointResponse get_system_info()
@@ -3841,7 +3841,7 @@ This endpoint does not need any parameter.
 
 [**SystemInfoEndpointResponse**](SystemInfoEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_user**
     def ElementsUserDetail get_user(id)
@@ -3901,7 +3901,7 @@ Name | Type | Description  | Notes
 
 [**ElementsUserDetail**](ElementsUserDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **get_workstation**
     def Workstation get_workstation(id)
@@ -3951,7 +3951,7 @@ Name | Type | Description  | Notes
 
 [**Workstation**](Workstation.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **install_stor_next_license**
     def StorNextLicenseEndpointResponse install_stor_next_license(stornext_license)
@@ -4004,7 +4004,7 @@ Name | Type | Description  | Notes
 
 [**StorNextLicenseEndpointResponse**](StorNextLicenseEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_cloud_account**
     def CloudAccount patch_cloud_account(id, cloud_account_partial_update)
@@ -4066,7 +4066,7 @@ Name | Type | Description  | Notes
 
 [**CloudAccount**](CloudAccount.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_current_workstation**
     def Workstation patch_current_workstation(workstation_partial_update)
@@ -4137,7 +4137,7 @@ Name | Type | Description  | Notes
 
 [**Workstation**](Workstation.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_download_archive**
     def DownloadArchive patch_download_archive(id, download_archive_partial_update)
@@ -4273,7 +4273,7 @@ Name | Type | Description  | Notes
 
 [**DownloadArchive**](DownloadArchive.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_filesystem_permission**
     def FilesystemPermission patch_filesystem_permission(id, filesystem_permission_partial_update)
@@ -4331,7 +4331,7 @@ Name | Type | Description  | Notes
 
 [**FilesystemPermission**](FilesystemPermission.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_group**
     def ElementsGroupDetail patch_group(id, elements_group_detail_partial_update)
@@ -4398,7 +4398,7 @@ Name | Type | Description  | Notes
 
 [**ElementsGroupDetail**](ElementsGroupDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_ntp_server**
     def NTPServer patch_ntp_server(id, ntp_server_partial_update)
@@ -4454,7 +4454,7 @@ Name | Type | Description  | Notes
 
 [**NTPServer**](NTPServer.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_profile**
     def ElementsUserProfile patch_profile(elements_user_profile_partial_update)
@@ -4513,7 +4513,7 @@ Name | Type | Description  | Notes
 
 [**ElementsUserProfile**](ElementsUserProfile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_user**
     def ElementsUserDetail patch_user(id, elements_user_detail_partial_update)
@@ -4600,7 +4600,7 @@ Name | Type | Description  | Notes
 
 [**ElementsUserDetail**](ElementsUserDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **patch_workstation**
     def Workstation patch_workstation(id, workstation_partial_update)
@@ -4673,7 +4673,7 @@ Name | Type | Description  | Notes
 
 [**Workstation**](Workstation.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **preview_user**
     def UserPreviewResponse preview_user(user_preview_request)
@@ -4724,7 +4724,7 @@ Name | Type | Description  | Notes
 
 [**UserPreviewResponse**](UserPreviewResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **reboot**
     def reboot()
@@ -4768,7 +4768,7 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **register_upload**
     def register_upload(register_upload_endpoint_request)
@@ -4820,7 +4820,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **register_upload_metadata**
     def register_upload_metadata(register_upload_metadata_endpoint_request)
@@ -4883,7 +4883,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **render_email_template_preview**
     def render_email_template_preview(email_preview)
@@ -4936,7 +4936,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **reset_user_password**
     def reset_user_password(id)
@@ -4984,7 +4984,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **restart_web_ui**
     def restart_web_ui()
@@ -5028,7 +5028,7 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **run_service_operation**
     def run_service_operation(id, operation, service)
@@ -5080,7 +5080,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **set_ipmi_configuration**
     def Ipmi set_ipmi_configuration(id, ipmi)
@@ -5136,7 +5136,7 @@ Name | Type | Description  | Notes
 
 [**Ipmi**](Ipmi.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **set_local_time**
     def TimeEndpointResponse set_local_time(time_endpoint_request)
@@ -5192,7 +5192,7 @@ Name | Type | Description  | Notes
 
 [**TimeEndpointResponse**](TimeEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **set_my_password**
     def set_my_password(change_own_password_request)
@@ -5245,7 +5245,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **set_user_password**
     def set_user_password(id, change_password_request)
@@ -5298,7 +5298,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **shutdown**
     def shutdown()
@@ -5342,7 +5342,7 @@ This endpoint does not need any parameter.
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **start_solr_reindex**
     def SolrReindexEndpointResponse start_solr_reindex()
@@ -5388,7 +5388,7 @@ This endpoint does not need any parameter.
 
 [**SolrReindexEndpointResponse**](SolrReindexEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **start_support_session**
     def TaskInfo start_support_session()
@@ -5434,7 +5434,7 @@ This endpoint does not need any parameter.
 
 [**TaskInfo**](TaskInfo.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **start_system_backup**
     def TaskInfo start_system_backup(path)
@@ -5487,7 +5487,7 @@ Name | Type | Description  | Notes
 
 [**TaskInfo**](TaskInfo.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **sync_ldap_group**
     def sync_ldap_group(id)
@@ -5535,7 +5535,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **sync_ldap_users**
     def sync_ldap_users(id)
@@ -5583,7 +5583,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **sync_time**
     def TimeSyncEndpointResponse sync_time(time_sync_endpoint_request)
@@ -5636,7 +5636,7 @@ Name | Type | Description  | Notes
 
 [**TimeSyncEndpointResponse**](TimeSyncEndpointResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **sync_user_totp**
     def SyncTOTP sync_user_totp(id, sync_totp_request)
@@ -5689,7 +5689,7 @@ Name | Type | Description  | Notes
 
 [**SyncTOTP**](SyncTOTP.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **test_cloud_account_credentials**
     def TestCloudAccountCredentialsResponse test_cloud_account_credentials(test_cloud_account_credentials_request)
@@ -5749,7 +5749,7 @@ Name | Type | Description  | Notes
 
 [**TestCloudAccountCredentialsResponse**](TestCloudAccountCredentialsResponse.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **test_smtp_configuration**
     def test_smtp_configuration(test_smtp)
@@ -5800,7 +5800,7 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_certificate_configuration**
     def Certificate update_certificate_configuration(certificate_update)
@@ -5854,7 +5854,7 @@ Name | Type | Description  | Notes
 
 [**Certificate**](Certificate.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_cloud_account**
     def CloudAccount update_cloud_account(id, cloud_account_update)
@@ -5916,7 +5916,7 @@ Name | Type | Description  | Notes
 
 [**CloudAccount**](CloudAccount.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_current_workstation**
     def Workstation update_current_workstation(workstation_update)
@@ -5987,7 +5987,7 @@ Name | Type | Description  | Notes
 
 [**Workstation**](Workstation.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_download_archive**
     def DownloadArchive update_download_archive(id, download_archive_update)
@@ -6123,7 +6123,7 @@ Name | Type | Description  | Notes
 
 [**DownloadArchive**](DownloadArchive.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_filesystem_permission**
     def FilesystemPermission update_filesystem_permission(id, filesystem_permission_update)
@@ -6181,7 +6181,7 @@ Name | Type | Description  | Notes
 
 [**FilesystemPermission**](FilesystemPermission.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_group**
     def ElementsGroupDetail update_group(id, elements_group_detail_update)
@@ -6248,7 +6248,7 @@ Name | Type | Description  | Notes
 
 [**ElementsGroupDetail**](ElementsGroupDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_ntp_server**
     def NTPServer update_ntp_server(id, ntp_server_update)
@@ -6304,7 +6304,7 @@ Name | Type | Description  | Notes
 
 [**NTPServer**](NTPServer.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_parameters**
     def Parameters update_parameters(parameters_update)
@@ -6386,7 +6386,7 @@ Name | Type | Description  | Notes
 
 [**Parameters**](Parameters.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_profile**
     def ElementsUserProfile update_profile(elements_user_profile_update)
@@ -6445,7 +6445,7 @@ Name | Type | Description  | Notes
 
 [**ElementsUserProfile**](ElementsUserProfile.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_smtp_configuration**
     def SMTPConfiguration update_smtp_configuration(smtp_configuration_update)
@@ -6503,7 +6503,7 @@ Name | Type | Description  | Notes
 
 [**SMTPConfiguration**](SMTPConfiguration.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_user**
     def ElementsUserDetail update_user(id, elements_user_detail_update)
@@ -6590,7 +6590,7 @@ Name | Type | Description  | Notes
 
 [**ElementsUserDetail**](ElementsUserDetail.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **update_workstation**
     def Workstation update_workstation(id, workstation_update)
@@ -6663,7 +6663,7 @@ Name | Type | Description  | Notes
 
 [**Workstation**](Workstation.md)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **upload_chunk**
     def upload_chunk(upload_chunk_endpoint_request)
@@ -6716,5 +6716,5 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

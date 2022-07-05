@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **license_component** | **str** |  | 
 **arg_types** | **{str: (str, none_type)}** |  | [readonly] 
 
-[[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
+[[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)
 
 

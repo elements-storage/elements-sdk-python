@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **last_finished_model** | [**AIModel**](AIModel.md) |  | [optional] 
 **type** | **str** |  | [optional] 
 
-[[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
+[[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)
 
 

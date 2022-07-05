@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **supports_audio_channels** | **bool** |  | [optional] 
 **supports_staging_path** | **bool** |  | [optional] 
 
-[[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
+[[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)
 
 
