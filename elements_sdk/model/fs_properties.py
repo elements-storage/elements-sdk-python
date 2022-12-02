@@ -83,6 +83,7 @@ class FSProperties(ModelNormal):
         return {
             'needs_ssh_connection': (bool,),  # noqa: E501
             'supports_directory_quotas': (bool,),  # noqa: E501
+            'supports_workspace_quotas': (bool,),  # noqa: E501
             'supports_soft_quotas': (bool,),  # noqa: E501
             'supports_user_quotas': (bool,),  # noqa: E501
             'supports_group_quotas': (bool,),  # noqa: E501
@@ -90,6 +91,9 @@ class FSProperties(ModelNormal):
             'supports_snapshots': (bool,),  # noqa: E501
             'creating_directory_quota_destroys_content': (bool,),  # noqa: E501
             'removing_directory_quota_destroys_content': (bool,),  # noqa: E501
+            'supports_posix_permissions': (bool,),  # noqa: E501
+            'supports_dates': (bool,),  # noqa: E501
+            'supports_renaming': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -100,6 +104,7 @@ class FSProperties(ModelNormal):
     attribute_map = {
         'needs_ssh_connection': 'needs_ssh_connection',  # noqa: E501
         'supports_directory_quotas': 'supports_directory_quotas',  # noqa: E501
+        'supports_workspace_quotas': 'supports_workspace_quotas',  # noqa: E501
         'supports_soft_quotas': 'supports_soft_quotas',  # noqa: E501
         'supports_user_quotas': 'supports_user_quotas',  # noqa: E501
         'supports_group_quotas': 'supports_group_quotas',  # noqa: E501
@@ -107,6 +112,9 @@ class FSProperties(ModelNormal):
         'supports_snapshots': 'supports_snapshots',  # noqa: E501
         'creating_directory_quota_destroys_content': 'creating_directory_quota_destroys_content',  # noqa: E501
         'removing_directory_quota_destroys_content': 'removing_directory_quota_destroys_content',  # noqa: E501
+        'supports_posix_permissions': 'supports_posix_permissions',  # noqa: E501
+        'supports_dates': 'supports_dates',  # noqa: E501
+        'supports_renaming': 'supports_renaming',  # noqa: E501
     }
 
     read_only_vars = {
@@ -116,19 +124,8 @@ class FSProperties(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, needs_ssh_connection, supports_directory_quotas, supports_soft_quotas, supports_user_quotas, supports_group_quotas, supports_xattrs, supports_snapshots, creating_directory_quota_destroys_content, removing_directory_quota_destroys_content, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **xkwargs):  # noqa: E501
         """FSProperties - a model defined in OpenAPI
-
-        Args:
-            needs_ssh_connection (bool):
-            supports_directory_quotas (bool):
-            supports_soft_quotas (bool):
-            supports_user_quotas (bool):
-            supports_group_quotas (bool):
-            supports_xattrs (bool):
-            supports_snapshots (bool):
-            creating_directory_quota_destroys_content (bool):
-            removing_directory_quota_destroys_content (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -161,6 +158,19 @@ class FSProperties(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            needs_ssh_connection (bool): [optional]  # noqa: E501
+            supports_directory_quotas (bool): [optional]  # noqa: E501
+            supports_workspace_quotas (bool): [optional]  # noqa: E501
+            supports_soft_quotas (bool): [optional]  # noqa: E501
+            supports_user_quotas (bool): [optional]  # noqa: E501
+            supports_group_quotas (bool): [optional]  # noqa: E501
+            supports_xattrs (bool): [optional]  # noqa: E501
+            supports_snapshots (bool): [optional]  # noqa: E501
+            creating_directory_quota_destroys_content (bool): [optional]  # noqa: E501
+            removing_directory_quota_destroys_content (bool): [optional]  # noqa: E501
+            supports_posix_permissions (bool): [optional]  # noqa: E501
+            supports_dates (bool): [optional]  # noqa: E501
+            supports_renaming (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -189,15 +199,6 @@ class FSProperties(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
-        self.needs_ssh_connection = needs_ssh_connection
-        self.supports_directory_quotas = supports_directory_quotas
-        self.supports_soft_quotas = supports_soft_quotas
-        self.supports_user_quotas = supports_user_quotas
-        self.supports_group_quotas = supports_group_quotas
-        self.supports_xattrs = supports_xattrs
-        self.supports_snapshots = supports_snapshots
-        self.creating_directory_quota_destroys_content = creating_directory_quota_destroys_content
-        self.removing_directory_quota_destroys_content = removing_directory_quota_destroys_content
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -219,19 +220,8 @@ class FSProperties(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, needs_ssh_connection, supports_directory_quotas, supports_soft_quotas, supports_user_quotas, supports_group_quotas, supports_xattrs, supports_snapshots, creating_directory_quota_destroys_content, removing_directory_quota_destroys_content, *args, **xkwargs):  # noqa: E501
+    def __init__(self, *args, **xkwargs):  # noqa: E501
         """FSProperties - a model defined in OpenAPI
-
-        Args:
-            needs_ssh_connection (bool):
-            supports_directory_quotas (bool):
-            supports_soft_quotas (bool):
-            supports_user_quotas (bool):
-            supports_group_quotas (bool):
-            supports_xattrs (bool):
-            supports_snapshots (bool):
-            creating_directory_quota_destroys_content (bool):
-            removing_directory_quota_destroys_content (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -264,6 +254,19 @@ class FSProperties(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            needs_ssh_connection (bool): [optional]  # noqa: E501
+            supports_directory_quotas (bool): [optional]  # noqa: E501
+            supports_workspace_quotas (bool): [optional]  # noqa: E501
+            supports_soft_quotas (bool): [optional]  # noqa: E501
+            supports_user_quotas (bool): [optional]  # noqa: E501
+            supports_group_quotas (bool): [optional]  # noqa: E501
+            supports_xattrs (bool): [optional]  # noqa: E501
+            supports_snapshots (bool): [optional]  # noqa: E501
+            creating_directory_quota_destroys_content (bool): [optional]  # noqa: E501
+            removing_directory_quota_destroys_content (bool): [optional]  # noqa: E501
+            supports_posix_permissions (bool): [optional]  # noqa: E501
+            supports_dates (bool): [optional]  # noqa: E501
+            supports_renaming (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -290,15 +293,6 @@ class FSProperties(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
-        self.needs_ssh_connection = needs_ssh_connection
-        self.supports_directory_quotas = supports_directory_quotas
-        self.supports_soft_quotas = supports_soft_quotas
-        self.supports_user_quotas = supports_user_quotas
-        self.supports_group_quotas = supports_group_quotas
-        self.supports_xattrs = supports_xattrs
-        self.supports_snapshots = supports_snapshots
-        self.creating_directory_quota_destroys_content = creating_directory_quota_destroys_content
-        self.removing_directory_quota_destroys_content = removing_directory_quota_destroys_content
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

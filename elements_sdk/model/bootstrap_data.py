@@ -42,7 +42,6 @@ def lazy_import():
     from elements_sdk.model.storage_node import StorageNode
     from elements_sdk.model.task_type import TaskType
     from elements_sdk.model.tasks_summary import TasksSummary
-    from elements_sdk.model.veritone_connection import VeritoneConnection
     globals()['AIConnection'] = AIConnection
     globals()['CloudConnection'] = CloudConnection
     globals()['ElementsUserDetail'] = ElementsUserDetail
@@ -55,7 +54,6 @@ def lazy_import():
     globals()['StorageNode'] = StorageNode
     globals()['TaskType'] = TaskType
     globals()['TasksSummary'] = TasksSummary
-    globals()['VeritoneConnection'] = VeritoneConnection
 
 
 class BootstrapData(ModelNormal):
@@ -128,7 +126,6 @@ class BootstrapData(ModelNormal):
             'client_os': (str,),  # noqa: E501
             'session_id': (str,),  # noqa: E501
             'cloud_connections': ([CloudConnection],),  # noqa: E501
-            'veritone_connections': ([VeritoneConnection],),  # noqa: E501
             'ai_connections': ([AIConnection],),  # noqa: E501
             'events': ([Event],),  # noqa: E501
             'sentry_config': ({str: (str, none_type)},),  # noqa: E501
@@ -140,6 +137,7 @@ class BootstrapData(ModelNormal):
             'user_storage_values': ({str: (str, none_type)},),  # noqa: E501
             'saml_providers': ([SAMLProviderMini],),  # noqa: E501
             'settings': ({str: (str, none_type)},),  # noqa: E501
+            'kibana_enabled': (bool,),  # noqa: E501
             'identity_value': (ElementsUserDetail,),  # noqa: E501
             'active_saml_provider': (SAMLProviderMini,),  # noqa: E501
             'tasks_summary': (TasksSummary,),  # noqa: E501
@@ -162,7 +160,6 @@ class BootstrapData(ModelNormal):
         'client_os': 'clientOS',  # noqa: E501
         'session_id': 'sessionID',  # noqa: E501
         'cloud_connections': 'cloudConnections',  # noqa: E501
-        'veritone_connections': 'veritoneConnections',  # noqa: E501
         'ai_connections': 'aiConnections',  # noqa: E501
         'events': 'events',  # noqa: E501
         'sentry_config': 'sentryConfig',  # noqa: E501
@@ -174,6 +171,7 @@ class BootstrapData(ModelNormal):
         'user_storage_values': 'userStorageValues',  # noqa: E501
         'saml_providers': 'samlProviders',  # noqa: E501
         'settings': 'settings',  # noqa: E501
+        'kibana_enabled': 'kibanaEnabled',  # noqa: E501
         'identity_value': 'identityValue',  # noqa: E501
         'active_saml_provider': 'activeSAMLProvider',  # noqa: E501
         'tasks_summary': 'tasksSummary',  # noqa: E501
@@ -186,7 +184,7 @@ class BootstrapData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, current_node, license, parameter_values, known_usernames, known_emails, impersonation_active, debug, version, client_os, session_id, cloud_connections, veritone_connections, ai_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, current_node, license, parameter_values, known_usernames, known_emails, impersonation_active, debug, version, client_os, session_id, cloud_connections, ai_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, *args, **xkwargs):  # noqa: E501
         """BootstrapData - a model defined in OpenAPI
 
         Args:
@@ -201,7 +199,6 @@ class BootstrapData(ModelNormal):
             client_os (str):
             session_id (str):
             cloud_connections ([CloudConnection]):
-            veritone_connections ([VeritoneConnection]):
             ai_connections ([AIConnection]):
             events ([Event]):
             sentry_config ({str: (str, none_type)}):
@@ -213,6 +210,7 @@ class BootstrapData(ModelNormal):
             user_storage_values ({str: (str, none_type)}):
             saml_providers ([SAMLProviderMini]):
             settings ({str: (str, none_type)}):
+            kibana_enabled (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -287,7 +285,6 @@ class BootstrapData(ModelNormal):
         self.client_os = client_os
         self.session_id = session_id
         self.cloud_connections = cloud_connections
-        self.veritone_connections = veritone_connections
         self.ai_connections = ai_connections
         self.events = events
         self.sentry_config = sentry_config
@@ -299,6 +296,7 @@ class BootstrapData(ModelNormal):
         self.user_storage_values = user_storage_values
         self.saml_providers = saml_providers
         self.settings = settings
+        self.kibana_enabled = kibana_enabled
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -320,7 +318,7 @@ class BootstrapData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, current_node, license, parameter_values, known_usernames, known_emails, impersonation_active, debug, version, client_os, session_id, cloud_connections, veritone_connections, ai_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, *args, **xkwargs):  # noqa: E501
+    def __init__(self, current_node, license, parameter_values, known_usernames, known_emails, impersonation_active, debug, version, client_os, session_id, cloud_connections, ai_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, *args, **xkwargs):  # noqa: E501
         """BootstrapData - a model defined in OpenAPI
 
         Args:
@@ -335,7 +333,6 @@ class BootstrapData(ModelNormal):
             client_os (str):
             session_id (str):
             cloud_connections ([CloudConnection]):
-            veritone_connections ([VeritoneConnection]):
             ai_connections ([AIConnection]):
             events ([Event]):
             sentry_config ({str: (str, none_type)}):
@@ -347,6 +344,7 @@ class BootstrapData(ModelNormal):
             user_storage_values ({str: (str, none_type)}):
             saml_providers ([SAMLProviderMini]):
             settings ({str: (str, none_type)}):
+            kibana_enabled (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -419,7 +417,6 @@ class BootstrapData(ModelNormal):
         self.client_os = client_os
         self.session_id = session_id
         self.cloud_connections = cloud_connections
-        self.veritone_connections = veritone_connections
         self.ai_connections = ai_connections
         self.events = events
         self.sentry_config = sentry_config
@@ -431,6 +428,7 @@ class BootstrapData(ModelNormal):
         self.user_storage_values = user_storage_values
         self.saml_providers = saml_providers
         self.settings = settings
+        self.kibana_enabled = kibana_enabled
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

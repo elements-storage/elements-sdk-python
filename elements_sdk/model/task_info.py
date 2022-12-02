@@ -187,6 +187,7 @@ class TaskInfo(ModelNormal):
 
     read_only_vars = {
         'display_name',  # noqa: E501
+        'kwargs',  # noqa: E501
         'log_path',  # noqa: E501
         'started',  # noqa: E501
         'finished',  # noqa: E501
@@ -308,12 +309,11 @@ class TaskInfo(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, kwargs, progress, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, progress, *args, **xkwargs):  # noqa: E501
         """TaskInfo - a model defined in OpenAPI
 
         Args:
             id (str):
-            kwargs ({str: (str, none_type)}):
             progress (TaskProgress):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -388,7 +388,6 @@ class TaskInfo(ModelNormal):
 
 
         self.id = id
-        self.kwargs = kwargs
         self.progress = progress
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

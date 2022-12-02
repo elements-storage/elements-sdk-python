@@ -58,12 +58,14 @@ class CloudAccountPartialUpdate(ModelNormal):
         ('provider',): {
             'AZURE': "azure",
             'AWS': "aws",
+            'BACKBLAZE': "backblaze",
             'GCLOUD': "gcloud",
         },
         ('mount_credentials_management',): {
             'None': None,
             'NULL': "null",
             'SHARE': "share",
+            'TOKEN': "token",
         },
     }
 

@@ -108,7 +108,6 @@ class OneTimeAccessToken(ModelNormal):
             'id': (int,),  # noqa: E501
             'activity': ([OneTimeAccessTokenActivity],),  # noqa: E501
             'user': (ElementsUserMiniReference,),  # noqa: E501
-            'created_by': (ElementsUserMini,),  # noqa: E501
             'shared_bundles': ([OneTimeAccessTokenSharedObject],),  # noqa: E501
             'shared_directories': ([OneTimeAccessTokenSharedObject],),  # noqa: E501
             'full_url': (str,),  # noqa: E501
@@ -117,6 +116,7 @@ class OneTimeAccessToken(ModelNormal):
             'created_at': (datetime,),  # noqa: E501
             'is_easy_sharing_for_bundle': (int,),  # noqa: E501
             'is_easy_sharing_for_directory': (int,),  # noqa: E501
+            'created_by': (ElementsUserMini,),  # noqa: E501
             'media_root_permissions': (str, none_type,),  # noqa: E501
             'view_limit_enabled': (bool,),  # noqa: E501
             'view_limit_left': (int,),  # noqa: E501
@@ -133,7 +133,6 @@ class OneTimeAccessToken(ModelNormal):
         'id': 'id',  # noqa: E501
         'activity': 'activity',  # noqa: E501
         'user': 'user',  # noqa: E501
-        'created_by': 'created_by',  # noqa: E501
         'shared_bundles': 'shared_bundles',  # noqa: E501
         'shared_directories': 'shared_directories',  # noqa: E501
         'full_url': 'full_url',  # noqa: E501
@@ -142,6 +141,7 @@ class OneTimeAccessToken(ModelNormal):
         'created_at': 'created_at',  # noqa: E501
         'is_easy_sharing_for_bundle': 'is_easy_sharing_for_bundle',  # noqa: E501
         'is_easy_sharing_for_directory': 'is_easy_sharing_for_directory',  # noqa: E501
+        'created_by': 'created_by',  # noqa: E501
         'media_root_permissions': 'media_root_permissions',  # noqa: E501
         'view_limit_enabled': 'view_limit_enabled',  # noqa: E501
         'view_limit_left': 'view_limit_left',  # noqa: E501
@@ -164,14 +164,13 @@ class OneTimeAccessToken(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, activity, user, created_by, shared_bundles, shared_directories, full_url, url, token, created_at, is_easy_sharing_for_bundle, is_easy_sharing_for_directory, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, activity, user, shared_bundles, shared_directories, full_url, url, token, created_at, is_easy_sharing_for_bundle, is_easy_sharing_for_directory, *args, **xkwargs):  # noqa: E501
         """OneTimeAccessToken - a model defined in OpenAPI
 
         Args:
             id (int):
             activity ([OneTimeAccessTokenActivity]):
             user (ElementsUserMiniReference):
-            created_by (ElementsUserMini):
             shared_bundles ([OneTimeAccessTokenSharedObject]):
             shared_directories ([OneTimeAccessTokenSharedObject]):
             full_url (str):
@@ -212,6 +211,7 @@ class OneTimeAccessToken(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            created_by (ElementsUserMini): [optional]  # noqa: E501
             media_root_permissions (str, none_type): [optional]  # noqa: E501
             view_limit_enabled (bool): [optional]  # noqa: E501
             view_limit_left (int): [optional]  # noqa: E501
@@ -248,7 +248,6 @@ class OneTimeAccessToken(ModelNormal):
         self.id = id
         self.activity = activity
         self.user = user
-        self.created_by = created_by
         self.shared_bundles = shared_bundles
         self.shared_directories = shared_directories
         self.full_url = full_url
@@ -278,13 +277,12 @@ class OneTimeAccessToken(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, user, created_by, url, token, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, user, url, token, *args, **xkwargs):  # noqa: E501
         """OneTimeAccessToken - a model defined in OpenAPI
 
         Args:
             id (int):
             user (ElementsUserMiniReference):
-            created_by (ElementsUserMini):
             url (str):
             token (str):
         Keyword Args:
@@ -318,6 +316,7 @@ class OneTimeAccessToken(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            created_by (ElementsUserMini): [optional]  # noqa: E501
             media_root_permissions (str, none_type): [optional]  # noqa: E501
             view_limit_enabled (bool): [optional]  # noqa: E501
             view_limit_left (int): [optional]  # noqa: E501
@@ -351,7 +350,6 @@ class OneTimeAccessToken(ModelNormal):
 
         self.id = id
         self.user = user
-        self.created_by = created_by
         self.url = url
         self.token = token
         for var_name, var_value in xkwargs.items():

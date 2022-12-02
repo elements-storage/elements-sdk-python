@@ -111,7 +111,7 @@ class MediaFile(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'volume': (VolumeMini,),  # noqa: E501
-            'effective_custom_fields': ({str: (str, none_type)},),  # noqa: E501
+            'effective_custom_fields': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'full_path': (str,),  # noqa: E501
             'is_shared': (bool, none_type,),  # noqa: E501
             'is_excluded': (bool,),  # noqa: E501
@@ -215,7 +215,7 @@ class MediaFile(ModelNormal):
         Args:
             id (int):
             volume (VolumeMini):
-            effective_custom_fields ({str: (str, none_type)}):
+            effective_custom_fields ({str: (str, none_type)}, none_type):
             full_path (str):
             is_shared (bool, none_type):
             is_excluded (bool):

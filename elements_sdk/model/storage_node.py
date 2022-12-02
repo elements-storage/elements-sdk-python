@@ -122,6 +122,7 @@ class StorageNode(ModelNormal):
             'type': (int,),  # noqa: E501
             'ipmi': (int,),  # noqa: E501
             'status': (StorageNodeStatus,),  # noqa: E501
+            'volume_queues': ([int],),  # noqa: E501
         }
 
     @cached_property
@@ -140,6 +141,7 @@ class StorageNode(ModelNormal):
         'type': 'type',  # noqa: E501
         'ipmi': 'ipmi',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'volume_queues': 'volume_queues',  # noqa: E501
     }
 
     read_only_vars = {
@@ -197,6 +199,7 @@ class StorageNode(ModelNormal):
             type (int): [optional]  # noqa: E501
             ipmi (int): [optional]  # noqa: E501
             status (StorageNodeStatus): [optional]  # noqa: E501
+            volume_queues ([int]): Run volume-specific tasks for selected volumes.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -293,6 +296,7 @@ class StorageNode(ModelNormal):
             type (int): [optional]  # noqa: E501
             ipmi (int): [optional]  # noqa: E501
             status (StorageNodeStatus): [optional]  # noqa: E501
+            volume_queues ([int]): Run volume-specific tasks for selected volumes.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

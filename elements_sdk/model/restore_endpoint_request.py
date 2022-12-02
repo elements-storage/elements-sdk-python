@@ -98,6 +98,7 @@ class RestoreEndpointRequest(ModelNormal):
             'exclude': ([str, none_type],),  # noqa: E501
             'tape': (str,),  # noqa: E501
             'start_date': (datetime,),  # noqa: E501
+            'destination': (str, none_type,),  # noqa: E501
             'export': (bool,),  # noqa: E501
         }
 
@@ -112,6 +113,7 @@ class RestoreEndpointRequest(ModelNormal):
         'exclude': 'exclude',  # noqa: E501
         'tape': 'tape',  # noqa: E501
         'start_date': 'start_date',  # noqa: E501
+        'destination': 'destination',  # noqa: E501
         'export': 'export',  # noqa: E501
     }
 
@@ -163,6 +165,7 @@ class RestoreEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            destination (str, none_type): [optional]  # noqa: E501
             export (bool): [optional]  # noqa: E501
         """
 
@@ -259,6 +262,7 @@ class RestoreEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            destination (str, none_type): [optional]  # noqa: E501
             export (bool): [optional]  # noqa: E501
         """
 

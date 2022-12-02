@@ -106,8 +106,9 @@ class Proxy(ModelNormal):
             'profile': (ProxyProfileMini,),  # noqa: E501
             'failed_reason': (str, none_type,),  # noqa: E501
             'transforms': (str,),  # noqa: E501
-            'asset': (int,),  # noqa: E501
             'generated': (bool,),  # noqa: E501
+            'asset': (int,),  # noqa: E501
+            'generated_date': (datetime, none_type,),  # noqa: E501
             'failed': (bool,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'variant_id': (str,),  # noqa: E501
@@ -125,8 +126,9 @@ class Proxy(ModelNormal):
         'profile': 'profile',  # noqa: E501
         'failed_reason': 'failed_reason',  # noqa: E501
         'transforms': 'transforms',  # noqa: E501
-        'asset': 'asset',  # noqa: E501
         'generated': 'generated',  # noqa: E501
+        'asset': 'asset',  # noqa: E501
+        'generated_date': 'generated_date',  # noqa: E501
         'failed': 'failed',  # noqa: E501
         'name': 'name',  # noqa: E501
         'variant_id': 'variant_id',  # noqa: E501
@@ -137,13 +139,14 @@ class Proxy(ModelNormal):
         'urls',  # noqa: E501
         'failed_reason',  # noqa: E501
         'transforms',  # noqa: E501
+        'generated',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, urls, profile, failed_reason, transforms, asset, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, urls, profile, failed_reason, transforms, generated, asset, *args, **xkwargs):  # noqa: E501
         """Proxy - a model defined in OpenAPI
 
         Args:
@@ -152,6 +155,7 @@ class Proxy(ModelNormal):
             profile (ProxyProfileMini):
             failed_reason (str, none_type):
             transforms (str):
+            generated (bool):
             asset (int):
 
         Keyword Args:
@@ -185,7 +189,7 @@ class Proxy(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            generated (bool): [optional]  # noqa: E501
+            generated_date (datetime, none_type): [optional]  # noqa: E501
             failed (bool): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             variant_id (str): [optional] if omitted the server will use the default value of "default"  # noqa: E501
@@ -223,6 +227,7 @@ class Proxy(ModelNormal):
         self.profile = profile
         self.failed_reason = failed_reason
         self.transforms = transforms
+        self.generated = generated
         self.asset = asset
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -284,7 +289,7 @@ class Proxy(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            generated (bool): [optional]  # noqa: E501
+            generated_date (datetime, none_type): [optional]  # noqa: E501
             failed (bool): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             variant_id (str): [optional] if omitted the server will use the default value of "default"  # noqa: E501

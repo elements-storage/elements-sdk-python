@@ -64,6 +64,9 @@ class ElementsVersion(ModelNormal):
         ('branch',): {
             'min_length': 1,
         },
+        ('commit',): {
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -91,6 +94,7 @@ class ElementsVersion(ModelNormal):
             'branch': (str, none_type,),  # noqa: E501
             'patch_count': (int,),  # noqa: E501
             'patch_commit_count': (int,),  # noqa: E501
+            'commit': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -103,6 +107,7 @@ class ElementsVersion(ModelNormal):
         'branch': 'branch',  # noqa: E501
         'patch_count': 'patch_count',  # noqa: E501
         'patch_commit_count': 'patch_commit_count',  # noqa: E501
+        'commit': 'commit',  # noqa: E501
     }
 
     read_only_vars = {
@@ -112,7 +117,7 @@ class ElementsVersion(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, release, branch, patch_count, patch_commit_count, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, release, branch, patch_count, patch_commit_count, commit, *args, **xkwargs):  # noqa: E501
         """ElementsVersion - a model defined in OpenAPI
 
         Args:
@@ -120,6 +125,7 @@ class ElementsVersion(ModelNormal):
             branch (str, none_type):
             patch_count (int):
             patch_commit_count (int):
+            commit (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -184,6 +190,7 @@ class ElementsVersion(ModelNormal):
         self.branch = branch
         self.patch_count = patch_count
         self.patch_commit_count = patch_commit_count
+        self.commit = commit
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -205,7 +212,7 @@ class ElementsVersion(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, release, branch, patch_count, patch_commit_count, *args, **xkwargs):  # noqa: E501
+    def __init__(self, release, branch, patch_count, patch_commit_count, commit, *args, **xkwargs):  # noqa: E501
         """ElementsVersion - a model defined in OpenAPI
 
         Args:
@@ -213,6 +220,7 @@ class ElementsVersion(ModelNormal):
             branch (str, none_type):
             patch_count (int):
             patch_commit_count (int):
+            commit (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -275,6 +283,7 @@ class ElementsVersion(ModelNormal):
         self.branch = branch
         self.patch_count = patch_count
         self.patch_commit_count = patch_commit_count
+        self.commit = commit
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

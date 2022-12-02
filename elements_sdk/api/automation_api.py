@@ -1106,6 +1106,7 @@ class AutomationApi(object):
                     'ordering',
                     'limit',
                     'offset',
+                    'include_kwargs',
                 ],
                 'required': [],
                 'nullable': [
@@ -1145,6 +1146,8 @@ class AutomationApi(object):
                         (int,),
                     'offset':
                         (int,),
+                    'include_kwargs':
+                        (bool,),
                 },
                 'attribute_map': {
                     'job_instance': 'job_instance',
@@ -1159,6 +1162,7 @@ class AutomationApi(object):
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
+                    'include_kwargs': 'include_kwargs',
                 },
                 'location_map': {
                     'job_instance': 'query',
@@ -1173,6 +1177,7 @@ class AutomationApi(object):
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                    'include_kwargs': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1655,6 +1660,7 @@ class AutomationApi(object):
             params_map={
                 'all': [
                     'id',
+                    'include_kwargs',
                 ],
                 'required': [
                     'id',
@@ -1674,12 +1680,16 @@ class AutomationApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
+                    'include_kwargs':
+                        (bool,),
                 },
                 'attribute_map': {
                     'id': 'id',
+                    'include_kwargs': 'include_kwargs',
                 },
                 'location_map': {
                     'id': 'path',
+                    'include_kwargs': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -3985,6 +3995,7 @@ class AutomationApi(object):
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
+            include_kwargs (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -4616,6 +4627,7 @@ class AutomationApi(object):
             id (str): A unique value identifying this task info.
 
         Keyword Args:
+            include_kwargs (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

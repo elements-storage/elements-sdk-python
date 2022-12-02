@@ -58,6 +58,7 @@ class CloudAccountMini(ModelNormal):
         ('provider',): {
             'AZURE': "azure",
             'AWS': "aws",
+            'BACKBLAZE': "backblaze",
             'GCLOUD': "gcloud",
         },
     }

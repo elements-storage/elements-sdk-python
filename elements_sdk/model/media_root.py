@@ -145,14 +145,11 @@ class MediaRoot(ModelNormal):
             'prefetch_thumbnail_strips': (bool,),  # noqa: E501
             'cover': (str, none_type,),  # noqa: E501
             'name_field': (str, none_type,),  # noqa: E501
-            'veritone_config': (str,),  # noqa: E501
             'ai_config': (str,),  # noqa: E501
             'share_comments': (bool,),  # noqa: E501
             'share_link_duration': (int,),  # noqa: E501
             'default_proxy_profile': (int, none_type,),  # noqa: E501
             'cloud_proxy_profile': (int, none_type,),  # noqa: E501
-            'veritone_connection': (int, none_type,),  # noqa: E501
-            'veritone_proxy_profile': (int, none_type,),  # noqa: E501
             'ai_connection': (int, none_type,),  # noqa: E501
             'ai_proxy_profile': (int, none_type,),  # noqa: E501
             'proxy_profiles': ([int],),  # noqa: E501
@@ -191,14 +188,11 @@ class MediaRoot(ModelNormal):
         'prefetch_thumbnail_strips': 'prefetch_thumbnail_strips',  # noqa: E501
         'cover': 'cover',  # noqa: E501
         'name_field': 'name_field',  # noqa: E501
-        'veritone_config': 'veritone_config',  # noqa: E501
         'ai_config': 'ai_config',  # noqa: E501
         'share_comments': 'share_comments',  # noqa: E501
         'share_link_duration': 'share_link_duration',  # noqa: E501
         'default_proxy_profile': 'default_proxy_profile',  # noqa: E501
         'cloud_proxy_profile': 'cloud_proxy_profile',  # noqa: E501
-        'veritone_connection': 'veritone_connection',  # noqa: E501
-        'veritone_proxy_profile': 'veritone_proxy_profile',  # noqa: E501
         'ai_connection': 'ai_connection',  # noqa: E501
         'ai_proxy_profile': 'ai_proxy_profile',  # noqa: E501
         'proxy_profiles': 'proxy_profiles',  # noqa: E501
@@ -276,14 +270,11 @@ class MediaRoot(ModelNormal):
             prefetch_thumbnail_strips (bool): [optional]  # noqa: E501
             cover (str, none_type): [optional]  # noqa: E501
             name_field (str, none_type): [optional]  # noqa: E501
-            veritone_config (str): [optional]  # noqa: E501
             ai_config (str): [optional]  # noqa: E501
             share_comments (bool): [optional]  # noqa: E501
             share_link_duration (int): [optional]  # noqa: E501
             default_proxy_profile (int, none_type): [optional]  # noqa: E501
             cloud_proxy_profile (int, none_type): [optional]  # noqa: E501
-            veritone_connection (int, none_type): [optional]  # noqa: E501
-            veritone_proxy_profile (int, none_type): [optional]  # noqa: E501
             ai_connection (int, none_type): [optional]  # noqa: E501
             ai_proxy_profile (int, none_type): [optional]  # noqa: E501
             proxy_profiles ([int]): [optional]  # noqa: E501
@@ -402,14 +393,11 @@ class MediaRoot(ModelNormal):
             prefetch_thumbnail_strips (bool): [optional]  # noqa: E501
             cover (str, none_type): [optional]  # noqa: E501
             name_field (str, none_type): [optional]  # noqa: E501
-            veritone_config (str): [optional]  # noqa: E501
             ai_config (str): [optional]  # noqa: E501
             share_comments (bool): [optional]  # noqa: E501
             share_link_duration (int): [optional]  # noqa: E501
             default_proxy_profile (int, none_type): [optional]  # noqa: E501
             cloud_proxy_profile (int, none_type): [optional]  # noqa: E501
-            veritone_connection (int, none_type): [optional]  # noqa: E501
-            veritone_proxy_profile (int, none_type): [optional]  # noqa: E501
             ai_connection (int, none_type): [optional]  # noqa: E501
             ai_proxy_profile (int, none_type): [optional]  # noqa: E501
             proxy_profiles ([int]): [optional]  # noqa: E501

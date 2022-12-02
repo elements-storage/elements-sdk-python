@@ -107,15 +107,15 @@ class MediaUpdate(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'asset': (AssetMini,),  # noqa: E501
-            'comment': (Comment,),  # noqa: E501
-            'directory': (MediaFile,),  # noqa: E501
             'root': (MediaRootMini,),  # noqa: E501
-            'user': (ElementsUserMini,),  # noqa: E501
             'custom_fields_diff': ({str: (str, none_type)},),  # noqa: E501
             'added_tags': ([UnfilteredTag],),  # noqa: E501
             'removed_tags': ([UnfilteredTag],),  # noqa: E501
             'type': (str,),  # noqa: E501
             'date': (datetime,),  # noqa: E501
+            'comment': (Comment,),  # noqa: E501
+            'directory': (MediaFile,),  # noqa: E501
+            'user': (ElementsUserMini,),  # noqa: E501
             'rating': (int, none_type,),  # noqa: E501
         }
 
@@ -127,15 +127,15 @@ class MediaUpdate(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'asset': 'asset',  # noqa: E501
-        'comment': 'comment',  # noqa: E501
-        'directory': 'directory',  # noqa: E501
         'root': 'root',  # noqa: E501
-        'user': 'user',  # noqa: E501
         'custom_fields_diff': 'custom_fields_diff',  # noqa: E501
         'added_tags': 'added_tags',  # noqa: E501
         'removed_tags': 'removed_tags',  # noqa: E501
         'type': 'type',  # noqa: E501
         'date': 'date',  # noqa: E501
+        'comment': 'comment',  # noqa: E501
+        'directory': 'directory',  # noqa: E501
+        'user': 'user',  # noqa: E501
         'rating': 'rating',  # noqa: E501
     }
 
@@ -149,16 +149,13 @@ class MediaUpdate(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, asset, comment, directory, root, user, custom_fields_diff, added_tags, removed_tags, type, date, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, asset, root, custom_fields_diff, added_tags, removed_tags, type, date, *args, **xkwargs):  # noqa: E501
         """MediaUpdate - a model defined in OpenAPI
 
         Args:
             id (int):
             asset (AssetMini):
-            comment (Comment):
-            directory (MediaFile):
             root (MediaRootMini):
-            user (ElementsUserMini):
             custom_fields_diff ({str: (str, none_type)}):
             added_tags ([UnfilteredTag]):
             removed_tags ([UnfilteredTag]):
@@ -196,6 +193,9 @@ class MediaUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            comment (Comment): [optional]  # noqa: E501
+            directory (MediaFile): [optional]  # noqa: E501
+            user (ElementsUserMini): [optional]  # noqa: E501
             rating (int, none_type): [optional]  # noqa: E501
         """
 
@@ -227,10 +227,7 @@ class MediaUpdate(ModelNormal):
 
         self.id = id
         self.asset = asset
-        self.comment = comment
-        self.directory = directory
         self.root = root
-        self.user = user
         self.custom_fields_diff = custom_fields_diff
         self.added_tags = added_tags
         self.removed_tags = removed_tags
@@ -257,16 +254,13 @@ class MediaUpdate(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, asset, comment, directory, root, user, custom_fields_diff, type, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, asset, root, custom_fields_diff, type, *args, **xkwargs):  # noqa: E501
         """MediaUpdate - a model defined in OpenAPI
 
         Args:
             id (int):
             asset (AssetMini):
-            comment (Comment):
-            directory (MediaFile):
             root (MediaRootMini):
-            user (ElementsUserMini):
             custom_fields_diff ({str: (str, none_type)}):
             type (str):
         Keyword Args:
@@ -300,6 +294,9 @@ class MediaUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            comment (Comment): [optional]  # noqa: E501
+            directory (MediaFile): [optional]  # noqa: E501
+            user (ElementsUserMini): [optional]  # noqa: E501
             rating (int, none_type): [optional]  # noqa: E501
         """
 
@@ -329,10 +326,7 @@ class MediaUpdate(ModelNormal):
 
         self.id = id
         self.asset = asset
-        self.comment = comment
-        self.directory = directory
         self.root = root
-        self.user = user
         self.custom_fields_diff = custom_fields_diff
         self.type = type
         for var_name, var_value in xkwargs.items():

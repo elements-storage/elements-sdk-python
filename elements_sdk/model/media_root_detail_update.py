@@ -32,10 +32,10 @@ from elements_sdk.exceptions import ApiAttributeError
 def lazy_import():
     from elements_sdk.model.custom_field_reference import CustomFieldReference
     from elements_sdk.model.job_reference import JobReference
-    from elements_sdk.model.volume_mini_reference import VolumeMiniReference
+    from elements_sdk.model.volume_reference import VolumeReference
     globals()['CustomFieldReference'] = CustomFieldReference
     globals()['JobReference'] = JobReference
-    globals()['VolumeMiniReference'] = VolumeMiniReference
+    globals()['VolumeReference'] = VolumeReference
 
 
 class MediaRootDetailUpdate(ModelNormal):
@@ -120,13 +120,12 @@ class MediaRootDetailUpdate(ModelNormal):
         """
         lazy_import()
         return {
-            'volume': (VolumeMiniReference,),  # noqa: E501
+            'volume': (VolumeReference,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'custom_fields': ([CustomFieldReference],),  # noqa: E501
             'workflow': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'jobs': ([JobReference],),  # noqa: E501
             'ai_config': ({str: (str, none_type)}, none_type,),  # noqa: E501
-            'veritone_config': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'path': (str,),  # noqa: E501
             'needs_rescan': (bool,),  # noqa: E501
             'view_mode': (str,),  # noqa: E501
@@ -149,8 +148,6 @@ class MediaRootDetailUpdate(ModelNormal):
             'share_link_duration': (int,),  # noqa: E501
             'default_proxy_profile': (int, none_type,),  # noqa: E501
             'cloud_proxy_profile': (int, none_type,),  # noqa: E501
-            'veritone_connection': (int, none_type,),  # noqa: E501
-            'veritone_proxy_profile': (int, none_type,),  # noqa: E501
             'ai_connection': (int, none_type,),  # noqa: E501
             'ai_proxy_profile': (int, none_type,),  # noqa: E501
             'proxy_profiles': ([int],),  # noqa: E501
@@ -169,7 +166,6 @@ class MediaRootDetailUpdate(ModelNormal):
         'workflow': 'workflow',  # noqa: E501
         'jobs': 'jobs',  # noqa: E501
         'ai_config': 'ai_config',  # noqa: E501
-        'veritone_config': 'veritone_config',  # noqa: E501
         'path': 'path',  # noqa: E501
         'needs_rescan': 'needs_rescan',  # noqa: E501
         'view_mode': 'view_mode',  # noqa: E501
@@ -192,8 +188,6 @@ class MediaRootDetailUpdate(ModelNormal):
         'share_link_duration': 'share_link_duration',  # noqa: E501
         'default_proxy_profile': 'default_proxy_profile',  # noqa: E501
         'cloud_proxy_profile': 'cloud_proxy_profile',  # noqa: E501
-        'veritone_connection': 'veritone_connection',  # noqa: E501
-        'veritone_proxy_profile': 'veritone_proxy_profile',  # noqa: E501
         'ai_connection': 'ai_connection',  # noqa: E501
         'ai_proxy_profile': 'ai_proxy_profile',  # noqa: E501
         'proxy_profiles': 'proxy_profiles',  # noqa: E501
@@ -201,6 +195,7 @@ class MediaRootDetailUpdate(ModelNormal):
     }
 
     read_only_vars = {
+        'path',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -211,7 +206,7 @@ class MediaRootDetailUpdate(ModelNormal):
         """MediaRootDetailUpdate - a model defined in OpenAPI
 
         Args:
-            volume (VolumeMiniReference):
+            volume (VolumeReference):
             name (str):
 
         Keyword Args:
@@ -249,7 +244,6 @@ class MediaRootDetailUpdate(ModelNormal):
             workflow ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             jobs ([JobReference]): [optional]  # noqa: E501
             ai_config ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            veritone_config ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
             needs_rescan (bool): [optional]  # noqa: E501
             view_mode (str): [optional]  # noqa: E501
@@ -272,8 +266,6 @@ class MediaRootDetailUpdate(ModelNormal):
             share_link_duration (int): [optional]  # noqa: E501
             default_proxy_profile (int, none_type): [optional]  # noqa: E501
             cloud_proxy_profile (int, none_type): [optional]  # noqa: E501
-            veritone_connection (int, none_type): [optional]  # noqa: E501
-            veritone_proxy_profile (int, none_type): [optional]  # noqa: E501
             ai_connection (int, none_type): [optional]  # noqa: E501
             ai_proxy_profile (int, none_type): [optional]  # noqa: E501
             proxy_profiles ([int]): [optional]  # noqa: E501
@@ -333,7 +325,7 @@ class MediaRootDetailUpdate(ModelNormal):
         """MediaRootDetailUpdate - a model defined in OpenAPI
 
         Args:
-            volume (VolumeMiniReference):
+            volume (VolumeReference):
             name (str):
 
         Keyword Args:
@@ -371,7 +363,6 @@ class MediaRootDetailUpdate(ModelNormal):
             workflow ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             jobs ([JobReference]): [optional]  # noqa: E501
             ai_config ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            veritone_config ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
             needs_rescan (bool): [optional]  # noqa: E501
             view_mode (str): [optional]  # noqa: E501
@@ -394,8 +385,6 @@ class MediaRootDetailUpdate(ModelNormal):
             share_link_duration (int): [optional]  # noqa: E501
             default_proxy_profile (int, none_type): [optional]  # noqa: E501
             cloud_proxy_profile (int, none_type): [optional]  # noqa: E501
-            veritone_connection (int, none_type): [optional]  # noqa: E501
-            veritone_proxy_profile (int, none_type): [optional]  # noqa: E501
             ai_connection (int, none_type): [optional]  # noqa: E501
             ai_proxy_profile (int, none_type): [optional]  # noqa: E501
             proxy_profiles ([int]): [optional]  # noqa: E501

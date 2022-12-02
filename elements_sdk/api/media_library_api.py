@@ -46,6 +46,7 @@ from elements_sdk.model.editor_project_update import EditorProjectUpdate
 from elements_sdk.model.editor_subtitle import EditorSubtitle
 from elements_sdk.model.editor_subtitle_partial_update import EditorSubtitlePartialUpdate
 from elements_sdk.model.editor_subtitle_update import EditorSubtitleUpdate
+from elements_sdk.model.elements_user_mini import ElementsUserMini
 from elements_sdk.model.external_transcoder import ExternalTranscoder
 from elements_sdk.model.external_transcoder_partial_update import ExternalTranscoderPartialUpdate
 from elements_sdk.model.external_transcoder_update import ExternalTranscoderUpdate
@@ -53,6 +54,7 @@ from elements_sdk.model.extract_request import ExtractRequest
 from elements_sdk.model.generate_proxies_request import GenerateProxiesRequest
 from elements_sdk.model.get_multiple_bundles_request import GetMultipleBundlesRequest
 from elements_sdk.model.get_multiple_files_request import GetMultipleFilesRequest
+from elements_sdk.model.image_upload_request import ImageUploadRequest
 from elements_sdk.model.instantiate_file_template_request import InstantiateFileTemplateRequest
 from elements_sdk.model.locate_result import LocateResult
 from elements_sdk.model.marker import Marker
@@ -76,6 +78,7 @@ from elements_sdk.model.media_root_detail_update import MediaRootDetailUpdate
 from elements_sdk.model.media_root_permission import MediaRootPermission
 from elements_sdk.model.media_root_permission_partial_update import MediaRootPermissionPartialUpdate
 from elements_sdk.model.media_root_permission_update import MediaRootPermissionUpdate
+from elements_sdk.model.media_root_update import MediaRootUpdate
 from elements_sdk.model.media_update import MediaUpdate
 from elements_sdk.model.multiple_assets_request import MultipleAssetsRequest
 from elements_sdk.model.one_time_access_token import OneTimeAccessToken
@@ -845,7 +848,7 @@ class MediaLibraryApi(object):
         )
         self.create_media_root_endpoint = _Endpoint(
             settings={
-                'response_type': (MediaRootDetail,),
+                'response_type': (MediaRoot,),
                 'auth': [
                     'Bearer'
                 ],
@@ -856,10 +859,10 @@ class MediaLibraryApi(object):
             },
             params_map={
                 'all': [
-                    'media_root_detail_update',
+                    'media_root_update',
                 ],
                 'required': [
-                    'media_root_detail_update',
+                    'media_root_update',
                 ],
                 'nullable': [
                 ],
@@ -874,13 +877,13 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'media_root_detail_update':
-                        (MediaRootDetailUpdate,),
+                    'media_root_update':
+                        (MediaRootUpdate,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'media_root_detail_update': 'body',
+                    'media_root_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1855,6 +1858,55 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.delete_media_root_cover_image_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/roots/{id}/cover',
+                'operation_id': 'delete_media_root_cover_image',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.delete_media_root_permission_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -2059,6 +2111,55 @@ class MediaLibraryApi(object):
                 ],
                 'endpoint_path': '/api/2/media/proxy-profiles/{id}',
                 'operation_id': 'delete_proxy_profile',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_proxy_profile_watermark_image_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/proxy-profiles/{id}/watermark',
+                'operation_id': 'delete_proxy_profile_watermark_image',
                 'http_method': 'DELETE',
                 'servers': None,
             },
@@ -3183,6 +3284,8 @@ class MediaLibraryApi(object):
                     'offset',
                     'include_asset',
                     'advanced_search',
+                    'exclude_unrecognized',
+                    'in_media_root',
                 ],
                 'required': [],
                 'nullable': [
@@ -3210,6 +3313,10 @@ class MediaLibraryApi(object):
                         (bool,),
                     'advanced_search':
                         (str,),
+                    'exclude_unrecognized':
+                        (bool,),
+                    'in_media_root':
+                        (int,),
                 },
                 'attribute_map': {
                     'asset': 'asset',
@@ -3218,6 +3325,8 @@ class MediaLibraryApi(object):
                     'offset': 'offset',
                     'include_asset': 'include_asset',
                     'advanced_search': 'advanced_search',
+                    'exclude_unrecognized': 'exclude_unrecognized',
+                    'in_media_root': 'in_media_root',
                 },
                 'location_map': {
                     'asset': 'query',
@@ -3226,6 +3335,8 @@ class MediaLibraryApi(object):
                     'offset': 'query',
                     'include_asset': 'query',
                     'advanced_search': 'query',
+                    'exclude_unrecognized': 'query',
+                    'in_media_root': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -3899,7 +4010,9 @@ class MediaLibraryApi(object):
                     'exclude_unrecognized',
                     'include_proxies',
                     'include_parents',
+                    'include_modified_by',
                     'advanced_search',
+                    'in_media_root',
                 ],
                 'required': [],
                 'nullable': [
@@ -3939,8 +4052,12 @@ class MediaLibraryApi(object):
                         (bool,),
                     'include_parents':
                         (bool,),
+                    'include_modified_by':
+                        (bool,),
                     'advanced_search':
                         (str,),
+                    'in_media_root':
+                        (int,),
                 },
                 'attribute_map': {
                     'asset': 'asset',
@@ -3955,7 +4072,9 @@ class MediaLibraryApi(object):
                     'exclude_unrecognized': 'exclude_unrecognized',
                     'include_proxies': 'include_proxies',
                     'include_parents': 'include_parents',
+                    'include_modified_by': 'include_modified_by',
                     'advanced_search': 'advanced_search',
+                    'in_media_root': 'in_media_root',
                 },
                 'location_map': {
                     'asset': 'query',
@@ -3970,7 +4089,9 @@ class MediaLibraryApi(object):
                     'exclude_unrecognized': 'query',
                     'include_proxies': 'query',
                     'include_parents': 'query',
+                    'include_modified_by': 'query',
                     'advanced_search': 'query',
+                    'in_media_root': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -4075,6 +4196,9 @@ class MediaLibraryApi(object):
                     'include_root',
                     'include_parents',
                     'advanced_search',
+                    'in_media_root',
+                    'in_directory',
+                    'exclude_deleted',
                 ],
                 'required': [],
                 'nullable': [
@@ -4130,6 +4254,12 @@ class MediaLibraryApi(object):
                         (bool,),
                     'advanced_search':
                         (str,),
+                    'in_media_root':
+                        (int,),
+                    'in_directory':
+                        (int,),
+                    'exclude_deleted':
+                        (bool,),
                 },
                 'attribute_map': {
                     'bundle': 'bundle',
@@ -4152,6 +4282,9 @@ class MediaLibraryApi(object):
                     'include_root': 'include_root',
                     'include_parents': 'include_parents',
                     'advanced_search': 'advanced_search',
+                    'in_media_root': 'in_media_root',
+                    'in_directory': 'in_directory',
+                    'exclude_deleted': 'exclude_deleted',
                 },
                 'location_map': {
                     'bundle': 'query',
@@ -4174,6 +4307,9 @@ class MediaLibraryApi(object):
                     'include_root': 'query',
                     'include_parents': 'query',
                     'advanced_search': 'query',
+                    'in_media_root': 'query',
+                    'in_directory': 'query',
+                    'exclude_deleted': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -4736,6 +4872,7 @@ class MediaLibraryApi(object):
                     'ordering',
                     'limit',
                     'offset',
+                    'filter',
                 ],
                 'required': [],
                 'nullable': [
@@ -4763,6 +4900,8 @@ class MediaLibraryApi(object):
                         (int,),
                     'offset':
                         (int,),
+                    'filter':
+                        (str,),
                 },
                 'attribute_map': {
                     'asset': 'asset',
@@ -4771,6 +4910,7 @@ class MediaLibraryApi(object):
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
+                    'filter': 'filter',
                 },
                 'location_map': {
                     'asset': 'query',
@@ -4779,6 +4919,7 @@ class MediaLibraryApi(object):
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                    'filter': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -6131,6 +6272,10 @@ class MediaLibraryApi(object):
                     'include_root',
                     'include_parents',
                     'advanced_search',
+                    'in_media_root',
+                    'in_directory',
+                    'exclude_deleted',
+                    'path',
                 ],
                 'required': [
                     'id',
@@ -6162,6 +6307,14 @@ class MediaLibraryApi(object):
                         (bool,),
                     'advanced_search':
                         (str,),
+                    'in_media_root':
+                        (int,),
+                    'in_directory':
+                        (int,),
+                    'exclude_deleted':
+                        (bool,),
+                    'path':
+                        (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -6171,6 +6324,10 @@ class MediaLibraryApi(object):
                     'include_root': 'include_root',
                     'include_parents': 'include_parents',
                     'advanced_search': 'advanced_search',
+                    'in_media_root': 'in_media_root',
+                    'in_directory': 'in_directory',
+                    'exclude_deleted': 'exclude_deleted',
+                    'path': 'path',
                 },
                 'location_map': {
                     'id': 'path',
@@ -6180,6 +6337,10 @@ class MediaLibraryApi(object):
                     'include_root': 'query',
                     'include_parents': 'query',
                     'advanced_search': 'query',
+                    'in_media_root': 'query',
+                    'in_directory': 'query',
+                    'exclude_deleted': 'query',
+                    'path': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -6210,9 +6371,11 @@ class MediaLibraryApi(object):
                     'exclude_unrecognized',
                     'include_proxies',
                     'include_parents',
+                    'include_modified_by',
                     'offset',
                     'limit',
                     'advanced_search',
+                    'in_media_root',
                 ],
                 'required': [
                     'id',
@@ -6240,12 +6403,16 @@ class MediaLibraryApi(object):
                         (bool,),
                     'include_parents':
                         (bool,),
+                    'include_modified_by':
+                        (bool,),
                     'offset':
                         (int,),
                     'limit':
                         (int,),
                     'advanced_search':
                         (str,),
+                    'in_media_root':
+                        (int,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -6253,9 +6420,11 @@ class MediaLibraryApi(object):
                     'exclude_unrecognized': 'exclude_unrecognized',
                     'include_proxies': 'include_proxies',
                     'include_parents': 'include_parents',
+                    'include_modified_by': 'include_modified_by',
                     'offset': 'offset',
                     'limit': 'limit',
                     'advanced_search': 'advanced_search',
+                    'in_media_root': 'in_media_root',
                 },
                 'location_map': {
                     'id': 'path',
@@ -6263,9 +6432,11 @@ class MediaLibraryApi(object):
                     'exclude_unrecognized': 'query',
                     'include_proxies': 'query',
                     'include_parents': 'query',
+                    'include_modified_by': 'query',
                     'offset': 'query',
                     'limit': 'query',
                     'advanced_search': 'query',
+                    'in_media_root': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -6296,6 +6467,7 @@ class MediaLibraryApi(object):
                     'exclude_unrecognized',
                     'offset',
                     'limit',
+                    'ordering',
                 ],
                 'required': [
                     'id',
@@ -6323,6 +6495,8 @@ class MediaLibraryApi(object):
                         (int,),
                     'limit':
                         (int,),
+                    'ordering':
+                        (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -6330,6 +6504,7 @@ class MediaLibraryApi(object):
                     'exclude_unrecognized': 'exclude_unrecognized',
                     'offset': 'offset',
                     'limit': 'limit',
+                    'ordering': 'ordering',
                 },
                 'location_map': {
                     'id': 'path',
@@ -6337,6 +6512,7 @@ class MediaLibraryApi(object):
                     'exclude_unrecognized': 'query',
                     'offset': 'query',
                     'limit': 'query',
+                    'ordering': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -6456,6 +6632,55 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.get_media_root_cover_image_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/roots/{id}/cover',
+                'operation_id': 'get_media_root_cover_image',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_media_root_permission_endpoint = _Endpoint(
             settings={
                 'response_type': (MediaRootPermission,),
@@ -6464,6 +6689,57 @@ class MediaLibraryApi(object):
                 ],
                 'endpoint_path': '/api/2/media/root-permissions/{id}',
                 'operation_id': 'get_media_root_permission',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_media_root_users_endpoint = _Endpoint(
+            settings={
+                'response_type': ([ElementsUserMini],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/roots/{id}/users',
+                'operation_id': 'get_media_root_users',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -7062,6 +7338,55 @@ class MediaLibraryApi(object):
                 'accept': [
                     'application/json'
                 ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_proxy_profile_watermark_image_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/proxy-profiles/{id}/watermark',
+                'operation_id': 'get_proxy_profile_watermark_image',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
                 'content_type': [],
             },
             api_client=api_client
@@ -9919,6 +10244,62 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.update_media_root_cover_image_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/roots/{id}/cover',
+                'operation_id': 'update_media_root_cover_image',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'image_upload_request',
+                ],
+                'required': [
+                    'id',
+                    'image_upload_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'image_upload_request':
+                        (ImageUploadRequest,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'image_upload_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.update_media_root_permission_endpoint = _Endpoint(
             settings={
                 'response_type': (MediaRootPermission,),
@@ -10087,6 +10468,62 @@ class MediaLibraryApi(object):
                 'accept': [
                     'application/json'
                 ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_proxy_profile_watermark_image_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/proxy-profiles/{id}/watermark',
+                'operation_id': 'update_proxy_profile_watermark_image',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'image_upload_request',
+                ],
+                'required': [
+                    'id',
+                    'image_upload_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'image_upload_request':
+                        (ImageUploadRequest,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'image_upload_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
                 'content_type': [
                     'application/json'
                 ]
@@ -11297,7 +11734,7 @@ class MediaLibraryApi(object):
 
     def create_media_root(
         self,
-        media_root_detail_update,
+        media_root_update,
         **kwargs
     ):
         """create_media_root  # noqa: E501
@@ -11306,11 +11743,11 @@ class MediaLibraryApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_media_root(media_root_detail_update, async_req=True)
+        >>> thread = api.create_media_root(media_root_update, async_req=True)
         >>> result = thread.get()
 
         Args:
-            media_root_detail_update (MediaRootDetailUpdate):
+            media_root_update (MediaRootUpdate):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -11341,7 +11778,7 @@ class MediaLibraryApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            MediaRootDetail
+            MediaRoot
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -11369,8 +11806,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['media_root_detail_update'] = \
-            media_root_detail_update
+        kwargs['media_root_update'] = \
+            media_root_update
         return self.create_media_root_endpoint.call_with_http_info(**kwargs)
 
     def create_media_root_permission(
@@ -12856,6 +13293,84 @@ class MediaLibraryApi(object):
             id
         return self.delete_media_root_endpoint.call_with_http_info(**kwargs)
 
+    def delete_media_root_cover_image(
+        self,
+        id,
+        **kwargs
+    ):
+        """delete_media_root_cover_image  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_media_root_cover_image(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this media root.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.delete_media_root_cover_image_endpoint.call_with_http_info(**kwargs)
+
     def delete_media_root_permission(
         self,
         id,
@@ -13245,6 +13760,84 @@ class MediaLibraryApi(object):
         kwargs['id'] = \
             id
         return self.delete_proxy_profile_endpoint.call_with_http_info(**kwargs)
+
+    def delete_proxy_profile_watermark_image(
+        self,
+        id,
+        **kwargs
+    ):
+        """delete_proxy_profile_watermark_image  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_proxy_profile_watermark_image(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this proxy profile.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.delete_proxy_profile_watermark_image_endpoint.call_with_http_info(**kwargs)
 
     def delete_saved_search(
         self,
@@ -14770,6 +15363,8 @@ class MediaLibraryApi(object):
             offset (int): The initial index from which to return the results.. [optional]
             include_asset (bool): [optional]
             advanced_search (str): [optional]
+            exclude_unrecognized (bool): [optional]
+            in_media_root (int): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -15503,7 +16098,9 @@ class MediaLibraryApi(object):
             exclude_unrecognized (bool): [optional]
             include_proxies (bool): [optional]
             include_parents (bool): [optional]
+            include_modified_by (bool): [optional]
             advanced_search (str): [optional]
+            in_media_root (int): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -15656,7 +16253,7 @@ class MediaLibraryApi(object):
             bundle (float): Filter the returned list by `bundle`.. [optional]
             bundle__in (str): Multiple values may be separated by commas.. [optional]
             parent (float): Filter the returned list by `parent`.. [optional]
-            path (str): Filter the returned list by `path`.. [optional]
+            path (str): [optional]
             name (str): Filter the returned list by `name`.. [optional]
             is_dir (str): Filter the returned list by `is_dir`.. [optional]
             is_showroom (str): Filter the returned list by `is_showroom`.. [optional]
@@ -15673,6 +16270,9 @@ class MediaLibraryApi(object):
             include_root (bool): [optional]
             include_parents (bool): [optional]
             advanced_search (str): [optional]
+            in_media_root (int): [optional]
+            in_directory (int): [optional]
+            exclude_deleted (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -16254,6 +16854,7 @@ class MediaLibraryApi(object):
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
+            filter (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -17994,6 +18595,10 @@ class MediaLibraryApi(object):
             include_root (bool): [optional]
             include_parents (bool): [optional]
             advanced_search (str): [optional]
+            in_media_root (int): [optional]
+            in_directory (int): [optional]
+            exclude_deleted (bool): [optional]
+            path (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -18076,9 +18681,11 @@ class MediaLibraryApi(object):
             exclude_unrecognized (bool): [optional]
             include_proxies (bool): [optional]
             include_parents (bool): [optional]
+            include_modified_by (bool): [optional]
             offset (int): [optional]
             limit (int): [optional]
             advanced_search (str): [optional]
+            in_media_root (int): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -18161,6 +18768,7 @@ class MediaLibraryApi(object):
             exclude_unrecognized (bool): [optional]
             offset (int): [optional]
             limit (int): [optional]
+            ordering (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -18378,6 +18986,84 @@ class MediaLibraryApi(object):
             id
         return self.get_media_root_endpoint.call_with_http_info(**kwargs)
 
+    def get_media_root_cover_image(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_media_root_cover_image  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_media_root_cover_image(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this media root.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_media_root_cover_image_endpoint.call_with_http_info(**kwargs)
+
     def get_media_root_permission(
         self,
         id,
@@ -18455,6 +19141,84 @@ class MediaLibraryApi(object):
         kwargs['id'] = \
             id
         return self.get_media_root_permission_endpoint.call_with_http_info(**kwargs)
+
+    def get_media_root_users(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_media_root_users  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_media_root_users(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this media root.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [ElementsUserMini]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_media_root_users_endpoint.call_with_http_info(**kwargs)
 
     def get_media_tag(
         self,
@@ -19238,6 +20002,84 @@ class MediaLibraryApi(object):
             id
         return self.get_proxy_profile_proxy_count_endpoint.call_with_http_info(**kwargs)
 
+    def get_proxy_profile_watermark_image(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_proxy_profile_watermark_image  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_proxy_profile_watermark_image(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this proxy profile.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_proxy_profile_watermark_image_endpoint.call_with_http_info(**kwargs)
+
     def get_saved_search(
         self,
         id,
@@ -19799,7 +20641,7 @@ class MediaLibraryApi(object):
     ):
         """lookup_media_files  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -23356,6 +24198,88 @@ class MediaLibraryApi(object):
             media_root_detail_update
         return self.update_media_root_endpoint.call_with_http_info(**kwargs)
 
+    def update_media_root_cover_image(
+        self,
+        id,
+        image_upload_request,
+        **kwargs
+    ):
+        """update_media_root_cover_image  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_media_root_cover_image(id, image_upload_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this media root.
+            image_upload_request (ImageUploadRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['image_upload_request'] = \
+            image_upload_request
+        return self.update_media_root_cover_image_endpoint.call_with_http_info(**kwargs)
+
     def update_media_root_permission(
         self,
         id,
@@ -23601,6 +24525,88 @@ class MediaLibraryApi(object):
         kwargs['proxy_profile_update'] = \
             proxy_profile_update
         return self.update_proxy_profile_endpoint.call_with_http_info(**kwargs)
+
+    def update_proxy_profile_watermark_image(
+        self,
+        id,
+        image_upload_request,
+        **kwargs
+    ):
+        """update_proxy_profile_watermark_image  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_proxy_profile_watermark_image(id, image_upload_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this proxy profile.
+            image_upload_request (ImageUploadRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['image_upload_request'] = \
+            image_upload_request
+        return self.update_proxy_profile_watermark_image_endpoint.call_with_http_info(**kwargs)
 
     def update_saved_search(
         self,

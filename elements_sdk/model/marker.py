@@ -82,7 +82,6 @@ class Marker(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
-            'veritone_metadata_parser': (str,),  # noqa: E501
             't_in': (float,),  # noqa: E501
             't_out': (float,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
@@ -90,7 +89,6 @@ class Marker(ModelNormal):
             'user': (int,),  # noqa: E501
             'asset': (int,),  # noqa: E501
             'comment': (int,),  # noqa: E501
-            'veritone_metadata': (int,),  # noqa: E501
             'title': (str,),  # noqa: E501
             'text': (str,),  # noqa: E501
         }
@@ -102,7 +100,6 @@ class Marker(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'veritone_metadata_parser': 'veritone_metadata_parser',  # noqa: E501
         't_in': 't_in',  # noqa: E501
         't_out': 't_out',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
@@ -110,30 +107,26 @@ class Marker(ModelNormal):
         'user': 'user',  # noqa: E501
         'asset': 'asset',  # noqa: E501
         'comment': 'comment',  # noqa: E501
-        'veritone_metadata': 'veritone_metadata',  # noqa: E501
         'title': 'title',  # noqa: E501
         'text': 'text',  # noqa: E501
     }
 
     read_only_vars = {
-        'veritone_metadata_parser',  # noqa: E501
         'created_at',  # noqa: E501
         'modified_at',  # noqa: E501
         'user',  # noqa: E501
         'comment',  # noqa: E501
-        'veritone_metadata',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, veritone_metadata_parser, t_in, t_out, created_at, modified_at, user, asset, comment, veritone_metadata, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, t_in, t_out, created_at, modified_at, user, asset, comment, *args, **xkwargs):  # noqa: E501
         """Marker - a model defined in OpenAPI
 
         Args:
             id (int):
-            veritone_metadata_parser (str):
             t_in (float):
             t_out (float):
             created_at (datetime):
@@ -141,7 +134,6 @@ class Marker(ModelNormal):
             user (int):
             asset (int):
             comment (int):
-            veritone_metadata (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -205,7 +197,6 @@ class Marker(ModelNormal):
 
 
         self.id = id
-        self.veritone_metadata_parser = veritone_metadata_parser
         self.t_in = t_in
         self.t_out = t_out
         self.created_at = created_at
@@ -213,7 +204,6 @@ class Marker(ModelNormal):
         self.user = user
         self.asset = asset
         self.comment = comment
-        self.veritone_metadata = veritone_metadata
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

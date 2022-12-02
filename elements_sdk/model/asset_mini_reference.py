@@ -103,6 +103,7 @@ class AssetMiniReference(ModelNormal):
             'format': (FormatMetadata,),  # noqa: E501
             'info': ({str: (str, none_type)},),  # noqa: E501
             'thumbnail_generated': (bool,),  # noqa: E501
+            'proxies': ([Proxy],),  # noqa: E501
         }
 
     @cached_property
@@ -119,6 +120,7 @@ class AssetMiniReference(ModelNormal):
         'format': 'format',  # noqa: E501
         'info': 'info',  # noqa: E501
         'thumbnail_generated': 'thumbnail_generated',  # noqa: E501
+        'proxies': 'proxies',  # noqa: E501
     }
 
     read_only_vars = {
@@ -127,6 +129,7 @@ class AssetMiniReference(ModelNormal):
         'display_name',  # noqa: E501
         'info',  # noqa: E501
         'thumbnail_generated',  # noqa: E501
+        'proxies',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -177,6 +180,7 @@ class AssetMiniReference(ModelNormal):
             format (FormatMetadata): [optional]  # noqa: E501
             info ({str: (str, none_type)}): [optional]  # noqa: E501
             thumbnail_generated (bool): [optional]  # noqa: E501
+            proxies ([Proxy]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -271,6 +275,7 @@ class AssetMiniReference(ModelNormal):
             format (FormatMetadata): [optional]  # noqa: E501
             info ({str: (str, none_type)}): [optional]  # noqa: E501
             thumbnail_generated (bool): [optional]  # noqa: E501
+            proxies ([Proxy]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

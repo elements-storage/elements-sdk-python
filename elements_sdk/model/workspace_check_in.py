@@ -90,9 +90,9 @@ class WorkspaceCheckIn(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'mountpoint': (str,),  # noqa: E501
-            'protocol': (str,),  # noqa: E501
-            'address': (str,),  # noqa: E501
+            'mountpoint': (str, none_type,),  # noqa: E501
+            'protocol': (str, none_type,),  # noqa: E501
+            'address': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -147,9 +147,9 @@ class WorkspaceCheckIn(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            mountpoint (str): [optional]  # noqa: E501
-            protocol (str): [optional]  # noqa: E501
-            address (str): [optional]  # noqa: E501
+            mountpoint (str, none_type): [optional]  # noqa: E501
+            protocol (str, none_type): [optional]  # noqa: E501
+            address (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -233,9 +233,9 @@ class WorkspaceCheckIn(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            mountpoint (str): [optional]  # noqa: E501
-            protocol (str): [optional]  # noqa: E501
-            address (str): [optional]  # noqa: E501
+            mountpoint (str, none_type): [optional]  # noqa: E501
+            protocol (str, none_type): [optional]  # noqa: E501
+            address (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

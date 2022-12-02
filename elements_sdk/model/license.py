@@ -110,6 +110,7 @@ class License(ModelNormal):
             'rdc_slots': (int,),  # noqa: E501
             'users': (int,),  # noqa: E501
             'third_party_capacity': (int, none_type,),  # noqa: E501
+            'cloud_capacity': (int, none_type,),  # noqa: E501
             'hardware': (str,),  # noqa: E501
             'hardware_key': (str,),  # noqa: E501
         }
@@ -131,6 +132,7 @@ class License(ModelNormal):
         'rdc_slots': 'rdc_slots',  # noqa: E501
         'users': 'users',  # noqa: E501
         'third_party_capacity': 'third_party_capacity',  # noqa: E501
+        'cloud_capacity': 'cloud_capacity',  # noqa: E501
         'hardware': 'hardware',  # noqa: E501
         'hardware_key': 'hardware_key',  # noqa: E501
     }
@@ -142,7 +144,7 @@ class License(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, product, serial, partner, expiry, components, components_expiry, components_enabled, rdc_slots, users, third_party_capacity, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, product, serial, partner, expiry, components, components_expiry, components_enabled, rdc_slots, users, third_party_capacity, cloud_capacity, *args, **xkwargs):  # noqa: E501
         """License - a model defined in OpenAPI
 
         Args:
@@ -157,6 +159,7 @@ class License(ModelNormal):
             rdc_slots (int):
             users (int):
             third_party_capacity (int, none_type):
+            cloud_capacity (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -230,6 +233,7 @@ class License(ModelNormal):
         self.rdc_slots = rdc_slots
         self.users = users
         self.third_party_capacity = third_party_capacity
+        self.cloud_capacity = cloud_capacity
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -251,7 +255,7 @@ class License(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, product, serial, partner, expiry, components, components_expiry, components_enabled, rdc_slots, users, third_party_capacity, *args, **xkwargs):  # noqa: E501
+    def __init__(self, name, product, serial, partner, expiry, components, components_expiry, components_enabled, rdc_slots, users, third_party_capacity, cloud_capacity, *args, **xkwargs):  # noqa: E501
         """License - a model defined in OpenAPI
 
         Args:
@@ -266,6 +270,7 @@ class License(ModelNormal):
             rdc_slots (int):
             users (int):
             third_party_capacity (int, none_type):
+            cloud_capacity (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -337,6 +342,7 @@ class License(ModelNormal):
         self.rdc_slots = rdc_slots
         self.users = users
         self.third_party_capacity = third_party_capacity
+        self.cloud_capacity = cloud_capacity
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

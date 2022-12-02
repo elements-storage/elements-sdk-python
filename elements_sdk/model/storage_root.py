@@ -61,6 +61,9 @@ class StorageRoot(ModelNormal):
         ('path',): {
             'min_length': 1,
         },
+        ('region',): {
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -85,6 +88,7 @@ class StorageRoot(ModelNormal):
         """
         return {
             'path': (str,),  # noqa: E501
+            'region': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +98,7 @@ class StorageRoot(ModelNormal):
 
     attribute_map = {
         'path': 'path',  # noqa: E501
+        'region': 'region',  # noqa: E501
     }
 
     read_only_vars = {
@@ -103,11 +108,12 @@ class StorageRoot(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, path, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, path, region, *args, **xkwargs):  # noqa: E501
         """StorageRoot - a model defined in OpenAPI
 
         Args:
             path (str):
+            region (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -169,6 +175,7 @@ class StorageRoot(ModelNormal):
 
 
         self.path = path
+        self.region = region
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -190,11 +197,12 @@ class StorageRoot(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, path, *args, **xkwargs):  # noqa: E501
+    def __init__(self, path, region, *args, **xkwargs):  # noqa: E501
         """StorageRoot - a model defined in OpenAPI
 
         Args:
             path (str):
+            region (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -254,6 +262,7 @@ class StorageRoot(ModelNormal):
 
 
         self.path = path
+        self.region = region
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

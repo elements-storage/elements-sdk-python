@@ -122,6 +122,7 @@ class Workstation(ModelNormal):
             'rdc_disable_upnp': (bool,),  # noqa: E501
             'rdc_client_port': (int, none_type,),  # noqa: E501
             'rdc_host_port': (int, none_type,),  # noqa: E501
+            'last_seen': (datetime, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -141,6 +142,7 @@ class Workstation(ModelNormal):
         'rdc_disable_upnp': 'rdc_disable_upnp',  # noqa: E501
         'rdc_client_port': 'rdc_client_port',  # noqa: E501
         'rdc_host_port': 'rdc_host_port',  # noqa: E501
+        'last_seen': 'last_seen',  # noqa: E501
     }
 
     read_only_vars = {
@@ -198,6 +200,7 @@ class Workstation(ModelNormal):
             rdc_disable_upnp (bool): [optional]  # noqa: E501
             rdc_client_port (int, none_type): [optional]  # noqa: E501
             rdc_host_port (int, none_type): [optional]  # noqa: E501
+            last_seen (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -296,6 +299,7 @@ class Workstation(ModelNormal):
             rdc_disable_upnp (bool): [optional]  # noqa: E501
             rdc_client_port (int, none_type): [optional]  # noqa: E501
             rdc_host_port (int, none_type): [optional]  # noqa: E501
+            last_seen (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

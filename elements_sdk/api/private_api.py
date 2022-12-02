@@ -32,12 +32,6 @@ from elements_sdk.model.locate_proxies_endpoint_request import LocateProxiesEndp
 from elements_sdk.model.locate_proxies_endpoint_response import LocateProxiesEndpointResponse
 from elements_sdk.model.locate_result import LocateResult
 from elements_sdk.model.proxy_fs_size_endpoint_response import ProxyFSSizeEndpointResponse
-from elements_sdk.model.upload_image_endpoint_request import UploadImageEndpointRequest
-from elements_sdk.model.veritone_connection import VeritoneConnection
-from elements_sdk.model.veritone_engine_list import VeritoneEngineList
-from elements_sdk.model.veritone_job_list import VeritoneJobList
-from elements_sdk.model.veritone_metadata import VeritoneMetadata
-from elements_sdk.model.veritone_upload_request import VeritoneUploadRequest
 
 
 class PrivateApi(object):
@@ -51,110 +45,6 @@ class PrivateApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.delete_stored_image_endpoint = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/image/{name}',
-                'operation_id': 'delete_stored_image',
-                'http_method': 'DELETE',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'name',
-                ],
-                'required': [
-                    'name',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'name':
-                        (str,),
-                },
-                'attribute_map': {
-                    'name': 'name',
-                },
-                'location_map': {
-                    'name': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.delete_veritone_tdo_endpoint = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/veritone/connections/{id}/tdo/{tdo_id}',
-                'operation_id': 'delete_veritone_tdo',
-                'http_method': 'DELETE',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                    'tdo_id',
-                ],
-                'required': [
-                    'id',
-                    'tdo_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (int,),
-                    'tdo_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                    'tdo_id': 'tdo_id',
-                },
-                'location_map': {
-                    'id': 'path',
-                    'tdo_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
         self.export_non_proxied_assets_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -340,134 +230,6 @@ class PrivateApi(object):
                 'attribute_map': {
                 },
                 'location_map': {
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_all_veritone_connections_endpoint = _Endpoint(
-            settings={
-                'response_type': ([VeritoneConnection],),
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/veritone/connections',
-                'operation_id': 'get_all_veritone_connections',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'ordering',
-                    'limit',
-                    'offset',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'ordering':
-                        (str,),
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
-                },
-                'attribute_map': {
-                    'ordering': 'ordering',
-                    'limit': 'limit',
-                    'offset': 'offset',
-                },
-                'location_map': {
-                    'ordering': 'query',
-                    'limit': 'query',
-                    'offset': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_all_veritone_metadata_endpoint = _Endpoint(
-            settings={
-                'response_type': ([VeritoneMetadata],),
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/veritone/metadata',
-                'operation_id': 'get_all_veritone_metadata',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'asset',
-                    'is_parsed',
-                    'ordering',
-                    'limit',
-                    'offset',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'asset':
-                        (float,),
-                    'is_parsed':
-                        (str,),
-                    'ordering':
-                        (str,),
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
-                },
-                'attribute_map': {
-                    'asset': 'asset',
-                    'is_parsed': 'is_parsed',
-                    'ordering': 'ordering',
-                    'limit': 'limit',
-                    'offset': 'offset',
-                },
-                'location_map': {
-                    'asset': 'query',
-                    'is_parsed': 'query',
-                    'ordering': 'query',
-                    'limit': 'query',
-                    'offset': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -727,220 +489,6 @@ class PrivateApi(object):
             },
             api_client=api_client
         )
-        self.get_veritone_connection_endpoint = _Endpoint(
-            settings={
-                'response_type': (VeritoneConnection,),
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/veritone/connections/{id}',
-                'operation_id': 'get_veritone_connection',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                ],
-                'required': [
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (int,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                },
-                'location_map': {
-                    'id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_veritone_engines_endpoint = _Endpoint(
-            settings={
-                'response_type': (VeritoneEngineList,),
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/veritone/connections/{id}/engines',
-                'operation_id': 'get_veritone_engines',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                ],
-                'required': [
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (int,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                },
-                'location_map': {
-                    'id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_veritone_jobs_endpoint = _Endpoint(
-            settings={
-                'response_type': (VeritoneJobList,),
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/veritone/connections/{id}/jobs',
-                'operation_id': 'get_veritone_jobs',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                    'offset',
-                    'limit',
-                ],
-                'required': [
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (int,),
-                    'offset':
-                        (int,),
-                    'limit':
-                        (int,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                    'offset': 'offset',
-                    'limit': 'limit',
-                },
-                'location_map': {
-                    'id': 'path',
-                    'offset': 'query',
-                    'limit': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_veritone_metadata_endpoint = _Endpoint(
-            settings={
-                'response_type': (VeritoneMetadata,),
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/veritone/metadata/{id}',
-                'operation_id': 'get_veritone_metadata',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                ],
-                'required': [
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (int,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                },
-                'location_map': {
-                    'id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
         self.install_license_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -1108,6 +656,8 @@ class PrivateApi(object):
             params_map={
                 'all': [
                     'locate_proxies_endpoint_request',
+                    'for_root',
+                    'include_proxies',
                 ],
                 'required': [
                     'locate_proxies_endpoint_request',
@@ -1127,11 +677,19 @@ class PrivateApi(object):
                 'openapi_types': {
                     'locate_proxies_endpoint_request':
                         (LocateProxiesEndpointRequest,),
+                    'for_root':
+                        (int,),
+                    'include_proxies':
+                        (bool,),
                 },
                 'attribute_map': {
+                    'for_root': 'for_root',
+                    'include_proxies': 'include_proxies',
                 },
                 'location_map': {
                     'locate_proxies_endpoint_request': 'body',
+                    'for_root': 'query',
+                    'include_proxies': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1146,24 +704,21 @@ class PrivateApi(object):
             },
             api_client=api_client
         )
-        self.upload_stored_image_endpoint = _Endpoint(
+        self.submit_node_status_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/private/images/upload',
-                'operation_id': 'upload_stored_image',
+                'endpoint_path': '/api/2/private/node-stats',
+                'operation_id': 'submit_node_status',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'upload_image_endpoint_request',
                 ],
-                'required': [
-                    'upload_image_endpoint_request',
-                ],
+                'required': [],
                 'nullable': [
                 ],
                 'enum': [
@@ -1177,241 +732,20 @@ class PrivateApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'upload_image_endpoint_request':
-                        (UploadImageEndpointRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'upload_image_endpoint_request': 'body',
                 },
                 'collection_format_map': {
                 }
             },
             headers_map={
                 'accept': [],
-                'content_type': [
-                    'application/json'
-                ]
+                'content_type': [],
             },
             api_client=api_client
         )
-        self.upload_to_veritone_endpoint = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/veritone/connections/{id}/upload',
-                'operation_id': 'upload_to_veritone',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                    'veritone_upload_request',
-                ],
-                'required': [
-                    'id',
-                    'veritone_upload_request',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (int,),
-                    'veritone_upload_request':
-                        (VeritoneUploadRequest,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                },
-                'location_map': {
-                    'id': 'path',
-                    'veritone_upload_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-
-    def delete_stored_image(
-        self,
-        name,
-        **kwargs
-    ):
-        """delete_stored_image  # noqa: E501
-
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.delete_stored_image(name, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            name (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            None
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['name'] = \
-            name
-        return self.delete_stored_image_endpoint.call_with_http_info(**kwargs)
-
-    def delete_veritone_tdo(
-        self,
-        id,
-        tdo_id,
-        **kwargs
-    ):
-        """delete_veritone_tdo  # noqa: E501
-
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.delete_veritone_tdo(id, tdo_id, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            id (int): A unique integer value identifying this Veritone connection.
-            tdo_id (str):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            None
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['id'] = \
-            id
-        kwargs['tdo_id'] = \
-            tdo_id
-        return self.delete_veritone_tdo_endpoint.call_with_http_info(**kwargs)
 
     def export_non_proxied_assets(
         self,
@@ -1723,160 +1057,6 @@ class PrivateApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_endpoint.call_with_http_info(**kwargs)
-
-    def get_all_veritone_connections(
-        self,
-        **kwargs
-    ):
-        """get_all_veritone_connections  # noqa: E501
-
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_all_veritone_connections(async_req=True)
-        >>> result = thread.get()
-
-
-        Keyword Args:
-            ordering (str): Which field to use when ordering the results.. [optional]
-            limit (int): Number of results to return per page.. [optional]
-            offset (int): The initial index from which to return the results.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            [VeritoneConnection]
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.get_all_veritone_connections_endpoint.call_with_http_info(**kwargs)
-
-    def get_all_veritone_metadata(
-        self,
-        **kwargs
-    ):
-        """get_all_veritone_metadata  # noqa: E501
-
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_all_veritone_metadata(async_req=True)
-        >>> result = thread.get()
-
-
-        Keyword Args:
-            asset (float): Filter the returned list by `asset`.. [optional]
-            is_parsed (str): Filter the returned list by `is_parsed`.. [optional]
-            ordering (str): Which field to use when ordering the results.. [optional]
-            limit (int): Number of results to return per page.. [optional]
-            offset (int): The initial index from which to return the results.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            [VeritoneMetadata]
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.get_all_veritone_metadata_endpoint.call_with_http_info(**kwargs)
 
     def get_client_side_url(
         self,
@@ -2192,7 +1372,7 @@ class PrivateApi(object):
     ):
         """get_stored_image  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2262,320 +1442,6 @@ class PrivateApi(object):
         kwargs['name'] = \
             name
         return self.get_stored_image_endpoint.call_with_http_info(**kwargs)
-
-    def get_veritone_connection(
-        self,
-        id,
-        **kwargs
-    ):
-        """get_veritone_connection  # noqa: E501
-
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_veritone_connection(id, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            id (int): A unique integer value identifying this Veritone connection.
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            VeritoneConnection
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['id'] = \
-            id
-        return self.get_veritone_connection_endpoint.call_with_http_info(**kwargs)
-
-    def get_veritone_engines(
-        self,
-        id,
-        **kwargs
-    ):
-        """get_veritone_engines  # noqa: E501
-
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_veritone_engines(id, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            id (int): A unique integer value identifying this Veritone connection.
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            VeritoneEngineList
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['id'] = \
-            id
-        return self.get_veritone_engines_endpoint.call_with_http_info(**kwargs)
-
-    def get_veritone_jobs(
-        self,
-        id,
-        **kwargs
-    ):
-        """get_veritone_jobs  # noqa: E501
-
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_veritone_jobs(id, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            id (int): A unique integer value identifying this Veritone connection.
-
-        Keyword Args:
-            offset (int): [optional]
-            limit (int): [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            VeritoneJobList
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['id'] = \
-            id
-        return self.get_veritone_jobs_endpoint.call_with_http_info(**kwargs)
-
-    def get_veritone_metadata(
-        self,
-        id,
-        **kwargs
-    ):
-        """get_veritone_metadata  # noqa: E501
-
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_veritone_metadata(id, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            id (int): A unique integer value identifying this Veritone metadata.
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            VeritoneMetadata
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['id'] = \
-            id
-        return self.get_veritone_metadata_endpoint.call_with_http_info(**kwargs)
 
     def install_license(
         self,
@@ -2829,6 +1695,8 @@ class PrivateApi(object):
             locate_proxies_endpoint_request (LocateProxiesEndpointRequest):
 
         Keyword Args:
+            for_root (int): [optional]
+            include_proxies (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2889,22 +1757,19 @@ class PrivateApi(object):
             locate_proxies_endpoint_request
         return self.locate_proxies_endpoint.call_with_http_info(**kwargs)
 
-    def upload_stored_image(
+    def submit_node_status(
         self,
-        upload_image_endpoint_request,
         **kwargs
     ):
-        """upload_stored_image  # noqa: E501
+        """submit_node_status  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * localhost only   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.upload_stored_image(upload_image_endpoint_request, async_req=True)
+        >>> thread = api.submit_node_status(async_req=True)
         >>> result = thread.get()
 
-        Args:
-            upload_image_endpoint_request (UploadImageEndpointRequest):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -2963,89 +1828,5 @@ class PrivateApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['upload_image_endpoint_request'] = \
-            upload_image_endpoint_request
-        return self.upload_stored_image_endpoint.call_with_http_info(**kwargs)
-
-    def upload_to_veritone(
-        self,
-        id,
-        veritone_upload_request,
-        **kwargs
-    ):
-        """upload_to_veritone  # noqa: E501
-
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.upload_to_veritone(id, veritone_upload_request, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            id (int): A unique integer value identifying this Veritone connection.
-            veritone_upload_request (VeritoneUploadRequest):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            None
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['id'] = \
-            id
-        kwargs['veritone_upload_request'] = \
-            veritone_upload_request
-        return self.upload_to_veritone_endpoint.call_with_http_info(**kwargs)
+        return self.submit_node_status_endpoint.call_with_http_info(**kwargs)
 

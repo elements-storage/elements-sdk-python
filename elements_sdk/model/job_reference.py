@@ -129,6 +129,7 @@ class JobReference(ModelNormal):
             'webhook_url': (str, none_type,),  # noqa: E501
             'special_type': (int, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
             'enabled': (bool,),  # noqa: E501
             'allow_others_to_start': (bool,),  # noqa: E501
             'allow_client_to_start': (bool,),  # noqa: E501
@@ -157,6 +158,7 @@ class JobReference(ModelNormal):
         'webhook_url': 'webhook_url',  # noqa: E501
         'special_type': 'special_type',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'description': 'description',  # noqa: E501
         'enabled': 'enabled',  # noqa: E501
         'allow_others_to_start': 'allow_others_to_start',  # noqa: E501
         'allow_client_to_start': 'allow_client_to_start',  # noqa: E501
@@ -179,6 +181,7 @@ class JobReference(ModelNormal):
         'webhook_url',  # noqa: E501
         'special_type',  # noqa: E501
         'name',  # noqa: E501
+        'description',  # noqa: E501
         'enabled',  # noqa: E501
         'allow_others_to_start',  # noqa: E501
         'allow_client_to_start',  # noqa: E501
@@ -241,6 +244,7 @@ class JobReference(ModelNormal):
             webhook_url (str, none_type): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501
             allow_others_to_start (bool): [optional]  # noqa: E501
             allow_client_to_start (bool): [optional]  # noqa: E501
@@ -347,6 +351,7 @@ class JobReference(ModelNormal):
             webhook_url (str, none_type): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501
             allow_others_to_start (bool): [optional]  # noqa: E501
             allow_client_to_start (bool): [optional]  # noqa: E501

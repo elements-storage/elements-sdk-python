@@ -96,7 +96,6 @@ class AlertUpdate(ModelNormal):
             'message': (str,),  # noqa: E501
             'level': (str,),  # noqa: E501
             'is_open': (bool,),  # noqa: E501
-            'closed_at': (datetime, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -109,7 +108,6 @@ class AlertUpdate(ModelNormal):
         'message': 'message',  # noqa: E501
         'level': 'level',  # noqa: E501
         'is_open': 'is_open',  # noqa: E501
-        'closed_at': 'closed_at',  # noqa: E501
     }
 
     read_only_vars = {
@@ -159,7 +157,6 @@ class AlertUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            closed_at (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -253,7 +250,6 @@ class AlertUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            closed_at (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

@@ -30,7 +30,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from elements_sdk.model.elements_user_mini import ElementsUserMini
     from elements_sdk.model.storage_node_mini import StorageNodeMini
+    globals()['ElementsUserMini'] = ElementsUserMini
     globals()['StorageNodeMini'] = StorageNodeMini
 
 
@@ -105,8 +107,9 @@ class Alert(ModelNormal):
             'is_open': (bool,),  # noqa: E501
             'node': (StorageNodeMini,),  # noqa: E501
             'opened_at': (datetime,),  # noqa: E501
+            'closed_at': (datetime,),  # noqa: E501
             'duration': (str,),  # noqa: E501
-            'closed_at': (datetime, none_type,),  # noqa: E501
+            'acknowledged_by': (ElementsUserMini,),  # noqa: E501
         }
 
     @cached_property
@@ -122,12 +125,14 @@ class Alert(ModelNormal):
         'is_open': 'is_open',  # noqa: E501
         'node': 'node',  # noqa: E501
         'opened_at': 'opened_at',  # noqa: E501
-        'duration': 'duration',  # noqa: E501
         'closed_at': 'closed_at',  # noqa: E501
+        'duration': 'duration',  # noqa: E501
+        'acknowledged_by': 'acknowledged_by',  # noqa: E501
     }
 
     read_only_vars = {
         'opened_at',  # noqa: E501
+        'closed_at',  # noqa: E501
         'duration',  # noqa: E501
     }
 
@@ -135,7 +140,7 @@ class Alert(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, message, level, is_open, node, opened_at, duration, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, message, level, is_open, node, opened_at, closed_at, duration, acknowledged_by, *args, **xkwargs):  # noqa: E501
         """Alert - a model defined in OpenAPI
 
         Args:
@@ -146,7 +151,9 @@ class Alert(ModelNormal):
             is_open (bool):
             node (StorageNodeMini):
             opened_at (datetime):
+            closed_at (datetime):
             duration (str):
+            acknowledged_by (ElementsUserMini):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -179,7 +186,6 @@ class Alert(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            closed_at (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -215,7 +221,9 @@ class Alert(ModelNormal):
         self.is_open = is_open
         self.node = node
         self.opened_at = opened_at
+        self.closed_at = closed_at
         self.duration = duration
+        self.acknowledged_by = acknowledged_by
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -237,7 +245,7 @@ class Alert(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, message, level, is_open, node, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, message, level, is_open, node, acknowledged_by, *args, **xkwargs):  # noqa: E501
         """Alert - a model defined in OpenAPI
 
         Args:
@@ -247,6 +255,8 @@ class Alert(ModelNormal):
             level (str):
             is_open (bool):
             node (StorageNodeMini):
+            acknowledged_by (ElementsUserMini):
+
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -278,7 +288,6 @@ class Alert(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            closed_at (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -311,6 +320,7 @@ class Alert(ModelNormal):
         self.level = level
         self.is_open = is_open
         self.node = node
+        self.acknowledged_by = acknowledged_by
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

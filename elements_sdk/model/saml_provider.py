@@ -55,6 +55,17 @@ class SAMLProvider(ModelNormal):
     """
 
     allowed_values = {
+        ('nameid_format',): {
+            '1.1:NAMEID-FORMAT:UNSPECIFIED': "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            '1.1:NAMEID-FORMAT:EMAILADDRESS': "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+            '2.0:NAMEID-FORMAT:PERSISTENT': "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent",
+            '1.1:NAMEID-FORMAT:WINDOWSDOMAINQUALIFIEDNAME': "urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName",
+            '1.1:NAMEID-FORMAT:X509SUBJECTNAME': "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName",
+            '2.0:NAMEID-FORMAT:KERBEROS': "urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos",
+            '2.0:NAMEID-FORMAT:ENTITY': "urn:oasis:names:tc:SAML:2.0:nameid-format:entity",
+            '2.0:NAMEID-FORMAT:TRANSIENT': "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
+            '2.0:NAMEID-FORMAT:ENCRYPTED': "urn:oasis:names:tc:SAML:2.0:nameid-format:encrypted",
+        },
     }
 
     validations = {
@@ -111,6 +122,7 @@ class SAMLProvider(ModelNormal):
             'slo_url': (str, none_type,),  # noqa: E501
             'sp_certificate': (str, none_type,),  # noqa: E501
             'sp_certificate_key': (str, none_type,),  # noqa: E501
+            'nameid_format': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -131,6 +143,7 @@ class SAMLProvider(ModelNormal):
         'slo_url': 'slo_url',  # noqa: E501
         'sp_certificate': 'sp_certificate',  # noqa: E501
         'sp_certificate_key': 'sp_certificate_key',  # noqa: E501
+        'nameid_format': 'nameid_format',  # noqa: E501
     }
 
     read_only_vars = {
@@ -192,6 +205,7 @@ class SAMLProvider(ModelNormal):
             slo_url (str, none_type): [optional]  # noqa: E501
             sp_certificate (str, none_type): [optional]  # noqa: E501
             sp_certificate_key (str, none_type): [optional]  # noqa: E501
+            nameid_format (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -293,6 +307,7 @@ class SAMLProvider(ModelNormal):
             slo_url (str, none_type): [optional]  # noqa: E501
             sp_certificate (str, none_type): [optional]  # noqa: E501
             sp_certificate_key (str, none_type): [optional]  # noqa: E501
+            nameid_format (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

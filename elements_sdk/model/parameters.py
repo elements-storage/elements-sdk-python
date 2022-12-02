@@ -137,7 +137,6 @@ class Parameters(ModelNormal):
             'media_auto_proxy': (bool,),  # noqa: E501
             'media_auto_scan': (bool,),  # noqa: E501
             'media_auto_transport': (bool,),  # noqa: E501
-            'media_auto_veritone_upload': (bool,),  # noqa: E501
             'media_default_custom_field_type': (str,),  # noqa: E501
             'media_default_delete_behaviour': (str,),  # noqa: E501
             'media_force_show_deleted': (bool, none_type,),  # noqa: E501
@@ -173,7 +172,6 @@ class Parameters(ModelNormal):
         'media_auto_proxy': 'media_auto_proxy',  # noqa: E501
         'media_auto_scan': 'media_auto_scan',  # noqa: E501
         'media_auto_transport': 'media_auto_transport',  # noqa: E501
-        'media_auto_veritone_upload': 'media_auto_veritone_upload',  # noqa: E501
         'media_default_custom_field_type': 'media_default_custom_field_type',  # noqa: E501
         'media_default_delete_behaviour': 'media_default_delete_behaviour',  # noqa: E501
         'media_force_show_deleted': 'media_force_show_deleted',  # noqa: E501
@@ -244,7 +242,6 @@ class Parameters(ModelNormal):
             media_auto_proxy (bool): [optional]  # noqa: E501
             media_auto_scan (bool): [optional]  # noqa: E501
             media_auto_transport (bool): [optional]  # noqa: E501
-            media_auto_veritone_upload (bool): [optional]  # noqa: E501
             media_default_custom_field_type (str): [optional]  # noqa: E501
             media_default_delete_behaviour (str): [optional]  # noqa: E501
             media_force_show_deleted (bool, none_type): [optional]  # noqa: E501
@@ -355,7 +352,6 @@ class Parameters(ModelNormal):
             media_auto_proxy (bool): [optional]  # noqa: E501
             media_auto_scan (bool): [optional]  # noqa: E501
             media_auto_transport (bool): [optional]  # noqa: E501
-            media_auto_veritone_upload (bool): [optional]  # noqa: E501
             media_default_custom_field_type (str): [optional]  # noqa: E501
             media_default_delete_behaviour (str): [optional]  # noqa: E501
             media_force_show_deleted (bool, none_type): [optional]  # noqa: E501

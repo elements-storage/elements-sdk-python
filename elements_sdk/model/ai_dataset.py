@@ -58,6 +58,7 @@ class AIDataset(ModelNormal):
         ('type',): {
             'NORMAL': "normal",
             'FACE-LIBRARY': "face-library",
+            'STT': "stt",
         },
     }
 
