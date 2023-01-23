@@ -918,15 +918,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_cloud_bucket_costs.py
-test/test_cloud_mount_authorization.py
-test/test_cloud_storage_costs.py
-test/test_cost.py
-test/test_get_cloud_account_costs_response.py
-test/test_get_cloud_account_volume_sizes_response.py
-test/test_image_upload_request.py
-test/test_media_root_update.py
-test/test_storage_node_partial_update.py
-test/test_storage_node_update.py
-test/test_updated_file.py
 tox.ini

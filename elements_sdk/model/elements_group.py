@@ -66,14 +66,6 @@ class ElementsGroup(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
-        ('ancillary_path',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
-        ('ancillary_path_read_only',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
         ('ldap_dn',): {
             'max_length': 255,
         },
@@ -115,8 +107,6 @@ class ElementsGroup(ModelNormal):
             'name': (str,),  # noqa: E501
             'members': ([int],),  # noqa: E501
             'permissions': ([str, none_type],),  # noqa: E501
-            'ancillary_path': (str, none_type,),  # noqa: E501
-            'ancillary_path_read_only': (str, none_type,),  # noqa: E501
             'ldap_dn': (str, none_type,),  # noqa: E501
             'unix_groupname': (str, none_type,),  # noqa: E501
             'gid': (int, none_type,),  # noqa: E501
@@ -135,8 +125,6 @@ class ElementsGroup(ModelNormal):
         'name': 'name',  # noqa: E501
         'members': 'members',  # noqa: E501
         'permissions': 'permissions',  # noqa: E501
-        'ancillary_path': 'ancillary_path',  # noqa: E501
-        'ancillary_path_read_only': 'ancillary_path_read_only',  # noqa: E501
         'ldap_dn': 'ldap_dn',  # noqa: E501
         'unix_groupname': 'unix_groupname',  # noqa: E501
         'gid': 'gid',  # noqa: E501
@@ -146,8 +134,6 @@ class ElementsGroup(ModelNormal):
     read_only_vars = {
         'members_preview',  # noqa: E501
         'effective_permissions',  # noqa: E501
-        'ancillary_path',  # noqa: E501
-        'ancillary_path_read_only',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -196,8 +182,6 @@ class ElementsGroup(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             permissions ([str, none_type]): [optional]  # noqa: E501
-            ancillary_path (str, none_type): [optional]  # noqa: E501
-            ancillary_path_read_only (str, none_type): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
             unix_groupname (str, none_type): [optional]  # noqa: E501
             gid (int, none_type): [optional]  # noqa: E501
@@ -296,8 +280,6 @@ class ElementsGroup(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             permissions ([str, none_type]): [optional]  # noqa: E501
-            ancillary_path (str, none_type): [optional]  # noqa: E501
-            ancillary_path_read_only (str, none_type): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
             unix_groupname (str, none_type): [optional]  # noqa: E501
             gid (int, none_type): [optional]  # noqa: E501

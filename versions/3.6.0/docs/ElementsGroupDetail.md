@@ -10,8 +10,6 @@ Name | Type | Description | Notes
 **effective_permissions** | **[str, none_type]** |  | [readonly] 
 **name** | **str** |  | 
 **permissions** | **[str, none_type]** |  | [optional] 
-**ancillary_path** | **str, none_type** |  | [optional] [readonly] 
-**ancillary_path_read_only** | **str, none_type** |  | [optional] [readonly] 
 **members** | [**[ElementsUserReference]**](ElementsUserReference.md) |  | [optional] 
 **ldap** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
 **ldap_dn** | **str, none_type** |  | [optional] 

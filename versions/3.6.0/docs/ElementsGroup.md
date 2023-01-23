@@ -11,8 +11,6 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **members** | **[int]** |  | 
 **permissions** | **[str, none_type]** |  | [optional] 
-**ancillary_path** | **str, none_type** |  | [optional] [readonly] 
-**ancillary_path_read_only** | **str, none_type** |  | [optional] [readonly] 
 **ldap_dn** | **str, none_type** |  | [optional] 
 **unix_groupname** | **str, none_type** |  | [optional] 
 **gid** | **int, none_type** |  | [optional] 

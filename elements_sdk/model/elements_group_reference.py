@@ -62,14 +62,6 @@ class ElementsGroupReference(ModelNormal):
     }
 
     validations = {
-        ('ancillary_path',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
-        ('ancillary_path_read_only',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
         ('name',): {
             'max_length': 255,
             'min_length': 1,
@@ -113,8 +105,6 @@ class ElementsGroupReference(ModelNormal):
             'permissions': ([str, none_type],),  # noqa: E501
             'members_preview': ([MemberPreview],),  # noqa: E501
             'effective_permissions': ([str, none_type],),  # noqa: E501
-            'ancillary_path': (str, none_type,),  # noqa: E501
-            'ancillary_path_read_only': (str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'ldap_dn': (str, none_type,),  # noqa: E501
             'unix_groupname': (str, none_type,),  # noqa: E501
@@ -133,8 +123,6 @@ class ElementsGroupReference(ModelNormal):
         'permissions': 'permissions',  # noqa: E501
         'members_preview': 'members_preview',  # noqa: E501
         'effective_permissions': 'effective_permissions',  # noqa: E501
-        'ancillary_path': 'ancillary_path',  # noqa: E501
-        'ancillary_path_read_only': 'ancillary_path_read_only',  # noqa: E501
         'name': 'name',  # noqa: E501
         'ldap_dn': 'ldap_dn',  # noqa: E501
         'unix_groupname': 'unix_groupname',  # noqa: E501
@@ -147,8 +135,6 @@ class ElementsGroupReference(ModelNormal):
         'permissions',  # noqa: E501
         'members_preview',  # noqa: E501
         'effective_permissions',  # noqa: E501
-        'ancillary_path',  # noqa: E501
-        'ancillary_path_read_only',  # noqa: E501
         'name',  # noqa: E501
         'ldap_dn',  # noqa: E501
         'unix_groupname',  # noqa: E501
@@ -201,8 +187,6 @@ class ElementsGroupReference(ModelNormal):
             permissions ([str, none_type]): [optional]  # noqa: E501
             members_preview ([MemberPreview]): [optional]  # noqa: E501
             effective_permissions ([str, none_type]): [optional]  # noqa: E501
-            ancillary_path (str, none_type): [optional]  # noqa: E501
-            ancillary_path_read_only (str, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
             unix_groupname (str, none_type): [optional]  # noqa: E501
@@ -299,8 +283,6 @@ class ElementsGroupReference(ModelNormal):
             permissions ([str, none_type]): [optional]  # noqa: E501
             members_preview ([MemberPreview]): [optional]  # noqa: E501
             effective_permissions ([str, none_type]): [optional]  # noqa: E501
-            ancillary_path (str, none_type): [optional]  # noqa: E501
-            ancillary_path_read_only (str, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
             unix_groupname (str, none_type): [optional]  # noqa: E501

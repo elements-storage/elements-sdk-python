@@ -6,8 +6,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
-**ancillary_path** | **str, none_type** |  | [optional] [readonly] 
-**ancillary_path_read_only** | **str, none_type** |  | [optional] [readonly] 
 **allow_changing_password** | **bool** |  | [optional] [readonly] 
 **allow_wan_login** | **bool** |  | [optional] [readonly] 
 **allowed_fs_paths** | **[str, none_type], none_type** |  | [optional] [readonly] 

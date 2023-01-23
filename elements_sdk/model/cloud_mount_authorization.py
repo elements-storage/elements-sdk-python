@@ -109,6 +109,7 @@ class CloudMountAuthorization(ModelNormal):
             'token': (str, none_type,),  # noqa: E501
             'tenant': (str, none_type,),  # noqa: E501
             'subscription': (str, none_type,),  # noqa: E501
+            'expiry': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -124,6 +125,7 @@ class CloudMountAuthorization(ModelNormal):
         'token': 'token',  # noqa: E501
         'tenant': 'tenant',  # noqa: E501
         'subscription': 'subscription',  # noqa: E501
+        'expiry': 'expiry',  # noqa: E501
     }
 
     read_only_vars = {
@@ -176,6 +178,7 @@ class CloudMountAuthorization(ModelNormal):
             token (str, none_type): [optional]  # noqa: E501
             tenant (str, none_type): [optional]  # noqa: E501
             subscription (str, none_type): [optional]  # noqa: E501
+            expiry (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -269,6 +272,7 @@ class CloudMountAuthorization(ModelNormal):
             token (str, none_type): [optional]  # noqa: E501
             tenant (str, none_type): [optional]  # noqa: E501
             subscription (str, none_type): [optional]  # noqa: E501
+            expiry (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

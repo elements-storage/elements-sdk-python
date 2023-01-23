@@ -9,8 +9,6 @@ Name | Type | Description | Notes
 **permissions** | **[str, none_type]** |  | [optional] [readonly] 
 **members_preview** | [**[MemberPreview]**](MemberPreview.md) |  | [optional] [readonly] 
 **effective_permissions** | **[str, none_type]** |  | [optional] [readonly] 
-**ancillary_path** | **str, none_type** |  | [optional] [readonly] 
-**ancillary_path_read_only** | **str, none_type** |  | [optional] [readonly] 
 **name** | **str** |  | [optional] [readonly] 
 **ldap_dn** | **str, none_type** |  | [optional] [readonly] 
 **unix_groupname** | **str, none_type** |  | [optional] [readonly] 

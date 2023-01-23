@@ -2135,6 +2135,10 @@ class StorageApi(object):
                     'ordering',
                     'limit',
                     'offset',
+                    'full_path',
+                    'resolve_access_for',
+                    'include_endpoints',
+                    'include_quotas',
                 ],
                 'required': [],
                 'nullable': [
@@ -2176,6 +2180,14 @@ class StorageApi(object):
                         (int,),
                     'offset':
                         (int,),
+                    'full_path':
+                        (str,),
+                    'resolve_access_for':
+                        (int,),
+                    'include_endpoints':
+                        (bool,),
+                    'include_quotas':
+                        (bool,),
                 },
                 'attribute_map': {
                     'is_template': 'is_template',
@@ -2191,6 +2203,10 @@ class StorageApi(object):
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
+                    'full_path': 'full_path',
+                    'resolve_access_for': 'resolve_access_for',
+                    'include_endpoints': 'include_endpoints',
+                    'include_quotas': 'include_quotas',
                 },
                 'location_map': {
                     'is_template': 'query',
@@ -2206,6 +2222,10 @@ class StorageApi(object):
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                    'full_path': 'query',
+                    'resolve_access_for': 'query',
+                    'include_endpoints': 'query',
+                    'include_quotas': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -7065,6 +7085,10 @@ class StorageApi(object):
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
+            full_path (str): [optional]
+            resolve_access_for (int): [optional]
+            include_endpoints (bool): [optional]
+            include_quotas (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

@@ -21,7 +21,6 @@ Name | Type | Description | Notes
 **fs_properties** | [**FSProperties**](FSProperties.md) |  | [optional] 
 **status** | [**VolumeStatus**](VolumeStatus.md) |  | [optional] 
 **cloud_account** | **int, none_type** |  | [optional] 
-**name** | **str, none_type** |  | [optional] [readonly] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 

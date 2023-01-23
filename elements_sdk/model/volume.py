@@ -91,10 +91,6 @@ class Volume(ModelNormal):
         ('snfs_name',): {
             'max_length': 255,
         },
-        ('name',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
     }
 
     @cached_property
@@ -136,7 +132,6 @@ class Volume(ModelNormal):
             'fs_properties': (FSProperties,),  # noqa: E501
             'status': (VolumeStatus,),  # noqa: E501
             'cloud_account': (int, none_type,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -161,11 +156,9 @@ class Volume(ModelNormal):
         'fs_properties': 'fs_properties',  # noqa: E501
         'status': 'status',  # noqa: E501
         'cloud_account': 'cloud_account',  # noqa: E501
-        'name': 'name',  # noqa: E501
     }
 
     read_only_vars = {
-        'name',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -224,7 +217,6 @@ class Volume(ModelNormal):
             fs_properties (FSProperties): [optional]  # noqa: E501
             status (VolumeStatus): [optional]  # noqa: E501
             cloud_account (int, none_type): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -329,7 +321,6 @@ class Volume(ModelNormal):
             fs_properties (FSProperties): [optional]  # noqa: E501
             status (VolumeStatus): [optional]  # noqa: E501
             cloud_account (int, none_type): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

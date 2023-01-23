@@ -91,10 +91,6 @@ class VolumeReference(ModelNormal):
         ('snfs_name',): {
             'max_length': 255,
         },
-        ('name',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
     }
 
     @cached_property
@@ -136,7 +132,6 @@ class VolumeReference(ModelNormal):
             'backend': (Backend,),  # noqa: E501
             'status': (VolumeStatus,),  # noqa: E501
             'cloud_account': (int, none_type,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -161,7 +156,6 @@ class VolumeReference(ModelNormal):
         'backend': 'backend',  # noqa: E501
         'status': 'status',  # noqa: E501
         'cloud_account': 'cloud_account',  # noqa: E501
-        'name': 'name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -177,7 +171,6 @@ class VolumeReference(ModelNormal):
         'snfs_name',  # noqa: E501
         'simulated_quotas',  # noqa: E501
         'cloud_account',  # noqa: E501
-        'name',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -236,7 +229,6 @@ class VolumeReference(ModelNormal):
             backend (Backend): [optional]  # noqa: E501
             status (VolumeStatus): [optional]  # noqa: E501
             cloud_account (int, none_type): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -339,7 +331,6 @@ class VolumeReference(ModelNormal):
             backend (Backend): [optional]  # noqa: E501
             status (VolumeStatus): [optional]  # noqa: E501
             cloud_account (int, none_type): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

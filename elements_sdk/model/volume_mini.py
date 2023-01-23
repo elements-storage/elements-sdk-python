@@ -80,10 +80,6 @@ class VolumeMini(ModelNormal):
         ('visual_tag',): {
             'max_length': 255,
         },
-        ('name',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
     }
 
     @cached_property
@@ -112,7 +108,6 @@ class VolumeMini(ModelNormal):
             'display_name': (str,),  # noqa: E501
             'visual_tag': (str, none_type,),  # noqa: E501
             'type': (str,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -126,11 +121,9 @@ class VolumeMini(ModelNormal):
         'display_name': 'display_name',  # noqa: E501
         'visual_tag': 'visual_tag',  # noqa: E501
         'type': 'type',  # noqa: E501
-        'name': 'name',  # noqa: E501
     }
 
     read_only_vars = {
-        'name',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -178,7 +171,6 @@ class VolumeMini(ModelNormal):
             display_name (str): [optional]  # noqa: E501
             visual_tag (str, none_type): [optional]  # noqa: E501
             type (str): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -270,7 +262,6 @@ class VolumeMini(ModelNormal):
             display_name (str): [optional]  # noqa: E501
             visual_tag (str, none_type): [optional]  # noqa: E501
             type (str): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

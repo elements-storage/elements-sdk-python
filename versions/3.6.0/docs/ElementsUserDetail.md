@@ -16,8 +16,6 @@ Name | Type | Description | Notes
 **sync_id** | **str** |  | [readonly] 
 **username** | **str** |  | 
 **groups** | **[int]** |  | 
-**ancillary_path** | **str, none_type** |  | [optional] [readonly] 
-**ancillary_path_read_only** | **str, none_type** |  | [optional] [readonly] 
 **allow_changing_password** | **bool** |  | [optional] 
 **allow_wan_login** | **bool** |  | [optional] 
 **avatar** | **str, none_type** |  | [optional] 

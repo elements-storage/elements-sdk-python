@@ -2245,11 +2245,15 @@ with elements_sdk.ApiClient(configuration) as api_client:
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
+    full_path = "full_path_example" # str |  (optional)
+    resolve_access_for = 1 # int |  (optional)
+    include_endpoints = True # bool |  (optional)
+    include_quotas = True # bool |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.get_my_workspaces(is_template=is_template, production=production, volume=volume, home_for=home_for, volume__type=volume__type, production__name=production__name, production__active=production__active, name=name, is_external=is_external, active=active, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_my_workspaces(is_template=is_template, production=production, volume=volume, home_for=home_for, volume__type=volume__type, production__name=production__name, production__active=production__active, name=name, is_external=is_external, active=active, ordering=ordering, limit=limit, offset=offset, full_path=full_path, resolve_access_for=resolve_access_for, include_endpoints=include_endpoints, include_quotas=include_quotas)
         pprint(api_response)
     except elements_sdk.ApiException as e:
         print("Exception when calling StorageApi->get_my_workspaces: %s\n" % e)
@@ -2273,6 +2277,10 @@ Name | Type | Description  | Notes
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
+ **full_path** | **str**|  | [optional]
+ **resolve_access_for** | **int**|  | [optional]
+ **include_endpoints** | **bool**|  | [optional]
+ **include_quotas** | **bool**|  | [optional]
 
 ### Return type
 

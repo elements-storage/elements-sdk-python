@@ -69,14 +69,6 @@ class ElementsUser(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
-        ('ancillary_path',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
-        ('ancillary_path_read_only',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
         ('default_page',): {
             'max_length': 63,
             'min_length': 1,
@@ -144,8 +136,6 @@ class ElementsUser(ModelNormal):
             'sync_id': (str,),  # noqa: E501
             'totp_enabled': (bool,),  # noqa: E501
             'username': (str,),  # noqa: E501
-            'ancillary_path': (str, none_type,),  # noqa: E501
-            'ancillary_path_read_only': (str, none_type,),  # noqa: E501
             'allow_changing_password': (bool,),  # noqa: E501
             'allow_wan_login': (bool,),  # noqa: E501
             'avatar': (str, none_type,),  # noqa: E501
@@ -188,8 +178,6 @@ class ElementsUser(ModelNormal):
         'sync_id': 'sync_id',  # noqa: E501
         'totp_enabled': 'totp_enabled',  # noqa: E501
         'username': 'username',  # noqa: E501
-        'ancillary_path': 'ancillary_path',  # noqa: E501
-        'ancillary_path_read_only': 'ancillary_path_read_only',  # noqa: E501
         'allow_changing_password': 'allow_changing_password',  # noqa: E501
         'allow_wan_login': 'allow_wan_login',  # noqa: E501
         'avatar': 'avatar',  # noqa: E501
@@ -224,8 +212,6 @@ class ElementsUser(ModelNormal):
         'is_cloud_default',  # noqa: E501
         'sync_id',  # noqa: E501
         'totp_enabled',  # noqa: E501
-        'ancillary_path',  # noqa: E501
-        'ancillary_path_read_only',  # noqa: E501
         'last_seen',  # noqa: E501
         'ldap',  # noqa: E501
         'ldap_dn',  # noqa: E501
@@ -283,8 +269,6 @@ class ElementsUser(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ancillary_path (str, none_type): [optional]  # noqa: E501
-            ancillary_path_read_only (str, none_type): [optional]  # noqa: E501
             allow_changing_password (bool): [optional]  # noqa: E501
             allow_wan_login (bool): [optional]  # noqa: E501
             avatar (str, none_type): [optional]  # noqa: E501
@@ -407,8 +391,6 @@ class ElementsUser(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ancillary_path (str, none_type): [optional]  # noqa: E501
-            ancillary_path_read_only (str, none_type): [optional]  # noqa: E501
             allow_changing_password (bool): [optional]  # noqa: E501
             allow_wan_login (bool): [optional]  # noqa: E501
             avatar (str, none_type): [optional]  # noqa: E501
