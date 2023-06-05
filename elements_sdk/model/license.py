@@ -107,7 +107,6 @@ class License(ModelNormal):
             'components': ({str: (bool,)},),  # noqa: E501
             'components_expiry': ({str: (datetime, none_type)},),  # noqa: E501
             'components_enabled': ({str: (bool,)},),  # noqa: E501
-            'rdc_slots': (int,),  # noqa: E501
             'users': (int,),  # noqa: E501
             'third_party_capacity': (int, none_type,),  # noqa: E501
             'cloud_capacity': (int, none_type,),  # noqa: E501
@@ -129,7 +128,6 @@ class License(ModelNormal):
         'components': 'components',  # noqa: E501
         'components_expiry': 'components_expiry',  # noqa: E501
         'components_enabled': 'components_enabled',  # noqa: E501
-        'rdc_slots': 'rdc_slots',  # noqa: E501
         'users': 'users',  # noqa: E501
         'third_party_capacity': 'third_party_capacity',  # noqa: E501
         'cloud_capacity': 'cloud_capacity',  # noqa: E501
@@ -144,7 +142,7 @@ class License(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, product, serial, partner, expiry, components, components_expiry, components_enabled, rdc_slots, users, third_party_capacity, cloud_capacity, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, product, serial, partner, expiry, components, components_expiry, components_enabled, users, third_party_capacity, cloud_capacity, *args, **xkwargs):  # noqa: E501
         """License - a model defined in OpenAPI
 
         Args:
@@ -156,7 +154,6 @@ class License(ModelNormal):
             components ({str: (bool,)}):
             components_expiry ({str: (datetime, none_type)}):
             components_enabled ({str: (bool,)}):
-            rdc_slots (int):
             users (int):
             third_party_capacity (int, none_type):
             cloud_capacity (int, none_type):
@@ -230,7 +227,6 @@ class License(ModelNormal):
         self.components = components
         self.components_expiry = components_expiry
         self.components_enabled = components_enabled
-        self.rdc_slots = rdc_slots
         self.users = users
         self.third_party_capacity = third_party_capacity
         self.cloud_capacity = cloud_capacity
@@ -255,7 +251,7 @@ class License(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, product, serial, partner, expiry, components, components_expiry, components_enabled, rdc_slots, users, third_party_capacity, cloud_capacity, *args, **xkwargs):  # noqa: E501
+    def __init__(self, name, product, serial, partner, expiry, components, components_expiry, components_enabled, users, third_party_capacity, cloud_capacity, *args, **xkwargs):  # noqa: E501
         """License - a model defined in OpenAPI
 
         Args:
@@ -267,7 +263,6 @@ class License(ModelNormal):
             components ({str: (bool,)}):
             components_expiry ({str: (datetime, none_type)}):
             components_enabled ({str: (bool,)}):
-            rdc_slots (int):
             users (int):
             third_party_capacity (int, none_type):
             cloud_capacity (int, none_type):
@@ -339,7 +334,6 @@ class License(ModelNormal):
         self.components = components
         self.components_expiry = components_expiry
         self.components_enabled = components_enabled
-        self.rdc_slots = rdc_slots
         self.users = users
         self.third_party_capacity = third_party_capacity
         self.cloud_capacity = cloud_capacity

@@ -67,6 +67,8 @@ from elements_sdk.model.asset_subtitle_link import AssetSubtitleLink
 from elements_sdk.model.asset_subtitle_link_partial_update import AssetSubtitleLinkPartialUpdate
 from elements_sdk.model.asset_subtitle_link_update import AssetSubtitleLinkUpdate
 from elements_sdk.model.asset_update import AssetUpdate
+from elements_sdk.model.auth_fast_lane_endpoint_request import AuthFastLaneEndpointRequest
+from elements_sdk.model.auth_fast_lane_endpoint_response import AuthFastLaneEndpointResponse
 from elements_sdk.model.auth_login_endpoint_request import AuthLoginEndpointRequest
 from elements_sdk.model.auth_login_endpoint_response import AuthLoginEndpointResponse
 from elements_sdk.model.backend import Backend
@@ -247,6 +249,9 @@ from elements_sdk.model.ntp_server import NTPServer
 from elements_sdk.model.ntp_server_partial_update import NTPServerPartialUpdate
 from elements_sdk.model.ntp_server_update import NTPServerUpdate
 from elements_sdk.model.net_stat import NetStat
+from elements_sdk.model.notification import Notification
+from elements_sdk.model.notification_partial_update import NotificationPartialUpdate
+from elements_sdk.model.notification_update import NotificationUpdate
 from elements_sdk.model.one_time_access_token import OneTimeAccessToken
 from elements_sdk.model.one_time_access_token_activity import OneTimeAccessTokenActivity
 from elements_sdk.model.one_time_access_token_shared_object import OneTimeAccessTokenSharedObject
@@ -271,14 +276,11 @@ from elements_sdk.model.proxy_profile import ProxyProfile
 from elements_sdk.model.proxy_profile_mini import ProxyProfileMini
 from elements_sdk.model.proxy_profile_partial_update import ProxyProfilePartialUpdate
 from elements_sdk.model.proxy_profile_update import ProxyProfileUpdate
+from elements_sdk.model.public_parameters import PublicParameters
 from elements_sdk.model.python_environment import PythonEnvironment
 from elements_sdk.model.queue import Queue
 from elements_sdk.model.quota import Quota
 from elements_sdk.model.ram_stat import RAMStat
-from elements_sdk.model.rdc_activation import RDCActivation
-from elements_sdk.model.rdc_host import RDCHost
-from elements_sdk.model.rdc_session import RDCSession
-from elements_sdk.model.rdc_session_create import RDCSessionCreate
 from elements_sdk.model.register_upload_endpoint_request import RegisterUploadEndpointRequest
 from elements_sdk.model.register_upload_metadata_endpoint_request import RegisterUploadMetadataEndpointRequest
 from elements_sdk.model.release_notes_endpoint_response import ReleaseNotesEndpointResponse
@@ -286,6 +288,7 @@ from elements_sdk.model.rename_custom_field_request import RenameCustomFieldRequ
 from elements_sdk.model.render_endpoint_request import RenderEndpointRequest
 from elements_sdk.model.render_request import RenderRequest
 from elements_sdk.model.restore_endpoint_request import RestoreEndpointRequest
+from elements_sdk.model.restricted_one_time_access_token import RestrictedOneTimeAccessToken
 from elements_sdk.model.saml_provider import SAMLProvider
 from elements_sdk.model.saml_provider_mini import SAMLProviderMini
 from elements_sdk.model.saml_provider_partial_update import SAMLProviderPartialUpdate
@@ -312,6 +315,9 @@ from elements_sdk.model.share import Share
 from elements_sdk.model.share_partial_update import SharePartialUpdate
 from elements_sdk.model.share_to_home_workspace_endpoint_request import ShareToHomeWorkspaceEndpointRequest
 from elements_sdk.model.share_update import ShareUpdate
+from elements_sdk.model.sharing_permission_preset import SharingPermissionPreset
+from elements_sdk.model.sharing_permission_preset_partial_update import SharingPermissionPresetPartialUpdate
+from elements_sdk.model.sharing_permission_preset_update import SharingPermissionPresetUpdate
 from elements_sdk.model.slack_channel import SlackChannel
 from elements_sdk.model.slack_connection import SlackConnection
 from elements_sdk.model.slack_connection_partial_update import SlackConnectionPartialUpdate
@@ -381,6 +387,9 @@ from elements_sdk.model.tape_reference import TapeReference
 from elements_sdk.model.tape_update import TapeUpdate
 from elements_sdk.model.task_info import TaskInfo
 from elements_sdk.model.task_log import TaskLog
+from elements_sdk.model.task_log_entry import TaskLogEntry
+from elements_sdk.model.task_log_entry_data import TaskLogEntryData
+from elements_sdk.model.task_log_v2 import TaskLogV2
 from elements_sdk.model.task_progress import TaskProgress
 from elements_sdk.model.task_type import TaskType
 from elements_sdk.model.tasks_summary import TasksSummary
@@ -390,8 +399,6 @@ from elements_sdk.model.teams_connection_status import TeamsConnectionStatus
 from elements_sdk.model.teams_connection_update import TeamsConnectionUpdate
 from elements_sdk.model.teams_message import TeamsMessage
 from elements_sdk.model.teams_recipient import TeamsRecipient
-from elements_sdk.model.test_aws_credentials_request import TestAWSCredentialsRequest
-from elements_sdk.model.test_aws_credentials_response import TestAWSCredentialsResponse
 from elements_sdk.model.test_cloud_account_credentials_request import TestCloudAccountCredentialsRequest
 from elements_sdk.model.test_cloud_account_credentials_response import TestCloudAccountCredentialsResponse
 from elements_sdk.model.test_external_transcoder_connection_request import TestExternalTranscoderConnectionRequest
@@ -445,3 +452,4 @@ from elements_sdk.model.workstation import Workstation
 from elements_sdk.model.workstation_mini import WorkstationMini
 from elements_sdk.model.workstation_partial_update import WorkstationPartialUpdate
 from elements_sdk.model.workstation_update import WorkstationUpdate
+from elements_sdk.model.xml_export import XMLExport

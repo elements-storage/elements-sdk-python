@@ -1420,11 +1420,11 @@ class StorageApi(object):
                     'is_template':
                         (str,),
                     'production':
-                        (float,),
+                        (int,),
                     'volume':
-                        (float,),
+                        (int,),
                     'home_for':
-                        (float,),
+                        (int,),
                     'volume__type':
                         (str,),
                     'production__name':
@@ -1656,7 +1656,7 @@ class StorageApi(object):
                 },
                 'openapi_types': {
                     'workspace':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -1816,11 +1816,11 @@ class StorageApi(object):
                 },
                 'openapi_types': {
                     'workspace':
-                        (float,),
+                        (int,),
                     'user':
-                        (float,),
+                        (int,),
                     'group':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -1903,11 +1903,11 @@ class StorageApi(object):
                     'is_template':
                         (str,),
                     'production':
-                        (float,),
+                        (int,),
                     'volume':
-                        (float,),
+                        (int,),
                     'home_for':
-                        (float,),
+                        (int,),
                     'volume__type':
                         (str,),
                     'production__name':
@@ -2157,11 +2157,11 @@ class StorageApi(object):
                     'is_template':
                         (str,),
                     'production':
-                        (float,),
+                        (int,),
                     'volume':
-                        (float,),
+                        (int,),
                     'home_for':
-                        (float,),
+                        (int,),
                     'volume__type':
                         (str,),
                     'production__name':
@@ -6340,9 +6340,9 @@ class StorageApi(object):
 
         Keyword Args:
             is_template (str): Filter the returned list by `is_template`.. [optional]
-            production (float): Filter the returned list by `production`.. [optional]
-            volume (float): Filter the returned list by `volume`.. [optional]
-            home_for (float): Filter the returned list by `home_for`.. [optional]
+            production (int): Filter the returned list by `production`.. [optional]
+            volume (int): Filter the returned list by `volume`.. [optional]
+            home_for (int): Filter the returned list by `home_for`.. [optional]
             volume__type (str): Filter the returned list by `volume__type`.. [optional]
             production__name (str): Filter the returned list by `production__name`.. [optional]
             production__active (str): Filter the returned list by `production__active`.. [optional]
@@ -6581,7 +6581,7 @@ class StorageApi(object):
 
 
         Keyword Args:
-            workspace (float): Filter the returned list by `workspace`.. [optional]
+            workspace (int): Filter the returned list by `workspace`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -6741,9 +6741,9 @@ class StorageApi(object):
 
 
         Keyword Args:
-            workspace (float): Filter the returned list by `workspace`.. [optional]
-            user (float): Filter the returned list by `user`.. [optional]
-            group (float): Filter the returned list by `group`.. [optional]
+            workspace (int): Filter the returned list by `workspace`.. [optional]
+            user (int): Filter the returned list by `user`.. [optional]
+            group (int): Filter the returned list by `group`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -6821,9 +6821,9 @@ class StorageApi(object):
 
         Keyword Args:
             is_template (str): Filter the returned list by `is_template`.. [optional]
-            production (float): Filter the returned list by `production`.. [optional]
-            volume (float): Filter the returned list by `volume`.. [optional]
-            home_for (float): Filter the returned list by `home_for`.. [optional]
+            production (int): Filter the returned list by `production`.. [optional]
+            volume (int): Filter the returned list by `volume`.. [optional]
+            home_for (int): Filter the returned list by `home_for`.. [optional]
             volume__type (str): Filter the returned list by `volume__type`.. [optional]
             production__name (str): Filter the returned list by `production__name`.. [optional]
             production__active (str): Filter the returned list by `production__active`.. [optional]
@@ -7073,9 +7073,9 @@ class StorageApi(object):
 
         Keyword Args:
             is_template (str): Filter the returned list by `is_template`.. [optional]
-            production (float): Filter the returned list by `production`.. [optional]
-            volume (float): Filter the returned list by `volume`.. [optional]
-            home_for (float): Filter the returned list by `home_for`.. [optional]
+            production (int): Filter the returned list by `production`.. [optional]
+            volume (int): Filter the returned list by `volume`.. [optional]
+            home_for (int): Filter the returned list by `home_for`.. [optional]
             volume__type (str): Filter the returned list by `volume__type`.. [optional]
             production__name (str): Filter the returned list by `production__name`.. [optional]
             production__active (str): Filter the returned list by `production__active`.. [optional]

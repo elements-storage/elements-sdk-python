@@ -95,17 +95,17 @@ class MediaFileMini(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'bundle': (int,),  # noqa: E501
             'full_path': (str,),  # noqa: E501
             'is_dir': (bool,),  # noqa: E501
             'is_hardlink': (bool,),  # noqa: E501
             'mtime': (int,),  # noqa: E501
-            'parent': (int,),  # noqa: E501
             'path': (str,),  # noqa: E501
             'present': (bool,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'volume': (VolumeMini,),  # noqa: E501
+            'bundle': (int, none_type,),  # noqa: E501
             'custom_fields': ({str: (str, none_type)},),  # noqa: E501
+            'parent': (int, none_type,),  # noqa: E501
             'parent_file': ({str: (str, none_type)},),  # noqa: E501
         }
 
@@ -117,31 +117,31 @@ class MediaFileMini(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'bundle': 'bundle',  # noqa: E501
         'full_path': 'full_path',  # noqa: E501
         'is_dir': 'is_dir',  # noqa: E501
         'is_hardlink': 'is_hardlink',  # noqa: E501
         'mtime': 'mtime',  # noqa: E501
-        'parent': 'parent',  # noqa: E501
         'path': 'path',  # noqa: E501
         'present': 'present',  # noqa: E501
         'size': 'size',  # noqa: E501
         'volume': 'volume',  # noqa: E501
+        'bundle': 'bundle',  # noqa: E501
         'custom_fields': 'custom_fields',  # noqa: E501
+        'parent': 'parent',  # noqa: E501
         'parent_file': 'parent_file',  # noqa: E501
     }
 
     read_only_vars = {
         'name',  # noqa: E501
-        'bundle',  # noqa: E501
         'full_path',  # noqa: E501
         'is_dir',  # noqa: E501
         'is_hardlink',  # noqa: E501
         'mtime',  # noqa: E501
-        'parent',  # noqa: E501
         'path',  # noqa: E501
         'present',  # noqa: E501
         'size',  # noqa: E501
+        'bundle',  # noqa: E501
+        'parent',  # noqa: E501
         'parent_file',  # noqa: E501
     }
 
@@ -149,18 +149,16 @@ class MediaFileMini(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, bundle, full_path, is_dir, is_hardlink, mtime, parent, path, present, size, volume, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, full_path, is_dir, is_hardlink, mtime, path, present, size, volume, *args, **xkwargs):  # noqa: E501
         """MediaFileMini - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
-            bundle (int):
             full_path (str):
             is_dir (bool):
             is_hardlink (bool):
             mtime (int):
-            parent (int):
             path (str):
             present (bool):
             size (int):
@@ -197,7 +195,9 @@ class MediaFileMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            bundle (int, none_type): [optional]  # noqa: E501
             custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
+            parent (int, none_type): [optional]  # noqa: E501
             parent_file ({str: (str, none_type)}): [optional]  # noqa: E501
         """
 
@@ -229,12 +229,10 @@ class MediaFileMini(ModelNormal):
 
         self.id = id
         self.name = name
-        self.bundle = bundle
         self.full_path = full_path
         self.is_dir = is_dir
         self.is_hardlink = is_hardlink
         self.mtime = mtime
-        self.parent = parent
         self.path = path
         self.present = present
         self.size = size
@@ -298,7 +296,9 @@ class MediaFileMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            bundle (int, none_type): [optional]  # noqa: E501
             custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
+            parent (int, none_type): [optional]  # noqa: E501
             parent_file ({str: (str, none_type)}): [optional]  # noqa: E501
         """
 

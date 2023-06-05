@@ -64,7 +64,6 @@ class AssetProjectLink(ModelNormal):
     validations = {
         ('sequence_name',): {
             'max_length': 255,
-            'min_length': 1,
         },
     }
 

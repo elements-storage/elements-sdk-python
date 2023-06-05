@@ -129,8 +129,6 @@ class MediaFile(ModelNormal):
             'is_showroom': (bool,),  # noqa: E501
             'bundle_index': (int,),  # noqa: E501
             'modified': (datetime,),  # noqa: E501
-            'parent': (int,),  # noqa: E501
-            'bundle': (int,),  # noqa: E501
             'info': ({str: (str, none_type)},),  # noqa: E501
             'custom_fields': ({str: (str, none_type)},),  # noqa: E501
             'resolved_permission': (MediaRootPermission,),  # noqa: E501
@@ -139,6 +137,8 @@ class MediaFile(ModelNormal):
             'modified_by': (ElementsUserMini,),  # noqa: E501
             'total_files': (int, none_type,),  # noqa: E501
             'needs_rescan': (bool,),  # noqa: E501
+            'parent': (int, none_type,),  # noqa: E501
+            'bundle': (int, none_type,),  # noqa: E501
             'bookmarked_by': ([int],),  # noqa: E501
         }
 
@@ -168,8 +168,6 @@ class MediaFile(ModelNormal):
         'is_showroom': 'is_showroom',  # noqa: E501
         'bundle_index': 'bundle_index',  # noqa: E501
         'modified': 'modified',  # noqa: E501
-        'parent': 'parent',  # noqa: E501
-        'bundle': 'bundle',  # noqa: E501
         'info': 'info',  # noqa: E501
         'custom_fields': 'custom_fields',  # noqa: E501
         'resolved_permission': 'resolved_permission',  # noqa: E501
@@ -178,6 +176,8 @@ class MediaFile(ModelNormal):
         'modified_by': 'modified_by',  # noqa: E501
         'total_files': 'total_files',  # noqa: E501
         'needs_rescan': 'needs_rescan',  # noqa: E501
+        'parent': 'parent',  # noqa: E501
+        'bundle': 'bundle',  # noqa: E501
         'bookmarked_by': 'bookmarked_by',  # noqa: E501
     }
 
@@ -200,16 +200,16 @@ class MediaFile(ModelNormal):
         'is_showroom',  # noqa: E501
         'bundle_index',  # noqa: E501
         'modified',  # noqa: E501
+        'parent_file',  # noqa: E501
         'parent',  # noqa: E501
         'bundle',  # noqa: E501
-        'parent_file',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, volume, effective_custom_fields, full_path, is_shared, is_excluded, is_hardlink, is_bookmarked, child_count, name, path, pathhash, ancestry, is_dir, size, mtime, present, is_showroom, bundle_index, modified, parent, bundle, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, volume, effective_custom_fields, full_path, is_shared, is_excluded, is_hardlink, is_bookmarked, child_count, name, path, pathhash, ancestry, is_dir, size, mtime, present, is_showroom, bundle_index, modified, *args, **xkwargs):  # noqa: E501
         """MediaFile - a model defined in OpenAPI
 
         Args:
@@ -233,8 +233,6 @@ class MediaFile(ModelNormal):
             is_showroom (bool):
             bundle_index (int):
             modified (datetime):
-            parent (int):
-            bundle (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -275,6 +273,8 @@ class MediaFile(ModelNormal):
             modified_by (ElementsUserMini): [optional]  # noqa: E501
             total_files (int, none_type): [optional]  # noqa: E501
             needs_rescan (bool): [optional]  # noqa: E501
+            parent (int, none_type): [optional]  # noqa: E501
+            bundle (int, none_type): [optional]  # noqa: E501
             bookmarked_by ([int]): [optional]  # noqa: E501
         """
 
@@ -324,8 +324,6 @@ class MediaFile(ModelNormal):
         self.is_showroom = is_showroom
         self.bundle_index = bundle_index
         self.modified = modified
-        self.parent = parent
-        self.bundle = bundle
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -392,6 +390,8 @@ class MediaFile(ModelNormal):
             modified_by (ElementsUserMini): [optional]  # noqa: E501
             total_files (int, none_type): [optional]  # noqa: E501
             needs_rescan (bool): [optional]  # noqa: E501
+            parent (int, none_type): [optional]  # noqa: E501
+            bundle (int, none_type): [optional]  # noqa: E501
             bookmarked_by ([int]): [optional]  # noqa: E501
         """
 

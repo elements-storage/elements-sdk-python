@@ -96,6 +96,9 @@ from elements_sdk.model.saved_search_partial_update import SavedSearchPartialUpd
 from elements_sdk.model.saved_search_update import SavedSearchUpdate
 from elements_sdk.model.scanner_discover_endpoint_request import ScannerDiscoverEndpointRequest
 from elements_sdk.model.scanner_scan_endpoint_request import ScannerScanEndpointRequest
+from elements_sdk.model.sharing_permission_preset import SharingPermissionPreset
+from elements_sdk.model.sharing_permission_preset_partial_update import SharingPermissionPresetPartialUpdate
+from elements_sdk.model.sharing_permission_preset_update import SharingPermissionPresetUpdate
 from elements_sdk.model.subclip import Subclip
 from elements_sdk.model.subclip_clipboard_entry import SubclipClipboardEntry
 from elements_sdk.model.subclip_clipboard_entry_update import SubclipClipboardEntryUpdate
@@ -115,6 +118,7 @@ from elements_sdk.model.unfiltered_tag_update import UnfilteredTagUpdate
 from elements_sdk.model.vantage_workflows import VantageWorkflows
 from elements_sdk.model.workflow_transition_request import WorkflowTransitionRequest
 from elements_sdk.model.workflow_transition_response import WorkflowTransitionResponse
+from elements_sdk.model.xml_export import XMLExport
 
 
 class MediaLibraryApi(object):
@@ -1092,6 +1096,58 @@ class MediaLibraryApi(object):
                 },
                 'location_map': {
                     'saved_search_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.create_sharing_permission_preset_endpoint = _Endpoint(
+            settings={
+                'response_type': (SharingPermissionPreset,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/sharing-permission-presets',
+                'operation_id': 'create_sharing_permission_preset',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'sharing_permission_preset_update',
+                ],
+                'required': [
+                    'sharing_permission_preset_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'sharing_permission_preset_update':
+                        (SharingPermissionPresetUpdate,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'sharing_permission_preset_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -2250,6 +2306,55 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.delete_sharing_permission_preset_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/sharing-permission-presets/{id}',
+                'operation_id': 'delete_sharing_permission_preset',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.delete_subclip_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -2604,7 +2709,7 @@ class MediaLibraryApi(object):
         )
         self.editor_export_xml_for_assset_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': (XMLExport,),
                 'auth': [
                     'Bearer'
                 ],
@@ -2661,14 +2766,16 @@ class MediaLibraryApi(object):
                 }
             },
             headers_map={
-                'accept': [],
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [],
             },
             api_client=api_client
         )
         self.editor_export_xml_for_bundle_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': (XMLExport,),
                 'auth': [
                     'Bearer'
                 ],
@@ -2725,14 +2832,16 @@ class MediaLibraryApi(object):
                 }
             },
             headers_map={
-                'accept': [],
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [],
             },
             api_client=api_client
         )
         self.editor_export_xml_for_project_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': (XMLExport,),
                 'auth': [
                     'Bearer'
                 ],
@@ -2774,14 +2883,16 @@ class MediaLibraryApi(object):
                 }
             },
             headers_map={
-                'accept': [],
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [],
             },
             api_client=api_client
         )
         self.export_comments_for_avid_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': (XMLExport,),
                 'auth': [
                     'Bearer'
                 ],
@@ -2844,7 +2955,9 @@ class MediaLibraryApi(object):
                 }
             },
             headers_map={
-                'accept': [],
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [],
             },
             api_client=api_client
@@ -3092,9 +3205,9 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'asset':
-                        (float,),
+                        (int,),
                     'project':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -3161,9 +3274,9 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'user':
-                        (float,),
+                        (int,),
                     'asset':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -3230,9 +3343,9 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'asset':
-                        (float,),
+                        (int,),
                     'subtitle':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -3302,7 +3415,7 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'asset':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -3392,7 +3505,7 @@ class MediaLibraryApi(object):
                     'display_name':
                         (str,),
                     'set':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -3485,9 +3598,9 @@ class MediaLibraryApi(object):
                     'root':
                         (str,),
                     'asset':
-                        (float,),
+                        (int,),
                     'location':
-                        (float,),
+                        (int,),
                     'shared_via_tokens':
                         (str,),
                     'shared_via_tokens__token':
@@ -3576,9 +3689,9 @@ class MediaLibraryApi(object):
                     'file':
                         (str,),
                     'asset':
-                        (float,),
+                        (int,),
                     'location':
-                        (float,),
+                        (int,),
                     'shared_via_tokens':
                         (str,),
                     'shared_via_tokens__token':
@@ -3659,9 +3772,9 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'asset':
-                        (float,),
+                        (int,),
                     'connection':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -3733,11 +3846,11 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'asset':
-                        (float,),
+                        (int,),
                     'root':
-                        (float,),
+                        (int,),
                     'user':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -3950,9 +4063,9 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'asset':
-                        (float,),
+                        (int,),
                     'user':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -4029,9 +4142,9 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'asset':
-                        (float,),
+                        (int,),
                     'location':
-                        (float,),
+                        (int,),
                     'shared_via_tokens':
                         (str,),
                     'shared_via_tokens__token':
@@ -4215,11 +4328,11 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'bundle':
-                        (float,),
+                        (int,),
                     'bundle__in':
                         (str,),
                     'parent':
-                        (float,),
+                        (int,),
                     'path':
                         (str,),
                     'name':
@@ -4231,7 +4344,7 @@ class MediaLibraryApi(object):
                     'present':
                         (str,),
                     'volume':
-                        (float,),
+                        (int,),
                     'shared_via_tokens':
                         (str,),
                     'shared_via_tokens__token':
@@ -4422,11 +4535,11 @@ class MediaLibraryApi(object):
                     'root':
                         (str,),
                     'bundle':
-                        (float,),
+                        (int,),
                     'bundle__in':
                         (str,),
                     'parent':
-                        (float,),
+                        (int,),
                     'path':
                         (str,),
                     'name':
@@ -4438,7 +4551,7 @@ class MediaLibraryApi(object):
                     'present':
                         (str,),
                     'volume':
-                        (float,),
+                        (int,),
                     'shared_via_tokens':
                         (str,),
                     'shared_via_tokens__token':
@@ -4543,11 +4656,11 @@ class MediaLibraryApi(object):
                     'file':
                         (str,),
                     'bundle':
-                        (float,),
+                        (int,),
                     'bundle__in':
                         (str,),
                     'parent':
-                        (float,),
+                        (int,),
                     'path':
                         (str,),
                     'name':
@@ -4559,7 +4672,7 @@ class MediaLibraryApi(object):
                     'present':
                         (str,),
                     'volume':
-                        (float,),
+                        (int,),
                     'shared_via_tokens':
                         (str,),
                     'shared_via_tokens__token':
@@ -4650,7 +4763,7 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'root':
-                        (float,),
+                        (int,),
                     'id':
                         (float,),
                     'ordering':
@@ -4723,7 +4836,7 @@ class MediaLibraryApi(object):
                     'path':
                         (str,),
                     'volume':
-                        (float,),
+                        (int,),
                     'name':
                         (str,),
                     'ordering':
@@ -4889,11 +5002,11 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'asset':
-                        (float,),
+                        (int,),
                     'user':
-                        (float,),
+                        (int,),
                     'root':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -5100,9 +5213,9 @@ class MediaLibraryApi(object):
                     'name':
                         (str,),
                     'root':
-                        (float,),
+                        (int,),
                     'user':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -5124,6 +5237,75 @@ class MediaLibraryApi(object):
                     'name': 'query',
                     'root': 'query',
                     'user': 'query',
+                    'ordering': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_all_sharing_permission_presets_endpoint = _Endpoint(
+            settings={
+                'response_type': ([SharingPermissionPreset],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/sharing-permission-presets',
+                'operation_id': 'get_all_sharing_permission_presets',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'name',
+                    'id',
+                    'ordering',
+                    'limit',
+                    'offset',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'name':
+                        (str,),
+                    'id':
+                        (float,),
+                    'ordering':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'name': 'name',
+                    'id': 'id',
+                    'ordering': 'ordering',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'name': 'query',
+                    'id': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -5172,7 +5354,7 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'cut':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -5239,11 +5421,11 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'asset':
-                        (float,),
+                        (int,),
                     'asset__in':
                         (str,),
                     'root':
-                        (float,),
+                        (int,),
                     'name':
                         (str,),
                     'ordering':
@@ -5315,7 +5497,7 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'subtitle':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -5621,11 +5803,11 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'bundle':
-                        (float,),
+                        (int,),
                     'bundle__in':
                         (str,),
                     'parent':
-                        (float,),
+                        (int,),
                     'path':
                         (str,),
                     'name':
@@ -5637,7 +5819,7 @@ class MediaLibraryApi(object):
                     'present':
                         (str,),
                     'volume':
-                        (float,),
+                        (int,),
                     'shared_via_tokens':
                         (str,),
                     'shared_via_tokens__token':
@@ -6162,11 +6344,11 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'asset':
-                        (float,),
+                        (int,),
                     'user':
-                        (float,),
+                        (int,),
                     'root':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -7029,7 +7211,7 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'root':
-                        (float,),
+                        (int,),
                     'id':
                         (float,),
                     'ordering':
@@ -7098,7 +7280,7 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'root':
-                        (float,),
+                        (int,),
                     'id':
                         (float,),
                     'ordering':
@@ -7399,6 +7581,57 @@ class MediaLibraryApi(object):
                 ],
                 'endpoint_path': '/api/2/media/saved-searches/{id}',
                 'operation_id': 'get_saved_search',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sharing_permission_preset_endpoint = _Endpoint(
+            settings={
+                'response_type': (SharingPermissionPreset,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/sharing-permission-presets/{id}',
+                'operation_id': 'get_sharing_permission_preset',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -8787,6 +9020,64 @@ class MediaLibraryApi(object):
                 'location_map': {
                     'id': 'path',
                     'saved_search_partial_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.patch_sharing_permission_preset_endpoint = _Endpoint(
+            settings={
+                'response_type': (SharingPermissionPreset,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/sharing-permission-presets/{id}',
+                'operation_id': 'patch_sharing_permission_preset',
+                'http_method': 'PATCH',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'sharing_permission_preset_partial_update',
+                ],
+                'required': [
+                    'id',
+                    'sharing_permission_preset_partial_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'sharing_permission_preset_partial_update':
+                        (SharingPermissionPresetPartialUpdate,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'sharing_permission_preset_partial_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -10588,6 +10879,64 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.update_sharing_permission_preset_endpoint = _Endpoint(
+            settings={
+                'response_type': (SharingPermissionPreset,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/sharing-permission-presets/{id}',
+                'operation_id': 'update_sharing_permission_preset',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'sharing_permission_preset_update',
+                ],
+                'required': [
+                    'id',
+                    'sharing_permission_preset_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'sharing_permission_preset_update':
+                        (SharingPermissionPresetUpdate,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'sharing_permission_preset_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.update_subclip_endpoint = _Endpoint(
             settings={
                 'response_type': (Subclip,),
@@ -12121,6 +12470,84 @@ class MediaLibraryApi(object):
         kwargs['saved_search_update'] = \
             saved_search_update
         return self.create_saved_search_endpoint.call_with_http_info(**kwargs)
+
+    def create_sharing_permission_preset(
+        self,
+        sharing_permission_preset_update,
+        **kwargs
+    ):
+        """create_sharing_permission_preset  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write)   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_sharing_permission_preset(sharing_permission_preset_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            sharing_permission_preset_update (SharingPermissionPresetUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SharingPermissionPreset
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['sharing_permission_preset_update'] = \
+            sharing_permission_preset_update
+        return self.create_sharing_permission_preset_endpoint.call_with_http_info(**kwargs)
 
     def create_subclip(
         self,
@@ -13917,6 +14344,84 @@ class MediaLibraryApi(object):
             id
         return self.delete_saved_search_endpoint.call_with_http_info(**kwargs)
 
+    def delete_sharing_permission_preset(
+        self,
+        id,
+        **kwargs
+    ):
+        """delete_sharing_permission_preset  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write)   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_sharing_permission_preset(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Sharing Permission Preset.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.delete_sharing_permission_preset_endpoint.call_with_http_info(**kwargs)
+
     def delete_subclip(
         self,
         id,
@@ -14516,7 +15021,7 @@ class MediaLibraryApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            XMLExport
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -14597,7 +15102,7 @@ class MediaLibraryApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            XMLExport
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -14675,7 +15180,7 @@ class MediaLibraryApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            XMLExport
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -14758,7 +15263,7 @@ class MediaLibraryApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            XMLExport
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -15123,8 +15628,8 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            asset (float): Filter the returned list by `asset`.. [optional]
-            project (float): Filter the returned list by `project`.. [optional]
+            asset (int): Filter the returned list by `asset`.. [optional]
+            project (int): Filter the returned list by `project`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -15201,8 +15706,8 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            user (float): Filter the returned list by `user`.. [optional]
-            asset (float): Filter the returned list by `asset`.. [optional]
+            user (int): Filter the returned list by `user`.. [optional]
+            asset (int): Filter the returned list by `asset`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -15279,8 +15784,8 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            asset (float): Filter the returned list by `asset`.. [optional]
-            subtitle (float): Filter the returned list by `subtitle`.. [optional]
+            asset (int): Filter the returned list by `asset`.. [optional]
+            subtitle (int): Filter the returned list by `subtitle`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -15357,7 +15862,7 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            asset (float): Filter the returned list by `asset`.. [optional]
+            asset (int): Filter the returned list by `asset`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -15440,7 +15945,7 @@ class MediaLibraryApi(object):
         Keyword Args:
             sync_id (str): Filter the returned list by `sync_id`.. [optional]
             display_name (str): Filter the returned list by `display_name`.. [optional]
-            set (float): Filter the returned list by `set`.. [optional]
+            set (int): Filter the returned list by `set`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -15524,8 +16029,8 @@ class MediaLibraryApi(object):
             root (str):
 
         Keyword Args:
-            asset (float): Filter the returned list by `asset`.. [optional]
-            location (float): Filter the returned list by `location`.. [optional]
+            asset (int): Filter the returned list by `asset`.. [optional]
+            location (int): Filter the returned list by `location`.. [optional]
             shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
             shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
@@ -15610,8 +16115,8 @@ class MediaLibraryApi(object):
             file (str):
 
         Keyword Args:
-            asset (float): Filter the returned list by `asset`.. [optional]
-            location (float): Filter the returned list by `location`.. [optional]
+            asset (int): Filter the returned list by `asset`.. [optional]
+            location (int): Filter the returned list by `location`.. [optional]
             shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
             shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
@@ -15693,8 +16198,8 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            asset (float): Filter the returned list by `asset`.. [optional]
-            connection (float): Filter the returned list by `connection`.. [optional]
+            asset (int): Filter the returned list by `asset`.. [optional]
+            connection (int): Filter the returned list by `connection`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -15771,9 +16276,9 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            asset (float): Filter the returned list by `asset`.. [optional]
-            root (float): Filter the returned list by `root`.. [optional]
-            user (float): Filter the returned list by `user`.. [optional]
+            asset (int): Filter the returned list by `asset`.. [optional]
+            root (int): Filter the returned list by `root`.. [optional]
+            user (int): Filter the returned list by `user`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -16008,8 +16513,8 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            asset (float): Filter the returned list by `asset`.. [optional]
-            user (float): Filter the returned list by `user`.. [optional]
+            asset (int): Filter the returned list by `asset`.. [optional]
+            user (int): Filter the returned list by `user`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -16086,8 +16591,8 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            asset (float): Filter the returned list by `asset`.. [optional]
-            location (float): Filter the returned list by `location`.. [optional]
+            asset (int): Filter the returned list by `asset`.. [optional]
+            location (int): Filter the returned list by `location`.. [optional]
             shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
             shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
@@ -16250,15 +16755,15 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            bundle (float): Filter the returned list by `bundle`.. [optional]
+            bundle (int): Filter the returned list by `bundle`.. [optional]
             bundle__in (str): Multiple values may be separated by commas.. [optional]
-            parent (float): Filter the returned list by `parent`.. [optional]
+            parent (int): Filter the returned list by `parent`.. [optional]
             path (str): [optional]
             name (str): Filter the returned list by `name`.. [optional]
             is_dir (str): Filter the returned list by `is_dir`.. [optional]
             is_showroom (str): Filter the returned list by `is_showroom`.. [optional]
             present (str): Filter the returned list by `present`.. [optional]
-            volume (float): Filter the returned list by `volume`.. [optional]
+            volume (int): Filter the returned list by `volume`.. [optional]
             shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
             shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
@@ -16427,15 +16932,15 @@ class MediaLibraryApi(object):
             root (str):
 
         Keyword Args:
-            bundle (float): Filter the returned list by `bundle`.. [optional]
+            bundle (int): Filter the returned list by `bundle`.. [optional]
             bundle__in (str): Multiple values may be separated by commas.. [optional]
-            parent (float): Filter the returned list by `parent`.. [optional]
+            parent (int): Filter the returned list by `parent`.. [optional]
             path (str): Filter the returned list by `path`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             is_dir (str): Filter the returned list by `is_dir`.. [optional]
             is_showroom (str): Filter the returned list by `is_showroom`.. [optional]
             present (str): Filter the returned list by `present`.. [optional]
-            volume (float): Filter the returned list by `volume`.. [optional]
+            volume (int): Filter the returned list by `volume`.. [optional]
             shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
             shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
@@ -16519,15 +17024,15 @@ class MediaLibraryApi(object):
             file (str):
 
         Keyword Args:
-            bundle (float): Filter the returned list by `bundle`.. [optional]
+            bundle (int): Filter the returned list by `bundle`.. [optional]
             bundle__in (str): Multiple values may be separated by commas.. [optional]
-            parent (float): Filter the returned list by `parent`.. [optional]
+            parent (int): Filter the returned list by `parent`.. [optional]
             path (str): Filter the returned list by `path`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             is_dir (str): Filter the returned list by `is_dir`.. [optional]
             is_showroom (str): Filter the returned list by `is_showroom`.. [optional]
             present (str): Filter the returned list by `present`.. [optional]
-            volume (float): Filter the returned list by `volume`.. [optional]
+            volume (int): Filter the returned list by `volume`.. [optional]
             shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
             shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
@@ -16608,7 +17113,7 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            root (float): Filter the returned list by `root`.. [optional]
+            root (int): Filter the returned list by `root`.. [optional]
             id (float): Filter the returned list by `id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
@@ -16687,7 +17192,7 @@ class MediaLibraryApi(object):
 
         Keyword Args:
             path (str): Filter the returned list by `path`.. [optional]
-            volume (float): Filter the returned list by `volume`.. [optional]
+            volume (int): Filter the returned list by `volume`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
@@ -16848,9 +17353,9 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            asset (float): Filter the returned list by `asset`.. [optional]
-            user (float): Filter the returned list by `user`.. [optional]
-            root (float): Filter the returned list by `root`.. [optional]
+            asset (int): Filter the returned list by `asset`.. [optional]
+            user (int): Filter the returned list by `user`.. [optional]
+            root (int): Filter the returned list by `root`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -17084,8 +17589,8 @@ class MediaLibraryApi(object):
         Keyword Args:
             shared (str): Filter the returned list by `shared`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
-            root (float): Filter the returned list by `root`.. [optional]
-            user (float): Filter the returned list by `user`.. [optional]
+            root (int): Filter the returned list by `root`.. [optional]
+            user (int): Filter the returned list by `user`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -17147,6 +17652,84 @@ class MediaLibraryApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_all_saved_searches_endpoint.call_with_http_info(**kwargs)
 
+    def get_all_sharing_permission_presets(
+        self,
+        **kwargs
+    ):
+        """get_all_sharing_permission_presets  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write)   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_all_sharing_permission_presets(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            name (str): Filter the returned list by `name`.. [optional]
+            id (float): Filter the returned list by `id`.. [optional]
+            ordering (str): Which field to use when ordering the results.. [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [SharingPermissionPreset]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_all_sharing_permission_presets_endpoint.call_with_http_info(**kwargs)
+
     def get_all_subclip_clipboard_entries(
         self,
         **kwargs
@@ -17162,7 +17745,7 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            cut (float): Filter the returned list by `cut`.. [optional]
+            cut (int): Filter the returned list by `cut`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -17239,9 +17822,9 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            asset (float): Filter the returned list by `asset`.. [optional]
+            asset (int): Filter the returned list by `asset`.. [optional]
             asset__in (str): Multiple values may be separated by commas.. [optional]
-            root (float): Filter the returned list by `root`.. [optional]
+            root (int): Filter the returned list by `root`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
@@ -17319,7 +17902,7 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            subtitle (float): Filter the returned list by `subtitle`.. [optional]
+            subtitle (int): Filter the returned list by `subtitle`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -17710,15 +18293,15 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            bundle (float): Filter the returned list by `bundle`.. [optional]
+            bundle (int): Filter the returned list by `bundle`.. [optional]
             bundle__in (str): Multiple values may be separated by commas.. [optional]
-            parent (float): Filter the returned list by `parent`.. [optional]
+            parent (int): Filter the returned list by `parent`.. [optional]
             path (str): Filter the returned list by `path`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             is_dir (str): Filter the returned list by `is_dir`.. [optional]
             is_showroom (str): Filter the returned list by `is_showroom`.. [optional]
             present (str): Filter the returned list by `present`.. [optional]
-            volume (float): Filter the returned list by `volume`.. [optional]
+            volume (int): Filter the returned list by `volume`.. [optional]
             shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
             shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
@@ -18429,9 +19012,9 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            asset (float): Filter the returned list by `asset`.. [optional]
-            user (float): Filter the returned list by `user`.. [optional]
-            root (float): Filter the returned list by `root`.. [optional]
+            asset (int): Filter the returned list by `asset`.. [optional]
+            user (int): Filter the returned list by `user`.. [optional]
+            root (int): Filter the returned list by `root`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -19548,7 +20131,7 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            root (float): Filter the returned list by `root`.. [optional]
+            root (int): Filter the returned list by `root`.. [optional]
             id (float): Filter the returned list by `id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
@@ -19626,7 +20209,7 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            root (float): Filter the returned list by `root`.. [optional]
+            root (int): Filter the returned list by `root`.. [optional]
             id (float): Filter the returned list by `id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
@@ -20157,6 +20740,84 @@ class MediaLibraryApi(object):
         kwargs['id'] = \
             id
         return self.get_saved_search_endpoint.call_with_http_info(**kwargs)
+
+    def get_sharing_permission_preset(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_sharing_permission_preset  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write)   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sharing_permission_preset(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Sharing Permission Preset.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SharingPermissionPreset
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_sharing_permission_preset_endpoint.call_with_http_info(**kwargs)
 
     def get_subclip(
         self,
@@ -22103,6 +22764,88 @@ class MediaLibraryApi(object):
         kwargs['saved_search_partial_update'] = \
             saved_search_partial_update
         return self.patch_saved_search_endpoint.call_with_http_info(**kwargs)
+
+    def patch_sharing_permission_preset(
+        self,
+        id,
+        sharing_permission_preset_partial_update,
+        **kwargs
+    ):
+        """patch_sharing_permission_preset  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write)   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.patch_sharing_permission_preset(id, sharing_permission_preset_partial_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Sharing Permission Preset.
+            sharing_permission_preset_partial_update (SharingPermissionPresetPartialUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SharingPermissionPreset
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['sharing_permission_preset_partial_update'] = \
+            sharing_permission_preset_partial_update
+        return self.patch_sharing_permission_preset_endpoint.call_with_http_info(**kwargs)
 
     def patch_subclip(
         self,
@@ -24689,6 +25432,88 @@ class MediaLibraryApi(object):
         kwargs['saved_search_update'] = \
             saved_search_update
         return self.update_saved_search_endpoint.call_with_http_info(**kwargs)
+
+    def update_sharing_permission_preset(
+        self,
+        id,
+        sharing_permission_preset_update,
+        **kwargs
+    ):
+        """update_sharing_permission_preset  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write)   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_sharing_permission_preset(id, sharing_permission_preset_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Sharing Permission Preset.
+            sharing_permission_preset_update (SharingPermissionPresetUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SharingPermissionPreset
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['sharing_permission_preset_update'] = \
+            sharing_permission_preset_update
+        return self.update_sharing_permission_preset_endpoint.call_with_http_info(**kwargs)
 
     def update_subclip(
         self,

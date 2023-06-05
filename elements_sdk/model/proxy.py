@@ -65,6 +65,10 @@ class Proxy(ModelNormal):
         ('failed_reason',): {
             'min_length': 1,
         },
+        ('failed_count',): {
+            'inclusive_maximum': 2147483647,
+            'inclusive_minimum': -2147483648,
+        },
         ('name',): {
             'max_length': 255,
             'min_length': 1,
@@ -105,11 +109,13 @@ class Proxy(ModelNormal):
             'urls': ({str: (str, none_type)},),  # noqa: E501
             'profile': (ProxyProfileMini,),  # noqa: E501
             'failed_reason': (str, none_type,),  # noqa: E501
+            'skipped': (bool,),  # noqa: E501
             'transforms': (str,),  # noqa: E501
-            'generated': (bool,),  # noqa: E501
+            'generated': (datetime, none_type,),  # noqa: E501
             'asset': (int,),  # noqa: E501
             'generated_date': (datetime, none_type,),  # noqa: E501
             'failed': (bool,),  # noqa: E501
+            'failed_count': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'variant_id': (str,),  # noqa: E501
             'variant_config': (str,),  # noqa: E501
@@ -125,11 +131,13 @@ class Proxy(ModelNormal):
         'urls': 'urls',  # noqa: E501
         'profile': 'profile',  # noqa: E501
         'failed_reason': 'failed_reason',  # noqa: E501
+        'skipped': 'skipped',  # noqa: E501
         'transforms': 'transforms',  # noqa: E501
         'generated': 'generated',  # noqa: E501
         'asset': 'asset',  # noqa: E501
         'generated_date': 'generated_date',  # noqa: E501
         'failed': 'failed',  # noqa: E501
+        'failed_count': 'failed_count',  # noqa: E501
         'name': 'name',  # noqa: E501
         'variant_id': 'variant_id',  # noqa: E501
         'variant_config': 'variant_config',  # noqa: E501
@@ -138,6 +146,7 @@ class Proxy(ModelNormal):
     read_only_vars = {
         'urls',  # noqa: E501
         'failed_reason',  # noqa: E501
+        'skipped',  # noqa: E501
         'transforms',  # noqa: E501
         'generated',  # noqa: E501
     }
@@ -146,7 +155,7 @@ class Proxy(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, urls, profile, failed_reason, transforms, generated, asset, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, urls, profile, failed_reason, skipped, transforms, generated, asset, *args, **xkwargs):  # noqa: E501
         """Proxy - a model defined in OpenAPI
 
         Args:
@@ -154,8 +163,9 @@ class Proxy(ModelNormal):
             urls ({str: (str, none_type)}):
             profile (ProxyProfileMini):
             failed_reason (str, none_type):
+            skipped (bool):
             transforms (str):
-            generated (bool):
+            generated (datetime, none_type):
             asset (int):
 
         Keyword Args:
@@ -191,6 +201,7 @@ class Proxy(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             generated_date (datetime, none_type): [optional]  # noqa: E501
             failed (bool): [optional]  # noqa: E501
+            failed_count (int): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             variant_id (str): [optional] if omitted the server will use the default value of "default"  # noqa: E501
             variant_config (str): [optional]  # noqa: E501
@@ -226,6 +237,7 @@ class Proxy(ModelNormal):
         self.urls = urls
         self.profile = profile
         self.failed_reason = failed_reason
+        self.skipped = skipped
         self.transforms = transforms
         self.generated = generated
         self.asset = asset
@@ -291,6 +303,7 @@ class Proxy(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             generated_date (datetime, none_type): [optional]  # noqa: E501
             failed (bool): [optional]  # noqa: E501
+            failed_count (int): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             variant_id (str): [optional] if omitted the server will use the default value of "default"  # noqa: E501
             variant_config (str): [optional]  # noqa: E501

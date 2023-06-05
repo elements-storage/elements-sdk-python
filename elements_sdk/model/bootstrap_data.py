@@ -38,6 +38,7 @@ def lazy_import():
     from elements_sdk.model.license import License
     from elements_sdk.model.media_root_permission import MediaRootPermission
     from elements_sdk.model.parameters import Parameters
+    from elements_sdk.model.public_parameters import PublicParameters
     from elements_sdk.model.saml_provider_mini import SAMLProviderMini
     from elements_sdk.model.storage_node import StorageNode
     from elements_sdk.model.task_type import TaskType
@@ -50,6 +51,7 @@ def lazy_import():
     globals()['License'] = License
     globals()['MediaRootPermission'] = MediaRootPermission
     globals()['Parameters'] = Parameters
+    globals()['PublicParameters'] = PublicParameters
     globals()['SAMLProviderMini'] = SAMLProviderMini
     globals()['StorageNode'] = StorageNode
     globals()['TaskType'] = TaskType
@@ -90,6 +92,9 @@ class BootstrapData(ModelNormal):
         ('session_id',): {
             'min_length': 1,
         },
+        ('system_name',): {
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -118,9 +123,11 @@ class BootstrapData(ModelNormal):
             'current_node': (StorageNode,),  # noqa: E501
             'license': (License,),  # noqa: E501
             'parameter_values': (Parameters,),  # noqa: E501
+            'public_parameters': (PublicParameters,),  # noqa: E501
             'known_usernames': ([str],),  # noqa: E501
             'known_emails': ([str],),  # noqa: E501
             'impersonation_active': (bool,),  # noqa: E501
+            'one_time_access_token_active': (bool,),  # noqa: E501
             'debug': (bool,),  # noqa: E501
             'version': (ElementsVersion,),  # noqa: E501
             'client_os': (str,),  # noqa: E501
@@ -138,6 +145,7 @@ class BootstrapData(ModelNormal):
             'saml_providers': ([SAMLProviderMini],),  # noqa: E501
             'settings': ({str: (str, none_type)},),  # noqa: E501
             'kibana_enabled': (bool,),  # noqa: E501
+            'system_name': (str,),  # noqa: E501
             'identity_value': (ElementsUserDetail,),  # noqa: E501
             'active_saml_provider': (SAMLProviderMini,),  # noqa: E501
             'tasks_summary': (TasksSummary,),  # noqa: E501
@@ -149,32 +157,35 @@ class BootstrapData(ModelNormal):
 
 
     attribute_map = {
-        'current_node': 'currentNode',  # noqa: E501
+        'current_node': 'current_node',  # noqa: E501
         'license': 'license',  # noqa: E501
-        'parameter_values': 'parameterValues',  # noqa: E501
-        'known_usernames': 'knownUsernames',  # noqa: E501
-        'known_emails': 'knownEmails',  # noqa: E501
-        'impersonation_active': 'impersonationActive',  # noqa: E501
+        'parameter_values': 'parameter_values',  # noqa: E501
+        'public_parameters': 'public_parameters',  # noqa: E501
+        'known_usernames': 'known_usernames',  # noqa: E501
+        'known_emails': 'known_emails',  # noqa: E501
+        'impersonation_active': 'impersonation_active',  # noqa: E501
+        'one_time_access_token_active': 'one_time_access_token_active',  # noqa: E501
         'debug': 'debug',  # noqa: E501
         'version': 'version',  # noqa: E501
-        'client_os': 'clientOS',  # noqa: E501
-        'session_id': 'sessionID',  # noqa: E501
-        'cloud_connections': 'cloudConnections',  # noqa: E501
-        'ai_connections': 'aiConnections',  # noqa: E501
+        'client_os': 'client_os',  # noqa: E501
+        'session_id': 'session_id',  # noqa: E501
+        'cloud_connections': 'cloud_connections',  # noqa: E501
+        'ai_connections': 'ai_connections',  # noqa: E501
         'events': 'events',  # noqa: E501
-        'sentry_config': 'sentryConfig',  # noqa: E501
-        'has_wan_networks': 'hasWANNetworks',  # noqa: E501
-        'task_meta': 'taskMeta',  # noqa: E501
-        'scanner_metadata_schema': 'scannerMetadataSchema',  # noqa: E501
-        'media_root_permissions': 'mediaRootPermissions',  # noqa: E501
-        'shared_storage_values': 'sharedStorageValues',  # noqa: E501
-        'user_storage_values': 'userStorageValues',  # noqa: E501
-        'saml_providers': 'samlProviders',  # noqa: E501
+        'sentry_config': 'sentry_config',  # noqa: E501
+        'has_wan_networks': 'has_wan_networks',  # noqa: E501
+        'task_meta': 'task_meta',  # noqa: E501
+        'scanner_metadata_schema': 'scanner_metadata_schema',  # noqa: E501
+        'media_root_permissions': 'media_root_permissions',  # noqa: E501
+        'shared_storage_values': 'shared_storage_values',  # noqa: E501
+        'user_storage_values': 'user_storage_values',  # noqa: E501
+        'saml_providers': 'saml_providers',  # noqa: E501
         'settings': 'settings',  # noqa: E501
-        'kibana_enabled': 'kibanaEnabled',  # noqa: E501
-        'identity_value': 'identityValue',  # noqa: E501
-        'active_saml_provider': 'activeSAMLProvider',  # noqa: E501
-        'tasks_summary': 'tasksSummary',  # noqa: E501
+        'kibana_enabled': 'kibana_enabled',  # noqa: E501
+        'system_name': 'system_name',  # noqa: E501
+        'identity_value': 'identity_value',  # noqa: E501
+        'active_saml_provider': 'active_saml_provider',  # noqa: E501
+        'tasks_summary': 'tasks_summary',  # noqa: E501
     }
 
     read_only_vars = {
@@ -184,16 +195,18 @@ class BootstrapData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, current_node, license, parameter_values, known_usernames, known_emails, impersonation_active, debug, version, client_os, session_id, cloud_connections, ai_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, current_node, license, parameter_values, public_parameters, known_usernames, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, ai_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, system_name, *args, **xkwargs):  # noqa: E501
         """BootstrapData - a model defined in OpenAPI
 
         Args:
             current_node (StorageNode):
             license (License):
             parameter_values (Parameters):
+            public_parameters (PublicParameters):
             known_usernames ([str]):
             known_emails ([str]):
             impersonation_active (bool):
+            one_time_access_token_active (bool):
             debug (bool):
             version (ElementsVersion):
             client_os (str):
@@ -211,6 +224,7 @@ class BootstrapData(ModelNormal):
             saml_providers ([SAMLProviderMini]):
             settings ({str: (str, none_type)}):
             kibana_enabled (bool):
+            system_name (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -277,9 +291,11 @@ class BootstrapData(ModelNormal):
         self.current_node = current_node
         self.license = license
         self.parameter_values = parameter_values
+        self.public_parameters = public_parameters
         self.known_usernames = known_usernames
         self.known_emails = known_emails
         self.impersonation_active = impersonation_active
+        self.one_time_access_token_active = one_time_access_token_active
         self.debug = debug
         self.version = version
         self.client_os = client_os
@@ -297,6 +313,7 @@ class BootstrapData(ModelNormal):
         self.saml_providers = saml_providers
         self.settings = settings
         self.kibana_enabled = kibana_enabled
+        self.system_name = system_name
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -318,16 +335,18 @@ class BootstrapData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, current_node, license, parameter_values, known_usernames, known_emails, impersonation_active, debug, version, client_os, session_id, cloud_connections, ai_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, *args, **xkwargs):  # noqa: E501
+    def __init__(self, current_node, license, parameter_values, public_parameters, known_usernames, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, ai_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, system_name, *args, **xkwargs):  # noqa: E501
         """BootstrapData - a model defined in OpenAPI
 
         Args:
             current_node (StorageNode):
             license (License):
             parameter_values (Parameters):
+            public_parameters (PublicParameters):
             known_usernames ([str]):
             known_emails ([str]):
             impersonation_active (bool):
+            one_time_access_token_active (bool):
             debug (bool):
             version (ElementsVersion):
             client_os (str):
@@ -345,6 +364,7 @@ class BootstrapData(ModelNormal):
             saml_providers ([SAMLProviderMini]):
             settings ({str: (str, none_type)}):
             kibana_enabled (bool):
+            system_name (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -409,9 +429,11 @@ class BootstrapData(ModelNormal):
         self.current_node = current_node
         self.license = license
         self.parameter_values = parameter_values
+        self.public_parameters = public_parameters
         self.known_usernames = known_usernames
         self.known_emails = known_emails
         self.impersonation_active = impersonation_active
+        self.one_time_access_token_active = one_time_access_token_active
         self.debug = debug
         self.version = version
         self.client_os = client_os
@@ -429,6 +451,7 @@ class BootstrapData(ModelNormal):
         self.saml_providers = saml_providers
         self.settings = settings
         self.kibana_enabled = kibana_enabled
+        self.system_name = system_name
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

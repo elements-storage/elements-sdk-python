@@ -58,6 +58,10 @@ class AssetUpdate(ModelNormal):
     }
 
     validations = {
+        ('workflow_state',): {
+            'inclusive_maximum': 2147483647,
+            'inclusive_minimum': -2147483648,
+        },
     }
 
     @cached_property
@@ -83,6 +87,7 @@ class AssetUpdate(ModelNormal):
         return {
             'custom_fields': ({str: (str, none_type)},),  # noqa: E501
             'tags': ([int],),  # noqa: E501
+            'workflow_state': (int,),  # noqa: E501
             'set': (int, none_type,),  # noqa: E501
         }
 
@@ -94,6 +99,7 @@ class AssetUpdate(ModelNormal):
     attribute_map = {
         'custom_fields': 'custom_fields',  # noqa: E501
         'tags': 'tags',  # noqa: E501
+        'workflow_state': 'workflow_state',  # noqa: E501
         'set': 'set',  # noqa: E501
     }
 
@@ -142,6 +148,7 @@ class AssetUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            workflow_state (int): [optional]  # noqa: E501
             set (int, none_type): [optional]  # noqa: E501
         """
 
@@ -232,6 +239,7 @@ class AssetUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            workflow_state (int): [optional]  # noqa: E501
             set (int, none_type): [optional]  # noqa: E501
         """
 

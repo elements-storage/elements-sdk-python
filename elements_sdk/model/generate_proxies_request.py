@@ -86,6 +86,7 @@ class GenerateProxiesRequest(ModelNormal):
             'directories': ([int],),  # noqa: E501
             'enqueue_at_front': (bool,),  # noqa: E501
             'force': (bool,),  # noqa: E501
+            'retry_failed': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -99,6 +100,7 @@ class GenerateProxiesRequest(ModelNormal):
         'directories': 'directories',  # noqa: E501
         'enqueue_at_front': 'enqueue_at_front',  # noqa: E501
         'force': 'force',  # noqa: E501
+        'retry_failed': 'retry_failed',  # noqa: E501
     }
 
     read_only_vars = {
@@ -149,6 +151,7 @@ class GenerateProxiesRequest(ModelNormal):
             directories ([int]): [optional]  # noqa: E501
             enqueue_at_front (bool): [optional]  # noqa: E501
             force (bool): [optional]  # noqa: E501
+            retry_failed (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -240,6 +243,7 @@ class GenerateProxiesRequest(ModelNormal):
             directories ([int]): [optional]  # noqa: E501
             enqueue_at_front (bool): [optional]  # noqa: E501
             force (bool): [optional]  # noqa: E501
+            retry_failed (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

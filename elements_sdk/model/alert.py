@@ -107,9 +107,9 @@ class Alert(ModelNormal):
             'is_open': (bool,),  # noqa: E501
             'node': (StorageNodeMini,),  # noqa: E501
             'opened_at': (datetime,),  # noqa: E501
-            'closed_at': (datetime,),  # noqa: E501
             'duration': (str,),  # noqa: E501
             'acknowledged_by': (ElementsUserMini,),  # noqa: E501
+            'closed_at': (datetime, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -125,22 +125,22 @@ class Alert(ModelNormal):
         'is_open': 'is_open',  # noqa: E501
         'node': 'node',  # noqa: E501
         'opened_at': 'opened_at',  # noqa: E501
-        'closed_at': 'closed_at',  # noqa: E501
         'duration': 'duration',  # noqa: E501
         'acknowledged_by': 'acknowledged_by',  # noqa: E501
+        'closed_at': 'closed_at',  # noqa: E501
     }
 
     read_only_vars = {
         'opened_at',  # noqa: E501
-        'closed_at',  # noqa: E501
         'duration',  # noqa: E501
+        'closed_at',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, message, level, is_open, node, opened_at, closed_at, duration, acknowledged_by, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, message, level, is_open, node, opened_at, duration, acknowledged_by, *args, **xkwargs):  # noqa: E501
         """Alert - a model defined in OpenAPI
 
         Args:
@@ -151,7 +151,6 @@ class Alert(ModelNormal):
             is_open (bool):
             node (StorageNodeMini):
             opened_at (datetime):
-            closed_at (datetime):
             duration (str):
             acknowledged_by (ElementsUserMini):
 
@@ -186,6 +185,7 @@ class Alert(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            closed_at (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -221,7 +221,6 @@ class Alert(ModelNormal):
         self.is_open = is_open
         self.node = node
         self.opened_at = opened_at
-        self.closed_at = closed_at
         self.duration = duration
         self.acknowledged_by = acknowledged_by
         for var_name, var_value in xkwargs.items():
@@ -288,6 +287,7 @@ class Alert(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            closed_at (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

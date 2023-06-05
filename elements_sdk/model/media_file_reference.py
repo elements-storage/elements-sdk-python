@@ -137,8 +137,8 @@ class MediaFileReference(ModelNormal):
             'is_showroom': (bool,),  # noqa: E501
             'bundle_index': (int,),  # noqa: E501
             'modified': (datetime,),  # noqa: E501
-            'parent': (int,),  # noqa: E501
-            'bundle': (int,),  # noqa: E501
+            'parent': (int, none_type,),  # noqa: E501
+            'bundle': (int, none_type,),  # noqa: E501
             'bookmarked_by': ([int],),  # noqa: E501
         }
 
@@ -278,8 +278,8 @@ class MediaFileReference(ModelNormal):
             is_showroom (bool): [optional]  # noqa: E501
             bundle_index (int): [optional]  # noqa: E501
             modified (datetime): [optional]  # noqa: E501
-            parent (int): [optional]  # noqa: E501
-            bundle (int): [optional]  # noqa: E501
+            parent (int, none_type): [optional]  # noqa: E501
+            bundle (int, none_type): [optional]  # noqa: E501
             bookmarked_by ([int]): [optional]  # noqa: E501
         """
 
@@ -395,8 +395,8 @@ class MediaFileReference(ModelNormal):
             is_showroom (bool): [optional]  # noqa: E501
             bundle_index (int): [optional]  # noqa: E501
             modified (datetime): [optional]  # noqa: E501
-            parent (int): [optional]  # noqa: E501
-            bundle (int): [optional]  # noqa: E501
+            parent (int, none_type): [optional]  # noqa: E501
+            bundle (int, none_type): [optional]  # noqa: E501
             bookmarked_by ([int]): [optional]  # noqa: E501
         """
 

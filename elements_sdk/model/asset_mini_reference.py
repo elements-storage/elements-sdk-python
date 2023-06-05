@@ -98,7 +98,7 @@ class AssetMiniReference(ModelNormal):
             'id': (int,),  # noqa: E501
             'sync_id': (str,),  # noqa: E501
             'default_proxy': (Proxy,),  # noqa: E501
-            'type': (str,),  # noqa: E501
+            'type': (str, none_type,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
             'format': (FormatMetadata,),  # noqa: E501
             'info': ({str: (str, none_type)},),  # noqa: E501
@@ -175,7 +175,7 @@ class AssetMiniReference(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             sync_id (str): [optional]  # noqa: E501
             default_proxy (Proxy): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
+            type (str, none_type): [optional]  # noqa: E501
             display_name (str): [optional]  # noqa: E501
             format (FormatMetadata): [optional]  # noqa: E501
             info ({str: (str, none_type)}): [optional]  # noqa: E501
@@ -270,7 +270,7 @@ class AssetMiniReference(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             sync_id (str): [optional]  # noqa: E501
             default_proxy (Proxy): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
+            type (str, none_type): [optional]  # noqa: E501
             display_name (str): [optional]  # noqa: E501
             format (FormatMetadata): [optional]  # noqa: E501
             info ({str: (str, none_type)}): [optional]  # noqa: E501

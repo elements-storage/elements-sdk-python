@@ -84,9 +84,6 @@ class TaskInfo(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
-        ('log_path',): {
-            'min_length': 1,
-        },
         ('name',): {
             'max_length': 1023,
         },
@@ -137,7 +134,6 @@ class TaskInfo(ModelNormal):
             'display_name': (str,),  # noqa: E501
             'kwargs': ({str: (str, none_type)},),  # noqa: E501
             'progress': (TaskProgress,),  # noqa: E501
-            'log_path': (str,),  # noqa: E501
             'started': (datetime,),  # noqa: E501
             'subtask': (Subtask,),  # noqa: E501
             'worker': (StorageNodeMini,),  # noqa: E501
@@ -166,7 +162,6 @@ class TaskInfo(ModelNormal):
         'display_name': 'display_name',  # noqa: E501
         'kwargs': 'kwargs',  # noqa: E501
         'progress': 'progress',  # noqa: E501
-        'log_path': 'log_path',  # noqa: E501
         'started': 'started',  # noqa: E501
         'subtask': 'subtask',  # noqa: E501
         'worker': 'worker',  # noqa: E501
@@ -188,7 +183,6 @@ class TaskInfo(ModelNormal):
     read_only_vars = {
         'display_name',  # noqa: E501
         'kwargs',  # noqa: E501
-        'log_path',  # noqa: E501
         'started',  # noqa: E501
         'finished',  # noqa: E501
     }
@@ -197,7 +191,7 @@ class TaskInfo(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, display_name, kwargs, progress, log_path, started, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, display_name, kwargs, progress, started, *args, **xkwargs):  # noqa: E501
         """TaskInfo - a model defined in OpenAPI
 
         Args:
@@ -205,7 +199,6 @@ class TaskInfo(ModelNormal):
             display_name (str):
             kwargs ({str: (str, none_type)}):
             progress (TaskProgress):
-            log_path (str):
             started (datetime):
 
         Keyword Args:
@@ -286,7 +279,6 @@ class TaskInfo(ModelNormal):
         self.display_name = display_name
         self.kwargs = kwargs
         self.progress = progress
-        self.log_path = log_path
         self.started = started
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

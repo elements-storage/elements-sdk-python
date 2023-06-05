@@ -111,17 +111,18 @@ class OneTimeAccessToken(ModelNormal):
             'shared_bundles': ([OneTimeAccessTokenSharedObject],),  # noqa: E501
             'shared_directories': ([OneTimeAccessTokenSharedObject],),  # noqa: E501
             'full_url': (str,),  # noqa: E501
+            'has_password': (bool,),  # noqa: E501
             'url': (str,),  # noqa: E501
             'token': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
-            'is_easy_sharing_for_bundle': (int,),  # noqa: E501
-            'is_easy_sharing_for_directory': (int,),  # noqa: E501
             'created_by': (ElementsUserMini,),  # noqa: E501
             'media_root_permissions': (str, none_type,),  # noqa: E501
             'view_limit_enabled': (bool,),  # noqa: E501
             'view_limit_left': (int,),  # noqa: E501
             'expires': (datetime, none_type,),  # noqa: E501
             'require_login': (bool,),  # noqa: E501
+            'is_easy_sharing_for_bundle': (int, none_type,),  # noqa: E501
+            'is_easy_sharing_for_directory': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -136,17 +137,18 @@ class OneTimeAccessToken(ModelNormal):
         'shared_bundles': 'shared_bundles',  # noqa: E501
         'shared_directories': 'shared_directories',  # noqa: E501
         'full_url': 'full_url',  # noqa: E501
+        'has_password': 'has_password',  # noqa: E501
         'url': 'url',  # noqa: E501
         'token': 'token',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
-        'is_easy_sharing_for_bundle': 'is_easy_sharing_for_bundle',  # noqa: E501
-        'is_easy_sharing_for_directory': 'is_easy_sharing_for_directory',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
         'media_root_permissions': 'media_root_permissions',  # noqa: E501
         'view_limit_enabled': 'view_limit_enabled',  # noqa: E501
         'view_limit_left': 'view_limit_left',  # noqa: E501
         'expires': 'expires',  # noqa: E501
         'require_login': 'require_login',  # noqa: E501
+        'is_easy_sharing_for_bundle': 'is_easy_sharing_for_bundle',  # noqa: E501
+        'is_easy_sharing_for_directory': 'is_easy_sharing_for_directory',  # noqa: E501
     }
 
     read_only_vars = {
@@ -154,17 +156,18 @@ class OneTimeAccessToken(ModelNormal):
         'shared_bundles',  # noqa: E501
         'shared_directories',  # noqa: E501
         'full_url',  # noqa: E501
+        'has_password',  # noqa: E501
         'created_at',  # noqa: E501
+        'media_root_permissions',  # noqa: E501
         'is_easy_sharing_for_bundle',  # noqa: E501
         'is_easy_sharing_for_directory',  # noqa: E501
-        'media_root_permissions',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, activity, user, shared_bundles, shared_directories, full_url, url, token, created_at, is_easy_sharing_for_bundle, is_easy_sharing_for_directory, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, activity, user, shared_bundles, shared_directories, full_url, has_password, url, token, created_at, *args, **xkwargs):  # noqa: E501
         """OneTimeAccessToken - a model defined in OpenAPI
 
         Args:
@@ -174,11 +177,10 @@ class OneTimeAccessToken(ModelNormal):
             shared_bundles ([OneTimeAccessTokenSharedObject]):
             shared_directories ([OneTimeAccessTokenSharedObject]):
             full_url (str):
+            has_password (bool):
             url (str):
             token (str):
             created_at (datetime):
-            is_easy_sharing_for_bundle (int):
-            is_easy_sharing_for_directory (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -217,6 +219,8 @@ class OneTimeAccessToken(ModelNormal):
             view_limit_left (int): [optional]  # noqa: E501
             expires (datetime, none_type): [optional]  # noqa: E501
             require_login (bool): [optional]  # noqa: E501
+            is_easy_sharing_for_bundle (int, none_type): [optional]  # noqa: E501
+            is_easy_sharing_for_directory (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -251,11 +255,10 @@ class OneTimeAccessToken(ModelNormal):
         self.shared_bundles = shared_bundles
         self.shared_directories = shared_directories
         self.full_url = full_url
+        self.has_password = has_password
         self.url = url
         self.token = token
         self.created_at = created_at
-        self.is_easy_sharing_for_bundle = is_easy_sharing_for_bundle
-        self.is_easy_sharing_for_directory = is_easy_sharing_for_directory
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -322,6 +325,8 @@ class OneTimeAccessToken(ModelNormal):
             view_limit_left (int): [optional]  # noqa: E501
             expires (datetime, none_type): [optional]  # noqa: E501
             require_login (bool): [optional]  # noqa: E501
+            is_easy_sharing_for_bundle (int, none_type): [optional]  # noqa: E501
+            is_easy_sharing_for_directory (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

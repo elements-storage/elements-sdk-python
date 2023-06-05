@@ -551,7 +551,7 @@ class TapeArchiveApi(object):
                     'fullpath':
                         (str,),
                     'parent':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -758,7 +758,7 @@ class TapeArchiveApi(object):
                     'name':
                         (str,),
                     'group':
-                        (float,),
+                        (int,),
                     'group__isnull':
                         (str,),
                     'ordering':
@@ -2615,7 +2615,7 @@ class TapeArchiveApi(object):
             is_dir (str): Filter the returned list by `is_dir`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             fullpath (str): Filter the returned list by `fullpath`.. [optional]
-            parent (float): Filter the returned list by `parent`.. [optional]
+            parent (int): Filter the returned list by `parent`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -2848,7 +2848,7 @@ class TapeArchiveApi(object):
         Keyword Args:
             id (float): Filter the returned list by `id`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
-            group (float): Filter the returned list by `group`.. [optional]
+            group (int): Filter the returned list by `group`.. [optional]
             group__isnull (str): Filter the returned list by `group__isnull`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]

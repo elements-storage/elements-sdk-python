@@ -112,7 +112,7 @@ conf = elements_sdk.Configuration(
                  ):
         """Constructor
         """
-        self._base_path = "https://elements.local" if host is None else host
+        self._base_path = "https://elements.local:8080" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -409,7 +409,7 @@ conf = elements_sdk.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 2\n"\
-               "SDK Package Version: 3.6.1".\
+               "SDK Package Version: 23.5.0".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):
@@ -419,7 +419,7 @@ conf = elements_sdk.Configuration(
         """
         return [
             {
-                'url': "https://elements.local",
+                'url': "https://elements.local:8080",
                 'description': "No description provided",
             }
         ]

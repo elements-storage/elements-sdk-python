@@ -64,10 +64,10 @@ class AssetMini(ModelNormal):
     }
 
     validations = {
-        ('type',): {
+        ('display_name',): {
             'min_length': 1,
         },
-        ('display_name',): {
+        ('type',): {
             'min_length': 1,
         },
     }
@@ -97,12 +97,12 @@ class AssetMini(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'sync_id': (str,),  # noqa: E501
-            'type': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
             'format': (FormatMetadata,),  # noqa: E501
             'info': ({str: (str, none_type)},),  # noqa: E501
             'thumbnail_generated': (bool,),  # noqa: E501
             'default_proxy': (Proxy,),  # noqa: E501
+            'type': (str, none_type,),  # noqa: E501
             'proxies': ([Proxy],),  # noqa: E501
         }
 
@@ -114,21 +114,21 @@ class AssetMini(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'sync_id': 'sync_id',  # noqa: E501
-        'type': 'type',  # noqa: E501
         'display_name': 'display_name',  # noqa: E501
         'format': 'format',  # noqa: E501
         'info': 'info',  # noqa: E501
         'thumbnail_generated': 'thumbnail_generated',  # noqa: E501
         'default_proxy': 'default_proxy',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'proxies': 'proxies',  # noqa: E501
     }
 
     read_only_vars = {
         'sync_id',  # noqa: E501
-        'type',  # noqa: E501
         'display_name',  # noqa: E501
         'info',  # noqa: E501
         'thumbnail_generated',  # noqa: E501
+        'type',  # noqa: E501
         'proxies',  # noqa: E501
     }
 
@@ -136,13 +136,12 @@ class AssetMini(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, sync_id, type, display_name, format, info, thumbnail_generated, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, sync_id, display_name, format, info, thumbnail_generated, *args, **xkwargs):  # noqa: E501
         """AssetMini - a model defined in OpenAPI
 
         Args:
             id (int):
             sync_id (str):
-            type (str):
             display_name (str):
             format (FormatMetadata):
             info ({str: (str, none_type)}):
@@ -180,6 +179,7 @@ class AssetMini(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             default_proxy (Proxy): [optional]  # noqa: E501
+            type (str, none_type): [optional]  # noqa: E501
             proxies ([Proxy]): [optional]  # noqa: E501
         """
 
@@ -211,7 +211,6 @@ class AssetMini(ModelNormal):
 
         self.id = id
         self.sync_id = sync_id
-        self.type = type
         self.display_name = display_name
         self.format = format
         self.info = info
@@ -275,6 +274,7 @@ class AssetMini(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             default_proxy (Proxy): [optional]  # noqa: E501
+            type (str, none_type): [optional]  # noqa: E501
             proxies ([Proxy]): [optional]  # noqa: E501
         """
 

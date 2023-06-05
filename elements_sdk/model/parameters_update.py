@@ -75,6 +75,10 @@ class ParametersUpdate(ModelNormal):
             'DATABASE': "database",
             'COMPLETELY': "completely",
         },
+        ('media_shuttle_left_behaviour',): {
+            'SLOWDOWN': "slowdown",
+            'STOP': "stop",
+        },
         ('otp_policy',): {
             'ADMIN-ONLY': "admin-only",
             'SELF-SERVICE-SETUP-ONLY': "self-service-setup-only",
@@ -88,6 +92,10 @@ class ParametersUpdate(ModelNormal):
         },
         ('ltfs_library_address',): {
             'max_length': 255,
+        },
+        ('media_max_link_views',): {
+            'inclusive_maximum': 2147483647,
+            'inclusive_minimum': -2147483648,
         },
         ('users_default_permissions',): {
             'max_length': 255,
@@ -133,19 +141,26 @@ class ParametersUpdate(ModelNormal):
             'ltfs_default_search_directories': (bool,),  # noqa: E501
             'ltfs_library_address': (str, none_type,),  # noqa: E501
             'mail_styling': ({str: (str, none_type)},),  # noqa: E501
+            'media_allow_anonymous_links': (bool,),  # noqa: E501
             'media_auto_play': (bool,),  # noqa: E501
             'media_auto_proxy': (bool,),  # noqa: E501
             'media_auto_scan': (bool,),  # noqa: E501
             'media_auto_transport': (bool,),  # noqa: E501
+            'media_background_auto_pause': (bool,),  # noqa: E501
             'media_default_custom_field_type': (str,),  # noqa: E501
             'media_default_delete_behaviour': (str,),  # noqa: E501
             'media_force_show_deleted': (bool, none_type,),  # noqa: E501
             'media_keep_selection_when_browsing': (bool,),  # noqa: E501
             'media_recycle_bin': (bool,),  # noqa: E501
+            'media_require_link_password': (bool,),  # noqa: E501
+            'media_max_link_views': (int, none_type,),  # noqa: E501
+            'media_shuttle_left_behaviour': (str,),  # noqa: E501
             'ntp_offer_sync': (bool,),  # noqa: E501
             'otp_policy': (str,),  # noqa: E501
+            'session_key_restrict_to_ip': (bool,),  # noqa: E501
             'tasks_run_scheduled': (bool,),  # noqa: E501
             'users_default_permissions': (str,),  # noqa: E501
+            'user_notification_settings': (bool,),  # noqa: E501
             'workspaces_folder_template_path': (str,),  # noqa: E501
             'workspaces_path': (str,),  # noqa: E501
         }
@@ -168,19 +183,26 @@ class ParametersUpdate(ModelNormal):
         'ltfs_default_search_directories': 'ltfs_default_search_directories',  # noqa: E501
         'ltfs_library_address': 'ltfs_library_address',  # noqa: E501
         'mail_styling': 'mail_styling',  # noqa: E501
+        'media_allow_anonymous_links': 'media_allow_anonymous_links',  # noqa: E501
         'media_auto_play': 'media_auto_play',  # noqa: E501
         'media_auto_proxy': 'media_auto_proxy',  # noqa: E501
         'media_auto_scan': 'media_auto_scan',  # noqa: E501
         'media_auto_transport': 'media_auto_transport',  # noqa: E501
+        'media_background_auto_pause': 'media_background_auto_pause',  # noqa: E501
         'media_default_custom_field_type': 'media_default_custom_field_type',  # noqa: E501
         'media_default_delete_behaviour': 'media_default_delete_behaviour',  # noqa: E501
         'media_force_show_deleted': 'media_force_show_deleted',  # noqa: E501
         'media_keep_selection_when_browsing': 'media_keep_selection_when_browsing',  # noqa: E501
         'media_recycle_bin': 'media_recycle_bin',  # noqa: E501
+        'media_require_link_password': 'media_require_link_password',  # noqa: E501
+        'media_max_link_views': 'media_max_link_views',  # noqa: E501
+        'media_shuttle_left_behaviour': 'media_shuttle_left_behaviour',  # noqa: E501
         'ntp_offer_sync': 'ntp_offer_sync',  # noqa: E501
         'otp_policy': 'otp_policy',  # noqa: E501
+        'session_key_restrict_to_ip': 'session_key_restrict_to_ip',  # noqa: E501
         'tasks_run_scheduled': 'tasks_run_scheduled',  # noqa: E501
         'users_default_permissions': 'users_default_permissions',  # noqa: E501
+        'user_notification_settings': 'user_notification_settings',  # noqa: E501
         'workspaces_folder_template_path': 'workspaces_folder_template_path',  # noqa: E501
         'workspaces_path': 'workspaces_path',  # noqa: E501
     }
@@ -238,19 +260,26 @@ class ParametersUpdate(ModelNormal):
             ltfs_default_search_directories (bool): [optional]  # noqa: E501
             ltfs_library_address (str, none_type): [optional]  # noqa: E501
             mail_styling ({str: (str, none_type)}): [optional]  # noqa: E501
+            media_allow_anonymous_links (bool): [optional]  # noqa: E501
             media_auto_play (bool): [optional]  # noqa: E501
             media_auto_proxy (bool): [optional]  # noqa: E501
             media_auto_scan (bool): [optional]  # noqa: E501
             media_auto_transport (bool): [optional]  # noqa: E501
+            media_background_auto_pause (bool): [optional]  # noqa: E501
             media_default_custom_field_type (str): [optional]  # noqa: E501
             media_default_delete_behaviour (str): [optional]  # noqa: E501
             media_force_show_deleted (bool, none_type): [optional]  # noqa: E501
             media_keep_selection_when_browsing (bool): [optional]  # noqa: E501
             media_recycle_bin (bool): Recycle bin is usually in the .recycle-bin folder in the volume root. [optional]  # noqa: E501
+            media_require_link_password (bool): [optional]  # noqa: E501
+            media_max_link_views (int, none_type): [optional]  # noqa: E501
+            media_shuttle_left_behaviour (str): [optional]  # noqa: E501
             ntp_offer_sync (bool): [optional]  # noqa: E501
             otp_policy (str): [optional]  # noqa: E501
+            session_key_restrict_to_ip (bool): [optional]  # noqa: E501
             tasks_run_scheduled (bool): [optional]  # noqa: E501
             users_default_permissions (str): Copy this value from an existing user. [optional]  # noqa: E501
+            user_notification_settings (bool): [optional]  # noqa: E501
             workspaces_folder_template_path (str): [optional]  # noqa: E501
             workspaces_path (str): [optional]  # noqa: E501
         """
@@ -348,19 +377,26 @@ class ParametersUpdate(ModelNormal):
             ltfs_default_search_directories (bool): [optional]  # noqa: E501
             ltfs_library_address (str, none_type): [optional]  # noqa: E501
             mail_styling ({str: (str, none_type)}): [optional]  # noqa: E501
+            media_allow_anonymous_links (bool): [optional]  # noqa: E501
             media_auto_play (bool): [optional]  # noqa: E501
             media_auto_proxy (bool): [optional]  # noqa: E501
             media_auto_scan (bool): [optional]  # noqa: E501
             media_auto_transport (bool): [optional]  # noqa: E501
+            media_background_auto_pause (bool): [optional]  # noqa: E501
             media_default_custom_field_type (str): [optional]  # noqa: E501
             media_default_delete_behaviour (str): [optional]  # noqa: E501
             media_force_show_deleted (bool, none_type): [optional]  # noqa: E501
             media_keep_selection_when_browsing (bool): [optional]  # noqa: E501
             media_recycle_bin (bool): Recycle bin is usually in the .recycle-bin folder in the volume root. [optional]  # noqa: E501
+            media_require_link_password (bool): [optional]  # noqa: E501
+            media_max_link_views (int, none_type): [optional]  # noqa: E501
+            media_shuttle_left_behaviour (str): [optional]  # noqa: E501
             ntp_offer_sync (bool): [optional]  # noqa: E501
             otp_policy (str): [optional]  # noqa: E501
+            session_key_restrict_to_ip (bool): [optional]  # noqa: E501
             tasks_run_scheduled (bool): [optional]  # noqa: E501
             users_default_permissions (str): Copy this value from an existing user. [optional]  # noqa: E501
+            user_notification_settings (bool): [optional]  # noqa: E501
             workspaces_folder_template_path (str): [optional]  # noqa: E501
             workspaces_path (str): [optional]  # noqa: E501
         """

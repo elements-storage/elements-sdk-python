@@ -23,7 +23,6 @@ from elements_sdk.api.integrations_api import IntegrationsApi
 from elements_sdk.api.main_api import MainApi
 from elements_sdk.api.media_library_api import MediaLibraryApi
 from elements_sdk.api.private_api import PrivateApi
-from elements_sdk.api.satellite_api import SatelliteApi
 from elements_sdk.api.sharedstorage_api import SharedstorageApi
 from elements_sdk.api.status_api import StatusApi
 from elements_sdk.api.storage_api import StorageApi

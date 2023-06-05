@@ -72,18 +72,18 @@ class ElementsUserProfile(ModelNormal):
         ('username',): {
             'min_length': 1,
         },
-        ('unix_username',): {
-            'min_length': 1,
-        },
-        ('email',): {
-            'min_length': 1,
-        },
         ('default_page',): {
             'max_length': 63,
             'min_length': 1,
         },
         ('full_name',): {
             'max_length': 255,
+        },
+        ('unix_username',): {
+            'min_length': 1,
+        },
+        ('email',): {
+            'min_length': 1,
         },
     }
 
@@ -112,9 +112,7 @@ class ElementsUserProfile(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'username': (str,),  # noqa: E501
-            'unix_username': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
-            'email': (str,),  # noqa: E501
             'ldap': (LDAPServer,),  # noqa: E501
             'effective_permissions': ([str, none_type],),  # noqa: E501
             'has_password': (bool,),  # noqa: E501
@@ -124,6 +122,8 @@ class ElementsUserProfile(ModelNormal):
             'full_name': (str, none_type,),  # noqa: E501
             'language': (str, none_type,),  # noqa: E501
             'fm_bookmarks': ([str, none_type],),  # noqa: E501
+            'unix_username': (str, none_type,),  # noqa: E501
+            'email': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -134,9 +134,7 @@ class ElementsUserProfile(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'username': 'username',  # noqa: E501
-        'unix_username': 'unix_username',  # noqa: E501
         'display_name': 'display_name',  # noqa: E501
-        'email': 'email',  # noqa: E501
         'ldap': 'ldap',  # noqa: E501
         'effective_permissions': 'effective_permissions',  # noqa: E501
         'has_password': 'has_password',  # noqa: E501
@@ -146,31 +144,31 @@ class ElementsUserProfile(ModelNormal):
         'full_name': 'full_name',  # noqa: E501
         'language': 'language',  # noqa: E501
         'fm_bookmarks': 'fm_bookmarks',  # noqa: E501
+        'unix_username': 'unix_username',  # noqa: E501
+        'email': 'email',  # noqa: E501
     }
 
     read_only_vars = {
         'username',  # noqa: E501
-        'unix_username',  # noqa: E501
         'display_name',  # noqa: E501
-        'email',  # noqa: E501
         'effective_permissions',  # noqa: E501
         'has_password',  # noqa: E501
         'allow_changing_password',  # noqa: E501
+        'unix_username',  # noqa: E501
+        'email',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, username, unix_username, display_name, email, ldap, effective_permissions, has_password, allow_changing_password, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, username, display_name, ldap, effective_permissions, has_password, allow_changing_password, *args, **xkwargs):  # noqa: E501
         """ElementsUserProfile - a model defined in OpenAPI
 
         Args:
             id (int):
             username (str):
-            unix_username (str):
             display_name (str):
-            email (str):
             ldap (LDAPServer):
             effective_permissions ([str, none_type]):
             has_password (bool):
@@ -212,6 +210,8 @@ class ElementsUserProfile(ModelNormal):
             full_name (str, none_type): [optional]  # noqa: E501
             language (str, none_type): [optional]  # noqa: E501
             fm_bookmarks ([str, none_type]): [optional]  # noqa: E501
+            unix_username (str, none_type): [optional]  # noqa: E501
+            email (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -242,9 +242,7 @@ class ElementsUserProfile(ModelNormal):
 
         self.id = id
         self.username = username
-        self.unix_username = unix_username
         self.display_name = display_name
-        self.email = email
         self.ldap = ldap
         self.effective_permissions = effective_permissions
         self.has_password = has_password
@@ -312,6 +310,8 @@ class ElementsUserProfile(ModelNormal):
             full_name (str, none_type): [optional]  # noqa: E501
             language (str, none_type): [optional]  # noqa: E501
             fm_bookmarks ([str, none_type]): [optional]  # noqa: E501
+            unix_username (str, none_type): [optional]  # noqa: E501
+            email (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

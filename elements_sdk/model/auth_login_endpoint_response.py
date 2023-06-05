@@ -71,6 +71,9 @@ class AuthLoginEndpointResponse(ModelNormal):
         ('redirect',): {
             'min_length': 1,
         },
+        ('session_key',): {
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -100,6 +103,7 @@ class AuthLoginEndpointResponse(ModelNormal):
             'reason': (str,),  # noqa: E501
             'detail': (str,),  # noqa: E501
             'redirect': (str,),  # noqa: E501
+            'session_key': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -112,6 +116,7 @@ class AuthLoginEndpointResponse(ModelNormal):
         'reason': 'reason',  # noqa: E501
         'detail': 'detail',  # noqa: E501
         'redirect': 'redirect',  # noqa: E501
+        'session_key': 'session_key',  # noqa: E501
     }
 
     read_only_vars = {
@@ -161,6 +166,7 @@ class AuthLoginEndpointResponse(ModelNormal):
             reason (str): [optional]  # noqa: E501
             detail (str): [optional]  # noqa: E501
             redirect (str): [optional]  # noqa: E501
+            session_key (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -251,6 +257,7 @@ class AuthLoginEndpointResponse(ModelNormal):
             reason (str): [optional]  # noqa: E501
             detail (str): [optional]  # noqa: E501
             redirect (str): [optional]  # noqa: E501
+            session_key (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

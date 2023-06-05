@@ -65,6 +65,9 @@ from elements_sdk.model.license import License
 from elements_sdk.model.ntp_server import NTPServer
 from elements_sdk.model.ntp_server_partial_update import NTPServerPartialUpdate
 from elements_sdk.model.ntp_server_update import NTPServerUpdate
+from elements_sdk.model.notification import Notification
+from elements_sdk.model.notification_partial_update import NotificationPartialUpdate
+from elements_sdk.model.notification_update import NotificationUpdate
 from elements_sdk.model.parameters import Parameters
 from elements_sdk.model.parameters_update import ParametersUpdate
 from elements_sdk.model.path import Path
@@ -88,6 +91,7 @@ from elements_sdk.model.sync_totp import SyncTOTP
 from elements_sdk.model.sync_totp_request import SyncTOTPRequest
 from elements_sdk.model.system_info_endpoint_response import SystemInfoEndpointResponse
 from elements_sdk.model.task_info import TaskInfo
+from elements_sdk.model.task_log_v2 import TaskLogV2
 from elements_sdk.model.test_cloud_account_credentials_request import TestCloudAccountCredentialsRequest
 from elements_sdk.model.test_cloud_account_credentials_response import TestCloudAccountCredentialsResponse
 from elements_sdk.model.test_smtp import TestSMTP
@@ -705,6 +709,58 @@ class MainApi(object):
             },
             api_client=api_client
         )
+        self.create_notification_setting_endpoint = _Endpoint(
+            settings={
+                'response_type': (Notification,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/notification-settings',
+                'operation_id': 'create_notification_setting',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'notification_update',
+                ],
+                'required': [
+                    'notification_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'notification_update':
+                        (NotificationUpdate,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'notification_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.create_ntp_server_endpoint = _Endpoint(
             settings={
                 'response_type': (NTPServer,),
@@ -1190,6 +1246,55 @@ class MainApi(object):
                 'attribute_map': {
                 },
                 'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_notification_setting_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/notification-settings/{id}',
+                'operation_id': 'delete_notification_setting',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -1686,9 +1791,9 @@ class MainApi(object):
                 },
                 'openapi_types': {
                     'user':
-                        (float,),
+                        (int,),
                     'mounted_workspaces__mount_node':
-                        (float,),
+                        (int,),
                     'workstation':
                         (str,),
                     'ordering':
@@ -1952,9 +2057,9 @@ class MainApi(object):
                 },
                 'openapi_types': {
                     'user':
-                        (float,),
+                        (int,),
                     'group':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -2102,6 +2207,85 @@ class MainApi(object):
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_all_notification_settings_endpoint = _Endpoint(
+            settings={
+                'response_type': ([Notification],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/notification-settings',
+                'operation_id': 'get_all_notification_settings',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'topic',
+                    'type',
+                    'user',
+                    'ordering',
+                    'limit',
+                    'offset',
+                    'system_defaults',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'topic':
+                        (str,),
+                    'type':
+                        (str,),
+                    'user':
+                        (int,),
+                    'ordering':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                    'system_defaults':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'topic': 'topic',
+                    'type': 'type',
+                    'user': 'user',
+                    'ordering': 'ordering',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                    'system_defaults': 'system_defaults',
+                },
+                'location_map': {
+                    'topic': 'query',
+                    'type': 'query',
+                    'user': 'query',
+                    'ordering': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                    'system_defaults': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -3557,7 +3741,7 @@ class MainApi(object):
         )
         self.get_log_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': (TaskLogV2,),
                 'auth': [
                     'Bearer'
                 ],
@@ -3611,7 +3795,9 @@ class MainApi(object):
                 }
             },
             headers_map={
-                'accept': [],
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [],
             },
             api_client=api_client
@@ -3763,6 +3949,62 @@ class MainApi(object):
                 },
                 'location_map': {
                     'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_notification_setting_endpoint = _Endpoint(
+            settings={
+                'response_type': (Notification,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/notification-settings/{id}',
+                'operation_id': 'get_notification_setting',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'system_defaults',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'system_defaults':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'system_defaults': 'system_defaults',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'system_defaults': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -4711,6 +4953,64 @@ class MainApi(object):
                 'location_map': {
                     'id': 'path',
                     'elements_group_detail_partial_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.patch_notification_setting_endpoint = _Endpoint(
+            settings={
+                'response_type': (Notification,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/notification-settings/{id}',
+                'operation_id': 'patch_notification_setting',
+                'http_method': 'PATCH',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'notification_partial_update',
+                ],
+                'required': [
+                    'id',
+                    'notification_partial_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'notification_partial_update':
+                        (NotificationPartialUpdate,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'notification_partial_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -6447,6 +6747,64 @@ class MainApi(object):
             },
             api_client=api_client
         )
+        self.update_notification_setting_endpoint = _Endpoint(
+            settings={
+                'response_type': (Notification,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/notification-settings/{id}',
+                'operation_id': 'update_notification_setting',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'notification_update',
+                ],
+                'required': [
+                    'id',
+                    'notification_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'notification_update':
+                        (NotificationUpdate,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'notification_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.update_ntp_server_endpoint = _Endpoint(
             settings={
                 'response_type': (NTPServer,),
@@ -7859,6 +8217,84 @@ class MainApi(object):
             create_home_workspace_request
         return self.create_home_workspace_endpoint.call_with_http_info(**kwargs)
 
+    def create_notification_setting(
+        self,
+        notification_update,
+        **kwargs
+    ):
+        """create_notification_setting  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_notification_setting(notification_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            notification_update (NotificationUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Notification
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['notification_update'] = \
+            notification_update
+        return self.create_notification_setting_endpoint.call_with_http_info(**kwargs)
+
     def create_ntp_server(
         self,
         ntp_server_update,
@@ -8634,6 +9070,84 @@ class MainApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.delete_my_avatar_endpoint.call_with_http_info(**kwargs)
 
+    def delete_notification_setting(
+        self,
+        id,
+        **kwargs
+    ):
+        """delete_notification_setting  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_notification_setting(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this notification setting.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.delete_notification_setting_endpoint.call_with_http_info(**kwargs)
+
     def delete_ntp_server(
         self,
         id,
@@ -9353,8 +9867,8 @@ class MainApi(object):
 
 
         Keyword Args:
-            user (float): Filter the returned list by `user`.. [optional]
-            mounted_workspaces__mount_node (float): Filter the returned list by `mounted_workspaces__mount_node`.. [optional]
+            user (int): Filter the returned list by `user`.. [optional]
+            mounted_workspaces__mount_node (int): Filter the returned list by `mounted_workspaces__mount_node`.. [optional]
             workstation (str): Filter the returned list by `workstation`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
@@ -9663,8 +10177,8 @@ class MainApi(object):
 
 
         Keyword Args:
-            user (float): Filter the returned list by `user`.. [optional]
-            group (float): Filter the returned list by `group`.. [optional]
+            user (int): Filter the returned list by `user`.. [optional]
+            group (int): Filter the returned list by `group`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -9879,6 +10393,86 @@ class MainApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_all_ldap_servers_endpoint.call_with_http_info(**kwargs)
+
+    def get_all_notification_settings(
+        self,
+        **kwargs
+    ):
+        """get_all_notification_settings  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_all_notification_settings(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            topic (str): Filter the returned list by `topic`.. [optional]
+            type (str): Filter the returned list by `type`.. [optional]
+            user (int): Filter the returned list by `user`.. [optional]
+            ordering (str): Which field to use when ordering the results.. [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
+            system_defaults (bool): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [Notification]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_all_notification_settings_endpoint.call_with_http_info(**kwargs)
 
     def get_all_ntp_servers(
         self,
@@ -12015,7 +12609,7 @@ class MainApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            TaskLogV2
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -12278,6 +12872,85 @@ class MainApi(object):
         kwargs['id'] = \
             id
         return self.get_node_stats_endpoint.call_with_http_info(**kwargs)
+
+    def get_notification_setting(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_notification_setting  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_notification_setting(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this notification setting.
+
+        Keyword Args:
+            system_defaults (bool): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Notification
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_notification_setting_endpoint.call_with_http_info(**kwargs)
 
     def get_ntp_server(
         self,
@@ -13680,6 +14353,88 @@ class MainApi(object):
         kwargs['elements_group_detail_partial_update'] = \
             elements_group_detail_partial_update
         return self.patch_group_endpoint.call_with_http_info(**kwargs)
+
+    def patch_notification_setting(
+        self,
+        id,
+        notification_partial_update,
+        **kwargs
+    ):
+        """patch_notification_setting  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.patch_notification_setting(id, notification_partial_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this notification setting.
+            notification_partial_update (NotificationPartialUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Notification
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['notification_partial_update'] = \
+            notification_partial_update
+        return self.patch_notification_setting_endpoint.call_with_http_info(**kwargs)
 
     def patch_ntp_server(
         self,
@@ -16280,6 +17035,88 @@ class MainApi(object):
         kwargs['image_upload_request'] = \
             image_upload_request
         return self.update_my_avatar_endpoint.call_with_http_info(**kwargs)
+
+    def update_notification_setting(
+        self,
+        id,
+        notification_update,
+        **kwargs
+    ):
+        """update_notification_setting  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_notification_setting(id, notification_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this notification setting.
+            notification_update (NotificationUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Notification
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['notification_update'] = \
+            notification_update
+        return self.update_notification_setting_endpoint.call_with_http_info(**kwargs)
 
     def update_ntp_server(
         self,

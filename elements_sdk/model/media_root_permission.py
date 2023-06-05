@@ -89,7 +89,6 @@ class MediaRootPermission(ModelNormal):
             'root': (int,),  # noqa: E501
             'user': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'group': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'path': (str,),  # noqa: E501
             'allow_read': (bool,),  # noqa: E501
             'allow_create': (bool,),  # noqa: E501
             'allow_write_fs': (bool,),  # noqa: E501
@@ -110,6 +109,7 @@ class MediaRootPermission(ModelNormal):
             'show_ai_metadata': (bool,),  # noqa: E501
             'show_markers': (bool,),  # noqa: E501
             'show_history': (bool,),  # noqa: E501
+            'path': (str,),  # noqa: E501
             'is_temporary_for_token': (int, none_type,),  # noqa: E501
         }
 
@@ -124,7 +124,6 @@ class MediaRootPermission(ModelNormal):
         'root': 'root',  # noqa: E501
         'user': 'user',  # noqa: E501
         'group': 'group',  # noqa: E501
-        'path': 'path',  # noqa: E501
         'allow_read': 'allow_read',  # noqa: E501
         'allow_create': 'allow_create',  # noqa: E501
         'allow_write_fs': 'allow_write_fs',  # noqa: E501
@@ -145,6 +144,7 @@ class MediaRootPermission(ModelNormal):
         'show_ai_metadata': 'show_ai_metadata',  # noqa: E501
         'show_markers': 'show_markers',  # noqa: E501
         'show_history': 'show_history',  # noqa: E501
+        'path': 'path',  # noqa: E501
         'is_temporary_for_token': 'is_temporary_for_token',  # noqa: E501
     }
 
@@ -197,7 +197,6 @@ class MediaRootPermission(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             group (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            path (str): [optional]  # noqa: E501
             allow_read (bool): [optional]  # noqa: E501
             allow_create (bool): [optional]  # noqa: E501
             allow_write_fs (bool): [optional]  # noqa: E501
@@ -218,6 +217,7 @@ class MediaRootPermission(ModelNormal):
             show_ai_metadata (bool): [optional]  # noqa: E501
             show_markers (bool): [optional]  # noqa: E501
             show_history (bool): [optional]  # noqa: E501
+            path (str): [optional]  # noqa: E501
             is_temporary_for_token (int, none_type): [optional]  # noqa: E501
         """
 
@@ -311,7 +311,6 @@ class MediaRootPermission(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             group (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            path (str): [optional]  # noqa: E501
             allow_read (bool): [optional]  # noqa: E501
             allow_create (bool): [optional]  # noqa: E501
             allow_write_fs (bool): [optional]  # noqa: E501
@@ -332,6 +331,7 @@ class MediaRootPermission(ModelNormal):
             show_ai_metadata (bool): [optional]  # noqa: E501
             show_markers (bool): [optional]  # noqa: E501
             show_history (bool): [optional]  # noqa: E501
+            path (str): [optional]  # noqa: E501
             is_temporary_for_token (int, none_type): [optional]  # noqa: E501
         """
 

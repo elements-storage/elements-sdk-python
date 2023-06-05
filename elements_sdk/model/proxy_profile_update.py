@@ -62,6 +62,20 @@ class ProxyProfileUpdate(ModelNormal):
             'VANTAGE': "vantage",
             'NOOP': "noop",
         },
+        ('type',): {
+            'VIDEO': "video",
+            'AUDIO': "audio",
+            'IMAGE': "image",
+            'PDF': "pdf",
+            'OFFICE': "office",
+            'MODEL': "model",
+            'SUBTITLE': "subtitle",
+            'FCPXML': "fcpxml",
+            'FCPXXML': "fcpxxml",
+            'PRPROJ': "prproj",
+            'AEP': "aep",
+            'AVP': "avp",
+        },
         ('rate_control',): {
             'CRF': "CRF",
             'CBR': "CBR",
@@ -155,6 +169,7 @@ class ProxyProfileUpdate(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'proxy_generator': (str,),  # noqa: E501
+            'type': (str,),  # noqa: E501
             'resolution': (str, none_type,),  # noqa: E501
             'rate_control': (str,),  # noqa: E501
             'crf': (int, none_type,),  # noqa: E501
@@ -189,6 +204,7 @@ class ProxyProfileUpdate(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'proxy_generator': 'proxy_generator',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'resolution': 'resolution',  # noqa: E501
         'rate_control': 'rate_control',  # noqa: E501
         'crf': 'crf',  # noqa: E501
@@ -260,6 +276,7 @@ class ProxyProfileUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             proxy_generator (str): [optional]  # noqa: E501
+            type (str): [optional]  # noqa: E501
             resolution (str, none_type): [optional]  # noqa: E501
             rate_control (str): [optional]  # noqa: E501
             crf (int, none_type): [optional]  # noqa: E501
@@ -372,6 +389,7 @@ class ProxyProfileUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             proxy_generator (str): [optional]  # noqa: E501
+            type (str): [optional]  # noqa: E501
             resolution (str, none_type): [optional]  # noqa: E501
             rate_control (str): [optional]  # noqa: E501
             crf (int, none_type): [optional]  # noqa: E501

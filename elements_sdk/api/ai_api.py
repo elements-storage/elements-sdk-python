@@ -1414,7 +1414,7 @@ class AIApi(object):
                     'image__dataset':
                         (str,),
                     'image__asset':
-                        (float,),
+                        (int,),
                     'track':
                         (str,),
                     'image':
@@ -1623,7 +1623,7 @@ class AIApi(object):
                 },
                 'openapi_types': {
                     'connection':
-                        (float,),
+                        (int,),
                     'name':
                         (str,),
                     'ordering':
@@ -1756,7 +1756,7 @@ class AIApi(object):
                 },
                 'openapi_types': {
                     'asset':
-                        (float,),
+                        (int,),
                     'id':
                         (float,),
                     'ordering':
@@ -4518,7 +4518,7 @@ class AIApi(object):
         Keyword Args:
             category (str): Filter the returned list by `category`.. [optional]
             image__dataset (str): Filter the returned list by `image__dataset`.. [optional]
-            image__asset (float): Filter the returned list by `image__asset`.. [optional]
+            image__asset (int): Filter the returned list by `image__asset`.. [optional]
             track (str): Filter the returned list by `track`.. [optional]
             image (str): Filter the returned list by `image`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
@@ -4752,7 +4752,7 @@ class AIApi(object):
 
 
         Keyword Args:
-            connection (float): Filter the returned list by `connection`.. [optional]
+            connection (int): Filter the returned list by `connection`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
@@ -4907,7 +4907,7 @@ class AIApi(object):
 
 
         Keyword Args:
-            asset (float): Filter the returned list by `asset`.. [optional]
+            asset (int): Filter the returned list by `asset`.. [optional]
             id (float): Filter the returned list by `id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]

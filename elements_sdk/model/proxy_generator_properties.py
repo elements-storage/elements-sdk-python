@@ -91,6 +91,7 @@ class ProxyGeneratorProperties(ModelNormal):
             'supports_timecode_burn_in': (bool,),  # noqa: E501
             'supports_audio_channels': (bool,),  # noqa: E501
             'supports_staging_path': (bool,),  # noqa: E501
+            'supports_filmstrip': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -109,6 +110,7 @@ class ProxyGeneratorProperties(ModelNormal):
         'supports_timecode_burn_in': 'supports_timecode_burn_in',  # noqa: E501
         'supports_audio_channels': 'supports_audio_channels',  # noqa: E501
         'supports_staging_path': 'supports_staging_path',  # noqa: E501
+        'supports_filmstrip': 'supports_filmstrip',  # noqa: E501
     }
 
     read_only_vars = {
@@ -162,6 +164,7 @@ class ProxyGeneratorProperties(ModelNormal):
             supports_timecode_burn_in (bool): [optional]  # noqa: E501
             supports_audio_channels (bool): [optional]  # noqa: E501
             supports_staging_path (bool): [optional]  # noqa: E501
+            supports_filmstrip (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -255,6 +258,7 @@ class ProxyGeneratorProperties(ModelNormal):
             supports_timecode_burn_in (bool): [optional]  # noqa: E501
             supports_audio_channels (bool): [optional]  # noqa: E501
             supports_staging_path (bool): [optional]  # noqa: E501
+            supports_filmstrip (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

@@ -82,6 +82,10 @@ class Asset(ModelNormal):
         ('matched_scanner',): {
             'min_length': 1,
         },
+        ('workflow_state',): {
+            'inclusive_maximum': 2147483647,
+            'inclusive_minimum': -2147483648,
+        },
     }
 
     @cached_property
@@ -122,11 +126,7 @@ class Asset(ModelNormal):
             'has_files': (bool,),  # noqa: E501
             'has_backups': (bool,),  # noqa: E501
             'has_cloud_links': (bool,),  # noqa: E501
-            'checksum': (str,),  # noqa: E501
-            'type': (str,),  # noqa: E501
             'thumbnail_generated': (bool,),  # noqa: E501
-            'matched_scanner': (str,),  # noqa: E501
-            'workflow_state': (int,),  # noqa: E501
             'is_temporary': (bool,),  # noqa: E501
             'created': (datetime,),  # noqa: E501
             'modified': (datetime,),  # noqa: E501
@@ -135,6 +135,10 @@ class Asset(ModelNormal):
             'resolved_permission': (MediaRootPermission,),  # noqa: E501
             'modified_by': (ElementsUserMini,),  # noqa: E501
             'rating': (int, none_type,),  # noqa: E501
+            'checksum': (str, none_type,),  # noqa: E501
+            'type': (str, none_type,),  # noqa: E501
+            'matched_scanner': (str, none_type,),  # noqa: E501
+            'workflow_state': (int,),  # noqa: E501
             'set': (int, none_type,),  # noqa: E501
         }
 
@@ -159,11 +163,7 @@ class Asset(ModelNormal):
         'has_files': 'has_files',  # noqa: E501
         'has_backups': 'has_backups',  # noqa: E501
         'has_cloud_links': 'has_cloud_links',  # noqa: E501
-        'checksum': 'checksum',  # noqa: E501
-        'type': 'type',  # noqa: E501
         'thumbnail_generated': 'thumbnail_generated',  # noqa: E501
-        'matched_scanner': 'matched_scanner',  # noqa: E501
-        'workflow_state': 'workflow_state',  # noqa: E501
         'is_temporary': 'is_temporary',  # noqa: E501
         'created': 'created',  # noqa: E501
         'modified': 'modified',  # noqa: E501
@@ -172,6 +172,10 @@ class Asset(ModelNormal):
         'resolved_permission': 'resolved_permission',  # noqa: E501
         'modified_by': 'modified_by',  # noqa: E501
         'rating': 'rating',  # noqa: E501
+        'checksum': 'checksum',  # noqa: E501
+        'type': 'type',  # noqa: E501
+        'matched_scanner': 'matched_scanner',  # noqa: E501
+        'workflow_state': 'workflow_state',  # noqa: E501
         'set': 'set',  # noqa: E501
     }
 
@@ -187,23 +191,22 @@ class Asset(ModelNormal):
         'has_files',  # noqa: E501
         'has_backups',  # noqa: E501
         'has_cloud_links',  # noqa: E501
-        'checksum',  # noqa: E501
-        'type',  # noqa: E501
         'thumbnail_generated',  # noqa: E501
-        'matched_scanner',  # noqa: E501
-        'workflow_state',  # noqa: E501
         'is_temporary',  # noqa: E501
         'created',  # noqa: E501
         'modified',  # noqa: E501
         'proxies',  # noqa: E501
         'rating',  # noqa: E501
+        'checksum',  # noqa: E501
+        'type',  # noqa: E501
+        'matched_scanner',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, info, proxy_info, custom_fields, tags, backups, proxies_generated, proxies_failed, bundles, format, sync_id, display_name, has_files, has_backups, has_cloud_links, checksum, type, thumbnail_generated, matched_scanner, workflow_state, is_temporary, created, modified, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, info, proxy_info, custom_fields, tags, backups, proxies_generated, proxies_failed, bundles, format, sync_id, display_name, has_files, has_backups, has_cloud_links, thumbnail_generated, is_temporary, created, modified, *args, **xkwargs):  # noqa: E501
         """Asset - a model defined in OpenAPI
 
         Args:
@@ -222,11 +225,7 @@ class Asset(ModelNormal):
             has_files (bool):
             has_backups (bool):
             has_cloud_links (bool):
-            checksum (str):
-            type (str):
             thumbnail_generated (bool):
-            matched_scanner (str):
-            workflow_state (int):
             is_temporary (bool):
             created (datetime):
             modified (datetime):
@@ -267,6 +266,10 @@ class Asset(ModelNormal):
             resolved_permission (MediaRootPermission): [optional]  # noqa: E501
             modified_by (ElementsUserMini): [optional]  # noqa: E501
             rating (int, none_type): [optional]  # noqa: E501
+            checksum (str, none_type): [optional]  # noqa: E501
+            type (str, none_type): [optional]  # noqa: E501
+            matched_scanner (str, none_type): [optional]  # noqa: E501
+            workflow_state (int): [optional]  # noqa: E501
             set (int, none_type): [optional]  # noqa: E501
         """
 
@@ -311,11 +314,7 @@ class Asset(ModelNormal):
         self.has_files = has_files
         self.has_backups = has_backups
         self.has_cloud_links = has_cloud_links
-        self.checksum = checksum
-        self.type = type
         self.thumbnail_generated = thumbnail_generated
-        self.matched_scanner = matched_scanner
-        self.workflow_state = workflow_state
         self.is_temporary = is_temporary
         self.created = created
         self.modified = modified
@@ -384,6 +383,10 @@ class Asset(ModelNormal):
             resolved_permission (MediaRootPermission): [optional]  # noqa: E501
             modified_by (ElementsUserMini): [optional]  # noqa: E501
             rating (int, none_type): [optional]  # noqa: E501
+            checksum (str, none_type): [optional]  # noqa: E501
+            type (str, none_type): [optional]  # noqa: E501
+            matched_scanner (str, none_type): [optional]  # noqa: E501
+            workflow_state (int): [optional]  # noqa: E501
             set (int, none_type): [optional]  # noqa: E501
         """
 
