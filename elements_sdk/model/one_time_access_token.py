@@ -108,6 +108,7 @@ class OneTimeAccessToken(ModelNormal):
             'id': (int,),  # noqa: E501
             'activity': ([OneTimeAccessTokenActivity],),  # noqa: E501
             'user': (ElementsUserMiniReference,),  # noqa: E501
+            'media_root_permissions': ([int],),  # noqa: E501
             'shared_bundles': ([OneTimeAccessTokenSharedObject],),  # noqa: E501
             'shared_directories': ([OneTimeAccessTokenSharedObject],),  # noqa: E501
             'full_url': (str,),  # noqa: E501
@@ -116,7 +117,6 @@ class OneTimeAccessToken(ModelNormal):
             'token': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'created_by': (ElementsUserMini,),  # noqa: E501
-            'media_root_permissions': (str, none_type,),  # noqa: E501
             'view_limit_enabled': (bool,),  # noqa: E501
             'view_limit_left': (int,),  # noqa: E501
             'expires': (datetime, none_type,),  # noqa: E501
@@ -134,6 +134,7 @@ class OneTimeAccessToken(ModelNormal):
         'id': 'id',  # noqa: E501
         'activity': 'activity',  # noqa: E501
         'user': 'user',  # noqa: E501
+        'media_root_permissions': 'media_root_permissions',  # noqa: E501
         'shared_bundles': 'shared_bundles',  # noqa: E501
         'shared_directories': 'shared_directories',  # noqa: E501
         'full_url': 'full_url',  # noqa: E501
@@ -142,7 +143,6 @@ class OneTimeAccessToken(ModelNormal):
         'token': 'token',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
-        'media_root_permissions': 'media_root_permissions',  # noqa: E501
         'view_limit_enabled': 'view_limit_enabled',  # noqa: E501
         'view_limit_left': 'view_limit_left',  # noqa: E501
         'expires': 'expires',  # noqa: E501
@@ -153,12 +153,12 @@ class OneTimeAccessToken(ModelNormal):
 
     read_only_vars = {
         'activity',  # noqa: E501
+        'media_root_permissions',  # noqa: E501
         'shared_bundles',  # noqa: E501
         'shared_directories',  # noqa: E501
         'full_url',  # noqa: E501
         'has_password',  # noqa: E501
         'created_at',  # noqa: E501
-        'media_root_permissions',  # noqa: E501
         'is_easy_sharing_for_bundle',  # noqa: E501
         'is_easy_sharing_for_directory',  # noqa: E501
     }
@@ -167,13 +167,14 @@ class OneTimeAccessToken(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, activity, user, shared_bundles, shared_directories, full_url, has_password, url, token, created_at, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, activity, user, media_root_permissions, shared_bundles, shared_directories, full_url, has_password, url, token, created_at, *args, **xkwargs):  # noqa: E501
         """OneTimeAccessToken - a model defined in OpenAPI
 
         Args:
             id (int):
             activity ([OneTimeAccessTokenActivity]):
             user (ElementsUserMiniReference):
+            media_root_permissions ([int]):
             shared_bundles ([OneTimeAccessTokenSharedObject]):
             shared_directories ([OneTimeAccessTokenSharedObject]):
             full_url (str):
@@ -214,7 +215,6 @@ class OneTimeAccessToken(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             created_by (ElementsUserMini): [optional]  # noqa: E501
-            media_root_permissions (str, none_type): [optional]  # noqa: E501
             view_limit_enabled (bool): [optional]  # noqa: E501
             view_limit_left (int): [optional]  # noqa: E501
             expires (datetime, none_type): [optional]  # noqa: E501
@@ -252,6 +252,7 @@ class OneTimeAccessToken(ModelNormal):
         self.id = id
         self.activity = activity
         self.user = user
+        self.media_root_permissions = media_root_permissions
         self.shared_bundles = shared_bundles
         self.shared_directories = shared_directories
         self.full_url = full_url
@@ -320,7 +321,6 @@ class OneTimeAccessToken(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             created_by (ElementsUserMini): [optional]  # noqa: E501
-            media_root_permissions (str, none_type): [optional]  # noqa: E501
             view_limit_enabled (bool): [optional]  # noqa: E501
             view_limit_left (int): [optional]  # noqa: E501
             expires (datetime, none_type): [optional]  # noqa: E501

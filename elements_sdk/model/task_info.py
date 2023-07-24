@@ -133,6 +133,7 @@ class TaskInfo(ModelNormal):
             'id': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
             'kwargs': ({str: (str, none_type)},),  # noqa: E501
+            'outputs': ({str: (str, none_type)},),  # noqa: E501
             'progress': (TaskProgress,),  # noqa: E501
             'started': (datetime,),  # noqa: E501
             'subtask': (Subtask,),  # noqa: E501
@@ -142,11 +143,14 @@ class TaskInfo(ModelNormal):
             'finished': (datetime, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'task_name': (str, none_type,),  # noqa: E501
+            'is_private': (bool,),  # noqa: E501
             'worker_name': (str, none_type,),  # noqa: E501
             'queue': (str, none_type,),  # noqa: E501
             'state': (int,),  # noqa: E501
             'state_text': (str, none_type,),  # noqa: E501
             'job_instance': (str, none_type,),  # noqa: E501
+            'is_running': (bool,),  # noqa: E501
+            'is_finished': (bool,),  # noqa: E501
             'exception': (str, none_type,),  # noqa: E501
             'traceback': (str, none_type,),  # noqa: E501
             'schedule': (int, none_type,),  # noqa: E501
@@ -161,6 +165,7 @@ class TaskInfo(ModelNormal):
         'id': 'id',  # noqa: E501
         'display_name': 'display_name',  # noqa: E501
         'kwargs': 'kwargs',  # noqa: E501
+        'outputs': 'outputs',  # noqa: E501
         'progress': 'progress',  # noqa: E501
         'started': 'started',  # noqa: E501
         'subtask': 'subtask',  # noqa: E501
@@ -170,11 +175,14 @@ class TaskInfo(ModelNormal):
         'finished': 'finished',  # noqa: E501
         'name': 'name',  # noqa: E501
         'task_name': 'task_name',  # noqa: E501
+        'is_private': 'is_private',  # noqa: E501
         'worker_name': 'worker_name',  # noqa: E501
         'queue': 'queue',  # noqa: E501
         'state': 'state',  # noqa: E501
         'state_text': 'state_text',  # noqa: E501
         'job_instance': 'job_instance',  # noqa: E501
+        'is_running': 'is_running',  # noqa: E501
+        'is_finished': 'is_finished',  # noqa: E501
         'exception': 'exception',  # noqa: E501
         'traceback': 'traceback',  # noqa: E501
         'schedule': 'schedule',  # noqa: E501
@@ -183,6 +191,7 @@ class TaskInfo(ModelNormal):
     read_only_vars = {
         'display_name',  # noqa: E501
         'kwargs',  # noqa: E501
+        'outputs',  # noqa: E501
         'started',  # noqa: E501
         'finished',  # noqa: E501
     }
@@ -191,13 +200,14 @@ class TaskInfo(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, display_name, kwargs, progress, started, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, display_name, kwargs, outputs, progress, started, *args, **xkwargs):  # noqa: E501
         """TaskInfo - a model defined in OpenAPI
 
         Args:
             id (str):
             display_name (str):
             kwargs ({str: (str, none_type)}):
+            outputs ({str: (str, none_type)}):
             progress (TaskProgress):
             started (datetime):
 
@@ -239,11 +249,14 @@ class TaskInfo(ModelNormal):
             finished (datetime, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             task_name (str, none_type): [optional]  # noqa: E501
+            is_private (bool): [optional]  # noqa: E501
             worker_name (str, none_type): [optional]  # noqa: E501
             queue (str, none_type): [optional]  # noqa: E501
             state (int): [optional]  # noqa: E501
             state_text (str, none_type): [optional]  # noqa: E501
             job_instance (str, none_type): [optional]  # noqa: E501
+            is_running (bool): [optional]  # noqa: E501
+            is_finished (bool): [optional]  # noqa: E501
             exception (str, none_type): [optional]  # noqa: E501
             traceback (str, none_type): [optional]  # noqa: E501
             schedule (int, none_type): [optional]  # noqa: E501
@@ -278,6 +291,7 @@ class TaskInfo(ModelNormal):
         self.id = id
         self.display_name = display_name
         self.kwargs = kwargs
+        self.outputs = outputs
         self.progress = progress
         self.started = started
         for var_name, var_value in xkwargs.items():
@@ -345,11 +359,14 @@ class TaskInfo(ModelNormal):
             finished (datetime, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             task_name (str, none_type): [optional]  # noqa: E501
+            is_private (bool): [optional]  # noqa: E501
             worker_name (str, none_type): [optional]  # noqa: E501
             queue (str, none_type): [optional]  # noqa: E501
             state (int): [optional]  # noqa: E501
             state_text (str, none_type): [optional]  # noqa: E501
             job_instance (str, none_type): [optional]  # noqa: E501
+            is_running (bool): [optional]  # noqa: E501
+            is_finished (bool): [optional]  # noqa: E501
             exception (str, none_type): [optional]  # noqa: E501
             traceback (str, none_type): [optional]  # noqa: E501
             schedule (int, none_type): [optional]  # noqa: E501

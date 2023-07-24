@@ -35,11 +35,13 @@ def lazy_import():
     from elements_sdk.model.media_file_bundle_mini import MediaFileBundleMini
     from elements_sdk.model.media_root_permission import MediaRootPermission
     from elements_sdk.model.proxy import Proxy
+    from elements_sdk.model.tag_reference import TagReference
     globals()['ElementsUserMini'] = ElementsUserMini
     globals()['FormatMetadata'] = FormatMetadata
     globals()['MediaFileBundleMini'] = MediaFileBundleMini
     globals()['MediaRootPermission'] = MediaRootPermission
     globals()['Proxy'] = Proxy
+    globals()['TagReference'] = TagReference
 
 
 class Asset(ModelNormal):
@@ -115,7 +117,7 @@ class Asset(ModelNormal):
             'info': ({str: (str, none_type)},),  # noqa: E501
             'proxy_info': ({str: (str, none_type)},),  # noqa: E501
             'custom_fields': ({str: (str, none_type)},),  # noqa: E501
-            'tags': ([int],),  # noqa: E501
+            'tags': ([TagReference],),  # noqa: E501
             'backups': (str,),  # noqa: E501
             'proxies_generated': (bool,),  # noqa: E501
             'proxies_failed': (bool,),  # noqa: E501
@@ -139,6 +141,7 @@ class Asset(ModelNormal):
             'type': (str, none_type,),  # noqa: E501
             'matched_scanner': (str, none_type,),  # noqa: E501
             'workflow_state': (int,),  # noqa: E501
+            'timecode': (float, none_type,),  # noqa: E501
             'set': (int, none_type,),  # noqa: E501
         }
 
@@ -176,6 +179,7 @@ class Asset(ModelNormal):
         'type': 'type',  # noqa: E501
         'matched_scanner': 'matched_scanner',  # noqa: E501
         'workflow_state': 'workflow_state',  # noqa: E501
+        'timecode': 'timecode',  # noqa: E501
         'set': 'set',  # noqa: E501
     }
 
@@ -214,7 +218,7 @@ class Asset(ModelNormal):
             info ({str: (str, none_type)}):
             proxy_info ({str: (str, none_type)}):
             custom_fields ({str: (str, none_type)}):
-            tags ([int]):
+            tags ([TagReference]):
             backups (str):
             proxies_generated (bool):
             proxies_failed (bool):
@@ -270,6 +274,7 @@ class Asset(ModelNormal):
             type (str, none_type): [optional]  # noqa: E501
             matched_scanner (str, none_type): [optional]  # noqa: E501
             workflow_state (int): [optional]  # noqa: E501
+            timecode (float, none_type): [optional]  # noqa: E501
             set (int, none_type): [optional]  # noqa: E501
         """
 
@@ -345,7 +350,7 @@ class Asset(ModelNormal):
         Args:
             id (int):
             custom_fields ({str: (str, none_type)}):
-            tags ([int]):
+            tags ([TagReference]):
             format (FormatMetadata):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -387,6 +392,7 @@ class Asset(ModelNormal):
             type (str, none_type): [optional]  # noqa: E501
             matched_scanner (str, none_type): [optional]  # noqa: E501
             workflow_state (int): [optional]  # noqa: E501
+            timecode (float, none_type): [optional]  # noqa: E501
             set (int, none_type): [optional]  # noqa: E501
         """
 

@@ -2466,6 +2466,7 @@ class MainApi(object):
                     'limit',
                     'offset',
                     'include_allowed_fs_paths',
+                    'include_effective_permissions',
                 ],
                 'required': [],
                 'nullable': [
@@ -2495,6 +2496,8 @@ class MainApi(object):
                         (int,),
                     'include_allowed_fs_paths':
                         (bool,),
+                    'include_effective_permissions':
+                        (bool,),
                 },
                 'attribute_map': {
                     'username': 'username',
@@ -2504,6 +2507,7 @@ class MainApi(object):
                     'limit': 'limit',
                     'offset': 'offset',
                     'include_allowed_fs_paths': 'include_allowed_fs_paths',
+                    'include_effective_permissions': 'include_effective_permissions',
                 },
                 'location_map': {
                     'username': 'query',
@@ -2513,6 +2517,7 @@ class MainApi(object):
                     'limit': 'query',
                     'offset': 'query',
                     'include_allowed_fs_paths': 'query',
+                    'include_effective_permissions': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -4490,6 +4495,7 @@ class MainApi(object):
                 'all': [
                     'id',
                     'include_allowed_fs_paths',
+                    'include_effective_permissions',
                 ],
                 'required': [
                     'id',
@@ -4511,14 +4517,18 @@ class MainApi(object):
                         (int,),
                     'include_allowed_fs_paths':
                         (bool,),
+                    'include_effective_permissions':
+                        (bool,),
                 },
                 'attribute_map': {
                     'id': 'id',
                     'include_allowed_fs_paths': 'include_allowed_fs_paths',
+                    'include_effective_permissions': 'include_effective_permissions',
                 },
                 'location_map': {
                     'id': 'path',
                     'include_allowed_fs_paths': 'query',
+                    'include_effective_permissions': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -10654,6 +10664,7 @@ class MainApi(object):
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
             include_allowed_fs_paths (bool): [optional]
+            include_effective_permissions (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -13654,6 +13665,7 @@ class MainApi(object):
 
         Keyword Args:
             include_allowed_fs_paths (bool): [optional]
+            include_effective_permissions (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

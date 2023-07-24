@@ -520,6 +520,8 @@ class AutomationApi(object):
                     'id__in',
                     'name',
                     'task_name',
+                    'is_finished',
+                    'is_running',
                     'ordering',
                     'limit',
                     'offset',
@@ -556,6 +558,10 @@ class AutomationApi(object):
                         (str,),
                     'task_name':
                         (str,),
+                    'is_finished':
+                        (str,),
+                    'is_running':
+                        (str,),
                     'ordering':
                         (str,),
                     'limit':
@@ -573,6 +579,8 @@ class AutomationApi(object):
                     'id__in': 'id__in',
                     'name': 'name',
                     'task_name': 'task_name',
+                    'is_finished': 'is_finished',
+                    'is_running': 'is_running',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
@@ -587,6 +595,8 @@ class AutomationApi(object):
                     'id__in': 'query',
                     'name': 'query',
                     'task_name': 'query',
+                    'is_finished': 'query',
+                    'is_running': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -1104,6 +1114,8 @@ class AutomationApi(object):
                     'id__in',
                     'name',
                     'task_name',
+                    'is_finished',
+                    'is_running',
                     'ordering',
                     'limit',
                     'offset',
@@ -1141,6 +1153,10 @@ class AutomationApi(object):
                         (str,),
                     'task_name':
                         (str,),
+                    'is_finished':
+                        (str,),
+                    'is_running':
+                        (str,),
                     'ordering':
                         (str,),
                     'limit':
@@ -1160,6 +1176,8 @@ class AutomationApi(object):
                     'id__in': 'id__in',
                     'name': 'name',
                     'task_name': 'task_name',
+                    'is_finished': 'is_finished',
+                    'is_running': 'is_running',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
@@ -1175,6 +1193,8 @@ class AutomationApi(object):
                     'id__in': 'query',
                     'name': 'query',
                     'task_name': 'query',
+                    'is_finished': 'query',
+                    'is_running': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -1264,6 +1284,8 @@ class AutomationApi(object):
                     'id__in',
                     'name',
                     'task_name',
+                    'is_finished',
+                    'is_running',
                     'ordering',
                     'limit',
                     'offset',
@@ -1300,6 +1322,10 @@ class AutomationApi(object):
                         (str,),
                     'task_name':
                         (str,),
+                    'is_finished':
+                        (str,),
+                    'is_running':
+                        (str,),
                     'ordering':
                         (str,),
                     'limit':
@@ -1317,6 +1343,8 @@ class AutomationApi(object):
                     'id__in': 'id__in',
                     'name': 'name',
                     'task_name': 'task_name',
+                    'is_finished': 'is_finished',
+                    'is_running': 'is_running',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
@@ -1331,6 +1359,8 @@ class AutomationApi(object):
                     'id__in': 'query',
                     'name': 'query',
                     'task_name': 'query',
+                    'is_finished': 'query',
+                    'is_running': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -1419,6 +1449,8 @@ class AutomationApi(object):
                     'id__in',
                     'name',
                     'task_name',
+                    'is_finished',
+                    'is_running',
                     'ordering',
                     'limit',
                     'offset',
@@ -1455,6 +1487,10 @@ class AutomationApi(object):
                         (str,),
                     'task_name':
                         (str,),
+                    'is_finished':
+                        (str,),
+                    'is_running':
+                        (str,),
                     'ordering':
                         (str,),
                     'limit':
@@ -1472,6 +1508,8 @@ class AutomationApi(object):
                     'id__in': 'id__in',
                     'name': 'name',
                     'task_name': 'task_name',
+                    'is_finished': 'is_finished',
+                    'is_running': 'is_running',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
@@ -1486,6 +1524,8 @@ class AutomationApi(object):
                     'id__in': 'query',
                     'name': 'query',
                     'task_name': 'query',
+                    'is_finished': 'query',
+                    'is_running': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -1885,6 +1925,8 @@ class AutomationApi(object):
                     'id__in',
                     'name',
                     'task_name',
+                    'is_finished',
+                    'is_running',
                     'ordering',
                     'limit',
                     'offset',
@@ -1921,6 +1963,10 @@ class AutomationApi(object):
                         (str,),
                     'task_name':
                         (str,),
+                    'is_finished':
+                        (str,),
+                    'is_running':
+                        (str,),
                     'ordering':
                         (str,),
                     'limit':
@@ -1938,6 +1984,8 @@ class AutomationApi(object):
                     'id__in': 'id__in',
                     'name': 'name',
                     'task_name': 'task_name',
+                    'is_finished': 'is_finished',
+                    'is_running': 'is_running',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
@@ -1952,6 +2000,8 @@ class AutomationApi(object):
                     'id__in': 'query',
                     'name': 'query',
                     'task_name': 'query',
+                    'is_finished': 'query',
+                    'is_running': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -3341,6 +3391,8 @@ class AutomationApi(object):
             id__in (str): Multiple values may be separated by commas.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             task_name (str): Filter the returned list by `task_name`.. [optional]
+            is_finished (str): Filter the returned list by `is_finished`.. [optional]
+            is_running (str): Filter the returned list by `is_running`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -3874,7 +3926,7 @@ class AutomationApi(object):
     ):
         """get_all_task_queues  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * User account permission: `tasks:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4044,6 +4096,8 @@ class AutomationApi(object):
             id__in (str): Multiple values may be separated by commas.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             task_name (str): Filter the returned list by `task_name`.. [optional]
+            is_finished (str): Filter the returned list by `is_finished`.. [optional]
+            is_running (str): Filter the returned list by `is_running`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -4208,6 +4262,8 @@ class AutomationApi(object):
             id__in (str): Multiple values may be separated by commas.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             task_name (str): Filter the returned list by `task_name`.. [optional]
+            is_finished (str): Filter the returned list by `is_finished`.. [optional]
+            is_running (str): Filter the returned list by `is_running`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -4371,6 +4427,8 @@ class AutomationApi(object):
             id__in (str): Multiple values may be separated by commas.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             task_name (str): Filter the returned list by `task_name`.. [optional]
+            is_finished (str): Filter the returned list by `is_finished`.. [optional]
+            is_running (str): Filter the returned list by `is_running`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -4998,6 +5056,8 @@ class AutomationApi(object):
             id__in (str): Multiple values may be separated by commas.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             task_name (str): Filter the returned list by `task_name`.. [optional]
+            is_finished (str): Filter the returned list by `is_finished`.. [optional]
+            is_running (str): Filter the returned list by `is_running`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]

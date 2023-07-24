@@ -30,8 +30,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.tape_reference import TapeReference
-    globals()['TapeReference'] = TapeReference
+    from elements_sdk.model.tape_mini_reference import TapeMiniReference
+    globals()['TapeMiniReference'] = TapeMiniReference
 
 
 class TapeGroupUpdate(ModelNormal):
@@ -91,7 +91,7 @@ class TapeGroupUpdate(ModelNormal):
         """
         lazy_import()
         return {
-            'tapes': ([TapeReference],),  # noqa: E501
+            'tapes': ([TapeMiniReference],),  # noqa: E501
             'name': (str,),  # noqa: E501
         }
 
@@ -116,7 +116,7 @@ class TapeGroupUpdate(ModelNormal):
         """TapeGroupUpdate - a model defined in OpenAPI
 
         Args:
-            tapes ([TapeReference]):
+            tapes ([TapeMiniReference]):
             name (str):
 
         Keyword Args:
@@ -205,7 +205,7 @@ class TapeGroupUpdate(ModelNormal):
         """TapeGroupUpdate - a model defined in OpenAPI
 
         Args:
-            tapes ([TapeReference]):
+            tapes ([TapeMiniReference]):
             name (str):
 
         Keyword Args:

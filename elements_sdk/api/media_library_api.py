@@ -2724,6 +2724,7 @@ class MediaLibraryApi(object):
                     'ordering',
                     'limit',
                     'offset',
+                    'uri',
                 ],
                 'required': [
                     'asset_ids',
@@ -2749,18 +2750,22 @@ class MediaLibraryApi(object):
                         (int,),
                     'offset':
                         (int,),
+                    'uri':
+                        (bool,),
                 },
                 'attribute_map': {
                     'asset_ids': 'asset_ids',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
+                    'uri': 'uri',
                 },
                 'location_map': {
                     'asset_ids': 'path',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                    'uri': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -2790,6 +2795,7 @@ class MediaLibraryApi(object):
                     'ordering',
                     'limit',
                     'offset',
+                    'uri',
                 ],
                 'required': [
                     'bundle_ids',
@@ -2815,18 +2821,22 @@ class MediaLibraryApi(object):
                         (int,),
                     'offset':
                         (int,),
+                    'uri':
+                        (bool,),
                 },
                 'attribute_map': {
                     'bundle_ids': 'bundle_ids',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
+                    'uri': 'uri',
                 },
                 'location_map': {
                     'bundle_ids': 'path',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                    'uri': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -2853,6 +2863,7 @@ class MediaLibraryApi(object):
             params_map={
                 'all': [
                     'id',
+                    'uri',
                 ],
                 'required': [
                     'id',
@@ -2872,12 +2883,16 @@ class MediaLibraryApi(object):
                 'openapi_types': {
                     'id':
                         (int,),
+                    'uri':
+                        (bool,),
                 },
                 'attribute_map': {
                     'id': 'id',
+                    'uri': 'uri',
                 },
                 'location_map': {
                     'id': 'path',
+                    'uri': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -3669,6 +3684,13 @@ class MediaLibraryApi(object):
                     'ordering',
                     'limit',
                     'offset',
+                    'exclude_deleted',
+                    'exclude_unrecognized',
+                    'include_proxies',
+                    'include_parents',
+                    'include_modified_by',
+                    'advanced_search',
+                    'in_media_root',
                 ],
                 'required': [
                     'file',
@@ -3704,6 +3726,20 @@ class MediaLibraryApi(object):
                         (int,),
                     'offset':
                         (int,),
+                    'exclude_deleted':
+                        (bool,),
+                    'exclude_unrecognized':
+                        (bool,),
+                    'include_proxies':
+                        (bool,),
+                    'include_parents':
+                        (bool,),
+                    'include_modified_by':
+                        (bool,),
+                    'advanced_search':
+                        (str,),
+                    'in_media_root':
+                        (int,),
                 },
                 'attribute_map': {
                     'file': 'file',
@@ -3715,6 +3751,13 @@ class MediaLibraryApi(object):
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
+                    'exclude_deleted': 'exclude_deleted',
+                    'exclude_unrecognized': 'exclude_unrecognized',
+                    'include_proxies': 'include_proxies',
+                    'include_parents': 'include_parents',
+                    'include_modified_by': 'include_modified_by',
+                    'advanced_search': 'advanced_search',
+                    'in_media_root': 'in_media_root',
                 },
                 'location_map': {
                     'file': 'path',
@@ -3726,6 +3769,13 @@ class MediaLibraryApi(object):
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                    'exclude_deleted': 'query',
+                    'exclude_unrecognized': 'query',
+                    'include_proxies': 'query',
+                    'include_parents': 'query',
+                    'include_modified_by': 'query',
+                    'advanced_search': 'query',
+                    'in_media_root': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -4744,6 +4794,7 @@ class MediaLibraryApi(object):
                 'all': [
                     'root',
                     'id',
+                    'is_temporary_for_token',
                     'ordering',
                     'limit',
                     'offset',
@@ -4766,6 +4817,8 @@ class MediaLibraryApi(object):
                         (int,),
                     'id':
                         (float,),
+                    'is_temporary_for_token':
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -4776,6 +4829,7 @@ class MediaLibraryApi(object):
                 'attribute_map': {
                     'root': 'root',
                     'id': 'id',
+                    'is_temporary_for_token': 'is_temporary_for_token',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
@@ -4783,6 +4837,7 @@ class MediaLibraryApi(object):
                 'location_map': {
                     'root': 'query',
                     'id': 'query',
+                    'is_temporary_for_token': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -6650,6 +6705,7 @@ class MediaLibraryApi(object):
                     'offset',
                     'limit',
                     'ordering',
+                    'include_modified_by',
                 ],
                 'required': [
                     'id',
@@ -6679,6 +6735,8 @@ class MediaLibraryApi(object):
                         (int,),
                     'ordering':
                         (str,),
+                    'include_modified_by':
+                        (bool,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -6687,6 +6745,7 @@ class MediaLibraryApi(object):
                     'offset': 'offset',
                     'limit': 'limit',
                     'ordering': 'ordering',
+                    'include_modified_by': 'include_modified_by',
                 },
                 'location_map': {
                     'id': 'path',
@@ -6695,6 +6754,7 @@ class MediaLibraryApi(object):
                     'offset': 'query',
                     'limit': 'query',
                     'ordering': 'query',
+                    'include_modified_by': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -7035,6 +7095,10 @@ class MediaLibraryApi(object):
             params_map={
                 'all': [
                     'multiple_assets_request',
+                    'include_proxies',
+                    'include_modified_by',
+                    'resolve_asset_permission',
+                    'for_root',
                 ],
                 'required': [
                     'multiple_assets_request',
@@ -7054,11 +7118,27 @@ class MediaLibraryApi(object):
                 'openapi_types': {
                     'multiple_assets_request':
                         (MultipleAssetsRequest,),
+                    'include_proxies':
+                        (bool,),
+                    'include_modified_by':
+                        (bool,),
+                    'resolve_asset_permission':
+                        (bool,),
+                    'for_root':
+                        (int,),
                 },
                 'attribute_map': {
+                    'include_proxies': 'include_proxies',
+                    'include_modified_by': 'include_modified_by',
+                    'resolve_asset_permission': 'resolve_asset_permission',
+                    'for_root': 'for_root',
                 },
                 'location_map': {
                     'multiple_assets_request': 'body',
+                    'include_proxies': 'query',
+                    'include_modified_by': 'query',
+                    'resolve_asset_permission': 'query',
+                    'for_root': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -7192,6 +7272,7 @@ class MediaLibraryApi(object):
                 'all': [
                     'root',
                     'id',
+                    'is_temporary_for_token',
                     'ordering',
                     'limit',
                     'offset',
@@ -7214,6 +7295,8 @@ class MediaLibraryApi(object):
                         (int,),
                     'id':
                         (float,),
+                    'is_temporary_for_token':
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -7224,6 +7307,7 @@ class MediaLibraryApi(object):
                 'attribute_map': {
                     'root': 'root',
                     'id': 'id',
+                    'is_temporary_for_token': 'is_temporary_for_token',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
@@ -7231,6 +7315,7 @@ class MediaLibraryApi(object):
                 'location_map': {
                     'root': 'query',
                     'id': 'query',
+                    'is_temporary_for_token': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -7261,6 +7346,7 @@ class MediaLibraryApi(object):
                 'all': [
                     'root',
                     'id',
+                    'is_temporary_for_token',
                     'ordering',
                     'limit',
                     'offset',
@@ -7283,6 +7369,8 @@ class MediaLibraryApi(object):
                         (int,),
                     'id':
                         (float,),
+                    'is_temporary_for_token':
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -7293,6 +7381,7 @@ class MediaLibraryApi(object):
                 'attribute_map': {
                     'root': 'root',
                     'id': 'id',
+                    'is_temporary_for_token': 'is_temporary_for_token',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
@@ -7300,6 +7389,7 @@ class MediaLibraryApi(object):
                 'location_map': {
                     'root': 'query',
                     'id': 'query',
+                    'is_temporary_for_token': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -13181,7 +13271,7 @@ class MediaLibraryApi(object):
     ):
         """delete_easy_sharing_token_for_bundle  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14993,6 +15083,7 @@ class MediaLibraryApi(object):
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
+            uri (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -15074,6 +15165,7 @@ class MediaLibraryApi(object):
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
+            uri (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -15152,6 +15244,7 @@ class MediaLibraryApi(object):
             id (int): A unique integer value identifying this File.
 
         Keyword Args:
+            uri (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -16018,7 +16111,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_bundles_for_media_root  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -16104,7 +16197,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_bundles_in_subtree  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -16121,8 +16214,15 @@ class MediaLibraryApi(object):
             shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
-            limit (int): Number of results to return per page.. [optional]
-            offset (int): The initial index from which to return the results.. [optional]
+            limit (int): [optional]
+            offset (int): [optional]
+            exclude_deleted (bool): [optional]
+            exclude_unrecognized (bool): [optional]
+            include_proxies (bool): [optional]
+            include_parents (bool): [optional]
+            include_modified_by (bool): [optional]
+            advanced_search (str): [optional]
+            in_media_root (int): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -16582,7 +16682,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_media_file_bundles  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17115,6 +17215,7 @@ class MediaLibraryApi(object):
         Keyword Args:
             root (int): Filter the returned list by `root`.. [optional]
             id (float): Filter the returned list by `id`.. [optional]
+            is_temporary_for_token (int): Filter the returned list by `is_temporary_for_token`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -18532,7 +18633,7 @@ class MediaLibraryApi(object):
     ):
         """get_easy_sharing_token_for_bundle  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19249,7 +19350,7 @@ class MediaLibraryApi(object):
     ):
         """get_media_file_bundle  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19352,6 +19453,7 @@ class MediaLibraryApi(object):
             offset (int): [optional]
             limit (int): [optional]
             ordering (str): [optional]
+            include_modified_by (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -19900,6 +20002,10 @@ class MediaLibraryApi(object):
             multiple_assets_request (MultipleAssetsRequest):
 
         Keyword Args:
+            include_proxies (bool): [optional]
+            include_modified_by (bool): [optional]
+            resolve_asset_permission (bool): [optional]
+            for_root (int): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -19967,7 +20073,7 @@ class MediaLibraryApi(object):
     ):
         """get_multiple_bundles  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20133,6 +20239,7 @@ class MediaLibraryApi(object):
         Keyword Args:
             root (int): Filter the returned list by `root`.. [optional]
             id (float): Filter the returned list by `id`.. [optional]
+            is_temporary_for_token (int): Filter the returned list by `is_temporary_for_token`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -20211,6 +20318,7 @@ class MediaLibraryApi(object):
         Keyword Args:
             root (int): Filter the returned list by `root`.. [optional]
             id (float): Filter the returned list by `id`.. [optional]
+            is_temporary_for_token (int): Filter the returned list by `is_temporary_for_token`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]

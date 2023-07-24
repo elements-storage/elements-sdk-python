@@ -382,8 +382,8 @@ from elements_sdk.model.tape_library_move_endpoint_request import TapeLibraryMov
 from elements_sdk.model.tape_library_reindex_endpoint_request import TapeLibraryReindexEndpointRequest
 from elements_sdk.model.tape_library_slot import TapeLibrarySlot
 from elements_sdk.model.tape_library_unload_endpoint_request import TapeLibraryUnloadEndpointRequest
+from elements_sdk.model.tape_mini_reference import TapeMiniReference
 from elements_sdk.model.tape_partial_update import TapePartialUpdate
-from elements_sdk.model.tape_reference import TapeReference
 from elements_sdk.model.tape_update import TapeUpdate
 from elements_sdk.model.task_info import TaskInfo
 from elements_sdk.model.task_log import TaskLog

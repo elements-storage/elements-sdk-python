@@ -30,8 +30,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.tape_reference import TapeReference
-    globals()['TapeReference'] = TapeReference
+    from elements_sdk.model.tape_mini_reference import TapeMiniReference
+    globals()['TapeMiniReference'] = TapeMiniReference
 
 
 class TapeGroupPartialUpdate(ModelNormal):
@@ -91,7 +91,7 @@ class TapeGroupPartialUpdate(ModelNormal):
         """
         lazy_import()
         return {
-            'tapes': ([TapeReference],),  # noqa: E501
+            'tapes': ([TapeMiniReference],),  # noqa: E501
             'name': (str,),  # noqa: E501
         }
 
@@ -146,7 +146,7 @@ class TapeGroupPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            tapes ([TapeReference]): [optional]  # noqa: E501
+            tapes ([TapeMiniReference]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
         """
 
@@ -231,7 +231,7 @@ class TapeGroupPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            tapes ([TapeReference]): [optional]  # noqa: E501
+            tapes ([TapeMiniReference]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
         """
 

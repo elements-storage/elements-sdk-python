@@ -129,6 +129,7 @@ class JobPartialUpdate(ModelNormal):
             'allow_client_to_start': (bool,),  # noqa: E501
             'show_as_button': (bool,),  # noqa: E501
             'input_type': (str, none_type,),  # noqa: E501
+            'add_to_new_media_roots': (bool,),  # noqa: E501
             'hook': (str, none_type,),  # noqa: E501
             'webhook_secret': (str, none_type,),  # noqa: E501
             'security_context': (int, none_type,),  # noqa: E501
@@ -155,6 +156,7 @@ class JobPartialUpdate(ModelNormal):
         'allow_client_to_start': 'allow_client_to_start',  # noqa: E501
         'show_as_button': 'show_as_button',  # noqa: E501
         'input_type': 'input_type',  # noqa: E501
+        'add_to_new_media_roots': 'add_to_new_media_roots',  # noqa: E501
         'hook': 'hook',  # noqa: E501
         'webhook_secret': 'webhook_secret',  # noqa: E501
         'security_context': 'security_context',  # noqa: E501
@@ -216,6 +218,7 @@ class JobPartialUpdate(ModelNormal):
             allow_client_to_start (bool): [optional]  # noqa: E501
             show_as_button (bool): [optional]  # noqa: E501
             input_type (str, none_type): [optional]  # noqa: E501
+            add_to_new_media_roots (bool): [optional]  # noqa: E501
             hook (str, none_type): [optional]  # noqa: E501
             webhook_secret (str, none_type): [optional]  # noqa: E501
             security_context (int, none_type): [optional]  # noqa: E501
@@ -317,6 +320,7 @@ class JobPartialUpdate(ModelNormal):
             allow_client_to_start (bool): [optional]  # noqa: E501
             show_as_button (bool): [optional]  # noqa: E501
             input_type (str, none_type): [optional]  # noqa: E501
+            add_to_new_media_roots (bool): [optional]  # noqa: E501
             hook (str, none_type): [optional]  # noqa: E501
             webhook_secret (str, none_type): [optional]  # noqa: E501
             security_context (int, none_type): [optional]  # noqa: E501
