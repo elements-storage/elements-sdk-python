@@ -58,14 +58,6 @@ class NotificationPartialUpdate(ModelNormal):
     }
 
     validations = {
-        ('topic',): {
-            'max_length': 255,
-            'min_length': 1,
-        },
-        ('type',): {
-            'max_length': 255,
-            'min_length': 1,
-        },
     }
 
     @cached_property
@@ -89,9 +81,8 @@ class NotificationPartialUpdate(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'topic': (str,),  # noqa: E501
-            'type': (str,),  # noqa: E501
-            'user': (int, none_type,),  # noqa: E501
+            'receipts': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
+            'kwargs': ({str: (str, none_type)},),  # noqa: E501
         }
 
     @cached_property
@@ -100,9 +91,8 @@ class NotificationPartialUpdate(ModelNormal):
 
 
     attribute_map = {
-        'topic': 'topic',  # noqa: E501
-        'type': 'type',  # noqa: E501
-        'user': 'user',  # noqa: E501
+        'receipts': 'receipts',  # noqa: E501
+        'kwargs': 'kwargs',  # noqa: E501
     }
 
     read_only_vars = {
@@ -146,9 +136,8 @@ class NotificationPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            topic (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            user (int, none_type): [optional]  # noqa: E501
+            receipts ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
+            kwargs ({str: (str, none_type)}): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -232,9 +221,8 @@ class NotificationPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            topic (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            user (int, none_type): [optional]  # noqa: E501
+            receipts ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
+            kwargs ({str: (str, none_type)}): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

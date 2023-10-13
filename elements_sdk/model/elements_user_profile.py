@@ -124,6 +124,8 @@ class ElementsUserProfile(ModelNormal):
             'fm_bookmarks': ([str, none_type],),  # noqa: E501
             'unix_username': (str, none_type,),  # noqa: E501
             'email': (str, none_type,),  # noqa: E501
+            'shaper_rate': (int, none_type,),  # noqa: E501
+            'shaper_ceiling': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -146,6 +148,8 @@ class ElementsUserProfile(ModelNormal):
         'fm_bookmarks': 'fm_bookmarks',  # noqa: E501
         'unix_username': 'unix_username',  # noqa: E501
         'email': 'email',  # noqa: E501
+        'shaper_rate': 'shaper_rate',  # noqa: E501
+        'shaper_ceiling': 'shaper_ceiling',  # noqa: E501
     }
 
     read_only_vars = {
@@ -156,6 +160,8 @@ class ElementsUserProfile(ModelNormal):
         'allow_changing_password',  # noqa: E501
         'unix_username',  # noqa: E501
         'email',  # noqa: E501
+        'shaper_rate',  # noqa: E501
+        'shaper_ceiling',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -212,6 +218,8 @@ class ElementsUserProfile(ModelNormal):
             fm_bookmarks ([str, none_type]): [optional]  # noqa: E501
             unix_username (str, none_type): [optional]  # noqa: E501
             email (str, none_type): [optional]  # noqa: E501
+            shaper_rate (int, none_type): [optional]  # noqa: E501
+            shaper_ceiling (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -312,6 +320,8 @@ class ElementsUserProfile(ModelNormal):
             fm_bookmarks ([str, none_type]): [optional]  # noqa: E501
             unix_username (str, none_type): [optional]  # noqa: E501
             email (str, none_type): [optional]  # noqa: E501
+            shaper_rate (int, none_type): [optional]  # noqa: E501
+            shaper_ceiling (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

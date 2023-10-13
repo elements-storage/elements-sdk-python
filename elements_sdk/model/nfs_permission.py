@@ -61,9 +61,6 @@ class NFSPermission(ModelNormal):
         ('host',): {
             'min_length': 1,
         },
-        ('options',): {
-            'min_length': 1,
-        },
     }
 
     @cached_property

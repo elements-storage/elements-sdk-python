@@ -123,6 +123,7 @@ class TaskType(ModelNormal):
             'icon_class': (str, none_type,),  # noqa: E501
             'is_available': (bool,),  # noqa: E501
             'allow_in_jobs': (bool,),  # noqa: E501
+            'required_permissions': ([str],),  # noqa: E501
             'new_since_version': (str, none_type,),  # noqa: E501
         }
 
@@ -147,6 +148,7 @@ class TaskType(ModelNormal):
         'icon_class': 'icon_class',  # noqa: E501
         'is_available': 'is_available',  # noqa: E501
         'allow_in_jobs': 'allow_in_jobs',  # noqa: E501
+        'required_permissions': 'required_permissions',  # noqa: E501
         'new_since_version': 'new_since_version',  # noqa: E501
     }
 
@@ -160,7 +162,7 @@ class TaskType(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, type, display_name, display_group, input_type, abortable, arg_template, arg_types, required_args, output_names, output_types, parameters_editor_component, superuser_only, icon_class, is_available, allow_in_jobs, new_since_version, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, type, display_name, display_group, input_type, abortable, arg_template, arg_types, required_args, output_names, output_types, parameters_editor_component, superuser_only, icon_class, is_available, allow_in_jobs, required_permissions, new_since_version, *args, **xkwargs):  # noqa: E501
         """TaskType - a model defined in OpenAPI
 
         Args:
@@ -179,6 +181,7 @@ class TaskType(ModelNormal):
             icon_class (str, none_type):
             is_available (bool):
             allow_in_jobs (bool):
+            required_permissions ([str]):
             new_since_version (str, none_type):
 
         Keyword Args:
@@ -255,6 +258,7 @@ class TaskType(ModelNormal):
         self.icon_class = icon_class
         self.is_available = is_available
         self.allow_in_jobs = allow_in_jobs
+        self.required_permissions = required_permissions
         self.new_since_version = new_since_version
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -277,7 +281,7 @@ class TaskType(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, type, display_name, display_group, input_type, abortable, arg_template, required_args, output_names, parameters_editor_component, superuser_only, icon_class, allow_in_jobs, new_since_version, *args, **xkwargs):  # noqa: E501
+    def __init__(self, type, display_name, display_group, input_type, abortable, arg_template, required_args, output_names, parameters_editor_component, superuser_only, icon_class, allow_in_jobs, required_permissions, new_since_version, *args, **xkwargs):  # noqa: E501
         """TaskType - a model defined in OpenAPI
 
         Args:
@@ -293,6 +297,7 @@ class TaskType(ModelNormal):
             superuser_only (bool):
             icon_class (str, none_type):
             allow_in_jobs (bool):
+            required_permissions ([str]):
             new_since_version (str, none_type):
 
         Keyword Args:
@@ -364,6 +369,7 @@ class TaskType(ModelNormal):
         self.superuser_only = superuser_only
         self.icon_class = icon_class
         self.allow_in_jobs = allow_in_jobs
+        self.required_permissions = required_permissions
         self.new_since_version = new_since_version
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

@@ -73,6 +73,7 @@ docs/BackendProperties.md
 docs/BasicFile.md
 docs/BeeGFSNode.md
 docs/BeeGFSTarget.md
+docs/BenchmarkEndpointRequest.md
 docs/BootstrapData.md
 docs/CPUStat.md
 docs/Certificate.md
@@ -118,6 +119,7 @@ docs/Download.md
 docs/DownloadArchive.md
 docs/DownloadArchivePartialUpdate.md
 docs/DownloadArchiveUpdate.md
+docs/EditorMarker.md
 docs/EditorProject.md
 docs/EditorProjectPartialUpdate.md
 docs/EditorProjectUpdate.md
@@ -206,6 +208,8 @@ docs/LizardFSDisk.md
 docs/LizardFSNode.md
 docs/LocaleEndpointResponse.md
 docs/LocateEndpointRequest.md
+docs/LocateMarkersEndpointRequest.md
+docs/LocateMarkersEndpointResponse.md
 docs/LocateProxiesEndpointRequest.md
 docs/LocateProxiesEndpointResponse.md
 docs/LocateResult.md
@@ -252,6 +256,13 @@ docs/NTPServerUpdate.md
 docs/NetStat.md
 docs/Notification.md
 docs/NotificationPartialUpdate.md
+docs/NotificationReceipt.md
+docs/NotificationReceiptPartialUpdate.md
+docs/NotificationReceiptReference.md
+docs/NotificationReceiptUpdate.md
+docs/NotificationSetting.md
+docs/NotificationSettingPartialUpdate.md
+docs/NotificationSettingUpdate.md
 docs/NotificationUpdate.md
 docs/OneTimeAccessToken.md
 docs/OneTimeAccessTokenActivity.md
@@ -345,6 +356,7 @@ docs/StorageApi.md
 docs/StorageNode.md
 docs/StorageNodeMini.md
 docs/StorageNodePartialUpdate.md
+docs/StorageNodeReference.md
 docs/StorageNodeStatus.md
 docs/StorageNodeUpdate.md
 docs/StorageRequest.md
@@ -423,6 +435,7 @@ docs/TypeDocumentation.md
 docs/UnfilteredTag.md
 docs/UnfilteredTagPartialUpdate.md
 docs/UnfilteredTagUpdate.md
+docs/UnreadCount.md
 docs/UpdateQuotaRequest.md
 docs/UpdatedFile.md
 docs/UploadAIImageRequest.md
@@ -546,6 +559,7 @@ elements_sdk/model/backend_properties.py
 elements_sdk/model/basic_file.py
 elements_sdk/model/bee_gfs_node.py
 elements_sdk/model/bee_gfs_target.py
+elements_sdk/model/benchmark_endpoint_request.py
 elements_sdk/model/bootstrap_data.py
 elements_sdk/model/certificate.py
 elements_sdk/model/certificate_update.py
@@ -590,6 +604,7 @@ elements_sdk/model/download.py
 elements_sdk/model/download_archive.py
 elements_sdk/model/download_archive_partial_update.py
 elements_sdk/model/download_archive_update.py
+elements_sdk/model/editor_marker.py
 elements_sdk/model/editor_project.py
 elements_sdk/model/editor_project_partial_update.py
 elements_sdk/model/editor_project_update.py
@@ -677,6 +692,8 @@ elements_sdk/model/lizard_fs_disk.py
 elements_sdk/model/lizard_fs_node.py
 elements_sdk/model/locale_endpoint_response.py
 elements_sdk/model/locate_endpoint_request.py
+elements_sdk/model/locate_markers_endpoint_request.py
+elements_sdk/model/locate_markers_endpoint_response.py
 elements_sdk/model/locate_proxies_endpoint_request.py
 elements_sdk/model/locate_proxies_endpoint_response.py
 elements_sdk/model/locate_result.py
@@ -718,6 +735,13 @@ elements_sdk/model/net_stat.py
 elements_sdk/model/nfs_permission.py
 elements_sdk/model/notification.py
 elements_sdk/model/notification_partial_update.py
+elements_sdk/model/notification_receipt.py
+elements_sdk/model/notification_receipt_partial_update.py
+elements_sdk/model/notification_receipt_reference.py
+elements_sdk/model/notification_receipt_update.py
+elements_sdk/model/notification_setting.py
+elements_sdk/model/notification_setting_partial_update.py
+elements_sdk/model/notification_setting_update.py
 elements_sdk/model/notification_update.py
 elements_sdk/model/ntp_server.py
 elements_sdk/model/ntp_server_partial_update.py
@@ -810,6 +834,7 @@ elements_sdk/model/stor_next_license_endpoint_response.py
 elements_sdk/model/storage_node.py
 elements_sdk/model/storage_node_mini.py
 elements_sdk/model/storage_node_partial_update.py
+elements_sdk/model/storage_node_reference.py
 elements_sdk/model/storage_node_status.py
 elements_sdk/model/storage_node_update.py
 elements_sdk/model/storage_request.py
@@ -887,6 +912,7 @@ elements_sdk/model/type_documentation.py
 elements_sdk/model/unfiltered_tag.py
 elements_sdk/model/unfiltered_tag_partial_update.py
 elements_sdk/model/unfiltered_tag_update.py
+elements_sdk/model/unread_count.py
 elements_sdk/model/update_quota_request.py
 elements_sdk/model/updated_file.py
 elements_sdk/model/upload_ai_image_request.py
@@ -932,5 +958,17 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_tape_mini_reference.py
+test/test_benchmark_endpoint_request.py
+test/test_editor_marker.py
+test/test_locate_markers_endpoint_request.py
+test/test_locate_markers_endpoint_response.py
+test/test_notification_receipt.py
+test/test_notification_receipt_partial_update.py
+test/test_notification_receipt_reference.py
+test/test_notification_receipt_update.py
+test/test_notification_setting.py
+test/test_notification_setting_partial_update.py
+test/test_notification_setting_update.py
+test/test_storage_node_reference.py
+test/test_unread_count.py
 tox.ini

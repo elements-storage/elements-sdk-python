@@ -58,12 +58,10 @@ class Notification(ModelNormal):
     }
 
     validations = {
-        ('topic',): {
-            'max_length': 255,
+        ('text',): {
             'min_length': 1,
         },
-        ('type',): {
-            'max_length': 255,
+        ('markup',): {
             'min_length': 1,
         },
     }
@@ -89,10 +87,12 @@ class Notification(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'id': (int,),  # noqa: E501
-            'topic': (str,),  # noqa: E501
-            'type': (str,),  # noqa: E501
-            'user': (int, none_type,),  # noqa: E501
+            'id': (str,),  # noqa: E501
+            'kwargs': ({str: (str, none_type)},),  # noqa: E501
+            'text': (str,),  # noqa: E501
+            'markup': (str,),  # noqa: E501
+            'created_at': (datetime,),  # noqa: E501
+            'receipts': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
         }
 
     @cached_property
@@ -102,26 +102,32 @@ class Notification(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'topic': 'topic',  # noqa: E501
-        'type': 'type',  # noqa: E501
-        'user': 'user',  # noqa: E501
+        'kwargs': 'kwargs',  # noqa: E501
+        'text': 'text',  # noqa: E501
+        'markup': 'markup',  # noqa: E501
+        'created_at': 'created_at',  # noqa: E501
+        'receipts': 'receipts',  # noqa: E501
     }
 
     read_only_vars = {
+        'text',  # noqa: E501
+        'markup',  # noqa: E501
+        'created_at',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, topic, type, user, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, kwargs, text, markup, created_at, *args, **xkwargs):  # noqa: E501
         """Notification - a model defined in OpenAPI
 
         Args:
-            id (int):
-            topic (str):
-            type (str):
-            user (int, none_type):
+            id (str):
+            kwargs ({str: (str, none_type)}):
+            text (str):
+            markup (str):
+            created_at (datetime):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -154,6 +160,7 @@ class Notification(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            receipts ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -183,9 +190,10 @@ class Notification(ModelNormal):
 
 
         self.id = id
-        self.topic = topic
-        self.type = type
-        self.user = user
+        self.kwargs = kwargs
+        self.text = text
+        self.markup = markup
+        self.created_at = created_at
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -207,15 +215,12 @@ class Notification(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, topic, type, user, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, kwargs, *args, **xkwargs):  # noqa: E501
         """Notification - a model defined in OpenAPI
 
         Args:
-            id (int):
-            topic (str):
-            type (str):
-            user (int, none_type):
-
+            id (str):
+            kwargs ({str: (str, none_type)}):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -247,6 +252,7 @@ class Notification(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            receipts ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -274,9 +280,7 @@ class Notification(ModelNormal):
 
 
         self.id = id
-        self.topic = topic
-        self.type = type
-        self.user = user
+        self.kwargs = kwargs
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -63,12 +63,16 @@ class StorageNode(ModelNormal):
     """
 
     allowed_values = {
-        ('type',): {
+        ('task_queues',): {
+            'MEDIA': "media",
+            'DEFAULT': "default",
+        },
+        ('ipmi',): {
             '1': 1,
             '2': 2,
             '3': 3,
         },
-        ('ipmi',): {
+        ('type',): {
             '1': 1,
             '2': 2,
             '3': 3,
@@ -84,7 +88,36 @@ class StorageNode(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
+        ('ipmi_address',): {
+            'max_length': 255,
+        },
+        ('ipmi_username',): {
+            'max_length': 255,
+            'min_length': 1,
+        },
+        ('ipmi_password',): {
+            'max_length': 255,
+            'min_length': 1,
+        },
+        ('discovery_address_override',): {
+            'max_length': 255,
+        },
+        ('permission_mask',): {
+            'min_length': 1,
+        },
         ('address_override',): {
+            'max_length': 255,
+        },
+        ('onefs_host',): {
+            'max_length': 255,
+        },
+        ('onefs_username',): {
+            'max_length': 255,
+        },
+        ('onefs_password',): {
+            'max_length': 255,
+        },
+        ('onefs_zone',): {
             'max_length': 255,
         },
     }
@@ -116,12 +149,30 @@ class StorageNode(ModelNormal):
             'backend': (Backend,),  # noqa: E501
             'interfaces': ([Interface],),  # noqa: E501
             'is_log_aggregator': (bool,),  # noqa: E501
+            'status': (StorageNodeStatus,),  # noqa: E501
+            'task_queues': ([str],),  # noqa: E501
+            'unique_id': (str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'address': (str,),  # noqa: E501
-            'address_override': (str, none_type,),  # noqa: E501
-            'type': (int,),  # noqa: E501
             'ipmi': (int,),  # noqa: E501
-            'status': (StorageNodeStatus,),  # noqa: E501
+            'ipmi_address': (str, none_type,),  # noqa: E501
+            'ipmi_username': (str,),  # noqa: E501
+            'ipmi_password': (str,),  # noqa: E501
+            'proxy_queue': (bool,),  # noqa: E501
+            'email_queue': (bool,),  # noqa: E501
+            'solr_indexer_enabled': (bool,),  # noqa: E501
+            'discovery_enabled': (bool,),  # noqa: E501
+            'discovery_address_override': (str, none_type,),  # noqa: E501
+            'ntp_enabled': (bool,),  # noqa: E501
+            'type': (int,),  # noqa: E501
+            'allow_root_login': (bool,),  # noqa: E501
+            'permission_mask': (str,),  # noqa: E501
+            'address_override': (str, none_type,),  # noqa: E501
+            'auto_scan_interfaces': (bool,),  # noqa: E501
+            'onefs_host': (str, none_type,),  # noqa: E501
+            'onefs_username': (str, none_type,),  # noqa: E501
+            'onefs_password': (str, none_type,),  # noqa: E501
+            'onefs_zone': (str, none_type,),  # noqa: E501
             'volume_queues': ([int],),  # noqa: E501
         }
 
@@ -135,12 +186,30 @@ class StorageNode(ModelNormal):
         'backend': 'backend',  # noqa: E501
         'interfaces': 'interfaces',  # noqa: E501
         'is_log_aggregator': 'is_log_aggregator',  # noqa: E501
+        'status': 'status',  # noqa: E501
+        'task_queues': 'task_queues',  # noqa: E501
+        'unique_id': 'unique_id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'address': 'address',  # noqa: E501
-        'address_override': 'address_override',  # noqa: E501
-        'type': 'type',  # noqa: E501
         'ipmi': 'ipmi',  # noqa: E501
-        'status': 'status',  # noqa: E501
+        'ipmi_address': 'ipmi_address',  # noqa: E501
+        'ipmi_username': 'ipmi_username',  # noqa: E501
+        'ipmi_password': 'ipmi_password',  # noqa: E501
+        'proxy_queue': 'proxy_queue',  # noqa: E501
+        'email_queue': 'email_queue',  # noqa: E501
+        'solr_indexer_enabled': 'solr_indexer_enabled',  # noqa: E501
+        'discovery_enabled': 'discovery_enabled',  # noqa: E501
+        'discovery_address_override': 'discovery_address_override',  # noqa: E501
+        'ntp_enabled': 'ntp_enabled',  # noqa: E501
+        'type': 'type',  # noqa: E501
+        'allow_root_login': 'allow_root_login',  # noqa: E501
+        'permission_mask': 'permission_mask',  # noqa: E501
+        'address_override': 'address_override',  # noqa: E501
+        'auto_scan_interfaces': 'auto_scan_interfaces',  # noqa: E501
+        'onefs_host': 'onefs_host',  # noqa: E501
+        'onefs_username': 'onefs_username',  # noqa: E501
+        'onefs_password': 'onefs_password',  # noqa: E501
+        'onefs_zone': 'onefs_zone',  # noqa: E501
         'volume_queues': 'volume_queues',  # noqa: E501
     }
 
@@ -193,12 +262,30 @@ class StorageNode(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            status (StorageNodeStatus): [optional]  # noqa: E501
+            task_queues ([str]): [optional]  # noqa: E501
+            unique_id (str, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             address (str): For communication between nodes only. [optional]  # noqa: E501
-            address_override (str, none_type): Enforces mounting from a specific address/hostname instead of the available interfaces. [optional]  # noqa: E501
-            type (int): [optional]  # noqa: E501
             ipmi (int): [optional]  # noqa: E501
-            status (StorageNodeStatus): [optional]  # noqa: E501
+            ipmi_address (str, none_type): [optional]  # noqa: E501
+            ipmi_username (str): [optional]  # noqa: E501
+            ipmi_password (str): [optional]  # noqa: E501
+            proxy_queue (bool): [optional]  # noqa: E501
+            email_queue (bool): [optional]  # noqa: E501
+            solr_indexer_enabled (bool): [optional]  # noqa: E501
+            discovery_enabled (bool): [optional]  # noqa: E501
+            discovery_address_override (str, none_type): [optional]  # noqa: E501
+            ntp_enabled (bool): [optional]  # noqa: E501
+            type (int): [optional]  # noqa: E501
+            allow_root_login (bool): [optional]  # noqa: E501
+            permission_mask (str): Comma-separated list of user permissions allowed on this node. [optional]  # noqa: E501
+            address_override (str, none_type): Enforces mounting from a specific address/hostname instead of the available interfaces. [optional]  # noqa: E501
+            auto_scan_interfaces (bool): [optional]  # noqa: E501
+            onefs_host (str, none_type): [optional]  # noqa: E501
+            onefs_username (str, none_type): [optional]  # noqa: E501
+            onefs_password (str, none_type): [optional]  # noqa: E501
+            onefs_zone (str, none_type): [optional]  # noqa: E501
             volume_queues ([int]): Run volume-specific tasks for selected volumes.. [optional]  # noqa: E501
         """
 
@@ -290,12 +377,30 @@ class StorageNode(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            status (StorageNodeStatus): [optional]  # noqa: E501
+            task_queues ([str]): [optional]  # noqa: E501
+            unique_id (str, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             address (str): For communication between nodes only. [optional]  # noqa: E501
-            address_override (str, none_type): Enforces mounting from a specific address/hostname instead of the available interfaces. [optional]  # noqa: E501
-            type (int): [optional]  # noqa: E501
             ipmi (int): [optional]  # noqa: E501
-            status (StorageNodeStatus): [optional]  # noqa: E501
+            ipmi_address (str, none_type): [optional]  # noqa: E501
+            ipmi_username (str): [optional]  # noqa: E501
+            ipmi_password (str): [optional]  # noqa: E501
+            proxy_queue (bool): [optional]  # noqa: E501
+            email_queue (bool): [optional]  # noqa: E501
+            solr_indexer_enabled (bool): [optional]  # noqa: E501
+            discovery_enabled (bool): [optional]  # noqa: E501
+            discovery_address_override (str, none_type): [optional]  # noqa: E501
+            ntp_enabled (bool): [optional]  # noqa: E501
+            type (int): [optional]  # noqa: E501
+            allow_root_login (bool): [optional]  # noqa: E501
+            permission_mask (str): Comma-separated list of user permissions allowed on this node. [optional]  # noqa: E501
+            address_override (str, none_type): Enforces mounting from a specific address/hostname instead of the available interfaces. [optional]  # noqa: E501
+            auto_scan_interfaces (bool): [optional]  # noqa: E501
+            onefs_host (str, none_type): [optional]  # noqa: E501
+            onefs_username (str, none_type): [optional]  # noqa: E501
+            onefs_password (str, none_type): [optional]  # noqa: E501
+            onefs_zone (str, none_type): [optional]  # noqa: E501
             volume_queues ([int]): Run volume-specific tasks for selected volumes.. [optional]  # noqa: E501
         """
 

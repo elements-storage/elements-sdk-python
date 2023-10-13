@@ -111,12 +111,11 @@ class Backend(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, properties, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, *args, **xkwargs):  # noqa: E501
         """Backend - a model defined in OpenAPI
 
         Args:
             name (str):
-            properties (BackendProperties):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -149,6 +148,7 @@ class Backend(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            properties (BackendProperties): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -178,7 +178,6 @@ class Backend(ModelNormal):
 
 
         self.name = name
-        self.properties = properties
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -200,12 +199,11 @@ class Backend(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, properties, *args, **xkwargs):  # noqa: E501
+    def __init__(self, name, *args, **xkwargs):  # noqa: E501
         """Backend - a model defined in OpenAPI
 
         Args:
             name (str):
-            properties (BackendProperties):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -238,6 +236,7 @@ class Backend(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            properties (BackendProperties): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -265,7 +264,6 @@ class Backend(ModelNormal):
 
 
         self.name = name
-        self.properties = properties
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -104,6 +104,7 @@ class SystemInfoEndpointResponse(ModelNormal):
             'nt_hostname': (str,),  # noqa: E501
             'offers_ntp_sync': (bool,),  # noqa: E501
             'offers_file_search': (bool,),  # noqa: E501
+            'offers_iperf_benchmarking': (bool,),  # noqa: E501
             'language': (str,),  # noqa: E501
             'saml_providers': ([SAMLProviderMini],),  # noqa: E501
             'version': (ElementsVersion,),  # noqa: E501
@@ -121,6 +122,7 @@ class SystemInfoEndpointResponse(ModelNormal):
         'nt_hostname': 'nt_hostname',  # noqa: E501
         'offers_ntp_sync': 'offers_ntp_sync',  # noqa: E501
         'offers_file_search': 'offers_file_search',  # noqa: E501
+        'offers_iperf_benchmarking': 'offers_iperf_benchmarking',  # noqa: E501
         'language': 'language',  # noqa: E501
         'saml_providers': 'saml_providers',  # noqa: E501
         'version': 'version',  # noqa: E501
@@ -135,7 +137,7 @@ class SystemInfoEndpointResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, license, client_api_version, nt_hostname, offers_ntp_sync, offers_file_search, language, saml_providers, version, global_alerts, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, license, client_api_version, nt_hostname, offers_ntp_sync, offers_file_search, offers_iperf_benchmarking, language, saml_providers, version, global_alerts, *args, **xkwargs):  # noqa: E501
         """SystemInfoEndpointResponse - a model defined in OpenAPI
 
         Args:
@@ -144,6 +146,7 @@ class SystemInfoEndpointResponse(ModelNormal):
             nt_hostname (str):
             offers_ntp_sync (bool):
             offers_file_search (bool):
+            offers_iperf_benchmarking (bool):
             language (str):
             saml_providers ([SAMLProviderMini]):
             version (ElementsVersion):
@@ -213,6 +216,7 @@ class SystemInfoEndpointResponse(ModelNormal):
         self.nt_hostname = nt_hostname
         self.offers_ntp_sync = offers_ntp_sync
         self.offers_file_search = offers_file_search
+        self.offers_iperf_benchmarking = offers_iperf_benchmarking
         self.language = language
         self.saml_providers = saml_providers
         self.version = version
@@ -238,7 +242,7 @@ class SystemInfoEndpointResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, license, client_api_version, nt_hostname, offers_ntp_sync, offers_file_search, language, version, global_alerts, *args, **xkwargs):  # noqa: E501
+    def __init__(self, license, client_api_version, nt_hostname, offers_ntp_sync, offers_file_search, offers_iperf_benchmarking, language, version, global_alerts, *args, **xkwargs):  # noqa: E501
         """SystemInfoEndpointResponse - a model defined in OpenAPI
 
         Args:
@@ -247,6 +251,7 @@ class SystemInfoEndpointResponse(ModelNormal):
             nt_hostname (str):
             offers_ntp_sync (bool):
             offers_file_search (bool):
+            offers_iperf_benchmarking (bool):
             language (str):
             version (ElementsVersion):
             global_alerts ([GlobalAlert]):
@@ -313,6 +318,7 @@ class SystemInfoEndpointResponse(ModelNormal):
         self.nt_hostname = nt_hostname
         self.offers_ntp_sync = offers_ntp_sync
         self.offers_file_search = offers_file_search
+        self.offers_iperf_benchmarking = offers_iperf_benchmarking
         self.language = language
         self.version = version
         self.global_alerts = global_alerts

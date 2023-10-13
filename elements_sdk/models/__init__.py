@@ -76,6 +76,7 @@ from elements_sdk.model.backend_properties import BackendProperties
 from elements_sdk.model.basic_file import BasicFile
 from elements_sdk.model.bee_gfs_node import BeeGFSNode
 from elements_sdk.model.bee_gfs_target import BeeGFSTarget
+from elements_sdk.model.benchmark_endpoint_request import BenchmarkEndpointRequest
 from elements_sdk.model.bootstrap_data import BootstrapData
 from elements_sdk.model.cpu_stat import CPUStat
 from elements_sdk.model.certificate import Certificate
@@ -120,6 +121,7 @@ from elements_sdk.model.download import Download
 from elements_sdk.model.download_archive import DownloadArchive
 from elements_sdk.model.download_archive_partial_update import DownloadArchivePartialUpdate
 from elements_sdk.model.download_archive_update import DownloadArchiveUpdate
+from elements_sdk.model.editor_marker import EditorMarker
 from elements_sdk.model.editor_project import EditorProject
 from elements_sdk.model.editor_project_partial_update import EditorProjectPartialUpdate
 from elements_sdk.model.editor_project_update import EditorProjectUpdate
@@ -207,6 +209,8 @@ from elements_sdk.model.lizard_fs_disk import LizardFSDisk
 from elements_sdk.model.lizard_fs_node import LizardFSNode
 from elements_sdk.model.locale_endpoint_response import LocaleEndpointResponse
 from elements_sdk.model.locate_endpoint_request import LocateEndpointRequest
+from elements_sdk.model.locate_markers_endpoint_request import LocateMarkersEndpointRequest
+from elements_sdk.model.locate_markers_endpoint_response import LocateMarkersEndpointResponse
 from elements_sdk.model.locate_proxies_endpoint_request import LocateProxiesEndpointRequest
 from elements_sdk.model.locate_proxies_endpoint_response import LocateProxiesEndpointResponse
 from elements_sdk.model.locate_result import LocateResult
@@ -251,6 +255,13 @@ from elements_sdk.model.ntp_server_update import NTPServerUpdate
 from elements_sdk.model.net_stat import NetStat
 from elements_sdk.model.notification import Notification
 from elements_sdk.model.notification_partial_update import NotificationPartialUpdate
+from elements_sdk.model.notification_receipt import NotificationReceipt
+from elements_sdk.model.notification_receipt_partial_update import NotificationReceiptPartialUpdate
+from elements_sdk.model.notification_receipt_reference import NotificationReceiptReference
+from elements_sdk.model.notification_receipt_update import NotificationReceiptUpdate
+from elements_sdk.model.notification_setting import NotificationSetting
+from elements_sdk.model.notification_setting_partial_update import NotificationSettingPartialUpdate
+from elements_sdk.model.notification_setting_update import NotificationSettingUpdate
 from elements_sdk.model.notification_update import NotificationUpdate
 from elements_sdk.model.one_time_access_token import OneTimeAccessToken
 from elements_sdk.model.one_time_access_token_activity import OneTimeAccessTokenActivity
@@ -340,6 +351,7 @@ from elements_sdk.model.stor_next_license_endpoint_response import StorNextLicen
 from elements_sdk.model.storage_node import StorageNode
 from elements_sdk.model.storage_node_mini import StorageNodeMini
 from elements_sdk.model.storage_node_partial_update import StorageNodePartialUpdate
+from elements_sdk.model.storage_node_reference import StorageNodeReference
 from elements_sdk.model.storage_node_status import StorageNodeStatus
 from elements_sdk.model.storage_node_update import StorageNodeUpdate
 from elements_sdk.model.storage_request import StorageRequest
@@ -417,6 +429,7 @@ from elements_sdk.model.type_documentation import TypeDocumentation
 from elements_sdk.model.unfiltered_tag import UnfilteredTag
 from elements_sdk.model.unfiltered_tag_partial_update import UnfilteredTagPartialUpdate
 from elements_sdk.model.unfiltered_tag_update import UnfilteredTagUpdate
+from elements_sdk.model.unread_count import UnreadCount
 from elements_sdk.model.update_quota_request import UpdateQuotaRequest
 from elements_sdk.model.updated_file import UpdatedFile
 from elements_sdk.model.upload_ai_image_request import UploadAIImageRequest
