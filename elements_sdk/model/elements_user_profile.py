@@ -117,6 +117,7 @@ class ElementsUserProfile(ModelNormal):
             'effective_permissions': ([str, none_type],),  # noqa: E501
             'has_password': (bool,),  # noqa: E501
             'allow_changing_password': (bool,),  # noqa: E501
+            'totp_enabled': (bool,),  # noqa: E501
             'avatar': (str, none_type,),  # noqa: E501
             'default_page': (str,),  # noqa: E501
             'full_name': (str, none_type,),  # noqa: E501
@@ -141,6 +142,7 @@ class ElementsUserProfile(ModelNormal):
         'effective_permissions': 'effective_permissions',  # noqa: E501
         'has_password': 'has_password',  # noqa: E501
         'allow_changing_password': 'allow_changing_password',  # noqa: E501
+        'totp_enabled': 'totp_enabled',  # noqa: E501
         'avatar': 'avatar',  # noqa: E501
         'default_page': 'default_page',  # noqa: E501
         'full_name': 'full_name',  # noqa: E501
@@ -158,6 +160,7 @@ class ElementsUserProfile(ModelNormal):
         'effective_permissions',  # noqa: E501
         'has_password',  # noqa: E501
         'allow_changing_password',  # noqa: E501
+        'totp_enabled',  # noqa: E501
         'unix_username',  # noqa: E501
         'email',  # noqa: E501
         'shaper_rate',  # noqa: E501
@@ -168,7 +171,7 @@ class ElementsUserProfile(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, username, display_name, ldap, effective_permissions, has_password, allow_changing_password, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, username, display_name, ldap, effective_permissions, has_password, allow_changing_password, totp_enabled, *args, **xkwargs):  # noqa: E501
         """ElementsUserProfile - a model defined in OpenAPI
 
         Args:
@@ -179,6 +182,7 @@ class ElementsUserProfile(ModelNormal):
             effective_permissions ([str, none_type]):
             has_password (bool):
             allow_changing_password (bool):
+            totp_enabled (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -255,6 +259,7 @@ class ElementsUserProfile(ModelNormal):
         self.effective_permissions = effective_permissions
         self.has_password = has_password
         self.allow_changing_password = allow_changing_password
+        self.totp_enabled = totp_enabled
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

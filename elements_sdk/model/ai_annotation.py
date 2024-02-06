@@ -32,8 +32,10 @@ from elements_sdk.exceptions import ApiAttributeError
 def lazy_import():
     from elements_sdk.model.ai_category_mini_reference import AICategoryMiniReference
     from elements_sdk.model.ai_image_reference import AIImageReference
+    from elements_sdk.model.transforms import Transforms
     globals()['AICategoryMiniReference'] = AICategoryMiniReference
     globals()['AIImageReference'] = AIImageReference
+    globals()['Transforms'] = Transforms
 
 
 class AIAnnotation(ModelNormal):
@@ -93,7 +95,7 @@ class AIAnnotation(ModelNormal):
             'image': (AIImageReference,),  # noqa: E501
             'category': (AICategoryMiniReference,),  # noqa: E501
             'asset_display_name': (str,),  # noqa: E501
-            'transforms': (str,),  # noqa: E501
+            'transforms': (Transforms,),  # noqa: E501
             'relative_left': (float,),  # noqa: E501
             'relative_top': (float,),  # noqa: E501
             'relative_width': (float,),  # noqa: E501
@@ -125,7 +127,6 @@ class AIAnnotation(ModelNormal):
 
     read_only_vars = {
         'asset_display_name',  # noqa: E501
-        'transforms',  # noqa: E501
         'created_at',  # noqa: E501
     }
 
@@ -141,7 +142,7 @@ class AIAnnotation(ModelNormal):
             image (AIImageReference):
             category (AICategoryMiniReference):
             asset_display_name (str):
-            transforms (str):
+            transforms (Transforms):
             relative_left (float):
             relative_top (float):
             relative_width (float):
@@ -240,13 +241,14 @@ class AIAnnotation(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, image, category, relative_left, relative_top, relative_width, relative_height, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, image, category, transforms, relative_left, relative_top, relative_width, relative_height, *args, **xkwargs):  # noqa: E501
         """AIAnnotation - a model defined in OpenAPI
 
         Args:
             id (str):
             image (AIImageReference):
             category (AICategoryMiniReference):
+            transforms (Transforms):
             relative_left (float):
             relative_top (float):
             relative_width (float):
@@ -313,6 +315,7 @@ class AIAnnotation(ModelNormal):
         self.id = id
         self.image = image
         self.category = category
+        self.transforms = transforms
         self.relative_left = relative_left
         self.relative_top = relative_top
         self.relative_width = relative_width

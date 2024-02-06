@@ -136,7 +136,7 @@ class Asset(ModelNormal):
             'default_proxy': (Proxy,),  # noqa: E501
             'resolved_permission': (MediaRootPermission,),  # noqa: E501
             'modified_by': (ElementsUserMini,),  # noqa: E501
-            'rating': (int, none_type,),  # noqa: E501
+            'rating': (float, none_type,),  # noqa: E501
             'checksum': (str, none_type,),  # noqa: E501
             'type': (str, none_type,),  # noqa: E501
             'matched_scanner': (str, none_type,),  # noqa: E501
@@ -269,7 +269,7 @@ class Asset(ModelNormal):
             default_proxy (Proxy): [optional]  # noqa: E501
             resolved_permission (MediaRootPermission): [optional]  # noqa: E501
             modified_by (ElementsUserMini): [optional]  # noqa: E501
-            rating (int, none_type): [optional]  # noqa: E501
+            rating (float, none_type): [optional]  # noqa: E501
             checksum (str, none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             matched_scanner (str, none_type): [optional]  # noqa: E501
@@ -387,7 +387,7 @@ class Asset(ModelNormal):
             default_proxy (Proxy): [optional]  # noqa: E501
             resolved_permission (MediaRootPermission): [optional]  # noqa: E501
             modified_by (ElementsUserMini): [optional]  # noqa: E501
-            rating (int, none_type): [optional]  # noqa: E501
+            rating (float, none_type): [optional]  # noqa: E501
             checksum (str, none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             matched_scanner (str, none_type): [optional]  # noqa: E501

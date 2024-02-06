@@ -89,6 +89,7 @@ class ReleaseNotesEndpointResponse(ModelNormal):
         return {
             'version': (str,),  # noqa: E501
             'html': (str,),  # noqa: E501
+            'is_lts': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -99,6 +100,7 @@ class ReleaseNotesEndpointResponse(ModelNormal):
     attribute_map = {
         'version': 'version',  # noqa: E501
         'html': 'html',  # noqa: E501
+        'is_lts': 'is_lts',  # noqa: E501
     }
 
     read_only_vars = {
@@ -108,12 +110,13 @@ class ReleaseNotesEndpointResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, version, html, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, version, html, is_lts, *args, **xkwargs):  # noqa: E501
         """ReleaseNotesEndpointResponse - a model defined in OpenAPI
 
         Args:
             version (str):
             html (str):
+            is_lts (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -176,6 +179,7 @@ class ReleaseNotesEndpointResponse(ModelNormal):
 
         self.version = version
         self.html = html
+        self.is_lts = is_lts
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -197,12 +201,13 @@ class ReleaseNotesEndpointResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, version, html, *args, **xkwargs):  # noqa: E501
+    def __init__(self, version, html, is_lts, *args, **xkwargs):  # noqa: E501
         """ReleaseNotesEndpointResponse - a model defined in OpenAPI
 
         Args:
             version (str):
             html (str):
+            is_lts (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -263,6 +268,7 @@ class ReleaseNotesEndpointResponse(ModelNormal):
 
         self.version = version
         self.html = html
+        self.is_lts = is_lts
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

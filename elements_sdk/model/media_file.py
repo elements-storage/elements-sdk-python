@@ -115,6 +115,7 @@ class MediaFile(ModelNormal):
             'full_path': (str,),  # noqa: E501
             'is_shared': (bool, none_type,),  # noqa: E501
             'is_excluded': (bool,),  # noqa: E501
+            'is_excluded_from_proxy_generation': (bool,),  # noqa: E501
             'is_hardlink': (bool,),  # noqa: E501
             'is_bookmarked': (bool, none_type,),  # noqa: E501
             'child_count': (int, none_type,),  # noqa: E501
@@ -154,6 +155,7 @@ class MediaFile(ModelNormal):
         'full_path': 'full_path',  # noqa: E501
         'is_shared': 'is_shared',  # noqa: E501
         'is_excluded': 'is_excluded',  # noqa: E501
+        'is_excluded_from_proxy_generation': 'is_excluded_from_proxy_generation',  # noqa: E501
         'is_hardlink': 'is_hardlink',  # noqa: E501
         'is_bookmarked': 'is_bookmarked',  # noqa: E501
         'child_count': 'child_count',  # noqa: E501
@@ -186,6 +188,7 @@ class MediaFile(ModelNormal):
         'full_path',  # noqa: E501
         'is_shared',  # noqa: E501
         'is_excluded',  # noqa: E501
+        'is_excluded_from_proxy_generation',  # noqa: E501
         'is_hardlink',  # noqa: E501
         'is_bookmarked',  # noqa: E501
         'child_count',  # noqa: E501
@@ -209,7 +212,7 @@ class MediaFile(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, volume, effective_custom_fields, full_path, is_shared, is_excluded, is_hardlink, is_bookmarked, child_count, name, path, pathhash, ancestry, is_dir, size, mtime, present, is_showroom, bundle_index, modified, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, volume, effective_custom_fields, full_path, is_shared, is_excluded, is_excluded_from_proxy_generation, is_hardlink, is_bookmarked, child_count, name, path, pathhash, ancestry, is_dir, size, mtime, present, is_showroom, bundle_index, modified, *args, **xkwargs):  # noqa: E501
         """MediaFile - a model defined in OpenAPI
 
         Args:
@@ -219,6 +222,7 @@ class MediaFile(ModelNormal):
             full_path (str):
             is_shared (bool, none_type):
             is_excluded (bool):
+            is_excluded_from_proxy_generation (bool):
             is_hardlink (bool):
             is_bookmarked (bool, none_type):
             child_count (int, none_type):
@@ -310,6 +314,7 @@ class MediaFile(ModelNormal):
         self.full_path = full_path
         self.is_shared = is_shared
         self.is_excluded = is_excluded
+        self.is_excluded_from_proxy_generation = is_excluded_from_proxy_generation
         self.is_hardlink = is_hardlink
         self.is_bookmarked = is_bookmarked
         self.child_count = child_count

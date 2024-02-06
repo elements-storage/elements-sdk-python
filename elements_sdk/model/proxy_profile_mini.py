@@ -87,6 +87,7 @@ class ProxyProfileMini(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'allow_download': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -97,6 +98,7 @@ class ProxyProfileMini(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'allow_download': 'allow_download',  # noqa: E501
     }
 
     read_only_vars = {
@@ -144,6 +146,7 @@ class ProxyProfileMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            allow_download (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -233,6 +236,7 @@ class ProxyProfileMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            allow_download (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

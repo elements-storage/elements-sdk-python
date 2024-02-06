@@ -31,7 +31,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.proxy_profile_mini import ProxyProfileMini
+    from elements_sdk.model.transforms import Transforms
     globals()['ProxyProfileMini'] = ProxyProfileMini
+    globals()['Transforms'] = Transforms
 
 
 class Proxy(ModelNormal):
@@ -110,9 +112,9 @@ class Proxy(ModelNormal):
             'profile': (ProxyProfileMini,),  # noqa: E501
             'failed_reason': (str, none_type,),  # noqa: E501
             'skipped': (bool,),  # noqa: E501
-            'transforms': (str,),  # noqa: E501
             'generated': (datetime, none_type,),  # noqa: E501
             'asset': (int,),  # noqa: E501
+            'transforms': (Transforms,),  # noqa: E501
             'generated_date': (datetime, none_type,),  # noqa: E501
             'failed': (bool,),  # noqa: E501
             'failed_count': (int,),  # noqa: E501
@@ -132,9 +134,9 @@ class Proxy(ModelNormal):
         'profile': 'profile',  # noqa: E501
         'failed_reason': 'failed_reason',  # noqa: E501
         'skipped': 'skipped',  # noqa: E501
-        'transforms': 'transforms',  # noqa: E501
         'generated': 'generated',  # noqa: E501
         'asset': 'asset',  # noqa: E501
+        'transforms': 'transforms',  # noqa: E501
         'generated_date': 'generated_date',  # noqa: E501
         'failed': 'failed',  # noqa: E501
         'failed_count': 'failed_count',  # noqa: E501
@@ -147,7 +149,6 @@ class Proxy(ModelNormal):
         'urls',  # noqa: E501
         'failed_reason',  # noqa: E501
         'skipped',  # noqa: E501
-        'transforms',  # noqa: E501
         'generated',  # noqa: E501
     }
 
@@ -155,7 +156,7 @@ class Proxy(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, urls, profile, failed_reason, skipped, transforms, generated, asset, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, urls, profile, failed_reason, skipped, generated, asset, *args, **xkwargs):  # noqa: E501
         """Proxy - a model defined in OpenAPI
 
         Args:
@@ -164,7 +165,6 @@ class Proxy(ModelNormal):
             profile (ProxyProfileMini):
             failed_reason (str, none_type):
             skipped (bool):
-            transforms (str):
             generated (datetime, none_type):
             asset (int):
 
@@ -199,6 +199,7 @@ class Proxy(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            transforms (Transforms): [optional]  # noqa: E501
             generated_date (datetime, none_type): [optional]  # noqa: E501
             failed (bool): [optional]  # noqa: E501
             failed_count (int): [optional]  # noqa: E501
@@ -238,7 +239,6 @@ class Proxy(ModelNormal):
         self.profile = profile
         self.failed_reason = failed_reason
         self.skipped = skipped
-        self.transforms = transforms
         self.generated = generated
         self.asset = asset
         for var_name, var_value in xkwargs.items():
@@ -301,6 +301,7 @@ class Proxy(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            transforms (Transforms): [optional]  # noqa: E501
             generated_date (datetime, none_type): [optional]  # noqa: E501
             failed (bool): [optional]  # noqa: E501
             failed_count (int): [optional]  # noqa: E501

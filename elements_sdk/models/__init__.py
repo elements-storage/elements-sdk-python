@@ -17,7 +17,9 @@ from elements_sdk.model.ai_category import AICategory
 from elements_sdk.model.ai_category_detail import AICategoryDetail
 from elements_sdk.model.ai_category_detail_partial_update import AICategoryDetailPartialUpdate
 from elements_sdk.model.ai_category_detail_update import AICategoryDetailUpdate
+from elements_sdk.model.ai_category_mini import AICategoryMini
 from elements_sdk.model.ai_category_mini_reference import AICategoryMiniReference
+from elements_sdk.model.ai_combined_inference_result import AICombinedInferenceResult
 from elements_sdk.model.ai_connection import AIConnection
 from elements_sdk.model.ai_dataset import AIDataset
 from elements_sdk.model.ai_dataset_detail_reference import AIDatasetDetailReference
@@ -29,6 +31,7 @@ from elements_sdk.model.ai_dataset_with_preview_partial_update import AIDatasetW
 from elements_sdk.model.ai_dataset_with_preview_update import AIDatasetWithPreviewUpdate
 from elements_sdk.model.ai_image import AIImage
 from elements_sdk.model.ai_image_reference import AIImageReference
+from elements_sdk.model.ai_inference_position import AIInferencePosition
 from elements_sdk.model.ai_metadata import AIMetadata
 from elements_sdk.model.ai_model import AIModel
 from elements_sdk.model.ai_model_export_request import AIModelExportRequest
@@ -111,7 +114,6 @@ from elements_sdk.model.cost import Cost
 from elements_sdk.model.create_download_archive import CreateDownloadArchive
 from elements_sdk.model.create_home_workspace_request import CreateHomeWorkspaceRequest
 from elements_sdk.model.create_path_quota_request import CreatePathQuotaRequest
-from elements_sdk.model.create_template_folder_endpoint_request import CreateTemplateFolderEndpointRequest
 from elements_sdk.model.custom_field import CustomField
 from elements_sdk.model.custom_field_partial_update import CustomFieldPartialUpdate
 from elements_sdk.model.custom_field_reference import CustomFieldReference
@@ -144,7 +146,8 @@ from elements_sdk.model.elements_user_profile_partial_update import ElementsUser
 from elements_sdk.model.elements_user_profile_update import ElementsUserProfileUpdate
 from elements_sdk.model.elements_user_reference import ElementsUserReference
 from elements_sdk.model.elements_version import ElementsVersion
-from elements_sdk.model.email_preview import EmailPreview
+from elements_sdk.model.email_preview_request import EmailPreviewRequest
+from elements_sdk.model.email_preview_response import EmailPreviewResponse
 from elements_sdk.model.enable_totp_request import EnableTOTPRequest
 from elements_sdk.model.event import Event
 from elements_sdk.model.external_transcoder import ExternalTranscoder
@@ -193,9 +196,10 @@ from elements_sdk.model.instantiate_file_template_request import InstantiateFile
 from elements_sdk.model.interface import Interface
 from elements_sdk.model.ipmi import Ipmi
 from elements_sdk.model.job import Job
-from elements_sdk.model.job_partial_update import JobPartialUpdate
+from elements_sdk.model.job_detail import JobDetail
+from elements_sdk.model.job_detail_partial_update import JobDetailPartialUpdate
+from elements_sdk.model.job_detail_update import JobDetailUpdate
 from elements_sdk.model.job_reference import JobReference
-from elements_sdk.model.job_update import JobUpdate
 from elements_sdk.model.kapacitor_alert import KapacitorAlert
 from elements_sdk.model.ldap_server import LDAPServer
 from elements_sdk.model.ldap_server_group import LDAPServerGroup
@@ -425,11 +429,13 @@ from elements_sdk.model.timeline_export_request import TimelineExportRequest
 from elements_sdk.model.timezone import Timezone
 from elements_sdk.model.trace_node import TraceNode
 from elements_sdk.model.transcoder_profile import TranscoderProfile
+from elements_sdk.model.transforms import Transforms
 from elements_sdk.model.type_documentation import TypeDocumentation
 from elements_sdk.model.unfiltered_tag import UnfilteredTag
 from elements_sdk.model.unfiltered_tag_partial_update import UnfilteredTagPartialUpdate
 from elements_sdk.model.unfiltered_tag_update import UnfilteredTagUpdate
 from elements_sdk.model.unread_count import UnreadCount
+from elements_sdk.model.unresolved_count import UnresolvedCount
 from elements_sdk.model.update_quota_request import UpdateQuotaRequest
 from elements_sdk.model.updated_file import UpdatedFile
 from elements_sdk.model.upload_ai_image_request import UploadAIImageRequest

@@ -194,6 +194,7 @@ class ProxyProfile(ModelNormal):
             'hotfolder_encode_timeout': (int,),  # noqa: E501
             'vantage_workflow_id': (str, none_type,),  # noqa: E501
             'external_transcoder_staging_path': (str, none_type,),  # noqa: E501
+            'allow_download': (bool,),  # noqa: E501
             'external_transcoder': (int, none_type,),  # noqa: E501
         }
 
@@ -230,6 +231,7 @@ class ProxyProfile(ModelNormal):
         'hotfolder_encode_timeout': 'hotfolder_encode_timeout',  # noqa: E501
         'vantage_workflow_id': 'vantage_workflow_id',  # noqa: E501
         'external_transcoder_staging_path': 'external_transcoder_staging_path',  # noqa: E501
+        'allow_download': 'allow_download',  # noqa: E501
         'external_transcoder': 'external_transcoder',  # noqa: E501
     }
 
@@ -303,6 +305,7 @@ class ProxyProfile(ModelNormal):
             hotfolder_encode_timeout (int): [optional]  # noqa: E501
             vantage_workflow_id (str, none_type): [optional]  # noqa: E501
             external_transcoder_staging_path (str, none_type): [optional]  # noqa: E501
+            allow_download (bool): [optional]  # noqa: E501
             external_transcoder (int, none_type): [optional]  # noqa: E501
         """
 
@@ -418,6 +421,7 @@ class ProxyProfile(ModelNormal):
             hotfolder_encode_timeout (int): [optional]  # noqa: E501
             vantage_workflow_id (str, none_type): [optional]  # noqa: E501
             external_transcoder_staging_path (str, none_type): [optional]  # noqa: E501
+            allow_download (bool): [optional]  # noqa: E501
             external_transcoder (int, none_type): [optional]  # noqa: E501
         """
 

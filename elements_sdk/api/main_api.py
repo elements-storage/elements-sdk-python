@@ -48,7 +48,8 @@ from elements_sdk.model.elements_user_detail_update import ElementsUserDetailUpd
 from elements_sdk.model.elements_user_profile import ElementsUserProfile
 from elements_sdk.model.elements_user_profile_partial_update import ElementsUserProfilePartialUpdate
 from elements_sdk.model.elements_user_profile_update import ElementsUserProfileUpdate
-from elements_sdk.model.email_preview import EmailPreview
+from elements_sdk.model.email_preview_request import EmailPreviewRequest
+from elements_sdk.model.email_preview_response import EmailPreviewResponse
 from elements_sdk.model.enable_totp_request import EnableTOTPRequest
 from elements_sdk.model.filesystem_permission import FilesystemPermission
 from elements_sdk.model.filesystem_permission_partial_update import FilesystemPermissionPartialUpdate
@@ -2769,6 +2770,7 @@ class MainApi(object):
                     'username',
                     'home',
                     'full_name',
+                    'groups',
                     'ordering',
                     'limit',
                     'offset',
@@ -2795,6 +2797,8 @@ class MainApi(object):
                         (str,),
                     'full_name':
                         (str,),
+                    'groups':
+                        (str,),
                     'ordering':
                         (str,),
                     'limit':
@@ -2810,6 +2814,7 @@ class MainApi(object):
                     'username': 'username',
                     'home': 'home',
                     'full_name': 'full_name',
+                    'groups': 'groups',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
@@ -2820,6 +2825,7 @@ class MainApi(object):
                     'username': 'query',
                     'home': 'query',
                     'full_name': 'query',
+                    'groups': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -5988,7 +5994,7 @@ class MainApi(object):
         )
         self.render_email_template_preview_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': (EmailPreviewResponse,),
                 'auth': [
                     'Bearer'
                 ],
@@ -5999,10 +6005,10 @@ class MainApi(object):
             },
             params_map={
                 'all': [
-                    'email_preview',
+                    'email_preview_request',
                 ],
                 'required': [
-                    'email_preview',
+                    'email_preview_request',
                 ],
                 'nullable': [
                 ],
@@ -6017,19 +6023,21 @@ class MainApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'email_preview':
-                        (EmailPreview,),
+                    'email_preview_request':
+                        (EmailPreviewRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'email_preview': 'body',
+                    'email_preview_request': 'body',
                 },
                 'collection_format_map': {
                 }
             },
             headers_map={
-                'accept': [],
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [
                     'application/json'
                 ]
@@ -11751,6 +11759,7 @@ class MainApi(object):
             username (str): Filter the returned list by `username`.. [optional]
             home (str): Filter the returned list by `home`.. [optional]
             full_name (str): Filter the returned list by `full_name`.. [optional]
+            groups (str): Filter the returned list by `groups`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -16496,7 +16505,7 @@ class MainApi(object):
 
     def render_email_template_preview(
         self,
-        email_preview,
+        email_preview_request,
         **kwargs
     ):
         """render_email_template_preview  # noqa: E501
@@ -16505,11 +16514,11 @@ class MainApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.render_email_template_preview(email_preview, async_req=True)
+        >>> thread = api.render_email_template_preview(email_preview_request, async_req=True)
         >>> result = thread.get()
 
         Args:
-            email_preview (EmailPreview):
+            email_preview_request (EmailPreviewRequest):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -16540,7 +16549,7 @@ class MainApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            EmailPreviewResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -16568,8 +16577,8 @@ class MainApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['email_preview'] = \
-            email_preview
+        kwargs['email_preview_request'] = \
+            email_preview_request
         return self.render_email_template_preview_endpoint.call_with_http_info(**kwargs)
 
     def reset_user_password(

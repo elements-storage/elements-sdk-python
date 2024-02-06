@@ -25,8 +25,9 @@ from elements_sdk.model.event import Event
 from elements_sdk.model.import_job_request import ImportJobRequest
 from elements_sdk.model.import_job_response import ImportJobResponse
 from elements_sdk.model.job import Job
-from elements_sdk.model.job_partial_update import JobPartialUpdate
-from elements_sdk.model.job_update import JobUpdate
+from elements_sdk.model.job_detail import JobDetail
+from elements_sdk.model.job_detail_partial_update import JobDetailPartialUpdate
+from elements_sdk.model.job_detail_update import JobDetailUpdate
 from elements_sdk.model.python_environment import PythonEnvironment
 from elements_sdk.model.queue import Queue
 from elements_sdk.model.schedule import Schedule
@@ -106,7 +107,7 @@ class AutomationApi(object):
         )
         self.create_job_endpoint = _Endpoint(
             settings={
-                'response_type': (Job,),
+                'response_type': (JobDetail,),
                 'auth': [
                     'Bearer'
                 ],
@@ -117,10 +118,10 @@ class AutomationApi(object):
             },
             params_map={
                 'all': [
-                    'job_update',
+                    'job_detail_update',
                 ],
                 'required': [
-                    'job_update',
+                    'job_detail_update',
                 ],
                 'nullable': [
                 ],
@@ -135,13 +136,13 @@ class AutomationApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'job_update':
-                        (JobUpdate,),
+                    'job_detail_update':
+                        (JobDetailUpdate,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'job_update': 'body',
+                    'job_detail_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1378,7 +1379,7 @@ class AutomationApi(object):
         )
         self.get_job_endpoint = _Endpoint(
             settings={
-                'response_type': (Job,),
+                'response_type': (JobDetail,),
                 'auth': [
                     'Bearer'
                 ],
@@ -2162,7 +2163,7 @@ class AutomationApi(object):
         )
         self.patch_job_endpoint = _Endpoint(
             settings={
-                'response_type': (Job,),
+                'response_type': (JobDetail,),
                 'auth': [
                     'Bearer'
                 ],
@@ -2174,11 +2175,11 @@ class AutomationApi(object):
             params_map={
                 'all': [
                     'id',
-                    'job_partial_update',
+                    'job_detail_partial_update',
                 ],
                 'required': [
                     'id',
-                    'job_partial_update',
+                    'job_detail_partial_update',
                 ],
                 'nullable': [
                 ],
@@ -2195,15 +2196,15 @@ class AutomationApi(object):
                 'openapi_types': {
                     'id':
                         (int,),
-                    'job_partial_update':
-                        (JobPartialUpdate,),
+                    'job_detail_partial_update':
+                        (JobDetailPartialUpdate,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'job_partial_update': 'body',
+                    'job_detail_partial_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -2497,7 +2498,7 @@ class AutomationApi(object):
         )
         self.update_job_endpoint = _Endpoint(
             settings={
-                'response_type': (Job,),
+                'response_type': (JobDetail,),
                 'auth': [
                     'Bearer'
                 ],
@@ -2509,11 +2510,11 @@ class AutomationApi(object):
             params_map={
                 'all': [
                     'id',
-                    'job_update',
+                    'job_detail_update',
                 ],
                 'required': [
                     'id',
-                    'job_update',
+                    'job_detail_update',
                 ],
                 'nullable': [
                 ],
@@ -2530,15 +2531,15 @@ class AutomationApi(object):
                 'openapi_types': {
                     'id':
                         (int,),
-                    'job_update':
-                        (JobUpdate,),
+                    'job_detail_update':
+                        (JobDetailUpdate,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'job_update': 'body',
+                    'job_detail_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -2750,7 +2751,7 @@ class AutomationApi(object):
 
     def create_job(
         self,
-        job_update,
+        job_detail_update,
         **kwargs
     ):
         """create_job  # noqa: E501
@@ -2759,11 +2760,11 @@ class AutomationApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_job(job_update, async_req=True)
+        >>> thread = api.create_job(job_detail_update, async_req=True)
         >>> result = thread.get()
 
         Args:
-            job_update (JobUpdate):
+            job_detail_update (JobDetailUpdate):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -2794,7 +2795,7 @@ class AutomationApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            Job
+            JobDetail
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -2822,8 +2823,8 @@ class AutomationApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['job_update'] = \
-            job_update
+        kwargs['job_detail_update'] = \
+            job_detail_update
         return self.create_job_endpoint.call_with_http_info(**kwargs)
 
     def create_schedule(
@@ -4371,7 +4372,7 @@ class AutomationApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            Job
+            JobDetail
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -5351,7 +5352,7 @@ class AutomationApi(object):
     def patch_job(
         self,
         id,
-        job_partial_update,
+        job_detail_partial_update,
         **kwargs
     ):
         """patch_job  # noqa: E501
@@ -5360,12 +5361,12 @@ class AutomationApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.patch_job(id, job_partial_update, async_req=True)
+        >>> thread = api.patch_job(id, job_detail_partial_update, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (int): A unique integer value identifying this job.
-            job_partial_update (JobPartialUpdate):
+            job_detail_partial_update (JobDetailPartialUpdate):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -5396,7 +5397,7 @@ class AutomationApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            Job
+            JobDetail
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -5426,8 +5427,8 @@ class AutomationApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['id'] = \
             id
-        kwargs['job_partial_update'] = \
-            job_partial_update
+        kwargs['job_detail_partial_update'] = \
+            job_detail_partial_update
         return self.patch_job_endpoint.call_with_http_info(**kwargs)
 
     def patch_schedule(
@@ -5834,7 +5835,7 @@ class AutomationApi(object):
     def update_job(
         self,
         id,
-        job_update,
+        job_detail_update,
         **kwargs
     ):
         """update_job  # noqa: E501
@@ -5843,12 +5844,12 @@ class AutomationApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_job(id, job_update, async_req=True)
+        >>> thread = api.update_job(id, job_detail_update, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (int): A unique integer value identifying this job.
-            job_update (JobUpdate):
+            job_detail_update (JobDetailUpdate):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -5879,7 +5880,7 @@ class AutomationApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            Job
+            JobDetail
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -5909,8 +5910,8 @@ class AutomationApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['id'] = \
             id
-        kwargs['job_update'] = \
-            job_update
+        kwargs['job_detail_update'] = \
+            job_detail_update
         return self.update_job_endpoint.call_with_http_info(**kwargs)
 
     def update_schedule(

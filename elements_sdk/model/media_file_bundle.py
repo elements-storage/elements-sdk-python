@@ -100,6 +100,7 @@ class MediaFileBundle(ModelNormal):
             'snm_attributes': (StornextManagerAttributes,),  # noqa: E501
             'is_shared': (bool, none_type,),  # noqa: E501
             'file_count': (int,),  # noqa: E501
+            'is_excluded_from_proxy_generation': (bool,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'location': (int,),  # noqa: E501
             'asset': (Asset,),  # noqa: E501
@@ -117,6 +118,7 @@ class MediaFileBundle(ModelNormal):
         'snm_attributes': 'snm_attributes',  # noqa: E501
         'is_shared': 'is_shared',  # noqa: E501
         'file_count': 'file_count',  # noqa: E501
+        'is_excluded_from_proxy_generation': 'is_excluded_from_proxy_generation',  # noqa: E501
         'name': 'name',  # noqa: E501
         'location': 'location',  # noqa: E501
         'asset': 'asset',  # noqa: E501
@@ -126,13 +128,14 @@ class MediaFileBundle(ModelNormal):
     read_only_vars = {
         'is_shared',  # noqa: E501
         'file_count',  # noqa: E501
+        'is_excluded_from_proxy_generation',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, mainfile, snm_attributes, is_shared, file_count, name, location, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, mainfile, snm_attributes, is_shared, file_count, is_excluded_from_proxy_generation, name, location, *args, **xkwargs):  # noqa: E501
         """MediaFileBundle - a model defined in OpenAPI
 
         Args:
@@ -141,6 +144,7 @@ class MediaFileBundle(ModelNormal):
             snm_attributes (StornextManagerAttributes):
             is_shared (bool, none_type):
             file_count (int):
+            is_excluded_from_proxy_generation (bool):
             name (str):
             location (int):
 
@@ -210,6 +214,7 @@ class MediaFileBundle(ModelNormal):
         self.snm_attributes = snm_attributes
         self.is_shared = is_shared
         self.file_count = file_count
+        self.is_excluded_from_proxy_generation = is_excluded_from_proxy_generation
         self.name = name
         self.location = location
         for var_name, var_value in xkwargs.items():

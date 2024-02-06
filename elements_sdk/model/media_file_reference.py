@@ -121,6 +121,7 @@ class MediaFileReference(ModelNormal):
             'full_path': (str,),  # noqa: E501
             'is_shared': (bool, none_type,),  # noqa: E501
             'is_excluded': (bool,),  # noqa: E501
+            'is_excluded_from_proxy_generation': (bool,),  # noqa: E501
             'is_hardlink': (bool,),  # noqa: E501
             'is_bookmarked': (bool, none_type,),  # noqa: E501
             'child_count': (int, none_type,),  # noqa: E501
@@ -160,6 +161,7 @@ class MediaFileReference(ModelNormal):
         'full_path': 'full_path',  # noqa: E501
         'is_shared': 'is_shared',  # noqa: E501
         'is_excluded': 'is_excluded',  # noqa: E501
+        'is_excluded_from_proxy_generation': 'is_excluded_from_proxy_generation',  # noqa: E501
         'is_hardlink': 'is_hardlink',  # noqa: E501
         'is_bookmarked': 'is_bookmarked',  # noqa: E501
         'child_count': 'child_count',  # noqa: E501
@@ -189,6 +191,7 @@ class MediaFileReference(ModelNormal):
         'full_path',  # noqa: E501
         'is_shared',  # noqa: E501
         'is_excluded',  # noqa: E501
+        'is_excluded_from_proxy_generation',  # noqa: E501
         'is_hardlink',  # noqa: E501
         'is_bookmarked',  # noqa: E501
         'child_count',  # noqa: E501
@@ -262,6 +265,7 @@ class MediaFileReference(ModelNormal):
             full_path (str): [optional]  # noqa: E501
             is_shared (bool, none_type): [optional]  # noqa: E501
             is_excluded (bool): [optional]  # noqa: E501
+            is_excluded_from_proxy_generation (bool): [optional]  # noqa: E501
             is_hardlink (bool): [optional]  # noqa: E501
             is_bookmarked (bool, none_type): [optional]  # noqa: E501
             child_count (int, none_type): [optional]  # noqa: E501
@@ -379,6 +383,7 @@ class MediaFileReference(ModelNormal):
             full_path (str): [optional]  # noqa: E501
             is_shared (bool, none_type): [optional]  # noqa: E501
             is_excluded (bool): [optional]  # noqa: E501
+            is_excluded_from_proxy_generation (bool): [optional]  # noqa: E501
             is_hardlink (bool): [optional]  # noqa: E501
             is_bookmarked (bool, none_type): [optional]  # noqa: E501
             child_count (int, none_type): [optional]  # noqa: E501

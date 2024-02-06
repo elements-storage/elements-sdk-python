@@ -85,7 +85,7 @@ class StorageNodeStatus(ModelNormal):
         """
         return {
             'online': (bool,),  # noqa: E501
-            'report': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'report': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'ha_online': (bool, none_type,),  # noqa: E501
             'ha_status': (str, none_type,),  # noqa: E501
             'ha_ips': ([str],),  # noqa: E501
@@ -116,7 +116,7 @@ class StorageNodeStatus(ModelNormal):
 
         Args:
             online (bool):
-            report ({str: (str, none_type)}, none_type):
+            report ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type):
             ha_online (bool, none_type):
             ha_status (str, none_type):
             ha_ips ([str]):
@@ -211,7 +211,7 @@ class StorageNodeStatus(ModelNormal):
 
         Args:
             online (bool):
-            report ({str: (str, none_type)}, none_type):
+            report ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type):
             ha_online (bool, none_type):
             ha_status (str, none_type):
             ha_ips ([str]):

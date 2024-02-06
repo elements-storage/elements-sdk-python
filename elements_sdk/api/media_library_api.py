@@ -115,6 +115,7 @@ from elements_sdk.model.transcoder_profile import TranscoderProfile
 from elements_sdk.model.unfiltered_tag import UnfilteredTag
 from elements_sdk.model.unfiltered_tag_partial_update import UnfilteredTagPartialUpdate
 from elements_sdk.model.unfiltered_tag_update import UnfilteredTagUpdate
+from elements_sdk.model.unresolved_count import UnresolvedCount
 from elements_sdk.model.vantage_workflows import VantageWorkflows
 from elements_sdk.model.workflow_transition_request import WorkflowTransitionRequest
 from elements_sdk.model.workflow_transition_response import WorkflowTransitionResponse
@@ -312,6 +313,85 @@ class MediaLibraryApi(object):
                 'content_type': [
                     'application/json'
                 ]
+            },
+            api_client=api_client
+        )
+        self.count_unresolved_comments_endpoint = _Endpoint(
+            settings={
+                'response_type': (UnresolvedCount,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/comments/count-unresolved',
+                'operation_id': 'count_unresolved_comments',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'asset',
+                    'root',
+                    'user',
+                    'ordering',
+                    'cursor',
+                    'limit',
+                    'offset',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'asset':
+                        (int,),
+                    'root':
+                        (int,),
+                    'user':
+                        (int,),
+                    'ordering':
+                        (str,),
+                    'cursor':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'asset': 'asset',
+                    'root': 'root',
+                    'user': 'user',
+                    'ordering': 'ordering',
+                    'cursor': 'cursor',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'asset': 'query',
+                    'root': 'query',
+                    'user': 'query',
+                    'ordering': 'query',
+                    'cursor': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -3691,6 +3771,8 @@ class MediaLibraryApi(object):
                     'include_modified_by',
                     'advanced_search',
                     'in_media_root',
+                    'in_directory',
+                    'for_root',
                 ],
                 'required': [
                     'file',
@@ -3740,6 +3822,10 @@ class MediaLibraryApi(object):
                         (str,),
                     'in_media_root':
                         (int,),
+                    'in_directory':
+                        (int,),
+                    'for_root':
+                        (int,),
                 },
                 'attribute_map': {
                     'file': 'file',
@@ -3758,6 +3844,8 @@ class MediaLibraryApi(object):
                     'include_modified_by': 'include_modified_by',
                     'advanced_search': 'advanced_search',
                     'in_media_root': 'in_media_root',
+                    'in_directory': 'in_directory',
+                    'for_root': 'for_root',
                 },
                 'location_map': {
                     'file': 'path',
@@ -3776,6 +3864,8 @@ class MediaLibraryApi(object):
                     'include_modified_by': 'query',
                     'advanced_search': 'query',
                     'in_media_root': 'query',
+                    'in_directory': 'query',
+                    'for_root': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -3874,12 +3964,14 @@ class MediaLibraryApi(object):
                     'root',
                     'user',
                     'ordering',
+                    'cursor',
                     'limit',
                     'offset',
                     'for_root',
                     'tasks_for_user',
                     'include_full_asset',
                     'advanced_search',
+                    'filter',
                 ],
                 'required': [],
                 'nullable': [
@@ -3903,6 +3995,8 @@ class MediaLibraryApi(object):
                         (int,),
                     'ordering':
                         (str,),
+                    'cursor':
+                        (str,),
                     'limit':
                         (int,),
                     'offset':
@@ -3915,30 +4009,36 @@ class MediaLibraryApi(object):
                         (bool,),
                     'advanced_search':
                         (str,),
+                    'filter':
+                        (str,),
                 },
                 'attribute_map': {
                     'asset': 'asset',
                     'root': 'root',
                     'user': 'user',
                     'ordering': 'ordering',
+                    'cursor': 'cursor',
                     'limit': 'limit',
                     'offset': 'offset',
                     'for_root': 'for_root',
                     'tasks_for_user': 'tasks_for_user',
                     'include_full_asset': 'include_full_asset',
                     'advanced_search': 'advanced_search',
+                    'filter': 'filter',
                 },
                 'location_map': {
                     'asset': 'query',
                     'root': 'query',
                     'user': 'query',
                     'ordering': 'query',
+                    'cursor': 'query',
                     'limit': 'query',
                     'offset': 'query',
                     'for_root': 'query',
                     'tasks_for_user': 'query',
                     'include_full_asset': 'query',
                     'advanced_search': 'query',
+                    'filter': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -4176,6 +4276,8 @@ class MediaLibraryApi(object):
                     'include_modified_by',
                     'advanced_search',
                     'in_media_root',
+                    'in_directory',
+                    'for_root',
                 ],
                 'required': [],
                 'nullable': [
@@ -4221,6 +4323,10 @@ class MediaLibraryApi(object):
                         (str,),
                     'in_media_root':
                         (int,),
+                    'in_directory':
+                        (int,),
+                    'for_root':
+                        (int,),
                 },
                 'attribute_map': {
                     'asset': 'asset',
@@ -4238,6 +4344,8 @@ class MediaLibraryApi(object):
                     'include_modified_by': 'include_modified_by',
                     'advanced_search': 'advanced_search',
                     'in_media_root': 'in_media_root',
+                    'in_directory': 'in_directory',
+                    'for_root': 'for_root',
                 },
                 'location_map': {
                     'asset': 'query',
@@ -4255,6 +4363,8 @@ class MediaLibraryApi(object):
                     'include_modified_by': 'query',
                     'advanced_search': 'query',
                     'in_media_root': 'query',
+                    'in_directory': 'query',
+                    'for_root': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -5038,6 +5148,7 @@ class MediaLibraryApi(object):
                     'user',
                     'root',
                     'ordering',
+                    'cursor',
                     'limit',
                     'offset',
                     'filter',
@@ -5064,6 +5175,8 @@ class MediaLibraryApi(object):
                         (int,),
                     'ordering':
                         (str,),
+                    'cursor':
+                        (str,),
                     'limit':
                         (int,),
                     'offset':
@@ -5076,6 +5189,7 @@ class MediaLibraryApi(object):
                     'user': 'user',
                     'root': 'root',
                     'ordering': 'ordering',
+                    'cursor': 'cursor',
                     'limit': 'limit',
                     'offset': 'offset',
                     'filter': 'filter',
@@ -5085,6 +5199,7 @@ class MediaLibraryApi(object):
                     'user': 'query',
                     'root': 'query',
                     'ordering': 'query',
+                    'cursor': 'query',
                     'limit': 'query',
                     'offset': 'query',
                     'filter': 'query',
@@ -5947,6 +6062,7 @@ class MediaLibraryApi(object):
                     'tasks_for_user',
                     'include_full_asset',
                     'advanced_search',
+                    'filter',
                 ],
                 'required': [
                     'id',
@@ -5974,6 +6090,8 @@ class MediaLibraryApi(object):
                         (bool,),
                     'advanced_search':
                         (str,),
+                    'filter':
+                        (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -5981,6 +6099,7 @@ class MediaLibraryApi(object):
                     'tasks_for_user': 'tasks_for_user',
                     'include_full_asset': 'include_full_asset',
                     'advanced_search': 'advanced_search',
+                    'filter': 'filter',
                 },
                 'location_map': {
                     'id': 'path',
@@ -5988,6 +6107,7 @@ class MediaLibraryApi(object):
                     'tasks_for_user': 'query',
                     'include_full_asset': 'query',
                     'advanced_search': 'query',
+                    'filter': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -6364,80 +6484,6 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
-        self.get_latest_media_update_endpoint = _Endpoint(
-            settings={
-                'response_type': (MediaUpdate,),
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/media/updates/latest',
-                'operation_id': 'get_latest_media_update',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'asset',
-                    'user',
-                    'root',
-                    'ordering',
-                    'limit',
-                    'offset',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'asset':
-                        (int,),
-                    'user':
-                        (int,),
-                    'root':
-                        (int,),
-                    'ordering':
-                        (str,),
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
-                },
-                'attribute_map': {
-                    'asset': 'asset',
-                    'user': 'user',
-                    'root': 'root',
-                    'ordering': 'ordering',
-                    'limit': 'limit',
-                    'offset': 'offset',
-                },
-                'location_map': {
-                    'asset': 'query',
-                    'user': 'query',
-                    'root': 'query',
-                    'ordering': 'query',
-                    'limit': 'query',
-                    'offset': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
         self.get_marker_endpoint = _Endpoint(
             settings={
                 'response_type': (Marker,),
@@ -6613,6 +6659,8 @@ class MediaLibraryApi(object):
                     'limit',
                     'advanced_search',
                     'in_media_root',
+                    'in_directory',
+                    'for_root',
                 ],
                 'required': [
                     'id',
@@ -6650,6 +6698,10 @@ class MediaLibraryApi(object):
                         (str,),
                     'in_media_root':
                         (int,),
+                    'in_directory':
+                        (int,),
+                    'for_root':
+                        (int,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -6662,6 +6714,8 @@ class MediaLibraryApi(object):
                     'limit': 'limit',
                     'advanced_search': 'advanced_search',
                     'in_media_root': 'in_media_root',
+                    'in_directory': 'in_directory',
+                    'for_root': 'for_root',
                 },
                 'location_map': {
                     'id': 'path',
@@ -6674,6 +6728,8 @@ class MediaLibraryApi(object):
                     'limit': 'query',
                     'advanced_search': 'query',
                     'in_media_root': 'query',
+                    'in_directory': 'query',
+                    'for_root': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -11387,6 +11443,86 @@ class MediaLibraryApi(object):
         kwargs['multiple_assets_request'] = \
             multiple_assets_request
         return self.combine_assets_into_set_endpoint.call_with_http_info(**kwargs)
+
+    def count_unresolved_comments(
+        self,
+        **kwargs
+    ):
+        """count_unresolved_comments  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.count_unresolved_comments(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            asset (int): Filter the returned list by `asset`.. [optional]
+            root (int): Filter the returned list by `root`.. [optional]
+            user (int): Filter the returned list by `user`.. [optional]
+            ordering (str): Which field to use when ordering the results.. [optional]
+            cursor (str): The pagination cursor value.. [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            UnresolvedCount
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.count_unresolved_comments_endpoint.call_with_http_info(**kwargs)
 
     def create_asset(
         self,
@@ -16223,6 +16359,8 @@ class MediaLibraryApi(object):
             include_modified_by (bool): [optional]
             advanced_search (str): [optional]
             in_media_root (int): [optional]
+            in_directory (int): [optional]
+            for_root (int): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -16380,12 +16518,14 @@ class MediaLibraryApi(object):
             root (int): Filter the returned list by `root`.. [optional]
             user (int): Filter the returned list by `user`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
+            cursor (str): The pagination cursor value.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
             for_root (int): [optional]
             tasks_for_user (int): [optional]
             include_full_asset (bool): [optional]
             advanced_search (str): [optional]
+            filter (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -16706,6 +16846,8 @@ class MediaLibraryApi(object):
             include_modified_by (bool): [optional]
             advanced_search (str): [optional]
             in_media_root (int): [optional]
+            in_directory (int): [optional]
+            for_root (int): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -17458,6 +17600,7 @@ class MediaLibraryApi(object):
             user (int): Filter the returned list by `user`.. [optional]
             root (int): Filter the returned list by `root`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
+            cursor (str): The pagination cursor value.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
             filter (str): [optional]
@@ -18488,6 +18631,7 @@ class MediaLibraryApi(object):
             tasks_for_user (int): [optional]
             include_full_asset (bool): [optional]
             advanced_search (str): [optional]
+            filter (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -19098,85 +19242,6 @@ class MediaLibraryApi(object):
             id
         return self.get_frame_endpoint.call_with_http_info(**kwargs)
 
-    def get_latest_media_update(
-        self,
-        **kwargs
-    ):
-        """get_latest_media_update  # noqa: E501
-
-        ### Required permissions    * User account permission: `media:access` (read) / `media:updates:manage` (write)   * License component: media   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_latest_media_update(async_req=True)
-        >>> result = thread.get()
-
-
-        Keyword Args:
-            asset (int): Filter the returned list by `asset`.. [optional]
-            user (int): Filter the returned list by `user`.. [optional]
-            root (int): Filter the returned list by `root`.. [optional]
-            ordering (str): Which field to use when ordering the results.. [optional]
-            limit (int): Number of results to return per page.. [optional]
-            offset (int): The initial index from which to return the results.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            MediaUpdate
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.get_latest_media_update_endpoint.call_with_http_info(**kwargs)
-
     def get_marker(
         self,
         id,
@@ -19370,6 +19435,8 @@ class MediaLibraryApi(object):
             limit (int): [optional]
             advanced_search (str): [optional]
             in_media_root (int): [optional]
+            in_directory (int): [optional]
+            for_root (int): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

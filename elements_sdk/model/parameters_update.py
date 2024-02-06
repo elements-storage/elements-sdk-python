@@ -100,9 +100,6 @@ class ParametersUpdate(ModelNormal):
         ('users_default_permissions',): {
             'max_length': 255,
         },
-        ('workspaces_folder_template_path',): {
-            'max_length': 255,
-        },
         ('workspaces_path',): {
             'max_length': 255,
         },
@@ -132,6 +129,7 @@ class ParametersUpdate(ModelNormal):
             'analytics': (bool,),  # noqa: E501
             'branding_css': (str,),  # noqa: E501
             'branding_logo': (str,),  # noqa: E501
+            'email_logo_url': (str, none_type,),  # noqa: E501
             'client_offer_file_search': (bool,),  # noqa: E501
             'external_url': (str, none_type,),  # noqa: E501
             'file_manager_recycle_bin': (bool,),  # noqa: E501
@@ -161,7 +159,6 @@ class ParametersUpdate(ModelNormal):
             'tasks_run_scheduled': (bool,),  # noqa: E501
             'users_default_permissions': (str,),  # noqa: E501
             'user_notification_settings': (bool,),  # noqa: E501
-            'workspaces_folder_template_path': (str,),  # noqa: E501
             'workspaces_path': (str,),  # noqa: E501
         }
 
@@ -174,6 +171,7 @@ class ParametersUpdate(ModelNormal):
         'analytics': 'analytics',  # noqa: E501
         'branding_css': 'branding_css',  # noqa: E501
         'branding_logo': 'branding_logo',  # noqa: E501
+        'email_logo_url': 'email_logo_url',  # noqa: E501
         'client_offer_file_search': 'client_offer_file_search',  # noqa: E501
         'external_url': 'external_url',  # noqa: E501
         'file_manager_recycle_bin': 'file_manager_recycle_bin',  # noqa: E501
@@ -203,7 +201,6 @@ class ParametersUpdate(ModelNormal):
         'tasks_run_scheduled': 'tasks_run_scheduled',  # noqa: E501
         'users_default_permissions': 'users_default_permissions',  # noqa: E501
         'user_notification_settings': 'user_notification_settings',  # noqa: E501
-        'workspaces_folder_template_path': 'workspaces_folder_template_path',  # noqa: E501
         'workspaces_path': 'workspaces_path',  # noqa: E501
     }
 
@@ -251,6 +248,7 @@ class ParametersUpdate(ModelNormal):
             analytics (bool): [optional]  # noqa: E501
             branding_css (str): [optional]  # noqa: E501
             branding_logo (str): [optional]  # noqa: E501
+            email_logo_url (str, none_type): [optional]  # noqa: E501
             client_offer_file_search (bool): [optional]  # noqa: E501
             external_url (str, none_type): http://host/. [optional]  # noqa: E501
             file_manager_recycle_bin (bool): Recycle bins are usually either in Workspace/Share or Volume folder. [optional]  # noqa: E501
@@ -280,7 +278,6 @@ class ParametersUpdate(ModelNormal):
             tasks_run_scheduled (bool): [optional]  # noqa: E501
             users_default_permissions (str): Copy this value from an existing user. [optional]  # noqa: E501
             user_notification_settings (bool): [optional]  # noqa: E501
-            workspaces_folder_template_path (str): [optional]  # noqa: E501
             workspaces_path (str): [optional]  # noqa: E501
         """
 
@@ -368,6 +365,7 @@ class ParametersUpdate(ModelNormal):
             analytics (bool): [optional]  # noqa: E501
             branding_css (str): [optional]  # noqa: E501
             branding_logo (str): [optional]  # noqa: E501
+            email_logo_url (str, none_type): [optional]  # noqa: E501
             client_offer_file_search (bool): [optional]  # noqa: E501
             external_url (str, none_type): http://host/. [optional]  # noqa: E501
             file_manager_recycle_bin (bool): Recycle bins are usually either in Workspace/Share or Volume folder. [optional]  # noqa: E501
@@ -397,7 +395,6 @@ class ParametersUpdate(ModelNormal):
             tasks_run_scheduled (bool): [optional]  # noqa: E501
             users_default_permissions (str): Copy this value from an existing user. [optional]  # noqa: E501
             user_notification_settings (bool): [optional]  # noqa: E501
-            workspaces_folder_template_path (str): [optional]  # noqa: E501
             workspaces_path (str): [optional]  # noqa: E501
         """
 

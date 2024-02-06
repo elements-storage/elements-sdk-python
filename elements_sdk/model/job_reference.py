@@ -30,14 +30,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.elements_group_reference import ElementsGroupReference
-    from elements_sdk.model.elements_user_reference import ElementsUserReference
     from elements_sdk.model.schedule_reference import ScheduleReference
-    from elements_sdk.model.subtask_reference import SubtaskReference
-    globals()['ElementsGroupReference'] = ElementsGroupReference
-    globals()['ElementsUserReference'] = ElementsUserReference
     globals()['ScheduleReference'] = ScheduleReference
-    globals()['SubtaskReference'] = SubtaskReference
 
 
 class JobReference(ModelNormal):
@@ -93,6 +87,10 @@ class JobReference(ModelNormal):
         ('webhook_secret',): {
             'max_length': 128,
         },
+        ('elements_release',): {
+            'max_length': 128,
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -119,14 +117,15 @@ class JobReference(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'subtasks': ([SubtaskReference],),  # noqa: E501
             'schedules': ([ScheduleReference],),  # noqa: E501
-            'allow_users': ([ElementsUserReference],),  # noqa: E501
-            'allow_groups': ([ElementsGroupReference],),  # noqa: E501
             'startable': (bool,),  # noqa: E501
             'variable_definitions': ([{str: (str, none_type)}],),  # noqa: E501
-            'media_roots': ([int],),  # noqa: E501
             'webhook_url': (str, none_type,),  # noqa: E501
+            'needs_compatibility_check': (bool,),  # noqa: E501
+            'subtasks': ([str],),  # noqa: E501
+            'allow_users': ([str],),  # noqa: E501
+            'allow_groups': ([str],),  # noqa: E501
+            'media_roots': ([str],),  # noqa: E501
             'special_type': (int, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -138,6 +137,7 @@ class JobReference(ModelNormal):
             'add_to_new_media_roots': (bool,),  # noqa: E501
             'hook': (str, none_type,),  # noqa: E501
             'webhook_secret': (str, none_type,),  # noqa: E501
+            'elements_release': (str,),  # noqa: E501
             'security_context': (int, none_type,),  # noqa: E501
             'part_of_workflow_for': (int, none_type,),  # noqa: E501
         }
@@ -149,14 +149,15 @@ class JobReference(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'subtasks': 'subtasks',  # noqa: E501
         'schedules': 'schedules',  # noqa: E501
-        'allow_users': 'allow_users',  # noqa: E501
-        'allow_groups': 'allow_groups',  # noqa: E501
         'startable': 'startable',  # noqa: E501
         'variable_definitions': 'variable_definitions',  # noqa: E501
-        'media_roots': 'media_roots',  # noqa: E501
         'webhook_url': 'webhook_url',  # noqa: E501
+        'needs_compatibility_check': 'needs_compatibility_check',  # noqa: E501
+        'subtasks': 'subtasks',  # noqa: E501
+        'allow_users': 'allow_users',  # noqa: E501
+        'allow_groups': 'allow_groups',  # noqa: E501
+        'media_roots': 'media_roots',  # noqa: E501
         'special_type': 'special_type',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -168,19 +169,21 @@ class JobReference(ModelNormal):
         'add_to_new_media_roots': 'add_to_new_media_roots',  # noqa: E501
         'hook': 'hook',  # noqa: E501
         'webhook_secret': 'webhook_secret',  # noqa: E501
+        'elements_release': 'elements_release',  # noqa: E501
         'security_context': 'security_context',  # noqa: E501
         'part_of_workflow_for': 'part_of_workflow_for',  # noqa: E501
     }
 
     read_only_vars = {
-        'subtasks',  # noqa: E501
         'schedules',  # noqa: E501
-        'allow_users',  # noqa: E501
-        'allow_groups',  # noqa: E501
         'startable',  # noqa: E501
         'variable_definitions',  # noqa: E501
-        'media_roots',  # noqa: E501
         'webhook_url',  # noqa: E501
+        'needs_compatibility_check',  # noqa: E501
+        'subtasks',  # noqa: E501
+        'allow_users',  # noqa: E501
+        'allow_groups',  # noqa: E501
+        'media_roots',  # noqa: E501
         'special_type',  # noqa: E501
         'name',  # noqa: E501
         'description',  # noqa: E501
@@ -192,6 +195,7 @@ class JobReference(ModelNormal):
         'add_to_new_media_roots',  # noqa: E501
         'hook',  # noqa: E501
         'webhook_secret',  # noqa: E501
+        'elements_release',  # noqa: E501
         'security_context',  # noqa: E501
         'part_of_workflow_for',  # noqa: E501
     }
@@ -237,14 +241,15 @@ class JobReference(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            subtasks ([SubtaskReference]): [optional]  # noqa: E501
             schedules ([ScheduleReference]): [optional]  # noqa: E501
-            allow_users ([ElementsUserReference]): [optional]  # noqa: E501
-            allow_groups ([ElementsGroupReference]): [optional]  # noqa: E501
             startable (bool): [optional]  # noqa: E501
             variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
-            media_roots ([int]): [optional]  # noqa: E501
             webhook_url (str, none_type): [optional]  # noqa: E501
+            needs_compatibility_check (bool): [optional]  # noqa: E501
+            subtasks ([str]): [optional]  # noqa: E501
+            allow_users ([str]): [optional]  # noqa: E501
+            allow_groups ([str]): [optional]  # noqa: E501
+            media_roots ([str]): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
@@ -256,6 +261,7 @@ class JobReference(ModelNormal):
             add_to_new_media_roots (bool): [optional]  # noqa: E501
             hook (str, none_type): [optional]  # noqa: E501
             webhook_secret (str, none_type): [optional]  # noqa: E501
+            elements_release (str): [optional]  # noqa: E501
             security_context (int, none_type): [optional]  # noqa: E501
             part_of_workflow_for (int, none_type): [optional]  # noqa: E501
         """
@@ -345,14 +351,15 @@ class JobReference(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            subtasks ([SubtaskReference]): [optional]  # noqa: E501
             schedules ([ScheduleReference]): [optional]  # noqa: E501
-            allow_users ([ElementsUserReference]): [optional]  # noqa: E501
-            allow_groups ([ElementsGroupReference]): [optional]  # noqa: E501
             startable (bool): [optional]  # noqa: E501
             variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
-            media_roots ([int]): [optional]  # noqa: E501
             webhook_url (str, none_type): [optional]  # noqa: E501
+            needs_compatibility_check (bool): [optional]  # noqa: E501
+            subtasks ([str]): [optional]  # noqa: E501
+            allow_users ([str]): [optional]  # noqa: E501
+            allow_groups ([str]): [optional]  # noqa: E501
+            media_roots ([str]): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
@@ -364,6 +371,7 @@ class JobReference(ModelNormal):
             add_to_new_media_roots (bool): [optional]  # noqa: E501
             hook (str, none_type): [optional]  # noqa: E501
             webhook_secret (str, none_type): [optional]  # noqa: E501
+            elements_release (str): [optional]  # noqa: E501
             security_context (int, none_type): [optional]  # noqa: E501
             part_of_workflow_for (int, none_type): [optional]  # noqa: E501
         """

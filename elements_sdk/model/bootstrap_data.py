@@ -95,6 +95,9 @@ class BootstrapData(ModelNormal):
         ('system_name',): {
             'min_length': 1,
         },
+        ('stream_proxy_url_prefix',): {
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -121,8 +124,6 @@ class BootstrapData(ModelNormal):
         lazy_import()
         return {
             'current_node': (StorageNode,),  # noqa: E501
-            'license': (License,),  # noqa: E501
-            'parameter_values': (Parameters,),  # noqa: E501
             'public_parameters': (PublicParameters,),  # noqa: E501
             'known_usernames': ([str],),  # noqa: E501
             'known_emails': ([str],),  # noqa: E501
@@ -146,6 +147,9 @@ class BootstrapData(ModelNormal):
             'settings': ({str: (str, none_type)},),  # noqa: E501
             'kibana_enabled': (bool,),  # noqa: E501
             'system_name': (str,),  # noqa: E501
+            'stream_proxy_url_prefix': (str,),  # noqa: E501
+            'license': (License,),  # noqa: E501
+            'parameter_values': (Parameters,),  # noqa: E501
             'identity_value': (ElementsUserDetail,),  # noqa: E501
             'active_saml_provider': (SAMLProviderMini,),  # noqa: E501
             'tasks_summary': (TasksSummary,),  # noqa: E501
@@ -158,8 +162,6 @@ class BootstrapData(ModelNormal):
 
     attribute_map = {
         'current_node': 'current_node',  # noqa: E501
-        'license': 'license',  # noqa: E501
-        'parameter_values': 'parameter_values',  # noqa: E501
         'public_parameters': 'public_parameters',  # noqa: E501
         'known_usernames': 'known_usernames',  # noqa: E501
         'known_emails': 'known_emails',  # noqa: E501
@@ -183,6 +185,9 @@ class BootstrapData(ModelNormal):
         'settings': 'settings',  # noqa: E501
         'kibana_enabled': 'kibana_enabled',  # noqa: E501
         'system_name': 'system_name',  # noqa: E501
+        'stream_proxy_url_prefix': 'stream_proxy_url_prefix',  # noqa: E501
+        'license': 'license',  # noqa: E501
+        'parameter_values': 'parameter_values',  # noqa: E501
         'identity_value': 'identity_value',  # noqa: E501
         'active_saml_provider': 'active_saml_provider',  # noqa: E501
         'tasks_summary': 'tasks_summary',  # noqa: E501
@@ -195,13 +200,11 @@ class BootstrapData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, current_node, license, parameter_values, public_parameters, known_usernames, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, ai_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, system_name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, current_node, public_parameters, known_usernames, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, ai_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, system_name, stream_proxy_url_prefix, *args, **xkwargs):  # noqa: E501
         """BootstrapData - a model defined in OpenAPI
 
         Args:
             current_node (StorageNode):
-            license (License):
-            parameter_values (Parameters):
             public_parameters (PublicParameters):
             known_usernames ([str]):
             known_emails ([str]):
@@ -225,6 +228,7 @@ class BootstrapData(ModelNormal):
             settings ({str: (str, none_type)}):
             kibana_enabled (bool):
             system_name (str):
+            stream_proxy_url_prefix (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -257,6 +261,8 @@ class BootstrapData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            license (License): [optional]  # noqa: E501
+            parameter_values (Parameters): [optional]  # noqa: E501
             identity_value (ElementsUserDetail): [optional]  # noqa: E501
             active_saml_provider (SAMLProviderMini): [optional]  # noqa: E501
             tasks_summary (TasksSummary): [optional]  # noqa: E501
@@ -289,8 +295,6 @@ class BootstrapData(ModelNormal):
 
 
         self.current_node = current_node
-        self.license = license
-        self.parameter_values = parameter_values
         self.public_parameters = public_parameters
         self.known_usernames = known_usernames
         self.known_emails = known_emails
@@ -314,6 +318,7 @@ class BootstrapData(ModelNormal):
         self.settings = settings
         self.kibana_enabled = kibana_enabled
         self.system_name = system_name
+        self.stream_proxy_url_prefix = stream_proxy_url_prefix
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -335,13 +340,11 @@ class BootstrapData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, current_node, license, parameter_values, public_parameters, known_usernames, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, ai_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, system_name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, current_node, public_parameters, known_usernames, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, ai_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, system_name, stream_proxy_url_prefix, *args, **xkwargs):  # noqa: E501
         """BootstrapData - a model defined in OpenAPI
 
         Args:
             current_node (StorageNode):
-            license (License):
-            parameter_values (Parameters):
             public_parameters (PublicParameters):
             known_usernames ([str]):
             known_emails ([str]):
@@ -365,6 +368,7 @@ class BootstrapData(ModelNormal):
             settings ({str: (str, none_type)}):
             kibana_enabled (bool):
             system_name (str):
+            stream_proxy_url_prefix (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -397,6 +401,8 @@ class BootstrapData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            license (License): [optional]  # noqa: E501
+            parameter_values (Parameters): [optional]  # noqa: E501
             identity_value (ElementsUserDetail): [optional]  # noqa: E501
             active_saml_provider (SAMLProviderMini): [optional]  # noqa: E501
             tasks_summary (TasksSummary): [optional]  # noqa: E501
@@ -427,8 +433,6 @@ class BootstrapData(ModelNormal):
 
 
         self.current_node = current_node
-        self.license = license
-        self.parameter_values = parameter_values
         self.public_parameters = public_parameters
         self.known_usernames = known_usernames
         self.known_emails = known_emails
@@ -452,6 +456,7 @@ class BootstrapData(ModelNormal):
         self.settings = settings
         self.kibana_enabled = kibana_enabled
         self.system_name = system_name
+        self.stream_proxy_url_prefix = stream_proxy_url_prefix
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
