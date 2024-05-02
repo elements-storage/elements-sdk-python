@@ -64,7 +64,10 @@ class ElementsUserProfile(ModelNormal):
             'EN': "en",
             'FR': "fr",
             'DE': "de",
-            'RU': "ru",
+            'IT': "it",
+            'PT': "pt",
+            'ES': "es",
+            'DA': "da",
         },
     }
 

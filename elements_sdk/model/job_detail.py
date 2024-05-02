@@ -128,7 +128,7 @@ class JobDetail(ModelNormal):
             'needs_compatibility_check': (bool,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'schedules': ([ScheduleReference],),  # noqa: E501
-            'variable_definitions': ([{str: (str, none_type)}],),  # noqa: E501
+            'variable_definitions': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'subtasks': ([SubtaskReference],),  # noqa: E501
             'allow_users': ([ElementsUserReference],),  # noqa: E501
             'allow_groups': ([ElementsGroupReference],),  # noqa: E501
@@ -232,7 +232,7 @@ class JobDetail(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             schedules ([ScheduleReference]): [optional]  # noqa: E501
-            variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
+            variable_definitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             subtasks ([SubtaskReference]): [optional]  # noqa: E501
             allow_users ([ElementsUserReference]): [optional]  # noqa: E501
             allow_groups ([ElementsGroupReference]): [optional]  # noqa: E501
@@ -343,7 +343,7 @@ class JobDetail(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             schedules ([ScheduleReference]): [optional]  # noqa: E501
-            variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
+            variable_definitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             subtasks ([SubtaskReference]): [optional]  # noqa: E501
             allow_users ([ElementsUserReference]): [optional]  # noqa: E501
             allow_groups ([ElementsGroupReference]): [optional]  # noqa: E501

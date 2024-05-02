@@ -31,10 +31,12 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.elements_user_mini import ElementsUserMini
+    from elements_sdk.model.media_file_exclusion_info import MediaFileExclusionInfo
     from elements_sdk.model.media_root_mini import MediaRootMini
     from elements_sdk.model.media_root_permission import MediaRootPermission
     from elements_sdk.model.volume_mini import VolumeMini
     globals()['ElementsUserMini'] = ElementsUserMini
+    globals()['MediaFileExclusionInfo'] = MediaFileExclusionInfo
     globals()['MediaRootMini'] = MediaRootMini
     globals()['MediaRootPermission'] = MediaRootPermission
     globals()['VolumeMini'] = VolumeMini
@@ -68,6 +70,14 @@ class MediaFileReference(ModelNormal):
     }
 
     validations = {
+        ('is_excluded',): {
+            'max_length': 1,
+            'min_length': 1,
+        },
+        ('is_excluded_from_proxy_generation',): {
+            'max_length': 1,
+            'min_length': 1,
+        },
         ('name',): {
             'min_length': 1,
         },
@@ -120,10 +130,11 @@ class MediaFileReference(ModelNormal):
             'modified_by': (ElementsUserMini,),  # noqa: E501
             'full_path': (str,),  # noqa: E501
             'is_shared': (bool, none_type,),  # noqa: E501
-            'is_excluded': (bool,),  # noqa: E501
-            'is_excluded_from_proxy_generation': (bool,),  # noqa: E501
             'is_hardlink': (bool,),  # noqa: E501
             'is_bookmarked': (bool, none_type,),  # noqa: E501
+            'is_excluded': (str, none_type,),  # noqa: E501
+            'is_excluded_from_proxy_generation': (str, none_type,),  # noqa: E501
+            'exclusion_info': (MediaFileExclusionInfo,),  # noqa: E501
             'child_count': (int, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'path': (str,),  # noqa: E501
@@ -160,10 +171,11 @@ class MediaFileReference(ModelNormal):
         'modified_by': 'modified_by',  # noqa: E501
         'full_path': 'full_path',  # noqa: E501
         'is_shared': 'is_shared',  # noqa: E501
-        'is_excluded': 'is_excluded',  # noqa: E501
-        'is_excluded_from_proxy_generation': 'is_excluded_from_proxy_generation',  # noqa: E501
         'is_hardlink': 'is_hardlink',  # noqa: E501
         'is_bookmarked': 'is_bookmarked',  # noqa: E501
+        'is_excluded': 'is_excluded',  # noqa: E501
+        'is_excluded_from_proxy_generation': 'is_excluded_from_proxy_generation',  # noqa: E501
+        'exclusion_info': 'exclusion_info',  # noqa: E501
         'child_count': 'child_count',  # noqa: E501
         'name': 'name',  # noqa: E501
         'path': 'path',  # noqa: E501
@@ -190,10 +202,10 @@ class MediaFileReference(ModelNormal):
         'effective_custom_fields',  # noqa: E501
         'full_path',  # noqa: E501
         'is_shared',  # noqa: E501
-        'is_excluded',  # noqa: E501
-        'is_excluded_from_proxy_generation',  # noqa: E501
         'is_hardlink',  # noqa: E501
         'is_bookmarked',  # noqa: E501
+        'is_excluded',  # noqa: E501
+        'is_excluded_from_proxy_generation',  # noqa: E501
         'child_count',  # noqa: E501
         'name',  # noqa: E501
         'path',  # noqa: E501
@@ -264,10 +276,11 @@ class MediaFileReference(ModelNormal):
             modified_by (ElementsUserMini): [optional]  # noqa: E501
             full_path (str): [optional]  # noqa: E501
             is_shared (bool, none_type): [optional]  # noqa: E501
-            is_excluded (bool): [optional]  # noqa: E501
-            is_excluded_from_proxy_generation (bool): [optional]  # noqa: E501
             is_hardlink (bool): [optional]  # noqa: E501
             is_bookmarked (bool, none_type): [optional]  # noqa: E501
+            is_excluded (str, none_type): [optional]  # noqa: E501
+            is_excluded_from_proxy_generation (str, none_type): [optional]  # noqa: E501
+            exclusion_info (MediaFileExclusionInfo): [optional]  # noqa: E501
             child_count (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
@@ -382,10 +395,11 @@ class MediaFileReference(ModelNormal):
             modified_by (ElementsUserMini): [optional]  # noqa: E501
             full_path (str): [optional]  # noqa: E501
             is_shared (bool, none_type): [optional]  # noqa: E501
-            is_excluded (bool): [optional]  # noqa: E501
-            is_excluded_from_proxy_generation (bool): [optional]  # noqa: E501
             is_hardlink (bool): [optional]  # noqa: E501
             is_bookmarked (bool, none_type): [optional]  # noqa: E501
+            is_excluded (str, none_type): [optional]  # noqa: E501
+            is_excluded_from_proxy_generation (str, none_type): [optional]  # noqa: E501
+            exclusion_info (MediaFileExclusionInfo): [optional]  # noqa: E501
             child_count (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501

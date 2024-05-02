@@ -31,10 +31,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.volume_bee_gfs_status import VolumeBeeGFSStatus
-    from elements_sdk.model.volume_lizard_fs_status import VolumeLizardFSStatus
     from elements_sdk.model.volume_snfs_status import VolumeSNFSStatus
     globals()['VolumeBeeGFSStatus'] = VolumeBeeGFSStatus
-    globals()['VolumeLizardFSStatus'] = VolumeLizardFSStatus
     globals()['VolumeSNFSStatus'] = VolumeSNFSStatus
 
 
@@ -96,7 +94,6 @@ class VolumeStatus(ModelNormal):
             'size_used': (int, none_type,),  # noqa: E501
             'size_free': (int, none_type,),  # noqa: E501
             'snfs': (VolumeSNFSStatus,),  # noqa: E501
-            'lizardfs': (VolumeLizardFSStatus,),  # noqa: E501
             'beegfs': (VolumeBeeGFSStatus,),  # noqa: E501
         }
 
@@ -111,7 +108,6 @@ class VolumeStatus(ModelNormal):
         'size_used': 'size_used',  # noqa: E501
         'size_free': 'size_free',  # noqa: E501
         'snfs': 'snfs',  # noqa: E501
-        'lizardfs': 'lizardfs',  # noqa: E501
         'beegfs': 'beegfs',  # noqa: E501
     }
 
@@ -163,7 +159,6 @@ class VolumeStatus(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             snfs (VolumeSNFSStatus): [optional]  # noqa: E501
-            lizardfs (VolumeLizardFSStatus): [optional]  # noqa: E501
             beegfs (VolumeBeeGFSStatus): [optional]  # noqa: E501
         """
 
@@ -259,7 +254,6 @@ class VolumeStatus(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             snfs (VolumeSNFSStatus): [optional]  # noqa: E501
-            lizardfs (VolumeLizardFSStatus): [optional]  # noqa: E501
             beegfs (VolumeBeeGFSStatus): [optional]  # noqa: E501
         """
 

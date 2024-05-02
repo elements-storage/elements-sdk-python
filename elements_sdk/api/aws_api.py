@@ -273,6 +273,7 @@ class AWSApi(object):
             params_map={
                 'all': [
                     'id',
+                    'region',
                 ],
                 'required': [
                     'id',
@@ -292,12 +293,16 @@ class AWSApi(object):
                 'openapi_types': {
                     'id':
                         (int,),
+                    'region':
+                        (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
+                    'region': 'region',
                 },
                 'location_map': {
                     'id': 'path',
+                    'region': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -757,6 +762,7 @@ class AWSApi(object):
             id (int): A unique integer value identifying this cloud account.
 
         Keyword Args:
+            region (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

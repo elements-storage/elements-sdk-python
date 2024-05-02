@@ -31,9 +31,11 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.asset import Asset
+    from elements_sdk.model.media_file_bundle_exclusion_info import MediaFileBundleExclusionInfo
     from elements_sdk.model.media_file_mini import MediaFileMini
     from elements_sdk.model.stornext_manager_attributes import StornextManagerAttributes
     globals()['Asset'] = Asset
+    globals()['MediaFileBundleExclusionInfo'] = MediaFileBundleExclusionInfo
     globals()['MediaFileMini'] = MediaFileMini
     globals()['StornextManagerAttributes'] = StornextManagerAttributes
 
@@ -70,6 +72,10 @@ class MediaFileBundle(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
+        ('is_excluded_from_proxy_generation',): {
+            'max_length': 1,
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -100,10 +106,11 @@ class MediaFileBundle(ModelNormal):
             'snm_attributes': (StornextManagerAttributes,),  # noqa: E501
             'is_shared': (bool, none_type,),  # noqa: E501
             'file_count': (int,),  # noqa: E501
-            'is_excluded_from_proxy_generation': (bool,),  # noqa: E501
+            'exclusion_info': (MediaFileBundleExclusionInfo,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'location': (int,),  # noqa: E501
             'asset': (Asset,),  # noqa: E501
+            'is_excluded_from_proxy_generation': (str, none_type,),  # noqa: E501
             'shared_via_tokens': ([int],),  # noqa: E501
         }
 
@@ -118,10 +125,11 @@ class MediaFileBundle(ModelNormal):
         'snm_attributes': 'snm_attributes',  # noqa: E501
         'is_shared': 'is_shared',  # noqa: E501
         'file_count': 'file_count',  # noqa: E501
-        'is_excluded_from_proxy_generation': 'is_excluded_from_proxy_generation',  # noqa: E501
+        'exclusion_info': 'exclusion_info',  # noqa: E501
         'name': 'name',  # noqa: E501
         'location': 'location',  # noqa: E501
         'asset': 'asset',  # noqa: E501
+        'is_excluded_from_proxy_generation': 'is_excluded_from_proxy_generation',  # noqa: E501
         'shared_via_tokens': 'shared_via_tokens',  # noqa: E501
     }
 
@@ -135,7 +143,7 @@ class MediaFileBundle(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, mainfile, snm_attributes, is_shared, file_count, is_excluded_from_proxy_generation, name, location, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, mainfile, snm_attributes, is_shared, file_count, exclusion_info, name, location, *args, **xkwargs):  # noqa: E501
         """MediaFileBundle - a model defined in OpenAPI
 
         Args:
@@ -144,7 +152,7 @@ class MediaFileBundle(ModelNormal):
             snm_attributes (StornextManagerAttributes):
             is_shared (bool, none_type):
             file_count (int):
-            is_excluded_from_proxy_generation (bool):
+            exclusion_info (MediaFileBundleExclusionInfo):
             name (str):
             location (int):
 
@@ -180,6 +188,7 @@ class MediaFileBundle(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             asset (Asset): [optional]  # noqa: E501
+            is_excluded_from_proxy_generation (str, none_type): [optional]  # noqa: E501
             shared_via_tokens ([int]): [optional]  # noqa: E501
         """
 
@@ -214,7 +223,7 @@ class MediaFileBundle(ModelNormal):
         self.snm_attributes = snm_attributes
         self.is_shared = is_shared
         self.file_count = file_count
-        self.is_excluded_from_proxy_generation = is_excluded_from_proxy_generation
+        self.exclusion_info = exclusion_info
         self.name = name
         self.location = location
         for var_name, var_value in xkwargs.items():
@@ -238,13 +247,14 @@ class MediaFileBundle(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, mainfile, snm_attributes, name, location, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, mainfile, snm_attributes, exclusion_info, name, location, *args, **xkwargs):  # noqa: E501
         """MediaFileBundle - a model defined in OpenAPI
 
         Args:
             id (int):
             mainfile (MediaFileMini):
             snm_attributes (StornextManagerAttributes):
+            exclusion_info (MediaFileBundleExclusionInfo):
             name (str):
             location (int):
 
@@ -280,6 +290,7 @@ class MediaFileBundle(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             asset (Asset): [optional]  # noqa: E501
+            is_excluded_from_proxy_generation (str, none_type): [optional]  # noqa: E501
             shared_via_tokens ([int]): [optional]  # noqa: E501
         """
 
@@ -310,6 +321,7 @@ class MediaFileBundle(ModelNormal):
         self.id = id
         self.mainfile = mainfile
         self.snm_attributes = snm_attributes
+        self.exclusion_info = exclusion_info
         self.name = name
         self.location = location
         for var_name, var_value in xkwargs.items():

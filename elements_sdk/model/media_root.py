@@ -125,7 +125,7 @@ class MediaRoot(ModelNormal):
             'full_path': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'custom_fields': ([CustomFieldReference],),  # noqa: E501
-            'workflow': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'workflow': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'resolved_permissions': ([MediaRootPermission],),  # noqa: E501
             'path': (str,),  # noqa: E501
             'needs_rescan': (bool,),  # noqa: E501
@@ -250,7 +250,7 @@ class MediaRoot(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             custom_fields ([CustomFieldReference]): [optional]  # noqa: E501
-            workflow ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            workflow ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             resolved_permissions ([MediaRootPermission]): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
             needs_rescan (bool): [optional]  # noqa: E501
@@ -373,7 +373,7 @@ class MediaRoot(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             custom_fields ([CustomFieldReference]): [optional]  # noqa: E501
-            workflow ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            workflow ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             resolved_permissions ([MediaRootPermission]): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
             needs_rescan (bool): [optional]  # noqa: E501

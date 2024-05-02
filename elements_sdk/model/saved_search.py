@@ -93,7 +93,7 @@ class SavedSearch(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'user': (ElementsUserMiniReference,),  # noqa: E501
-            'query': ([str, none_type],),  # noqa: E501
+            'query': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'url': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'root': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
@@ -129,7 +129,7 @@ class SavedSearch(ModelNormal):
         Args:
             id (int):
             user (ElementsUserMiniReference):
-            query ([str, none_type]):
+            query ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             url (str):
             name (str):
 
@@ -226,7 +226,7 @@ class SavedSearch(ModelNormal):
         Args:
             id (int):
             user (ElementsUserMiniReference):
-            query ([str, none_type]):
+            query ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             name (str):
 
         Keyword Args:

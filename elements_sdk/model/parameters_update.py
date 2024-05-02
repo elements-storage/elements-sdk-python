@@ -64,7 +64,10 @@ class ParametersUpdate(ModelNormal):
             'EN': "en",
             'FR': "fr",
             'DE': "de",
-            'RU': "ru",
+            'IT': "it",
+            'PT': "pt",
+            'ES': "es",
+            'DA': "da",
         },
         ('media_default_custom_field_type',): {
             'FILE': "file",
@@ -155,6 +158,7 @@ class ParametersUpdate(ModelNormal):
             'media_shuttle_left_behaviour': (str,),  # noqa: E501
             'ntp_offer_sync': (bool,),  # noqa: E501
             'otp_policy': (str,),  # noqa: E501
+            'password_login': (bool,),  # noqa: E501
             'session_key_restrict_to_ip': (bool,),  # noqa: E501
             'tasks_run_scheduled': (bool,),  # noqa: E501
             'users_default_permissions': (str,),  # noqa: E501
@@ -197,6 +201,7 @@ class ParametersUpdate(ModelNormal):
         'media_shuttle_left_behaviour': 'media_shuttle_left_behaviour',  # noqa: E501
         'ntp_offer_sync': 'ntp_offer_sync',  # noqa: E501
         'otp_policy': 'otp_policy',  # noqa: E501
+        'password_login': 'password_login',  # noqa: E501
         'session_key_restrict_to_ip': 'session_key_restrict_to_ip',  # noqa: E501
         'tasks_run_scheduled': 'tasks_run_scheduled',  # noqa: E501
         'users_default_permissions': 'users_default_permissions',  # noqa: E501
@@ -274,6 +279,7 @@ class ParametersUpdate(ModelNormal):
             media_shuttle_left_behaviour (str): [optional]  # noqa: E501
             ntp_offer_sync (bool): [optional]  # noqa: E501
             otp_policy (str): [optional]  # noqa: E501
+            password_login (bool): [optional]  # noqa: E501
             session_key_restrict_to_ip (bool): [optional]  # noqa: E501
             tasks_run_scheduled (bool): [optional]  # noqa: E501
             users_default_permissions (str): Copy this value from an existing user. [optional]  # noqa: E501
@@ -391,6 +397,7 @@ class ParametersUpdate(ModelNormal):
             media_shuttle_left_behaviour (str): [optional]  # noqa: E501
             ntp_offer_sync (bool): [optional]  # noqa: E501
             otp_policy (str): [optional]  # noqa: E501
+            password_login (bool): [optional]  # noqa: E501
             session_key_restrict_to_ip (bool): [optional]  # noqa: E501
             tasks_run_scheduled (bool): [optional]  # noqa: E501
             users_default_permissions (str): Copy this value from an existing user. [optional]  # noqa: E501

@@ -55,6 +55,13 @@ class ProxyProfileMini(ModelNormal):
     """
 
     allowed_values = {
+        ('proxy_generator',): {
+            'FFMPEG': "ffmpeg",
+            'HOTFOLDER': "hotfolder",
+            'TRANSKODER': "transkoder",
+            'VANTAGE': "vantage",
+            'NOOP': "noop",
+        },
     }
 
     validations = {
@@ -88,6 +95,7 @@ class ProxyProfileMini(ModelNormal):
             'id': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'allow_download': (bool,),  # noqa: E501
+            'proxy_generator': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -99,6 +107,7 @@ class ProxyProfileMini(ModelNormal):
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'allow_download': 'allow_download',  # noqa: E501
+        'proxy_generator': 'proxy_generator',  # noqa: E501
     }
 
     read_only_vars = {
@@ -147,6 +156,7 @@ class ProxyProfileMini(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             allow_download (bool): [optional]  # noqa: E501
+            proxy_generator (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -237,6 +247,7 @@ class ProxyProfileMini(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             allow_download (bool): [optional]  # noqa: E501
+            proxy_generator (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

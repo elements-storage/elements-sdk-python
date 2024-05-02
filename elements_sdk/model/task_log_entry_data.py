@@ -55,6 +55,13 @@ class TaskLogEntryData(ModelNormal):
     """
 
     allowed_values = {
+        ('level',): {
+            'DEBUG': "debug",
+            'INFO': "info",
+            'WARN': "warn",
+            'ERROR': "error",
+            'CRITICAL': "critical",
+        },
     }
 
     validations = {
@@ -84,8 +91,8 @@ class TaskLogEntryData(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'level': (int,),  # noqa: E501
             'message': (str,),  # noqa: E501
+            'level': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -94,8 +101,8 @@ class TaskLogEntryData(ModelNormal):
 
 
     attribute_map = {
-        'level': 'level',  # noqa: E501
         'message': 'message',  # noqa: E501
+        'level': 'level',  # noqa: E501
     }
 
     read_only_vars = {
@@ -105,11 +112,10 @@ class TaskLogEntryData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, level, message, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, message, *args, **xkwargs):  # noqa: E501
         """TaskLogEntryData - a model defined in OpenAPI
 
         Args:
-            level (int):
             message (str):
 
         Keyword Args:
@@ -143,6 +149,7 @@ class TaskLogEntryData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            level (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -171,7 +178,6 @@ class TaskLogEntryData(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
-        self.level = level
         self.message = message
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -194,11 +200,10 @@ class TaskLogEntryData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, level, message, *args, **xkwargs):  # noqa: E501
+    def __init__(self, message, *args, **xkwargs):  # noqa: E501
         """TaskLogEntryData - a model defined in OpenAPI
 
         Args:
-            level (int):
             message (str):
 
         Keyword Args:
@@ -232,6 +237,7 @@ class TaskLogEntryData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            level (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -258,7 +264,6 @@ class TaskLogEntryData(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
-        self.level = level
         self.message = message
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

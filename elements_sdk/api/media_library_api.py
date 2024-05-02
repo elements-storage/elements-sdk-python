@@ -2985,6 +2985,104 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.exclude_directory_from_proxy_generation_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/files/{id}/dont-proxy',
+                'operation_id': 'exclude_directory_from_proxy_generation',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.exclude_directory_from_scan_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/files/{id}/dont-scan',
+                'operation_id': 'exclude_directory_from_scan',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.export_comments_for_avid_endpoint = _Endpoint(
             settings={
                 'response_type': (XMLExport,),
@@ -3578,6 +3676,7 @@ class MediaLibraryApi(object):
                     'offset',
                     'include_proxies',
                     'include_modified_by',
+                    'include_proxy_transforms',
                     'resolve_asset_permission',
                     'for_root',
                 ],
@@ -3611,6 +3710,8 @@ class MediaLibraryApi(object):
                         (bool,),
                     'include_modified_by':
                         (bool,),
+                    'include_proxy_transforms':
+                        (bool,),
                     'resolve_asset_permission':
                         (bool,),
                     'for_root':
@@ -3625,6 +3726,7 @@ class MediaLibraryApi(object):
                     'offset': 'offset',
                     'include_proxies': 'include_proxies',
                     'include_modified_by': 'include_modified_by',
+                    'include_proxy_transforms': 'include_proxy_transforms',
                     'resolve_asset_permission': 'resolve_asset_permission',
                     'for_root': 'for_root',
                 },
@@ -3637,6 +3739,7 @@ class MediaLibraryApi(object):
                     'offset': 'query',
                     'include_proxies': 'query',
                     'include_modified_by': 'query',
+                    'include_proxy_transforms': 'query',
                     'resolve_asset_permission': 'query',
                     'for_root': 'query',
                 },
@@ -5055,6 +5158,8 @@ class MediaLibraryApi(object):
             },
             params_map={
                 'all': [
+                    'id',
+                    'id__in',
                     'name',
                     'name__icontains',
                     'roots',
@@ -5079,6 +5184,10 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'id':
+                        (float,),
+                    'id__in':
+                        (str,),
                     'name':
                         (str,),
                     'name__icontains':
@@ -5099,6 +5208,8 @@ class MediaLibraryApi(object):
                         (int,),
                 },
                 'attribute_map': {
+                    'id': 'id',
+                    'id__in': 'id__in',
                     'name': 'name',
                     'name__icontains': 'name__icontains',
                     'roots': 'roots',
@@ -5110,6 +5221,8 @@ class MediaLibraryApi(object):
                     'for_root': 'for_root',
                 },
                 'location_map': {
+                    'id': 'query',
+                    'id__in': 'query',
                     'name': 'query',
                     'name__icontains': 'query',
                     'roots': 'query',
@@ -5773,6 +5886,7 @@ class MediaLibraryApi(object):
                     'id',
                     'include_proxies',
                     'include_modified_by',
+                    'include_proxy_transforms',
                     'resolve_asset_permission',
                     'for_root',
                 ],
@@ -5798,6 +5912,8 @@ class MediaLibraryApi(object):
                         (bool,),
                     'include_modified_by':
                         (bool,),
+                    'include_proxy_transforms':
+                        (bool,),
                     'resolve_asset_permission':
                         (bool,),
                     'for_root':
@@ -5807,6 +5923,7 @@ class MediaLibraryApi(object):
                     'id': 'id',
                     'include_proxies': 'include_proxies',
                     'include_modified_by': 'include_modified_by',
+                    'include_proxy_transforms': 'include_proxy_transforms',
                     'resolve_asset_permission': 'resolve_asset_permission',
                     'for_root': 'for_root',
                 },
@@ -5814,6 +5931,7 @@ class MediaLibraryApi(object):
                     'id': 'path',
                     'include_proxies': 'query',
                     'include_modified_by': 'query',
+                    'include_proxy_transforms': 'query',
                     'resolve_asset_permission': 'query',
                     'for_root': 'query',
                 },
@@ -7096,6 +7214,7 @@ class MediaLibraryApi(object):
                 'all': [
                     'id',
                     'for_root',
+                    'id__in',
                 ],
                 'required': [
                     'id',
@@ -7117,14 +7236,18 @@ class MediaLibraryApi(object):
                         (int,),
                     'for_root':
                         (int,),
+                    'id__in':
+                        (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
                     'for_root': 'for_root',
+                    'id__in': 'id__in',
                 },
                 'location_map': {
                     'id': 'path',
                     'for_root': 'query',
+                    'id__in': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -7153,6 +7276,7 @@ class MediaLibraryApi(object):
                     'multiple_assets_request',
                     'include_proxies',
                     'include_modified_by',
+                    'include_proxy_transforms',
                     'resolve_asset_permission',
                     'for_root',
                 ],
@@ -7178,6 +7302,8 @@ class MediaLibraryApi(object):
                         (bool,),
                     'include_modified_by':
                         (bool,),
+                    'include_proxy_transforms':
+                        (bool,),
                     'resolve_asset_permission':
                         (bool,),
                     'for_root':
@@ -7186,6 +7312,7 @@ class MediaLibraryApi(object):
                 'attribute_map': {
                     'include_proxies': 'include_proxies',
                     'include_modified_by': 'include_modified_by',
+                    'include_proxy_transforms': 'include_proxy_transforms',
                     'resolve_asset_permission': 'resolve_asset_permission',
                     'for_root': 'for_root',
                 },
@@ -7193,6 +7320,7 @@ class MediaLibraryApi(object):
                     'multiple_assets_request': 'body',
                     'include_proxies': 'query',
                     'include_modified_by': 'query',
+                    'include_proxy_transforms': 'query',
                     'resolve_asset_permission': 'query',
                     'for_root': 'query',
                 },
@@ -9349,6 +9477,104 @@ class MediaLibraryApi(object):
                 'content_type': [
                     'application/json'
                 ]
+            },
+            api_client=api_client
+        )
+        self.reinclude_directory_for_proxy_generation_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/files/{id}/dont-proxy',
+                'operation_id': 'reinclude_directory_for_proxy_generation',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.reinclude_directory_for_scan_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/files/{id}/dont-scan',
+                'operation_id': 'reinclude_directory_for_scan',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -15441,6 +15667,162 @@ class MediaLibraryApi(object):
             id
         return self.editor_export_xml_for_project_endpoint.call_with_http_info(**kwargs)
 
+    def exclude_directory_from_proxy_generation(
+        self,
+        id,
+        **kwargs
+    ):
+        """exclude_directory_from_proxy_generation  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.exclude_directory_from_proxy_generation(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this File.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.exclude_directory_from_proxy_generation_endpoint.call_with_http_info(**kwargs)
+
+    def exclude_directory_from_scan(
+        self,
+        id,
+        **kwargs
+    ):
+        """exclude_directory_from_scan  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.exclude_directory_from_scan(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this File.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.exclude_directory_from_scan_endpoint.call_with_http_info(**kwargs)
+
     def export_comments_for_avid(
         self,
         asset_id,
@@ -16180,6 +16562,7 @@ class MediaLibraryApi(object):
             offset (int): The initial index from which to return the results.. [optional]
             include_proxies (bool): [optional]
             include_modified_by (bool): [optional]
+            include_proxy_transforms (bool): [optional]
             resolve_asset_permission (bool): [optional]
             for_root (int): [optional]
             _return_http_data_only (bool): response data without head status
@@ -17514,6 +17897,8 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
+            id (float): Filter the returned list by `id`.. [optional]
+            id__in (str): [optional]
             name (str): Filter the returned list by `name`.. [optional]
             name__icontains (str): Filter the returned list by `name__icontains`.. [optional]
             roots (str): Filter the returned list by `roots`.. [optional]
@@ -18304,6 +18689,7 @@ class MediaLibraryApi(object):
         Keyword Args:
             include_proxies (bool): [optional]
             include_modified_by (bool): [optional]
+            include_proxy_transforms (bool): [optional]
             resolve_asset_permission (bool): [optional]
             for_root (int): [optional]
             _return_http_data_only (bool): response data without head status
@@ -19991,6 +20377,7 @@ class MediaLibraryApi(object):
 
         Keyword Args:
             for_root (int): [optional]
+            id__in (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -20071,6 +20458,7 @@ class MediaLibraryApi(object):
         Keyword Args:
             include_proxies (bool): [optional]
             include_modified_by (bool): [optional]
+            include_proxy_transforms (bool): [optional]
             resolve_asset_permission (bool): [optional]
             for_root (int): [optional]
             _return_http_data_only (bool): response data without head status
@@ -23185,6 +23573,162 @@ class MediaLibraryApi(object):
         kwargs['tag_media_directory_request'] = \
             tag_media_directory_request
         return self.recursively_tag_media_directory_endpoint.call_with_http_info(**kwargs)
+
+    def reinclude_directory_for_proxy_generation(
+        self,
+        id,
+        **kwargs
+    ):
+        """reinclude_directory_for_proxy_generation  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.reinclude_directory_for_proxy_generation(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this File.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.reinclude_directory_for_proxy_generation_endpoint.call_with_http_info(**kwargs)
+
+    def reinclude_directory_for_scan(
+        self,
+        id,
+        **kwargs
+    ):
+        """reinclude_directory_for_scan  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.reinclude_directory_for_scan(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this File.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.reinclude_directory_for_scan_endpoint.call_with_http_info(**kwargs)
 
     def reindex_media_directory(
         self,

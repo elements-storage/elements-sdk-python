@@ -107,7 +107,7 @@ class SubtaskPartialUpdate(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'kwargs': ({str: (str, none_type)},),  # noqa: E501
+            'kwargs': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'graph_layout': ({str: (str, none_type)},),  # noqa: E501
             'trigger': (str, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
@@ -190,7 +190,7 @@ class SubtaskPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            kwargs ({str: (str, none_type)}): [optional]  # noqa: E501
+            kwargs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             graph_layout ({str: (str, none_type)}): [optional]  # noqa: E501
             trigger (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
@@ -289,7 +289,7 @@ class SubtaskPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            kwargs ({str: (str, none_type)}): [optional]  # noqa: E501
+            kwargs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             graph_layout ({str: (str, none_type)}): [optional]  # noqa: E501
             trigger (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501

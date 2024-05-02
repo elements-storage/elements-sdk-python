@@ -105,6 +105,14 @@ class TaskInfo(ModelNormal):
         ('traceback',): {
             'max_length': 4096,
         },
+        ('related_bundle_id',): {
+            'inclusive_maximum': 2147483647,
+            'inclusive_minimum': -2147483648,
+        },
+        ('related_proxy_id',): {
+            'inclusive_maximum': 2147483647,
+            'inclusive_minimum': -2147483648,
+        },
     }
 
     @cached_property
@@ -153,6 +161,8 @@ class TaskInfo(ModelNormal):
             'is_finished': (bool,),  # noqa: E501
             'exception': (str, none_type,),  # noqa: E501
             'traceback': (str, none_type,),  # noqa: E501
+            'related_bundle_id': (int, none_type,),  # noqa: E501
+            'related_proxy_id': (int, none_type,),  # noqa: E501
             'schedule': (int, none_type,),  # noqa: E501
         }
 
@@ -185,6 +195,8 @@ class TaskInfo(ModelNormal):
         'is_finished': 'is_finished',  # noqa: E501
         'exception': 'exception',  # noqa: E501
         'traceback': 'traceback',  # noqa: E501
+        'related_bundle_id': 'related_bundle_id',  # noqa: E501
+        'related_proxy_id': 'related_proxy_id',  # noqa: E501
         'schedule': 'schedule',  # noqa: E501
     }
 
@@ -259,6 +271,8 @@ class TaskInfo(ModelNormal):
             is_finished (bool): [optional]  # noqa: E501
             exception (str, none_type): [optional]  # noqa: E501
             traceback (str, none_type): [optional]  # noqa: E501
+            related_bundle_id (int, none_type): [optional]  # noqa: E501
+            related_proxy_id (int, none_type): [optional]  # noqa: E501
             schedule (int, none_type): [optional]  # noqa: E501
         """
 
@@ -369,6 +383,8 @@ class TaskInfo(ModelNormal):
             is_finished (bool): [optional]  # noqa: E501
             exception (str, none_type): [optional]  # noqa: E501
             traceback (str, none_type): [optional]  # noqa: E501
+            related_bundle_id (int, none_type): [optional]  # noqa: E501
+            related_proxy_id (int, none_type): [optional]  # noqa: E501
             schedule (int, none_type): [optional]  # noqa: E501
         """
 

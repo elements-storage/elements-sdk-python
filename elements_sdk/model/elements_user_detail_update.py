@@ -60,7 +60,10 @@ class ElementsUserDetailUpdate(ModelNormal):
             'EN': "en",
             'FR': "fr",
             'DE': "de",
-            'RU': "ru",
+            'IT': "it",
+            'PT': "pt",
+            'ES': "es",
+            'DA': "da",
         },
     }
 
@@ -82,9 +85,6 @@ class ElementsUserDetailUpdate(ModelNormal):
         ('gid',): {
             'inclusive_maximum': 2147483647,
             'inclusive_minimum': -2147483648,
-        },
-        ('ldap_dn',): {
-            'max_length': 255,
         },
         ('shaper_ceiling',): {
             'inclusive_maximum': 4611686018427388000,
@@ -139,16 +139,12 @@ class ElementsUserDetailUpdate(ModelNormal):
             'home': (int, none_type,),  # noqa: E501
             'is_external': (bool,),  # noqa: E501
             'is_cloud': (bool,),  # noqa: E501
-            'is_cloud_default': (bool,),  # noqa: E501
             'is_enabled': (bool,),  # noqa: E501
             'language': (str, none_type,),  # noqa: E501
-            'last_seen': (datetime, none_type,),  # noqa: E501
             'ldap': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'ldap_dn': (str, none_type,),  # noqa: E501
             'password_change_required': (bool,),  # noqa: E501
             'shaper_ceiling': (int, none_type,),  # noqa: E501
             'shaper_rate': (int, none_type,),  # noqa: E501
-            'totp_enabled': (bool,),  # noqa: E501
             'uid': (int, none_type,),  # noqa: E501
             'unix_username': (str, none_type,),  # noqa: E501
         }
@@ -174,16 +170,12 @@ class ElementsUserDetailUpdate(ModelNormal):
         'home': 'home',  # noqa: E501
         'is_external': 'is_external',  # noqa: E501
         'is_cloud': 'is_cloud',  # noqa: E501
-        'is_cloud_default': 'is_cloud_default',  # noqa: E501
         'is_enabled': 'is_enabled',  # noqa: E501
         'language': 'language',  # noqa: E501
-        'last_seen': 'last_seen',  # noqa: E501
         'ldap': 'ldap',  # noqa: E501
-        'ldap_dn': 'ldap_dn',  # noqa: E501
         'password_change_required': 'password_change_required',  # noqa: E501
         'shaper_ceiling': 'shaper_ceiling',  # noqa: E501
         'shaper_rate': 'shaper_rate',  # noqa: E501
-        'totp_enabled': 'totp_enabled',  # noqa: E501
         'uid': 'uid',  # noqa: E501
         'unix_username': 'unix_username',  # noqa: E501
     }
@@ -246,16 +238,12 @@ class ElementsUserDetailUpdate(ModelNormal):
             home (int, none_type): [optional]  # noqa: E501
             is_external (bool): [optional]  # noqa: E501
             is_cloud (bool): [optional]  # noqa: E501
-            is_cloud_default (bool): [optional]  # noqa: E501
             is_enabled (bool): [optional]  # noqa: E501
             language (str, none_type): [optional]  # noqa: E501
-            last_seen (datetime, none_type): [optional]  # noqa: E501
             ldap (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            ldap_dn (str, none_type): [optional]  # noqa: E501
             password_change_required (bool): [optional]  # noqa: E501
             shaper_ceiling (int, none_type): [optional]  # noqa: E501
             shaper_rate (int, none_type): [optional]  # noqa: E501
-            totp_enabled (bool): [optional]  # noqa: E501
             uid (int, none_type): [optional]  # noqa: E501
             unix_username (str, none_type): [optional]  # noqa: E501
         """
@@ -361,16 +349,12 @@ class ElementsUserDetailUpdate(ModelNormal):
             home (int, none_type): [optional]  # noqa: E501
             is_external (bool): [optional]  # noqa: E501
             is_cloud (bool): [optional]  # noqa: E501
-            is_cloud_default (bool): [optional]  # noqa: E501
             is_enabled (bool): [optional]  # noqa: E501
             language (str, none_type): [optional]  # noqa: E501
-            last_seen (datetime, none_type): [optional]  # noqa: E501
             ldap (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            ldap_dn (str, none_type): [optional]  # noqa: E501
             password_change_required (bool): [optional]  # noqa: E501
             shaper_ceiling (int, none_type): [optional]  # noqa: E501
             shaper_rate (int, none_type): [optional]  # noqa: E501
-            totp_enabled (bool): [optional]  # noqa: E501
             uid (int, none_type): [optional]  # noqa: E501
             unix_username (str, none_type): [optional]  # noqa: E501
         """

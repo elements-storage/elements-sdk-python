@@ -60,7 +60,10 @@ class ElementsUserDetail(ModelNormal):
             'EN': "en",
             'FR': "fr",
             'DE': "de",
-            'RU': "ru",
+            'IT': "it",
+            'PT': "pt",
+            'ES': "es",
+            'DA': "da",
         },
     }
 
@@ -84,7 +87,7 @@ class ElementsUserDetail(ModelNormal):
             'inclusive_minimum': -2147483648,
         },
         ('ldap_dn',): {
-            'max_length': 255,
+            'min_length': 1,
         },
         ('shaper_ceiling',): {
             'inclusive_maximum': 4611686018427388000,
@@ -131,8 +134,10 @@ class ElementsUserDetail(ModelNormal):
             'effective_permissions': ([str, none_type],),  # noqa: E501
             'group_permissions': ([str, none_type],),  # noqa: E501
             'has_password': (bool,),  # noqa: E501
+            'is_cloud_default': (bool,),  # noqa: E501
             'permissions': ([str, none_type],),  # noqa: E501
             'sync_id': (str,),  # noqa: E501
+            'totp_enabled': (bool,),  # noqa: E501
             'username': (str,),  # noqa: E501
             'groups': ([int],),  # noqa: E501
             'allow_changing_password': (bool,),  # noqa: E501
@@ -147,7 +152,6 @@ class ElementsUserDetail(ModelNormal):
             'home': (int, none_type,),  # noqa: E501
             'is_external': (bool,),  # noqa: E501
             'is_cloud': (bool,),  # noqa: E501
-            'is_cloud_default': (bool,),  # noqa: E501
             'is_enabled': (bool,),  # noqa: E501
             'language': (str, none_type,),  # noqa: E501
             'last_seen': (datetime, none_type,),  # noqa: E501
@@ -156,7 +160,6 @@ class ElementsUserDetail(ModelNormal):
             'password_change_required': (bool,),  # noqa: E501
             'shaper_ceiling': (int, none_type,),  # noqa: E501
             'shaper_rate': (int, none_type,),  # noqa: E501
-            'totp_enabled': (bool,),  # noqa: E501
             'uid': (int, none_type,),  # noqa: E501
             'unix_username': (str, none_type,),  # noqa: E501
         }
@@ -174,8 +177,10 @@ class ElementsUserDetail(ModelNormal):
         'effective_permissions': 'effective_permissions',  # noqa: E501
         'group_permissions': 'group_permissions',  # noqa: E501
         'has_password': 'has_password',  # noqa: E501
+        'is_cloud_default': 'is_cloud_default',  # noqa: E501
         'permissions': 'permissions',  # noqa: E501
         'sync_id': 'sync_id',  # noqa: E501
+        'totp_enabled': 'totp_enabled',  # noqa: E501
         'username': 'username',  # noqa: E501
         'groups': 'groups',  # noqa: E501
         'allow_changing_password': 'allow_changing_password',  # noqa: E501
@@ -190,7 +195,6 @@ class ElementsUserDetail(ModelNormal):
         'home': 'home',  # noqa: E501
         'is_external': 'is_external',  # noqa: E501
         'is_cloud': 'is_cloud',  # noqa: E501
-        'is_cloud_default': 'is_cloud_default',  # noqa: E501
         'is_enabled': 'is_enabled',  # noqa: E501
         'language': 'language',  # noqa: E501
         'last_seen': 'last_seen',  # noqa: E501
@@ -199,7 +203,6 @@ class ElementsUserDetail(ModelNormal):
         'password_change_required': 'password_change_required',  # noqa: E501
         'shaper_ceiling': 'shaper_ceiling',  # noqa: E501
         'shaper_rate': 'shaper_rate',  # noqa: E501
-        'totp_enabled': 'totp_enabled',  # noqa: E501
         'uid': 'uid',  # noqa: E501
         'unix_username': 'unix_username',  # noqa: E501
     }
@@ -211,14 +214,18 @@ class ElementsUserDetail(ModelNormal):
         'effective_permissions',  # noqa: E501
         'group_permissions',  # noqa: E501
         'has_password',  # noqa: E501
+        'is_cloud_default',  # noqa: E501
         'sync_id',  # noqa: E501
+        'totp_enabled',  # noqa: E501
+        'last_seen',  # noqa: E501
+        'ldap_dn',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, allowed_fs_paths, allowed_fs_write_paths, display_name, effective_permissions, group_permissions, has_password, permissions, sync_id, username, groups, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, allowed_fs_paths, allowed_fs_write_paths, display_name, effective_permissions, group_permissions, has_password, is_cloud_default, permissions, sync_id, totp_enabled, username, groups, *args, **xkwargs):  # noqa: E501
         """ElementsUserDetail - a model defined in OpenAPI
 
         Args:
@@ -229,8 +236,10 @@ class ElementsUserDetail(ModelNormal):
             effective_permissions ([str, none_type]):
             group_permissions ([str, none_type]):
             has_password (bool):
+            is_cloud_default (bool):
             permissions ([str, none_type]):
             sync_id (str):
+            totp_enabled (bool):
             username (str):
             groups ([int]):
 
@@ -277,7 +286,6 @@ class ElementsUserDetail(ModelNormal):
             home (int, none_type): [optional]  # noqa: E501
             is_external (bool): [optional]  # noqa: E501
             is_cloud (bool): [optional]  # noqa: E501
-            is_cloud_default (bool): [optional]  # noqa: E501
             is_enabled (bool): [optional]  # noqa: E501
             language (str, none_type): [optional]  # noqa: E501
             last_seen (datetime, none_type): [optional]  # noqa: E501
@@ -286,7 +294,6 @@ class ElementsUserDetail(ModelNormal):
             password_change_required (bool): [optional]  # noqa: E501
             shaper_ceiling (int, none_type): [optional]  # noqa: E501
             shaper_rate (int, none_type): [optional]  # noqa: E501
-            totp_enabled (bool): [optional]  # noqa: E501
             uid (int, none_type): [optional]  # noqa: E501
             unix_username (str, none_type): [optional]  # noqa: E501
         """
@@ -324,8 +331,10 @@ class ElementsUserDetail(ModelNormal):
         self.effective_permissions = effective_permissions
         self.group_permissions = group_permissions
         self.has_password = has_password
+        self.is_cloud_default = is_cloud_default
         self.permissions = permissions
         self.sync_id = sync_id
+        self.totp_enabled = totp_enabled
         self.username = username
         self.groups = groups
         for var_name, var_value in xkwargs.items():
@@ -401,7 +410,6 @@ class ElementsUserDetail(ModelNormal):
             home (int, none_type): [optional]  # noqa: E501
             is_external (bool): [optional]  # noqa: E501
             is_cloud (bool): [optional]  # noqa: E501
-            is_cloud_default (bool): [optional]  # noqa: E501
             is_enabled (bool): [optional]  # noqa: E501
             language (str, none_type): [optional]  # noqa: E501
             last_seen (datetime, none_type): [optional]  # noqa: E501
@@ -410,7 +418,6 @@ class ElementsUserDetail(ModelNormal):
             password_change_required (bool): [optional]  # noqa: E501
             shaper_ceiling (int, none_type): [optional]  # noqa: E501
             shaper_rate (int, none_type): [optional]  # noqa: E501
-            totp_enabled (bool): [optional]  # noqa: E501
             uid (int, none_type): [optional]  # noqa: E501
             unix_username (str, none_type): [optional]  # noqa: E501
         """

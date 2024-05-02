@@ -84,7 +84,7 @@ class TraceNode(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'children': ([dict],),  # noqa: E501
+            'children': ([TraceNode],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'r': (int,),  # noqa: E501
             'w': (int,),  # noqa: E501
@@ -115,7 +115,7 @@ class TraceNode(ModelNormal):
         """TraceNode - a model defined in OpenAPI
 
         Args:
-            children ([dict]):
+            children ([TraceNode]):
             name (str):
 
         Keyword Args:
@@ -207,7 +207,7 @@ class TraceNode(ModelNormal):
         """TraceNode - a model defined in OpenAPI
 
         Args:
-            children ([dict]):
+            children ([TraceNode]):
             name (str):
 
         Keyword Args:

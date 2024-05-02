@@ -86,7 +86,7 @@ class SavedSearchPartialUpdate(ModelNormal):
         """
         return {
             'root': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'query': ([str, none_type],),  # noqa: E501
+            'query': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'shared': (bool,),  # noqa: E501
         }
@@ -145,7 +145,7 @@ class SavedSearchPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             root (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            query ([str, none_type]): [optional]  # noqa: E501
+            query ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             shared (bool): [optional]  # noqa: E501
         """
@@ -232,7 +232,7 @@ class SavedSearchPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             root (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            query ([str, none_type]): [optional]  # noqa: E501
+            query ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             shared (bool): [optional]  # noqa: E501
         """

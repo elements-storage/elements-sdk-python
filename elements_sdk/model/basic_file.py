@@ -93,7 +93,7 @@ class BasicFile(ModelNormal):
             'modification_time': (datetime,),  # noqa: E501
             'total_size': (int,),  # noqa: E501
             'is_dir': (bool,),  # noqa: E501
-            'files': ([dict], none_type,),  # noqa: E501
+            'files': ([BasicFile], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -165,7 +165,7 @@ class BasicFile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            files ([dict], none_type): [optional]  # noqa: E501
+            files ([BasicFile], none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -256,7 +256,7 @@ class BasicFile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            files ([dict], none_type): [optional]  # noqa: E501
+            files ([BasicFile], none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

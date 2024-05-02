@@ -58,10 +58,10 @@ class ChangeOwnPasswordRequest(ModelNormal):
     }
 
     validations = {
-        ('current_password',): {
+        ('password',): {
             'min_length': 1,
         },
-        ('password',): {
+        ('current_password',): {
             'min_length': 1,
         },
         ('current_otp',): {
@@ -90,8 +90,8 @@ class ChangeOwnPasswordRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'current_password': (str,),  # noqa: E501
             'password': (str,),  # noqa: E501
+            'current_password': (str,),  # noqa: E501
             'current_otp': (str, none_type,),  # noqa: E501
         }
 
@@ -101,8 +101,8 @@ class ChangeOwnPasswordRequest(ModelNormal):
 
 
     attribute_map = {
-        'current_password': 'current_password',  # noqa: E501
         'password': 'password',  # noqa: E501
+        'current_password': 'current_password',  # noqa: E501
         'current_otp': 'current_otp',  # noqa: E501
     }
 
@@ -113,12 +113,12 @@ class ChangeOwnPasswordRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, current_password, password, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, password, current_password, *args, **xkwargs):  # noqa: E501
         """ChangeOwnPasswordRequest - a model defined in OpenAPI
 
         Args:
-            current_password (str):
             password (str):
+            current_password (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -180,8 +180,8 @@ class ChangeOwnPasswordRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
-        self.current_password = current_password
         self.password = password
+        self.current_password = current_password
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -203,12 +203,12 @@ class ChangeOwnPasswordRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, current_password, password, *args, **xkwargs):  # noqa: E501
+    def __init__(self, password, current_password, *args, **xkwargs):  # noqa: E501
         """ChangeOwnPasswordRequest - a model defined in OpenAPI
 
         Args:
-            current_password (str):
             password (str):
+            current_password (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -268,8 +268,8 @@ class ChangeOwnPasswordRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
-        self.current_password = current_password
         self.password = password
+        self.current_password = current_password
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

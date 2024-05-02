@@ -523,6 +523,7 @@ class AutomationApi(object):
                     'task_name',
                     'is_finished',
                     'is_running',
+                    'related_proxy_id',
                     'ordering',
                     'limit',
                     'offset',
@@ -563,6 +564,8 @@ class AutomationApi(object):
                         (str,),
                     'is_running':
                         (str,),
+                    'related_proxy_id':
+                        (float,),
                     'ordering':
                         (str,),
                     'limit':
@@ -582,6 +585,7 @@ class AutomationApi(object):
                     'task_name': 'task_name',
                     'is_finished': 'is_finished',
                     'is_running': 'is_running',
+                    'related_proxy_id': 'related_proxy_id',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
@@ -598,6 +602,7 @@ class AutomationApi(object):
                     'task_name': 'query',
                     'is_finished': 'query',
                     'is_running': 'query',
+                    'related_proxy_id': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -1117,6 +1122,7 @@ class AutomationApi(object):
                     'task_name',
                     'is_finished',
                     'is_running',
+                    'related_proxy_id',
                     'ordering',
                     'limit',
                     'offset',
@@ -1158,6 +1164,8 @@ class AutomationApi(object):
                         (str,),
                     'is_running':
                         (str,),
+                    'related_proxy_id':
+                        (float,),
                     'ordering':
                         (str,),
                     'limit':
@@ -1179,6 +1187,7 @@ class AutomationApi(object):
                     'task_name': 'task_name',
                     'is_finished': 'is_finished',
                     'is_running': 'is_running',
+                    'related_proxy_id': 'related_proxy_id',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
@@ -1196,6 +1205,7 @@ class AutomationApi(object):
                     'task_name': 'query',
                     'is_finished': 'query',
                     'is_running': 'query',
+                    'related_proxy_id': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -1287,6 +1297,7 @@ class AutomationApi(object):
                     'task_name',
                     'is_finished',
                     'is_running',
+                    'related_proxy_id',
                     'ordering',
                     'limit',
                     'offset',
@@ -1327,6 +1338,8 @@ class AutomationApi(object):
                         (str,),
                     'is_running':
                         (str,),
+                    'related_proxy_id':
+                        (float,),
                     'ordering':
                         (str,),
                     'limit':
@@ -1346,6 +1359,7 @@ class AutomationApi(object):
                     'task_name': 'task_name',
                     'is_finished': 'is_finished',
                     'is_running': 'is_running',
+                    'related_proxy_id': 'related_proxy_id',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
@@ -1362,6 +1376,7 @@ class AutomationApi(object):
                     'task_name': 'query',
                     'is_finished': 'query',
                     'is_running': 'query',
+                    'related_proxy_id': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -1452,6 +1467,7 @@ class AutomationApi(object):
                     'task_name',
                     'is_finished',
                     'is_running',
+                    'related_proxy_id',
                     'ordering',
                     'limit',
                     'offset',
@@ -1492,6 +1508,8 @@ class AutomationApi(object):
                         (str,),
                     'is_running':
                         (str,),
+                    'related_proxy_id':
+                        (float,),
                     'ordering':
                         (str,),
                     'limit':
@@ -1511,6 +1529,7 @@ class AutomationApi(object):
                     'task_name': 'task_name',
                     'is_finished': 'is_finished',
                     'is_running': 'is_running',
+                    'related_proxy_id': 'related_proxy_id',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
@@ -1527,6 +1546,7 @@ class AutomationApi(object):
                     'task_name': 'query',
                     'is_finished': 'query',
                     'is_running': 'query',
+                    'related_proxy_id': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -1928,6 +1948,7 @@ class AutomationApi(object):
                     'task_name',
                     'is_finished',
                     'is_running',
+                    'related_proxy_id',
                     'ordering',
                     'limit',
                     'offset',
@@ -1968,6 +1989,8 @@ class AutomationApi(object):
                         (str,),
                     'is_running':
                         (str,),
+                    'related_proxy_id':
+                        (float,),
                     'ordering':
                         (str,),
                     'limit':
@@ -1987,6 +2010,7 @@ class AutomationApi(object):
                     'task_name': 'task_name',
                     'is_finished': 'is_finished',
                     'is_running': 'is_running',
+                    'related_proxy_id': 'related_proxy_id',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
@@ -2003,6 +2027,7 @@ class AutomationApi(object):
                     'task_name': 'query',
                     'is_finished': 'query',
                     'is_running': 'query',
+                    'related_proxy_id': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -3394,6 +3419,7 @@ class AutomationApi(object):
             task_name (str): Filter the returned list by `task_name`.. [optional]
             is_finished (str): Filter the returned list by `is_finished`.. [optional]
             is_running (str): Filter the returned list by `is_running`.. [optional]
+            related_proxy_id (float): Filter the returned list by `related_proxy_id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -4099,6 +4125,7 @@ class AutomationApi(object):
             task_name (str): Filter the returned list by `task_name`.. [optional]
             is_finished (str): Filter the returned list by `is_finished`.. [optional]
             is_running (str): Filter the returned list by `is_running`.. [optional]
+            related_proxy_id (float): Filter the returned list by `related_proxy_id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -4265,6 +4292,7 @@ class AutomationApi(object):
             task_name (str): Filter the returned list by `task_name`.. [optional]
             is_finished (str): Filter the returned list by `is_finished`.. [optional]
             is_running (str): Filter the returned list by `is_running`.. [optional]
+            related_proxy_id (float): Filter the returned list by `related_proxy_id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -4430,6 +4458,7 @@ class AutomationApi(object):
             task_name (str): Filter the returned list by `task_name`.. [optional]
             is_finished (str): Filter the returned list by `is_finished`.. [optional]
             is_running (str): Filter the returned list by `is_running`.. [optional]
+            related_proxy_id (float): Filter the returned list by `related_proxy_id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -5059,6 +5088,7 @@ class AutomationApi(object):
             task_name (str): Filter the returned list by `task_name`.. [optional]
             is_finished (str): Filter the returned list by `is_finished`.. [optional]
             is_running (str): Filter the returned list by `is_running`.. [optional]
+            related_proxy_id (float): Filter the returned list by `related_proxy_id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]

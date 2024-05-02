@@ -60,7 +60,6 @@ class VolumeUpdate(ModelNormal):
             'GENERIC-MOUNT': "generic-mount",
             'SNFS': "snfs",
             'BTRFS': "btrfs",
-            'LIZARDFS': "lizardfs",
             'BCACHEFS': "bcachefs",
             'ONEFS': "onefs",
             'BEEGFS': "beegfs",

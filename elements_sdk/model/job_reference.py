@@ -119,7 +119,7 @@ class JobReference(ModelNormal):
             'id': (int,),  # noqa: E501
             'schedules': ([ScheduleReference],),  # noqa: E501
             'startable': (bool,),  # noqa: E501
-            'variable_definitions': ([{str: (str, none_type)}],),  # noqa: E501
+            'variable_definitions': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'webhook_url': (str, none_type,),  # noqa: E501
             'needs_compatibility_check': (bool,),  # noqa: E501
             'subtasks': ([str],),  # noqa: E501
@@ -243,7 +243,7 @@ class JobReference(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             schedules ([ScheduleReference]): [optional]  # noqa: E501
             startable (bool): [optional]  # noqa: E501
-            variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
+            variable_definitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             webhook_url (str, none_type): [optional]  # noqa: E501
             needs_compatibility_check (bool): [optional]  # noqa: E501
             subtasks ([str]): [optional]  # noqa: E501
@@ -353,7 +353,7 @@ class JobReference(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             schedules ([ScheduleReference]): [optional]  # noqa: E501
             startable (bool): [optional]  # noqa: E501
-            variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
+            variable_definitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             webhook_url (str, none_type): [optional]  # noqa: E501
             needs_compatibility_check (bool): [optional]  # noqa: E501
             subtasks ([str]): [optional]  # noqa: E501

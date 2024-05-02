@@ -85,7 +85,7 @@ class SavedSearchUpdate(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'query': ([str, none_type],),  # noqa: E501
+            'query': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'root': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'shared': (bool,),  # noqa: E501
@@ -114,7 +114,7 @@ class SavedSearchUpdate(ModelNormal):
         """SavedSearchUpdate - a model defined in OpenAPI
 
         Args:
-            query ([str, none_type]):
+            query ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             name (str):
 
         Keyword Args:
@@ -205,7 +205,7 @@ class SavedSearchUpdate(ModelNormal):
         """SavedSearchUpdate - a model defined in OpenAPI
 
         Args:
-            query ([str, none_type]):
+            query ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             name (str):
 
         Keyword Args:

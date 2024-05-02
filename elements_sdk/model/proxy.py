@@ -112,7 +112,7 @@ class Proxy(ModelNormal):
             'profile': (ProxyProfileMini,),  # noqa: E501
             'failed_reason': (str, none_type,),  # noqa: E501
             'skipped': (bool,),  # noqa: E501
-            'generated': (datetime, none_type,),  # noqa: E501
+            'generated': (bool,),  # noqa: E501
             'asset': (int,),  # noqa: E501
             'transforms': (Transforms,),  # noqa: E501
             'generated_date': (datetime, none_type,),  # noqa: E501
@@ -165,7 +165,7 @@ class Proxy(ModelNormal):
             profile (ProxyProfileMini):
             failed_reason (str, none_type):
             skipped (bool):
-            generated (datetime, none_type):
+            generated (bool):
             asset (int):
 
         Keyword Args:
