@@ -107,6 +107,7 @@ class ElementsGroupReference(ModelNormal):
             'effective_permissions': ([str, none_type],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'ldap_dn': (str, none_type,),  # noqa: E501
+            'ldap_guid': (str, none_type,),  # noqa: E501
             'unix_groupname': (str, none_type,),  # noqa: E501
             'gid': (int, none_type,),  # noqa: E501
             'ldap': (int, none_type,),  # noqa: E501
@@ -125,6 +126,7 @@ class ElementsGroupReference(ModelNormal):
         'effective_permissions': 'effective_permissions',  # noqa: E501
         'name': 'name',  # noqa: E501
         'ldap_dn': 'ldap_dn',  # noqa: E501
+        'ldap_guid': 'ldap_guid',  # noqa: E501
         'unix_groupname': 'unix_groupname',  # noqa: E501
         'gid': 'gid',  # noqa: E501
         'ldap': 'ldap',  # noqa: E501
@@ -137,6 +139,7 @@ class ElementsGroupReference(ModelNormal):
         'effective_permissions',  # noqa: E501
         'name',  # noqa: E501
         'ldap_dn',  # noqa: E501
+        'ldap_guid',  # noqa: E501
         'unix_groupname',  # noqa: E501
         'gid',  # noqa: E501
         'ldap',  # noqa: E501
@@ -189,6 +192,7 @@ class ElementsGroupReference(ModelNormal):
             effective_permissions ([str, none_type]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
+            ldap_guid (str, none_type): [optional]  # noqa: E501
             unix_groupname (str, none_type): [optional]  # noqa: E501
             gid (int, none_type): [optional]  # noqa: E501
             ldap (int, none_type): [optional]  # noqa: E501
@@ -285,6 +289,7 @@ class ElementsGroupReference(ModelNormal):
             effective_permissions ([str, none_type]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
+            ldap_guid (str, none_type): [optional]  # noqa: E501
             unix_groupname (str, none_type): [optional]  # noqa: E501
             gid (int, none_type): [optional]  # noqa: E501
             ldap (int, none_type): [optional]  # noqa: E501

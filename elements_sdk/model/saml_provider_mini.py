@@ -87,8 +87,8 @@ class SAMLProviderMini(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'login_url': (str,),  # noqa: E501
-            'logout_url': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'logout_url': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -99,8 +99,8 @@ class SAMLProviderMini(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'login_url': 'login_url',  # noqa: E501
-        'logout_url': 'logout_url',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'logout_url': 'logout_url',  # noqa: E501
     }
 
     read_only_vars = {
@@ -112,13 +112,12 @@ class SAMLProviderMini(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, login_url, logout_url, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, login_url, *args, **xkwargs):  # noqa: E501
         """SAMLProviderMini - a model defined in OpenAPI
 
         Args:
             id (int):
             login_url (str):
-            logout_url (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -152,6 +151,7 @@ class SAMLProviderMini(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
+            logout_url (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -182,7 +182,6 @@ class SAMLProviderMini(ModelNormal):
 
         self.id = id
         self.login_url = login_url
-        self.logout_url = logout_url
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -241,6 +240,7 @@ class SAMLProviderMini(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
+            logout_url (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

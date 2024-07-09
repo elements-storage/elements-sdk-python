@@ -30,9 +30,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.asset_mini_reference import AssetMiniReference
+    from elements_sdk.model.asset_mini import AssetMini
     from elements_sdk.model.media_root_mini_reference import MediaRootMiniReference
-    globals()['AssetMiniReference'] = AssetMiniReference
+    globals()['AssetMini'] = AssetMini
     globals()['MediaRootMiniReference'] = MediaRootMiniReference
 
 
@@ -90,8 +90,8 @@ class SubclipReference(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'asset': (AssetMiniReference,),  # noqa: E501
             'root': (MediaRootMiniReference,),  # noqa: E501
+            'asset': (AssetMini,),  # noqa: E501
             'rendered': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'shared': (bool,),  # noqa: E501
             'date': (datetime,),  # noqa: E501
@@ -108,8 +108,8 @@ class SubclipReference(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'asset': 'asset',  # noqa: E501
         'root': 'root',  # noqa: E501
+        'asset': 'asset',  # noqa: E501
         'rendered': 'rendered',  # noqa: E501
         'shared': 'shared',  # noqa: E501
         'date': 'date',  # noqa: E501
@@ -132,12 +132,11 @@ class SubclipReference(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, asset, root, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, root, *args, **xkwargs):  # noqa: E501
         """SubclipReference - a model defined in OpenAPI
 
         Args:
             id (int):
-            asset (AssetMiniReference):
             root (MediaRootMiniReference):
 
         Keyword Args:
@@ -171,6 +170,7 @@ class SubclipReference(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            asset (AssetMini): [optional]  # noqa: E501
             rendered (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             shared (bool): [optional]  # noqa: E501
             date (datetime): [optional]  # noqa: E501
@@ -207,7 +207,6 @@ class SubclipReference(ModelNormal):
 
 
         self.id = id
-        self.asset = asset
         self.root = root
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -230,12 +229,11 @@ class SubclipReference(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, asset, root, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, root, *args, **xkwargs):  # noqa: E501
         """SubclipReference - a model defined in OpenAPI
 
         Args:
             id (int):
-            asset (AssetMiniReference):
             root (MediaRootMiniReference):
 
         Keyword Args:
@@ -269,6 +267,7 @@ class SubclipReference(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            asset (AssetMini): [optional]  # noqa: E501
             rendered (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             shared (bool): [optional]  # noqa: E501
             date (datetime): [optional]  # noqa: E501
@@ -303,7 +302,6 @@ class SubclipReference(ModelNormal):
 
 
         self.id = id
-        self.asset = asset
         self.root = root
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

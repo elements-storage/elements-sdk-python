@@ -529,7 +529,6 @@ class StatusApi(object):
     ):
         """get_telegraf_stats  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

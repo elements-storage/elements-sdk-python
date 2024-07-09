@@ -28,7 +28,6 @@ from elements_sdk.model.asset_cloud_link import AssetCloudLink
 from elements_sdk.model.asset_partial_update import AssetPartialUpdate
 from elements_sdk.model.asset_project_link import AssetProjectLink
 from elements_sdk.model.asset_rating import AssetRating
-from elements_sdk.model.asset_rating_partial_update import AssetRatingPartialUpdate
 from elements_sdk.model.asset_rating_update import AssetRatingUpdate
 from elements_sdk.model.asset_subtitle_link import AssetSubtitleLink
 from elements_sdk.model.asset_subtitle_link_partial_update import AssetSubtitleLinkPartialUpdate
@@ -63,6 +62,7 @@ from elements_sdk.model.marker_update import MarkerUpdate
 from elements_sdk.model.media_file import MediaFile
 from elements_sdk.model.media_file_bundle import MediaFileBundle
 from elements_sdk.model.media_file_contents import MediaFileContents
+from elements_sdk.model.media_file_mini import MediaFileMini
 from elements_sdk.model.media_file_partial_update import MediaFilePartialUpdate
 from elements_sdk.model.media_file_template import MediaFileTemplate
 from elements_sdk.model.media_file_template_partial_update import MediaFileTemplatePartialUpdate
@@ -78,7 +78,6 @@ from elements_sdk.model.media_root_detail_update import MediaRootDetailUpdate
 from elements_sdk.model.media_root_permission import MediaRootPermission
 from elements_sdk.model.media_root_permission_partial_update import MediaRootPermissionPartialUpdate
 from elements_sdk.model.media_root_permission_update import MediaRootPermissionUpdate
-from elements_sdk.model.media_root_update import MediaRootUpdate
 from elements_sdk.model.media_update import MediaUpdate
 from elements_sdk.model.multiple_assets_request import MultipleAssetsRequest
 from elements_sdk.model.one_time_access_token import OneTimeAccessToken
@@ -117,6 +116,7 @@ from elements_sdk.model.unfiltered_tag_partial_update import UnfilteredTagPartia
 from elements_sdk.model.unfiltered_tag_update import UnfilteredTagUpdate
 from elements_sdk.model.unresolved_count import UnresolvedCount
 from elements_sdk.model.vantage_workflows import VantageWorkflows
+from elements_sdk.model.web_upload_completed import WebUploadCompleted
 from elements_sdk.model.workflow_transition_request import WorkflowTransitionRequest
 from elements_sdk.model.workflow_transition_response import WorkflowTransitionResponse
 from elements_sdk.model.xml_export import XMLExport
@@ -272,7 +272,7 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/assets/combine',
+                'endpoint_path': '/api/2/media/stacks/combine-into-set',
                 'operation_id': 'combine_assets_into_set',
                 'http_method': 'POST',
                 'servers': None,
@@ -395,75 +395,25 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
-        self.create_asset_endpoint = _Endpoint(
-            settings={
-                'response_type': (Asset,),
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/media/assets',
-                'operation_id': 'create_asset',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'asset_update',
-                ],
-                'required': [
-                    'asset_update',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'asset_update':
-                        (AssetUpdate,),
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                    'asset_update': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
         self.create_asset_rating_endpoint = _Endpoint(
             settings={
                 'response_type': (AssetRating,),
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/ratings',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/ratings',
                 'operation_id': 'create_asset_rating',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'asset_rating_update',
                     'root',
                 ],
                 'required': [
+                    'asset_id',
                     'asset_rating_update',
                 ],
                 'nullable': [
@@ -479,15 +429,19 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'asset_rating_update':
                         (AssetRatingUpdate,),
                     'root':
                         (int,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'root': 'root',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'asset_rating_update': 'body',
                     'root': 'query',
                 },
@@ -510,16 +464,18 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/assets/subtitle-links',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/subtitle-links',
                 'operation_id': 'create_asset_subtitle_link',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'asset_subtitle_link_update',
                 ],
                 'required': [
+                    'asset_id',
                     'asset_subtitle_link_update',
                 ],
                 'nullable': [
@@ -535,12 +491,16 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'asset_subtitle_link_update':
                         (AssetSubtitleLinkUpdate,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'asset_subtitle_link_update': 'body',
                 },
                 'collection_format_map': {
@@ -832,16 +792,18 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/markers',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/markers',
                 'operation_id': 'create_marker',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'marker_update',
                 ],
                 'required': [
+                    'asset_id',
                     'marker_update',
                 ],
                 'nullable': [
@@ -857,12 +819,16 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'marker_update':
                         (MarkerUpdate,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'marker_update': 'body',
                 },
                 'collection_format_map': {
@@ -932,7 +898,7 @@ class MediaLibraryApi(object):
         )
         self.create_media_root_endpoint = _Endpoint(
             settings={
-                'response_type': (MediaRoot,),
+                'response_type': (MediaRootDetail,),
                 'auth': [
                     'Bearer'
                 ],
@@ -943,10 +909,10 @@ class MediaLibraryApi(object):
             },
             params_map={
                 'all': [
-                    'media_root_update',
+                    'media_root_detail_update',
                 ],
                 'required': [
-                    'media_root_update',
+                    'media_root_detail_update',
                 ],
                 'nullable': [
                 ],
@@ -961,13 +927,13 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'media_root_update':
-                        (MediaRootUpdate,),
+                    'media_root_detail_update':
+                        (MediaRootDetailUpdate,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'media_root_update': 'body',
+                    'media_root_detail_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1248,16 +1214,18 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/subclips',
+                'endpoint_path': '/api/2/media/{asset_id}/subclips',
                 'operation_id': 'create_subclip',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'subclip_update',
                 ],
                 'required': [
+                    'asset_id',
                     'subclip_update',
                 ],
                 'nullable': [
@@ -1273,12 +1241,16 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'subclip_update':
                         (SubclipUpdate,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'subclip_update': 'body',
                 },
                 'collection_format_map': {
@@ -1453,17 +1425,19 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/ratings/{id}',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/ratings/{id}',
                 'operation_id': 'delete_asset_rating',
                 'http_method': 'DELETE',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'id',
                     'root',
                 ],
                 'required': [
+                    'asset_id',
                     'id',
                 ],
                 'nullable': [
@@ -1479,16 +1453,20 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'id':
                         (int,),
                     'root':
                         (int,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'id': 'id',
                     'root': 'root',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'id': 'path',
                     'root': 'query',
                 },
@@ -1507,16 +1485,18 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/assets/subtitle-links/{id}',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/subtitle-links/{id}',
                 'operation_id': 'delete_asset_subtitle_link',
                 'http_method': 'DELETE',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'id',
                 ],
                 'required': [
+                    'asset_id',
                     'id',
                 ],
                 'nullable': [
@@ -1532,13 +1512,17 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'id':
                         (int,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'id': 'id',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'id': 'path',
                 },
                 'collection_format_map': {
@@ -1801,16 +1785,18 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/markers/{id}',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/markers/{id}',
                 'operation_id': 'delete_marker',
                 'http_method': 'DELETE',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'id',
                 ],
                 'required': [
+                    'asset_id',
                     'id',
                 ],
                 'nullable': [
@@ -1826,13 +1812,17 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'id':
                         (int,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'id': 'id',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'id': 'path',
                 },
                 'collection_format_map': {
@@ -2196,16 +2186,18 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/proxies/{id}',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/proxies/{id}',
                 'operation_id': 'delete_proxy',
                 'http_method': 'DELETE',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'id',
                 ],
                 'required': [
+                    'asset_id',
                     'id',
                 ],
                 'nullable': [
@@ -2221,13 +2213,17 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'id':
                         (int,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'id': 'id',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'id': 'path',
                 },
                 'collection_format_map': {
@@ -2441,16 +2437,18 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/subclips/{id}',
+                'endpoint_path': '/api/2/media/{asset_id}/subclips/{id}',
                 'operation_id': 'delete_subclip',
                 'http_method': 'DELETE',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'id',
                 ],
                 'required': [
+                    'asset_id',
                     'id',
                 ],
                 'nullable': [
@@ -2466,13 +2464,17 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'id':
                         (int,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'id': 'id',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'id': 'path',
                 },
                 'collection_format_map': {
@@ -2744,16 +2746,19 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/proxies/{id}/download',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/proxies/{id}/download',
                 'operation_id': 'download_proxy',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'id',
+                    'bundle_id',
                 ],
                 'required': [
+                    'asset_id',
                     'id',
                 ],
                 'nullable': [
@@ -2769,14 +2774,22 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'id':
+                        (int,),
+                    'bundle_id':
                         (int,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'id': 'id',
+                    'bundle_id': 'bundle_id',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'id': 'path',
+                    'bundle_id': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -3370,20 +3383,23 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/assets/project-links',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/project-links',
                 'operation_id': 'get_all_asset_project_links',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'asset',
                     'project',
                     'ordering',
                     'limit',
                     'offset',
                 ],
-                'required': [],
+                'required': [
+                    'asset_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -3397,6 +3413,8 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'asset':
                         (int,),
                     'project':
@@ -3409,6 +3427,7 @@ class MediaLibraryApi(object):
                         (int,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'asset': 'asset',
                     'project': 'project',
                     'ordering': 'ordering',
@@ -3416,6 +3435,7 @@ class MediaLibraryApi(object):
                     'offset': 'offset',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'asset': 'query',
                     'project': 'query',
                     'ordering': 'query',
@@ -3439,20 +3459,23 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/ratings',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/ratings',
                 'operation_id': 'get_all_asset_ratings',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'user',
                     'asset',
                     'ordering',
                     'limit',
                     'offset',
                 ],
-                'required': [],
+                'required': [
+                    'asset_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -3466,6 +3489,8 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'user':
                         (int,),
                     'asset':
@@ -3478,6 +3503,7 @@ class MediaLibraryApi(object):
                         (int,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'user': 'user',
                     'asset': 'asset',
                     'ordering': 'ordering',
@@ -3485,6 +3511,7 @@ class MediaLibraryApi(object):
                     'offset': 'offset',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'user': 'query',
                     'asset': 'query',
                     'ordering': 'query',
@@ -3508,20 +3535,22 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/assets/subtitle-links',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/subtitle-links',
                 'operation_id': 'get_all_asset_subtitle_links',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'asset',
+                    'asset_id',
                     'subtitle',
                     'ordering',
                     'limit',
                     'offset',
                 ],
-                'required': [],
+                'required': [
+                    'asset_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -3535,8 +3564,8 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'asset':
-                        (int,),
+                    'asset_id':
+                        (str,),
                     'subtitle':
                         (int,),
                     'ordering':
@@ -3547,14 +3576,14 @@ class MediaLibraryApi(object):
                         (int,),
                 },
                 'attribute_map': {
-                    'asset': 'asset',
+                    'asset_id': 'asset_id',
                     'subtitle': 'subtitle',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
                 },
                 'location_map': {
-                    'asset': 'query',
+                    'asset_id': 'path',
                     'subtitle': 'query',
                     'ordering': 'query',
                     'limit': 'query',
@@ -3670,7 +3699,6 @@ class MediaLibraryApi(object):
                 'all': [
                     'sync_id',
                     'display_name',
-                    'set',
                     'ordering',
                     'limit',
                     'offset',
@@ -3698,8 +3726,6 @@ class MediaLibraryApi(object):
                         (str,),
                     'display_name':
                         (str,),
-                    'set':
-                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -3720,7 +3746,6 @@ class MediaLibraryApi(object):
                 'attribute_map': {
                     'sync_id': 'sync_id',
                     'display_name': 'display_name',
-                    'set': 'set',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
@@ -3733,7 +3758,6 @@ class MediaLibraryApi(object):
                 'location_map': {
                     'sync_id': 'query',
                     'display_name': 'query',
-                    'set': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -4288,20 +4312,22 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/markers',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/markers',
                 'operation_id': 'get_all_markers',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'asset',
+                    'asset_id',
                     'user',
                     'ordering',
                     'limit',
                     'offset',
                 ],
-                'required': [],
+                'required': [
+                    'asset_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -4315,8 +4341,8 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'asset':
-                        (int,),
+                    'asset_id':
+                        (str,),
                     'user':
                         (int,),
                     'ordering':
@@ -4327,14 +4353,14 @@ class MediaLibraryApi(object):
                         (int,),
                 },
                 'attribute_map': {
-                    'asset': 'asset',
+                    'asset_id': 'asset_id',
                     'user': 'user',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
                 },
                 'location_map': {
-                    'asset': 'query',
+                    'asset_id': 'path',
                     'user': 'query',
                     'ordering': 'query',
                     'limit': 'query',
@@ -5674,22 +5700,23 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/subclips',
+                'endpoint_path': '/api/2/media/{asset_id}/subclips',
                 'operation_id': 'get_all_subclips',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'asset',
-                    'asset__in',
+                    'asset_id',
                     'root',
                     'name',
                     'ordering',
                     'limit',
                     'offset',
                 ],
-                'required': [],
+                'required': [
+                    'asset_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -5703,9 +5730,7 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'asset':
-                        (int,),
-                    'asset__in':
+                    'asset_id':
                         (str,),
                     'root':
                         (int,),
@@ -5719,8 +5744,7 @@ class MediaLibraryApi(object):
                         (int,),
                 },
                 'attribute_map': {
-                    'asset': 'asset',
-                    'asset__in': 'asset__in',
+                    'asset_id': 'asset_id',
                     'root': 'root',
                     'name': 'name',
                     'ordering': 'ordering',
@@ -5728,8 +5752,7 @@ class MediaLibraryApi(object):
                     'offset': 'offset',
                 },
                 'location_map': {
-                    'asset': 'query',
-                    'asset__in': 'query',
+                    'asset_id': 'path',
                     'root': 'query',
                     'name': 'query',
                     'ordering': 'query',
@@ -5952,8 +5975,65 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/ratings/{id}',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/ratings/{id}',
                 'operation_id': 'get_asset_rating',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'asset_id',
+                    'id',
+                ],
+                'required': [
+                    'asset_id',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'asset_id':
+                        (str,),
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'asset_id': 'asset_id',
+                    'id': 'id',
+                },
+                'location_map': {
+                    'asset_id': 'path',
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_asset_stack_members_endpoint = _Endpoint(
+            settings={
+                'response_type': ([Asset],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/stacks/{id}/members',
+                'operation_id': 'get_asset_stack_members',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -6003,16 +6083,18 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/assets/subtitle-links/{id}',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/subtitle-links/{id}',
                 'operation_id': 'get_asset_subtitle_link',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'id',
                 ],
                 'required': [
+                    'asset_id',
                     'id',
                 ],
                 'nullable': [
@@ -6028,13 +6110,17 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'id':
                         (int,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'id': 'id',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'id': 'path',
                 },
                 'collection_format_map': {
@@ -6150,6 +6236,57 @@ class MediaLibraryApi(object):
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_bundle_files_endpoint = _Endpoint(
+            settings={
+                'response_type': ([MediaFileMini],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/bundles/{id}/files',
+                'operation_id': 'get_bundle_files',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -6597,57 +6734,6 @@ class MediaLibraryApi(object):
                 'accept': [
                     'image/png',
                     'image/jpeg'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_marker_endpoint = _Endpoint(
-            settings={
-                'response_type': (Marker,),
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/media/markers/{id}',
-                'operation_id': 'get_marker',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                ],
-                'required': [
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (int,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                },
-                'location_map': {
-                    'id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
                 ],
                 'content_type': [],
             },
@@ -7595,16 +7681,18 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/proxies/{id}',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/proxies/{id}',
                 'operation_id': 'get_proxy',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'id',
                 ],
                 'required': [
+                    'asset_id',
                     'id',
                 ],
                 'nullable': [
@@ -7620,13 +7708,17 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'id':
                         (int,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'id': 'id',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'id': 'path',
                 },
                 'collection_format_map': {
@@ -7949,57 +8041,6 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
-        self.get_subclip_endpoint = _Endpoint(
-            settings={
-                'response_type': (Subclip,),
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/media/subclips/{id}',
-                'operation_id': 'get_subclip',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                ],
-                'required': [
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (int,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                },
-                'location_map': {
-                    'id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
         self.get_subtitles_endpoint = _Endpoint(
             settings={
                 'response_type': (file_type,),
@@ -8206,6 +8247,56 @@ class MediaLibraryApi(object):
                 'location_map': {
                     'id': 'path',
                     'instantiate_file_template_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.link_assets_as_versions_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/stacks/link-versions',
+                'operation_id': 'link_assets_as_versions',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'multiple_assets_request',
+                ],
+                'required': [
+                    'multiple_assets_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'multiple_assets_request':
+                        (MultipleAssetsRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'multiple_assets_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -8433,81 +8524,25 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
-        self.patch_asset_rating_endpoint = _Endpoint(
-            settings={
-                'response_type': (AssetRating,),
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/media/ratings/{id}',
-                'operation_id': 'patch_asset_rating',
-                'http_method': 'PATCH',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                    'asset_rating_partial_update',
-                ],
-                'required': [
-                    'id',
-                    'asset_rating_partial_update',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (int,),
-                    'asset_rating_partial_update':
-                        (AssetRatingPartialUpdate,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                },
-                'location_map': {
-                    'id': 'path',
-                    'asset_rating_partial_update': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
         self.patch_asset_subtitle_link_endpoint = _Endpoint(
             settings={
                 'response_type': (AssetSubtitleLink,),
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/assets/subtitle-links/{id}',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/subtitle-links/{id}',
                 'operation_id': 'patch_asset_subtitle_link',
                 'http_method': 'PATCH',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'id',
                     'asset_subtitle_link_partial_update',
                 ],
                 'required': [
+                    'asset_id',
                     'id',
                     'asset_subtitle_link_partial_update',
                 ],
@@ -8524,15 +8559,19 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'id':
                         (int,),
                     'asset_subtitle_link_partial_update':
                         (AssetSubtitleLinkPartialUpdate,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'id': 'id',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'id': 'path',
                     'asset_subtitle_link_partial_update': 'body',
                 },
@@ -8845,17 +8884,19 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/markers/{id}',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/markers/{id}',
                 'operation_id': 'patch_marker',
                 'http_method': 'PATCH',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'id',
                     'marker_partial_update',
                 ],
                 'required': [
+                    'asset_id',
                     'id',
                     'marker_partial_update',
                 ],
@@ -8872,15 +8913,19 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'id':
                         (int,),
                     'marker_partial_update':
                         (MarkerPartialUpdate,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'id': 'id',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'id': 'path',
                     'marker_partial_update': 'body',
                 },
@@ -9372,17 +9417,19 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/subclips/{id}',
+                'endpoint_path': '/api/2/media/{asset_id}/subclips/{id}',
                 'operation_id': 'patch_subclip',
                 'http_method': 'PATCH',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'id',
                     'subclip_partial_update',
                 ],
                 'required': [
+                    'asset_id',
                     'id',
                     'subclip_partial_update',
                 ],
@@ -9399,15 +9446,19 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'id':
                         (int,),
                     'subclip_partial_update':
                         (SubclipPartialUpdate,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'id': 'id',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'id': 'path',
                     'subclip_partial_update': 'body',
                 },
@@ -9627,6 +9678,55 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.remove_asset_from_set_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/assets/{id}/set',
+                'operation_id': 'remove_asset_from_set',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.rename_custom_field_endpoint = _Endpoint(
             settings={
                 'response_type': (TaskInfo,),
@@ -9743,17 +9843,19 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/subclips/{id}/render',
+                'endpoint_path': '/api/2/media/{asset_id}/subclips/{id}/render',
                 'operation_id': 'render_subclip',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'id',
                     'render_request',
                 ],
                 'required': [
+                    'asset_id',
                     'id',
                     'render_request',
                 ],
@@ -9770,15 +9872,19 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'id':
                         (int,),
                     'render_request':
                         (RenderRequest,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'id': 'id',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'id': 'path',
                     'render_request': 'body',
                 },
@@ -10101,6 +10207,55 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.unlink_asset_version_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/assets/{id}/versions',
+                'operation_id': 'unlink_asset_version',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.unmark_media_directory_as_showroom_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -10264,81 +10419,25 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
-        self.update_asset_rating_endpoint = _Endpoint(
-            settings={
-                'response_type': (AssetRating,),
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/media/ratings/{id}',
-                'operation_id': 'update_asset_rating',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                    'asset_rating_update',
-                ],
-                'required': [
-                    'id',
-                    'asset_rating_update',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (int,),
-                    'asset_rating_update':
-                        (AssetRatingUpdate,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                },
-                'location_map': {
-                    'id': 'path',
-                    'asset_rating_update': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
         self.update_asset_subtitle_link_endpoint = _Endpoint(
             settings={
                 'response_type': (AssetSubtitleLink,),
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/assets/subtitle-links/{id}',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/subtitle-links/{id}',
                 'operation_id': 'update_asset_subtitle_link',
                 'http_method': 'PUT',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'id',
                     'asset_subtitle_link_update',
                 ],
                 'required': [
+                    'asset_id',
                     'id',
                     'asset_subtitle_link_update',
                 ],
@@ -10355,15 +10454,19 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'id':
                         (int,),
                     'asset_subtitle_link_update':
                         (AssetSubtitleLinkUpdate,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'id': 'id',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'id': 'path',
                     'asset_subtitle_link_update': 'body',
                 },
@@ -10676,17 +10779,19 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/markers/{id}',
+                'endpoint_path': '/api/2/media/assets/{asset_id}/markers/{id}',
                 'operation_id': 'update_marker',
                 'http_method': 'PUT',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'id',
                     'marker_update',
                 ],
                 'required': [
+                    'asset_id',
                     'id',
                     'marker_update',
                 ],
@@ -10703,15 +10808,19 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'id':
                         (int,),
                     'marker_update':
                         (MarkerUpdate,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'id': 'id',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'id': 'path',
                     'marker_update': 'body',
                 },
@@ -11315,17 +11424,19 @@ class MediaLibraryApi(object):
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/media/subclips/{id}',
+                'endpoint_path': '/api/2/media/{asset_id}/subclips/{id}',
                 'operation_id': 'update_subclip',
                 'http_method': 'PUT',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'asset_id',
                     'id',
                     'subclip_update',
                 ],
                 'required': [
+                    'asset_id',
                     'id',
                     'subclip_update',
                 ],
@@ -11342,15 +11453,19 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'asset_id':
+                        (str,),
                     'id':
                         (int,),
                     'subclip_update':
                         (SubclipUpdate,),
                 },
                 'attribute_map': {
+                    'asset_id': 'asset_id',
                     'id': 'id',
                 },
                 'location_map': {
+                    'asset_id': 'path',
                     'id': 'path',
                     'subclip_update': 'body',
                 },
@@ -11367,6 +11482,56 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.web_upload_completed_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/web/upload-completed',
+                'operation_id': 'web_upload_completed',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'web_upload_completed',
+                ],
+                'required': [
+                    'web_upload_completed',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'web_upload_completed':
+                        (WebUploadCompleted,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'web_upload_completed': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
 
     def bookmark_media_directory(
         self,
@@ -11375,7 +11540,7 @@ class MediaLibraryApi(object):
     ):
         """bookmark_media_directory  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -11676,7 +11841,7 @@ class MediaLibraryApi(object):
     ):
         """count_unresolved_comments  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -11750,99 +11915,23 @@ class MediaLibraryApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.count_unresolved_comments_endpoint.call_with_http_info(**kwargs)
 
-    def create_asset(
-        self,
-        asset_update,
-        **kwargs
-    ):
-        """create_asset  # noqa: E501
-
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.create_asset(asset_update, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            asset_update (AssetUpdate):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Asset
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['asset_update'] = \
-            asset_update
-        return self.create_asset_endpoint.call_with_http_info(**kwargs)
-
     def create_asset_rating(
         self,
+        asset_id,
         asset_rating_update,
         **kwargs
     ):
         """create_asset_rating  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db, show_ratings Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_asset_rating(asset_rating_update, async_req=True)
+        >>> thread = api.create_asset_rating(asset_id, asset_rating_update, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             asset_rating_update (AssetRatingUpdate):
 
         Keyword Args:
@@ -11903,25 +11992,29 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['asset_rating_update'] = \
             asset_rating_update
         return self.create_asset_rating_endpoint.call_with_http_info(**kwargs)
 
     def create_asset_subtitle_link(
         self,
+        asset_id,
         asset_subtitle_link_update,
         **kwargs
     ):
         """create_asset_subtitle_link  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_asset_subtitle_link(asset_subtitle_link_update, async_req=True)
+        >>> thread = api.create_asset_subtitle_link(asset_id, asset_subtitle_link_update, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             asset_subtitle_link_update (AssetSubtitleLinkUpdate):
 
         Keyword Args:
@@ -11981,6 +12074,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['asset_subtitle_link_update'] = \
             asset_subtitle_link_update
         return self.create_asset_subtitle_link_endpoint.call_with_http_info(**kwargs)
@@ -11992,7 +12087,7 @@ class MediaLibraryApi(object):
     ):
         """create_comment  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -12379,19 +12474,21 @@ class MediaLibraryApi(object):
 
     def create_marker(
         self,
+        asset_id,
         marker_update,
         **kwargs
     ):
         """create_marker  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_marker(marker_update, async_req=True)
+        >>> thread = api.create_marker(asset_id, marker_update, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             marker_update (MarkerUpdate):
 
         Keyword Args:
@@ -12451,6 +12548,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['marker_update'] = \
             marker_update
         return self.create_marker_endpoint.call_with_http_info(**kwargs)
@@ -12535,7 +12634,7 @@ class MediaLibraryApi(object):
 
     def create_media_root(
         self,
-        media_root_update,
+        media_root_detail_update,
         **kwargs
     ):
         """create_media_root  # noqa: E501
@@ -12544,11 +12643,11 @@ class MediaLibraryApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_media_root(media_root_update, async_req=True)
+        >>> thread = api.create_media_root(media_root_detail_update, async_req=True)
         >>> result = thread.get()
 
         Args:
-            media_root_update (MediaRootUpdate):
+            media_root_detail_update (MediaRootDetailUpdate):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -12579,7 +12678,7 @@ class MediaLibraryApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            MediaRoot
+            MediaRootDetail
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -12607,8 +12706,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['media_root_update'] = \
-            media_root_update
+        kwargs['media_root_detail_update'] = \
+            media_root_detail_update
         return self.create_media_root_endpoint.call_with_http_info(**kwargs)
 
     def create_media_root_permission(
@@ -13003,19 +13102,21 @@ class MediaLibraryApi(object):
 
     def create_subclip(
         self,
+        asset_id,
         subclip_update,
         **kwargs
     ):
         """create_subclip  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * Must be shared OR Must own the object   * allow_write_db, show_subclips Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_subclip(subclip_update, async_req=True)
+        >>> thread = api.create_subclip(asset_id, subclip_update, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             subclip_update (SubclipUpdate):
 
         Keyword Args:
@@ -13075,6 +13176,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['subclip_update'] = \
             subclip_update
         return self.create_subclip_endpoint.call_with_http_info(**kwargs)
@@ -13242,7 +13345,7 @@ class MediaLibraryApi(object):
     ):
         """delete_asset  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_delete_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -13315,19 +13418,21 @@ class MediaLibraryApi(object):
 
     def delete_asset_rating(
         self,
+        asset_id,
         id,
         **kwargs
     ):
         """delete_asset_rating  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * Must own the object   * allow_write_db, show_ratings Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_asset_rating(id, async_req=True)
+        >>> thread = api.delete_asset_rating(asset_id, id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             id (int): A unique integer value identifying this Rating.
 
         Keyword Args:
@@ -13388,25 +13493,29 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['id'] = \
             id
         return self.delete_asset_rating_endpoint.call_with_http_info(**kwargs)
 
     def delete_asset_subtitle_link(
         self,
+        asset_id,
         id,
         **kwargs
     ):
         """delete_asset_subtitle_link  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_delete_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_asset_subtitle_link(id, async_req=True)
+        >>> thread = api.delete_asset_subtitle_link(asset_id, id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             id (int): A unique integer value identifying this Asset subtitle file link.
 
         Keyword Args:
@@ -13466,6 +13575,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['id'] = \
             id
         return self.delete_asset_subtitle_link_endpoint.call_with_http_info(**kwargs)
@@ -13477,7 +13588,7 @@ class MediaLibraryApi(object):
     ):
         """delete_comment  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_delete_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -13633,7 +13744,7 @@ class MediaLibraryApi(object):
     ):
         """delete_easy_sharing_token_for_bundle  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -13711,7 +13822,7 @@ class MediaLibraryApi(object):
     ):
         """delete_easy_sharing_token_for_directory  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -13862,19 +13973,21 @@ class MediaLibraryApi(object):
 
     def delete_marker(
         self,
+        asset_id,
         id,
         **kwargs
     ):
         """delete_marker  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_marker(id, async_req=True)
+        >>> thread = api.delete_marker(asset_id, id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             id (int): A unique integer value identifying this marker.
 
         Keyword Args:
@@ -13934,6 +14047,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['id'] = \
             id
         return self.delete_marker_endpoint.call_with_http_info(**kwargs)
@@ -14486,19 +14601,21 @@ class MediaLibraryApi(object):
 
     def delete_proxy(
         self,
+        asset_id,
         id,
         **kwargs
     ):
         """delete_proxy  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_delete_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_proxy(id, async_req=True)
+        >>> thread = api.delete_proxy(asset_id, id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             id (int): A unique integer value identifying this proxy.
 
         Keyword Args:
@@ -14558,6 +14675,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['id'] = \
             id
         return self.delete_proxy_endpoint.call_with_http_info(**kwargs)
@@ -14876,19 +14995,21 @@ class MediaLibraryApi(object):
 
     def delete_subclip(
         self,
+        asset_id,
         id,
         **kwargs
     ):
         """delete_subclip  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * Must be shared OR Must own the object   * allow_write_db, show_subclips Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_subclip(id, async_req=True)
+        >>> thread = api.delete_subclip(asset_id, id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             id (int): A unique integer value identifying this subclip.
 
         Keyword Args:
@@ -14948,6 +15069,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['id'] = \
             id
         return self.delete_subclip_endpoint.call_with_http_info(**kwargs)
@@ -15194,7 +15317,7 @@ class MediaLibraryApi(object):
     ):
         """download_asset_proxy_file  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -15275,7 +15398,7 @@ class MediaLibraryApi(object):
     ):
         """download_media_file  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_original_download Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -15348,22 +15471,25 @@ class MediaLibraryApi(object):
 
     def download_proxy(
         self,
+        asset_id,
         id,
         **kwargs
     ):
         """download_proxy  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.download_proxy(id, async_req=True)
+        >>> thread = api.download_proxy(asset_id, id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             id (int): A unique integer value identifying this proxy.
 
         Keyword Args:
+            bundle_id (int): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -15420,6 +15546,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['id'] = \
             id
         return self.download_proxy_endpoint.call_with_http_info(**kwargs)
@@ -15674,7 +15802,7 @@ class MediaLibraryApi(object):
     ):
         """exclude_directory_from_proxy_generation  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -15752,7 +15880,7 @@ class MediaLibraryApi(object):
     ):
         """exclude_directory_from_scan  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -15994,7 +16122,7 @@ class MediaLibraryApi(object):
     ):
         """extract_stream  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_fs Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -16075,7 +16203,7 @@ class MediaLibraryApi(object):
     ):
         """forget_deleted_media_files  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_delete_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -16153,7 +16281,6 @@ class MediaLibraryApi(object):
     ):
         """generate_proxies  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -16226,17 +16353,20 @@ class MediaLibraryApi(object):
 
     def get_all_asset_project_links(
         self,
+        asset_id,
         **kwargs
     ):
         """get_all_asset_project_links  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_all_asset_project_links(async_req=True)
+        >>> thread = api.get_all_asset_project_links(asset_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            asset_id (str):
 
         Keyword Args:
             asset (int): Filter the returned list by `asset`.. [optional]
@@ -16300,21 +16430,26 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         return self.get_all_asset_project_links_endpoint.call_with_http_info(**kwargs)
 
     def get_all_asset_ratings(
         self,
+        asset_id,
         **kwargs
     ):
         """get_all_asset_ratings  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read, show_ratings Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_all_asset_ratings(async_req=True)
+        >>> thread = api.get_all_asset_ratings(asset_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            asset_id (str):
 
         Keyword Args:
             user (int): Filter the returned list by `user`.. [optional]
@@ -16378,24 +16513,28 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         return self.get_all_asset_ratings_endpoint.call_with_http_info(**kwargs)
 
     def get_all_asset_subtitle_links(
         self,
+        asset_id,
         **kwargs
     ):
         """get_all_asset_subtitle_links  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_all_asset_subtitle_links(async_req=True)
+        >>> thread = api.get_all_asset_subtitle_links(asset_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            asset_id (str):
 
         Keyword Args:
-            asset (int): Filter the returned list by `asset`.. [optional]
             subtitle (int): Filter the returned list by `subtitle`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
@@ -16456,6 +16595,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         return self.get_all_asset_subtitle_links_endpoint.call_with_http_info(**kwargs)
 
     def get_all_asset_tape_backups(
@@ -16545,7 +16686,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_assets  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -16556,7 +16697,6 @@ class MediaLibraryApi(object):
         Keyword Args:
             sync_id (str): Filter the returned list by `sync_id`.. [optional]
             display_name (str): Filter the returned list by `display_name`.. [optional]
-            set (int): Filter the returned list by `set`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -16630,7 +16770,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_bundles_for_media_root  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -16716,7 +16856,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_bundles_in_subtree  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -16888,7 +17028,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_comments  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17123,20 +17263,22 @@ class MediaLibraryApi(object):
 
     def get_all_markers(
         self,
+        asset_id,
         **kwargs
     ):
         """get_all_markers  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_all_markers(async_req=True)
+        >>> thread = api.get_all_markers(asset_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            asset_id (str):
 
         Keyword Args:
-            asset (int): Filter the returned list by `asset`.. [optional]
             user (int): Filter the returned list by `user`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
@@ -17197,6 +17339,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         return self.get_all_markers_endpoint.call_with_http_info(**kwargs)
 
     def get_all_media_file_bundles(
@@ -17205,7 +17349,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_media_file_bundles  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17371,7 +17515,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_media_files  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17468,7 +17612,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_media_files_for_bundles  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17546,7 +17690,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_media_files_for_media_root  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17638,7 +17782,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_media_files_in_subtree  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -18438,21 +18582,22 @@ class MediaLibraryApi(object):
 
     def get_all_subclips(
         self,
+        asset_id,
         **kwargs
     ):
         """get_all_subclips  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * Must be shared OR Must own the object   * allow_read, show_subclips Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_all_subclips(async_req=True)
+        >>> thread = api.get_all_subclips(asset_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            asset_id (str):
 
         Keyword Args:
-            asset (int): Filter the returned list by `asset`.. [optional]
-            asset__in (str): Multiple values may be separated by commas.. [optional]
             root (int): Filter the returned list by `root`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
@@ -18514,6 +18659,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         return self.get_all_subclips_endpoint.call_with_http_info(**kwargs)
 
     def get_all_subtitle_clipboard_entries(
@@ -18676,7 +18823,7 @@ class MediaLibraryApi(object):
     ):
         """get_asset  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -18754,19 +18901,21 @@ class MediaLibraryApi(object):
 
     def get_asset_rating(
         self,
+        asset_id,
         id,
         **kwargs
     ):
         """get_asset_rating  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read, show_ratings Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_asset_rating(id, async_req=True)
+        >>> thread = api.get_asset_rating(asset_id, id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             id (int): A unique integer value identifying this Rating.
 
         Keyword Args:
@@ -18826,25 +18975,107 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['id'] = \
             id
         return self.get_asset_rating_endpoint.call_with_http_info(**kwargs)
 
-    def get_asset_subtitle_link(
+    def get_asset_stack_members(
         self,
         id,
         **kwargs
     ):
-        """get_asset_subtitle_link  # noqa: E501
+        """get_asset_stack_members  # noqa: E501
 
         ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_asset_subtitle_link(id, async_req=True)
+        >>> thread = api.get_asset_stack_members(id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            id (int): A unique integer value identifying this media asset stack.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [Asset]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_asset_stack_members_endpoint.call_with_http_info(**kwargs)
+
+    def get_asset_subtitle_link(
+        self,
+        asset_id,
+        id,
+        **kwargs
+    ):
+        """get_asset_subtitle_link  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_asset_subtitle_link(asset_id, id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            asset_id (str):
             id (int): A unique integer value identifying this Asset subtitle file link.
 
         Keyword Args:
@@ -18904,6 +19135,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['id'] = \
             id
         return self.get_asset_subtitle_link_endpoint.call_with_http_info(**kwargs)
@@ -18914,7 +19147,7 @@ class MediaLibraryApi(object):
     ):
         """get_bookmarked_media_files_directories  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -18995,6 +19228,84 @@ class MediaLibraryApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_bookmarked_media_files_directories_endpoint.call_with_http_info(**kwargs)
 
+    def get_bundle_files(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_bundle_files  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_bundle_files(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Bundle.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [MediaFileMini]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_bundle_files_endpoint.call_with_http_info(**kwargs)
+
     def get_comment(
         self,
         id,
@@ -19002,7 +19313,7 @@ class MediaLibraryApi(object):
     ):
         """get_comment  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19163,7 +19474,7 @@ class MediaLibraryApi(object):
     ):
         """get_easy_sharing_token_for_bundle  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19241,7 +19552,7 @@ class MediaLibraryApi(object):
     ):
         """get_easy_sharing_token_for_directory  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19554,7 +19865,7 @@ class MediaLibraryApi(object):
     ):
         """get_frame  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_original_download Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19628,84 +19939,6 @@ class MediaLibraryApi(object):
             id
         return self.get_frame_endpoint.call_with_http_info(**kwargs)
 
-    def get_marker(
-        self,
-        id,
-        **kwargs
-    ):
-        """get_marker  # noqa: E501
-
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_marker(id, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            id (int): A unique integer value identifying this marker.
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Marker
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['id'] = \
-            id
-        return self.get_marker_endpoint.call_with_http_info(**kwargs)
-
     def get_media_file(
         self,
         id,
@@ -19713,7 +19946,7 @@ class MediaLibraryApi(object):
     ):
         """get_media_file  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19801,7 +20034,7 @@ class MediaLibraryApi(object):
     ):
         """get_media_file_bundle  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19890,7 +20123,7 @@ class MediaLibraryApi(object):
     ):
         """get_media_file_contents  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20445,7 +20678,7 @@ class MediaLibraryApi(object):
     ):
         """get_multiple_assets  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20528,7 +20761,7 @@ class MediaLibraryApi(object):
     ):
         """get_multiple_bundles  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20606,7 +20839,7 @@ class MediaLibraryApi(object):
     ):
         """get_multiple_files  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20837,19 +21070,21 @@ class MediaLibraryApi(object):
 
     def get_proxy(
         self,
+        asset_id,
         id,
         **kwargs
     ):
         """get_proxy  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_proxy(id, async_req=True)
+        >>> thread = api.get_proxy(asset_id, id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             id (int): A unique integer value identifying this proxy.
 
         Keyword Args:
@@ -20909,6 +21144,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['id'] = \
             id
         return self.get_proxy_endpoint.call_with_http_info(**kwargs)
@@ -21382,84 +21619,6 @@ class MediaLibraryApi(object):
             id
         return self.get_sharing_permission_preset_endpoint.call_with_http_info(**kwargs)
 
-    def get_subclip(
-        self,
-        id,
-        **kwargs
-    ):
-        """get_subclip  # noqa: E501
-
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_subclip(id, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            id (int): A unique integer value identifying this subclip.
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Subclip
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['id'] = \
-            id
-        return self.get_subclip_endpoint.call_with_http_info(**kwargs)
-
     def get_subtitles(
         self,
         id,
@@ -21468,7 +21627,7 @@ class MediaLibraryApi(object):
     ):
         """get_subtitles  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -21780,6 +21939,84 @@ class MediaLibraryApi(object):
             instantiate_file_template_request
         return self.instantiate_media_file_template_endpoint.call_with_http_info(**kwargs)
 
+    def link_assets_as_versions(
+        self,
+        multiple_assets_request,
+        **kwargs
+    ):
+        """link_assets_as_versions  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.link_assets_as_versions(multiple_assets_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            multiple_assets_request (MultipleAssetsRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['multiple_assets_request'] = \
+            multiple_assets_request
+        return self.link_assets_as_versions_endpoint.call_with_http_info(**kwargs)
+
     def locate_editor_project_paths(
         self,
         id,
@@ -21865,7 +22102,7 @@ class MediaLibraryApi(object):
     ):
         """lookup_media_files  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        ### Required permissions    * Authenticated user   * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -21943,7 +22180,7 @@ class MediaLibraryApi(object):
     ):
         """mark_media_directory_as_showroom  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -22022,7 +22259,7 @@ class MediaLibraryApi(object):
     ):
         """patch_asset  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -22097,104 +22334,24 @@ class MediaLibraryApi(object):
             asset_partial_update
         return self.patch_asset_endpoint.call_with_http_info(**kwargs)
 
-    def patch_asset_rating(
-        self,
-        id,
-        asset_rating_partial_update,
-        **kwargs
-    ):
-        """patch_asset_rating  # noqa: E501
-
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.patch_asset_rating(id, asset_rating_partial_update, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            id (int): A unique integer value identifying this Rating.
-            asset_rating_partial_update (AssetRatingPartialUpdate):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            AssetRating
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['id'] = \
-            id
-        kwargs['asset_rating_partial_update'] = \
-            asset_rating_partial_update
-        return self.patch_asset_rating_endpoint.call_with_http_info(**kwargs)
-
     def patch_asset_subtitle_link(
         self,
+        asset_id,
         id,
         asset_subtitle_link_partial_update,
         **kwargs
     ):
         """patch_asset_subtitle_link  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.patch_asset_subtitle_link(id, asset_subtitle_link_partial_update, async_req=True)
+        >>> thread = api.patch_asset_subtitle_link(asset_id, id, asset_subtitle_link_partial_update, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             id (int): A unique integer value identifying this Asset subtitle file link.
             asset_subtitle_link_partial_update (AssetSubtitleLinkPartialUpdate):
 
@@ -22255,6 +22412,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['id'] = \
             id
         kwargs['asset_subtitle_link_partial_update'] = \
@@ -22269,7 +22428,7 @@ class MediaLibraryApi(object):
     ):
         """patch_comment  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -22673,20 +22832,22 @@ class MediaLibraryApi(object):
 
     def patch_marker(
         self,
+        asset_id,
         id,
         marker_partial_update,
         **kwargs
     ):
         """patch_marker  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.patch_marker(id, marker_partial_update, async_req=True)
+        >>> thread = api.patch_marker(asset_id, id, marker_partial_update, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             id (int): A unique integer value identifying this marker.
             marker_partial_update (MarkerPartialUpdate):
 
@@ -22747,6 +22908,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['id'] = \
             id
         kwargs['marker_partial_update'] = \
@@ -22761,7 +22924,7 @@ class MediaLibraryApi(object):
     ):
         """patch_media_file  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -23412,20 +23575,22 @@ class MediaLibraryApi(object):
 
     def patch_subclip(
         self,
+        asset_id,
         id,
         subclip_partial_update,
         **kwargs
     ):
         """patch_subclip  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * Must be shared OR Must own the object   * allow_write_db, show_subclips Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.patch_subclip(id, subclip_partial_update, async_req=True)
+        >>> thread = api.patch_subclip(asset_id, id, subclip_partial_update, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             id (int): A unique integer value identifying this subclip.
             subclip_partial_update (SubclipPartialUpdate):
 
@@ -23486,6 +23651,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['id'] = \
             id
         kwargs['subclip_partial_update'] = \
@@ -23500,7 +23667,7 @@ class MediaLibraryApi(object):
     ):
         """recursively_tag_media_directory  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -23581,7 +23748,7 @@ class MediaLibraryApi(object):
     ):
         """reinclude_directory_for_proxy_generation  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -23659,7 +23826,7 @@ class MediaLibraryApi(object):
     ):
         """reinclude_directory_for_scan  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -23737,7 +23904,7 @@ class MediaLibraryApi(object):
     ):
         """reindex_media_directory  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -23807,6 +23974,84 @@ class MediaLibraryApi(object):
         kwargs['id'] = \
             id
         return self.reindex_media_directory_endpoint.call_with_http_info(**kwargs)
+
+    def remove_asset_from_set(
+        self,
+        id,
+        **kwargs
+    ):
+        """remove_asset_from_set  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.remove_asset_from_set(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Asset.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.remove_asset_from_set_endpoint.call_with_http_info(**kwargs)
 
     def rename_custom_field(
         self,
@@ -23970,20 +24215,22 @@ class MediaLibraryApi(object):
 
     def render_subclip(
         self,
+        asset_id,
         id,
         render_request,
         **kwargs
     ):
         """render_subclip  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * Must be shared OR Must own the object   * allow_read, show_subclips Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.render_subclip(id, render_request, async_req=True)
+        >>> thread = api.render_subclip(asset_id, id, render_request, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             id (int): A unique integer value identifying this subclip.
             render_request (RenderRequest):
 
@@ -24044,6 +24291,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['id'] = \
             id
         kwargs['render_request'] = \
@@ -24135,7 +24384,7 @@ class MediaLibraryApi(object):
     ):
         """resolve_comment  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -24213,7 +24462,6 @@ class MediaLibraryApi(object):
     ):
         """share_media_library_objects  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -24369,7 +24617,6 @@ class MediaLibraryApi(object):
     ):
         """transition_workflow  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -24447,7 +24694,7 @@ class MediaLibraryApi(object):
     ):
         """unbookmark_media_directory  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -24518,6 +24765,84 @@ class MediaLibraryApi(object):
             id
         return self.unbookmark_media_directory_endpoint.call_with_http_info(**kwargs)
 
+    def unlink_asset_version(
+        self,
+        id,
+        **kwargs
+    ):
+        """unlink_asset_version  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.unlink_asset_version(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Asset.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.unlink_asset_version_endpoint.call_with_http_info(**kwargs)
+
     def unmark_media_directory_as_showroom(
         self,
         id,
@@ -24525,7 +24850,7 @@ class MediaLibraryApi(object):
     ):
         """unmark_media_directory_as_showroom  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -24603,7 +24928,7 @@ class MediaLibraryApi(object):
     ):
         """unresolve_comment  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -24682,7 +25007,7 @@ class MediaLibraryApi(object):
     ):
         """update_asset  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -24757,104 +25082,24 @@ class MediaLibraryApi(object):
             asset_update
         return self.update_asset_endpoint.call_with_http_info(**kwargs)
 
-    def update_asset_rating(
-        self,
-        id,
-        asset_rating_update,
-        **kwargs
-    ):
-        """update_asset_rating  # noqa: E501
-
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.update_asset_rating(id, asset_rating_update, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            id (int): A unique integer value identifying this Rating.
-            asset_rating_update (AssetRatingUpdate):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            AssetRating
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['id'] = \
-            id
-        kwargs['asset_rating_update'] = \
-            asset_rating_update
-        return self.update_asset_rating_endpoint.call_with_http_info(**kwargs)
-
     def update_asset_subtitle_link(
         self,
+        asset_id,
         id,
         asset_subtitle_link_update,
         **kwargs
     ):
         """update_asset_subtitle_link  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_asset_subtitle_link(id, asset_subtitle_link_update, async_req=True)
+        >>> thread = api.update_asset_subtitle_link(asset_id, id, asset_subtitle_link_update, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             id (int): A unique integer value identifying this Asset subtitle file link.
             asset_subtitle_link_update (AssetSubtitleLinkUpdate):
 
@@ -24915,6 +25160,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['id'] = \
             id
         kwargs['asset_subtitle_link_update'] = \
@@ -24929,7 +25176,7 @@ class MediaLibraryApi(object):
     ):
         """update_comment  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -25333,20 +25580,22 @@ class MediaLibraryApi(object):
 
     def update_marker(
         self,
+        asset_id,
         id,
         marker_update,
         **kwargs
     ):
         """update_marker  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_marker(id, marker_update, async_req=True)
+        >>> thread = api.update_marker(asset_id, id, marker_update, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             id (int): A unique integer value identifying this marker.
             marker_update (MarkerUpdate):
 
@@ -25407,6 +25656,8 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['id'] = \
             id
         kwargs['marker_update'] = \
@@ -25421,7 +25672,7 @@ class MediaLibraryApi(object):
     ):
         """update_media_file  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -26236,20 +26487,22 @@ class MediaLibraryApi(object):
 
     def update_subclip(
         self,
+        asset_id,
         id,
         subclip_update,
         **kwargs
     ):
         """update_subclip  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * Must be shared OR Must own the object   * allow_write_db, show_subclips Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_subclip(id, subclip_update, async_req=True)
+        >>> thread = api.update_subclip(asset_id, id, subclip_update, async_req=True)
         >>> result = thread.get()
 
         Args:
+            asset_id (str):
             id (int): A unique integer value identifying this subclip.
             subclip_update (SubclipUpdate):
 
@@ -26310,9 +26563,89 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
         kwargs['id'] = \
             id
         kwargs['subclip_update'] = \
             subclip_update
         return self.update_subclip_endpoint.call_with_http_info(**kwargs)
+
+    def web_upload_completed(
+        self,
+        web_upload_completed,
+        **kwargs
+    ):
+        """web_upload_completed  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.web_upload_completed(web_upload_completed, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            web_upload_completed (WebUploadCompleted):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['web_upload_completed'] = \
+            web_upload_completed
+        return self.web_upload_completed_endpoint.call_with_http_info(**kwargs)
 

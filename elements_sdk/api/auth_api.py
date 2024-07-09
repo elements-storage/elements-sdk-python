@@ -1977,7 +1977,6 @@ class AuthApi(object):
     ):
         """check_auth_ticket  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2518,7 +2517,7 @@ class AuthApi(object):
     ):
         """evaluate_password  # noqa: E501
 
-        ### Required permissions    * <rest_framework.permissions.OperandHolder object at 0x117e48250>   # noqa: E501
+        ### Required permissions    * Authenticated user OR inside password reset flow OR inside \"password change required\" flow   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2595,7 +2594,7 @@ class AuthApi(object):
     ):
         """generate_password  # noqa: E501
 
-        ### Required permissions    * <rest_framework.permissions.OperandHolder object at 0x117e3edf0>   # noqa: E501
+        ### Required permissions    * Authenticated user OR inside password reset flow OR inside \"password change required\" flow   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3299,7 +3298,6 @@ class AuthApi(object):
     ):
         """login  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3376,7 +3374,6 @@ class AuthApi(object):
     ):
         """logout  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3449,7 +3446,6 @@ class AuthApi(object):
     ):
         """logout_page  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3924,7 +3920,6 @@ class AuthApi(object):
     ):
         """reset_password  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

@@ -30,9 +30,7 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.asset_mini_reference import AssetMiniReference
     from elements_sdk.model.media_root_mini_reference import MediaRootMiniReference
-    globals()['AssetMiniReference'] = AssetMiniReference
     globals()['MediaRootMiniReference'] = MediaRootMiniReference
 
 
@@ -90,7 +88,6 @@ class SubclipPartialUpdate(ModelNormal):
         lazy_import()
         return {
             'root': (MediaRootMiniReference,),  # noqa: E501
-            'asset': (AssetMiniReference,),  # noqa: E501
             'rendered': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'shared': (bool,),  # noqa: E501
             'name': (str,),  # noqa: E501
@@ -105,7 +102,6 @@ class SubclipPartialUpdate(ModelNormal):
 
     attribute_map = {
         'root': 'root',  # noqa: E501
-        'asset': 'asset',  # noqa: E501
         'rendered': 'rendered',  # noqa: E501
         'shared': 'shared',  # noqa: E501
         'name': 'name',  # noqa: E501
@@ -157,7 +153,6 @@ class SubclipPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            asset (AssetMiniReference): [optional]  # noqa: E501
             rendered (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             shared (bool): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
@@ -250,7 +245,6 @@ class SubclipPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            asset (AssetMiniReference): [optional]  # noqa: E501
             rendered (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             shared (bool): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501

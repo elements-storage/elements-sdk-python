@@ -114,13 +114,12 @@ class SlackConnection(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, status, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, *args, **xkwargs):  # noqa: E501
         """SlackConnection - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
-            status (SlackConnectionStatus):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -153,6 +152,7 @@ class SlackConnection(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            status (SlackConnectionStatus): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -183,7 +183,6 @@ class SlackConnection(ModelNormal):
 
         self.id = id
         self.name = name
-        self.status = status
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -205,13 +204,12 @@ class SlackConnection(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, status, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, *args, **xkwargs):  # noqa: E501
         """SlackConnection - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
-            status (SlackConnectionStatus):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -244,6 +242,7 @@ class SlackConnection(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            status (SlackConnectionStatus): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -272,7 +271,6 @@ class SlackConnection(ModelNormal):
 
         self.id = id
         self.name = name
-        self.status = status
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -195,7 +195,6 @@ class MediaRootDetailUpdate(ModelNormal):
     }
 
     read_only_vars = {
-        'path',  # noqa: E501
     }
 
     _composed_schemas = {}

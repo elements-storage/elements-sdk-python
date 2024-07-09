@@ -60,6 +60,7 @@ class CustomFieldReference(ModelNormal):
             'NUMBER_OF_DIGITS': "number_of_digits",
             'REGEX': "regex",
             'RANGE': "range",
+            'REQUIRE_TRUE': "require_true",
         },
     }
 

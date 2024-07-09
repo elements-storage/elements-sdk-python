@@ -64,7 +64,6 @@ from elements_sdk.model.asset_mini_reference import AssetMiniReference
 from elements_sdk.model.asset_partial_update import AssetPartialUpdate
 from elements_sdk.model.asset_project_link import AssetProjectLink
 from elements_sdk.model.asset_rating import AssetRating
-from elements_sdk.model.asset_rating_partial_update import AssetRatingPartialUpdate
 from elements_sdk.model.asset_rating_update import AssetRatingUpdate
 from elements_sdk.model.asset_subtitle_link import AssetSubtitleLink
 from elements_sdk.model.asset_subtitle_link_partial_update import AssetSubtitleLinkPartialUpdate
@@ -86,6 +85,7 @@ from elements_sdk.model.certificate import Certificate
 from elements_sdk.model.certificate_update import CertificateUpdate
 from elements_sdk.model.change_own_password_request import ChangeOwnPasswordRequest
 from elements_sdk.model.change_password_request import ChangePasswordRequest
+from elements_sdk.model.check_certificate_request import CheckCertificateRequest
 from elements_sdk.model.check_connectivity_endpoint_response import CheckConnectivityEndpointResponse
 from elements_sdk.model.click_background_upload_endpoint_request import ClickBackgroundUploadEndpointRequest
 from elements_sdk.model.click_gallery import ClickGallery
@@ -244,11 +244,11 @@ from elements_sdk.model.media_root_detail_partial_update import MediaRootDetailP
 from elements_sdk.model.media_root_detail_update import MediaRootDetailUpdate
 from elements_sdk.model.media_root_mini import MediaRootMini
 from elements_sdk.model.media_root_mini_reference import MediaRootMiniReference
+from elements_sdk.model.media_root_mini_with_custom_fields import MediaRootMiniWithCustomFields
 from elements_sdk.model.media_root_permission import MediaRootPermission
 from elements_sdk.model.media_root_permission_access_options import MediaRootPermissionAccessOptions
 from elements_sdk.model.media_root_permission_partial_update import MediaRootPermissionPartialUpdate
 from elements_sdk.model.media_root_permission_update import MediaRootPermissionUpdate
-from elements_sdk.model.media_root_update import MediaRootUpdate
 from elements_sdk.model.media_update import MediaUpdate
 from elements_sdk.model.member_preview import MemberPreview
 from elements_sdk.model.metadata_item import MetadataItem
@@ -284,6 +284,7 @@ from elements_sdk.model.password_reset_endpoint_request import PasswordResetEndp
 from elements_sdk.model.path import Path
 from elements_sdk.model.path_exclusion_info import PathExclusionInfo
 from elements_sdk.model.path_input import PathInput
+from elements_sdk.model.path_mapping import PathMapping
 from elements_sdk.model.production import Production
 from elements_sdk.model.production_mini import ProductionMini
 from elements_sdk.model.production_mini_reference import ProductionMiniReference
@@ -462,6 +463,7 @@ from elements_sdk.model.volume_stat import VolumeStat
 from elements_sdk.model.volume_stats import VolumeStats
 from elements_sdk.model.volume_status import VolumeStatus
 from elements_sdk.model.volume_update import VolumeUpdate
+from elements_sdk.model.web_upload_completed import WebUploadCompleted
 from elements_sdk.model.workflow_transition_request import WorkflowTransitionRequest
 from elements_sdk.model.workflow_transition_response import WorkflowTransitionResponse
 from elements_sdk.model.workspace import Workspace

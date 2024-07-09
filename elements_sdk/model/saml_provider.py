@@ -112,17 +112,19 @@ class SAMLProvider(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'login_url': (str,),  # noqa: E501
-            'logout_url': (str,),  # noqa: E501
             'metadata_url': (str,),  # noqa: E501
             'assertion_url': (str,),  # noqa: E501
             'entity_id': (str,),  # noqa: E501
             'sso_url': (str,),  # noqa: E501
             'certificate': (str,),  # noqa: E501
+            'logout_url': (str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'slo_url': (str, none_type,),  # noqa: E501
             'sp_certificate': (str, none_type,),  # noqa: E501
             'sp_certificate_key': (str, none_type,),  # noqa: E501
             'nameid_format': (str,),  # noqa: E501
+            'auto_create_users': (bool,),  # noqa: E501
+            'user_template': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -133,37 +135,38 @@ class SAMLProvider(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'login_url': 'login_url',  # noqa: E501
-        'logout_url': 'logout_url',  # noqa: E501
         'metadata_url': 'metadata_url',  # noqa: E501
         'assertion_url': 'assertion_url',  # noqa: E501
         'entity_id': 'entity_id',  # noqa: E501
         'sso_url': 'sso_url',  # noqa: E501
         'certificate': 'certificate',  # noqa: E501
+        'logout_url': 'logout_url',  # noqa: E501
         'name': 'name',  # noqa: E501
         'slo_url': 'slo_url',  # noqa: E501
         'sp_certificate': 'sp_certificate',  # noqa: E501
         'sp_certificate_key': 'sp_certificate_key',  # noqa: E501
         'nameid_format': 'nameid_format',  # noqa: E501
+        'auto_create_users': 'auto_create_users',  # noqa: E501
+        'user_template': 'user_template',  # noqa: E501
     }
 
     read_only_vars = {
         'login_url',  # noqa: E501
-        'logout_url',  # noqa: E501
         'metadata_url',  # noqa: E501
         'assertion_url',  # noqa: E501
+        'logout_url',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, login_url, logout_url, metadata_url, assertion_url, entity_id, sso_url, certificate, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, login_url, metadata_url, assertion_url, entity_id, sso_url, certificate, *args, **xkwargs):  # noqa: E501
         """SAMLProvider - a model defined in OpenAPI
 
         Args:
             id (int):
             login_url (str):
-            logout_url (str):
             metadata_url (str):
             assertion_url (str):
             entity_id (str):
@@ -201,11 +204,14 @@ class SAMLProvider(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            logout_url (str, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             slo_url (str, none_type): [optional]  # noqa: E501
             sp_certificate (str, none_type): [optional]  # noqa: E501
             sp_certificate_key (str, none_type): [optional]  # noqa: E501
             nameid_format (str): [optional]  # noqa: E501
+            auto_create_users (bool): [optional]  # noqa: E501
+            user_template (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -236,7 +242,6 @@ class SAMLProvider(ModelNormal):
 
         self.id = id
         self.login_url = login_url
-        self.logout_url = logout_url
         self.metadata_url = metadata_url
         self.assertion_url = assertion_url
         self.entity_id = entity_id
@@ -303,11 +308,14 @@ class SAMLProvider(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            logout_url (str, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             slo_url (str, none_type): [optional]  # noqa: E501
             sp_certificate (str, none_type): [optional]  # noqa: E501
             sp_certificate_key (str, none_type): [optional]  # noqa: E501
             nameid_format (str): [optional]  # noqa: E501
+            auto_create_users (bool): [optional]  # noqa: E501
+            user_template (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

@@ -87,13 +87,13 @@ class Certificate(ModelNormal):
             'certificate': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'issuer': (str,),  # noqa: E501
-            'domains': (str,),  # noqa: E501
+            'domains': ([str],),  # noqa: E501
             'fingerprint': (str,),  # noqa: E501
             'not_valid_before': (str,),  # noqa: E501
             'not_valid_after': (str,),  # noqa: E501
-            'expired': (str,),  # noqa: E501
-            'key_matches': (str,),  # noqa: E501
-            'domain_matches': (str,),  # noqa: E501
+            'expired': (bool,),  # noqa: E501
+            'key_matches': (bool,),  # noqa: E501
+            'domain_matches': (bool,),  # noqa: E501
             'key': (str,),  # noqa: E501
         }
 
@@ -139,13 +139,13 @@ class Certificate(ModelNormal):
             certificate (str):
             name (str):
             issuer (str):
-            domains (str):
+            domains ([str]):
             fingerprint (str):
             not_valid_before (str):
             not_valid_after (str):
-            expired (str):
-            key_matches (str):
-            domain_matches (str):
+            expired (bool):
+            key_matches (bool):
+            domain_matches (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

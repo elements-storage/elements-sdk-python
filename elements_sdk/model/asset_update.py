@@ -66,6 +66,10 @@ class AssetUpdate(ModelNormal):
             'inclusive_maximum': 2147483647,
             'inclusive_minimum': -2147483648,
         },
+        ('set_stack_order',): {
+            'inclusive_maximum': 2147483647,
+            'inclusive_minimum': -2147483648,
+        },
     }
 
     @cached_property
@@ -95,7 +99,7 @@ class AssetUpdate(ModelNormal):
             'tags': ([TagReference],),  # noqa: E501
             'workflow_state': (int,),  # noqa: E501
             'timecode': (float, none_type,),  # noqa: E501
-            'set': (int, none_type,),  # noqa: E501
+            'set_stack_order': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -108,7 +112,7 @@ class AssetUpdate(ModelNormal):
         'tags': 'tags',  # noqa: E501
         'workflow_state': 'workflow_state',  # noqa: E501
         'timecode': 'timecode',  # noqa: E501
-        'set': 'set',  # noqa: E501
+        'set_stack_order': 'set_stack_order',  # noqa: E501
     }
 
     read_only_vars = {
@@ -158,7 +162,7 @@ class AssetUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             workflow_state (int): [optional]  # noqa: E501
             timecode (float, none_type): [optional]  # noqa: E501
-            set (int, none_type): [optional]  # noqa: E501
+            set_stack_order (int): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -250,7 +254,7 @@ class AssetUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             workflow_state (int): [optional]  # noqa: E501
             timecode (float, none_type): [optional]  # noqa: E501
-            set (int, none_type): [optional]  # noqa: E501
+            set_stack_order (int): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

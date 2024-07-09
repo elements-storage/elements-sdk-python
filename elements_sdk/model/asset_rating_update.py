@@ -92,7 +92,6 @@ class AssetRatingUpdate(ModelNormal):
         lazy_import()
         return {
             'user': (ElementsUserMiniReference,),  # noqa: E501
-            'asset': (int,),  # noqa: E501
             'rating': (int,),  # noqa: E501
         }
 
@@ -103,7 +102,6 @@ class AssetRatingUpdate(ModelNormal):
 
     attribute_map = {
         'user': 'user',  # noqa: E501
-        'asset': 'asset',  # noqa: E501
         'rating': 'rating',  # noqa: E501
     }
 
@@ -114,12 +112,11 @@ class AssetRatingUpdate(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, user, asset, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, user, *args, **xkwargs):  # noqa: E501
         """AssetRatingUpdate - a model defined in OpenAPI
 
         Args:
             user (ElementsUserMiniReference):
-            asset (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -182,7 +179,6 @@ class AssetRatingUpdate(ModelNormal):
 
 
         self.user = user
-        self.asset = asset
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -204,12 +200,11 @@ class AssetRatingUpdate(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, user, asset, *args, **xkwargs):  # noqa: E501
+    def __init__(self, user, *args, **xkwargs):  # noqa: E501
         """AssetRatingUpdate - a model defined in OpenAPI
 
         Args:
             user (ElementsUserMiniReference):
-            asset (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -270,7 +265,6 @@ class AssetRatingUpdate(ModelNormal):
 
 
         self.user = user
-        self.asset = asset
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

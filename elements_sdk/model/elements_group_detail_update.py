@@ -106,6 +106,7 @@ class ElementsGroupDetailUpdate(ModelNormal):
             'members': ([ElementsUserReference],),  # noqa: E501
             'ldap': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'ldap_dn': (str, none_type,),  # noqa: E501
+            'ldap_guid': (str, none_type,),  # noqa: E501
             'unix_groupname': (str, none_type,),  # noqa: E501
             'gid': (int, none_type,),  # noqa: E501
         }
@@ -121,6 +122,7 @@ class ElementsGroupDetailUpdate(ModelNormal):
         'members': 'members',  # noqa: E501
         'ldap': 'ldap',  # noqa: E501
         'ldap_dn': 'ldap_dn',  # noqa: E501
+        'ldap_guid': 'ldap_guid',  # noqa: E501
         'unix_groupname': 'unix_groupname',  # noqa: E501
         'gid': 'gid',  # noqa: E501
     }
@@ -173,6 +175,7 @@ class ElementsGroupDetailUpdate(ModelNormal):
             members ([ElementsUserReference]): [optional]  # noqa: E501
             ldap (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
+            ldap_guid (str, none_type): [optional]  # noqa: E501
             unix_groupname (str, none_type): [optional]  # noqa: E501
             gid (int, none_type): [optional]  # noqa: E501
         """
@@ -266,6 +269,7 @@ class ElementsGroupDetailUpdate(ModelNormal):
             members ([ElementsUserReference]): [optional]  # noqa: E501
             ldap (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
+            ldap_guid (str, none_type): [optional]  # noqa: E501
             unix_groupname (str, none_type): [optional]  # noqa: E501
             gid (int, none_type): [optional]  # noqa: E501
         """

@@ -64,12 +64,13 @@ class ElementsUserReference(ModelNormal):
             'PT': "pt",
             'ES': "es",
             'DA': "da",
+            'XX': "xx",
         },
     }
 
     validations = {
         ('default_page',): {
-            'max_length': 63,
+            'max_length': 255,
             'min_length': 1,
         },
         ('email',): {
@@ -83,7 +84,7 @@ class ElementsUserReference(ModelNormal):
             'inclusive_minimum': -2147483648,
         },
         ('ldap_dn',): {
-            'min_length': 1,
+            'max_length': 255,
         },
         ('shaper_ceiling',): {
             'inclusive_maximum': 4611686018427388000,
@@ -152,6 +153,7 @@ class ElementsUserReference(ModelNormal):
             'last_seen': (datetime, none_type,),  # noqa: E501
             'ldap': (int, none_type,),  # noqa: E501
             'ldap_dn': (str, none_type,),  # noqa: E501
+            'ldap_guid': (str, none_type,),  # noqa: E501
             'password_change_required': (bool,),  # noqa: E501
             'permissions': ([str, none_type],),  # noqa: E501
             'shaper_ceiling': (int, none_type,),  # noqa: E501
@@ -194,6 +196,7 @@ class ElementsUserReference(ModelNormal):
         'last_seen': 'last_seen',  # noqa: E501
         'ldap': 'ldap',  # noqa: E501
         'ldap_dn': 'ldap_dn',  # noqa: E501
+        'ldap_guid': 'ldap_guid',  # noqa: E501
         'password_change_required': 'password_change_required',  # noqa: E501
         'permissions': 'permissions',  # noqa: E501
         'shaper_ceiling': 'shaper_ceiling',  # noqa: E501
@@ -230,6 +233,7 @@ class ElementsUserReference(ModelNormal):
         'last_seen',  # noqa: E501
         'ldap',  # noqa: E501
         'ldap_dn',  # noqa: E501
+        'ldap_guid',  # noqa: E501
         'password_change_required',  # noqa: E501
         'permissions',  # noqa: E501
         'shaper_ceiling',  # noqa: E501
@@ -306,6 +310,7 @@ class ElementsUserReference(ModelNormal):
             last_seen (datetime, none_type): [optional]  # noqa: E501
             ldap (int, none_type): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
+            ldap_guid (str, none_type): [optional]  # noqa: E501
             password_change_required (bool): [optional]  # noqa: E501
             permissions ([str, none_type]): [optional]  # noqa: E501
             shaper_ceiling (int, none_type): [optional]  # noqa: E501
@@ -426,6 +431,7 @@ class ElementsUserReference(ModelNormal):
             last_seen (datetime, none_type): [optional]  # noqa: E501
             ldap (int, none_type): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
+            ldap_guid (str, none_type): [optional]  # noqa: E501
             password_change_required (bool): [optional]  # noqa: E501
             permissions ([str, none_type]): [optional]  # noqa: E501
             shaper_ceiling (int, none_type): [optional]  # noqa: E501

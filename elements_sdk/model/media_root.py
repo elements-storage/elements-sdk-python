@@ -152,9 +152,6 @@ class MediaRoot(ModelNormal):
             'cloud_proxy_profile': (int, none_type,),  # noqa: E501
             'ai_connection': (int, none_type,),  # noqa: E501
             'ai_proxy_profile': (int, none_type,),  # noqa: E501
-            'proxy_profiles': ([int],),  # noqa: E501
-            'jobs': ([int],),  # noqa: E501
-            'tags': ([int],),  # noqa: E501
         }
 
     @cached_property
@@ -195,9 +192,6 @@ class MediaRoot(ModelNormal):
         'cloud_proxy_profile': 'cloud_proxy_profile',  # noqa: E501
         'ai_connection': 'ai_connection',  # noqa: E501
         'ai_proxy_profile': 'ai_proxy_profile',  # noqa: E501
-        'proxy_profiles': 'proxy_profiles',  # noqa: E501
-        'jobs': 'jobs',  # noqa: E501
-        'tags': 'tags',  # noqa: E501
     }
 
     read_only_vars = {
@@ -277,9 +271,6 @@ class MediaRoot(ModelNormal):
             cloud_proxy_profile (int, none_type): [optional]  # noqa: E501
             ai_connection (int, none_type): [optional]  # noqa: E501
             ai_proxy_profile (int, none_type): [optional]  # noqa: E501
-            proxy_profiles ([int]): [optional]  # noqa: E501
-            jobs ([int]): [optional]  # noqa: E501
-            tags ([int]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -400,9 +391,6 @@ class MediaRoot(ModelNormal):
             cloud_proxy_profile (int, none_type): [optional]  # noqa: E501
             ai_connection (int, none_type): [optional]  # noqa: E501
             ai_proxy_profile (int, none_type): [optional]  # noqa: E501
-            proxy_profiles ([int]): [optional]  # noqa: E501
-            jobs ([int]): [optional]  # noqa: E501
-            tags ([int]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

@@ -77,6 +77,9 @@ class Event(ModelNormal):
         ('license_component',): {
             'min_length': 1,
         },
+        ('new_since_version',): {
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -107,6 +110,7 @@ class Event(ModelNormal):
             'group': (str,),  # noqa: E501
             'icon_class': (str,),  # noqa: E501
             'license_component': (str,),  # noqa: E501
+            'new_since_version': (str,),  # noqa: E501
             'arg_types': ({str: (ArgumentType,)},),  # noqa: E501
         }
 
@@ -121,6 +125,7 @@ class Event(ModelNormal):
         'group': 'group',  # noqa: E501
         'icon_class': 'icon_class',  # noqa: E501
         'license_component': 'license_component',  # noqa: E501
+        'new_since_version': 'new_since_version',  # noqa: E501
         'arg_types': 'arg_types',  # noqa: E501
     }
 
@@ -132,7 +137,7 @@ class Event(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, group, icon_class, license_component, arg_types, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, group, icon_class, license_component, new_since_version, arg_types, *args, **xkwargs):  # noqa: E501
         """Event - a model defined in OpenAPI
 
         Args:
@@ -141,6 +146,7 @@ class Event(ModelNormal):
             group (str):
             icon_class (str):
             license_component (str):
+            new_since_version (str):
             arg_types ({str: (ArgumentType,)}):
 
         Keyword Args:
@@ -207,6 +213,7 @@ class Event(ModelNormal):
         self.group = group
         self.icon_class = icon_class
         self.license_component = license_component
+        self.new_since_version = new_since_version
         self.arg_types = arg_types
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -229,7 +236,7 @@ class Event(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, group, icon_class, license_component, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, group, icon_class, license_component, new_since_version, *args, **xkwargs):  # noqa: E501
         """Event - a model defined in OpenAPI
 
         Args:
@@ -238,6 +245,7 @@ class Event(ModelNormal):
             group (str):
             icon_class (str):
             license_component (str):
+            new_since_version (str):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -300,6 +308,7 @@ class Event(ModelNormal):
         self.group = group
         self.icon_class = icon_class
         self.license_component = license_component
+        self.new_since_version = new_since_version
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

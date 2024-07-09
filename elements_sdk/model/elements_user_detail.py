@@ -64,6 +64,7 @@ class ElementsUserDetail(ModelNormal):
             'PT': "pt",
             'ES': "es",
             'DA': "da",
+            'XX': "xx",
         },
     }
 
@@ -73,7 +74,7 @@ class ElementsUserDetail(ModelNormal):
             'min_length': 1,
         },
         ('default_page',): {
-            'max_length': 63,
+            'max_length': 255,
             'min_length': 1,
         },
         ('email',): {
@@ -87,7 +88,7 @@ class ElementsUserDetail(ModelNormal):
             'inclusive_minimum': -2147483648,
         },
         ('ldap_dn',): {
-            'min_length': 1,
+            'max_length': 255,
         },
         ('shaper_ceiling',): {
             'inclusive_maximum': 4611686018427388000,
@@ -157,6 +158,7 @@ class ElementsUserDetail(ModelNormal):
             'last_seen': (datetime, none_type,),  # noqa: E501
             'ldap': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'ldap_dn': (str, none_type,),  # noqa: E501
+            'ldap_guid': (str, none_type,),  # noqa: E501
             'password_change_required': (bool,),  # noqa: E501
             'shaper_ceiling': (int, none_type,),  # noqa: E501
             'shaper_rate': (int, none_type,),  # noqa: E501
@@ -200,6 +202,7 @@ class ElementsUserDetail(ModelNormal):
         'last_seen': 'last_seen',  # noqa: E501
         'ldap': 'ldap',  # noqa: E501
         'ldap_dn': 'ldap_dn',  # noqa: E501
+        'ldap_guid': 'ldap_guid',  # noqa: E501
         'password_change_required': 'password_change_required',  # noqa: E501
         'shaper_ceiling': 'shaper_ceiling',  # noqa: E501
         'shaper_rate': 'shaper_rate',  # noqa: E501
@@ -218,7 +221,7 @@ class ElementsUserDetail(ModelNormal):
         'sync_id',  # noqa: E501
         'totp_enabled',  # noqa: E501
         'last_seen',  # noqa: E501
-        'ldap_dn',  # noqa: E501
+        'ldap_guid',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -291,6 +294,7 @@ class ElementsUserDetail(ModelNormal):
             last_seen (datetime, none_type): [optional]  # noqa: E501
             ldap (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
+            ldap_guid (str, none_type): [optional]  # noqa: E501
             password_change_required (bool): [optional]  # noqa: E501
             shaper_ceiling (int, none_type): [optional]  # noqa: E501
             shaper_rate (int, none_type): [optional]  # noqa: E501
@@ -415,6 +419,7 @@ class ElementsUserDetail(ModelNormal):
             last_seen (datetime, none_type): [optional]  # noqa: E501
             ldap (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
+            ldap_guid (str, none_type): [optional]  # noqa: E501
             password_change_required (bool): [optional]  # noqa: E501
             shaper_ceiling (int, none_type): [optional]  # noqa: E501
             shaper_rate (int, none_type): [optional]  # noqa: E501

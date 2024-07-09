@@ -68,6 +68,7 @@ class Parameters(ModelNormal):
             'PT': "pt",
             'ES': "es",
             'DA': "da",
+            'XX': "xx",
         },
         ('media_default_custom_field_type',): {
             'FILE': "file",
@@ -150,6 +151,7 @@ class Parameters(ModelNormal):
             'media_background_auto_pause': (bool,),  # noqa: E501
             'media_default_custom_field_type': (str,),  # noqa: E501
             'media_default_delete_behaviour': (str,),  # noqa: E501
+            'media_detect_versions': (bool,),  # noqa: E501
             'media_force_show_deleted': (bool, none_type,),  # noqa: E501
             'media_keep_selection_when_browsing': (bool,),  # noqa: E501
             'media_recycle_bin': (bool,),  # noqa: E501
@@ -193,6 +195,7 @@ class Parameters(ModelNormal):
         'media_background_auto_pause': 'media_background_auto_pause',  # noqa: E501
         'media_default_custom_field_type': 'media_default_custom_field_type',  # noqa: E501
         'media_default_delete_behaviour': 'media_default_delete_behaviour',  # noqa: E501
+        'media_detect_versions': 'media_detect_versions',  # noqa: E501
         'media_force_show_deleted': 'media_force_show_deleted',  # noqa: E501
         'media_keep_selection_when_browsing': 'media_keep_selection_when_browsing',  # noqa: E501
         'media_recycle_bin': 'media_recycle_bin',  # noqa: E501
@@ -271,6 +274,7 @@ class Parameters(ModelNormal):
             media_background_auto_pause (bool): [optional]  # noqa: E501
             media_default_custom_field_type (str): [optional]  # noqa: E501
             media_default_delete_behaviour (str): [optional]  # noqa: E501
+            media_detect_versions (bool): [optional]  # noqa: E501
             media_force_show_deleted (bool, none_type): [optional]  # noqa: E501
             media_keep_selection_when_browsing (bool): [optional]  # noqa: E501
             media_recycle_bin (bool): Recycle bin is usually in the .recycle-bin folder in the volume root. [optional]  # noqa: E501
@@ -389,6 +393,7 @@ class Parameters(ModelNormal):
             media_background_auto_pause (bool): [optional]  # noqa: E501
             media_default_custom_field_type (str): [optional]  # noqa: E501
             media_default_delete_behaviour (str): [optional]  # noqa: E501
+            media_detect_versions (bool): [optional]  # noqa: E501
             media_force_show_deleted (bool, none_type): [optional]  # noqa: E501
             media_keep_selection_when_browsing (bool): [optional]  # noqa: E501
             media_recycle_bin (bool): Recycle bin is usually in the .recycle-bin folder in the volume root. [optional]  # noqa: E501

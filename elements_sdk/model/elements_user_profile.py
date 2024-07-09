@@ -68,6 +68,7 @@ class ElementsUserProfile(ModelNormal):
             'PT': "pt",
             'ES': "es",
             'DA': "da",
+            'XX': "xx",
         },
     }
 
@@ -76,7 +77,7 @@ class ElementsUserProfile(ModelNormal):
             'min_length': 1,
         },
         ('default_page',): {
-            'max_length': 63,
+            'max_length': 255,
             'min_length': 1,
         },
         ('full_name',): {

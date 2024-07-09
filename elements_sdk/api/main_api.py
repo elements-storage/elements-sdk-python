@@ -25,6 +25,7 @@ from elements_sdk.model.certificate import Certificate
 from elements_sdk.model.certificate_update import CertificateUpdate
 from elements_sdk.model.change_own_password_request import ChangeOwnPasswordRequest
 from elements_sdk.model.change_password_request import ChangePasswordRequest
+from elements_sdk.model.check_certificate_request import CheckCertificateRequest
 from elements_sdk.model.check_connectivity_endpoint_response import CheckConnectivityEndpointResponse
 from elements_sdk.model.client_session import ClientSession
 from elements_sdk.model.clients_endpoint_response import ClientsEndpointResponse
@@ -256,7 +257,7 @@ class MainApi(object):
         )
         self.check_certificate_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': (Certificate,),
                 'auth': [
                     'Bearer'
                 ],
@@ -267,10 +268,10 @@ class MainApi(object):
             },
             params_map={
                 'all': [
-                    'certificate',
+                    'check_certificate_request',
                 ],
                 'required': [
-                    'certificate',
+                    'check_certificate_request',
                 ],
                 'nullable': [
                 ],
@@ -285,19 +286,21 @@ class MainApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'certificate':
-                        (Certificate,),
+                    'check_certificate_request':
+                        (CheckCertificateRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'certificate': 'body',
+                    'check_certificate_request': 'body',
                 },
                 'collection_format_map': {
                 }
             },
             headers_map={
-                'accept': [],
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [
                     'application/json'
                 ]
@@ -4084,17 +4087,10 @@ class MainApi(object):
                 'enum': [
                 ],
                 'validation': [
-                    'path',
                 ]
             },
             root_map={
                 'validations': {
-                    ('path',): {
-
-                        'regex': {
-                            'pattern': r'.*',  # noqa: E501
-                        },
-                    },
                 },
                 'allowed_values': {
                 },
@@ -8151,9 +8147,7 @@ class MainApi(object):
             },
             headers_map={
                 'accept': [],
-                'content_type': [
-                    'application/json'
-                ]
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -8379,7 +8373,7 @@ class MainApi(object):
 
     def check_certificate(
         self,
-        certificate,
+        check_certificate_request,
         **kwargs
     ):
         """check_certificate  # noqa: E501
@@ -8388,11 +8382,11 @@ class MainApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.check_certificate(certificate, async_req=True)
+        >>> thread = api.check_certificate(check_certificate_request, async_req=True)
         >>> result = thread.get()
 
         Args:
-            certificate (Certificate):
+            check_certificate_request (CheckCertificateRequest):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -8423,7 +8417,7 @@ class MainApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            Certificate
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -8451,8 +8445,8 @@ class MainApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['certificate'] = \
-            certificate
+        kwargs['check_certificate_request'] = \
+            check_certificate_request
         return self.check_certificate_endpoint.call_with_http_info(**kwargs)
 
     def check_chunk_uploaded(
@@ -9542,7 +9536,7 @@ class MainApi(object):
     ):
         """create_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -10624,7 +10618,7 @@ class MainApi(object):
     ):
         """delete_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -11015,7 +11009,6 @@ class MainApi(object):
     ):
         """get_all_client_sessions  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -12028,7 +12021,7 @@ class MainApi(object):
     ):
         """get_all_workstations  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -12180,7 +12173,6 @@ class MainApi(object):
     ):
         """get_client_download_file  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -12257,7 +12249,6 @@ class MainApi(object):
     ):
         """get_client_downloads  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -12331,7 +12322,6 @@ class MainApi(object):
     ):
         """get_client_session  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -12720,7 +12710,6 @@ class MainApi(object):
     ):
         """get_current_workstation  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -13732,7 +13721,6 @@ class MainApi(object):
     ):
         """get_license  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14580,7 +14568,6 @@ class MainApi(object):
     ):
         """get_parameters  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -15185,7 +15172,6 @@ class MainApi(object):
     ):
         """get_system_info  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -15417,7 +15403,7 @@ class MainApi(object):
     ):
         """get_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -15655,7 +15641,6 @@ class MainApi(object):
     ):
         """patch_current_workstation  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -16550,7 +16535,7 @@ class MainApi(object):
     ):
         """patch_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -18501,7 +18486,6 @@ class MainApi(object):
     ):
         """update_current_workstation  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19231,7 +19215,6 @@ class MainApi(object):
     ):
         """update_parameters  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19790,7 +19773,7 @@ class MainApi(object):
     ):
         """update_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

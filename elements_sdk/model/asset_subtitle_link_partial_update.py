@@ -98,7 +98,6 @@ class AssetSubtitleLinkPartialUpdate(ModelNormal):
             'subtitle': (AssetMiniReference,),  # noqa: E501
             'label': (str,),  # noqa: E501
             'key': (str, none_type,),  # noqa: E501
-            'asset': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -110,7 +109,6 @@ class AssetSubtitleLinkPartialUpdate(ModelNormal):
         'subtitle': 'subtitle',  # noqa: E501
         'label': 'label',  # noqa: E501
         'key': 'key',  # noqa: E501
-        'asset': 'asset',  # noqa: E501
     }
 
     read_only_vars = {
@@ -157,7 +155,6 @@ class AssetSubtitleLinkPartialUpdate(ModelNormal):
             subtitle (AssetMiniReference): [optional]  # noqa: E501
             label (str): [optional]  # noqa: E501
             key (str, none_type): [optional]  # noqa: E501
-            asset (int): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -244,7 +241,6 @@ class AssetSubtitleLinkPartialUpdate(ModelNormal):
             subtitle (AssetMiniReference): [optional]  # noqa: E501
             label (str): [optional]  # noqa: E501
             key (str, none_type): [optional]  # noqa: E501
-            asset (int): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

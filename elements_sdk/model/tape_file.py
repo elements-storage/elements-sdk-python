@@ -74,8 +74,8 @@ class TapeFile(ModelNormal):
             'min_length': 1,
         },
         ('length',): {
-            'inclusive_maximum': -9223372036854775616,
-            'inclusive_minimum': 9223372036854775616,
+            'inclusive_maximum': 9223372036854775000,
+            'inclusive_minimum': -9223372036854775000,
         },
         ('checksum',): {
             'max_length': 255,

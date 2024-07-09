@@ -30,9 +30,7 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.asset_mini_reference import AssetMiniReference
     from elements_sdk.model.media_root_mini_reference import MediaRootMiniReference
-    globals()['AssetMiniReference'] = AssetMiniReference
     globals()['MediaRootMiniReference'] = MediaRootMiniReference
 
 
@@ -89,7 +87,6 @@ class SubclipUpdate(ModelNormal):
         """
         lazy_import()
         return {
-            'asset': (AssetMiniReference,),  # noqa: E501
             't_in': (float,),  # noqa: E501
             't_out': (float,),  # noqa: E501
             'root': (MediaRootMiniReference,),  # noqa: E501
@@ -104,7 +101,6 @@ class SubclipUpdate(ModelNormal):
 
 
     attribute_map = {
-        'asset': 'asset',  # noqa: E501
         't_in': 't_in',  # noqa: E501
         't_out': 't_out',  # noqa: E501
         'root': 'root',  # noqa: E501
@@ -120,11 +116,10 @@ class SubclipUpdate(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, asset, t_in, t_out, root, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, t_in, t_out, root, *args, **xkwargs):  # noqa: E501
         """SubclipUpdate - a model defined in OpenAPI
 
         Args:
-            asset (AssetMiniReference):
             t_in (float):
             t_out (float):
             root (MediaRootMiniReference):
@@ -191,7 +186,6 @@ class SubclipUpdate(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
-        self.asset = asset
         self.t_in = t_in
         self.t_out = t_out
         self.root = root
@@ -216,11 +210,10 @@ class SubclipUpdate(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, asset, t_in, t_out, root, *args, **xkwargs):  # noqa: E501
+    def __init__(self, t_in, t_out, root, *args, **xkwargs):  # noqa: E501
         """SubclipUpdate - a model defined in OpenAPI
 
         Args:
-            asset (AssetMiniReference):
             t_in (float):
             t_out (float):
             root (MediaRootMiniReference):
@@ -285,7 +278,6 @@ class SubclipUpdate(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
-        self.asset = asset
         self.t_in = t_in
         self.t_out = t_out
         self.root = root

@@ -36,6 +36,7 @@ from elements_sdk.model.locate_markers_endpoint_response import LocateMarkersEnd
 from elements_sdk.model.locate_proxies_endpoint_request import LocateProxiesEndpointRequest
 from elements_sdk.model.locate_proxies_endpoint_response import LocateProxiesEndpointResponse
 from elements_sdk.model.locate_result import LocateResult
+from elements_sdk.model.media_file import MediaFile
 from elements_sdk.model.proxy_fs_size_endpoint_response import ProxyFSSizeEndpointResponse
 from elements_sdk.model.task_info import TaskInfo
 
@@ -871,6 +872,55 @@ class PrivateApi(object):
             },
             api_client=api_client
         )
+        self.lookup_upload_folder_by_path_endpoint = _Endpoint(
+            settings={
+                'response_type': (MediaFile,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/private/media/lookup-upload-folder',
+                'operation_id': 'lookup_upload_folder_by_path',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'path',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'path':
+                        (str,),
+                },
+                'attribute_map': {
+                    'path': 'path',
+                },
+                'location_map': {
+                    'path': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.start_benchmark_session_endpoint = _Endpoint(
             settings={
                 'response_type': (TaskInfo,),
@@ -1211,7 +1261,6 @@ class PrivateApi(object):
     ):
         """fast_lane_login_page  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1290,7 +1339,6 @@ class PrivateApi(object):
     ):
         """fast_lane_login_with_password  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1370,7 +1418,6 @@ class PrivateApi(object):
     ):
         """get  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1600,7 +1647,6 @@ class PrivateApi(object):
     ):
         """get_locale  # noqa: E501
 
-        ### Required permissions    * <class 'rest_framework.permissions.AllowAny'>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2213,6 +2259,80 @@ class PrivateApi(object):
         kwargs['locate_proxies_endpoint_request'] = \
             locate_proxies_endpoint_request
         return self.locate_proxies_endpoint.call_with_http_info(**kwargs)
+
+    def lookup_upload_folder_by_path(
+        self,
+        **kwargs
+    ):
+        """lookup_upload_folder_by_path  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.lookup_upload_folder_by_path(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            path (str): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            MediaFile
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.lookup_upload_folder_by_path_endpoint.call_with_http_info(**kwargs)
 
     def start_benchmark_session(
         self,

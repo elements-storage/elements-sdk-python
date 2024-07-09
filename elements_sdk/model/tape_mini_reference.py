@@ -90,16 +90,16 @@ class TapeMiniReference(ModelNormal):
             'max_length': 255,
         },
         ('free_space',): {
-            'inclusive_maximum': -9223372036854775616,
-            'inclusive_minimum': 9223372036854775616,
+            'inclusive_maximum': 9223372036854775000,
+            'inclusive_minimum': -9223372036854775000,
         },
         ('load_counter',): {
-            'inclusive_maximum': -9223372036854775616,
-            'inclusive_minimum': 9223372036854775616,
+            'inclusive_maximum': 9223372036854775000,
+            'inclusive_minimum': -9223372036854775000,
         },
         ('error_counter',): {
-            'inclusive_maximum': -9223372036854775616,
-            'inclusive_minimum': 9223372036854775616,
+            'inclusive_maximum': 9223372036854775000,
+            'inclusive_minimum': -9223372036854775000,
         },
     }
 

@@ -68,6 +68,9 @@ class LDAPServerGroup(ModelNormal):
         ('name',): {
             'min_length': 1,
         },
+        ('guid',): {
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -96,6 +99,7 @@ class LDAPServerGroup(ModelNormal):
             'dn': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'users': ([LDAPServerUser],),  # noqa: E501
+            'guid': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -107,6 +111,7 @@ class LDAPServerGroup(ModelNormal):
         'dn': 'dn',  # noqa: E501
         'name': 'name',  # noqa: E501
         'users': 'users',  # noqa: E501
+        'guid': 'guid',  # noqa: E501
     }
 
     read_only_vars = {
@@ -116,13 +121,14 @@ class LDAPServerGroup(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, dn, name, users, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, dn, name, users, guid, *args, **xkwargs):  # noqa: E501
         """LDAPServerGroup - a model defined in OpenAPI
 
         Args:
             dn (str):
             name (str):
             users ([LDAPServerUser]):
+            guid (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -186,6 +192,7 @@ class LDAPServerGroup(ModelNormal):
         self.dn = dn
         self.name = name
         self.users = users
+        self.guid = guid
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -207,13 +214,14 @@ class LDAPServerGroup(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, dn, name, users, *args, **xkwargs):  # noqa: E501
+    def __init__(self, dn, name, users, guid, *args, **xkwargs):  # noqa: E501
         """LDAPServerGroup - a model defined in OpenAPI
 
         Args:
             dn (str):
             name (str):
             users ([LDAPServerUser]):
+            guid (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -275,6 +283,7 @@ class LDAPServerGroup(ModelNormal):
         self.dn = dn
         self.name = name
         self.users = users
+        self.guid = guid
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

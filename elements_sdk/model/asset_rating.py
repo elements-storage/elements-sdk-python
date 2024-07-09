@@ -94,7 +94,6 @@ class AssetRating(ModelNormal):
             'id': (int,),  # noqa: E501
             'user': (ElementsUserMiniReference,),  # noqa: E501
             'date': (datetime,),  # noqa: E501
-            'asset': (int,),  # noqa: E501
             'rating': (int,),  # noqa: E501
         }
 
@@ -107,7 +106,6 @@ class AssetRating(ModelNormal):
         'id': 'id',  # noqa: E501
         'user': 'user',  # noqa: E501
         'date': 'date',  # noqa: E501
-        'asset': 'asset',  # noqa: E501
         'rating': 'rating',  # noqa: E501
     }
 
@@ -119,14 +117,13 @@ class AssetRating(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, user, date, asset, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, user, date, *args, **xkwargs):  # noqa: E501
         """AssetRating - a model defined in OpenAPI
 
         Args:
             id (int):
             user (ElementsUserMiniReference):
             date (datetime):
-            asset (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -191,7 +188,6 @@ class AssetRating(ModelNormal):
         self.id = id
         self.user = user
         self.date = date
-        self.asset = asset
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -213,14 +209,12 @@ class AssetRating(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, user, asset, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, user, *args, **xkwargs):  # noqa: E501
         """AssetRating - a model defined in OpenAPI
 
         Args:
             id (int):
             user (ElementsUserMiniReference):
-            asset (int):
-
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -281,7 +275,6 @@ class AssetRating(ModelNormal):
 
         self.id = id
         self.user = user
-        self.asset = asset
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

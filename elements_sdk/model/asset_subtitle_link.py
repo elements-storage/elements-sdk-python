@@ -97,9 +97,8 @@ class AssetSubtitleLink(ModelNormal):
         return {
             'subtitle': (AssetMiniReference,),  # noqa: E501
             'label': (str,),  # noqa: E501
-            'key': (str, none_type,),  # noqa: E501
-            'asset': (int,),  # noqa: E501
             'id': (int,),  # noqa: E501
+            'key': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -110,9 +109,8 @@ class AssetSubtitleLink(ModelNormal):
     attribute_map = {
         'subtitle': 'subtitle',  # noqa: E501
         'label': 'label',  # noqa: E501
-        'key': 'key',  # noqa: E501
-        'asset': 'asset',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'key': 'key',  # noqa: E501
     }
 
     read_only_vars = {
@@ -123,14 +121,12 @@ class AssetSubtitleLink(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, subtitle, label, key, asset, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, subtitle, label, *args, **xkwargs):  # noqa: E501
         """AssetSubtitleLink - a model defined in OpenAPI
 
         Args:
             subtitle (AssetMiniReference):
             label (str):
-            key (str, none_type):
-            asset (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -164,6 +160,7 @@ class AssetSubtitleLink(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (int): [optional]  # noqa: E501
+            key (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -194,8 +191,6 @@ class AssetSubtitleLink(ModelNormal):
 
         self.subtitle = subtitle
         self.label = label
-        self.key = key
-        self.asset = asset
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -217,14 +212,12 @@ class AssetSubtitleLink(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, subtitle, label, key, asset, *args, **xkwargs):  # noqa: E501
+    def __init__(self, subtitle, label, *args, **xkwargs):  # noqa: E501
         """AssetSubtitleLink - a model defined in OpenAPI
 
         Args:
             subtitle (AssetMiniReference):
             label (str):
-            key (str, none_type):
-            asset (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -258,6 +251,7 @@ class AssetSubtitleLink(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (int): [optional]  # noqa: E501
+            key (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -286,8 +280,6 @@ class AssetSubtitleLink(ModelNormal):
 
         self.subtitle = subtitle
         self.label = label
-        self.key = key
-        self.asset = asset
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

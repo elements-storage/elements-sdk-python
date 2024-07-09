@@ -30,9 +30,7 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.custom_field_reference import CustomFieldReference
     from elements_sdk.model.volume_mini_reference import VolumeMiniReference
-    globals()['CustomFieldReference'] = CustomFieldReference
     globals()['VolumeMiniReference'] = VolumeMiniReference
 
 
@@ -100,7 +98,6 @@ class MediaRootMiniReference(ModelNormal):
             'volume': (VolumeMiniReference,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'full_path': (str,),  # noqa: E501
-            'custom_fields': ([CustomFieldReference],),  # noqa: E501
             'path': (str,),  # noqa: E501
             'prefetch_thumbnail_strips': (bool,),  # noqa: E501
         }
@@ -115,7 +112,6 @@ class MediaRootMiniReference(ModelNormal):
         'volume': 'volume',  # noqa: E501
         'name': 'name',  # noqa: E501
         'full_path': 'full_path',  # noqa: E501
-        'custom_fields': 'custom_fields',  # noqa: E501
         'path': 'path',  # noqa: E501
         'prefetch_thumbnail_strips': 'prefetch_thumbnail_strips',  # noqa: E501
     }
@@ -123,7 +119,6 @@ class MediaRootMiniReference(ModelNormal):
     read_only_vars = {
         'name',  # noqa: E501
         'full_path',  # noqa: E501
-        'custom_fields',  # noqa: E501
         'prefetch_thumbnail_strips',  # noqa: E501
     }
 
@@ -171,7 +166,6 @@ class MediaRootMiniReference(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
             full_path (str): [optional]  # noqa: E501
-            custom_fields ([CustomFieldReference]): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
             prefetch_thumbnail_strips (bool): [optional]  # noqa: E501
         """
@@ -265,7 +259,6 @@ class MediaRootMiniReference(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
             full_path (str): [optional]  # noqa: E501
-            custom_fields ([CustomFieldReference]): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
             prefetch_thumbnail_strips (bool): [optional]  # noqa: E501
         """

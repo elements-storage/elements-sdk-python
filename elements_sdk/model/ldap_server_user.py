@@ -70,6 +70,9 @@ class LDAPServerUser(ModelNormal):
         ('mail',): {
             'min_length': 1,
         },
+        ('guid',): {
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -97,6 +100,7 @@ class LDAPServerUser(ModelNormal):
             'name': (str,),  # noqa: E501
             'username': (str,),  # noqa: E501
             'mail': (str,),  # noqa: E501
+            'guid': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -109,6 +113,7 @@ class LDAPServerUser(ModelNormal):
         'name': 'name',  # noqa: E501
         'username': 'username',  # noqa: E501
         'mail': 'mail',  # noqa: E501
+        'guid': 'guid',  # noqa: E501
     }
 
     read_only_vars = {
@@ -118,7 +123,7 @@ class LDAPServerUser(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, dn, name, username, mail, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, dn, name, username, mail, guid, *args, **xkwargs):  # noqa: E501
         """LDAPServerUser - a model defined in OpenAPI
 
         Args:
@@ -126,6 +131,7 @@ class LDAPServerUser(ModelNormal):
             name (str):
             username (str):
             mail (str):
+            guid (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -190,6 +196,7 @@ class LDAPServerUser(ModelNormal):
         self.name = name
         self.username = username
         self.mail = mail
+        self.guid = guid
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -211,7 +218,7 @@ class LDAPServerUser(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, dn, name, username, mail, *args, **xkwargs):  # noqa: E501
+    def __init__(self, dn, name, username, mail, guid, *args, **xkwargs):  # noqa: E501
         """LDAPServerUser - a model defined in OpenAPI
 
         Args:
@@ -219,6 +226,7 @@ class LDAPServerUser(ModelNormal):
             name (str):
             username (str):
             mail (str):
+            guid (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -281,6 +289,7 @@ class LDAPServerUser(ModelNormal):
         self.name = name
         self.username = username
         self.mail = mail
+        self.guid = guid
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

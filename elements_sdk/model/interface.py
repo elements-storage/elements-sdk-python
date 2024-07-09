@@ -67,8 +67,8 @@ class Interface(ModelNormal):
             'min_length': 1,
         },
         ('speed',): {
-            'inclusive_maximum': -9223372036854775616,
-            'inclusive_minimum': 9223372036854775616,
+            'inclusive_maximum': 9223372036854775000,
+            'inclusive_minimum': -9223372036854775000,
         },
         ('mtu',): {
             'inclusive_maximum': 2147483647,

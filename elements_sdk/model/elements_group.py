@@ -108,6 +108,7 @@ class ElementsGroup(ModelNormal):
             'members': ([int],),  # noqa: E501
             'permissions': ([str, none_type],),  # noqa: E501
             'ldap_dn': (str, none_type,),  # noqa: E501
+            'ldap_guid': (str, none_type,),  # noqa: E501
             'unix_groupname': (str, none_type,),  # noqa: E501
             'gid': (int, none_type,),  # noqa: E501
             'ldap': (int, none_type,),  # noqa: E501
@@ -126,6 +127,7 @@ class ElementsGroup(ModelNormal):
         'members': 'members',  # noqa: E501
         'permissions': 'permissions',  # noqa: E501
         'ldap_dn': 'ldap_dn',  # noqa: E501
+        'ldap_guid': 'ldap_guid',  # noqa: E501
         'unix_groupname': 'unix_groupname',  # noqa: E501
         'gid': 'gid',  # noqa: E501
         'ldap': 'ldap',  # noqa: E501
@@ -183,6 +185,7 @@ class ElementsGroup(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             permissions ([str, none_type]): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
+            ldap_guid (str, none_type): [optional]  # noqa: E501
             unix_groupname (str, none_type): [optional]  # noqa: E501
             gid (int, none_type): [optional]  # noqa: E501
             ldap (int, none_type): [optional]  # noqa: E501
@@ -281,6 +284,7 @@ class ElementsGroup(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             permissions ([str, none_type]): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
+            ldap_guid (str, none_type): [optional]  # noqa: E501
             unix_groupname (str, none_type): [optional]  # noqa: E501
             gid (int, none_type): [optional]  # noqa: E501
             ldap (int, none_type): [optional]  # noqa: E501

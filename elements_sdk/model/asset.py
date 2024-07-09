@@ -88,6 +88,10 @@ class Asset(ModelNormal):
             'inclusive_maximum': 2147483647,
             'inclusive_minimum': -2147483648,
         },
+        ('set_stack_order',): {
+            'inclusive_maximum': 2147483647,
+            'inclusive_minimum': -2147483648,
+        },
     }
 
     @cached_property
@@ -142,7 +146,9 @@ class Asset(ModelNormal):
             'matched_scanner': (str, none_type,),  # noqa: E501
             'workflow_state': (int,),  # noqa: E501
             'timecode': (float, none_type,),  # noqa: E501
-            'set': (int, none_type,),  # noqa: E501
+            'set_stack_order': (int,),  # noqa: E501
+            'set_stack': (int, none_type,),  # noqa: E501
+            'version_stack': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -180,7 +186,9 @@ class Asset(ModelNormal):
         'matched_scanner': 'matched_scanner',  # noqa: E501
         'workflow_state': 'workflow_state',  # noqa: E501
         'timecode': 'timecode',  # noqa: E501
-        'set': 'set',  # noqa: E501
+        'set_stack_order': 'set_stack_order',  # noqa: E501
+        'set_stack': 'set_stack',  # noqa: E501
+        'version_stack': 'version_stack',  # noqa: E501
     }
 
     read_only_vars = {
@@ -204,6 +212,8 @@ class Asset(ModelNormal):
         'checksum',  # noqa: E501
         'type',  # noqa: E501
         'matched_scanner',  # noqa: E501
+        'set_stack',  # noqa: E501
+        'version_stack',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -275,7 +285,9 @@ class Asset(ModelNormal):
             matched_scanner (str, none_type): [optional]  # noqa: E501
             workflow_state (int): [optional]  # noqa: E501
             timecode (float, none_type): [optional]  # noqa: E501
-            set (int, none_type): [optional]  # noqa: E501
+            set_stack_order (int): [optional]  # noqa: E501
+            set_stack (int, none_type): [optional]  # noqa: E501
+            version_stack (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -393,7 +405,9 @@ class Asset(ModelNormal):
             matched_scanner (str, none_type): [optional]  # noqa: E501
             workflow_state (int): [optional]  # noqa: E501
             timecode (float, none_type): [optional]  # noqa: E501
-            set (int, none_type): [optional]  # noqa: E501
+            set_stack_order (int): [optional]  # noqa: E501
+            set_stack (int, none_type): [optional]  # noqa: E501
+            version_stack (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
