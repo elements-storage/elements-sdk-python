@@ -97,10 +97,10 @@ class AIMetadata(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'asset': (int,),  # noqa: E501
-            'dataset': (AIDataset,),  # noqa: E501
             'model': (AIModel,),  # noqa: E501
-            'metadata': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'type': (str, none_type,),  # noqa: E501
+            'metadata': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'dataset': (AIDataset,),  # noqa: E501
         }
 
     @cached_property
@@ -111,10 +111,10 @@ class AIMetadata(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'asset': 'asset',  # noqa: E501
-        'dataset': 'dataset',  # noqa: E501
         'model': 'model',  # noqa: E501
-        'metadata': 'metadata',  # noqa: E501
         'type': 'type',  # noqa: E501
+        'metadata': 'metadata',  # noqa: E501
+        'dataset': 'dataset',  # noqa: E501
     }
 
     read_only_vars = {
@@ -124,14 +124,14 @@ class AIMetadata(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, asset, dataset, model, metadata, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, asset, model, type, metadata, *args, **xkwargs):  # noqa: E501
         """AIMetadata - a model defined in OpenAPI
 
         Args:
             id (int):
             asset (int):
-            dataset (AIDataset):
             model (AIModel):
+            type (str, none_type):
             metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
@@ -165,7 +165,7 @@ class AIMetadata(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            type (str, none_type): [optional]  # noqa: E501
+            dataset (AIDataset): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -196,8 +196,8 @@ class AIMetadata(ModelNormal):
 
         self.id = id
         self.asset = asset
-        self.dataset = dataset
         self.model = model
+        self.type = type
         self.metadata = metadata
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -220,14 +220,14 @@ class AIMetadata(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, asset, dataset, model, metadata, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, asset, model, type, metadata, *args, **xkwargs):  # noqa: E501
         """AIMetadata - a model defined in OpenAPI
 
         Args:
             id (int):
             asset (int):
-            dataset (AIDataset):
             model (AIModel):
+            type (str, none_type):
             metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
@@ -261,7 +261,7 @@ class AIMetadata(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            type (str, none_type): [optional]  # noqa: E501
+            dataset (AIDataset): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -290,8 +290,8 @@ class AIMetadata(ModelNormal):
 
         self.id = id
         self.asset = asset
-        self.dataset = dataset
         self.model = model
+        self.type = type
         self.metadata = metadata
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

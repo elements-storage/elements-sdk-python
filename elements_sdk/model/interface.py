@@ -141,13 +141,18 @@ class Interface(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, device, addresses, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, device, addresses, speed, mtu, use_for_mounts, priority, port, *args, **xkwargs):  # noqa: E501
         """Interface - a model defined in OpenAPI
 
         Args:
             id (int):
             device (str):
             addresses ([Address]):
+            speed (int, none_type):
+            mtu (int):
+            use_for_mounts (bool):
+            priority (int):
+            port (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -180,11 +185,6 @@ class Interface(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            speed (int, none_type): [optional]  # noqa: E501
-            mtu (int): [optional]  # noqa: E501
-            use_for_mounts (bool): [optional]  # noqa: E501
-            priority (int): [optional]  # noqa: E501
-            port (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -216,6 +216,11 @@ class Interface(ModelNormal):
         self.id = id
         self.device = device
         self.addresses = addresses
+        self.speed = speed
+        self.mtu = mtu
+        self.use_for_mounts = use_for_mounts
+        self.priority = priority
+        self.port = port
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -237,12 +242,18 @@ class Interface(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, device, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, device, speed, mtu, use_for_mounts, priority, port, *args, **xkwargs):  # noqa: E501
         """Interface - a model defined in OpenAPI
 
         Args:
             id (int):
             device (str):
+            speed (int, none_type):
+            mtu (int):
+            use_for_mounts (bool):
+            priority (int):
+            port (str, none_type):
+
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -274,11 +285,6 @@ class Interface(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            speed (int, none_type): [optional]  # noqa: E501
-            mtu (int): [optional]  # noqa: E501
-            use_for_mounts (bool): [optional]  # noqa: E501
-            priority (int): [optional]  # noqa: E501
-            port (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -307,6 +313,11 @@ class Interface(ModelNormal):
 
         self.id = id
         self.device = device
+        self.speed = speed
+        self.mtu = mtu
+        self.use_for_mounts = use_for_mounts
+        self.priority = priority
+        self.port = port
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -86,7 +86,7 @@ class TaskProgress(ModelNormal):
         return {
             'message': (str, none_type,),  # noqa: E501
             'current': (int, none_type,),  # noqa: E501
-            'max': (int, none_type,),  # noqa: E501
+            'max': (float, none_type,),  # noqa: E501
             'bar': (bool, none_type,),  # noqa: E501
         }
 
@@ -145,7 +145,7 @@ class TaskProgress(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             message (str, none_type): [optional]  # noqa: E501
             current (int, none_type): [optional]  # noqa: E501
-            max (int, none_type): [optional]  # noqa: E501
+            max (float, none_type): [optional]  # noqa: E501
             bar (bool, none_type): [optional]  # noqa: E501
         """
 
@@ -232,7 +232,7 @@ class TaskProgress(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             message (str, none_type): [optional]  # noqa: E501
             current (int, none_type): [optional]  # noqa: E501
-            max (int, none_type): [optional]  # noqa: E501
+            max (float, none_type): [optional]  # noqa: E501
             bar (bool, none_type): [optional]  # noqa: E501
         """
 

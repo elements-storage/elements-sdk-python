@@ -92,13 +92,13 @@ class Production(ModelNormal):
             'is_special': (bool,),  # noqa: E501
             'total_size': (int, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'special_type': (int, none_type,),  # noqa: E501
             'obscure_name': (bool,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'long_description': (str,),  # noqa: E501
             'active': (bool,),  # noqa: E501
             'template': (int, none_type,),  # noqa: E501
             'default_group': (int, none_type,),  # noqa: E501
+            'special_type': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -111,13 +111,13 @@ class Production(ModelNormal):
         'is_special': 'is_special',  # noqa: E501
         'total_size': 'total_size',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'special_type': 'special_type',  # noqa: E501
         'obscure_name': 'obscure_name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'long_description': 'long_description',  # noqa: E501
         'active': 'active',  # noqa: E501
         'template': 'template',  # noqa: E501
         'default_group': 'default_group',  # noqa: E501
+        'special_type': 'special_type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -130,7 +130,7 @@ class Production(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, is_special, total_size, name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, is_special, total_size, name, obscure_name, description, long_description, active, template, default_group, *args, **xkwargs):  # noqa: E501
         """Production - a model defined in OpenAPI
 
         Args:
@@ -138,6 +138,12 @@ class Production(ModelNormal):
             is_special (bool):
             total_size (int, none_type):
             name (str):
+            obscure_name (bool):
+            description (str, none_type):
+            long_description (str):
+            active (bool):
+            template (int, none_type):
+            default_group (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -171,12 +177,6 @@ class Production(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             special_type (int, none_type): [optional]  # noqa: E501
-            obscure_name (bool): [optional]  # noqa: E501
-            description (str, none_type): [optional]  # noqa: E501
-            long_description (str): [optional]  # noqa: E501
-            active (bool): [optional]  # noqa: E501
-            template (int, none_type): [optional]  # noqa: E501
-            default_group (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -209,6 +209,12 @@ class Production(ModelNormal):
         self.is_special = is_special
         self.total_size = total_size
         self.name = name
+        self.obscure_name = obscure_name
+        self.description = description
+        self.long_description = long_description
+        self.active = active
+        self.template = template
+        self.default_group = default_group
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -230,12 +236,18 @@ class Production(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, obscure_name, description, long_description, active, template, default_group, *args, **xkwargs):  # noqa: E501
         """Production - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
+            obscure_name (bool):
+            description (str, none_type):
+            long_description (str):
+            active (bool):
+            template (int, none_type):
+            default_group (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -269,12 +281,6 @@ class Production(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             special_type (int, none_type): [optional]  # noqa: E501
-            obscure_name (bool): [optional]  # noqa: E501
-            description (str, none_type): [optional]  # noqa: E501
-            long_description (str): [optional]  # noqa: E501
-            active (bool): [optional]  # noqa: E501
-            template (int, none_type): [optional]  # noqa: E501
-            default_group (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -303,6 +309,12 @@ class Production(ModelNormal):
 
         self.id = id
         self.name = name
+        self.obscure_name = obscure_name
+        self.description = description
+        self.long_description = long_description
+        self.active = active
+        self.template = template
+        self.default_group = default_group
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

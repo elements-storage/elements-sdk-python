@@ -134,12 +134,19 @@ class TranscoderProfile(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, options, binary, command, output_extension, accepts_bitrate, accepts_fps, accepts_resolution, *args, **xkwargs):  # noqa: E501
         """TranscoderProfile - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
+            options (str):
+            binary (str):
+            command (str):
+            output_extension (str):
+            accepts_bitrate (bool):
+            accepts_fps (bool):
+            accepts_resolution (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -172,13 +179,6 @@ class TranscoderProfile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            options (str): [optional]  # noqa: E501
-            binary (str): [optional]  # noqa: E501
-            command (str): [optional]  # noqa: E501
-            output_extension (str): [optional]  # noqa: E501
-            accepts_bitrate (bool): [optional]  # noqa: E501
-            accepts_fps (bool): [optional]  # noqa: E501
-            accepts_resolution (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -209,6 +209,13 @@ class TranscoderProfile(ModelNormal):
 
         self.id = id
         self.name = name
+        self.options = options
+        self.binary = binary
+        self.command = command
+        self.output_extension = output_extension
+        self.accepts_bitrate = accepts_bitrate
+        self.accepts_fps = accepts_fps
+        self.accepts_resolution = accepts_resolution
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -230,12 +237,19 @@ class TranscoderProfile(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, options, binary, command, output_extension, accepts_bitrate, accepts_fps, accepts_resolution, *args, **xkwargs):  # noqa: E501
         """TranscoderProfile - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
+            options (str):
+            binary (str):
+            command (str):
+            output_extension (str):
+            accepts_bitrate (bool):
+            accepts_fps (bool):
+            accepts_resolution (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -268,13 +282,6 @@ class TranscoderProfile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            options (str): [optional]  # noqa: E501
-            binary (str): [optional]  # noqa: E501
-            command (str): [optional]  # noqa: E501
-            output_extension (str): [optional]  # noqa: E501
-            accepts_bitrate (bool): [optional]  # noqa: E501
-            accepts_fps (bool): [optional]  # noqa: E501
-            accepts_resolution (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -303,6 +310,13 @@ class TranscoderProfile(ModelNormal):
 
         self.id = id
         self.name = name
+        self.options = options
+        self.binary = binary
+        self.command = command
+        self.output_extension = output_extension
+        self.accepts_bitrate = accepts_bitrate
+        self.accepts_fps = accepts_fps
+        self.accepts_resolution = accepts_resolution
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

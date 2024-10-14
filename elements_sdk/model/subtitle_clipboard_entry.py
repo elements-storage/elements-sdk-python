@@ -30,8 +30,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.asset_mini_reference import AssetMiniReference
-    globals()['AssetMiniReference'] = AssetMiniReference
+    from elements_sdk.model.asset_mini import AssetMini
+    globals()['AssetMini'] = AssetMini
 
 
 class SubtitleClipboardEntry(ModelNormal):
@@ -88,9 +88,9 @@ class SubtitleClipboardEntry(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'subtitle': (AssetMiniReference,),  # noqa: E501
-            'date': (datetime,),  # noqa: E501
+            'subtitle': (AssetMini,),  # noqa: E501
             'bundle': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'date': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -101,8 +101,8 @@ class SubtitleClipboardEntry(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'subtitle': 'subtitle',  # noqa: E501
-        'date': 'date',  # noqa: E501
         'bundle': 'bundle',  # noqa: E501
+        'date': 'date',  # noqa: E501
     }
 
     read_only_vars = {
@@ -113,12 +113,13 @@ class SubtitleClipboardEntry(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, subtitle, date, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, subtitle, bundle, date, *args, **xkwargs):  # noqa: E501
         """SubtitleClipboardEntry - a model defined in OpenAPI
 
         Args:
             id (int):
-            subtitle (AssetMiniReference):
+            subtitle (AssetMini):
+            bundle (bool, date, datetime, dict, float, int, list, str, none_type):
             date (datetime):
 
         Keyword Args:
@@ -152,7 +153,6 @@ class SubtitleClipboardEntry(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bundle (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -183,6 +183,7 @@ class SubtitleClipboardEntry(ModelNormal):
 
         self.id = id
         self.subtitle = subtitle
+        self.bundle = bundle
         self.date = date
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -205,12 +206,13 @@ class SubtitleClipboardEntry(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, subtitle, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, subtitle, bundle, *args, **xkwargs):  # noqa: E501
         """SubtitleClipboardEntry - a model defined in OpenAPI
 
         Args:
             id (int):
-            subtitle (AssetMiniReference):
+            subtitle (AssetMini):
+            bundle (bool, date, datetime, dict, float, int, list, str, none_type):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -242,7 +244,6 @@ class SubtitleClipboardEntry(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bundle (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -271,6 +272,7 @@ class SubtitleClipboardEntry(ModelNormal):
 
         self.id = id
         self.subtitle = subtitle
+        self.bundle = bundle
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

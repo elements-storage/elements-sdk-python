@@ -138,8 +138,30 @@ class MediaRootPermissionAccessOptions(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, show_tags, show_comments, show_locations, show_custom_fields, show_ratings, show_subclips, show_subtitles, show_ai_metadata, show_markers, show_history, allow_read, allow_create, allow_write_fs, allow_write_db, allow_proxy_download, allow_original_download, allow_upload, allow_sharing, allow_delete_fs, allow_delete_db, *args, **xkwargs):  # noqa: E501
         """MediaRootPermissionAccessOptions - a model defined in OpenAPI
+
+        Args:
+            show_tags (bool):
+            show_comments (bool):
+            show_locations (bool):
+            show_custom_fields (bool):
+            show_ratings (bool):
+            show_subclips (bool):
+            show_subtitles (bool):
+            show_ai_metadata (bool):
+            show_markers (bool):
+            show_history (bool):
+            allow_read (bool):
+            allow_create (bool):
+            allow_write_fs (bool):
+            allow_write_db (bool):
+            allow_proxy_download (bool):
+            allow_original_download (bool):
+            allow_upload (bool):
+            allow_sharing (bool):
+            allow_delete_fs (bool):
+            allow_delete_db (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -172,26 +194,6 @@ class MediaRootPermissionAccessOptions(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            show_tags (bool): [optional]  # noqa: E501
-            show_comments (bool): [optional]  # noqa: E501
-            show_locations (bool): [optional]  # noqa: E501
-            show_custom_fields (bool): [optional]  # noqa: E501
-            show_ratings (bool): [optional]  # noqa: E501
-            show_subclips (bool): [optional]  # noqa: E501
-            show_subtitles (bool): [optional]  # noqa: E501
-            show_ai_metadata (bool): [optional]  # noqa: E501
-            show_markers (bool): [optional]  # noqa: E501
-            show_history (bool): [optional]  # noqa: E501
-            allow_read (bool): [optional]  # noqa: E501
-            allow_create (bool): [optional]  # noqa: E501
-            allow_write_fs (bool): [optional]  # noqa: E501
-            allow_write_db (bool): [optional]  # noqa: E501
-            allow_proxy_download (bool): [optional]  # noqa: E501
-            allow_original_download (bool): [optional]  # noqa: E501
-            allow_upload (bool): [optional]  # noqa: E501
-            allow_sharing (bool): [optional]  # noqa: E501
-            allow_delete_fs (bool): [optional]  # noqa: E501
-            allow_delete_db (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -220,6 +222,26 @@ class MediaRootPermissionAccessOptions(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
+        self.show_tags = show_tags
+        self.show_comments = show_comments
+        self.show_locations = show_locations
+        self.show_custom_fields = show_custom_fields
+        self.show_ratings = show_ratings
+        self.show_subclips = show_subclips
+        self.show_subtitles = show_subtitles
+        self.show_ai_metadata = show_ai_metadata
+        self.show_markers = show_markers
+        self.show_history = show_history
+        self.allow_read = allow_read
+        self.allow_create = allow_create
+        self.allow_write_fs = allow_write_fs
+        self.allow_write_db = allow_write_db
+        self.allow_proxy_download = allow_proxy_download
+        self.allow_original_download = allow_original_download
+        self.allow_upload = allow_upload
+        self.allow_sharing = allow_sharing
+        self.allow_delete_fs = allow_delete_fs
+        self.allow_delete_db = allow_delete_db
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -241,8 +263,30 @@ class MediaRootPermissionAccessOptions(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **xkwargs):  # noqa: E501
+    def __init__(self, show_tags, show_comments, show_locations, show_custom_fields, show_ratings, show_subclips, show_subtitles, show_ai_metadata, show_markers, show_history, allow_read, allow_create, allow_write_fs, allow_write_db, allow_proxy_download, allow_original_download, allow_upload, allow_sharing, allow_delete_fs, allow_delete_db, *args, **xkwargs):  # noqa: E501
         """MediaRootPermissionAccessOptions - a model defined in OpenAPI
+
+        Args:
+            show_tags (bool):
+            show_comments (bool):
+            show_locations (bool):
+            show_custom_fields (bool):
+            show_ratings (bool):
+            show_subclips (bool):
+            show_subtitles (bool):
+            show_ai_metadata (bool):
+            show_markers (bool):
+            show_history (bool):
+            allow_read (bool):
+            allow_create (bool):
+            allow_write_fs (bool):
+            allow_write_db (bool):
+            allow_proxy_download (bool):
+            allow_original_download (bool):
+            allow_upload (bool):
+            allow_sharing (bool):
+            allow_delete_fs (bool):
+            allow_delete_db (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -275,26 +319,6 @@ class MediaRootPermissionAccessOptions(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            show_tags (bool): [optional]  # noqa: E501
-            show_comments (bool): [optional]  # noqa: E501
-            show_locations (bool): [optional]  # noqa: E501
-            show_custom_fields (bool): [optional]  # noqa: E501
-            show_ratings (bool): [optional]  # noqa: E501
-            show_subclips (bool): [optional]  # noqa: E501
-            show_subtitles (bool): [optional]  # noqa: E501
-            show_ai_metadata (bool): [optional]  # noqa: E501
-            show_markers (bool): [optional]  # noqa: E501
-            show_history (bool): [optional]  # noqa: E501
-            allow_read (bool): [optional]  # noqa: E501
-            allow_create (bool): [optional]  # noqa: E501
-            allow_write_fs (bool): [optional]  # noqa: E501
-            allow_write_db (bool): [optional]  # noqa: E501
-            allow_proxy_download (bool): [optional]  # noqa: E501
-            allow_original_download (bool): [optional]  # noqa: E501
-            allow_upload (bool): [optional]  # noqa: E501
-            allow_sharing (bool): [optional]  # noqa: E501
-            allow_delete_fs (bool): [optional]  # noqa: E501
-            allow_delete_db (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -321,6 +345,26 @@ class MediaRootPermissionAccessOptions(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
+        self.show_tags = show_tags
+        self.show_comments = show_comments
+        self.show_locations = show_locations
+        self.show_custom_fields = show_custom_fields
+        self.show_ratings = show_ratings
+        self.show_subclips = show_subclips
+        self.show_subtitles = show_subtitles
+        self.show_ai_metadata = show_ai_metadata
+        self.show_markers = show_markers
+        self.show_history = show_history
+        self.allow_read = allow_read
+        self.allow_create = allow_create
+        self.allow_write_fs = allow_write_fs
+        self.allow_write_db = allow_write_db
+        self.allow_proxy_download = allow_proxy_download
+        self.allow_original_download = allow_original_download
+        self.allow_upload = allow_upload
+        self.allow_sharing = allow_sharing
+        self.allow_delete_fs = allow_delete_fs
+        self.allow_delete_db = allow_delete_db
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

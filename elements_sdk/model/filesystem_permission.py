@@ -112,12 +112,15 @@ class FilesystemPermission(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, path, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, path, read_only, user, group, *args, **xkwargs):  # noqa: E501
         """FilesystemPermission - a model defined in OpenAPI
 
         Args:
             id (int):
             path (str):
+            read_only (bool):
+            user (int, none_type):
+            group (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -150,9 +153,6 @@ class FilesystemPermission(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            read_only (bool): [optional]  # noqa: E501
-            user (int, none_type): [optional]  # noqa: E501
-            group (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -183,6 +183,9 @@ class FilesystemPermission(ModelNormal):
 
         self.id = id
         self.path = path
+        self.read_only = read_only
+        self.user = user
+        self.group = group
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -204,12 +207,15 @@ class FilesystemPermission(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, path, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, path, read_only, user, group, *args, **xkwargs):  # noqa: E501
         """FilesystemPermission - a model defined in OpenAPI
 
         Args:
             id (int):
             path (str):
+            read_only (bool):
+            user (int, none_type):
+            group (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -242,9 +248,6 @@ class FilesystemPermission(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            read_only (bool): [optional]  # noqa: E501
-            user (int, none_type): [optional]  # noqa: E501
-            group (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -273,6 +276,9 @@ class FilesystemPermission(ModelNormal):
 
         self.id = id
         self.path = path
+        self.read_only = read_only
+        self.user = user
+        self.group = group
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -174,13 +174,26 @@ class Tape(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, root_entry, name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, root_entry, name, uuid, generation, custom_a, custom_b, custom_c, custom_d, free_space, load_counter, error_counter, error_reason, active, lto, group, *args, **xkwargs):  # noqa: E501
         """Tape - a model defined in OpenAPI
 
         Args:
             id (int):
             root_entry (int, none_type):
             name (str):
+            uuid (str):
+            generation (int):
+            custom_a (str):
+            custom_b (str):
+            custom_c (str):
+            custom_d (str):
+            free_space (int, none_type):
+            load_counter (int):
+            error_counter (int):
+            error_reason (str, none_type):
+            active (bool):
+            lto (str, none_type):
+            group (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -213,19 +226,6 @@ class Tape(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            uuid (str): [optional]  # noqa: E501
-            generation (int): [optional]  # noqa: E501
-            custom_a (str): [optional]  # noqa: E501
-            custom_b (str): [optional]  # noqa: E501
-            custom_c (str): [optional]  # noqa: E501
-            custom_d (str): [optional]  # noqa: E501
-            free_space (int, none_type): [optional]  # noqa: E501
-            load_counter (int): [optional]  # noqa: E501
-            error_counter (int): [optional]  # noqa: E501
-            error_reason (str, none_type): [optional]  # noqa: E501
-            active (bool): [optional]  # noqa: E501
-            lto (str, none_type): [optional]  # noqa: E501
-            group (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -257,6 +257,19 @@ class Tape(ModelNormal):
         self.id = id
         self.root_entry = root_entry
         self.name = name
+        self.uuid = uuid
+        self.generation = generation
+        self.custom_a = custom_a
+        self.custom_b = custom_b
+        self.custom_c = custom_c
+        self.custom_d = custom_d
+        self.free_space = free_space
+        self.load_counter = load_counter
+        self.error_counter = error_counter
+        self.error_reason = error_reason
+        self.active = active
+        self.lto = lto
+        self.group = group
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -278,12 +291,25 @@ class Tape(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, uuid, generation, custom_a, custom_b, custom_c, custom_d, free_space, load_counter, error_counter, error_reason, active, lto, group, *args, **xkwargs):  # noqa: E501
         """Tape - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
+            uuid (str):
+            generation (int):
+            custom_a (str):
+            custom_b (str):
+            custom_c (str):
+            custom_d (str):
+            free_space (int, none_type):
+            load_counter (int):
+            error_counter (int):
+            error_reason (str, none_type):
+            active (bool):
+            lto (str, none_type):
+            group (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -316,19 +342,6 @@ class Tape(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            uuid (str): [optional]  # noqa: E501
-            generation (int): [optional]  # noqa: E501
-            custom_a (str): [optional]  # noqa: E501
-            custom_b (str): [optional]  # noqa: E501
-            custom_c (str): [optional]  # noqa: E501
-            custom_d (str): [optional]  # noqa: E501
-            free_space (int, none_type): [optional]  # noqa: E501
-            load_counter (int): [optional]  # noqa: E501
-            error_counter (int): [optional]  # noqa: E501
-            error_reason (str, none_type): [optional]  # noqa: E501
-            active (bool): [optional]  # noqa: E501
-            lto (str, none_type): [optional]  # noqa: E501
-            group (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -357,6 +370,19 @@ class Tape(ModelNormal):
 
         self.id = id
         self.name = name
+        self.uuid = uuid
+        self.generation = generation
+        self.custom_a = custom_a
+        self.custom_b = custom_b
+        self.custom_c = custom_c
+        self.custom_d = custom_d
+        self.free_space = free_space
+        self.load_counter = load_counter
+        self.error_counter = error_counter
+        self.error_reason = error_reason
+        self.active = active
+        self.lto = lto
+        self.group = group
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

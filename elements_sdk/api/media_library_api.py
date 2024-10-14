@@ -50,6 +50,7 @@ from elements_sdk.model.external_transcoder import ExternalTranscoder
 from elements_sdk.model.external_transcoder_partial_update import ExternalTranscoderPartialUpdate
 from elements_sdk.model.external_transcoder_update import ExternalTranscoderUpdate
 from elements_sdk.model.extract_request import ExtractRequest
+from elements_sdk.model.field_option import FieldOption
 from elements_sdk.model.generate_proxies_request import GenerateProxiesRequest
 from elements_sdk.model.get_multiple_bundles_request import GetMultipleBundlesRequest
 from elements_sdk.model.get_multiple_files_request import GetMultipleFilesRequest
@@ -83,6 +84,7 @@ from elements_sdk.model.multiple_assets_request import MultipleAssetsRequest
 from elements_sdk.model.one_time_access_token import OneTimeAccessToken
 from elements_sdk.model.proxy import Proxy
 from elements_sdk.model.proxy_count import ProxyCount
+from elements_sdk.model.proxy_generation_info_response import ProxyGenerationInfoResponse
 from elements_sdk.model.proxy_generator import ProxyGenerator
 from elements_sdk.model.proxy_profile import ProxyProfile
 from elements_sdk.model.proxy_profile_partial_update import ProxyProfilePartialUpdate
@@ -117,8 +119,11 @@ from elements_sdk.model.unfiltered_tag_update import UnfilteredTagUpdate
 from elements_sdk.model.unresolved_count import UnresolvedCount
 from elements_sdk.model.vantage_workflows import VantageWorkflows
 from elements_sdk.model.web_upload_completed import WebUploadCompleted
+from elements_sdk.model.workflow import Workflow
+from elements_sdk.model.workflow_partial_update import WorkflowPartialUpdate
 from elements_sdk.model.workflow_transition_request import WorkflowTransitionRequest
 from elements_sdk.model.workflow_transition_response import WorkflowTransitionResponse
+from elements_sdk.model.workflow_update import WorkflowUpdate
 from elements_sdk.model.xml_export import XMLExport
 
 
@@ -1370,6 +1375,58 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.create_workflow_endpoint = _Endpoint(
+            settings={
+                'response_type': (Workflow,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/workflows',
+                'operation_id': 'create_workflow',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'workflow_update',
+                ],
+                'required': [
+                    'workflow_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'workflow_update':
+                        (WorkflowUpdate,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'workflow_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.delete_asset_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -2584,6 +2641,55 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.delete_workflow_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/workflows/{id}',
+                'operation_id': 'delete_workflow',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.discover_media_endpoint = _Endpoint(
             settings={
                 'response_type': (MediaFile,),
@@ -3705,6 +3811,7 @@ class MediaLibraryApi(object):
                     'include_proxies',
                     'include_modified_by',
                     'include_proxy_transforms',
+                    'include_full_info',
                     'resolve_asset_permission',
                     'for_root',
                 ],
@@ -3738,6 +3845,8 @@ class MediaLibraryApi(object):
                         (bool,),
                     'include_proxy_transforms':
                         (bool,),
+                    'include_full_info':
+                        (bool,),
                     'resolve_asset_permission':
                         (bool,),
                     'for_root':
@@ -3752,6 +3861,7 @@ class MediaLibraryApi(object):
                     'include_proxies': 'include_proxies',
                     'include_modified_by': 'include_modified_by',
                     'include_proxy_transforms': 'include_proxy_transforms',
+                    'include_full_info': 'include_full_info',
                     'resolve_asset_permission': 'resolve_asset_permission',
                     'for_root': 'for_root',
                 },
@@ -3764,6 +3874,7 @@ class MediaLibraryApi(object):
                     'include_proxies': 'query',
                     'include_modified_by': 'query',
                     'include_proxy_transforms': 'query',
+                    'include_full_info': 'query',
                     'resolve_asset_permission': 'query',
                     'for_root': 'query',
                 },
@@ -5893,6 +6004,65 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.get_all_workflows_endpoint = _Endpoint(
+            settings={
+                'response_type': ([Workflow],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/workflows',
+                'operation_id': 'get_all_workflows',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'ordering',
+                    'limit',
+                    'offset',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'ordering':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'ordering': 'ordering',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'ordering': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_asset_endpoint = _Endpoint(
             settings={
                 'response_type': (Asset,),
@@ -5910,6 +6080,7 @@ class MediaLibraryApi(object):
                     'include_proxies',
                     'include_modified_by',
                     'include_proxy_transforms',
+                    'include_full_info',
                     'resolve_asset_permission',
                     'for_root',
                 ],
@@ -5937,6 +6108,8 @@ class MediaLibraryApi(object):
                         (bool,),
                     'include_proxy_transforms':
                         (bool,),
+                    'include_full_info':
+                        (bool,),
                     'resolve_asset_permission':
                         (bool,),
                     'for_root':
@@ -5947,6 +6120,7 @@ class MediaLibraryApi(object):
                     'include_proxies': 'include_proxies',
                     'include_modified_by': 'include_modified_by',
                     'include_proxy_transforms': 'include_proxy_transforms',
+                    'include_full_info': 'include_full_info',
                     'resolve_asset_permission': 'resolve_asset_permission',
                     'for_root': 'for_root',
                 },
@@ -5955,6 +6129,7 @@ class MediaLibraryApi(object):
                     'include_proxies': 'query',
                     'include_modified_by': 'query',
                     'include_proxy_transforms': 'query',
+                    'include_full_info': 'query',
                     'resolve_asset_permission': 'query',
                     'for_root': 'query',
                 },
@@ -6414,6 +6589,62 @@ class MediaLibraryApi(object):
                 },
                 'location_map': {
                     'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_custom_field_options_endpoint = _Endpoint(
+            settings={
+                'response_type': ([FieldOption],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/custom-fields/{id}/options',
+                'operation_id': 'get_custom_field_options',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'q',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'q':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'q': 'q',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'q': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -7363,6 +7594,7 @@ class MediaLibraryApi(object):
                     'include_proxies',
                     'include_modified_by',
                     'include_proxy_transforms',
+                    'include_full_info',
                     'resolve_asset_permission',
                     'for_root',
                 ],
@@ -7390,6 +7622,8 @@ class MediaLibraryApi(object):
                         (bool,),
                     'include_proxy_transforms':
                         (bool,),
+                    'include_full_info':
+                        (bool,),
                     'resolve_asset_permission':
                         (bool,),
                     'for_root':
@@ -7399,6 +7633,7 @@ class MediaLibraryApi(object):
                     'include_proxies': 'include_proxies',
                     'include_modified_by': 'include_modified_by',
                     'include_proxy_transforms': 'include_proxy_transforms',
+                    'include_full_info': 'include_full_info',
                     'resolve_asset_permission': 'resolve_asset_permission',
                     'for_root': 'for_root',
                 },
@@ -7407,6 +7642,7 @@ class MediaLibraryApi(object):
                     'include_proxies': 'query',
                     'include_modified_by': 'query',
                     'include_proxy_transforms': 'query',
+                    'include_full_info': 'query',
                     'resolve_asset_permission': 'query',
                     'for_root': 'query',
                 },
@@ -7683,6 +7919,63 @@ class MediaLibraryApi(object):
                 ],
                 'endpoint_path': '/api/2/media/assets/{asset_id}/proxies/{id}',
                 'operation_id': 'get_proxy',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'asset_id',
+                    'id',
+                ],
+                'required': [
+                    'asset_id',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'asset_id':
+                        (str,),
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'asset_id': 'asset_id',
+                    'id': 'id',
+                },
+                'location_map': {
+                    'asset_id': 'path',
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_proxy_generation_info_endpoint = _Endpoint(
+            settings={
+                'response_type': (ProxyGenerationInfoResponse,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/assets/{asset_id}/proxies/{id}/progress',
+                'operation_id': 'get_proxy_generation_info',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -8160,6 +8453,57 @@ class MediaLibraryApi(object):
                 ],
                 'endpoint_path': '/api/2/media/external-transcoders/{id}/workflows',
                 'operation_id': 'get_vantage_workflows',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_workflow_endpoint = _Endpoint(
+            settings={
+                'response_type': (Workflow,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/workflows/{id}',
+                'operation_id': 'get_workflow',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -9461,6 +9805,64 @@ class MediaLibraryApi(object):
                     'asset_id': 'path',
                     'id': 'path',
                     'subclip_partial_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.patch_workflow_endpoint = _Endpoint(
+            settings={
+                'response_type': (Workflow,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/workflows/{id}',
+                'operation_id': 'patch_workflow',
+                'http_method': 'PATCH',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'workflow_partial_update',
+                ],
+                'required': [
+                    'id',
+                    'workflow_partial_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'workflow_partial_update':
+                        (WorkflowPartialUpdate,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'workflow_partial_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -11482,6 +11884,64 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.update_workflow_endpoint = _Endpoint(
+            settings={
+                'response_type': (Workflow,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/workflows/{id}',
+                'operation_id': 'update_workflow',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'workflow_update',
+                ],
+                'required': [
+                    'id',
+                    'workflow_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'workflow_update':
+                        (WorkflowUpdate,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'workflow_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.web_upload_completed_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -13337,6 +13797,84 @@ class MediaLibraryApi(object):
         kwargs['subtitle_clipboard_entry_update'] = \
             subtitle_clipboard_entry_update
         return self.create_subtitle_clipboard_entry_endpoint.call_with_http_info(**kwargs)
+
+    def create_workflow(
+        self,
+        workflow_update,
+        **kwargs
+    ):
+        """create_workflow  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:roots:manage`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_workflow(workflow_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            workflow_update (WorkflowUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Workflow
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['workflow_update'] = \
+            workflow_update
+        return self.create_workflow_endpoint.call_with_http_info(**kwargs)
 
     def delete_asset(
         self,
@@ -15231,6 +15769,84 @@ class MediaLibraryApi(object):
             id
         return self.delete_subtitle_clipboard_entry_endpoint.call_with_http_info(**kwargs)
 
+    def delete_workflow(
+        self,
+        id,
+        **kwargs
+    ):
+        """delete_workflow  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:roots:manage`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_workflow(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Workflow.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.delete_workflow_endpoint.call_with_http_info(**kwargs)
+
     def discover_media(
         self,
         scanner_discover_endpoint_request,
@@ -16703,6 +17319,7 @@ class MediaLibraryApi(object):
             include_proxies (bool): [optional]
             include_modified_by (bool): [optional]
             include_proxy_transforms (bool): [optional]
+            include_full_info (bool): [optional]
             resolve_asset_permission (bool): [optional]
             for_root (int): [optional]
             _return_http_data_only (bool): response data without head status
@@ -18816,6 +19433,82 @@ class MediaLibraryApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_all_transcoder_profiles_endpoint.call_with_http_info(**kwargs)
 
+    def get_all_workflows(
+        self,
+        **kwargs
+    ):
+        """get_all_workflows  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:roots:manage`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_all_workflows(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            ordering (str): Which field to use when ordering the results.. [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [Workflow]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_all_workflows_endpoint.call_with_http_info(**kwargs)
+
     def get_asset(
         self,
         id,
@@ -18837,6 +19530,7 @@ class MediaLibraryApi(object):
             include_proxies (bool): [optional]
             include_modified_by (bool): [optional]
             include_proxy_transforms (bool): [optional]
+            include_full_info (bool): [optional]
             resolve_asset_permission (bool): [optional]
             for_root (int): [optional]
             _return_http_data_only (bool): response data without head status
@@ -19466,6 +20160,85 @@ class MediaLibraryApi(object):
         kwargs['id'] = \
             id
         return self.get_custom_field_endpoint.call_with_http_info(**kwargs)
+
+    def get_custom_field_options(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_custom_field_options  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_custom_field_options(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Custom field.
+
+        Keyword Args:
+            q (str): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [FieldOption]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_custom_field_options_endpoint.call_with_http_info(**kwargs)
 
     def get_easy_sharing_token_for_bundle(
         self,
@@ -20692,6 +21465,7 @@ class MediaLibraryApi(object):
             include_proxies (bool): [optional]
             include_modified_by (bool): [optional]
             include_proxy_transforms (bool): [optional]
+            include_full_info (bool): [optional]
             resolve_asset_permission (bool): [optional]
             for_root (int): [optional]
             _return_http_data_only (bool): response data without head status
@@ -21149,6 +21923,88 @@ class MediaLibraryApi(object):
         kwargs['id'] = \
             id
         return self.get_proxy_endpoint.call_with_http_info(**kwargs)
+
+    def get_proxy_generation_info(
+        self,
+        asset_id,
+        id,
+        **kwargs
+    ):
+        """get_proxy_generation_info  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_proxy_generation_info(asset_id, id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            asset_id (str):
+            id (int): A unique integer value identifying this proxy.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ProxyGenerationInfoResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['asset_id'] = \
+            asset_id
+        kwargs['id'] = \
+            id
+        return self.get_proxy_generation_info_endpoint.call_with_http_info(**kwargs)
 
     def get_proxy_generator(
         self,
@@ -21856,6 +22712,84 @@ class MediaLibraryApi(object):
         kwargs['id'] = \
             id
         return self.get_vantage_workflows_endpoint.call_with_http_info(**kwargs)
+
+    def get_workflow(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_workflow  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:roots:manage`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_workflow(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Workflow.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Workflow
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_workflow_endpoint.call_with_http_info(**kwargs)
 
     def instantiate_media_file_template(
         self,
@@ -23658,6 +24592,88 @@ class MediaLibraryApi(object):
         kwargs['subclip_partial_update'] = \
             subclip_partial_update
         return self.patch_subclip_endpoint.call_with_http_info(**kwargs)
+
+    def patch_workflow(
+        self,
+        id,
+        workflow_partial_update,
+        **kwargs
+    ):
+        """patch_workflow  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:roots:manage`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.patch_workflow(id, workflow_partial_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Workflow.
+            workflow_partial_update (WorkflowPartialUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Workflow
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['workflow_partial_update'] = \
+            workflow_partial_update
+        return self.patch_workflow_endpoint.call_with_http_info(**kwargs)
 
     def recursively_tag_media_directory(
         self,
@@ -26570,6 +27586,88 @@ class MediaLibraryApi(object):
         kwargs['subclip_update'] = \
             subclip_update
         return self.update_subclip_endpoint.call_with_http_info(**kwargs)
+
+    def update_workflow(
+        self,
+        id,
+        workflow_update,
+        **kwargs
+    ):
+        """update_workflow  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:roots:manage`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_workflow(id, workflow_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Workflow.
+            workflow_update (WorkflowUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Workflow
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['workflow_update'] = \
+            workflow_update
+        return self.update_workflow_endpoint.call_with_http_info(**kwargs)
 
     def web_upload_completed(
         self,

@@ -92,8 +92,8 @@ class WorkspaceMini(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'production': (ProductionMini,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'production': (ProductionMini,),  # noqa: E501
         }
 
     @cached_property
@@ -103,8 +103,8 @@ class WorkspaceMini(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'production': 'production',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'production': 'production',  # noqa: E501
     }
 
     read_only_vars = {
@@ -114,11 +114,12 @@ class WorkspaceMini(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, production, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, production, *args, **xkwargs):  # noqa: E501
         """WorkspaceMini - a model defined in OpenAPI
 
         Args:
             id (int):
+            name (str):
             production (ProductionMini):
 
         Keyword Args:
@@ -152,7 +153,6 @@ class WorkspaceMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -182,6 +182,7 @@ class WorkspaceMini(ModelNormal):
 
 
         self.id = id
+        self.name = name
         self.production = production
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -204,11 +205,12 @@ class WorkspaceMini(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, production, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, production, *args, **xkwargs):  # noqa: E501
         """WorkspaceMini - a model defined in OpenAPI
 
         Args:
             id (int):
+            name (str):
             production (ProductionMini):
 
         Keyword Args:
@@ -242,7 +244,6 @@ class WorkspaceMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -270,6 +271,7 @@ class WorkspaceMini(ModelNormal):
 
 
         self.id = id
+        self.name = name
         self.production = production
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

@@ -31,12 +31,12 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.nfs_permission import NFSPermission
-    from elements_sdk.model.production_reference import ProductionReference
+    from elements_sdk.model.production import Production
     from elements_sdk.model.quota import Quota
     from elements_sdk.model.workspace_endpoint import WorkspaceEndpoint
     from elements_sdk.model.workspace_resolved_permission import WorkspaceResolvedPermission
     globals()['NFSPermission'] = NFSPermission
-    globals()['ProductionReference'] = ProductionReference
+    globals()['Production'] = Production
     globals()['Quota'] = Quota
     globals()['WorkspaceEndpoint'] = WorkspaceEndpoint
     globals()['WorkspaceResolvedPermission'] = WorkspaceResolvedPermission
@@ -113,18 +113,6 @@ class WorkspaceDetail(ModelNormal):
     }
 
     validations = {
-        ('recycle_bin_path',): {
-            'min_length': 1,
-        },
-        ('volume_path',): {
-            'min_length': 1,
-        },
-        ('path',): {
-            'min_length': 1,
-        },
-        ('full_path',): {
-            'min_length': 1,
-        },
         ('quota_size_hard',): {
             'inclusive_maximum': 4611686018427388000,
             'inclusive_minimum': 0,
@@ -133,11 +121,11 @@ class WorkspaceDetail(ModelNormal):
             'inclusive_maximum': 4611686018427388000,
             'inclusive_minimum': 0,
         },
-        ('name',): {
-            'max_length': 255,
+        ('recycle_bin_path',): {
             'min_length': 1,
         },
-        ('directory',): {
+        ('name',): {
+            'max_length': 255,
             'min_length': 1,
         },
         ('description',): {
@@ -163,6 +151,18 @@ class WorkspaceDetail(ModelNormal):
         },
         ('external_linux_url',): {
             'max_length': 1023,
+        },
+        ('volume_path',): {
+            'min_length': 1,
+        },
+        ('path',): {
+            'min_length': 1,
+        },
+        ('full_path',): {
+            'min_length': 1,
+        },
+        ('directory',): {
+            'min_length': 1,
         },
     }
 
@@ -190,29 +190,21 @@ class WorkspaceDetail(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'production': (ProductionReference,),  # noqa: E501
+            'production': (Production,),  # noqa: E501
+            'volume': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'sharing_nfs_permissions': ([NFSPermission],),  # noqa: E501
             'current_share_name': (str,),  # noqa: E501
             'size_used': (int, none_type,),  # noqa: E501
             'size_total': (int, none_type,),  # noqa: E501
             'bookmarked': (bool, none_type,),  # noqa: E501
-            'resolved_read_only': (bool, none_type,),  # noqa: E501
-            'recycle_bin_path': (str, none_type,),  # noqa: E501
-            'volume': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'volume_path': (str, none_type,),  # noqa: E501
-            'path': (str, none_type,),  # noqa: E501
-            'sharing_nfs_permissions': ([NFSPermission],),  # noqa: E501
-            'full_path': (str, none_type,),  # noqa: E501
-            'endpoints': ([WorkspaceEndpoint], none_type,),  # noqa: E501
-            'quota': (Quota,),  # noqa: E501
             'quota_size_hard': (int,),  # noqa: E501
             'quota_size_soft': (int,),  # noqa: E501
-            'resolved_permissions': ([WorkspaceResolvedPermission], none_type,),  # noqa: E501
+            'resolved_read_only': (bool, none_type,),  # noqa: E501
+            'recycle_bin_path': (str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'directory': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'long_description': (str,),  # noqa: E501
             'is_template': (bool,),  # noqa: E501
-            'last_login': (datetime, none_type,),  # noqa: E501
             'active': (bool,),  # noqa: E501
             'mac_protocol': (str,),  # noqa: E501
             'win_protocol': (str,),  # noqa: E501
@@ -244,6 +236,14 @@ class WorkspaceDetail(ModelNormal):
             'allow_symlinks': (bool,),  # noqa: E501
             'rw_permission_priority': (bool,),  # noqa: E501
             'template': (int, none_type,),  # noqa: E501
+            'volume_path': (str, none_type,),  # noqa: E501
+            'path': (str, none_type,),  # noqa: E501
+            'full_path': (str, none_type,),  # noqa: E501
+            'endpoints': ([WorkspaceEndpoint], none_type,),  # noqa: E501
+            'quota': (Quota,),  # noqa: E501
+            'resolved_permissions': ([WorkspaceResolvedPermission], none_type,),  # noqa: E501
+            'directory': (str, none_type,),  # noqa: E501
+            'last_login': (datetime, none_type,),  # noqa: E501
             'home_for': (int, none_type,),  # noqa: E501
         }
 
@@ -255,28 +255,20 @@ class WorkspaceDetail(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'production': 'production',  # noqa: E501
+        'volume': 'volume',  # noqa: E501
+        'sharing_nfs_permissions': 'sharing_nfs_permissions',  # noqa: E501
         'current_share_name': 'current_share_name',  # noqa: E501
         'size_used': 'size_used',  # noqa: E501
         'size_total': 'size_total',  # noqa: E501
         'bookmarked': 'bookmarked',  # noqa: E501
-        'resolved_read_only': 'resolved_read_only',  # noqa: E501
-        'recycle_bin_path': 'recycle_bin_path',  # noqa: E501
-        'volume': 'volume',  # noqa: E501
-        'volume_path': 'volume_path',  # noqa: E501
-        'path': 'path',  # noqa: E501
-        'sharing_nfs_permissions': 'sharing_nfs_permissions',  # noqa: E501
-        'full_path': 'full_path',  # noqa: E501
-        'endpoints': 'endpoints',  # noqa: E501
-        'quota': 'quota',  # noqa: E501
         'quota_size_hard': 'quota_size_hard',  # noqa: E501
         'quota_size_soft': 'quota_size_soft',  # noqa: E501
-        'resolved_permissions': 'resolved_permissions',  # noqa: E501
+        'resolved_read_only': 'resolved_read_only',  # noqa: E501
+        'recycle_bin_path': 'recycle_bin_path',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'directory': 'directory',  # noqa: E501
         'description': 'description',  # noqa: E501
         'long_description': 'long_description',  # noqa: E501
         'is_template': 'is_template',  # noqa: E501
-        'last_login': 'last_login',  # noqa: E501
         'active': 'active',  # noqa: E501
         'mac_protocol': 'mac_protocol',  # noqa: E501
         'win_protocol': 'win_protocol',  # noqa: E501
@@ -308,6 +300,14 @@ class WorkspaceDetail(ModelNormal):
         'allow_symlinks': 'allow_symlinks',  # noqa: E501
         'rw_permission_priority': 'rw_permission_priority',  # noqa: E501
         'template': 'template',  # noqa: E501
+        'volume_path': 'volume_path',  # noqa: E501
+        'path': 'path',  # noqa: E501
+        'full_path': 'full_path',  # noqa: E501
+        'endpoints': 'endpoints',  # noqa: E501
+        'quota': 'quota',  # noqa: E501
+        'resolved_permissions': 'resolved_permissions',  # noqa: E501
+        'directory': 'directory',  # noqa: E501
+        'last_login': 'last_login',  # noqa: E501
         'home_for': 'home_for',  # noqa: E501
     }
 
@@ -332,18 +332,57 @@ class WorkspaceDetail(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, production, current_share_name, size_used, size_total, bookmarked, resolved_read_only, recycle_bin_path, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, production, volume, sharing_nfs_permissions, current_share_name, size_used, size_total, bookmarked, quota_size_hard, quota_size_soft, resolved_read_only, recycle_bin_path, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_ntfs_streams, emulate_recycle_bin, emulate_fruit, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, template, *args, **xkwargs):  # noqa: E501
         """WorkspaceDetail - a model defined in OpenAPI
 
         Args:
             id (int):
-            production (ProductionReference):
+            production (Production):
+            volume (bool, date, datetime, dict, float, int, list, str, none_type):
+            sharing_nfs_permissions ([NFSPermission]):
             current_share_name (str):
             size_used (int, none_type):
             size_total (int, none_type):
             bookmarked (bool, none_type):
+            quota_size_hard (int):
+            quota_size_soft (int):
             resolved_read_only (bool, none_type):
             recycle_bin_path (str, none_type):
+            name (str):
+            description (str, none_type):
+            long_description (str):
+            is_template (bool):
+            active (bool):
+            mac_protocol (str):
+            win_protocol (str):
+            win_drive (str, none_type):
+            linux_protocol (str):
+            linux_mountpoint (str, none_type):
+            share_name (str, none_type):
+            share_nfs (bool):
+            share_afp (bool):
+            sharing_hidden (bool):
+            sharing_require_login (bool):
+            sharing_read_only (bool):
+            sharing_allow_execute (bool):
+            enable_quota (bool):
+            affinity (str, none_type):
+            emulate_avid (bool):
+            emulate_capture (bool):
+            emulate_preopen (bool):
+            emulate_ntfs_streams (bool):
+            emulate_recycle_bin (bool):
+            emulate_fruit (bool):
+            smb_extra_config (str):
+            afp_extra_config (str):
+            recycle_bin_exclude (str, none_type):
+            is_external (bool):
+            external_mac_url (str, none_type):
+            external_win_url (str, none_type):
+            external_linux_url (str, none_type):
+            allow_symlinks (bool):
+            rw_permission_priority (bool):
+            template (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -376,53 +415,14 @@ class WorkspaceDetail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            volume (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             volume_path (str, none_type): [optional]  # noqa: E501
             path (str, none_type): [optional]  # noqa: E501
-            sharing_nfs_permissions ([NFSPermission]): [optional]  # noqa: E501
             full_path (str, none_type): [optional]  # noqa: E501
             endpoints ([WorkspaceEndpoint], none_type): [optional]  # noqa: E501
             quota (Quota): [optional]  # noqa: E501
-            quota_size_hard (int): [optional]  # noqa: E501
-            quota_size_soft (int): [optional]  # noqa: E501
             resolved_permissions ([WorkspaceResolvedPermission], none_type): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
             directory (str, none_type): [optional]  # noqa: E501
-            description (str, none_type): [optional]  # noqa: E501
-            long_description (str): [optional]  # noqa: E501
-            is_template (bool): [optional]  # noqa: E501
             last_login (datetime, none_type): [optional]  # noqa: E501
-            active (bool): [optional]  # noqa: E501
-            mac_protocol (str): [optional]  # noqa: E501
-            win_protocol (str): [optional]  # noqa: E501
-            win_drive (str, none_type): [optional]  # noqa: E501
-            linux_protocol (str): [optional]  # noqa: E501
-            linux_mountpoint (str, none_type): [optional]  # noqa: E501
-            share_name (str, none_type): [optional]  # noqa: E501
-            share_nfs (bool): [optional]  # noqa: E501
-            share_afp (bool): [optional]  # noqa: E501
-            sharing_hidden (bool): [optional]  # noqa: E501
-            sharing_require_login (bool): [optional]  # noqa: E501
-            sharing_read_only (bool): [optional]  # noqa: E501
-            sharing_allow_execute (bool): [optional]  # noqa: E501
-            enable_quota (bool): [optional]  # noqa: E501
-            affinity (str, none_type): [optional]  # noqa: E501
-            emulate_avid (bool): [optional]  # noqa: E501
-            emulate_capture (bool): [optional]  # noqa: E501
-            emulate_preopen (bool): [optional]  # noqa: E501
-            emulate_ntfs_streams (bool): [optional]  # noqa: E501
-            emulate_recycle_bin (bool): [optional]  # noqa: E501
-            emulate_fruit (bool): [optional]  # noqa: E501
-            smb_extra_config (str): [optional]  # noqa: E501
-            afp_extra_config (str): [optional]  # noqa: E501
-            recycle_bin_exclude (str, none_type): [optional]  # noqa: E501
-            is_external (bool): [optional]  # noqa: E501
-            external_mac_url (str, none_type): [optional]  # noqa: E501
-            external_win_url (str, none_type): [optional]  # noqa: E501
-            external_linux_url (str, none_type): [optional]  # noqa: E501
-            allow_symlinks (bool): [optional]  # noqa: E501
-            rw_permission_priority (bool): [optional]  # noqa: E501
-            template (int, none_type): [optional]  # noqa: E501
             home_for (int, none_type): [optional]  # noqa: E501
         """
 
@@ -454,12 +454,51 @@ class WorkspaceDetail(ModelNormal):
 
         self.id = id
         self.production = production
+        self.volume = volume
+        self.sharing_nfs_permissions = sharing_nfs_permissions
         self.current_share_name = current_share_name
         self.size_used = size_used
         self.size_total = size_total
         self.bookmarked = bookmarked
+        self.quota_size_hard = quota_size_hard
+        self.quota_size_soft = quota_size_soft
         self.resolved_read_only = resolved_read_only
         self.recycle_bin_path = recycle_bin_path
+        self.name = name
+        self.description = description
+        self.long_description = long_description
+        self.is_template = is_template
+        self.active = active
+        self.mac_protocol = mac_protocol
+        self.win_protocol = win_protocol
+        self.win_drive = win_drive
+        self.linux_protocol = linux_protocol
+        self.linux_mountpoint = linux_mountpoint
+        self.share_name = share_name
+        self.share_nfs = share_nfs
+        self.share_afp = share_afp
+        self.sharing_hidden = sharing_hidden
+        self.sharing_require_login = sharing_require_login
+        self.sharing_read_only = sharing_read_only
+        self.sharing_allow_execute = sharing_allow_execute
+        self.enable_quota = enable_quota
+        self.affinity = affinity
+        self.emulate_avid = emulate_avid
+        self.emulate_capture = emulate_capture
+        self.emulate_preopen = emulate_preopen
+        self.emulate_ntfs_streams = emulate_ntfs_streams
+        self.emulate_recycle_bin = emulate_recycle_bin
+        self.emulate_fruit = emulate_fruit
+        self.smb_extra_config = smb_extra_config
+        self.afp_extra_config = afp_extra_config
+        self.recycle_bin_exclude = recycle_bin_exclude
+        self.is_external = is_external
+        self.external_mac_url = external_mac_url
+        self.external_win_url = external_win_url
+        self.external_linux_url = external_linux_url
+        self.allow_symlinks = allow_symlinks
+        self.rw_permission_priority = rw_permission_priority
+        self.template = template
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -481,12 +520,52 @@ class WorkspaceDetail(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, production, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, production, volume, sharing_nfs_permissions, quota_size_hard, quota_size_soft, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_ntfs_streams, emulate_recycle_bin, emulate_fruit, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, template, *args, **xkwargs):  # noqa: E501
         """WorkspaceDetail - a model defined in OpenAPI
 
         Args:
             id (int):
-            production (ProductionReference):
+            production (Production):
+            volume (bool, date, datetime, dict, float, int, list, str, none_type):
+            sharing_nfs_permissions ([NFSPermission]):
+            quota_size_hard (int):
+            quota_size_soft (int):
+            name (str):
+            description (str, none_type):
+            long_description (str):
+            is_template (bool):
+            active (bool):
+            mac_protocol (str):
+            win_protocol (str):
+            win_drive (str, none_type):
+            linux_protocol (str):
+            linux_mountpoint (str, none_type):
+            share_name (str, none_type):
+            share_nfs (bool):
+            share_afp (bool):
+            sharing_hidden (bool):
+            sharing_require_login (bool):
+            sharing_read_only (bool):
+            sharing_allow_execute (bool):
+            enable_quota (bool):
+            affinity (str, none_type):
+            emulate_avid (bool):
+            emulate_capture (bool):
+            emulate_preopen (bool):
+            emulate_ntfs_streams (bool):
+            emulate_recycle_bin (bool):
+            emulate_fruit (bool):
+            smb_extra_config (str):
+            afp_extra_config (str):
+            recycle_bin_exclude (str, none_type):
+            is_external (bool):
+            external_mac_url (str, none_type):
+            external_win_url (str, none_type):
+            external_linux_url (str, none_type):
+            allow_symlinks (bool):
+            rw_permission_priority (bool):
+            template (int, none_type):
+
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -518,53 +597,14 @@ class WorkspaceDetail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            volume (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             volume_path (str, none_type): [optional]  # noqa: E501
             path (str, none_type): [optional]  # noqa: E501
-            sharing_nfs_permissions ([NFSPermission]): [optional]  # noqa: E501
             full_path (str, none_type): [optional]  # noqa: E501
             endpoints ([WorkspaceEndpoint], none_type): [optional]  # noqa: E501
             quota (Quota): [optional]  # noqa: E501
-            quota_size_hard (int): [optional]  # noqa: E501
-            quota_size_soft (int): [optional]  # noqa: E501
             resolved_permissions ([WorkspaceResolvedPermission], none_type): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
             directory (str, none_type): [optional]  # noqa: E501
-            description (str, none_type): [optional]  # noqa: E501
-            long_description (str): [optional]  # noqa: E501
-            is_template (bool): [optional]  # noqa: E501
             last_login (datetime, none_type): [optional]  # noqa: E501
-            active (bool): [optional]  # noqa: E501
-            mac_protocol (str): [optional]  # noqa: E501
-            win_protocol (str): [optional]  # noqa: E501
-            win_drive (str, none_type): [optional]  # noqa: E501
-            linux_protocol (str): [optional]  # noqa: E501
-            linux_mountpoint (str, none_type): [optional]  # noqa: E501
-            share_name (str, none_type): [optional]  # noqa: E501
-            share_nfs (bool): [optional]  # noqa: E501
-            share_afp (bool): [optional]  # noqa: E501
-            sharing_hidden (bool): [optional]  # noqa: E501
-            sharing_require_login (bool): [optional]  # noqa: E501
-            sharing_read_only (bool): [optional]  # noqa: E501
-            sharing_allow_execute (bool): [optional]  # noqa: E501
-            enable_quota (bool): [optional]  # noqa: E501
-            affinity (str, none_type): [optional]  # noqa: E501
-            emulate_avid (bool): [optional]  # noqa: E501
-            emulate_capture (bool): [optional]  # noqa: E501
-            emulate_preopen (bool): [optional]  # noqa: E501
-            emulate_ntfs_streams (bool): [optional]  # noqa: E501
-            emulate_recycle_bin (bool): [optional]  # noqa: E501
-            emulate_fruit (bool): [optional]  # noqa: E501
-            smb_extra_config (str): [optional]  # noqa: E501
-            afp_extra_config (str): [optional]  # noqa: E501
-            recycle_bin_exclude (str, none_type): [optional]  # noqa: E501
-            is_external (bool): [optional]  # noqa: E501
-            external_mac_url (str, none_type): [optional]  # noqa: E501
-            external_win_url (str, none_type): [optional]  # noqa: E501
-            external_linux_url (str, none_type): [optional]  # noqa: E501
-            allow_symlinks (bool): [optional]  # noqa: E501
-            rw_permission_priority (bool): [optional]  # noqa: E501
-            template (int, none_type): [optional]  # noqa: E501
             home_for (int, none_type): [optional]  # noqa: E501
         """
 
@@ -594,6 +634,45 @@ class WorkspaceDetail(ModelNormal):
 
         self.id = id
         self.production = production
+        self.volume = volume
+        self.sharing_nfs_permissions = sharing_nfs_permissions
+        self.quota_size_hard = quota_size_hard
+        self.quota_size_soft = quota_size_soft
+        self.name = name
+        self.description = description
+        self.long_description = long_description
+        self.is_template = is_template
+        self.active = active
+        self.mac_protocol = mac_protocol
+        self.win_protocol = win_protocol
+        self.win_drive = win_drive
+        self.linux_protocol = linux_protocol
+        self.linux_mountpoint = linux_mountpoint
+        self.share_name = share_name
+        self.share_nfs = share_nfs
+        self.share_afp = share_afp
+        self.sharing_hidden = sharing_hidden
+        self.sharing_require_login = sharing_require_login
+        self.sharing_read_only = sharing_read_only
+        self.sharing_allow_execute = sharing_allow_execute
+        self.enable_quota = enable_quota
+        self.affinity = affinity
+        self.emulate_avid = emulate_avid
+        self.emulate_capture = emulate_capture
+        self.emulate_preopen = emulate_preopen
+        self.emulate_ntfs_streams = emulate_ntfs_streams
+        self.emulate_recycle_bin = emulate_recycle_bin
+        self.emulate_fruit = emulate_fruit
+        self.smb_extra_config = smb_extra_config
+        self.afp_extra_config = afp_extra_config
+        self.recycle_bin_exclude = recycle_bin_exclude
+        self.is_external = is_external
+        self.external_mac_url = external_mac_url
+        self.external_win_url = external_win_url
+        self.external_linux_url = external_linux_url
+        self.allow_symlinks = allow_symlinks
+        self.rw_permission_priority = rw_permission_priority
+        self.template = template
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

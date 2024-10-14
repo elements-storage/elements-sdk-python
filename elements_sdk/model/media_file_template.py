@@ -30,8 +30,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.media_file_reference import MediaFileReference
-    globals()['MediaFileReference'] = MediaFileReference
+    from elements_sdk.model.media_file import MediaFile
+    globals()['MediaFile'] = MediaFile
 
 
 class MediaFileTemplate(ModelNormal):
@@ -92,7 +92,7 @@ class MediaFileTemplate(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'file': (MediaFileReference,),  # noqa: E501
+            'file': (MediaFile,),  # noqa: E501
             'name': (str,),  # noqa: E501
         }
 
@@ -119,7 +119,7 @@ class MediaFileTemplate(ModelNormal):
 
         Args:
             id (int):
-            file (MediaFileReference):
+            file (MediaFile):
             name (str):
 
         Keyword Args:
@@ -210,7 +210,7 @@ class MediaFileTemplate(ModelNormal):
 
         Args:
             id (int):
-            file (MediaFileReference):
+            file (MediaFile):
             name (str):
 
         Keyword Args:

@@ -30,8 +30,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.ai_dataset_detail_reference import AIDatasetDetailReference
-    globals()['AIDatasetDetailReference'] = AIDatasetDetailReference
+    from elements_sdk.model.ai_dataset_detail import AIDatasetDetail
+    globals()['AIDatasetDetail'] = AIDatasetDetail
 
 
 class AICategoryDetail(ModelNormal):
@@ -95,7 +95,7 @@ class AICategoryDetail(ModelNormal):
             'annotation_count': (int,),  # noqa: E501
             'sample_annotation': (str,),  # noqa: E501
             'connection': (str,),  # noqa: E501
-            'dataset': (AIDatasetDetailReference,),  # noqa: E501
+            'dataset': (AIDatasetDetail,),  # noqa: E501
             'name': (str,),  # noqa: E501
         }
 
@@ -131,7 +131,7 @@ class AICategoryDetail(ModelNormal):
             annotation_count (int):
             sample_annotation (str):
             connection (str):
-            dataset (AIDatasetDetailReference):
+            dataset (AIDatasetDetail):
             name (str):
 
         Keyword Args:
@@ -225,7 +225,7 @@ class AICategoryDetail(ModelNormal):
 
         Args:
             id (str):
-            dataset (AIDatasetDetailReference):
+            dataset (AIDatasetDetail):
             name (str):
 
         Keyword Args:

@@ -30,16 +30,14 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.custom_field_reference import CustomFieldReference
+    from elements_sdk.model.custom_field import CustomField
     from elements_sdk.model.job import Job
-    from elements_sdk.model.job_reference import JobReference
     from elements_sdk.model.media_root_permission import MediaRootPermission
-    from elements_sdk.model.volume_reference import VolumeReference
-    globals()['CustomFieldReference'] = CustomFieldReference
+    from elements_sdk.model.volume import Volume
+    globals()['CustomField'] = CustomField
     globals()['Job'] = Job
-    globals()['JobReference'] = JobReference
     globals()['MediaRootPermission'] = MediaRootPermission
-    globals()['VolumeReference'] = VolumeReference
+    globals()['Volume'] = Volume
 
 
 class MediaRootDetail(ModelNormal):
@@ -125,15 +123,13 @@ class MediaRootDetail(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'volume': (VolumeReference,),  # noqa: E501
+            'custom_fields': ([CustomField],),  # noqa: E501
+            'volume': (Volume,),  # noqa: E501
             'full_path': (str,),  # noqa: E501
-            'workflow_jobs': ([Job],),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'custom_fields': ([CustomFieldReference],),  # noqa: E501
-            'workflow': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
-            'resolved_permissions': ([MediaRootPermission],),  # noqa: E501
-            'jobs': ([JobReference],),  # noqa: E501
+            'workflow': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'jobs': ([Job],),  # noqa: E501
             'ai_config': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'path': (str,),  # noqa: E501
             'needs_rescan': (bool,),  # noqa: E501
             'view_mode': (str,),  # noqa: E501
@@ -154,12 +150,14 @@ class MediaRootDetail(ModelNormal):
             'name_field': (str, none_type,),  # noqa: E501
             'share_comments': (bool,),  # noqa: E501
             'share_link_duration': (int,),  # noqa: E501
+            'disable_framestacks': (bool,),  # noqa: E501
             'default_proxy_profile': (int, none_type,),  # noqa: E501
             'cloud_proxy_profile': (int, none_type,),  # noqa: E501
             'ai_connection': (int, none_type,),  # noqa: E501
             'ai_proxy_profile': (int, none_type,),  # noqa: E501
             'proxy_profiles': ([int],),  # noqa: E501
             'tags': ([int],),  # noqa: E501
+            'resolved_permissions': ([MediaRootPermission],),  # noqa: E501
         }
 
     @cached_property
@@ -169,15 +167,13 @@ class MediaRootDetail(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'custom_fields': 'custom_fields',  # noqa: E501
         'volume': 'volume',  # noqa: E501
         'full_path': 'full_path',  # noqa: E501
-        'workflow_jobs': 'workflow_jobs',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'custom_fields': 'custom_fields',  # noqa: E501
         'workflow': 'workflow',  # noqa: E501
-        'resolved_permissions': 'resolved_permissions',  # noqa: E501
         'jobs': 'jobs',  # noqa: E501
         'ai_config': 'ai_config',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'path': 'path',  # noqa: E501
         'needs_rescan': 'needs_rescan',  # noqa: E501
         'view_mode': 'view_mode',  # noqa: E501
@@ -198,17 +194,18 @@ class MediaRootDetail(ModelNormal):
         'name_field': 'name_field',  # noqa: E501
         'share_comments': 'share_comments',  # noqa: E501
         'share_link_duration': 'share_link_duration',  # noqa: E501
+        'disable_framestacks': 'disable_framestacks',  # noqa: E501
         'default_proxy_profile': 'default_proxy_profile',  # noqa: E501
         'cloud_proxy_profile': 'cloud_proxy_profile',  # noqa: E501
         'ai_connection': 'ai_connection',  # noqa: E501
         'ai_proxy_profile': 'ai_proxy_profile',  # noqa: E501
         'proxy_profiles': 'proxy_profiles',  # noqa: E501
         'tags': 'tags',  # noqa: E501
+        'resolved_permissions': 'resolved_permissions',  # noqa: E501
     }
 
     read_only_vars = {
         'full_path',  # noqa: E501
-        'workflow_jobs',  # noqa: E501
         'resolved_permissions',  # noqa: E501
     }
 
@@ -216,15 +213,45 @@ class MediaRootDetail(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, volume, full_path, workflow_jobs, name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, custom_fields, volume, full_path, workflow, jobs, ai_config, name, path, needs_rescan, view_mode, view_style, view_default_tab, show_tags, show_comments, show_locations, show_custom_fields, show_ratings, show_subclips, show_subtitles, show_markers, show_history, show_ai_metadata, prefetch_thumbnail_strips, cover, name_field, share_comments, share_link_duration, disable_framestacks, default_proxy_profile, cloud_proxy_profile, ai_connection, ai_proxy_profile, proxy_profiles, tags, *args, **xkwargs):  # noqa: E501
         """MediaRootDetail - a model defined in OpenAPI
 
         Args:
             id (int):
-            volume (VolumeReference):
+            custom_fields ([CustomField]):
+            volume (Volume):
             full_path (str):
-            workflow_jobs ([Job]):
+            workflow (bool, date, datetime, dict, float, int, list, str, none_type):
+            jobs ([Job]):
+            ai_config ({str: (str, none_type)}, none_type):
             name (str):
+            path (str):
+            needs_rescan (bool):
+            view_mode (str):
+            view_style (str):
+            view_default_tab (str):
+            show_tags (bool):
+            show_comments (bool):
+            show_locations (bool):
+            show_custom_fields (bool):
+            show_ratings (bool):
+            show_subclips (bool):
+            show_subtitles (bool):
+            show_markers (bool):
+            show_history (bool):
+            show_ai_metadata (bool):
+            prefetch_thumbnail_strips (bool):
+            cover (str, none_type):
+            name_field (str, none_type):
+            share_comments (bool):
+            share_link_duration (int):
+            disable_framestacks (bool):
+            default_proxy_profile (int, none_type):
+            cloud_proxy_profile (int, none_type):
+            ai_connection (int, none_type):
+            ai_proxy_profile (int, none_type):
+            proxy_profiles ([int]):
+            tags ([int]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -257,37 +284,7 @@ class MediaRootDetail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            custom_fields ([CustomFieldReference]): [optional]  # noqa: E501
-            workflow ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             resolved_permissions ([MediaRootPermission]): [optional]  # noqa: E501
-            jobs ([JobReference]): [optional]  # noqa: E501
-            ai_config ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            path (str): [optional]  # noqa: E501
-            needs_rescan (bool): [optional]  # noqa: E501
-            view_mode (str): [optional]  # noqa: E501
-            view_style (str): [optional]  # noqa: E501
-            view_default_tab (str): [optional]  # noqa: E501
-            show_tags (bool): [optional]  # noqa: E501
-            show_comments (bool): [optional]  # noqa: E501
-            show_locations (bool): [optional]  # noqa: E501
-            show_custom_fields (bool): [optional]  # noqa: E501
-            show_ratings (bool): [optional]  # noqa: E501
-            show_subclips (bool): [optional]  # noqa: E501
-            show_subtitles (bool): [optional]  # noqa: E501
-            show_markers (bool): [optional]  # noqa: E501
-            show_history (bool): [optional]  # noqa: E501
-            show_ai_metadata (bool): [optional]  # noqa: E501
-            prefetch_thumbnail_strips (bool): [optional]  # noqa: E501
-            cover (str, none_type): [optional]  # noqa: E501
-            name_field (str, none_type): [optional]  # noqa: E501
-            share_comments (bool): [optional]  # noqa: E501
-            share_link_duration (int): [optional]  # noqa: E501
-            default_proxy_profile (int, none_type): [optional]  # noqa: E501
-            cloud_proxy_profile (int, none_type): [optional]  # noqa: E501
-            ai_connection (int, none_type): [optional]  # noqa: E501
-            ai_proxy_profile (int, none_type): [optional]  # noqa: E501
-            proxy_profiles ([int]): [optional]  # noqa: E501
-            tags ([int]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -317,10 +314,40 @@ class MediaRootDetail(ModelNormal):
 
 
         self.id = id
+        self.custom_fields = custom_fields
         self.volume = volume
         self.full_path = full_path
-        self.workflow_jobs = workflow_jobs
+        self.workflow = workflow
+        self.jobs = jobs
+        self.ai_config = ai_config
         self.name = name
+        self.path = path
+        self.needs_rescan = needs_rescan
+        self.view_mode = view_mode
+        self.view_style = view_style
+        self.view_default_tab = view_default_tab
+        self.show_tags = show_tags
+        self.show_comments = show_comments
+        self.show_locations = show_locations
+        self.show_custom_fields = show_custom_fields
+        self.show_ratings = show_ratings
+        self.show_subclips = show_subclips
+        self.show_subtitles = show_subtitles
+        self.show_markers = show_markers
+        self.show_history = show_history
+        self.show_ai_metadata = show_ai_metadata
+        self.prefetch_thumbnail_strips = prefetch_thumbnail_strips
+        self.cover = cover
+        self.name_field = name_field
+        self.share_comments = share_comments
+        self.share_link_duration = share_link_duration
+        self.disable_framestacks = disable_framestacks
+        self.default_proxy_profile = default_proxy_profile
+        self.cloud_proxy_profile = cloud_proxy_profile
+        self.ai_connection = ai_connection
+        self.ai_proxy_profile = ai_proxy_profile
+        self.proxy_profiles = proxy_profiles
+        self.tags = tags
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -342,13 +369,44 @@ class MediaRootDetail(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, volume, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, custom_fields, volume, workflow, jobs, ai_config, name, path, needs_rescan, view_mode, view_style, view_default_tab, show_tags, show_comments, show_locations, show_custom_fields, show_ratings, show_subclips, show_subtitles, show_markers, show_history, show_ai_metadata, prefetch_thumbnail_strips, cover, name_field, share_comments, share_link_duration, disable_framestacks, default_proxy_profile, cloud_proxy_profile, ai_connection, ai_proxy_profile, proxy_profiles, tags, *args, **xkwargs):  # noqa: E501
         """MediaRootDetail - a model defined in OpenAPI
 
         Args:
             id (int):
-            volume (VolumeReference):
+            custom_fields ([CustomField]):
+            volume (Volume):
+            workflow (bool, date, datetime, dict, float, int, list, str, none_type):
+            jobs ([Job]):
+            ai_config ({str: (str, none_type)}, none_type):
             name (str):
+            path (str):
+            needs_rescan (bool):
+            view_mode (str):
+            view_style (str):
+            view_default_tab (str):
+            show_tags (bool):
+            show_comments (bool):
+            show_locations (bool):
+            show_custom_fields (bool):
+            show_ratings (bool):
+            show_subclips (bool):
+            show_subtitles (bool):
+            show_markers (bool):
+            show_history (bool):
+            show_ai_metadata (bool):
+            prefetch_thumbnail_strips (bool):
+            cover (str, none_type):
+            name_field (str, none_type):
+            share_comments (bool):
+            share_link_duration (int):
+            disable_framestacks (bool):
+            default_proxy_profile (int, none_type):
+            cloud_proxy_profile (int, none_type):
+            ai_connection (int, none_type):
+            ai_proxy_profile (int, none_type):
+            proxy_profiles ([int]):
+            tags ([int]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -381,37 +439,7 @@ class MediaRootDetail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            custom_fields ([CustomFieldReference]): [optional]  # noqa: E501
-            workflow ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             resolved_permissions ([MediaRootPermission]): [optional]  # noqa: E501
-            jobs ([JobReference]): [optional]  # noqa: E501
-            ai_config ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            path (str): [optional]  # noqa: E501
-            needs_rescan (bool): [optional]  # noqa: E501
-            view_mode (str): [optional]  # noqa: E501
-            view_style (str): [optional]  # noqa: E501
-            view_default_tab (str): [optional]  # noqa: E501
-            show_tags (bool): [optional]  # noqa: E501
-            show_comments (bool): [optional]  # noqa: E501
-            show_locations (bool): [optional]  # noqa: E501
-            show_custom_fields (bool): [optional]  # noqa: E501
-            show_ratings (bool): [optional]  # noqa: E501
-            show_subclips (bool): [optional]  # noqa: E501
-            show_subtitles (bool): [optional]  # noqa: E501
-            show_markers (bool): [optional]  # noqa: E501
-            show_history (bool): [optional]  # noqa: E501
-            show_ai_metadata (bool): [optional]  # noqa: E501
-            prefetch_thumbnail_strips (bool): [optional]  # noqa: E501
-            cover (str, none_type): [optional]  # noqa: E501
-            name_field (str, none_type): [optional]  # noqa: E501
-            share_comments (bool): [optional]  # noqa: E501
-            share_link_duration (int): [optional]  # noqa: E501
-            default_proxy_profile (int, none_type): [optional]  # noqa: E501
-            cloud_proxy_profile (int, none_type): [optional]  # noqa: E501
-            ai_connection (int, none_type): [optional]  # noqa: E501
-            ai_proxy_profile (int, none_type): [optional]  # noqa: E501
-            proxy_profiles ([int]): [optional]  # noqa: E501
-            tags ([int]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -439,8 +467,39 @@ class MediaRootDetail(ModelNormal):
 
 
         self.id = id
+        self.custom_fields = custom_fields
         self.volume = volume
+        self.workflow = workflow
+        self.jobs = jobs
+        self.ai_config = ai_config
         self.name = name
+        self.path = path
+        self.needs_rescan = needs_rescan
+        self.view_mode = view_mode
+        self.view_style = view_style
+        self.view_default_tab = view_default_tab
+        self.show_tags = show_tags
+        self.show_comments = show_comments
+        self.show_locations = show_locations
+        self.show_custom_fields = show_custom_fields
+        self.show_ratings = show_ratings
+        self.show_subclips = show_subclips
+        self.show_subtitles = show_subtitles
+        self.show_markers = show_markers
+        self.show_history = show_history
+        self.show_ai_metadata = show_ai_metadata
+        self.prefetch_thumbnail_strips = prefetch_thumbnail_strips
+        self.cover = cover
+        self.name_field = name_field
+        self.share_comments = share_comments
+        self.share_link_duration = share_link_duration
+        self.disable_framestacks = disable_framestacks
+        self.default_proxy_profile = default_proxy_profile
+        self.cloud_proxy_profile = cloud_proxy_profile
+        self.ai_connection = ai_connection
+        self.ai_proxy_profile = ai_proxy_profile
+        self.proxy_profiles = proxy_profiles
+        self.tags = tags
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

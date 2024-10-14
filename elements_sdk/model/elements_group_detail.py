@@ -30,9 +30,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.elements_user_reference import ElementsUserReference
+    from elements_sdk.model.elements_user import ElementsUser
     from elements_sdk.model.member_preview import MemberPreview
-    globals()['ElementsUserReference'] = ElementsUserReference
+    globals()['ElementsUser'] = ElementsUser
     globals()['MemberPreview'] = MemberPreview
 
 
@@ -104,12 +104,12 @@ class ElementsGroupDetail(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
+            'permissions': ([str, none_type],),  # noqa: E501
             'members_preview': ([MemberPreview],),  # noqa: E501
             'effective_permissions': ([str, none_type],),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'permissions': ([str, none_type],),  # noqa: E501
-            'members': ([ElementsUserReference],),  # noqa: E501
+            'members': ([ElementsUser],),  # noqa: E501
             'ldap': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'ldap_dn': (str, none_type,),  # noqa: E501
             'ldap_guid': (str, none_type,),  # noqa: E501
             'unix_groupname': (str, none_type,),  # noqa: E501
@@ -123,12 +123,12 @@ class ElementsGroupDetail(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'permissions': 'permissions',  # noqa: E501
         'members_preview': 'members_preview',  # noqa: E501
         'effective_permissions': 'effective_permissions',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'permissions': 'permissions',  # noqa: E501
         'members': 'members',  # noqa: E501
         'ldap': 'ldap',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'ldap_dn': 'ldap_dn',  # noqa: E501
         'ldap_guid': 'ldap_guid',  # noqa: E501
         'unix_groupname': 'unix_groupname',  # noqa: E501
@@ -144,14 +144,21 @@ class ElementsGroupDetail(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, members_preview, effective_permissions, name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, permissions, members_preview, effective_permissions, members, ldap, name, ldap_dn, ldap_guid, unix_groupname, gid, *args, **xkwargs):  # noqa: E501
         """ElementsGroupDetail - a model defined in OpenAPI
 
         Args:
             id (int):
+            permissions ([str, none_type]):
             members_preview ([MemberPreview]):
             effective_permissions ([str, none_type]):
+            members ([ElementsUser]):
+            ldap (bool, date, datetime, dict, float, int, list, str, none_type):
             name (str):
+            ldap_dn (str, none_type):
+            ldap_guid (str, none_type):
+            unix_groupname (str, none_type):
+            gid (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -184,13 +191,6 @@ class ElementsGroupDetail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            permissions ([str, none_type]): [optional]  # noqa: E501
-            members ([ElementsUserReference]): [optional]  # noqa: E501
-            ldap (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            ldap_dn (str, none_type): [optional]  # noqa: E501
-            ldap_guid (str, none_type): [optional]  # noqa: E501
-            unix_groupname (str, none_type): [optional]  # noqa: E501
-            gid (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -220,9 +220,16 @@ class ElementsGroupDetail(ModelNormal):
 
 
         self.id = id
+        self.permissions = permissions
         self.members_preview = members_preview
         self.effective_permissions = effective_permissions
+        self.members = members
+        self.ldap = ldap
         self.name = name
+        self.ldap_dn = ldap_dn
+        self.ldap_guid = ldap_guid
+        self.unix_groupname = unix_groupname
+        self.gid = gid
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -244,12 +251,19 @@ class ElementsGroupDetail(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, permissions, members, ldap, name, ldap_dn, ldap_guid, unix_groupname, gid, *args, **xkwargs):  # noqa: E501
         """ElementsGroupDetail - a model defined in OpenAPI
 
         Args:
             id (int):
+            permissions ([str, none_type]):
+            members ([ElementsUser]):
+            ldap (bool, date, datetime, dict, float, int, list, str, none_type):
             name (str):
+            ldap_dn (str, none_type):
+            ldap_guid (str, none_type):
+            unix_groupname (str, none_type):
+            gid (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -282,13 +296,6 @@ class ElementsGroupDetail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            permissions ([str, none_type]): [optional]  # noqa: E501
-            members ([ElementsUserReference]): [optional]  # noqa: E501
-            ldap (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            ldap_dn (str, none_type): [optional]  # noqa: E501
-            ldap_guid (str, none_type): [optional]  # noqa: E501
-            unix_groupname (str, none_type): [optional]  # noqa: E501
-            gid (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -316,7 +323,14 @@ class ElementsGroupDetail(ModelNormal):
 
 
         self.id = id
+        self.permissions = permissions
+        self.members = members
+        self.ldap = ldap
         self.name = name
+        self.ldap_dn = ldap_dn
+        self.ldap_guid = ldap_guid
+        self.unix_groupname = unix_groupname
+        self.gid = gid
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -30,8 +30,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.volume_mini_reference import VolumeMiniReference
-    globals()['VolumeMiniReference'] = VolumeMiniReference
+    from elements_sdk.model.volume_mini import VolumeMini
+    globals()['VolumeMini'] = VolumeMini
 
 
 class MediaRootMiniReference(ModelNormal):
@@ -95,7 +95,7 @@ class MediaRootMiniReference(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'volume': (VolumeMiniReference,),  # noqa: E501
+            'volume': (VolumeMini,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'full_path': (str,),  # noqa: E501
             'path': (str,),  # noqa: E501
@@ -131,7 +131,7 @@ class MediaRootMiniReference(ModelNormal):
 
         Args:
             id (int):
-            volume (VolumeMiniReference):
+            volume (VolumeMini):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -224,7 +224,7 @@ class MediaRootMiniReference(ModelNormal):
 
         Args:
             id (int):
-            volume (VolumeMiniReference):
+            volume (VolumeMini):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

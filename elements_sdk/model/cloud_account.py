@@ -63,7 +63,6 @@ class CloudAccount(ModelNormal):
         },
         ('mount_credentials_management',): {
             'None': None,
-            'NULL': "null",
             'SHARE': "share",
             'TOKEN': "token",
         },
@@ -132,12 +131,19 @@ class CloudAccount(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, provider, access_id, secret, tenant, subscription, endpoint, mount_credentials_management, *args, **xkwargs):  # noqa: E501
         """CloudAccount - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
+            provider (str):
+            access_id (str, none_type):
+            secret (str, none_type):
+            tenant (str, none_type):
+            subscription (str, none_type):
+            endpoint (str, none_type):
+            mount_credentials_management (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -170,13 +176,6 @@ class CloudAccount(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            provider (str): [optional]  # noqa: E501
-            access_id (str, none_type): [optional]  # noqa: E501
-            secret (str, none_type): [optional]  # noqa: E501
-            tenant (str, none_type): [optional]  # noqa: E501
-            subscription (str, none_type): [optional]  # noqa: E501
-            endpoint (str, none_type): [optional]  # noqa: E501
-            mount_credentials_management (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -207,6 +206,13 @@ class CloudAccount(ModelNormal):
 
         self.id = id
         self.name = name
+        self.provider = provider
+        self.access_id = access_id
+        self.secret = secret
+        self.tenant = tenant
+        self.subscription = subscription
+        self.endpoint = endpoint
+        self.mount_credentials_management = mount_credentials_management
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -228,12 +234,19 @@ class CloudAccount(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, provider, access_id, secret, tenant, subscription, endpoint, mount_credentials_management, *args, **xkwargs):  # noqa: E501
         """CloudAccount - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
+            provider (str):
+            access_id (str, none_type):
+            secret (str, none_type):
+            tenant (str, none_type):
+            subscription (str, none_type):
+            endpoint (str, none_type):
+            mount_credentials_management (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -266,13 +279,6 @@ class CloudAccount(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            provider (str): [optional]  # noqa: E501
-            access_id (str, none_type): [optional]  # noqa: E501
-            secret (str, none_type): [optional]  # noqa: E501
-            tenant (str, none_type): [optional]  # noqa: E501
-            subscription (str, none_type): [optional]  # noqa: E501
-            endpoint (str, none_type): [optional]  # noqa: E501
-            mount_credentials_management (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -301,6 +307,13 @@ class CloudAccount(ModelNormal):
 
         self.id = id
         self.name = name
+        self.provider = provider
+        self.access_id = access_id
+        self.secret = secret
+        self.tenant = tenant
+        self.subscription = subscription
+        self.endpoint = endpoint
+        self.mount_credentials_management = mount_credentials_management
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

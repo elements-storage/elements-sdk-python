@@ -30,8 +30,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.elements_user_mini_reference import ElementsUserMiniReference
-    globals()['ElementsUserMiniReference'] = ElementsUserMiniReference
+    from elements_sdk.model.elements_user_mini import ElementsUserMini
+    globals()['ElementsUserMini'] = ElementsUserMini
 
 
 class SavedSearch(ModelNormal):
@@ -92,11 +92,11 @@ class SavedSearch(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'user': (ElementsUserMiniReference,),  # noqa: E501
+            'user': (ElementsUserMini,),  # noqa: E501
+            'root': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'query': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'url': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'root': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'shared': (bool,),  # noqa: E501
         }
 
@@ -108,10 +108,10 @@ class SavedSearch(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'user': 'user',  # noqa: E501
+        'root': 'root',  # noqa: E501
         'query': 'query',  # noqa: E501
         'url': 'url',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'root': 'root',  # noqa: E501
         'shared': 'shared',  # noqa: E501
     }
 
@@ -123,15 +123,17 @@ class SavedSearch(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, user, query, url, name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, user, root, query, url, name, shared, *args, **xkwargs):  # noqa: E501
         """SavedSearch - a model defined in OpenAPI
 
         Args:
             id (int):
-            user (ElementsUserMiniReference):
+            user (ElementsUserMini):
+            root (bool, date, datetime, dict, float, int, list, str, none_type):
             query ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             url (str):
             name (str):
+            shared (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -164,8 +166,6 @@ class SavedSearch(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            root (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            shared (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -196,9 +196,11 @@ class SavedSearch(ModelNormal):
 
         self.id = id
         self.user = user
+        self.root = root
         self.query = query
         self.url = url
         self.name = name
+        self.shared = shared
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -220,14 +222,16 @@ class SavedSearch(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, user, query, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, user, root, query, name, shared, *args, **xkwargs):  # noqa: E501
         """SavedSearch - a model defined in OpenAPI
 
         Args:
             id (int):
-            user (ElementsUserMiniReference):
+            user (ElementsUserMini):
+            root (bool, date, datetime, dict, float, int, list, str, none_type):
             query ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             name (str):
+            shared (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -260,8 +264,6 @@ class SavedSearch(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            root (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            shared (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -290,8 +292,10 @@ class SavedSearch(ModelNormal):
 
         self.id = id
         self.user = user
+        self.root = root
         self.query = query
         self.name = name
+        self.shared = shared
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

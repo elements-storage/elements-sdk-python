@@ -31,9 +31,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.nfs_permission import NFSPermission
-    from elements_sdk.model.volume_reference import VolumeReference
+    from elements_sdk.model.volume import Volume
     globals()['NFSPermission'] = NFSPermission
-    globals()['VolumeReference'] = VolumeReference
+    globals()['Volume'] = Volume
 
 
 class Share(ModelNormal):
@@ -97,9 +97,9 @@ class Share(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'volume': (VolumeReference,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'sharing_nfs_permissions': ([NFSPermission],),  # noqa: E501
+            'volume': (Volume,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'path': (str,),  # noqa: E501
             'share_smb': (bool,),  # noqa: E501
             'share_nfs': (bool,),  # noqa: E501
@@ -120,9 +120,9 @@ class Share(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'sharing_nfs_permissions': 'sharing_nfs_permissions',  # noqa: E501
         'volume': 'volume',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'sharing_nfs_permissions': 'sharing_nfs_permissions',  # noqa: E501
         'path': 'path',  # noqa: E501
         'share_smb': 'share_smb',  # noqa: E501
         'share_nfs': 'share_nfs',  # noqa: E501
@@ -143,13 +143,25 @@ class Share(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, volume, name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, sharing_nfs_permissions, volume, name, path, share_smb, share_nfs, share_afp, sharing_read_only, sharing_hidden, sharing_require_login, smb_extra_config, afp_extra_config, rw_access_group, ro_access_group, *args, **xkwargs):  # noqa: E501
         """Share - a model defined in OpenAPI
 
         Args:
             id (int):
-            volume (VolumeReference):
+            sharing_nfs_permissions ([NFSPermission]):
+            volume (Volume):
             name (str):
+            path (str):
+            share_smb (bool):
+            share_nfs (bool):
+            share_afp (bool):
+            sharing_read_only (bool):
+            sharing_hidden (bool):
+            sharing_require_login (bool):
+            smb_extra_config (str):
+            afp_extra_config (str):
+            rw_access_group (int, none_type):
+            ro_access_group (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -182,18 +194,6 @@ class Share(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            sharing_nfs_permissions ([NFSPermission]): [optional]  # noqa: E501
-            path (str): [optional]  # noqa: E501
-            share_smb (bool): [optional]  # noqa: E501
-            share_nfs (bool): [optional]  # noqa: E501
-            share_afp (bool): [optional]  # noqa: E501
-            sharing_read_only (bool): [optional]  # noqa: E501
-            sharing_hidden (bool): [optional]  # noqa: E501
-            sharing_require_login (bool): [optional]  # noqa: E501
-            smb_extra_config (str): [optional]  # noqa: E501
-            afp_extra_config (str): [optional]  # noqa: E501
-            rw_access_group (int, none_type): [optional]  # noqa: E501
-            ro_access_group (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -223,8 +223,20 @@ class Share(ModelNormal):
 
 
         self.id = id
+        self.sharing_nfs_permissions = sharing_nfs_permissions
         self.volume = volume
         self.name = name
+        self.path = path
+        self.share_smb = share_smb
+        self.share_nfs = share_nfs
+        self.share_afp = share_afp
+        self.sharing_read_only = sharing_read_only
+        self.sharing_hidden = sharing_hidden
+        self.sharing_require_login = sharing_require_login
+        self.smb_extra_config = smb_extra_config
+        self.afp_extra_config = afp_extra_config
+        self.rw_access_group = rw_access_group
+        self.ro_access_group = ro_access_group
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -246,13 +258,25 @@ class Share(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, volume, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, sharing_nfs_permissions, volume, name, path, share_smb, share_nfs, share_afp, sharing_read_only, sharing_hidden, sharing_require_login, smb_extra_config, afp_extra_config, rw_access_group, ro_access_group, *args, **xkwargs):  # noqa: E501
         """Share - a model defined in OpenAPI
 
         Args:
             id (int):
-            volume (VolumeReference):
+            sharing_nfs_permissions ([NFSPermission]):
+            volume (Volume):
             name (str):
+            path (str):
+            share_smb (bool):
+            share_nfs (bool):
+            share_afp (bool):
+            sharing_read_only (bool):
+            sharing_hidden (bool):
+            sharing_require_login (bool):
+            smb_extra_config (str):
+            afp_extra_config (str):
+            rw_access_group (int, none_type):
+            ro_access_group (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -285,18 +309,6 @@ class Share(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            sharing_nfs_permissions ([NFSPermission]): [optional]  # noqa: E501
-            path (str): [optional]  # noqa: E501
-            share_smb (bool): [optional]  # noqa: E501
-            share_nfs (bool): [optional]  # noqa: E501
-            share_afp (bool): [optional]  # noqa: E501
-            sharing_read_only (bool): [optional]  # noqa: E501
-            sharing_hidden (bool): [optional]  # noqa: E501
-            sharing_require_login (bool): [optional]  # noqa: E501
-            smb_extra_config (str): [optional]  # noqa: E501
-            afp_extra_config (str): [optional]  # noqa: E501
-            rw_access_group (int, none_type): [optional]  # noqa: E501
-            ro_access_group (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -324,8 +336,20 @@ class Share(ModelNormal):
 
 
         self.id = id
+        self.sharing_nfs_permissions = sharing_nfs_permissions
         self.volume = volume
         self.name = name
+        self.path = path
+        self.share_smb = share_smb
+        self.share_nfs = share_nfs
+        self.share_afp = share_afp
+        self.sharing_read_only = sharing_read_only
+        self.sharing_hidden = sharing_hidden
+        self.sharing_require_login = sharing_require_login
+        self.smb_extra_config = smb_extra_config
+        self.afp_extra_config = afp_extra_config
+        self.rw_access_group = rw_access_group
+        self.ro_access_group = ro_access_group
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

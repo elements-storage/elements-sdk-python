@@ -31,9 +31,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.asset import Asset
-    from elements_sdk.model.tag_reference import TagReference
+    from elements_sdk.model.tag import Tag
     globals()['Asset'] = Asset
-    globals()['TagReference'] = TagReference
+    globals()['Tag'] = Tag
 
 
 class Comment(ModelNormal):
@@ -90,21 +90,21 @@ class Comment(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'sync_id': (str,),  # noqa: E501
-            'date': (datetime,),  # noqa: E501
-            'asset': (int,),  # noqa: E501
             'assignee': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'user': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'drawing': ({str: (str, none_type)}, none_type,),  # noqa: E501
-            'tags': ([TagReference],),  # noqa: E501
-            'full_asset': (Asset,),  # noqa: E501
+            'tags': ([Tag],),  # noqa: E501
+            'sync_id': (str,),  # noqa: E501
+            'date': (datetime,),  # noqa: E501
             'text': (str,),  # noqa: E501
             'time': (float, none_type,),  # noqa: E501
             'is_cloud': (bool,),  # noqa: E501
             'resolved': (bool,),  # noqa: E501
             'resolved_date': (datetime, none_type,),  # noqa: E501
+            'asset': (int,),  # noqa: E501
             'root': (int, none_type,),  # noqa: E501
             'parent': (int, none_type,),  # noqa: E501
+            'full_asset': (Asset,),  # noqa: E501
         }
 
     @cached_property
@@ -114,21 +114,21 @@ class Comment(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'sync_id': 'sync_id',  # noqa: E501
-        'date': 'date',  # noqa: E501
-        'asset': 'asset',  # noqa: E501
         'assignee': 'assignee',  # noqa: E501
         'user': 'user',  # noqa: E501
         'drawing': 'drawing',  # noqa: E501
         'tags': 'tags',  # noqa: E501
-        'full_asset': 'full_asset',  # noqa: E501
+        'sync_id': 'sync_id',  # noqa: E501
+        'date': 'date',  # noqa: E501
         'text': 'text',  # noqa: E501
         'time': 'time',  # noqa: E501
         'is_cloud': 'is_cloud',  # noqa: E501
         'resolved': 'resolved',  # noqa: E501
         'resolved_date': 'resolved_date',  # noqa: E501
+        'asset': 'asset',  # noqa: E501
         'root': 'root',  # noqa: E501
         'parent': 'parent',  # noqa: E501
+        'full_asset': 'full_asset',  # noqa: E501
     }
 
     read_only_vars = {
@@ -140,14 +140,25 @@ class Comment(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, sync_id, date, asset, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, assignee, user, drawing, tags, sync_id, date, text, time, is_cloud, resolved, resolved_date, asset, root, parent, *args, **xkwargs):  # noqa: E501
         """Comment - a model defined in OpenAPI
 
         Args:
             id (int):
+            assignee (bool, date, datetime, dict, float, int, list, str, none_type):
+            user (bool, date, datetime, dict, float, int, list, str, none_type):
+            drawing ({str: (str, none_type)}, none_type):
+            tags ([Tag]):
             sync_id (str):
             date (datetime):
+            text (str):
+            time (float, none_type):
+            is_cloud (bool):
+            resolved (bool):
+            resolved_date (datetime, none_type):
             asset (int):
+            root (int, none_type):
+            parent (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -180,18 +191,7 @@ class Comment(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            assignee (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            drawing ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            tags ([TagReference]): [optional]  # noqa: E501
             full_asset (Asset): [optional]  # noqa: E501
-            text (str): [optional]  # noqa: E501
-            time (float, none_type): [optional]  # noqa: E501
-            is_cloud (bool): [optional]  # noqa: E501
-            resolved (bool): [optional]  # noqa: E501
-            resolved_date (datetime, none_type): [optional]  # noqa: E501
-            root (int, none_type): [optional]  # noqa: E501
-            parent (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -221,9 +221,20 @@ class Comment(ModelNormal):
 
 
         self.id = id
+        self.assignee = assignee
+        self.user = user
+        self.drawing = drawing
+        self.tags = tags
         self.sync_id = sync_id
         self.date = date
+        self.text = text
+        self.time = time
+        self.is_cloud = is_cloud
+        self.resolved = resolved
+        self.resolved_date = resolved_date
         self.asset = asset
+        self.root = root
+        self.parent = parent
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -245,12 +256,23 @@ class Comment(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, asset, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, assignee, user, drawing, tags, text, time, is_cloud, resolved, resolved_date, asset, root, parent, *args, **xkwargs):  # noqa: E501
         """Comment - a model defined in OpenAPI
 
         Args:
             id (int):
+            assignee (bool, date, datetime, dict, float, int, list, str, none_type):
+            user (bool, date, datetime, dict, float, int, list, str, none_type):
+            drawing ({str: (str, none_type)}, none_type):
+            tags ([Tag]):
+            text (str):
+            time (float, none_type):
+            is_cloud (bool):
+            resolved (bool):
+            resolved_date (datetime, none_type):
             asset (int):
+            root (int, none_type):
+            parent (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -283,18 +305,7 @@ class Comment(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            assignee (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            drawing ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            tags ([TagReference]): [optional]  # noqa: E501
             full_asset (Asset): [optional]  # noqa: E501
-            text (str): [optional]  # noqa: E501
-            time (float, none_type): [optional]  # noqa: E501
-            is_cloud (bool): [optional]  # noqa: E501
-            resolved (bool): [optional]  # noqa: E501
-            resolved_date (datetime, none_type): [optional]  # noqa: E501
-            root (int, none_type): [optional]  # noqa: E501
-            parent (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -322,7 +333,18 @@ class Comment(ModelNormal):
 
 
         self.id = id
+        self.assignee = assignee
+        self.user = user
+        self.drawing = drawing
+        self.tags = tags
+        self.text = text
+        self.time = time
+        self.is_cloud = is_cloud
+        self.resolved = resolved
+        self.resolved_date = resolved_date
         self.asset = asset
+        self.root = root
+        self.parent = parent
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

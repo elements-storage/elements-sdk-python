@@ -65,12 +65,12 @@ class Workstation(ModelNormal):
         ('display_name',): {
             'min_length': 1,
         },
+        ('name',): {
+            'max_length': 255,
+        },
         ('hostname',): {
             'max_length': 255,
             'min_length': 1,
-        },
-        ('name',): {
-            'max_length': 255,
         },
     }
 
@@ -97,9 +97,9 @@ class Workstation(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
-            'hostname': (str,),  # noqa: E501
             'report': ({str: (str, none_type)},),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
+            'hostname': (str,),  # noqa: E501
             'last_seen': (datetime, none_type,),  # noqa: E501
         }
 
@@ -111,9 +111,9 @@ class Workstation(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'display_name': 'display_name',  # noqa: E501
-        'hostname': 'hostname',  # noqa: E501
         'report': 'report',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'hostname': 'hostname',  # noqa: E501
         'last_seen': 'last_seen',  # noqa: E501
     }
 
@@ -125,13 +125,16 @@ class Workstation(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, display_name, hostname, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, display_name, report, name, hostname, last_seen, *args, **xkwargs):  # noqa: E501
         """Workstation - a model defined in OpenAPI
 
         Args:
             id (str):
             display_name (str):
+            report ({str: (str, none_type)}):
+            name (str, none_type):
             hostname (str):
+            last_seen (datetime, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -164,9 +167,6 @@ class Workstation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            report ({str: (str, none_type)}): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
-            last_seen (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -197,7 +197,10 @@ class Workstation(ModelNormal):
 
         self.id = id
         self.display_name = display_name
+        self.report = report
+        self.name = name
         self.hostname = hostname
+        self.last_seen = last_seen
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -219,12 +222,15 @@ class Workstation(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, hostname, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, report, name, hostname, last_seen, *args, **xkwargs):  # noqa: E501
         """Workstation - a model defined in OpenAPI
 
         Args:
             id (str):
+            report ({str: (str, none_type)}):
+            name (str, none_type):
             hostname (str):
+            last_seen (datetime, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -257,9 +263,6 @@ class Workstation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            report ({str: (str, none_type)}): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
-            last_seen (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -287,7 +290,10 @@ class Workstation(ModelNormal):
 
 
         self.id = id
+        self.report = report
+        self.name = name
         self.hostname = hostname
+        self.last_seen = last_seen
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

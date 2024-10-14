@@ -30,8 +30,10 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.schedule_reference import ScheduleReference
-    globals()['ScheduleReference'] = ScheduleReference
+    from elements_sdk.model.job_fs_trigger import JobFSTrigger
+    from elements_sdk.model.schedule import Schedule
+    globals()['JobFSTrigger'] = JobFSTrigger
+    globals()['Schedule'] = Schedule
 
 
 class JobReference(ModelNormal):
@@ -63,6 +65,7 @@ class JobReference(ModelNormal):
             'None': None,
             '2': "2",
             '3': "3",
+            '4': "4",
         },
         ('input_type',): {
             'None': None,
@@ -75,6 +78,10 @@ class JobReference(ModelNormal):
 
     validations = {
         ('webhook_url',): {
+            'min_length': 1,
+        },
+        ('part_of_workflow_for',): {
+            'max_length': 1,
             'min_length': 1,
         },
         ('name',): {
@@ -117,15 +124,13 @@ class JobReference(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'schedules': ([ScheduleReference],),  # noqa: E501
+            'schedules': ([Schedule],),  # noqa: E501
             'startable': (bool,),  # noqa: E501
-            'variable_definitions': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
+            'variable_definitions': ([{str: (str, none_type)}],),  # noqa: E501
             'webhook_url': (str, none_type,),  # noqa: E501
             'needs_compatibility_check': (bool,),  # noqa: E501
-            'subtasks': ([str],),  # noqa: E501
-            'allow_users': ([str],),  # noqa: E501
-            'allow_groups': ([str],),  # noqa: E501
-            'media_roots': ([str],),  # noqa: E501
+            'part_of_workflow_for': (str, none_type,),  # noqa: E501
+            'fs_triggers': ([JobFSTrigger],),  # noqa: E501
             'special_type': (int, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -139,7 +144,7 @@ class JobReference(ModelNormal):
             'webhook_secret': (str, none_type,),  # noqa: E501
             'elements_release': (str,),  # noqa: E501
             'security_context': (int, none_type,),  # noqa: E501
-            'part_of_workflow_for': (int, none_type,),  # noqa: E501
+            'workflow': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -154,10 +159,8 @@ class JobReference(ModelNormal):
         'variable_definitions': 'variable_definitions',  # noqa: E501
         'webhook_url': 'webhook_url',  # noqa: E501
         'needs_compatibility_check': 'needs_compatibility_check',  # noqa: E501
-        'subtasks': 'subtasks',  # noqa: E501
-        'allow_users': 'allow_users',  # noqa: E501
-        'allow_groups': 'allow_groups',  # noqa: E501
-        'media_roots': 'media_roots',  # noqa: E501
+        'part_of_workflow_for': 'part_of_workflow_for',  # noqa: E501
+        'fs_triggers': 'fs_triggers',  # noqa: E501
         'special_type': 'special_type',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -171,7 +174,7 @@ class JobReference(ModelNormal):
         'webhook_secret': 'webhook_secret',  # noqa: E501
         'elements_release': 'elements_release',  # noqa: E501
         'security_context': 'security_context',  # noqa: E501
-        'part_of_workflow_for': 'part_of_workflow_for',  # noqa: E501
+        'workflow': 'workflow',  # noqa: E501
     }
 
     read_only_vars = {
@@ -180,10 +183,8 @@ class JobReference(ModelNormal):
         'variable_definitions',  # noqa: E501
         'webhook_url',  # noqa: E501
         'needs_compatibility_check',  # noqa: E501
-        'subtasks',  # noqa: E501
-        'allow_users',  # noqa: E501
-        'allow_groups',  # noqa: E501
-        'media_roots',  # noqa: E501
+        'part_of_workflow_for',  # noqa: E501
+        'fs_triggers',  # noqa: E501
         'special_type',  # noqa: E501
         'name',  # noqa: E501
         'description',  # noqa: E501
@@ -197,7 +198,7 @@ class JobReference(ModelNormal):
         'webhook_secret',  # noqa: E501
         'elements_release',  # noqa: E501
         'security_context',  # noqa: E501
-        'part_of_workflow_for',  # noqa: E501
+        'workflow',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -241,15 +242,13 @@ class JobReference(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schedules ([ScheduleReference]): [optional]  # noqa: E501
+            schedules ([Schedule]): [optional]  # noqa: E501
             startable (bool): [optional]  # noqa: E501
-            variable_definitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
+            variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
             webhook_url (str, none_type): [optional]  # noqa: E501
             needs_compatibility_check (bool): [optional]  # noqa: E501
-            subtasks ([str]): [optional]  # noqa: E501
-            allow_users ([str]): [optional]  # noqa: E501
-            allow_groups ([str]): [optional]  # noqa: E501
-            media_roots ([str]): [optional]  # noqa: E501
+            part_of_workflow_for (str, none_type): [optional]  # noqa: E501
+            fs_triggers ([JobFSTrigger]): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
@@ -263,7 +262,7 @@ class JobReference(ModelNormal):
             webhook_secret (str, none_type): [optional]  # noqa: E501
             elements_release (str): [optional]  # noqa: E501
             security_context (int, none_type): [optional]  # noqa: E501
-            part_of_workflow_for (int, none_type): [optional]  # noqa: E501
+            workflow (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -351,15 +350,13 @@ class JobReference(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schedules ([ScheduleReference]): [optional]  # noqa: E501
+            schedules ([Schedule]): [optional]  # noqa: E501
             startable (bool): [optional]  # noqa: E501
-            variable_definitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
+            variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
             webhook_url (str, none_type): [optional]  # noqa: E501
             needs_compatibility_check (bool): [optional]  # noqa: E501
-            subtasks ([str]): [optional]  # noqa: E501
-            allow_users ([str]): [optional]  # noqa: E501
-            allow_groups ([str]): [optional]  # noqa: E501
-            media_roots ([str]): [optional]  # noqa: E501
+            part_of_workflow_for (str, none_type): [optional]  # noqa: E501
+            fs_triggers ([JobFSTrigger]): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
@@ -373,7 +370,7 @@ class JobReference(ModelNormal):
             webhook_secret (str, none_type): [optional]  # noqa: E501
             elements_release (str): [optional]  # noqa: E501
             security_context (int, none_type): [optional]  # noqa: E501
-            part_of_workflow_for (int, none_type): [optional]  # noqa: E501
+            workflow (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

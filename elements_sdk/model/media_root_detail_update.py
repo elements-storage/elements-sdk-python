@@ -123,7 +123,7 @@ class MediaRootDetailUpdate(ModelNormal):
             'volume': (VolumeReference,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'custom_fields': ([CustomFieldReference],),  # noqa: E501
-            'workflow': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'workflow': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'jobs': ([JobReference],),  # noqa: E501
             'ai_config': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'path': (str,),  # noqa: E501
@@ -146,6 +146,7 @@ class MediaRootDetailUpdate(ModelNormal):
             'name_field': (str, none_type,),  # noqa: E501
             'share_comments': (bool,),  # noqa: E501
             'share_link_duration': (int,),  # noqa: E501
+            'disable_framestacks': (bool,),  # noqa: E501
             'default_proxy_profile': (int, none_type,),  # noqa: E501
             'cloud_proxy_profile': (int, none_type,),  # noqa: E501
             'ai_connection': (int, none_type,),  # noqa: E501
@@ -186,6 +187,7 @@ class MediaRootDetailUpdate(ModelNormal):
         'name_field': 'name_field',  # noqa: E501
         'share_comments': 'share_comments',  # noqa: E501
         'share_link_duration': 'share_link_duration',  # noqa: E501
+        'disable_framestacks': 'disable_framestacks',  # noqa: E501
         'default_proxy_profile': 'default_proxy_profile',  # noqa: E501
         'cloud_proxy_profile': 'cloud_proxy_profile',  # noqa: E501
         'ai_connection': 'ai_connection',  # noqa: E501
@@ -240,7 +242,7 @@ class MediaRootDetailUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             custom_fields ([CustomFieldReference]): [optional]  # noqa: E501
-            workflow ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            workflow (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             jobs ([JobReference]): [optional]  # noqa: E501
             ai_config ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
@@ -263,6 +265,7 @@ class MediaRootDetailUpdate(ModelNormal):
             name_field (str, none_type): [optional]  # noqa: E501
             share_comments (bool): [optional]  # noqa: E501
             share_link_duration (int): [optional]  # noqa: E501
+            disable_framestacks (bool): [optional]  # noqa: E501
             default_proxy_profile (int, none_type): [optional]  # noqa: E501
             cloud_proxy_profile (int, none_type): [optional]  # noqa: E501
             ai_connection (int, none_type): [optional]  # noqa: E501
@@ -359,7 +362,7 @@ class MediaRootDetailUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             custom_fields ([CustomFieldReference]): [optional]  # noqa: E501
-            workflow ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            workflow (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             jobs ([JobReference]): [optional]  # noqa: E501
             ai_config ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
@@ -382,6 +385,7 @@ class MediaRootDetailUpdate(ModelNormal):
             name_field (str, none_type): [optional]  # noqa: E501
             share_comments (bool): [optional]  # noqa: E501
             share_link_duration (int): [optional]  # noqa: E501
+            disable_framestacks (bool): [optional]  # noqa: E501
             default_proxy_profile (int, none_type): [optional]  # noqa: E501
             cloud_proxy_profile (int, none_type): [optional]  # noqa: E501
             ai_connection (int, none_type): [optional]  # noqa: E501

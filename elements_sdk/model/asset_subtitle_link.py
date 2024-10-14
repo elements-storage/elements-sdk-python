@@ -30,8 +30,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.asset_mini_reference import AssetMiniReference
-    globals()['AssetMiniReference'] = AssetMiniReference
+    from elements_sdk.model.asset_mini import AssetMini
+    globals()['AssetMini'] = AssetMini
 
 
 class AssetSubtitleLink(ModelNormal):
@@ -95,7 +95,7 @@ class AssetSubtitleLink(ModelNormal):
         """
         lazy_import()
         return {
-            'subtitle': (AssetMiniReference,),  # noqa: E501
+            'subtitle': (AssetMini,),  # noqa: E501
             'label': (str,),  # noqa: E501
             'id': (int,),  # noqa: E501
             'key': (str, none_type,),  # noqa: E501
@@ -125,7 +125,7 @@ class AssetSubtitleLink(ModelNormal):
         """AssetSubtitleLink - a model defined in OpenAPI
 
         Args:
-            subtitle (AssetMiniReference):
+            subtitle (AssetMini):
             label (str):
 
         Keyword Args:
@@ -216,7 +216,7 @@ class AssetSubtitleLink(ModelNormal):
         """AssetSubtitleLink - a model defined in OpenAPI
 
         Args:
-            subtitle (AssetMiniReference):
+            subtitle (AssetMini):
             label (str):
 
         Keyword Args:

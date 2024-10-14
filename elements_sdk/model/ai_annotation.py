@@ -30,11 +30,11 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.ai_category_mini_reference import AICategoryMiniReference
-    from elements_sdk.model.ai_image_reference import AIImageReference
+    from elements_sdk.model.ai_category_mini import AICategoryMini
+    from elements_sdk.model.ai_image import AIImage
     from elements_sdk.model.transforms import Transforms
-    globals()['AICategoryMiniReference'] = AICategoryMiniReference
-    globals()['AIImageReference'] = AIImageReference
+    globals()['AICategoryMini'] = AICategoryMini
+    globals()['AIImage'] = AIImage
     globals()['Transforms'] = Transforms
 
 
@@ -92,16 +92,16 @@ class AIAnnotation(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'image': (AIImageReference,),  # noqa: E501
-            'category': (AICategoryMiniReference,),  # noqa: E501
+            'image': (AIImage,),  # noqa: E501
+            'category': (AICategoryMini,),  # noqa: E501
             'asset_display_name': (str,),  # noqa: E501
             'transforms': (Transforms,),  # noqa: E501
             'relative_left': (float,),  # noqa: E501
             'relative_top': (float,),  # noqa: E501
             'relative_width': (float,),  # noqa: E501
             'relative_height': (float,),  # noqa: E501
-            'created_at': (datetime,),  # noqa: E501
             'track': (str,),  # noqa: E501
+            'created_at': (datetime,),  # noqa: E501
             'created_by': (int, none_type,),  # noqa: E501
         }
 
@@ -120,8 +120,8 @@ class AIAnnotation(ModelNormal):
         'relative_top': 'relative_top',  # noqa: E501
         'relative_width': 'relative_width',  # noqa: E501
         'relative_height': 'relative_height',  # noqa: E501
-        'created_at': 'created_at',  # noqa: E501
         'track': 'track',  # noqa: E501
+        'created_at': 'created_at',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
     }
 
@@ -134,20 +134,22 @@ class AIAnnotation(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, image, category, asset_display_name, transforms, relative_left, relative_top, relative_width, relative_height, created_at, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, image, category, asset_display_name, transforms, relative_left, relative_top, relative_width, relative_height, track, created_at, created_by, *args, **xkwargs):  # noqa: E501
         """AIAnnotation - a model defined in OpenAPI
 
         Args:
             id (str):
-            image (AIImageReference):
-            category (AICategoryMiniReference):
+            image (AIImage):
+            category (AICategoryMini):
             asset_display_name (str):
             transforms (Transforms):
             relative_left (float):
             relative_top (float):
             relative_width (float):
             relative_height (float):
+            track (str):
             created_at (datetime):
+            created_by (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -180,8 +182,6 @@ class AIAnnotation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            track (str): [optional]  # noqa: E501
-            created_by (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -219,7 +219,9 @@ class AIAnnotation(ModelNormal):
         self.relative_top = relative_top
         self.relative_width = relative_width
         self.relative_height = relative_height
+        self.track = track
         self.created_at = created_at
+        self.created_by = created_by
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -241,18 +243,21 @@ class AIAnnotation(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, image, category, transforms, relative_left, relative_top, relative_width, relative_height, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, image, category, transforms, relative_left, relative_top, relative_width, relative_height, track, created_by, *args, **xkwargs):  # noqa: E501
         """AIAnnotation - a model defined in OpenAPI
 
         Args:
             id (str):
-            image (AIImageReference):
-            category (AICategoryMiniReference):
+            image (AIImage):
+            category (AICategoryMini):
             transforms (Transforms):
             relative_left (float):
             relative_top (float):
             relative_width (float):
             relative_height (float):
+            track (str):
+            created_by (int, none_type):
+
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -284,8 +289,6 @@ class AIAnnotation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            track (str): [optional]  # noqa: E501
-            created_by (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -320,6 +323,8 @@ class AIAnnotation(ModelNormal):
         self.relative_top = relative_top
         self.relative_width = relative_width
         self.relative_height = relative_height
+        self.track = track
+        self.created_by = created_by
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

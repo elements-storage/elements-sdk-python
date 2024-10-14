@@ -73,15 +73,15 @@ class ElementsUserProfile(ModelNormal):
     }
 
     validations = {
-        ('username',): {
-            'min_length': 1,
-        },
         ('default_page',): {
             'max_length': 255,
             'min_length': 1,
         },
         ('full_name',): {
             'max_length': 255,
+        },
+        ('username',): {
+            'min_length': 1,
         },
         ('unix_username',): {
             'min_length': 1,
@@ -114,6 +114,11 @@ class ElementsUserProfile(ModelNormal):
         """
         lazy_import()
         return {
+            'avatar': (str, none_type,),  # noqa: E501
+            'default_page': (str,),  # noqa: E501
+            'full_name': (str, none_type,),  # noqa: E501
+            'language': (str, none_type,),  # noqa: E501
+            'fm_bookmarks': ([str, none_type],),  # noqa: E501
             'id': (int,),  # noqa: E501
             'username': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
@@ -122,11 +127,6 @@ class ElementsUserProfile(ModelNormal):
             'has_password': (bool,),  # noqa: E501
             'allow_changing_password': (bool,),  # noqa: E501
             'totp_enabled': (bool,),  # noqa: E501
-            'avatar': (str, none_type,),  # noqa: E501
-            'default_page': (str,),  # noqa: E501
-            'full_name': (str, none_type,),  # noqa: E501
-            'language': (str, none_type,),  # noqa: E501
-            'fm_bookmarks': ([str, none_type],),  # noqa: E501
             'unix_username': (str, none_type,),  # noqa: E501
             'email': (str, none_type,),  # noqa: E501
             'shaper_rate': (int, none_type,),  # noqa: E501
@@ -139,6 +139,11 @@ class ElementsUserProfile(ModelNormal):
 
 
     attribute_map = {
+        'avatar': 'avatar',  # noqa: E501
+        'default_page': 'default_page',  # noqa: E501
+        'full_name': 'full_name',  # noqa: E501
+        'language': 'language',  # noqa: E501
+        'fm_bookmarks': 'fm_bookmarks',  # noqa: E501
         'id': 'id',  # noqa: E501
         'username': 'username',  # noqa: E501
         'display_name': 'display_name',  # noqa: E501
@@ -147,11 +152,6 @@ class ElementsUserProfile(ModelNormal):
         'has_password': 'has_password',  # noqa: E501
         'allow_changing_password': 'allow_changing_password',  # noqa: E501
         'totp_enabled': 'totp_enabled',  # noqa: E501
-        'avatar': 'avatar',  # noqa: E501
-        'default_page': 'default_page',  # noqa: E501
-        'full_name': 'full_name',  # noqa: E501
-        'language': 'language',  # noqa: E501
-        'fm_bookmarks': 'fm_bookmarks',  # noqa: E501
         'unix_username': 'unix_username',  # noqa: E501
         'email': 'email',  # noqa: E501
         'shaper_rate': 'shaper_rate',  # noqa: E501
@@ -175,10 +175,15 @@ class ElementsUserProfile(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, username, display_name, ldap, effective_permissions, has_password, allow_changing_password, totp_enabled, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, avatar, default_page, full_name, language, fm_bookmarks, id, username, display_name, ldap, effective_permissions, has_password, allow_changing_password, totp_enabled, *args, **xkwargs):  # noqa: E501
         """ElementsUserProfile - a model defined in OpenAPI
 
         Args:
+            avatar (str, none_type):
+            default_page (str):
+            full_name (str, none_type):
+            language (str, none_type):
+            fm_bookmarks ([str, none_type]):
             id (int):
             username (str):
             display_name (str):
@@ -219,11 +224,6 @@ class ElementsUserProfile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            avatar (str, none_type): [optional]  # noqa: E501
-            default_page (str): [optional]  # noqa: E501
-            full_name (str, none_type): [optional]  # noqa: E501
-            language (str, none_type): [optional]  # noqa: E501
-            fm_bookmarks ([str, none_type]): [optional]  # noqa: E501
             unix_username (str, none_type): [optional]  # noqa: E501
             email (str, none_type): [optional]  # noqa: E501
             shaper_rate (int, none_type): [optional]  # noqa: E501
@@ -256,6 +256,11 @@ class ElementsUserProfile(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
+        self.avatar = avatar
+        self.default_page = default_page
+        self.full_name = full_name
+        self.language = language
+        self.fm_bookmarks = fm_bookmarks
         self.id = id
         self.username = username
         self.display_name = display_name
@@ -285,10 +290,15 @@ class ElementsUserProfile(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, ldap, *args, **xkwargs):  # noqa: E501
+    def __init__(self, avatar, default_page, full_name, language, fm_bookmarks, id, ldap, *args, **xkwargs):  # noqa: E501
         """ElementsUserProfile - a model defined in OpenAPI
 
         Args:
+            avatar (str, none_type):
+            default_page (str):
+            full_name (str, none_type):
+            language (str, none_type):
+            fm_bookmarks ([str, none_type]):
             id (int):
             ldap (LDAPServer):
         Keyword Args:
@@ -322,11 +332,6 @@ class ElementsUserProfile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            avatar (str, none_type): [optional]  # noqa: E501
-            default_page (str): [optional]  # noqa: E501
-            full_name (str, none_type): [optional]  # noqa: E501
-            language (str, none_type): [optional]  # noqa: E501
-            fm_bookmarks ([str, none_type]): [optional]  # noqa: E501
             unix_username (str, none_type): [optional]  # noqa: E501
             email (str, none_type): [optional]  # noqa: E501
             shaper_rate (int, none_type): [optional]  # noqa: E501
@@ -357,6 +362,11 @@ class ElementsUserProfile(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
+        self.avatar = avatar
+        self.default_page = default_page
+        self.full_name = full_name
+        self.language = language
+        self.fm_bookmarks = fm_bookmarks
         self.id = id
         self.ldap = ldap
         for var_name, var_value in xkwargs.items():

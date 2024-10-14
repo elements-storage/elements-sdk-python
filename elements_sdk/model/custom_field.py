@@ -69,13 +69,13 @@ class CustomField(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
-        ('type',): {
-            'max_length': 255,
-            'min_length': 1,
-        },
         ('order',): {
             'inclusive_maximum': 2147483647,
             'inclusive_minimum': -2147483648,
+        },
+        ('type',): {
+            'max_length': 255,
+            'min_length': 1,
         },
         ('regex',): {
             'max_length': 255,
@@ -123,12 +123,12 @@ class CustomField(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'id': (int,),  # noqa: E501
             'labels': ([{str: (str, none_type)}],),  # noqa: E501
             'options': ([str, none_type],),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'type': (str,),  # noqa: E501
-            'id': (int,),  # noqa: E501
             'order': (int,),  # noqa: E501
+            'type': (str,),  # noqa: E501
             'use_for_uploads': (bool,),  # noqa: E501
             'require_to_upload': (bool,),  # noqa: E501
             'non_user_editable': (bool,),  # noqa: E501
@@ -141,6 +141,7 @@ class CustomField(ModelNormal):
             'highlight_expiration': (bool,),  # noqa: E501
             'multiple_response': (bool,),  # noqa: E501
             'help_text': (str, none_type,),  # noqa: E501
+            'users_from_group': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -149,12 +150,12 @@ class CustomField(ModelNormal):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
         'labels': 'labels',  # noqa: E501
         'options': 'options',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'type': 'type',  # noqa: E501
-        'id': 'id',  # noqa: E501
         'order': 'order',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'use_for_uploads': 'use_for_uploads',  # noqa: E501
         'require_to_upload': 'require_to_upload',  # noqa: E501
         'non_user_editable': 'non_user_editable',  # noqa: E501
@@ -167,24 +168,39 @@ class CustomField(ModelNormal):
         'highlight_expiration': 'highlight_expiration',  # noqa: E501
         'multiple_response': 'multiple_response',  # noqa: E501
         'help_text': 'help_text',  # noqa: E501
+        'users_from_group': 'users_from_group',  # noqa: E501
     }
 
     read_only_vars = {
-        'id',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, labels, options, name, type, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, labels, options, name, order, type, use_for_uploads, require_to_upload, non_user_editable, validation, regex, range_min, range_max, number_of_digits, metadata_prefill, highlight_expiration, multiple_response, help_text, users_from_group, *args, **xkwargs):  # noqa: E501
         """CustomField - a model defined in OpenAPI
 
         Args:
+            id (int):
             labels ([{str: (str, none_type)}]):
             options ([str, none_type]):
             name (str):
+            order (int):
             type (str):
+            use_for_uploads (bool):
+            require_to_upload (bool):
+            non_user_editable (bool):
+            validation (str, none_type):
+            regex (str, none_type):
+            range_min (int, none_type):
+            range_max (int, none_type):
+            number_of_digits (int, none_type):
+            metadata_prefill (str, none_type):
+            highlight_expiration (bool):
+            multiple_response (bool):
+            help_text (str, none_type):
+            users_from_group (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -217,20 +233,6 @@ class CustomField(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (int): [optional]  # noqa: E501
-            order (int): [optional]  # noqa: E501
-            use_for_uploads (bool): [optional]  # noqa: E501
-            require_to_upload (bool): [optional]  # noqa: E501
-            non_user_editable (bool): [optional]  # noqa: E501
-            validation (str, none_type): [optional]  # noqa: E501
-            regex (str, none_type): [optional]  # noqa: E501
-            range_min (int, none_type): [optional]  # noqa: E501
-            range_max (int, none_type): [optional]  # noqa: E501
-            number_of_digits (int, none_type): [optional]  # noqa: E501
-            metadata_prefill (str, none_type): [optional]  # noqa: E501
-            highlight_expiration (bool): [optional]  # noqa: E501
-            multiple_response (bool): [optional]  # noqa: E501
-            help_text (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -259,10 +261,25 @@ class CustomField(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
+        self.id = id
         self.labels = labels
         self.options = options
         self.name = name
+        self.order = order
         self.type = type
+        self.use_for_uploads = use_for_uploads
+        self.require_to_upload = require_to_upload
+        self.non_user_editable = non_user_editable
+        self.validation = validation
+        self.regex = regex
+        self.range_min = range_min
+        self.range_max = range_max
+        self.number_of_digits = number_of_digits
+        self.metadata_prefill = metadata_prefill
+        self.highlight_expiration = highlight_expiration
+        self.multiple_response = multiple_response
+        self.help_text = help_text
+        self.users_from_group = users_from_group
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -284,14 +301,29 @@ class CustomField(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, labels, options, name, type, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, labels, options, name, order, type, use_for_uploads, require_to_upload, non_user_editable, validation, regex, range_min, range_max, number_of_digits, metadata_prefill, highlight_expiration, multiple_response, help_text, users_from_group, *args, **xkwargs):  # noqa: E501
         """CustomField - a model defined in OpenAPI
 
         Args:
+            id (int):
             labels ([{str: (str, none_type)}]):
             options ([str, none_type]):
             name (str):
+            order (int):
             type (str):
+            use_for_uploads (bool):
+            require_to_upload (bool):
+            non_user_editable (bool):
+            validation (str, none_type):
+            regex (str, none_type):
+            range_min (int, none_type):
+            range_max (int, none_type):
+            number_of_digits (int, none_type):
+            metadata_prefill (str, none_type):
+            highlight_expiration (bool):
+            multiple_response (bool):
+            help_text (str, none_type):
+            users_from_group (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -324,20 +356,6 @@ class CustomField(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (int): [optional]  # noqa: E501
-            order (int): [optional]  # noqa: E501
-            use_for_uploads (bool): [optional]  # noqa: E501
-            require_to_upload (bool): [optional]  # noqa: E501
-            non_user_editable (bool): [optional]  # noqa: E501
-            validation (str, none_type): [optional]  # noqa: E501
-            regex (str, none_type): [optional]  # noqa: E501
-            range_min (int, none_type): [optional]  # noqa: E501
-            range_max (int, none_type): [optional]  # noqa: E501
-            number_of_digits (int, none_type): [optional]  # noqa: E501
-            metadata_prefill (str, none_type): [optional]  # noqa: E501
-            highlight_expiration (bool): [optional]  # noqa: E501
-            multiple_response (bool): [optional]  # noqa: E501
-            help_text (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -364,10 +382,25 @@ class CustomField(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
+        self.id = id
         self.labels = labels
         self.options = options
         self.name = name
+        self.order = order
         self.type = type
+        self.use_for_uploads = use_for_uploads
+        self.require_to_upload = require_to_upload
+        self.non_user_editable = non_user_editable
+        self.validation = validation
+        self.regex = regex
+        self.range_min = range_min
+        self.range_max = range_max
+        self.number_of_digits = number_of_digits
+        self.metadata_prefill = metadata_prefill
+        self.highlight_expiration = highlight_expiration
+        self.multiple_response = multiple_response
+        self.help_text = help_text
+        self.users_from_group = users_from_group
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -62,6 +62,9 @@ class AIImage(ModelNormal):
             'inclusive_maximum': 2147483647,
             'inclusive_minimum': -2147483648,
         },
+        ('filename',): {
+            'max_length': 255,
+        },
         ('width',): {
             'inclusive_maximum': 2147483647,
             'inclusive_minimum': -2147483648,
@@ -69,9 +72,6 @@ class AIImage(ModelNormal):
         ('height',): {
             'inclusive_maximum': 2147483647,
             'inclusive_minimum': -2147483648,
-        },
-        ('filename',): {
-            'max_length': 255,
         },
     }
 
@@ -97,13 +97,13 @@ class AIImage(ModelNormal):
         """
         return {
             'id': (str,),  # noqa: E501
+            'asset': (int, none_type,),  # noqa: E501
+            'proxy': (int, none_type,),  # noqa: E501
             'frame': (int,),  # noqa: E501
+            'filename': (str,),  # noqa: E501
             'dataset': (str,),  # noqa: E501
             'width': (int,),  # noqa: E501
             'height': (int,),  # noqa: E501
-            'asset': (int, none_type,),  # noqa: E501
-            'proxy': (int, none_type,),  # noqa: E501
-            'filename': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -113,13 +113,13 @@ class AIImage(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'asset': 'asset',  # noqa: E501
+        'proxy': 'proxy',  # noqa: E501
         'frame': 'frame',  # noqa: E501
+        'filename': 'filename',  # noqa: E501
         'dataset': 'dataset',  # noqa: E501
         'width': 'width',  # noqa: E501
         'height': 'height',  # noqa: E501
-        'asset': 'asset',  # noqa: E501
-        'proxy': 'proxy',  # noqa: E501
-        'filename': 'filename',  # noqa: E501
     }
 
     read_only_vars = {
@@ -129,12 +129,15 @@ class AIImage(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, frame, dataset, width, height, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, asset, proxy, frame, filename, dataset, width, height, *args, **xkwargs):  # noqa: E501
         """AIImage - a model defined in OpenAPI
 
         Args:
             id (str):
+            asset (int, none_type):
+            proxy (int, none_type):
             frame (int):
+            filename (str):
             dataset (str):
             width (int):
             height (int):
@@ -170,9 +173,6 @@ class AIImage(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            asset (int, none_type): [optional]  # noqa: E501
-            proxy (int, none_type): [optional]  # noqa: E501
-            filename (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -202,7 +202,10 @@ class AIImage(ModelNormal):
 
 
         self.id = id
+        self.asset = asset
+        self.proxy = proxy
         self.frame = frame
+        self.filename = filename
         self.dataset = dataset
         self.width = width
         self.height = height
@@ -227,12 +230,15 @@ class AIImage(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, frame, dataset, width, height, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, asset, proxy, frame, filename, dataset, width, height, *args, **xkwargs):  # noqa: E501
         """AIImage - a model defined in OpenAPI
 
         Args:
             id (str):
+            asset (int, none_type):
+            proxy (int, none_type):
             frame (int):
+            filename (str):
             dataset (str):
             width (int):
             height (int):
@@ -268,9 +274,6 @@ class AIImage(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            asset (int, none_type): [optional]  # noqa: E501
-            proxy (int, none_type): [optional]  # noqa: E501
-            filename (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -298,7 +301,10 @@ class AIImage(ModelNormal):
 
 
         self.id = id
+        self.asset = asset
+        self.proxy = proxy
         self.frame = frame
+        self.filename = filename
         self.dataset = dataset
         self.width = width
         self.height = height

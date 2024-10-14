@@ -30,9 +30,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.ai_dataset_reference import AIDatasetReference
+    from elements_sdk.model.ai_dataset import AIDataset
     from elements_sdk.model.ai_model_progress import AIModelProgress
-    globals()['AIDatasetReference'] = AIDatasetReference
+    globals()['AIDataset'] = AIDataset
     globals()['AIModelProgress'] = AIModelProgress
 
 
@@ -103,7 +103,7 @@ class AIModel(ModelNormal):
             'id': (str,),  # noqa: E501
             'state': (int,),  # noqa: E501
             'progress': (AIModelProgress,),  # noqa: E501
-            'dataset': (AIDatasetReference,),  # noqa: E501
+            'dataset': (AIDataset,),  # noqa: E501
             'parameters': ({str: (str, none_type)},),  # noqa: E501
             'log_path': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
@@ -147,19 +147,23 @@ class AIModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, state, progress, dataset, parameters, log_path, name, created_at, active, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, state, progress, dataset, parameters, log_path, name, created_at, active, training_task_id, threshold, epoch, preprocessing_task, *args, **xkwargs):  # noqa: E501
         """AIModel - a model defined in OpenAPI
 
         Args:
             id (str):
             state (int):
             progress (AIModelProgress):
-            dataset (AIDatasetReference):
+            dataset (AIDataset):
             parameters ({str: (str, none_type)}):
             log_path (str):
             name (str):
             created_at (datetime):
             active (bool):
+            training_task_id (str, none_type):
+            threshold (float):
+            epoch (int, none_type):
+            preprocessing_task (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -192,10 +196,6 @@ class AIModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            training_task_id (str, none_type): [optional]  # noqa: E501
-            threshold (float): [optional]  # noqa: E501
-            epoch (int, none_type): [optional]  # noqa: E501
-            preprocessing_task (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -233,6 +233,10 @@ class AIModel(ModelNormal):
         self.name = name
         self.created_at = created_at
         self.active = active
+        self.training_task_id = training_task_id
+        self.threshold = threshold
+        self.epoch = epoch
+        self.preprocessing_task = preprocessing_task
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -254,15 +258,20 @@ class AIModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, progress, dataset, parameters, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, progress, dataset, parameters, name, training_task_id, threshold, epoch, preprocessing_task, *args, **xkwargs):  # noqa: E501
         """AIModel - a model defined in OpenAPI
 
         Args:
             id (str):
             progress (AIModelProgress):
-            dataset (AIDatasetReference):
+            dataset (AIDataset):
             parameters ({str: (str, none_type)}):
             name (str):
+            training_task_id (str, none_type):
+            threshold (float):
+            epoch (int, none_type):
+            preprocessing_task (str, none_type):
+
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -294,10 +303,6 @@ class AIModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            training_task_id (str, none_type): [optional]  # noqa: E501
-            threshold (float): [optional]  # noqa: E501
-            epoch (int, none_type): [optional]  # noqa: E501
-            preprocessing_task (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -329,6 +334,10 @@ class AIModel(ModelNormal):
         self.dataset = dataset
         self.parameters = parameters
         self.name = name
+        self.training_task_id = training_task_id
+        self.threshold = threshold
+        self.epoch = epoch
+        self.preprocessing_task = preprocessing_task
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

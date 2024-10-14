@@ -69,10 +69,6 @@ class ElementsUserDetail(ModelNormal):
     }
 
     validations = {
-        ('username',): {
-            'max_length': 255,
-            'min_length': 1,
-        },
         ('default_page',): {
             'max_length': 255,
             'min_length': 1,
@@ -105,6 +101,10 @@ class ElementsUserDetail(ModelNormal):
         ('unix_username',): {
             'max_length': 255,
         },
+        ('username',): {
+            'max_length': 255,
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -129,41 +129,41 @@ class ElementsUserDetail(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
-            'allowed_fs_paths': ([str, none_type], none_type,),  # noqa: E501
-            'allowed_fs_write_paths': ([str, none_type], none_type,),  # noqa: E501
-            'display_name': (str,),  # noqa: E501
-            'effective_permissions': ([str, none_type],),  # noqa: E501
-            'group_permissions': ([str, none_type],),  # noqa: E501
-            'has_password': (bool,),  # noqa: E501
-            'is_cloud_default': (bool,),  # noqa: E501
-            'permissions': ([str, none_type],),  # noqa: E501
-            'sync_id': (str,),  # noqa: E501
-            'totp_enabled': (bool,),  # noqa: E501
-            'username': (str,),  # noqa: E501
-            'groups': ([int],),  # noqa: E501
             'allow_changing_password': (bool,),  # noqa: E501
             'allow_wan_login': (bool,),  # noqa: E501
+            'allowed_fs_paths': ([str, none_type], none_type,),  # noqa: E501
+            'allowed_fs_write_paths': ([str, none_type], none_type,),  # noqa: E501
             'avatar': (str, none_type,),  # noqa: E501
             'default_page': (str,),  # noqa: E501
+            'display_name': (str,),  # noqa: E501
+            'effective_permissions': ([str, none_type],),  # noqa: E501
             'email': (str, none_type,),  # noqa: E501
             'expiry': (datetime, none_type,),  # noqa: E501
             'fm_bookmarks': ([str, none_type],),  # noqa: E501
             'full_name': (str, none_type,),  # noqa: E501
             'gid': (int, none_type,),  # noqa: E501
+            'group_permissions': ([str, none_type],),  # noqa: E501
+            'has_password': (bool,),  # noqa: E501
             'home': (int, none_type,),  # noqa: E501
             'is_external': (bool,),  # noqa: E501
             'is_cloud': (bool,),  # noqa: E501
+            'is_cloud_default': (bool,),  # noqa: E501
             'is_enabled': (bool,),  # noqa: E501
             'language': (str, none_type,),  # noqa: E501
-            'last_seen': (datetime, none_type,),  # noqa: E501
             'ldap': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'ldap_dn': (str, none_type,),  # noqa: E501
-            'ldap_guid': (str, none_type,),  # noqa: E501
             'password_change_required': (bool,),  # noqa: E501
+            'permissions': ([str, none_type],),  # noqa: E501
             'shaper_ceiling': (int, none_type,),  # noqa: E501
             'shaper_rate': (int, none_type,),  # noqa: E501
+            'sync_id': (str,),  # noqa: E501
+            'totp_enabled': (bool,),  # noqa: E501
             'uid': (int, none_type,),  # noqa: E501
             'unix_username': (str, none_type,),  # noqa: E501
+            'username': (str,),  # noqa: E501
+            'groups': ([int],),  # noqa: E501
+            'last_seen': (datetime, none_type,),  # noqa: E501
+            'ldap_guid': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -173,41 +173,41 @@ class ElementsUserDetail(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'allowed_fs_paths': 'allowed_fs_paths',  # noqa: E501
-        'allowed_fs_write_paths': 'allowed_fs_write_paths',  # noqa: E501
-        'display_name': 'display_name',  # noqa: E501
-        'effective_permissions': 'effective_permissions',  # noqa: E501
-        'group_permissions': 'group_permissions',  # noqa: E501
-        'has_password': 'has_password',  # noqa: E501
-        'is_cloud_default': 'is_cloud_default',  # noqa: E501
-        'permissions': 'permissions',  # noqa: E501
-        'sync_id': 'sync_id',  # noqa: E501
-        'totp_enabled': 'totp_enabled',  # noqa: E501
-        'username': 'username',  # noqa: E501
-        'groups': 'groups',  # noqa: E501
         'allow_changing_password': 'allow_changing_password',  # noqa: E501
         'allow_wan_login': 'allow_wan_login',  # noqa: E501
+        'allowed_fs_paths': 'allowed_fs_paths',  # noqa: E501
+        'allowed_fs_write_paths': 'allowed_fs_write_paths',  # noqa: E501
         'avatar': 'avatar',  # noqa: E501
         'default_page': 'default_page',  # noqa: E501
+        'display_name': 'display_name',  # noqa: E501
+        'effective_permissions': 'effective_permissions',  # noqa: E501
         'email': 'email',  # noqa: E501
         'expiry': 'expiry',  # noqa: E501
         'fm_bookmarks': 'fm_bookmarks',  # noqa: E501
         'full_name': 'full_name',  # noqa: E501
         'gid': 'gid',  # noqa: E501
+        'group_permissions': 'group_permissions',  # noqa: E501
+        'has_password': 'has_password',  # noqa: E501
         'home': 'home',  # noqa: E501
         'is_external': 'is_external',  # noqa: E501
         'is_cloud': 'is_cloud',  # noqa: E501
+        'is_cloud_default': 'is_cloud_default',  # noqa: E501
         'is_enabled': 'is_enabled',  # noqa: E501
         'language': 'language',  # noqa: E501
-        'last_seen': 'last_seen',  # noqa: E501
         'ldap': 'ldap',  # noqa: E501
         'ldap_dn': 'ldap_dn',  # noqa: E501
-        'ldap_guid': 'ldap_guid',  # noqa: E501
         'password_change_required': 'password_change_required',  # noqa: E501
+        'permissions': 'permissions',  # noqa: E501
         'shaper_ceiling': 'shaper_ceiling',  # noqa: E501
         'shaper_rate': 'shaper_rate',  # noqa: E501
+        'sync_id': 'sync_id',  # noqa: E501
+        'totp_enabled': 'totp_enabled',  # noqa: E501
         'uid': 'uid',  # noqa: E501
         'unix_username': 'unix_username',  # noqa: E501
+        'username': 'username',  # noqa: E501
+        'groups': 'groups',  # noqa: E501
+        'last_seen': 'last_seen',  # noqa: E501
+        'ldap_guid': 'ldap_guid',  # noqa: E501
     }
 
     read_only_vars = {
@@ -228,21 +228,42 @@ class ElementsUserDetail(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, allowed_fs_paths, allowed_fs_write_paths, display_name, effective_permissions, group_permissions, has_password, is_cloud_default, permissions, sync_id, totp_enabled, username, groups, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, allow_changing_password, allow_wan_login, allowed_fs_paths, allowed_fs_write_paths, avatar, default_page, display_name, effective_permissions, email, expiry, fm_bookmarks, full_name, gid, group_permissions, has_password, home, is_external, is_cloud, is_cloud_default, is_enabled, language, ldap, ldap_dn, password_change_required, permissions, shaper_ceiling, shaper_rate, sync_id, totp_enabled, uid, unix_username, username, groups, *args, **xkwargs):  # noqa: E501
         """ElementsUserDetail - a model defined in OpenAPI
 
         Args:
             id (int):
+            allow_changing_password (bool):
+            allow_wan_login (bool):
             allowed_fs_paths ([str, none_type], none_type):
             allowed_fs_write_paths ([str, none_type], none_type):
+            avatar (str, none_type):
+            default_page (str):
             display_name (str):
             effective_permissions ([str, none_type]):
+            email (str, none_type):
+            expiry (datetime, none_type):
+            fm_bookmarks ([str, none_type]):
+            full_name (str, none_type):
+            gid (int, none_type):
             group_permissions ([str, none_type]):
             has_password (bool):
+            home (int, none_type):
+            is_external (bool):
+            is_cloud (bool):
             is_cloud_default (bool):
+            is_enabled (bool):
+            language (str, none_type):
+            ldap (bool, date, datetime, dict, float, int, list, str, none_type):
+            ldap_dn (str, none_type):
+            password_change_required (bool):
             permissions ([str, none_type]):
+            shaper_ceiling (int, none_type):
+            shaper_rate (int, none_type):
             sync_id (str):
             totp_enabled (bool):
+            uid (int, none_type):
+            unix_username (str, none_type):
             username (str):
             groups ([int]):
 
@@ -277,29 +298,8 @@ class ElementsUserDetail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            allow_changing_password (bool): [optional]  # noqa: E501
-            allow_wan_login (bool): [optional]  # noqa: E501
-            avatar (str, none_type): [optional]  # noqa: E501
-            default_page (str): [optional]  # noqa: E501
-            email (str, none_type): [optional]  # noqa: E501
-            expiry (datetime, none_type): [optional]  # noqa: E501
-            fm_bookmarks ([str, none_type]): [optional]  # noqa: E501
-            full_name (str, none_type): [optional]  # noqa: E501
-            gid (int, none_type): [optional]  # noqa: E501
-            home (int, none_type): [optional]  # noqa: E501
-            is_external (bool): [optional]  # noqa: E501
-            is_cloud (bool): [optional]  # noqa: E501
-            is_enabled (bool): [optional]  # noqa: E501
-            language (str, none_type): [optional]  # noqa: E501
             last_seen (datetime, none_type): [optional]  # noqa: E501
-            ldap (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            ldap_dn (str, none_type): [optional]  # noqa: E501
             ldap_guid (str, none_type): [optional]  # noqa: E501
-            password_change_required (bool): [optional]  # noqa: E501
-            shaper_ceiling (int, none_type): [optional]  # noqa: E501
-            shaper_rate (int, none_type): [optional]  # noqa: E501
-            uid (int, none_type): [optional]  # noqa: E501
-            unix_username (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -329,16 +329,37 @@ class ElementsUserDetail(ModelNormal):
 
 
         self.id = id
+        self.allow_changing_password = allow_changing_password
+        self.allow_wan_login = allow_wan_login
         self.allowed_fs_paths = allowed_fs_paths
         self.allowed_fs_write_paths = allowed_fs_write_paths
+        self.avatar = avatar
+        self.default_page = default_page
         self.display_name = display_name
         self.effective_permissions = effective_permissions
+        self.email = email
+        self.expiry = expiry
+        self.fm_bookmarks = fm_bookmarks
+        self.full_name = full_name
+        self.gid = gid
         self.group_permissions = group_permissions
         self.has_password = has_password
+        self.home = home
+        self.is_external = is_external
+        self.is_cloud = is_cloud
         self.is_cloud_default = is_cloud_default
+        self.is_enabled = is_enabled
+        self.language = language
+        self.ldap = ldap
+        self.ldap_dn = ldap_dn
+        self.password_change_required = password_change_required
         self.permissions = permissions
+        self.shaper_ceiling = shaper_ceiling
+        self.shaper_rate = shaper_rate
         self.sync_id = sync_id
         self.totp_enabled = totp_enabled
+        self.uid = uid
+        self.unix_username = unix_username
         self.username = username
         self.groups = groups
         for var_name, var_value in xkwargs.items():
@@ -362,12 +383,33 @@ class ElementsUserDetail(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, permissions, username, groups, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, allow_changing_password, allow_wan_login, avatar, default_page, email, expiry, fm_bookmarks, full_name, gid, home, is_external, is_cloud, is_enabled, language, ldap, ldap_dn, password_change_required, permissions, shaper_ceiling, shaper_rate, uid, unix_username, username, groups, *args, **xkwargs):  # noqa: E501
         """ElementsUserDetail - a model defined in OpenAPI
 
         Args:
             id (int):
+            allow_changing_password (bool):
+            allow_wan_login (bool):
+            avatar (str, none_type):
+            default_page (str):
+            email (str, none_type):
+            expiry (datetime, none_type):
+            fm_bookmarks ([str, none_type]):
+            full_name (str, none_type):
+            gid (int, none_type):
+            home (int, none_type):
+            is_external (bool):
+            is_cloud (bool):
+            is_enabled (bool):
+            language (str, none_type):
+            ldap (bool, date, datetime, dict, float, int, list, str, none_type):
+            ldap_dn (str, none_type):
+            password_change_required (bool):
             permissions ([str, none_type]):
+            shaper_ceiling (int, none_type):
+            shaper_rate (int, none_type):
+            uid (int, none_type):
+            unix_username (str, none_type):
             username (str):
             groups ([int]):
 
@@ -402,29 +444,8 @@ class ElementsUserDetail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            allow_changing_password (bool): [optional]  # noqa: E501
-            allow_wan_login (bool): [optional]  # noqa: E501
-            avatar (str, none_type): [optional]  # noqa: E501
-            default_page (str): [optional]  # noqa: E501
-            email (str, none_type): [optional]  # noqa: E501
-            expiry (datetime, none_type): [optional]  # noqa: E501
-            fm_bookmarks ([str, none_type]): [optional]  # noqa: E501
-            full_name (str, none_type): [optional]  # noqa: E501
-            gid (int, none_type): [optional]  # noqa: E501
-            home (int, none_type): [optional]  # noqa: E501
-            is_external (bool): [optional]  # noqa: E501
-            is_cloud (bool): [optional]  # noqa: E501
-            is_enabled (bool): [optional]  # noqa: E501
-            language (str, none_type): [optional]  # noqa: E501
             last_seen (datetime, none_type): [optional]  # noqa: E501
-            ldap (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            ldap_dn (str, none_type): [optional]  # noqa: E501
             ldap_guid (str, none_type): [optional]  # noqa: E501
-            password_change_required (bool): [optional]  # noqa: E501
-            shaper_ceiling (int, none_type): [optional]  # noqa: E501
-            shaper_rate (int, none_type): [optional]  # noqa: E501
-            uid (int, none_type): [optional]  # noqa: E501
-            unix_username (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -452,7 +473,28 @@ class ElementsUserDetail(ModelNormal):
 
 
         self.id = id
+        self.allow_changing_password = allow_changing_password
+        self.allow_wan_login = allow_wan_login
+        self.avatar = avatar
+        self.default_page = default_page
+        self.email = email
+        self.expiry = expiry
+        self.fm_bookmarks = fm_bookmarks
+        self.full_name = full_name
+        self.gid = gid
+        self.home = home
+        self.is_external = is_external
+        self.is_cloud = is_cloud
+        self.is_enabled = is_enabled
+        self.language = language
+        self.ldap = ldap
+        self.ldap_dn = ldap_dn
+        self.password_change_required = password_change_required
         self.permissions = permissions
+        self.shaper_ceiling = shaper_ceiling
+        self.shaper_rate = shaper_rate
+        self.uid = uid
+        self.unix_username = unix_username
         self.username = username
         self.groups = groups
         for var_name, var_value in xkwargs.items():

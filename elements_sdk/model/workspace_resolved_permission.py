@@ -68,7 +68,7 @@ class WorkspaceResolvedPermission(ModelNormal):
         """
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
-    _nullable = True
+    _nullable = False
 
     @cached_property
     def openapi_types():
@@ -82,8 +82,8 @@ class WorkspaceResolvedPermission(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
-            'workspace': (int,),  # noqa: E501
             'read_only': (bool,),  # noqa: E501
+            'workspace': (int,),  # noqa: E501
             'user': (int, none_type,),  # noqa: E501
             'group': (int, none_type,),  # noqa: E501
         }
@@ -95,8 +95,8 @@ class WorkspaceResolvedPermission(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'workspace': 'workspace',  # noqa: E501
         'read_only': 'read_only',  # noqa: E501
+        'workspace': 'workspace',  # noqa: E501
         'user': 'user',  # noqa: E501
         'group': 'group',  # noqa: E501
     }
@@ -108,12 +108,15 @@ class WorkspaceResolvedPermission(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, workspace, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, read_only, workspace, user, group, *args, **xkwargs):  # noqa: E501
         """WorkspaceResolvedPermission - a model defined in OpenAPI
 
         Args:
             id (int):
+            read_only (bool):
             workspace (int):
+            user (int, none_type):
+            group (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -146,9 +149,6 @@ class WorkspaceResolvedPermission(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            read_only (bool): [optional]  # noqa: E501
-            user (int, none_type): [optional]  # noqa: E501
-            group (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -178,7 +178,10 @@ class WorkspaceResolvedPermission(ModelNormal):
 
 
         self.id = id
+        self.read_only = read_only
         self.workspace = workspace
+        self.user = user
+        self.group = group
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -200,12 +203,15 @@ class WorkspaceResolvedPermission(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, workspace, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, read_only, workspace, user, group, *args, **xkwargs):  # noqa: E501
         """WorkspaceResolvedPermission - a model defined in OpenAPI
 
         Args:
             id (int):
+            read_only (bool):
             workspace (int):
+            user (int, none_type):
+            group (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -238,9 +244,6 @@ class WorkspaceResolvedPermission(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            read_only (bool): [optional]  # noqa: E501
-            user (int, none_type): [optional]  # noqa: E501
-            group (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -268,7 +271,10 @@ class WorkspaceResolvedPermission(ModelNormal):
 
 
         self.id = id
+        self.read_only = read_only
         self.workspace = workspace
+        self.user = user
+        self.group = group
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

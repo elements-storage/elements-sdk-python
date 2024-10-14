@@ -69,6 +69,7 @@ class JobDetailPartialUpdate(ModelNormal):
             'None': None,
             '2': "2",
             '3': "3",
+            '4': "4",
         },
         ('input_type',): {
             'None': None,
@@ -125,6 +126,7 @@ class JobDetailPartialUpdate(ModelNormal):
             'allow_users': ([ElementsUserReference],),  # noqa: E501
             'allow_groups': ([ElementsGroupReference],),  # noqa: E501
             'media_roots': ([int],),  # noqa: E501
+            'workflow': (int, none_type,),  # noqa: E501
             'special_type': (int, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -138,7 +140,6 @@ class JobDetailPartialUpdate(ModelNormal):
             'webhook_secret': (str, none_type,),  # noqa: E501
             'elements_release': (str,),  # noqa: E501
             'security_context': (int, none_type,),  # noqa: E501
-            'part_of_workflow_for': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -153,6 +154,7 @@ class JobDetailPartialUpdate(ModelNormal):
         'allow_users': 'allow_users',  # noqa: E501
         'allow_groups': 'allow_groups',  # noqa: E501
         'media_roots': 'media_roots',  # noqa: E501
+        'workflow': 'workflow',  # noqa: E501
         'special_type': 'special_type',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -166,7 +168,6 @@ class JobDetailPartialUpdate(ModelNormal):
         'webhook_secret': 'webhook_secret',  # noqa: E501
         'elements_release': 'elements_release',  # noqa: E501
         'security_context': 'security_context',  # noqa: E501
-        'part_of_workflow_for': 'part_of_workflow_for',  # noqa: E501
     }
 
     read_only_vars = {
@@ -216,6 +217,7 @@ class JobDetailPartialUpdate(ModelNormal):
             allow_users ([ElementsUserReference]): [optional]  # noqa: E501
             allow_groups ([ElementsGroupReference]): [optional]  # noqa: E501
             media_roots ([int]): [optional]  # noqa: E501
+            workflow (int, none_type): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
@@ -229,7 +231,6 @@ class JobDetailPartialUpdate(ModelNormal):
             webhook_secret (str, none_type): [optional]  # noqa: E501
             elements_release (str): [optional]  # noqa: E501
             security_context (int, none_type): [optional]  # noqa: E501
-            part_of_workflow_for (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -319,6 +320,7 @@ class JobDetailPartialUpdate(ModelNormal):
             allow_users ([ElementsUserReference]): [optional]  # noqa: E501
             allow_groups ([ElementsGroupReference]): [optional]  # noqa: E501
             media_roots ([int]): [optional]  # noqa: E501
+            workflow (int, none_type): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
@@ -332,7 +334,6 @@ class JobDetailPartialUpdate(ModelNormal):
             webhook_secret (str, none_type): [optional]  # noqa: E501
             elements_release (str): [optional]  # noqa: E501
             security_context (int, none_type): [optional]  # noqa: E501
-            part_of_workflow_for (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

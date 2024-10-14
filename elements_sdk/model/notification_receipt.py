@@ -85,12 +85,12 @@ class NotificationReceipt(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
-            'notify_type': (str,),  # noqa: E501
-            'notification': (str,),  # noqa: E501
             'user': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'notify_type': (str,),  # noqa: E501
             'failed': (bool,),  # noqa: E501
             'acknowledged': (bool,),  # noqa: E501
             'removed': (bool,),  # noqa: E501
+            'notification': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -100,12 +100,12 @@ class NotificationReceipt(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'notify_type': 'notify_type',  # noqa: E501
-        'notification': 'notification',  # noqa: E501
         'user': 'user',  # noqa: E501
+        'notify_type': 'notify_type',  # noqa: E501
         'failed': 'failed',  # noqa: E501
         'acknowledged': 'acknowledged',  # noqa: E501
         'removed': 'removed',  # noqa: E501
+        'notification': 'notification',  # noqa: E501
     }
 
     read_only_vars = {
@@ -115,12 +115,16 @@ class NotificationReceipt(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, notify_type, notification, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, user, notify_type, failed, acknowledged, removed, notification, *args, **xkwargs):  # noqa: E501
         """NotificationReceipt - a model defined in OpenAPI
 
         Args:
             id (int):
+            user (bool, date, datetime, dict, float, int, list, str, none_type):
             notify_type (str):
+            failed (bool):
+            acknowledged (bool):
+            removed (bool):
             notification (str):
 
         Keyword Args:
@@ -154,10 +158,6 @@ class NotificationReceipt(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            failed (bool): [optional]  # noqa: E501
-            acknowledged (bool): [optional]  # noqa: E501
-            removed (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -187,7 +187,11 @@ class NotificationReceipt(ModelNormal):
 
 
         self.id = id
+        self.user = user
         self.notify_type = notify_type
+        self.failed = failed
+        self.acknowledged = acknowledged
+        self.removed = removed
         self.notification = notification
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -210,12 +214,16 @@ class NotificationReceipt(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, notify_type, notification, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, user, notify_type, failed, acknowledged, removed, notification, *args, **xkwargs):  # noqa: E501
         """NotificationReceipt - a model defined in OpenAPI
 
         Args:
             id (int):
+            user (bool, date, datetime, dict, float, int, list, str, none_type):
             notify_type (str):
+            failed (bool):
+            acknowledged (bool):
+            removed (bool):
             notification (str):
 
         Keyword Args:
@@ -249,10 +257,6 @@ class NotificationReceipt(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            failed (bool): [optional]  # noqa: E501
-            acknowledged (bool): [optional]  # noqa: E501
-            removed (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -280,7 +284,11 @@ class NotificationReceipt(ModelNormal):
 
 
         self.id = id
+        self.user = user
         self.notify_type = notify_type
+        self.failed = failed
+        self.acknowledged = acknowledged
+        self.removed = removed
         self.notification = notification
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

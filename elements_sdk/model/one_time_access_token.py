@@ -31,11 +31,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.elements_user_mini import ElementsUserMini
-    from elements_sdk.model.elements_user_mini_reference import ElementsUserMiniReference
     from elements_sdk.model.one_time_access_token_activity import OneTimeAccessTokenActivity
     from elements_sdk.model.one_time_access_token_shared_object import OneTimeAccessTokenSharedObject
     globals()['ElementsUserMini'] = ElementsUserMini
-    globals()['ElementsUserMiniReference'] = ElementsUserMiniReference
     globals()['OneTimeAccessTokenActivity'] = OneTimeAccessTokenActivity
     globals()['OneTimeAccessTokenSharedObject'] = OneTimeAccessTokenSharedObject
 
@@ -107,7 +105,7 @@ class OneTimeAccessToken(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'activity': ([OneTimeAccessTokenActivity],),  # noqa: E501
-            'user': (ElementsUserMiniReference,),  # noqa: E501
+            'user': (ElementsUserMini,),  # noqa: E501
             'media_root_permissions': ([int],),  # noqa: E501
             'shared_bundles': ([OneTimeAccessTokenSharedObject],),  # noqa: E501
             'shared_directories': ([OneTimeAccessTokenSharedObject],),  # noqa: E501
@@ -116,11 +114,11 @@ class OneTimeAccessToken(ModelNormal):
             'url': (str,),  # noqa: E501
             'token': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
-            'created_by': (ElementsUserMini,),  # noqa: E501
             'view_limit_enabled': (bool,),  # noqa: E501
             'view_limit_left': (int,),  # noqa: E501
             'expires': (datetime, none_type,),  # noqa: E501
             'require_login': (bool,),  # noqa: E501
+            'created_by': (ElementsUserMini,),  # noqa: E501
             'is_easy_sharing_for_bundle': (int, none_type,),  # noqa: E501
             'is_easy_sharing_for_directory': (int, none_type,),  # noqa: E501
         }
@@ -142,11 +140,11 @@ class OneTimeAccessToken(ModelNormal):
         'url': 'url',  # noqa: E501
         'token': 'token',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
-        'created_by': 'created_by',  # noqa: E501
         'view_limit_enabled': 'view_limit_enabled',  # noqa: E501
         'view_limit_left': 'view_limit_left',  # noqa: E501
         'expires': 'expires',  # noqa: E501
         'require_login': 'require_login',  # noqa: E501
+        'created_by': 'created_by',  # noqa: E501
         'is_easy_sharing_for_bundle': 'is_easy_sharing_for_bundle',  # noqa: E501
         'is_easy_sharing_for_directory': 'is_easy_sharing_for_directory',  # noqa: E501
     }
@@ -167,13 +165,13 @@ class OneTimeAccessToken(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, activity, user, media_root_permissions, shared_bundles, shared_directories, full_url, has_password, url, token, created_at, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, activity, user, media_root_permissions, shared_bundles, shared_directories, full_url, has_password, url, token, created_at, view_limit_enabled, view_limit_left, expires, require_login, *args, **xkwargs):  # noqa: E501
         """OneTimeAccessToken - a model defined in OpenAPI
 
         Args:
             id (int):
             activity ([OneTimeAccessTokenActivity]):
-            user (ElementsUserMiniReference):
+            user (ElementsUserMini):
             media_root_permissions ([int]):
             shared_bundles ([OneTimeAccessTokenSharedObject]):
             shared_directories ([OneTimeAccessTokenSharedObject]):
@@ -182,6 +180,10 @@ class OneTimeAccessToken(ModelNormal):
             url (str):
             token (str):
             created_at (datetime):
+            view_limit_enabled (bool):
+            view_limit_left (int):
+            expires (datetime, none_type):
+            require_login (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -215,10 +217,6 @@ class OneTimeAccessToken(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             created_by (ElementsUserMini): [optional]  # noqa: E501
-            view_limit_enabled (bool): [optional]  # noqa: E501
-            view_limit_left (int): [optional]  # noqa: E501
-            expires (datetime, none_type): [optional]  # noqa: E501
-            require_login (bool): [optional]  # noqa: E501
             is_easy_sharing_for_bundle (int, none_type): [optional]  # noqa: E501
             is_easy_sharing_for_directory (int, none_type): [optional]  # noqa: E501
         """
@@ -260,6 +258,10 @@ class OneTimeAccessToken(ModelNormal):
         self.url = url
         self.token = token
         self.created_at = created_at
+        self.view_limit_enabled = view_limit_enabled
+        self.view_limit_left = view_limit_left
+        self.expires = expires
+        self.require_login = require_login
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -281,14 +283,19 @@ class OneTimeAccessToken(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, user, url, token, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, user, url, token, view_limit_enabled, view_limit_left, expires, require_login, *args, **xkwargs):  # noqa: E501
         """OneTimeAccessToken - a model defined in OpenAPI
 
         Args:
             id (int):
-            user (ElementsUserMiniReference):
+            user (ElementsUserMini):
             url (str):
             token (str):
+            view_limit_enabled (bool):
+            view_limit_left (int):
+            expires (datetime, none_type):
+            require_login (bool):
+
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -321,10 +328,6 @@ class OneTimeAccessToken(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             created_by (ElementsUserMini): [optional]  # noqa: E501
-            view_limit_enabled (bool): [optional]  # noqa: E501
-            view_limit_left (int): [optional]  # noqa: E501
-            expires (datetime, none_type): [optional]  # noqa: E501
-            require_login (bool): [optional]  # noqa: E501
             is_easy_sharing_for_bundle (int, none_type): [optional]  # noqa: E501
             is_easy_sharing_for_directory (int, none_type): [optional]  # noqa: E501
         """
@@ -357,6 +360,10 @@ class OneTimeAccessToken(ModelNormal):
         self.user = user
         self.url = url
         self.token = token
+        self.view_limit_enabled = view_limit_enabled
+        self.view_limit_left = view_limit_left
+        self.expires = expires
+        self.require_login = require_login
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

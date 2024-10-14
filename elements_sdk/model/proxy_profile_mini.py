@@ -117,12 +117,14 @@ class ProxyProfileMini(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, allow_download, proxy_generator, *args, **xkwargs):  # noqa: E501
         """ProxyProfileMini - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
+            allow_download (bool):
+            proxy_generator (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -155,8 +157,6 @@ class ProxyProfileMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            allow_download (bool): [optional]  # noqa: E501
-            proxy_generator (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -187,6 +187,8 @@ class ProxyProfileMini(ModelNormal):
 
         self.id = id
         self.name = name
+        self.allow_download = allow_download
+        self.proxy_generator = proxy_generator
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -208,12 +210,14 @@ class ProxyProfileMini(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, allow_download, proxy_generator, *args, **xkwargs):  # noqa: E501
         """ProxyProfileMini - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
+            allow_download (bool):
+            proxy_generator (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -246,8 +250,6 @@ class ProxyProfileMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            allow_download (bool): [optional]  # noqa: E501
-            proxy_generator (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -276,6 +278,8 @@ class ProxyProfileMini(ModelNormal):
 
         self.id = id
         self.name = name
+        self.allow_download = allow_download
+        self.proxy_generator = proxy_generator
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

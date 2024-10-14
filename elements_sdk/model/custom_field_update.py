@@ -140,6 +140,7 @@ class CustomFieldUpdate(ModelNormal):
             'highlight_expiration': (bool,),  # noqa: E501
             'multiple_response': (bool,),  # noqa: E501
             'help_text': (str, none_type,),  # noqa: E501
+            'users_from_group': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -165,6 +166,7 @@ class CustomFieldUpdate(ModelNormal):
         'highlight_expiration': 'highlight_expiration',  # noqa: E501
         'multiple_response': 'multiple_response',  # noqa: E501
         'help_text': 'help_text',  # noqa: E501
+        'users_from_group': 'users_from_group',  # noqa: E501
     }
 
     read_only_vars = {
@@ -227,6 +229,7 @@ class CustomFieldUpdate(ModelNormal):
             highlight_expiration (bool): [optional]  # noqa: E501
             multiple_response (bool): [optional]  # noqa: E501
             help_text (str, none_type): [optional]  # noqa: E501
+            users_from_group (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -333,6 +336,7 @@ class CustomFieldUpdate(ModelNormal):
             highlight_expiration (bool): [optional]  # noqa: E501
             multiple_response (bool): [optional]  # noqa: E501
             help_text (str, none_type): [optional]  # noqa: E501
+            users_from_group (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

@@ -82,10 +82,10 @@ class WorkspacePermission(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
-            'workspace': (int,),  # noqa: E501
             'user': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'group': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'read_only': (bool,),  # noqa: E501
+            'workspace': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -95,10 +95,10 @@ class WorkspacePermission(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'workspace': 'workspace',  # noqa: E501
         'user': 'user',  # noqa: E501
         'group': 'group',  # noqa: E501
         'read_only': 'read_only',  # noqa: E501
+        'workspace': 'workspace',  # noqa: E501
     }
 
     read_only_vars = {
@@ -108,11 +108,14 @@ class WorkspacePermission(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, workspace, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, user, group, read_only, workspace, *args, **xkwargs):  # noqa: E501
         """WorkspacePermission - a model defined in OpenAPI
 
         Args:
             id (int):
+            user (bool, date, datetime, dict, float, int, list, str, none_type):
+            group (bool, date, datetime, dict, float, int, list, str, none_type):
+            read_only (bool):
             workspace (int):
 
         Keyword Args:
@@ -146,9 +149,6 @@ class WorkspacePermission(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            group (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            read_only (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -178,6 +178,9 @@ class WorkspacePermission(ModelNormal):
 
 
         self.id = id
+        self.user = user
+        self.group = group
+        self.read_only = read_only
         self.workspace = workspace
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -200,11 +203,14 @@ class WorkspacePermission(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, workspace, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, user, group, read_only, workspace, *args, **xkwargs):  # noqa: E501
         """WorkspacePermission - a model defined in OpenAPI
 
         Args:
             id (int):
+            user (bool, date, datetime, dict, float, int, list, str, none_type):
+            group (bool, date, datetime, dict, float, int, list, str, none_type):
+            read_only (bool):
             workspace (int):
 
         Keyword Args:
@@ -238,9 +244,6 @@ class WorkspacePermission(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            group (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            read_only (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -268,6 +271,9 @@ class WorkspacePermission(ModelNormal):
 
 
         self.id = id
+        self.user = user
+        self.group = group
+        self.read_only = read_only
         self.workspace = workspace
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

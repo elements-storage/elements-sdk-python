@@ -89,6 +89,8 @@ class BackendProperties(ModelNormal):
             'supports_sharing_smb_symlinks': (bool,),  # noqa: E501
             'supports_sharing_smb_custom_options': (bool,),  # noqa: E501
             'supports_sharing_smb_allow_execute': (bool,),  # noqa: E501
+            'supports_sharing_smb_locking_options': (bool,),  # noqa: E501
+            'supports_sharing_smb_hidden': (bool,),  # noqa: E501
             'supports_sharing_nfs_permissions': (bool,),  # noqa: E501
         }
 
@@ -106,6 +108,8 @@ class BackendProperties(ModelNormal):
         'supports_sharing_smb_symlinks': 'supports_sharing_smb_symlinks',  # noqa: E501
         'supports_sharing_smb_custom_options': 'supports_sharing_smb_custom_options',  # noqa: E501
         'supports_sharing_smb_allow_execute': 'supports_sharing_smb_allow_execute',  # noqa: E501
+        'supports_sharing_smb_locking_options': 'supports_sharing_smb_locking_options',  # noqa: E501
+        'supports_sharing_smb_hidden': 'supports_sharing_smb_hidden',  # noqa: E501
         'supports_sharing_nfs_permissions': 'supports_sharing_nfs_permissions',  # noqa: E501
     }
 
@@ -116,7 +120,7 @@ class BackendProperties(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, supports_sharing_rw_permissions_priority, supports_sharing_afp, supports_sharing_smb_require_logon, supports_sharing_smb_recycle_bin, supports_sharing_smb_xattrs, supports_sharing_smb_symlinks, supports_sharing_smb_custom_options, supports_sharing_smb_allow_execute, supports_sharing_nfs_permissions, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, supports_sharing_rw_permissions_priority, supports_sharing_afp, supports_sharing_smb_require_logon, supports_sharing_smb_recycle_bin, supports_sharing_smb_xattrs, supports_sharing_smb_symlinks, supports_sharing_smb_custom_options, supports_sharing_smb_allow_execute, supports_sharing_smb_locking_options, supports_sharing_smb_hidden, supports_sharing_nfs_permissions, *args, **xkwargs):  # noqa: E501
         """BackendProperties - a model defined in OpenAPI
 
         Args:
@@ -128,6 +132,8 @@ class BackendProperties(ModelNormal):
             supports_sharing_smb_symlinks (bool):
             supports_sharing_smb_custom_options (bool):
             supports_sharing_smb_allow_execute (bool):
+            supports_sharing_smb_locking_options (bool):
+            supports_sharing_smb_hidden (bool):
             supports_sharing_nfs_permissions (bool):
 
         Keyword Args:
@@ -197,6 +203,8 @@ class BackendProperties(ModelNormal):
         self.supports_sharing_smb_symlinks = supports_sharing_smb_symlinks
         self.supports_sharing_smb_custom_options = supports_sharing_smb_custom_options
         self.supports_sharing_smb_allow_execute = supports_sharing_smb_allow_execute
+        self.supports_sharing_smb_locking_options = supports_sharing_smb_locking_options
+        self.supports_sharing_smb_hidden = supports_sharing_smb_hidden
         self.supports_sharing_nfs_permissions = supports_sharing_nfs_permissions
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -219,7 +227,7 @@ class BackendProperties(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, supports_sharing_rw_permissions_priority, supports_sharing_afp, supports_sharing_smb_require_logon, supports_sharing_smb_recycle_bin, supports_sharing_smb_xattrs, supports_sharing_smb_symlinks, supports_sharing_smb_custom_options, supports_sharing_smb_allow_execute, supports_sharing_nfs_permissions, *args, **xkwargs):  # noqa: E501
+    def __init__(self, supports_sharing_rw_permissions_priority, supports_sharing_afp, supports_sharing_smb_require_logon, supports_sharing_smb_recycle_bin, supports_sharing_smb_xattrs, supports_sharing_smb_symlinks, supports_sharing_smb_custom_options, supports_sharing_smb_allow_execute, supports_sharing_smb_locking_options, supports_sharing_smb_hidden, supports_sharing_nfs_permissions, *args, **xkwargs):  # noqa: E501
         """BackendProperties - a model defined in OpenAPI
 
         Args:
@@ -231,6 +239,8 @@ class BackendProperties(ModelNormal):
             supports_sharing_smb_symlinks (bool):
             supports_sharing_smb_custom_options (bool):
             supports_sharing_smb_allow_execute (bool):
+            supports_sharing_smb_locking_options (bool):
+            supports_sharing_smb_hidden (bool):
             supports_sharing_nfs_permissions (bool):
 
         Keyword Args:
@@ -298,6 +308,8 @@ class BackendProperties(ModelNormal):
         self.supports_sharing_smb_symlinks = supports_sharing_smb_symlinks
         self.supports_sharing_smb_custom_options = supports_sharing_smb_custom_options
         self.supports_sharing_smb_allow_execute = supports_sharing_smb_allow_execute
+        self.supports_sharing_smb_locking_options = supports_sharing_smb_locking_options
+        self.supports_sharing_smb_hidden = supports_sharing_smb_hidden
         self.supports_sharing_nfs_permissions = supports_sharing_nfs_permissions
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

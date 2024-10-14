@@ -103,10 +103,10 @@ class AIDatasetWithPreview(ModelNormal):
             'image_count': (int,),  # noqa: E501
             'sample_annotations': ([AIAnnotation],),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'type': (str,),  # noqa: E501
             'connection': (int,),  # noqa: E501
             'training_model': (AIModel,),  # noqa: E501
             'last_finished_model': (AIModel,),  # noqa: E501
-            'type': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -120,10 +120,10 @@ class AIDatasetWithPreview(ModelNormal):
         'image_count': 'image_count',  # noqa: E501
         'sample_annotations': 'sample_annotations',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'connection': 'connection',  # noqa: E501
         'training_model': 'training_model',  # noqa: E501
         'last_finished_model': 'last_finished_model',  # noqa: E501
-        'type': 'type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -136,7 +136,7 @@ class AIDatasetWithPreview(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, last_change, image_count, sample_annotations, name, connection, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, last_change, image_count, sample_annotations, name, type, connection, *args, **xkwargs):  # noqa: E501
         """AIDatasetWithPreview - a model defined in OpenAPI
 
         Args:
@@ -145,6 +145,7 @@ class AIDatasetWithPreview(ModelNormal):
             image_count (int):
             sample_annotations ([AIAnnotation]):  categories = AICategory.objects.filter(dataset=obj).prefetch_related('annotations').annotate(first_annotation_id=Min('annotations__id'))[:10] sample_annotations = AIAnnotation.objects.filter(id__in=[x.first_annotation_id for x in categories]) return AIAnnotationSerializer(sample_annotations, many=True).data 
             name (str):
+            type (str):
             connection (int):
 
         Keyword Args:
@@ -180,7 +181,6 @@ class AIDatasetWithPreview(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             training_model (AIModel): [optional]  # noqa: E501
             last_finished_model (AIModel): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -214,6 +214,7 @@ class AIDatasetWithPreview(ModelNormal):
         self.image_count = image_count
         self.sample_annotations = sample_annotations
         self.name = name
+        self.type = type
         self.connection = connection
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -236,12 +237,13 @@ class AIDatasetWithPreview(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, connection, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, type, connection, *args, **xkwargs):  # noqa: E501
         """AIDatasetWithPreview - a model defined in OpenAPI
 
         Args:
             id (str):
             name (str):
+            type (str):
             connection (int):
 
         Keyword Args:
@@ -277,7 +279,6 @@ class AIDatasetWithPreview(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             training_model (AIModel): [optional]  # noqa: E501
             last_finished_model (AIModel): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -306,6 +307,7 @@ class AIDatasetWithPreview(ModelNormal):
 
         self.id = id
         self.name = name
+        self.type = type
         self.connection = connection
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

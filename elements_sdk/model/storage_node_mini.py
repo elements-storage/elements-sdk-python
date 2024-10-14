@@ -81,7 +81,7 @@ class StorageNodeMini(ModelNormal):
         """
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
-    _nullable = True
+    _nullable = False
 
     @cached_property
     def openapi_types():
@@ -119,11 +119,14 @@ class StorageNodeMini(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, address, type, *args, **xkwargs):  # noqa: E501
         """StorageNodeMini - a model defined in OpenAPI
 
         Args:
             id (int):
+            name (str):
+            address (str): For communication between nodes only
+            type (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -156,9 +159,6 @@ class StorageNodeMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
-            address (str): For communication between nodes only. [optional]  # noqa: E501
-            type (int): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -188,6 +188,9 @@ class StorageNodeMini(ModelNormal):
 
 
         self.id = id
+        self.name = name
+        self.address = address
+        self.type = type
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -209,11 +212,14 @@ class StorageNodeMini(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, address, type, *args, **xkwargs):  # noqa: E501
         """StorageNodeMini - a model defined in OpenAPI
 
         Args:
             id (int):
+            name (str):
+            address (str): For communication between nodes only
+            type (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -246,9 +252,6 @@ class StorageNodeMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
-            address (str): For communication between nodes only. [optional]  # noqa: E501
-            type (int): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -276,6 +279,9 @@ class StorageNodeMini(ModelNormal):
 
 
         self.id = id
+        self.name = name
+        self.address = address
+        self.type = type
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

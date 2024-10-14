@@ -89,8 +89,8 @@ class LDAPServerReference(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'winbind_separator': (str,),  # noqa: E501
             'nt_domain': (str,),  # noqa: E501
+            'winbind_separator': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -101,14 +101,14 @@ class LDAPServerReference(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'winbind_separator': 'winbind_separator',  # noqa: E501
         'nt_domain': 'nt_domain',  # noqa: E501
+        'winbind_separator': 'winbind_separator',  # noqa: E501
     }
 
     read_only_vars = {
         'name',  # noqa: E501
-        'winbind_separator',  # noqa: E501
         'nt_domain',  # noqa: E501
+        'winbind_separator',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -153,8 +153,8 @@ class LDAPServerReference(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
-            winbind_separator (str): [optional]  # noqa: E501
             nt_domain (str): [optional]  # noqa: E501
+            winbind_separator (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -243,8 +243,8 @@ class LDAPServerReference(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
-            winbind_separator (str): [optional]  # noqa: E501
             nt_domain (str): [optional]  # noqa: E501
+            winbind_separator (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

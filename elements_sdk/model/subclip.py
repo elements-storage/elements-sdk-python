@@ -31,9 +31,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.asset_mini import AssetMini
-    from elements_sdk.model.media_root_mini_reference import MediaRootMiniReference
+    from elements_sdk.model.media_root_mini import MediaRootMini
     globals()['AssetMini'] = AssetMini
-    globals()['MediaRootMiniReference'] = MediaRootMiniReference
+    globals()['MediaRootMini'] = MediaRootMini
 
 
 class Subclip(ModelNormal):
@@ -91,14 +91,14 @@ class Subclip(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'asset': (AssetMini,),  # noqa: E501
+            'rendered': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'shared': (bool,),  # noqa: E501
             'date': (datetime,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             't_in': (float,),  # noqa: E501
             't_out': (float,),  # noqa: E501
             'user': (int,),  # noqa: E501
-            'root': (MediaRootMiniReference,),  # noqa: E501
-            'rendered': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'shared': (bool,),  # noqa: E501
-            'name': (str,),  # noqa: E501
+            'root': (MediaRootMini,),  # noqa: E501
         }
 
     @cached_property
@@ -109,14 +109,14 @@ class Subclip(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'asset': 'asset',  # noqa: E501
+        'rendered': 'rendered',  # noqa: E501
+        'shared': 'shared',  # noqa: E501
         'date': 'date',  # noqa: E501
+        'name': 'name',  # noqa: E501
         't_in': 't_in',  # noqa: E501
         't_out': 't_out',  # noqa: E501
         'user': 'user',  # noqa: E501
         'root': 'root',  # noqa: E501
-        'rendered': 'rendered',  # noqa: E501
-        'shared': 'shared',  # noqa: E501
-        'name': 'name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -128,17 +128,20 @@ class Subclip(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, asset, date, t_in, t_out, user, root, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, asset, rendered, shared, date, name, t_in, t_out, user, root, *args, **xkwargs):  # noqa: E501
         """Subclip - a model defined in OpenAPI
 
         Args:
             id (int):
             asset (AssetMini):
+            rendered (bool, date, datetime, dict, float, int, list, str, none_type):
+            shared (bool):
             date (datetime):
+            name (str):
             t_in (float):
             t_out (float):
             user (int):
-            root (MediaRootMiniReference):
+            root (MediaRootMini):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -171,9 +174,6 @@ class Subclip(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            rendered (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            shared (bool): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -204,7 +204,10 @@ class Subclip(ModelNormal):
 
         self.id = id
         self.asset = asset
+        self.rendered = rendered
+        self.shared = shared
         self.date = date
+        self.name = name
         self.t_in = t_in
         self.t_out = t_out
         self.user = user
@@ -230,15 +233,18 @@ class Subclip(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, asset, t_in, t_out, root, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, asset, rendered, shared, name, t_in, t_out, root, *args, **xkwargs):  # noqa: E501
         """Subclip - a model defined in OpenAPI
 
         Args:
             id (int):
             asset (AssetMini):
+            rendered (bool, date, datetime, dict, float, int, list, str, none_type):
+            shared (bool):
+            name (str):
             t_in (float):
             t_out (float):
-            root (MediaRootMiniReference):
+            root (MediaRootMini):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -271,9 +277,6 @@ class Subclip(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            rendered (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            shared (bool): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -302,6 +305,9 @@ class Subclip(ModelNormal):
 
         self.id = id
         self.asset = asset
+        self.rendered = rendered
+        self.shared = shared
+        self.name = name
         self.t_in = t_in
         self.t_out = t_out
         self.root = root

@@ -76,7 +76,7 @@ class Address(ModelNormal):
         """
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
-    _nullable = True
+    _nullable = False
 
     @cached_property
     def openapi_types():
@@ -91,9 +91,9 @@ class Address(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'address': (str,),  # noqa: E501
-            'network': (int,),  # noqa: E501
             'use_for_mounts': (bool,),  # noqa: E501
             'priority': (int,),  # noqa: E501
+            'network': (int,),  # noqa: E501
             'interface': (int, none_type,),  # noqa: E501
         }
 
@@ -105,9 +105,9 @@ class Address(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'address': 'address',  # noqa: E501
-        'network': 'network',  # noqa: E501
         'use_for_mounts': 'use_for_mounts',  # noqa: E501
         'priority': 'priority',  # noqa: E501
+        'network': 'network',  # noqa: E501
         'interface': 'interface',  # noqa: E501
     }
 
@@ -118,13 +118,16 @@ class Address(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, address, network, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, address, use_for_mounts, priority, network, interface, *args, **xkwargs):  # noqa: E501
         """Address - a model defined in OpenAPI
 
         Args:
             id (int):
             address (str):
+            use_for_mounts (bool):
+            priority (int):
             network (int):
+            interface (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -157,9 +160,6 @@ class Address(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            use_for_mounts (bool): [optional]  # noqa: E501
-            priority (int): [optional]  # noqa: E501
-            interface (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -190,7 +190,10 @@ class Address(ModelNormal):
 
         self.id = id
         self.address = address
+        self.use_for_mounts = use_for_mounts
+        self.priority = priority
         self.network = network
+        self.interface = interface
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -212,13 +215,16 @@ class Address(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, address, network, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, address, use_for_mounts, priority, network, interface, *args, **xkwargs):  # noqa: E501
         """Address - a model defined in OpenAPI
 
         Args:
             id (int):
             address (str):
+            use_for_mounts (bool):
+            priority (int):
             network (int):
+            interface (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -251,9 +257,6 @@ class Address(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            use_for_mounts (bool): [optional]  # noqa: E501
-            priority (int): [optional]  # noqa: E501
-            interface (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -282,7 +285,10 @@ class Address(ModelNormal):
 
         self.id = id
         self.address = address
+        self.use_for_mounts = use_for_mounts
+        self.priority = priority
         self.network = network
+        self.interface = interface
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

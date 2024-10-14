@@ -102,8 +102,8 @@ class ExternalTranscoder(ModelNormal):
             'id': (int,),  # noqa: E501
             'path_mappings': ([PathMapping],),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'address': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
+            'address': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -115,8 +115,8 @@ class ExternalTranscoder(ModelNormal):
         'id': 'id',  # noqa: E501
         'path_mappings': 'path_mappings',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'address': 'address',  # noqa: E501
         'type': 'type',  # noqa: E501
+        'address': 'address',  # noqa: E501
     }
 
     read_only_vars = {
@@ -126,13 +126,14 @@ class ExternalTranscoder(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, path_mappings, name, address, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, path_mappings, name, type, address, *args, **xkwargs):  # noqa: E501
         """ExternalTranscoder - a model defined in OpenAPI
 
         Args:
             id (int):
             path_mappings ([PathMapping]):
             name (str):
+            type (str):
             address (str):
 
         Keyword Args:
@@ -166,7 +167,6 @@ class ExternalTranscoder(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            type (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -198,6 +198,7 @@ class ExternalTranscoder(ModelNormal):
         self.id = id
         self.path_mappings = path_mappings
         self.name = name
+        self.type = type
         self.address = address
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -220,13 +221,14 @@ class ExternalTranscoder(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, path_mappings, name, address, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, path_mappings, name, type, address, *args, **xkwargs):  # noqa: E501
         """ExternalTranscoder - a model defined in OpenAPI
 
         Args:
             id (int):
             path_mappings ([PathMapping]):
             name (str):
+            type (str):
             address (str):
 
         Keyword Args:
@@ -260,7 +262,6 @@ class ExternalTranscoder(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            type (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -290,6 +291,7 @@ class ExternalTranscoder(ModelNormal):
         self.id = id
         self.path_mappings = path_mappings
         self.name = name
+        self.type = type
         self.address = address
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

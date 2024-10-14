@@ -143,7 +143,7 @@ class DownloadArchive(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, task_info, uncompressed_size, size, expires, files, name, path, created_at, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, task_info, uncompressed_size, size, expires, files, name, path, created_at, progress_unit, user, *args, **xkwargs):  # noqa: E501
         """DownloadArchive - a model defined in OpenAPI
 
         Args:
@@ -156,6 +156,8 @@ class DownloadArchive(ModelNormal):
             name (str):
             path (str):
             created_at (datetime):
+            progress_unit (int):
+            user (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -188,8 +190,6 @@ class DownloadArchive(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            progress_unit (int): [optional]  # noqa: E501
-            user (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -227,6 +227,8 @@ class DownloadArchive(ModelNormal):
         self.name = name
         self.path = path
         self.created_at = created_at
+        self.progress_unit = progress_unit
+        self.user = user
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -248,7 +250,7 @@ class DownloadArchive(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, task_info, name, path, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, task_info, name, path, progress_unit, user, *args, **xkwargs):  # noqa: E501
         """DownloadArchive - a model defined in OpenAPI
 
         Args:
@@ -256,6 +258,9 @@ class DownloadArchive(ModelNormal):
             task_info (TaskInfo):
             name (str):
             path (str):
+            progress_unit (int):
+            user (int, none_type):
+
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -287,8 +292,6 @@ class DownloadArchive(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            progress_unit (int): [optional]  # noqa: E501
-            user (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -319,6 +322,8 @@ class DownloadArchive(ModelNormal):
         self.task_info = task_info
         self.name = name
         self.path = path
+        self.progress_unit = progress_unit
+        self.user = user
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

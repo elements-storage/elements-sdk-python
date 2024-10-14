@@ -30,8 +30,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.elements_user_mini_reference import ElementsUserMiniReference
-    globals()['ElementsUserMiniReference'] = ElementsUserMiniReference
+    from elements_sdk.model.elements_user_mini import ElementsUserMini
+    globals()['ElementsUserMini'] = ElementsUserMini
 
 
 class AssetRating(ModelNormal):
@@ -92,9 +92,9 @@ class AssetRating(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'user': (ElementsUserMiniReference,),  # noqa: E501
-            'date': (datetime,),  # noqa: E501
+            'user': (ElementsUserMini,),  # noqa: E501
             'rating': (int,),  # noqa: E501
+            'date': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -105,8 +105,8 @@ class AssetRating(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'user': 'user',  # noqa: E501
-        'date': 'date',  # noqa: E501
         'rating': 'rating',  # noqa: E501
+        'date': 'date',  # noqa: E501
     }
 
     read_only_vars = {
@@ -117,12 +117,13 @@ class AssetRating(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, user, date, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, user, rating, date, *args, **xkwargs):  # noqa: E501
         """AssetRating - a model defined in OpenAPI
 
         Args:
             id (int):
-            user (ElementsUserMiniReference):
+            user (ElementsUserMini):
+            rating (int):
             date (datetime):
 
         Keyword Args:
@@ -156,7 +157,6 @@ class AssetRating(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            rating (int): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -187,6 +187,7 @@ class AssetRating(ModelNormal):
 
         self.id = id
         self.user = user
+        self.rating = rating
         self.date = date
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -209,12 +210,13 @@ class AssetRating(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, user, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, user, rating, *args, **xkwargs):  # noqa: E501
         """AssetRating - a model defined in OpenAPI
 
         Args:
             id (int):
-            user (ElementsUserMiniReference):
+            user (ElementsUserMini):
+            rating (int):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -246,7 +248,6 @@ class AssetRating(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            rating (int): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -275,6 +276,7 @@ class AssetRating(ModelNormal):
 
         self.id = id
         self.user = user
+        self.rating = rating
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

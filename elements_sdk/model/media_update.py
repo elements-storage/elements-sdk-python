@@ -113,10 +113,10 @@ class MediaUpdate(ModelNormal):
             'removed_tags': ([UnfilteredTag],),  # noqa: E501
             'type': (str,),  # noqa: E501
             'date': (datetime,),  # noqa: E501
+            'rating': (int, none_type,),  # noqa: E501
             'comment': (Comment,),  # noqa: E501
             'directory': (MediaFile,),  # noqa: E501
             'user': (ElementsUserMini,),  # noqa: E501
-            'rating': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -133,10 +133,10 @@ class MediaUpdate(ModelNormal):
         'removed_tags': 'removed_tags',  # noqa: E501
         'type': 'type',  # noqa: E501
         'date': 'date',  # noqa: E501
+        'rating': 'rating',  # noqa: E501
         'comment': 'comment',  # noqa: E501
         'directory': 'directory',  # noqa: E501
         'user': 'user',  # noqa: E501
-        'rating': 'rating',  # noqa: E501
     }
 
     read_only_vars = {
@@ -149,7 +149,7 @@ class MediaUpdate(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, asset, root, custom_fields_diff, added_tags, removed_tags, type, date, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, asset, root, custom_fields_diff, added_tags, removed_tags, type, date, rating, *args, **xkwargs):  # noqa: E501
         """MediaUpdate - a model defined in OpenAPI
 
         Args:
@@ -161,6 +161,7 @@ class MediaUpdate(ModelNormal):
             removed_tags ([UnfilteredTag]):
             type (str):
             date (datetime):
+            rating (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,7 +197,6 @@ class MediaUpdate(ModelNormal):
             comment (Comment): [optional]  # noqa: E501
             directory (MediaFile): [optional]  # noqa: E501
             user (ElementsUserMini): [optional]  # noqa: E501
-            rating (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -233,6 +233,7 @@ class MediaUpdate(ModelNormal):
         self.removed_tags = removed_tags
         self.type = type
         self.date = date
+        self.rating = rating
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -254,7 +255,7 @@ class MediaUpdate(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, asset, root, custom_fields_diff, type, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, asset, root, custom_fields_diff, type, rating, *args, **xkwargs):  # noqa: E501
         """MediaUpdate - a model defined in OpenAPI
 
         Args:
@@ -263,6 +264,8 @@ class MediaUpdate(ModelNormal):
             root (MediaRootMiniWithCustomFields):
             custom_fields_diff ({str: (str, none_type)}):
             type (str):
+            rating (int, none_type):
+
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -297,7 +300,6 @@ class MediaUpdate(ModelNormal):
             comment (Comment): [optional]  # noqa: E501
             directory (MediaFile): [optional]  # noqa: E501
             user (ElementsUserMini): [optional]  # noqa: E501
-            rating (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -329,6 +331,7 @@ class MediaUpdate(ModelNormal):
         self.root = root
         self.custom_fields_diff = custom_fields_diff
         self.type = type
+        self.rating = rating
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

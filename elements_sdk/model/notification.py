@@ -88,11 +88,11 @@ class Notification(ModelNormal):
         """
         return {
             'id': (str,),  # noqa: E501
+            'receipts': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
             'kwargs': ({str: (str, none_type)},),  # noqa: E501
             'text': (str,),  # noqa: E501
             'markup': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
-            'receipts': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
         }
 
     @cached_property
@@ -102,11 +102,11 @@ class Notification(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'receipts': 'receipts',  # noqa: E501
         'kwargs': 'kwargs',  # noqa: E501
         'text': 'text',  # noqa: E501
         'markup': 'markup',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
-        'receipts': 'receipts',  # noqa: E501
     }
 
     read_only_vars = {
@@ -119,11 +119,12 @@ class Notification(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, kwargs, text, markup, created_at, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, receipts, kwargs, text, markup, created_at, *args, **xkwargs):  # noqa: E501
         """Notification - a model defined in OpenAPI
 
         Args:
             id (str):
+            receipts ([bool, date, datetime, dict, float, int, list, str, none_type]):
             kwargs ({str: (str, none_type)}):
             text (str):
             markup (str):
@@ -160,7 +161,6 @@ class Notification(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            receipts ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -190,6 +190,7 @@ class Notification(ModelNormal):
 
 
         self.id = id
+        self.receipts = receipts
         self.kwargs = kwargs
         self.text = text
         self.markup = markup
@@ -215,11 +216,12 @@ class Notification(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, kwargs, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, receipts, kwargs, *args, **xkwargs):  # noqa: E501
         """Notification - a model defined in OpenAPI
 
         Args:
             id (str):
+            receipts ([bool, date, datetime, dict, float, int, list, str, none_type]):
             kwargs ({str: (str, none_type)}):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -252,7 +254,6 @@ class Notification(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            receipts ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -280,6 +281,7 @@ class Notification(ModelNormal):
 
 
         self.id = id
+        self.receipts = receipts
         self.kwargs = kwargs
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

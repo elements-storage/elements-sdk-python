@@ -92,11 +92,11 @@ class ClientSession(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
+            'user': (ElementsUserMini,),  # noqa: E501
             'mounted_workspaces': ([MountedWorkspace],),  # noqa: E501
             'started': (datetime,),  # noqa: E501
             'last_updated': (datetime,),  # noqa: E501
             'workstation': (WorkstationMini,),  # noqa: E501
-            'user': (ElementsUserMini,),  # noqa: E501
         }
 
     @cached_property
@@ -106,11 +106,11 @@ class ClientSession(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'user': 'user',  # noqa: E501
         'mounted_workspaces': 'mounted_workspaces',  # noqa: E501
         'started': 'started',  # noqa: E501
         'last_updated': 'last_updated',  # noqa: E501
         'workstation': 'workstation',  # noqa: E501
-        'user': 'user',  # noqa: E501
     }
 
     read_only_vars = {
@@ -123,11 +123,12 @@ class ClientSession(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, mounted_workspaces, started, last_updated, workstation, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, user, mounted_workspaces, started, last_updated, workstation, *args, **xkwargs):  # noqa: E501
         """ClientSession - a model defined in OpenAPI
 
         Args:
             id (int):
+            user (ElementsUserMini):
             mounted_workspaces ([MountedWorkspace]):
             started (datetime):
             last_updated (datetime):
@@ -164,7 +165,6 @@ class ClientSession(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user (ElementsUserMini): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -194,6 +194,7 @@ class ClientSession(ModelNormal):
 
 
         self.id = id
+        self.user = user
         self.mounted_workspaces = mounted_workspaces
         self.started = started
         self.last_updated = last_updated
@@ -219,11 +220,12 @@ class ClientSession(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, workstation, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, user, workstation, *args, **xkwargs):  # noqa: E501
         """ClientSession - a model defined in OpenAPI
 
         Args:
             id (int):
+            user (ElementsUserMini):
             workstation (WorkstationMini):
 
         Keyword Args:
@@ -257,7 +259,6 @@ class ClientSession(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user (ElementsUserMini): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -285,6 +286,7 @@ class ClientSession(ModelNormal):
 
 
         self.id = id
+        self.user = user
         self.workstation = workstation
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

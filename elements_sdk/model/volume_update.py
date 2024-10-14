@@ -61,9 +61,10 @@ class VolumeUpdate(ModelNormal):
             'SNFS': "snfs",
             'BTRFS': "btrfs",
             'BCACHEFS': "bcachefs",
-            'ONEFS': "onefs",
             'BEEGFS': "beegfs",
             'CLOUD': "cloud",
+            'ONEFS': "onefs",
+            'QUMULO': "qumulo",
         },
     }
 
@@ -105,8 +106,8 @@ class VolumeUpdate(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'nodes': ([int],),  # noqa: E501
             'path': (str,),  # noqa: E501
+            'nodes': ([int],),  # noqa: E501
             'display_name': (str,),  # noqa: E501
             'visual_tag': (str, none_type,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
@@ -117,6 +118,7 @@ class VolumeUpdate(ModelNormal):
             'snfs_name': (str, none_type,),  # noqa: E501
             'simulated_quotas': (bool,),  # noqa: E501
             'cloud_account': (int, none_type,),  # noqa: E501
+            'qumulo_integration': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -125,8 +127,8 @@ class VolumeUpdate(ModelNormal):
 
 
     attribute_map = {
-        'nodes': 'nodes',  # noqa: E501
         'path': 'path',  # noqa: E501
+        'nodes': 'nodes',  # noqa: E501
         'display_name': 'display_name',  # noqa: E501
         'visual_tag': 'visual_tag',  # noqa: E501
         'is_default': 'is_default',  # noqa: E501
@@ -137,6 +139,7 @@ class VolumeUpdate(ModelNormal):
         'snfs_name': 'snfs_name',  # noqa: E501
         'simulated_quotas': 'simulated_quotas',  # noqa: E501
         'cloud_account': 'cloud_account',  # noqa: E501
+        'qumulo_integration': 'qumulo_integration',  # noqa: E501
     }
 
     read_only_vars = {
@@ -146,11 +149,8 @@ class VolumeUpdate(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, nodes, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **xkwargs):  # noqa: E501
         """VolumeUpdate - a model defined in OpenAPI
-
-        Args:
-            nodes ([int]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -184,6 +184,7 @@ class VolumeUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             path (str): [optional]  # noqa: E501
+            nodes ([int]): [optional]  # noqa: E501
             display_name (str): [optional]  # noqa: E501
             visual_tag (str, none_type): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
@@ -194,6 +195,7 @@ class VolumeUpdate(ModelNormal):
             snfs_name (str, none_type): [optional]  # noqa: E501
             simulated_quotas (bool): [optional]  # noqa: E501
             cloud_account (int, none_type): [optional]  # noqa: E501
+            qumulo_integration (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -222,7 +224,6 @@ class VolumeUpdate(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
-        self.nodes = nodes
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -244,11 +245,8 @@ class VolumeUpdate(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, nodes, *args, **xkwargs):  # noqa: E501
+    def __init__(self, *args, **xkwargs):  # noqa: E501
         """VolumeUpdate - a model defined in OpenAPI
-
-        Args:
-            nodes ([int]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -282,6 +280,7 @@ class VolumeUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             path (str): [optional]  # noqa: E501
+            nodes ([int]): [optional]  # noqa: E501
             display_name (str): [optional]  # noqa: E501
             visual_tag (str, none_type): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
@@ -292,6 +291,7 @@ class VolumeUpdate(ModelNormal):
             snfs_name (str, none_type): [optional]  # noqa: E501
             simulated_quotas (bool): [optional]  # noqa: E501
             cloud_account (int, none_type): [optional]  # noqa: E501
+            qumulo_integration (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -318,7 +318,6 @@ class VolumeUpdate(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
-        self.nodes = nodes
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

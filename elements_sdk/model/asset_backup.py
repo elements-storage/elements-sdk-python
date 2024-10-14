@@ -117,7 +117,7 @@ class AssetBackup(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, tape_file, asset, search_highlight, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, tape_file, asset, search_highlight, custom_fields_snapshot, *args, **xkwargs):  # noqa: E501
         """AssetBackup - a model defined in OpenAPI
 
         Args:
@@ -125,6 +125,7 @@ class AssetBackup(ModelNormal):
             tape_file (TapeFile):
             asset (Asset):
             search_highlight (str):
+            custom_fields_snapshot (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -157,7 +158,6 @@ class AssetBackup(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            custom_fields_snapshot (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -190,6 +190,7 @@ class AssetBackup(ModelNormal):
         self.tape_file = tape_file
         self.asset = asset
         self.search_highlight = search_highlight
+        self.custom_fields_snapshot = custom_fields_snapshot
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -211,13 +212,15 @@ class AssetBackup(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, tape_file, asset, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, tape_file, asset, custom_fields_snapshot, *args, **xkwargs):  # noqa: E501
         """AssetBackup - a model defined in OpenAPI
 
         Args:
             id (int):
             tape_file (TapeFile):
             asset (Asset):
+            custom_fields_snapshot (str, none_type):
+
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -249,7 +252,6 @@ class AssetBackup(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            custom_fields_snapshot (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -279,6 +281,7 @@ class AssetBackup(ModelNormal):
         self.id = id
         self.tape_file = tape_file
         self.asset = asset
+        self.custom_fields_snapshot = custom_fields_snapshot
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

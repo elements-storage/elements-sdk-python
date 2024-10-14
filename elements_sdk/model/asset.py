@@ -35,13 +35,13 @@ def lazy_import():
     from elements_sdk.model.media_file_bundle_mini import MediaFileBundleMini
     from elements_sdk.model.media_root_permission import MediaRootPermission
     from elements_sdk.model.proxy import Proxy
-    from elements_sdk.model.tag_reference import TagReference
+    from elements_sdk.model.tag import Tag
     globals()['ElementsUserMini'] = ElementsUserMini
     globals()['FormatMetadata'] = FormatMetadata
     globals()['MediaFileBundleMini'] = MediaFileBundleMini
     globals()['MediaRootPermission'] = MediaRootPermission
     globals()['Proxy'] = Proxy
-    globals()['TagReference'] = TagReference
+    globals()['Tag'] = Tag
 
 
 class Asset(ModelNormal):
@@ -75,6 +75,14 @@ class Asset(ModelNormal):
         ('display_name',): {
             'min_length': 1,
         },
+        ('workflow_state',): {
+            'inclusive_maximum': 2147483647,
+            'inclusive_minimum': -2147483648,
+        },
+        ('set_stack_order',): {
+            'inclusive_maximum': 2147483647,
+            'inclusive_minimum': -2147483648,
+        },
         ('checksum',): {
             'min_length': 1,
         },
@@ -83,14 +91,6 @@ class Asset(ModelNormal):
         },
         ('matched_scanner',): {
             'min_length': 1,
-        },
-        ('workflow_state',): {
-            'inclusive_maximum': 2147483647,
-            'inclusive_minimum': -2147483648,
-        },
-        ('set_stack_order',): {
-            'inclusive_maximum': 2147483647,
-            'inclusive_minimum': -2147483648,
         },
     }
 
@@ -118,24 +118,27 @@ class Asset(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'info': ({str: (str, none_type)},),  # noqa: E501
             'proxy_info': ({str: (str, none_type)},),  # noqa: E501
             'custom_fields': ({str: (str, none_type)},),  # noqa: E501
-            'tags': ([TagReference],),  # noqa: E501
+            'tags': ([Tag],),  # noqa: E501
             'backups': (str,),  # noqa: E501
             'proxies_generated': (bool,),  # noqa: E501
             'proxies_failed': (bool,),  # noqa: E501
             'bundles': ([MediaFileBundleMini],),  # noqa: E501
             'format': (FormatMetadata,),  # noqa: E501
+            'info': ({str: (str, none_type)},),  # noqa: E501
             'sync_id': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
             'has_files': (bool,),  # noqa: E501
             'has_backups': (bool,),  # noqa: E501
             'has_cloud_links': (bool,),  # noqa: E501
             'thumbnail_generated': (bool,),  # noqa: E501
+            'workflow_state': (int,),  # noqa: E501
             'is_temporary': (bool,),  # noqa: E501
             'created': (datetime,),  # noqa: E501
             'modified': (datetime,),  # noqa: E501
+            'timecode': (float, none_type,),  # noqa: E501
+            'set_stack_order': (int,),  # noqa: E501
             'proxies': ([Proxy],),  # noqa: E501
             'default_proxy': (Proxy,),  # noqa: E501
             'resolved_permission': (MediaRootPermission,),  # noqa: E501
@@ -144,9 +147,6 @@ class Asset(ModelNormal):
             'checksum': (str, none_type,),  # noqa: E501
             'type': (str, none_type,),  # noqa: E501
             'matched_scanner': (str, none_type,),  # noqa: E501
-            'workflow_state': (int,),  # noqa: E501
-            'timecode': (float, none_type,),  # noqa: E501
-            'set_stack_order': (int,),  # noqa: E501
             'set_stack': (int, none_type,),  # noqa: E501
             'version_stack': (int, none_type,),  # noqa: E501
         }
@@ -158,7 +158,6 @@ class Asset(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'info': 'info',  # noqa: E501
         'proxy_info': 'proxy_info',  # noqa: E501
         'custom_fields': 'custom_fields',  # noqa: E501
         'tags': 'tags',  # noqa: E501
@@ -167,15 +166,19 @@ class Asset(ModelNormal):
         'proxies_failed': 'proxies_failed',  # noqa: E501
         'bundles': 'bundles',  # noqa: E501
         'format': 'format',  # noqa: E501
+        'info': 'info',  # noqa: E501
         'sync_id': 'sync_id',  # noqa: E501
         'display_name': 'display_name',  # noqa: E501
         'has_files': 'has_files',  # noqa: E501
         'has_backups': 'has_backups',  # noqa: E501
         'has_cloud_links': 'has_cloud_links',  # noqa: E501
         'thumbnail_generated': 'thumbnail_generated',  # noqa: E501
+        'workflow_state': 'workflow_state',  # noqa: E501
         'is_temporary': 'is_temporary',  # noqa: E501
         'created': 'created',  # noqa: E501
         'modified': 'modified',  # noqa: E501
+        'timecode': 'timecode',  # noqa: E501
+        'set_stack_order': 'set_stack_order',  # noqa: E501
         'proxies': 'proxies',  # noqa: E501
         'default_proxy': 'default_proxy',  # noqa: E501
         'resolved_permission': 'resolved_permission',  # noqa: E501
@@ -184,20 +187,17 @@ class Asset(ModelNormal):
         'checksum': 'checksum',  # noqa: E501
         'type': 'type',  # noqa: E501
         'matched_scanner': 'matched_scanner',  # noqa: E501
-        'workflow_state': 'workflow_state',  # noqa: E501
-        'timecode': 'timecode',  # noqa: E501
-        'set_stack_order': 'set_stack_order',  # noqa: E501
         'set_stack': 'set_stack',  # noqa: E501
         'version_stack': 'version_stack',  # noqa: E501
     }
 
     read_only_vars = {
-        'info',  # noqa: E501
         'proxy_info',  # noqa: E501
         'backups',  # noqa: E501
         'proxies_generated',  # noqa: E501
         'proxies_failed',  # noqa: E501
         'bundles',  # noqa: E501
+        'info',  # noqa: E501
         'sync_id',  # noqa: E501
         'display_name',  # noqa: E501
         'has_files',  # noqa: E501
@@ -220,29 +220,32 @@ class Asset(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, info, proxy_info, custom_fields, tags, backups, proxies_generated, proxies_failed, bundles, format, sync_id, display_name, has_files, has_backups, has_cloud_links, thumbnail_generated, is_temporary, created, modified, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, proxy_info, custom_fields, tags, backups, proxies_generated, proxies_failed, bundles, format, info, sync_id, display_name, has_files, has_backups, has_cloud_links, thumbnail_generated, workflow_state, is_temporary, created, modified, timecode, set_stack_order, *args, **xkwargs):  # noqa: E501
         """Asset - a model defined in OpenAPI
 
         Args:
             id (int):
-            info ({str: (str, none_type)}):
             proxy_info ({str: (str, none_type)}):
             custom_fields ({str: (str, none_type)}):
-            tags ([TagReference]):
+            tags ([Tag]):
             backups (str):
             proxies_generated (bool):
             proxies_failed (bool):
             bundles ([MediaFileBundleMini]):
             format (FormatMetadata):
+            info ({str: (str, none_type)}):
             sync_id (str):
             display_name (str):
             has_files (bool):
             has_backups (bool):
             has_cloud_links (bool):
             thumbnail_generated (bool):
+            workflow_state (int):
             is_temporary (bool):
             created (datetime):
             modified (datetime):
+            timecode (float, none_type):
+            set_stack_order (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -283,9 +286,6 @@ class Asset(ModelNormal):
             checksum (str, none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             matched_scanner (str, none_type): [optional]  # noqa: E501
-            workflow_state (int): [optional]  # noqa: E501
-            timecode (float, none_type): [optional]  # noqa: E501
-            set_stack_order (int): [optional]  # noqa: E501
             set_stack (int, none_type): [optional]  # noqa: E501
             version_stack (int, none_type): [optional]  # noqa: E501
         """
@@ -317,7 +317,6 @@ class Asset(ModelNormal):
 
 
         self.id = id
-        self.info = info
         self.proxy_info = proxy_info
         self.custom_fields = custom_fields
         self.tags = tags
@@ -326,15 +325,19 @@ class Asset(ModelNormal):
         self.proxies_failed = proxies_failed
         self.bundles = bundles
         self.format = format
+        self.info = info
         self.sync_id = sync_id
         self.display_name = display_name
         self.has_files = has_files
         self.has_backups = has_backups
         self.has_cloud_links = has_cloud_links
         self.thumbnail_generated = thumbnail_generated
+        self.workflow_state = workflow_state
         self.is_temporary = is_temporary
         self.created = created
         self.modified = modified
+        self.timecode = timecode
+        self.set_stack_order = set_stack_order
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -356,14 +359,18 @@ class Asset(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, custom_fields, tags, format, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, custom_fields, tags, format, workflow_state, timecode, set_stack_order, *args, **xkwargs):  # noqa: E501
         """Asset - a model defined in OpenAPI
 
         Args:
             id (int):
             custom_fields ({str: (str, none_type)}):
-            tags ([TagReference]):
+            tags ([Tag]):
             format (FormatMetadata):
+            workflow_state (int):
+            timecode (float, none_type):
+            set_stack_order (int):
+
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -403,9 +410,6 @@ class Asset(ModelNormal):
             checksum (str, none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             matched_scanner (str, none_type): [optional]  # noqa: E501
-            workflow_state (int): [optional]  # noqa: E501
-            timecode (float, none_type): [optional]  # noqa: E501
-            set_stack_order (int): [optional]  # noqa: E501
             set_stack (int, none_type): [optional]  # noqa: E501
             version_stack (int, none_type): [optional]  # noqa: E501
         """
@@ -438,6 +442,9 @@ class Asset(ModelNormal):
         self.custom_fields = custom_fields
         self.tags = tags
         self.format = format
+        self.workflow_state = workflow_state
+        self.timecode = timecode
+        self.set_stack_order = set_stack_order
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

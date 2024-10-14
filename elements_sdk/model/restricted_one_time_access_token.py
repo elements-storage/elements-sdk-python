@@ -30,8 +30,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.elements_user_mini_reference import ElementsUserMiniReference
-    globals()['ElementsUserMiniReference'] = ElementsUserMiniReference
+    from elements_sdk.model.elements_user_mini import ElementsUserMini
+    globals()['ElementsUserMini'] = ElementsUserMini
 
 
 class RestrictedOneTimeAccessToken(ModelNormal):
@@ -93,7 +93,7 @@ class RestrictedOneTimeAccessToken(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'has_password': (bool,),  # noqa: E501
-            'user': (ElementsUserMiniReference,),  # noqa: E501
+            'user': (ElementsUserMini,),  # noqa: E501
             'url': (str,),  # noqa: E501
             'full_url': (str,),  # noqa: E501
         }
@@ -126,7 +126,7 @@ class RestrictedOneTimeAccessToken(ModelNormal):
         Args:
             id (int):
             has_password (bool):
-            user (ElementsUserMiniReference):
+            user (ElementsUserMini):
             url (str):
             full_url (str):
 
@@ -220,7 +220,7 @@ class RestrictedOneTimeAccessToken(ModelNormal):
 
         Args:
             id (int):
-            user (ElementsUserMiniReference):
+            user (ElementsUserMini):
             url (str):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

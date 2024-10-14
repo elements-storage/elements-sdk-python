@@ -86,7 +86,6 @@ class SharingPermissionPreset(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'allow_read': (bool,),  # noqa: E501
             'allow_create': (bool,),  # noqa: E501
             'allow_write_fs': (bool,),  # noqa: E501
@@ -107,6 +106,7 @@ class SharingPermissionPreset(ModelNormal):
             'show_ai_metadata': (bool,),  # noqa: E501
             'show_markers': (bool,),  # noqa: E501
             'show_history': (bool,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'default': (bool,),  # noqa: E501
         }
 
@@ -117,7 +117,6 @@ class SharingPermissionPreset(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'allow_read': 'allow_read',  # noqa: E501
         'allow_create': 'allow_create',  # noqa: E501
         'allow_write_fs': 'allow_write_fs',  # noqa: E501
@@ -138,6 +137,7 @@ class SharingPermissionPreset(ModelNormal):
         'show_ai_metadata': 'show_ai_metadata',  # noqa: E501
         'show_markers': 'show_markers',  # noqa: E501
         'show_history': 'show_history',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'default': 'default',  # noqa: E501
     }
 
@@ -148,12 +148,33 @@ class SharingPermissionPreset(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, allow_read, allow_create, allow_write_fs, allow_write_db, allow_proxy_download, allow_original_download, allow_upload, allow_sharing, allow_delete_fs, allow_delete_db, show_tags, show_comments, show_locations, show_custom_fields, show_ratings, show_subclips, show_subtitles, show_ai_metadata, show_markers, show_history, name, default, *args, **xkwargs):  # noqa: E501
         """SharingPermissionPreset - a model defined in OpenAPI
 
         Args:
             id (int):
+            allow_read (bool):
+            allow_create (bool):
+            allow_write_fs (bool):
+            allow_write_db (bool):
+            allow_proxy_download (bool):
+            allow_original_download (bool):
+            allow_upload (bool):
+            allow_sharing (bool):
+            allow_delete_fs (bool):
+            allow_delete_db (bool):
+            show_tags (bool):
+            show_comments (bool):
+            show_locations (bool):
+            show_custom_fields (bool):
+            show_ratings (bool):
+            show_subclips (bool):
+            show_subtitles (bool):
+            show_ai_metadata (bool):
+            show_markers (bool):
+            show_history (bool):
             name (str):
+            default (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -186,27 +207,6 @@ class SharingPermissionPreset(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            allow_read (bool): [optional]  # noqa: E501
-            allow_create (bool): [optional]  # noqa: E501
-            allow_write_fs (bool): [optional]  # noqa: E501
-            allow_write_db (bool): [optional]  # noqa: E501
-            allow_proxy_download (bool): [optional]  # noqa: E501
-            allow_original_download (bool): [optional]  # noqa: E501
-            allow_upload (bool): [optional]  # noqa: E501
-            allow_sharing (bool): [optional]  # noqa: E501
-            allow_delete_fs (bool): [optional]  # noqa: E501
-            allow_delete_db (bool): [optional]  # noqa: E501
-            show_tags (bool): [optional]  # noqa: E501
-            show_comments (bool): [optional]  # noqa: E501
-            show_locations (bool): [optional]  # noqa: E501
-            show_custom_fields (bool): [optional]  # noqa: E501
-            show_ratings (bool): [optional]  # noqa: E501
-            show_subclips (bool): [optional]  # noqa: E501
-            show_subtitles (bool): [optional]  # noqa: E501
-            show_ai_metadata (bool): [optional]  # noqa: E501
-            show_markers (bool): [optional]  # noqa: E501
-            show_history (bool): [optional]  # noqa: E501
-            default (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -236,7 +236,28 @@ class SharingPermissionPreset(ModelNormal):
 
 
         self.id = id
+        self.allow_read = allow_read
+        self.allow_create = allow_create
+        self.allow_write_fs = allow_write_fs
+        self.allow_write_db = allow_write_db
+        self.allow_proxy_download = allow_proxy_download
+        self.allow_original_download = allow_original_download
+        self.allow_upload = allow_upload
+        self.allow_sharing = allow_sharing
+        self.allow_delete_fs = allow_delete_fs
+        self.allow_delete_db = allow_delete_db
+        self.show_tags = show_tags
+        self.show_comments = show_comments
+        self.show_locations = show_locations
+        self.show_custom_fields = show_custom_fields
+        self.show_ratings = show_ratings
+        self.show_subclips = show_subclips
+        self.show_subtitles = show_subtitles
+        self.show_ai_metadata = show_ai_metadata
+        self.show_markers = show_markers
+        self.show_history = show_history
         self.name = name
+        self.default = default
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -258,12 +279,33 @@ class SharingPermissionPreset(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, allow_read, allow_create, allow_write_fs, allow_write_db, allow_proxy_download, allow_original_download, allow_upload, allow_sharing, allow_delete_fs, allow_delete_db, show_tags, show_comments, show_locations, show_custom_fields, show_ratings, show_subclips, show_subtitles, show_ai_metadata, show_markers, show_history, name, default, *args, **xkwargs):  # noqa: E501
         """SharingPermissionPreset - a model defined in OpenAPI
 
         Args:
             id (int):
+            allow_read (bool):
+            allow_create (bool):
+            allow_write_fs (bool):
+            allow_write_db (bool):
+            allow_proxy_download (bool):
+            allow_original_download (bool):
+            allow_upload (bool):
+            allow_sharing (bool):
+            allow_delete_fs (bool):
+            allow_delete_db (bool):
+            show_tags (bool):
+            show_comments (bool):
+            show_locations (bool):
+            show_custom_fields (bool):
+            show_ratings (bool):
+            show_subclips (bool):
+            show_subtitles (bool):
+            show_ai_metadata (bool):
+            show_markers (bool):
+            show_history (bool):
             name (str):
+            default (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -296,27 +338,6 @@ class SharingPermissionPreset(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            allow_read (bool): [optional]  # noqa: E501
-            allow_create (bool): [optional]  # noqa: E501
-            allow_write_fs (bool): [optional]  # noqa: E501
-            allow_write_db (bool): [optional]  # noqa: E501
-            allow_proxy_download (bool): [optional]  # noqa: E501
-            allow_original_download (bool): [optional]  # noqa: E501
-            allow_upload (bool): [optional]  # noqa: E501
-            allow_sharing (bool): [optional]  # noqa: E501
-            allow_delete_fs (bool): [optional]  # noqa: E501
-            allow_delete_db (bool): [optional]  # noqa: E501
-            show_tags (bool): [optional]  # noqa: E501
-            show_comments (bool): [optional]  # noqa: E501
-            show_locations (bool): [optional]  # noqa: E501
-            show_custom_fields (bool): [optional]  # noqa: E501
-            show_ratings (bool): [optional]  # noqa: E501
-            show_subclips (bool): [optional]  # noqa: E501
-            show_subtitles (bool): [optional]  # noqa: E501
-            show_ai_metadata (bool): [optional]  # noqa: E501
-            show_markers (bool): [optional]  # noqa: E501
-            show_history (bool): [optional]  # noqa: E501
-            default (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -344,7 +365,28 @@ class SharingPermissionPreset(ModelNormal):
 
 
         self.id = id
+        self.allow_read = allow_read
+        self.allow_create = allow_create
+        self.allow_write_fs = allow_write_fs
+        self.allow_write_db = allow_write_db
+        self.allow_proxy_download = allow_proxy_download
+        self.allow_original_download = allow_original_download
+        self.allow_upload = allow_upload
+        self.allow_sharing = allow_sharing
+        self.allow_delete_fs = allow_delete_fs
+        self.allow_delete_db = allow_delete_db
+        self.show_tags = show_tags
+        self.show_comments = show_comments
+        self.show_locations = show_locations
+        self.show_custom_fields = show_custom_fields
+        self.show_ratings = show_ratings
+        self.show_subclips = show_subclips
+        self.show_subtitles = show_subtitles
+        self.show_ai_metadata = show_ai_metadata
+        self.show_markers = show_markers
+        self.show_history = show_history
         self.name = name
+        self.default = default
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

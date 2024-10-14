@@ -152,7 +152,7 @@ class TapeFile(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, tape, path, search_highlight, uid, name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, tape, path, search_highlight, uid, name, is_dir, read_only, length, checksum, fullpath, parent, *args, **xkwargs):  # noqa: E501
         """TapeFile - a model defined in OpenAPI
 
         Args:
@@ -162,6 +162,12 @@ class TapeFile(ModelNormal):
             search_highlight (str):
             uid (int):
             name (str):
+            is_dir (bool):
+            read_only (bool):
+            length (int):
+            checksum (str, none_type):
+            fullpath (str, none_type):
+            parent (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,12 +200,6 @@ class TapeFile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            is_dir (bool): [optional]  # noqa: E501
-            read_only (bool): [optional]  # noqa: E501
-            length (int): [optional]  # noqa: E501
-            checksum (str, none_type): [optional]  # noqa: E501
-            fullpath (str, none_type): [optional]  # noqa: E501
-            parent (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -234,6 +234,12 @@ class TapeFile(ModelNormal):
         self.search_highlight = search_highlight
         self.uid = uid
         self.name = name
+        self.is_dir = is_dir
+        self.read_only = read_only
+        self.length = length
+        self.checksum = checksum
+        self.fullpath = fullpath
+        self.parent = parent
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -255,7 +261,7 @@ class TapeFile(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, tape, path, uid, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, tape, path, uid, name, is_dir, read_only, length, checksum, fullpath, parent, *args, **xkwargs):  # noqa: E501
         """TapeFile - a model defined in OpenAPI
 
         Args:
@@ -264,6 +270,12 @@ class TapeFile(ModelNormal):
             path (str):
             uid (int):
             name (str):
+            is_dir (bool):
+            read_only (bool):
+            length (int):
+            checksum (str, none_type):
+            fullpath (str, none_type):
+            parent (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -296,12 +308,6 @@ class TapeFile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            is_dir (bool): [optional]  # noqa: E501
-            read_only (bool): [optional]  # noqa: E501
-            length (int): [optional]  # noqa: E501
-            checksum (str, none_type): [optional]  # noqa: E501
-            fullpath (str, none_type): [optional]  # noqa: E501
-            parent (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -333,6 +339,12 @@ class TapeFile(ModelNormal):
         self.path = path
         self.uid = uid
         self.name = name
+        self.is_dir = is_dir
+        self.read_only = read_only
+        self.length = length
+        self.checksum = checksum
+        self.fullpath = fullpath
+        self.parent = parent
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

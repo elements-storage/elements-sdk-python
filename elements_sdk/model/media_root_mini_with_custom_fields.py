@@ -30,10 +30,10 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.custom_field_reference import CustomFieldReference
-    from elements_sdk.model.volume_mini_reference import VolumeMiniReference
-    globals()['CustomFieldReference'] = CustomFieldReference
-    globals()['VolumeMiniReference'] = VolumeMiniReference
+    from elements_sdk.model.custom_field import CustomField
+    from elements_sdk.model.volume_mini import VolumeMini
+    globals()['CustomField'] = CustomField
+    globals()['VolumeMini'] = VolumeMini
 
 
 class MediaRootMiniWithCustomFields(ModelNormal):
@@ -99,10 +99,10 @@ class MediaRootMiniWithCustomFields(ModelNormal):
             'id': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'full_path': (str,),  # noqa: E501
-            'volume': (VolumeMiniReference,),  # noqa: E501
+            'volume': (VolumeMini,),  # noqa: E501
             'path': (str,),  # noqa: E501
             'prefetch_thumbnail_strips': (bool,),  # noqa: E501
-            'custom_fields': ([CustomFieldReference],),  # noqa: E501
+            'custom_fields': ([CustomField],),  # noqa: E501
         }
 
     @cached_property
@@ -128,14 +128,17 @@ class MediaRootMiniWithCustomFields(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, full_path, volume, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, full_path, volume, path, prefetch_thumbnail_strips, custom_fields, *args, **xkwargs):  # noqa: E501
         """MediaRootMiniWithCustomFields - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
             full_path (str):
-            volume (VolumeMiniReference):
+            volume (VolumeMini):
+            path (str):
+            prefetch_thumbnail_strips (bool):
+            custom_fields ([CustomField]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -168,9 +171,6 @@ class MediaRootMiniWithCustomFields(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            path (str): [optional]  # noqa: E501
-            prefetch_thumbnail_strips (bool): [optional]  # noqa: E501
-            custom_fields ([CustomFieldReference]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -203,6 +203,9 @@ class MediaRootMiniWithCustomFields(ModelNormal):
         self.name = name
         self.full_path = full_path
         self.volume = volume
+        self.path = path
+        self.prefetch_thumbnail_strips = prefetch_thumbnail_strips
+        self.custom_fields = custom_fields
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -224,13 +227,16 @@ class MediaRootMiniWithCustomFields(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, volume, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, volume, path, prefetch_thumbnail_strips, custom_fields, *args, **xkwargs):  # noqa: E501
         """MediaRootMiniWithCustomFields - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
-            volume (VolumeMiniReference):
+            volume (VolumeMini):
+            path (str):
+            prefetch_thumbnail_strips (bool):
+            custom_fields ([CustomField]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -263,9 +269,6 @@ class MediaRootMiniWithCustomFields(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            path (str): [optional]  # noqa: E501
-            prefetch_thumbnail_strips (bool): [optional]  # noqa: E501
-            custom_fields ([CustomFieldReference]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -295,6 +298,9 @@ class MediaRootMiniWithCustomFields(ModelNormal):
         self.id = id
         self.name = name
         self.volume = volume
+        self.path = path
+        self.prefetch_thumbnail_strips = prefetch_thumbnail_strips
+        self.custom_fields = custom_fields
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

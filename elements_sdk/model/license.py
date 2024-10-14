@@ -64,6 +64,9 @@ class License(ModelNormal):
         ('product',): {
             'min_length': 1,
         },
+        ('product_subtype',): {
+            'min_length': 1,
+        },
         ('serial',): {
             'min_length': 1,
         },
@@ -101,6 +104,7 @@ class License(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'product': (str,),  # noqa: E501
+            'product_subtype': (str, none_type,),  # noqa: E501
             'serial': (str, none_type,),  # noqa: E501
             'partner': (str, none_type,),  # noqa: E501
             'expiry': (datetime, none_type,),  # noqa: E501
@@ -122,6 +126,7 @@ class License(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'product': 'product',  # noqa: E501
+        'product_subtype': 'product_subtype',  # noqa: E501
         'serial': 'serial',  # noqa: E501
         'partner': 'partner',  # noqa: E501
         'expiry': 'expiry',  # noqa: E501
@@ -142,12 +147,13 @@ class License(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, product, serial, partner, expiry, components, components_expiry, components_enabled, users, third_party_capacity, cloud_capacity, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, product, product_subtype, serial, partner, expiry, components, components_expiry, components_enabled, users, third_party_capacity, cloud_capacity, *args, **xkwargs):  # noqa: E501
         """License - a model defined in OpenAPI
 
         Args:
             name (str):
             product (str):
+            product_subtype (str, none_type):
             serial (str, none_type):
             partner (str, none_type):
             expiry (datetime, none_type):
@@ -221,6 +227,7 @@ class License(ModelNormal):
 
         self.name = name
         self.product = product
+        self.product_subtype = product_subtype
         self.serial = serial
         self.partner = partner
         self.expiry = expiry
@@ -251,12 +258,13 @@ class License(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, product, serial, partner, expiry, components, components_expiry, components_enabled, users, third_party_capacity, cloud_capacity, *args, **xkwargs):  # noqa: E501
+    def __init__(self, name, product, product_subtype, serial, partner, expiry, components, components_expiry, components_enabled, users, third_party_capacity, cloud_capacity, *args, **xkwargs):  # noqa: E501
         """License - a model defined in OpenAPI
 
         Args:
             name (str):
             product (str):
+            product_subtype (str, none_type):
             serial (str, none_type):
             partner (str, none_type):
             expiry (datetime, none_type):
@@ -328,6 +336,7 @@ class License(ModelNormal):
 
         self.name = name
         self.product = product
+        self.product_subtype = product_subtype
         self.serial = serial
         self.partner = partner
         self.expiry = expiry

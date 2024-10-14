@@ -30,16 +30,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.elements_user_mini import ElementsUserMini
-    from elements_sdk.model.storage_node_mini import StorageNodeMini
-    from elements_sdk.model.subtask import Subtask
     from elements_sdk.model.task_progress import TaskProgress
-    from elements_sdk.model.workstation import Workstation
-    globals()['ElementsUserMini'] = ElementsUserMini
-    globals()['StorageNodeMini'] = StorageNodeMini
-    globals()['Subtask'] = Subtask
     globals()['TaskProgress'] = TaskProgress
-    globals()['Workstation'] = Workstation
 
 
 class TaskInfo(ModelNormal):
@@ -142,13 +134,11 @@ class TaskInfo(ModelNormal):
             'display_name': (str,),  # noqa: E501
             'kwargs': ({str: (str, none_type)},),  # noqa: E501
             'outputs': ({str: (str, none_type)},),  # noqa: E501
+            'subtask': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'worker': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'user': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'workstation': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'progress': (TaskProgress,),  # noqa: E501
-            'started': (datetime,),  # noqa: E501
-            'subtask': (Subtask,),  # noqa: E501
-            'worker': (StorageNodeMini,),  # noqa: E501
-            'user': (ElementsUserMini,),  # noqa: E501
-            'workstation': (Workstation,),  # noqa: E501
-            'finished': (datetime, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'task_name': (str, none_type,),  # noqa: E501
             'is_private': (bool,),  # noqa: E501
@@ -157,6 +147,7 @@ class TaskInfo(ModelNormal):
             'state': (int,),  # noqa: E501
             'state_text': (str, none_type,),  # noqa: E501
             'job_instance': (str, none_type,),  # noqa: E501
+            'started': (datetime,),  # noqa: E501
             'is_running': (bool,),  # noqa: E501
             'is_finished': (bool,),  # noqa: E501
             'exception': (str, none_type,),  # noqa: E501
@@ -164,6 +155,7 @@ class TaskInfo(ModelNormal):
             'related_bundle_id': (int, none_type,),  # noqa: E501
             'related_proxy_id': (int, none_type,),  # noqa: E501
             'schedule': (int, none_type,),  # noqa: E501
+            'finished': (datetime, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -176,13 +168,11 @@ class TaskInfo(ModelNormal):
         'display_name': 'display_name',  # noqa: E501
         'kwargs': 'kwargs',  # noqa: E501
         'outputs': 'outputs',  # noqa: E501
-        'progress': 'progress',  # noqa: E501
-        'started': 'started',  # noqa: E501
         'subtask': 'subtask',  # noqa: E501
         'worker': 'worker',  # noqa: E501
         'user': 'user',  # noqa: E501
         'workstation': 'workstation',  # noqa: E501
-        'finished': 'finished',  # noqa: E501
+        'progress': 'progress',  # noqa: E501
         'name': 'name',  # noqa: E501
         'task_name': 'task_name',  # noqa: E501
         'is_private': 'is_private',  # noqa: E501
@@ -191,6 +181,7 @@ class TaskInfo(ModelNormal):
         'state': 'state',  # noqa: E501
         'state_text': 'state_text',  # noqa: E501
         'job_instance': 'job_instance',  # noqa: E501
+        'started': 'started',  # noqa: E501
         'is_running': 'is_running',  # noqa: E501
         'is_finished': 'is_finished',  # noqa: E501
         'exception': 'exception',  # noqa: E501
@@ -198,6 +189,7 @@ class TaskInfo(ModelNormal):
         'related_bundle_id': 'related_bundle_id',  # noqa: E501
         'related_proxy_id': 'related_proxy_id',  # noqa: E501
         'schedule': 'schedule',  # noqa: E501
+        'finished': 'finished',  # noqa: E501
     }
 
     read_only_vars = {
@@ -212,7 +204,7 @@ class TaskInfo(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, display_name, kwargs, outputs, progress, started, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, display_name, kwargs, outputs, subtask, worker, user, workstation, progress, name, task_name, is_private, worker_name, queue, state, state_text, job_instance, started, is_running, is_finished, exception, traceback, related_bundle_id, related_proxy_id, schedule, *args, **xkwargs):  # noqa: E501
         """TaskInfo - a model defined in OpenAPI
 
         Args:
@@ -220,8 +212,27 @@ class TaskInfo(ModelNormal):
             display_name (str):
             kwargs ({str: (str, none_type)}):
             outputs ({str: (str, none_type)}):
+            subtask (bool, date, datetime, dict, float, int, list, str, none_type):
+            worker (bool, date, datetime, dict, float, int, list, str, none_type):
+            user (bool, date, datetime, dict, float, int, list, str, none_type):
+            workstation (bool, date, datetime, dict, float, int, list, str, none_type):
             progress (TaskProgress):
+            name (str, none_type):
+            task_name (str, none_type):
+            is_private (bool):
+            worker_name (str, none_type):
+            queue (str, none_type):
+            state (int):
+            state_text (str, none_type):
+            job_instance (str, none_type):
             started (datetime):
+            is_running (bool):
+            is_finished (bool):
+            exception (str, none_type):
+            traceback (str, none_type):
+            related_bundle_id (int, none_type):
+            related_proxy_id (int, none_type):
+            schedule (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -254,26 +265,7 @@ class TaskInfo(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            subtask (Subtask): [optional]  # noqa: E501
-            worker (StorageNodeMini): [optional]  # noqa: E501
-            user (ElementsUserMini): [optional]  # noqa: E501
-            workstation (Workstation): [optional]  # noqa: E501
             finished (datetime, none_type): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
-            task_name (str, none_type): [optional]  # noqa: E501
-            is_private (bool): [optional]  # noqa: E501
-            worker_name (str, none_type): [optional]  # noqa: E501
-            queue (str, none_type): [optional]  # noqa: E501
-            state (int): [optional]  # noqa: E501
-            state_text (str, none_type): [optional]  # noqa: E501
-            job_instance (str, none_type): [optional]  # noqa: E501
-            is_running (bool): [optional]  # noqa: E501
-            is_finished (bool): [optional]  # noqa: E501
-            exception (str, none_type): [optional]  # noqa: E501
-            traceback (str, none_type): [optional]  # noqa: E501
-            related_bundle_id (int, none_type): [optional]  # noqa: E501
-            related_proxy_id (int, none_type): [optional]  # noqa: E501
-            schedule (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -306,8 +298,27 @@ class TaskInfo(ModelNormal):
         self.display_name = display_name
         self.kwargs = kwargs
         self.outputs = outputs
+        self.subtask = subtask
+        self.worker = worker
+        self.user = user
+        self.workstation = workstation
         self.progress = progress
+        self.name = name
+        self.task_name = task_name
+        self.is_private = is_private
+        self.worker_name = worker_name
+        self.queue = queue
+        self.state = state
+        self.state_text = state_text
+        self.job_instance = job_instance
         self.started = started
+        self.is_running = is_running
+        self.is_finished = is_finished
+        self.exception = exception
+        self.traceback = traceback
+        self.related_bundle_id = related_bundle_id
+        self.related_proxy_id = related_proxy_id
+        self.schedule = schedule
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -329,12 +340,32 @@ class TaskInfo(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, progress, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, subtask, worker, user, workstation, progress, name, task_name, is_private, worker_name, queue, state, state_text, job_instance, is_running, is_finished, exception, traceback, related_bundle_id, related_proxy_id, schedule, *args, **xkwargs):  # noqa: E501
         """TaskInfo - a model defined in OpenAPI
 
         Args:
             id (str):
+            subtask (bool, date, datetime, dict, float, int, list, str, none_type):
+            worker (bool, date, datetime, dict, float, int, list, str, none_type):
+            user (bool, date, datetime, dict, float, int, list, str, none_type):
+            workstation (bool, date, datetime, dict, float, int, list, str, none_type):
             progress (TaskProgress):
+            name (str, none_type):
+            task_name (str, none_type):
+            is_private (bool):
+            worker_name (str, none_type):
+            queue (str, none_type):
+            state (int):
+            state_text (str, none_type):
+            job_instance (str, none_type):
+            is_running (bool):
+            is_finished (bool):
+            exception (str, none_type):
+            traceback (str, none_type):
+            related_bundle_id (int, none_type):
+            related_proxy_id (int, none_type):
+            schedule (int, none_type):
+
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -366,26 +397,7 @@ class TaskInfo(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            subtask (Subtask): [optional]  # noqa: E501
-            worker (StorageNodeMini): [optional]  # noqa: E501
-            user (ElementsUserMini): [optional]  # noqa: E501
-            workstation (Workstation): [optional]  # noqa: E501
             finished (datetime, none_type): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
-            task_name (str, none_type): [optional]  # noqa: E501
-            is_private (bool): [optional]  # noqa: E501
-            worker_name (str, none_type): [optional]  # noqa: E501
-            queue (str, none_type): [optional]  # noqa: E501
-            state (int): [optional]  # noqa: E501
-            state_text (str, none_type): [optional]  # noqa: E501
-            job_instance (str, none_type): [optional]  # noqa: E501
-            is_running (bool): [optional]  # noqa: E501
-            is_finished (bool): [optional]  # noqa: E501
-            exception (str, none_type): [optional]  # noqa: E501
-            traceback (str, none_type): [optional]  # noqa: E501
-            related_bundle_id (int, none_type): [optional]  # noqa: E501
-            related_proxy_id (int, none_type): [optional]  # noqa: E501
-            schedule (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -413,7 +425,26 @@ class TaskInfo(ModelNormal):
 
 
         self.id = id
+        self.subtask = subtask
+        self.worker = worker
+        self.user = user
+        self.workstation = workstation
         self.progress = progress
+        self.name = name
+        self.task_name = task_name
+        self.is_private = is_private
+        self.worker_name = worker_name
+        self.queue = queue
+        self.state = state
+        self.state_text = state_text
+        self.job_instance = job_instance
+        self.is_running = is_running
+        self.is_finished = is_finished
+        self.exception = exception
+        self.traceback = traceback
+        self.related_bundle_id = related_bundle_id
+        self.related_proxy_id = related_proxy_id
+        self.schedule = schedule
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

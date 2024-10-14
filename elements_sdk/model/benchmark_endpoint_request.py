@@ -30,8 +30,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.storage_node_reference import StorageNodeReference
-    globals()['StorageNodeReference'] = StorageNodeReference
+    from elements_sdk.model.storage_node import StorageNode
+    globals()['StorageNode'] = StorageNode
 
 
 class BenchmarkEndpointRequest(ModelNormal):
@@ -87,7 +87,7 @@ class BenchmarkEndpointRequest(ModelNormal):
         """
         lazy_import()
         return {
-            'node': (StorageNodeReference,),  # noqa: E501
+            'node': (StorageNode,),  # noqa: E501
         }
 
     @cached_property
@@ -110,7 +110,7 @@ class BenchmarkEndpointRequest(ModelNormal):
         """BenchmarkEndpointRequest - a model defined in OpenAPI
 
         Args:
-            node (StorageNodeReference):
+            node (StorageNode):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -197,7 +197,7 @@ class BenchmarkEndpointRequest(ModelNormal):
         """BenchmarkEndpointRequest - a model defined in OpenAPI
 
         Args:
-            node (StorageNodeReference):
+            node (StorageNode):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

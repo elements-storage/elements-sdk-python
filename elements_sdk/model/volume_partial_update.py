@@ -61,9 +61,10 @@ class VolumePartialUpdate(ModelNormal):
             'SNFS': "snfs",
             'BTRFS': "btrfs",
             'BCACHEFS': "bcachefs",
-            'ONEFS': "onefs",
             'BEEGFS': "beegfs",
             'CLOUD': "cloud",
+            'ONEFS': "onefs",
+            'QUMULO': "qumulo",
         },
     }
 
@@ -117,6 +118,7 @@ class VolumePartialUpdate(ModelNormal):
             'snfs_name': (str, none_type,),  # noqa: E501
             'simulated_quotas': (bool,),  # noqa: E501
             'cloud_account': (int, none_type,),  # noqa: E501
+            'qumulo_integration': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -137,6 +139,7 @@ class VolumePartialUpdate(ModelNormal):
         'snfs_name': 'snfs_name',  # noqa: E501
         'simulated_quotas': 'simulated_quotas',  # noqa: E501
         'cloud_account': 'cloud_account',  # noqa: E501
+        'qumulo_integration': 'qumulo_integration',  # noqa: E501
     }
 
     read_only_vars = {
@@ -192,6 +195,7 @@ class VolumePartialUpdate(ModelNormal):
             snfs_name (str, none_type): [optional]  # noqa: E501
             simulated_quotas (bool): [optional]  # noqa: E501
             cloud_account (int, none_type): [optional]  # noqa: E501
+            qumulo_integration (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -287,6 +291,7 @@ class VolumePartialUpdate(ModelNormal):
             snfs_name (str, none_type): [optional]  # noqa: E501
             simulated_quotas (bool): [optional]  # noqa: E501
             cloud_account (int, none_type): [optional]  # noqa: E501
+            qumulo_integration (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

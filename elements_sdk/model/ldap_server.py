@@ -88,9 +88,9 @@ class LDAPServer(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
-            'winbind_separator': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'nt_domain': (str,),  # noqa: E501
+            'winbind_separator': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -100,9 +100,9 @@ class LDAPServer(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'winbind_separator': 'winbind_separator',  # noqa: E501
         'name': 'name',  # noqa: E501
         'nt_domain': 'nt_domain',  # noqa: E501
+        'winbind_separator': 'winbind_separator',  # noqa: E501
     }
 
     read_only_vars = {
@@ -113,11 +113,13 @@ class LDAPServer(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, winbind_separator, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, nt_domain, winbind_separator, *args, **xkwargs):  # noqa: E501
         """LDAPServer - a model defined in OpenAPI
 
         Args:
             id (int):
+            name (str):
+            nt_domain (str):
             winbind_separator (str):
 
         Keyword Args:
@@ -151,8 +153,6 @@ class LDAPServer(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
-            nt_domain (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -182,6 +182,8 @@ class LDAPServer(ModelNormal):
 
 
         self.id = id
+        self.name = name
+        self.nt_domain = nt_domain
         self.winbind_separator = winbind_separator
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -204,11 +206,13 @@ class LDAPServer(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, nt_domain, *args, **xkwargs):  # noqa: E501
         """LDAPServer - a model defined in OpenAPI
 
         Args:
             id (int):
+            name (str):
+            nt_domain (str):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -240,8 +244,6 @@ class LDAPServer(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
-            nt_domain (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -269,6 +271,8 @@ class LDAPServer(ModelNormal):
 
 
         self.id = id
+        self.name = name
+        self.nt_domain = nt_domain
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

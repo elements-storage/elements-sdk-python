@@ -89,7 +89,6 @@ class MediaFilePartialUpdate(ModelNormal):
             'custom_fields': ({str: (str, none_type)},),  # noqa: E501
             'total_files': (int, none_type,),  # noqa: E501
             'needs_rescan': (bool,),  # noqa: E501
-            'bookmarked_by': ([int],),  # noqa: E501
         }
 
     @cached_property
@@ -102,7 +101,6 @@ class MediaFilePartialUpdate(ModelNormal):
         'custom_fields': 'custom_fields',  # noqa: E501
         'total_files': 'total_files',  # noqa: E501
         'needs_rescan': 'needs_rescan',  # noqa: E501
-        'bookmarked_by': 'bookmarked_by',  # noqa: E501
     }
 
     read_only_vars = {
@@ -150,7 +148,6 @@ class MediaFilePartialUpdate(ModelNormal):
             custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
             total_files (int, none_type): [optional]  # noqa: E501
             needs_rescan (bool): [optional]  # noqa: E501
-            bookmarked_by ([int]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -238,7 +235,6 @@ class MediaFilePartialUpdate(ModelNormal):
             custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
             total_files (int, none_type): [optional]  # noqa: E501
             needs_rescan (bool): [optional]  # noqa: E501
-            bookmarked_by ([int]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

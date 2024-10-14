@@ -30,8 +30,10 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.schedule_reference import ScheduleReference
-    globals()['ScheduleReference'] = ScheduleReference
+    from elements_sdk.model.job_fs_trigger import JobFSTrigger
+    from elements_sdk.model.schedule import Schedule
+    globals()['JobFSTrigger'] = JobFSTrigger
+    globals()['Schedule'] = Schedule
 
 
 class Job(ModelNormal):
@@ -63,6 +65,7 @@ class Job(ModelNormal):
             'None': None,
             '2': "2",
             '3': "3",
+            '4': "4",
         },
         ('input_type',): {
             'None': None,
@@ -91,6 +94,10 @@ class Job(ModelNormal):
             'max_length': 128,
             'min_length': 1,
         },
+        ('part_of_workflow_for',): {
+            'max_length': 1,
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -117,17 +124,14 @@ class Job(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
+            'schedules': ([Schedule],),  # noqa: E501
             'startable': (bool,),  # noqa: E501
+            'variable_definitions': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'webhook_url': (str, none_type,),  # noqa: E501
             'needs_compatibility_check': (bool,),  # noqa: E501
-            'subtasks': ([str],),  # noqa: E501
-            'allow_users': ([str],),  # noqa: E501
-            'allow_groups': ([str],),  # noqa: E501
-            'media_roots': ([str],),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'schedules': ([ScheduleReference],),  # noqa: E501
-            'variable_definitions': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
+            'fs_triggers': ([JobFSTrigger],),  # noqa: E501
             'special_type': (int, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'enabled': (bool,),  # noqa: E501
             'allow_others_to_start': (bool,),  # noqa: E501
@@ -139,7 +143,8 @@ class Job(ModelNormal):
             'webhook_secret': (str, none_type,),  # noqa: E501
             'elements_release': (str,),  # noqa: E501
             'security_context': (int, none_type,),  # noqa: E501
-            'part_of_workflow_for': (int, none_type,),  # noqa: E501
+            'workflow': (int, none_type,),  # noqa: E501
+            'part_of_workflow_for': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -149,17 +154,14 @@ class Job(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'schedules': 'schedules',  # noqa: E501
         'startable': 'startable',  # noqa: E501
+        'variable_definitions': 'variable_definitions',  # noqa: E501
         'webhook_url': 'webhook_url',  # noqa: E501
         'needs_compatibility_check': 'needs_compatibility_check',  # noqa: E501
-        'subtasks': 'subtasks',  # noqa: E501
-        'allow_users': 'allow_users',  # noqa: E501
-        'allow_groups': 'allow_groups',  # noqa: E501
-        'media_roots': 'media_roots',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'schedules': 'schedules',  # noqa: E501
-        'variable_definitions': 'variable_definitions',  # noqa: E501
+        'fs_triggers': 'fs_triggers',  # noqa: E501
         'special_type': 'special_type',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'enabled': 'enabled',  # noqa: E501
         'allow_others_to_start': 'allow_others_to_start',  # noqa: E501
@@ -171,6 +173,7 @@ class Job(ModelNormal):
         'webhook_secret': 'webhook_secret',  # noqa: E501
         'elements_release': 'elements_release',  # noqa: E501
         'security_context': 'security_context',  # noqa: E501
+        'workflow': 'workflow',  # noqa: E501
         'part_of_workflow_for': 'part_of_workflow_for',  # noqa: E501
     }
 
@@ -178,29 +181,39 @@ class Job(ModelNormal):
         'startable',  # noqa: E501
         'webhook_url',  # noqa: E501
         'needs_compatibility_check',  # noqa: E501
-        'subtasks',  # noqa: E501
-        'allow_users',  # noqa: E501
-        'allow_groups',  # noqa: E501
-        'media_roots',  # noqa: E501
+        'fs_triggers',  # noqa: E501
+        'part_of_workflow_for',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, startable, webhook_url, needs_compatibility_check, subtasks, allow_users, allow_groups, media_roots, name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, schedules, startable, variable_definitions, webhook_url, needs_compatibility_check, fs_triggers, special_type, name, description, enabled, allow_others_to_start, allow_client_to_start, show_as_button, input_type, add_to_new_media_roots, hook, webhook_secret, elements_release, security_context, workflow, *args, **xkwargs):  # noqa: E501
         """Job - a model defined in OpenAPI
 
         Args:
             id (int):
+            schedules ([Schedule]):
             startable (bool):
+            variable_definitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             webhook_url (str, none_type):
             needs_compatibility_check (bool):
-            subtasks ([str]):
-            allow_users ([str]):
-            allow_groups ([str]):
-            media_roots ([str]):
+            fs_triggers ([JobFSTrigger]):
+            special_type (int, none_type):
             name (str):
+            description (str, none_type):
+            enabled (bool):
+            allow_others_to_start (bool):
+            allow_client_to_start (bool):
+            show_as_button (bool):
+            input_type (str, none_type):
+            add_to_new_media_roots (bool):
+            hook (str, none_type):
+            webhook_secret (str, none_type):
+            elements_release (str):
+            security_context (int, none_type):
+            workflow (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -233,21 +246,7 @@ class Job(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schedules ([ScheduleReference]): [optional]  # noqa: E501
-            variable_definitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
-            special_type (int, none_type): [optional]  # noqa: E501
-            description (str, none_type): [optional]  # noqa: E501
-            enabled (bool): [optional]  # noqa: E501
-            allow_others_to_start (bool): [optional]  # noqa: E501
-            allow_client_to_start (bool): [optional]  # noqa: E501
-            show_as_button (bool): [optional]  # noqa: E501
-            input_type (str, none_type): [optional]  # noqa: E501
-            add_to_new_media_roots (bool): [optional]  # noqa: E501
-            hook (str, none_type): [optional]  # noqa: E501
-            webhook_secret (str, none_type): [optional]  # noqa: E501
-            elements_release (str): [optional]  # noqa: E501
-            security_context (int, none_type): [optional]  # noqa: E501
-            part_of_workflow_for (int, none_type): [optional]  # noqa: E501
+            part_of_workflow_for (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -277,14 +276,26 @@ class Job(ModelNormal):
 
 
         self.id = id
+        self.schedules = schedules
         self.startable = startable
+        self.variable_definitions = variable_definitions
         self.webhook_url = webhook_url
         self.needs_compatibility_check = needs_compatibility_check
-        self.subtasks = subtasks
-        self.allow_users = allow_users
-        self.allow_groups = allow_groups
-        self.media_roots = media_roots
+        self.fs_triggers = fs_triggers
+        self.special_type = special_type
         self.name = name
+        self.description = description
+        self.enabled = enabled
+        self.allow_others_to_start = allow_others_to_start
+        self.allow_client_to_start = allow_client_to_start
+        self.show_as_button = show_as_button
+        self.input_type = input_type
+        self.add_to_new_media_roots = add_to_new_media_roots
+        self.hook = hook
+        self.webhook_secret = webhook_secret
+        self.elements_release = elements_release
+        self.security_context = security_context
+        self.workflow = workflow
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -306,12 +317,27 @@ class Job(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, schedules, variable_definitions, special_type, name, description, enabled, allow_others_to_start, allow_client_to_start, show_as_button, input_type, add_to_new_media_roots, hook, webhook_secret, elements_release, security_context, workflow, *args, **xkwargs):  # noqa: E501
         """Job - a model defined in OpenAPI
 
         Args:
             id (int):
+            schedules ([Schedule]):
+            variable_definitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
+            special_type (int, none_type):
             name (str):
+            description (str, none_type):
+            enabled (bool):
+            allow_others_to_start (bool):
+            allow_client_to_start (bool):
+            show_as_button (bool):
+            input_type (str, none_type):
+            add_to_new_media_roots (bool):
+            hook (str, none_type):
+            webhook_secret (str, none_type):
+            elements_release (str):
+            security_context (int, none_type):
+            workflow (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -344,21 +370,7 @@ class Job(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schedules ([ScheduleReference]): [optional]  # noqa: E501
-            variable_definitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
-            special_type (int, none_type): [optional]  # noqa: E501
-            description (str, none_type): [optional]  # noqa: E501
-            enabled (bool): [optional]  # noqa: E501
-            allow_others_to_start (bool): [optional]  # noqa: E501
-            allow_client_to_start (bool): [optional]  # noqa: E501
-            show_as_button (bool): [optional]  # noqa: E501
-            input_type (str, none_type): [optional]  # noqa: E501
-            add_to_new_media_roots (bool): [optional]  # noqa: E501
-            hook (str, none_type): [optional]  # noqa: E501
-            webhook_secret (str, none_type): [optional]  # noqa: E501
-            elements_release (str): [optional]  # noqa: E501
-            security_context (int, none_type): [optional]  # noqa: E501
-            part_of_workflow_for (int, none_type): [optional]  # noqa: E501
+            part_of_workflow_for (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -386,7 +398,22 @@ class Job(ModelNormal):
 
 
         self.id = id
+        self.schedules = schedules
+        self.variable_definitions = variable_definitions
+        self.special_type = special_type
         self.name = name
+        self.description = description
+        self.enabled = enabled
+        self.allow_others_to_start = allow_others_to_start
+        self.allow_client_to_start = allow_client_to_start
+        self.show_as_button = show_as_button
+        self.input_type = input_type
+        self.add_to_new_media_roots = add_to_new_media_roots
+        self.hook = hook
+        self.webhook_secret = webhook_secret
+        self.elements_release = elements_release
+        self.security_context = security_context
+        self.workflow = workflow
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

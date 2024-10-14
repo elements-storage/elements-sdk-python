@@ -151,7 +151,6 @@ class MediaFileReference(ModelNormal):
             'modified': (datetime,),  # noqa: E501
             'parent': (int, none_type,),  # noqa: E501
             'bundle': (int, none_type,),  # noqa: E501
-            'bookmarked_by': ([int],),  # noqa: E501
         }
 
     @cached_property
@@ -192,7 +191,6 @@ class MediaFileReference(ModelNormal):
         'modified': 'modified',  # noqa: E501
         'parent': 'parent',  # noqa: E501
         'bundle': 'bundle',  # noqa: E501
-        'bookmarked_by': 'bookmarked_by',  # noqa: E501
     }
 
     read_only_vars = {
@@ -222,7 +220,6 @@ class MediaFileReference(ModelNormal):
         'modified',  # noqa: E501
         'parent',  # noqa: E501
         'bundle',  # noqa: E501
-        'bookmarked_by',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -297,7 +294,6 @@ class MediaFileReference(ModelNormal):
             modified (datetime): [optional]  # noqa: E501
             parent (int, none_type): [optional]  # noqa: E501
             bundle (int, none_type): [optional]  # noqa: E501
-            bookmarked_by ([int]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -416,7 +412,6 @@ class MediaFileReference(ModelNormal):
             modified (datetime): [optional]  # noqa: E501
             parent (int, none_type): [optional]  # noqa: E501
             bundle (int, none_type): [optional]  # noqa: E501
-            bookmarked_by ([int]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

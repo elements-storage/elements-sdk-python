@@ -82,13 +82,13 @@ class Marker(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
+            'title': (str,),  # noqa: E501
+            'text': (str,),  # noqa: E501
             't_in': (float,),  # noqa: E501
             't_out': (float,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'modified_at': (datetime,),  # noqa: E501
             'asset': (int,),  # noqa: E501
-            'title': (str,),  # noqa: E501
-            'text': (str,),  # noqa: E501
             'user': (int, none_type,),  # noqa: E501
             'comment': (int, none_type,),  # noqa: E501
         }
@@ -100,13 +100,13 @@ class Marker(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'title': 'title',  # noqa: E501
+        'text': 'text',  # noqa: E501
         't_in': 't_in',  # noqa: E501
         't_out': 't_out',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'modified_at': 'modified_at',  # noqa: E501
         'asset': 'asset',  # noqa: E501
-        'title': 'title',  # noqa: E501
-        'text': 'text',  # noqa: E501
         'user': 'user',  # noqa: E501
         'comment': 'comment',  # noqa: E501
     }
@@ -122,11 +122,13 @@ class Marker(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, t_in, t_out, created_at, modified_at, asset, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, title, text, t_in, t_out, created_at, modified_at, asset, *args, **xkwargs):  # noqa: E501
         """Marker - a model defined in OpenAPI
 
         Args:
             id (int):
+            title (str):
+            text (str):
             t_in (float):
             t_out (float):
             created_at (datetime):
@@ -164,8 +166,6 @@ class Marker(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            title (str): [optional]  # noqa: E501
-            text (str): [optional]  # noqa: E501
             user (int, none_type): [optional]  # noqa: E501
             comment (int, none_type): [optional]  # noqa: E501
         """
@@ -197,6 +197,8 @@ class Marker(ModelNormal):
 
 
         self.id = id
+        self.title = title
+        self.text = text
         self.t_in = t_in
         self.t_out = t_out
         self.created_at = created_at
@@ -223,11 +225,13 @@ class Marker(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, t_in, t_out, asset, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, title, text, t_in, t_out, asset, *args, **xkwargs):  # noqa: E501
         """Marker - a model defined in OpenAPI
 
         Args:
             id (int):
+            title (str):
+            text (str):
             t_in (float):
             t_out (float):
             asset (int):
@@ -263,8 +267,6 @@ class Marker(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            title (str): [optional]  # noqa: E501
-            text (str): [optional]  # noqa: E501
             user (int, none_type): [optional]  # noqa: E501
             comment (int, none_type): [optional]  # noqa: E501
         """
@@ -294,6 +296,8 @@ class Marker(ModelNormal):
 
 
         self.id = id
+        self.title = title
+        self.text = text
         self.t_in = t_in
         self.t_out = t_out
         self.asset = asset

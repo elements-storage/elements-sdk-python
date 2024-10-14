@@ -69,6 +69,10 @@ class SAMLProvider(ModelNormal):
     }
 
     validations = {
+        ('name',): {
+            'max_length': 255,
+            'min_length': 1,
+        },
         ('entity_id',): {
             'max_length': 255,
             'min_length': 1,
@@ -77,15 +81,11 @@ class SAMLProvider(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
-        ('certificate',): {
-            'min_length': 1,
-        },
-        ('name',): {
-            'max_length': 255,
-            'min_length': 1,
-        },
         ('slo_url',): {
             'max_length': 255,
+        },
+        ('certificate',): {
+            'min_length': 1,
         },
     }
 
@@ -114,17 +114,17 @@ class SAMLProvider(ModelNormal):
             'login_url': (str,),  # noqa: E501
             'metadata_url': (str,),  # noqa: E501
             'assertion_url': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'entity_id': (str,),  # noqa: E501
             'sso_url': (str,),  # noqa: E501
-            'certificate': (str,),  # noqa: E501
-            'logout_url': (str, none_type,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'slo_url': (str, none_type,),  # noqa: E501
+            'certificate': (str,),  # noqa: E501
             'sp_certificate': (str, none_type,),  # noqa: E501
             'sp_certificate_key': (str, none_type,),  # noqa: E501
             'nameid_format': (str,),  # noqa: E501
             'auto_create_users': (bool,),  # noqa: E501
             'user_template': (int, none_type,),  # noqa: E501
+            'logout_url': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -137,17 +137,17 @@ class SAMLProvider(ModelNormal):
         'login_url': 'login_url',  # noqa: E501
         'metadata_url': 'metadata_url',  # noqa: E501
         'assertion_url': 'assertion_url',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'entity_id': 'entity_id',  # noqa: E501
         'sso_url': 'sso_url',  # noqa: E501
-        'certificate': 'certificate',  # noqa: E501
-        'logout_url': 'logout_url',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'slo_url': 'slo_url',  # noqa: E501
+        'certificate': 'certificate',  # noqa: E501
         'sp_certificate': 'sp_certificate',  # noqa: E501
         'sp_certificate_key': 'sp_certificate_key',  # noqa: E501
         'nameid_format': 'nameid_format',  # noqa: E501
         'auto_create_users': 'auto_create_users',  # noqa: E501
         'user_template': 'user_template',  # noqa: E501
+        'logout_url': 'logout_url',  # noqa: E501
     }
 
     read_only_vars = {
@@ -161,7 +161,7 @@ class SAMLProvider(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, login_url, metadata_url, assertion_url, entity_id, sso_url, certificate, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, login_url, metadata_url, assertion_url, name, entity_id, sso_url, slo_url, certificate, sp_certificate, sp_certificate_key, nameid_format, auto_create_users, user_template, *args, **xkwargs):  # noqa: E501
         """SAMLProvider - a model defined in OpenAPI
 
         Args:
@@ -169,9 +169,16 @@ class SAMLProvider(ModelNormal):
             login_url (str):
             metadata_url (str):
             assertion_url (str):
+            name (str):
             entity_id (str):
             sso_url (str):
+            slo_url (str, none_type):
             certificate (str):
+            sp_certificate (str, none_type):
+            sp_certificate_key (str, none_type):
+            nameid_format (str):
+            auto_create_users (bool):
+            user_template (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -205,13 +212,6 @@ class SAMLProvider(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             logout_url (str, none_type): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            slo_url (str, none_type): [optional]  # noqa: E501
-            sp_certificate (str, none_type): [optional]  # noqa: E501
-            sp_certificate_key (str, none_type): [optional]  # noqa: E501
-            nameid_format (str): [optional]  # noqa: E501
-            auto_create_users (bool): [optional]  # noqa: E501
-            user_template (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -244,9 +244,16 @@ class SAMLProvider(ModelNormal):
         self.login_url = login_url
         self.metadata_url = metadata_url
         self.assertion_url = assertion_url
+        self.name = name
         self.entity_id = entity_id
         self.sso_url = sso_url
+        self.slo_url = slo_url
         self.certificate = certificate
+        self.sp_certificate = sp_certificate
+        self.sp_certificate_key = sp_certificate_key
+        self.nameid_format = nameid_format
+        self.auto_create_users = auto_create_users
+        self.user_template = user_template
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -268,14 +275,21 @@ class SAMLProvider(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, entity_id, sso_url, certificate, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, entity_id, sso_url, slo_url, certificate, sp_certificate, sp_certificate_key, nameid_format, auto_create_users, user_template, *args, **xkwargs):  # noqa: E501
         """SAMLProvider - a model defined in OpenAPI
 
         Args:
             id (int):
+            name (str):
             entity_id (str):
             sso_url (str):
+            slo_url (str, none_type):
             certificate (str):
+            sp_certificate (str, none_type):
+            sp_certificate_key (str, none_type):
+            nameid_format (str):
+            auto_create_users (bool):
+            user_template (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -309,13 +323,6 @@ class SAMLProvider(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             logout_url (str, none_type): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            slo_url (str, none_type): [optional]  # noqa: E501
-            sp_certificate (str, none_type): [optional]  # noqa: E501
-            sp_certificate_key (str, none_type): [optional]  # noqa: E501
-            nameid_format (str): [optional]  # noqa: E501
-            auto_create_users (bool): [optional]  # noqa: E501
-            user_template (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -343,9 +350,16 @@ class SAMLProvider(ModelNormal):
 
 
         self.id = id
+        self.name = name
         self.entity_id = entity_id
         self.sso_url = sso_url
+        self.slo_url = slo_url
         self.certificate = certificate
+        self.sp_certificate = sp_certificate
+        self.sp_certificate_key = sp_certificate_key
+        self.nameid_format = nameid_format
+        self.auto_create_users = auto_create_users
+        self.user_template = user_template
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

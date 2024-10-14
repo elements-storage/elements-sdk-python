@@ -82,6 +82,10 @@ class MediaFile(ModelNormal):
         ('ancestry',): {
             'min_length': 1,
         },
+        ('total_files',): {
+            'inclusive_maximum': 2147483647,
+            'inclusive_minimum': -2147483648,
+        },
         ('is_excluded',): {
             'max_length': 1,
             'min_length': 1,
@@ -89,10 +93,6 @@ class MediaFile(ModelNormal):
         ('is_excluded_from_proxy_generation',): {
             'max_length': 1,
             'min_length': 1,
-        },
-        ('total_files',): {
-            'inclusive_maximum': 2147483647,
-            'inclusive_minimum': -2147483648,
         },
     }
 
@@ -121,7 +121,8 @@ class MediaFile(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'volume': (VolumeMini,),  # noqa: E501
-            'effective_custom_fields': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'info': ({str: (str, none_type)},),  # noqa: E501
+            'custom_fields': ({str: (str, none_type)},),  # noqa: E501
             'full_path': (str,),  # noqa: E501
             'is_shared': (bool, none_type,),  # noqa: E501
             'is_hardlink': (bool,),  # noqa: E501
@@ -133,25 +134,23 @@ class MediaFile(ModelNormal):
             'pathhash': (str,),  # noqa: E501
             'ancestry': (str,),  # noqa: E501
             'is_dir': (bool,),  # noqa: E501
+            'total_files': (int, none_type,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'mtime': (int,),  # noqa: E501
             'present': (bool,),  # noqa: E501
+            'needs_rescan': (bool,),  # noqa: E501
             'is_showroom': (bool,),  # noqa: E501
             'bundle_index': (int,),  # noqa: E501
             'modified': (datetime,),  # noqa: E501
-            'info': ({str: (str, none_type)},),  # noqa: E501
-            'custom_fields': ({str: (str, none_type)},),  # noqa: E501
             'resolved_permission': (MediaRootPermission,),  # noqa: E501
             'parent_file': ({str: (str, none_type)},),  # noqa: E501
             'root': (MediaRootMini,),  # noqa: E501
+            'effective_custom_fields': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'modified_by': (ElementsUserMini,),  # noqa: E501
             'is_excluded': (str, none_type,),  # noqa: E501
             'is_excluded_from_proxy_generation': (str, none_type,),  # noqa: E501
-            'total_files': (int, none_type,),  # noqa: E501
-            'needs_rescan': (bool,),  # noqa: E501
             'parent': (int, none_type,),  # noqa: E501
             'bundle': (int, none_type,),  # noqa: E501
-            'bookmarked_by': ([int],),  # noqa: E501
         }
 
     @cached_property
@@ -162,7 +161,8 @@ class MediaFile(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'volume': 'volume',  # noqa: E501
-        'effective_custom_fields': 'effective_custom_fields',  # noqa: E501
+        'info': 'info',  # noqa: E501
+        'custom_fields': 'custom_fields',  # noqa: E501
         'full_path': 'full_path',  # noqa: E501
         'is_shared': 'is_shared',  # noqa: E501
         'is_hardlink': 'is_hardlink',  # noqa: E501
@@ -174,29 +174,26 @@ class MediaFile(ModelNormal):
         'pathhash': 'pathhash',  # noqa: E501
         'ancestry': 'ancestry',  # noqa: E501
         'is_dir': 'is_dir',  # noqa: E501
+        'total_files': 'total_files',  # noqa: E501
         'size': 'size',  # noqa: E501
         'mtime': 'mtime',  # noqa: E501
         'present': 'present',  # noqa: E501
+        'needs_rescan': 'needs_rescan',  # noqa: E501
         'is_showroom': 'is_showroom',  # noqa: E501
         'bundle_index': 'bundle_index',  # noqa: E501
         'modified': 'modified',  # noqa: E501
-        'info': 'info',  # noqa: E501
-        'custom_fields': 'custom_fields',  # noqa: E501
         'resolved_permission': 'resolved_permission',  # noqa: E501
         'parent_file': 'parent_file',  # noqa: E501
         'root': 'root',  # noqa: E501
+        'effective_custom_fields': 'effective_custom_fields',  # noqa: E501
         'modified_by': 'modified_by',  # noqa: E501
         'is_excluded': 'is_excluded',  # noqa: E501
         'is_excluded_from_proxy_generation': 'is_excluded_from_proxy_generation',  # noqa: E501
-        'total_files': 'total_files',  # noqa: E501
-        'needs_rescan': 'needs_rescan',  # noqa: E501
         'parent': 'parent',  # noqa: E501
         'bundle': 'bundle',  # noqa: E501
-        'bookmarked_by': 'bookmarked_by',  # noqa: E501
     }
 
     read_only_vars = {
-        'effective_custom_fields',  # noqa: E501
         'full_path',  # noqa: E501
         'is_shared',  # noqa: E501
         'is_hardlink',  # noqa: E501
@@ -214,6 +211,7 @@ class MediaFile(ModelNormal):
         'bundle_index',  # noqa: E501
         'modified',  # noqa: E501
         'parent_file',  # noqa: E501
+        'effective_custom_fields',  # noqa: E501
         'is_excluded',  # noqa: E501
         'is_excluded_from_proxy_generation',  # noqa: E501
         'parent',  # noqa: E501
@@ -224,13 +222,14 @@ class MediaFile(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, volume, effective_custom_fields, full_path, is_shared, is_hardlink, is_bookmarked, exclusion_info, child_count, name, path, pathhash, ancestry, is_dir, size, mtime, present, is_showroom, bundle_index, modified, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, volume, info, custom_fields, full_path, is_shared, is_hardlink, is_bookmarked, exclusion_info, child_count, name, path, pathhash, ancestry, is_dir, total_files, size, mtime, present, needs_rescan, is_showroom, bundle_index, modified, *args, **xkwargs):  # noqa: E501
         """MediaFile - a model defined in OpenAPI
 
         Args:
             id (int):
             volume (VolumeMini):
-            effective_custom_fields ({str: (str, none_type)}, none_type):
+            info ({str: (str, none_type)}):
+            custom_fields ({str: (str, none_type)}):
             full_path (str):
             is_shared (bool, none_type):
             is_hardlink (bool):
@@ -242,9 +241,11 @@ class MediaFile(ModelNormal):
             pathhash (str):
             ancestry (str):
             is_dir (bool):
+            total_files (int, none_type):
             size (int):
             mtime (int):
             present (bool):
+            needs_rescan (bool):
             is_showroom (bool):
             bundle_index (int):
             modified (datetime):
@@ -280,19 +281,15 @@ class MediaFile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            info ({str: (str, none_type)}): [optional]  # noqa: E501
-            custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
             resolved_permission (MediaRootPermission): [optional]  # noqa: E501
             parent_file ({str: (str, none_type)}): [optional]  # noqa: E501
             root (MediaRootMini): [optional]  # noqa: E501
+            effective_custom_fields ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             modified_by (ElementsUserMini): [optional]  # noqa: E501
             is_excluded (str, none_type): [optional]  # noqa: E501
             is_excluded_from_proxy_generation (str, none_type): [optional]  # noqa: E501
-            total_files (int, none_type): [optional]  # noqa: E501
-            needs_rescan (bool): [optional]  # noqa: E501
             parent (int, none_type): [optional]  # noqa: E501
             bundle (int, none_type): [optional]  # noqa: E501
-            bookmarked_by ([int]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -323,7 +320,8 @@ class MediaFile(ModelNormal):
 
         self.id = id
         self.volume = volume
-        self.effective_custom_fields = effective_custom_fields
+        self.info = info
+        self.custom_fields = custom_fields
         self.full_path = full_path
         self.is_shared = is_shared
         self.is_hardlink = is_hardlink
@@ -335,9 +333,11 @@ class MediaFile(ModelNormal):
         self.pathhash = pathhash
         self.ancestry = ancestry
         self.is_dir = is_dir
+        self.total_files = total_files
         self.size = size
         self.mtime = mtime
         self.present = present
+        self.needs_rescan = needs_rescan
         self.is_showroom = is_showroom
         self.bundle_index = bundle_index
         self.modified = modified
@@ -362,13 +362,17 @@ class MediaFile(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, volume, exclusion_info, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, volume, info, custom_fields, exclusion_info, total_files, needs_rescan, *args, **xkwargs):  # noqa: E501
         """MediaFile - a model defined in OpenAPI
 
         Args:
             id (int):
             volume (VolumeMini):
+            info ({str: (str, none_type)}):
+            custom_fields ({str: (str, none_type)}):
             exclusion_info (MediaFileExclusionInfo):
+            total_files (int, none_type):
+            needs_rescan (bool):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -400,19 +404,15 @@ class MediaFile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            info ({str: (str, none_type)}): [optional]  # noqa: E501
-            custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
             resolved_permission (MediaRootPermission): [optional]  # noqa: E501
             parent_file ({str: (str, none_type)}): [optional]  # noqa: E501
             root (MediaRootMini): [optional]  # noqa: E501
+            effective_custom_fields ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             modified_by (ElementsUserMini): [optional]  # noqa: E501
             is_excluded (str, none_type): [optional]  # noqa: E501
             is_excluded_from_proxy_generation (str, none_type): [optional]  # noqa: E501
-            total_files (int, none_type): [optional]  # noqa: E501
-            needs_rescan (bool): [optional]  # noqa: E501
             parent (int, none_type): [optional]  # noqa: E501
             bundle (int, none_type): [optional]  # noqa: E501
-            bookmarked_by ([int]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -441,7 +441,11 @@ class MediaFile(ModelNormal):
 
         self.id = id
         self.volume = volume
+        self.info = info
+        self.custom_fields = custom_fields
         self.exclusion_info = exclusion_info
+        self.total_files = total_files
+        self.needs_rescan = needs_rescan
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

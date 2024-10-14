@@ -92,8 +92,8 @@ class CloudAccountMini(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'provider': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -103,8 +103,8 @@ class CloudAccountMini(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'provider': 'provider',  # noqa: E501
+        'name': 'name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -114,11 +114,12 @@ class CloudAccountMini(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, provider, name, *args, **xkwargs):  # noqa: E501
         """CloudAccountMini - a model defined in OpenAPI
 
         Args:
             id (int):
+            provider (str):
             name (str):
 
         Keyword Args:
@@ -152,7 +153,6 @@ class CloudAccountMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            provider (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -182,6 +182,7 @@ class CloudAccountMini(ModelNormal):
 
 
         self.id = id
+        self.provider = provider
         self.name = name
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -204,11 +205,12 @@ class CloudAccountMini(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, provider, name, *args, **xkwargs):  # noqa: E501
         """CloudAccountMini - a model defined in OpenAPI
 
         Args:
             id (int):
+            provider (str):
             name (str):
 
         Keyword Args:
@@ -242,7 +244,6 @@ class CloudAccountMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            provider (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -270,6 +271,7 @@ class CloudAccountMini(ModelNormal):
 
 
         self.id = id
+        self.provider = provider
         self.name = name
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

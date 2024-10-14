@@ -31,9 +31,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.asset_mini import AssetMini
-    from elements_sdk.model.media_root_mini_reference import MediaRootMiniReference
+    from elements_sdk.model.media_root_mini import MediaRootMini
     globals()['AssetMini'] = AssetMini
-    globals()['MediaRootMiniReference'] = MediaRootMiniReference
+    globals()['MediaRootMini'] = MediaRootMini
 
 
 class SubclipReference(ModelNormal):
@@ -90,7 +90,7 @@ class SubclipReference(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'root': (MediaRootMiniReference,),  # noqa: E501
+            'root': (MediaRootMini,),  # noqa: E501
             'asset': (AssetMini,),  # noqa: E501
             'rendered': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'shared': (bool,),  # noqa: E501
@@ -137,7 +137,7 @@ class SubclipReference(ModelNormal):
 
         Args:
             id (int):
-            root (MediaRootMiniReference):
+            root (MediaRootMini):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -234,7 +234,7 @@ class SubclipReference(ModelNormal):
 
         Args:
             id (int):
-            root (MediaRootMiniReference):
+            root (MediaRootMini):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -69,9 +69,10 @@ class Volume(ModelNormal):
             'SNFS': "snfs",
             'BTRFS': "btrfs",
             'BCACHEFS': "bcachefs",
-            'ONEFS': "onefs",
             'BEEGFS': "beegfs",
             'CLOUD': "cloud",
+            'ONEFS': "onefs",
+            'QUMULO': "qumulo",
         },
     }
 
@@ -116,9 +117,8 @@ class Volume(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'nodes': ([int],),  # noqa: E501
-            'backend': (Backend,),  # noqa: E501
             'path': (str,),  # noqa: E501
+            'nodes': ([int],),  # noqa: E501
             'display_name': (str,),  # noqa: E501
             'visual_tag': (str, none_type,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
@@ -128,9 +128,11 @@ class Volume(ModelNormal):
             'snm_enabled': (bool,),  # noqa: E501
             'snfs_name': (str, none_type,),  # noqa: E501
             'simulated_quotas': (bool,),  # noqa: E501
+            'backend': (Backend,),  # noqa: E501
+            'cloud_account': (int, none_type,),  # noqa: E501
+            'qumulo_integration': (int, none_type,),  # noqa: E501
             'fs_properties': (FSProperties,),  # noqa: E501
             'status': (VolumeStatus,),  # noqa: E501
-            'cloud_account': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -140,9 +142,8 @@ class Volume(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'nodes': 'nodes',  # noqa: E501
-        'backend': 'backend',  # noqa: E501
         'path': 'path',  # noqa: E501
+        'nodes': 'nodes',  # noqa: E501
         'display_name': 'display_name',  # noqa: E501
         'visual_tag': 'visual_tag',  # noqa: E501
         'is_default': 'is_default',  # noqa: E501
@@ -152,9 +153,11 @@ class Volume(ModelNormal):
         'snm_enabled': 'snm_enabled',  # noqa: E501
         'snfs_name': 'snfs_name',  # noqa: E501
         'simulated_quotas': 'simulated_quotas',  # noqa: E501
+        'backend': 'backend',  # noqa: E501
+        'cloud_account': 'cloud_account',  # noqa: E501
+        'qumulo_integration': 'qumulo_integration',  # noqa: E501
         'fs_properties': 'fs_properties',  # noqa: E501
         'status': 'status',  # noqa: E501
-        'cloud_account': 'cloud_account',  # noqa: E501
     }
 
     read_only_vars = {
@@ -164,13 +167,25 @@ class Volume(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, nodes, backend, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, simulated_quotas, backend, cloud_account, qumulo_integration, *args, **xkwargs):  # noqa: E501
         """Volume - a model defined in OpenAPI
 
         Args:
             id (int):
+            path (str):
             nodes ([int]):
+            display_name (str):
+            visual_tag (str, none_type):
+            is_default (bool):
+            use_for_homes (bool):
+            use_for_workspaces (bool):
+            type (str):
+            snm_enabled (bool):
+            snfs_name (str, none_type):
+            simulated_quotas (bool):
             backend (Backend):
+            cloud_account (int, none_type):
+            qumulo_integration (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -203,19 +218,8 @@ class Volume(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            path (str): [optional]  # noqa: E501
-            display_name (str): [optional]  # noqa: E501
-            visual_tag (str, none_type): [optional]  # noqa: E501
-            is_default (bool): [optional]  # noqa: E501
-            use_for_homes (bool): [optional]  # noqa: E501
-            use_for_workspaces (bool): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            snm_enabled (bool): [optional]  # noqa: E501
-            snfs_name (str, none_type): [optional]  # noqa: E501
-            simulated_quotas (bool): [optional]  # noqa: E501
             fs_properties (FSProperties): [optional]  # noqa: E501
             status (VolumeStatus): [optional]  # noqa: E501
-            cloud_account (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -245,8 +249,20 @@ class Volume(ModelNormal):
 
 
         self.id = id
+        self.path = path
         self.nodes = nodes
+        self.display_name = display_name
+        self.visual_tag = visual_tag
+        self.is_default = is_default
+        self.use_for_homes = use_for_homes
+        self.use_for_workspaces = use_for_workspaces
+        self.type = type
+        self.snm_enabled = snm_enabled
+        self.snfs_name = snfs_name
+        self.simulated_quotas = simulated_quotas
         self.backend = backend
+        self.cloud_account = cloud_account
+        self.qumulo_integration = qumulo_integration
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -268,13 +284,25 @@ class Volume(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, nodes, backend, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, simulated_quotas, backend, cloud_account, qumulo_integration, *args, **xkwargs):  # noqa: E501
         """Volume - a model defined in OpenAPI
 
         Args:
             id (int):
+            path (str):
             nodes ([int]):
+            display_name (str):
+            visual_tag (str, none_type):
+            is_default (bool):
+            use_for_homes (bool):
+            use_for_workspaces (bool):
+            type (str):
+            snm_enabled (bool):
+            snfs_name (str, none_type):
+            simulated_quotas (bool):
             backend (Backend):
+            cloud_account (int, none_type):
+            qumulo_integration (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -307,19 +335,8 @@ class Volume(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            path (str): [optional]  # noqa: E501
-            display_name (str): [optional]  # noqa: E501
-            visual_tag (str, none_type): [optional]  # noqa: E501
-            is_default (bool): [optional]  # noqa: E501
-            use_for_homes (bool): [optional]  # noqa: E501
-            use_for_workspaces (bool): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            snm_enabled (bool): [optional]  # noqa: E501
-            snfs_name (str, none_type): [optional]  # noqa: E501
-            simulated_quotas (bool): [optional]  # noqa: E501
             fs_properties (FSProperties): [optional]  # noqa: E501
             status (VolumeStatus): [optional]  # noqa: E501
-            cloud_account (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -347,8 +364,20 @@ class Volume(ModelNormal):
 
 
         self.id = id
+        self.path = path
         self.nodes = nodes
+        self.display_name = display_name
+        self.visual_tag = visual_tag
+        self.is_default = is_default
+        self.use_for_homes = use_for_homes
+        self.use_for_workspaces = use_for_workspaces
+        self.type = type
+        self.snm_enabled = snm_enabled
+        self.snfs_name = snfs_name
+        self.simulated_quotas = simulated_quotas
         self.backend = backend
+        self.cloud_account = cloud_account
+        self.qumulo_integration = qumulo_integration
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

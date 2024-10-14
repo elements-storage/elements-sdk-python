@@ -63,7 +63,6 @@ class CloudAccountUpdate(ModelNormal):
         },
         ('mount_credentials_management',): {
             'None': None,
-            'NULL': "null",
             'SHARE': "share",
             'TOKEN': "token",
         },

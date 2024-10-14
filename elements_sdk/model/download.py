@@ -62,15 +62,15 @@ class Download(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
-        ('path',): {
-            'max_length': 255,
-            'min_length': 1,
-        },
         ('icon_path',): {
             'max_length': 255,
         },
         ('fa_icon',): {
             'max_length': 255,
+        },
+        ('path',): {
+            'max_length': 255,
+            'min_length': 1,
         },
     }
 
@@ -97,9 +97,9 @@ class Download(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'path': (str,),  # noqa: E501
             'icon_path': (str, none_type,),  # noqa: E501
             'fa_icon': (str, none_type,),  # noqa: E501
+            'path': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -110,9 +110,9 @@ class Download(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'path': 'path',  # noqa: E501
         'icon_path': 'icon_path',  # noqa: E501
         'fa_icon': 'fa_icon',  # noqa: E501
+        'path': 'path',  # noqa: E501
     }
 
     read_only_vars = {
@@ -122,12 +122,14 @@ class Download(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, path, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, icon_path, fa_icon, path, *args, **xkwargs):  # noqa: E501
         """Download - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
+            icon_path (str, none_type):
+            fa_icon (str, none_type):
             path (str):
 
         Keyword Args:
@@ -161,8 +163,6 @@ class Download(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            icon_path (str, none_type): [optional]  # noqa: E501
-            fa_icon (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -193,6 +193,8 @@ class Download(ModelNormal):
 
         self.id = id
         self.name = name
+        self.icon_path = icon_path
+        self.fa_icon = fa_icon
         self.path = path
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -215,12 +217,14 @@ class Download(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, path, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, icon_path, fa_icon, path, *args, **xkwargs):  # noqa: E501
         """Download - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
+            icon_path (str, none_type):
+            fa_icon (str, none_type):
             path (str):
 
         Keyword Args:
@@ -254,8 +258,6 @@ class Download(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            icon_path (str, none_type): [optional]  # noqa: E501
-            fa_icon (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -284,6 +286,8 @@ class Download(ModelNormal):
 
         self.id = id
         self.name = name
+        self.icon_path = icon_path
+        self.fa_icon = fa_icon
         self.path = path
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

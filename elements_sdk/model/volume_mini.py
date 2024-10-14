@@ -61,9 +61,10 @@ class VolumeMini(ModelNormal):
             'SNFS': "snfs",
             'BTRFS': "btrfs",
             'BCACHEFS': "bcachefs",
-            'ONEFS': "onefs",
             'BEEGFS': "beegfs",
             'CLOUD': "cloud",
+            'ONEFS': "onefs",
+            'QUMULO': "qumulo",
         },
     }
 
@@ -129,11 +130,15 @@ class VolumeMini(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, path, display_name, visual_tag, type, *args, **xkwargs):  # noqa: E501
         """VolumeMini - a model defined in OpenAPI
 
         Args:
             id (int):
+            path (str):
+            display_name (str):
+            visual_tag (str, none_type):
+            type (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -166,10 +171,6 @@ class VolumeMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            path (str): [optional]  # noqa: E501
-            display_name (str): [optional]  # noqa: E501
-            visual_tag (str, none_type): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -199,6 +200,10 @@ class VolumeMini(ModelNormal):
 
 
         self.id = id
+        self.path = path
+        self.display_name = display_name
+        self.visual_tag = visual_tag
+        self.type = type
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -220,11 +225,15 @@ class VolumeMini(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, path, display_name, visual_tag, type, *args, **xkwargs):  # noqa: E501
         """VolumeMini - a model defined in OpenAPI
 
         Args:
             id (int):
+            path (str):
+            display_name (str):
+            visual_tag (str, none_type):
+            type (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -257,10 +266,6 @@ class VolumeMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            path (str): [optional]  # noqa: E501
-            display_name (str): [optional]  # noqa: E501
-            visual_tag (str, none_type): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -288,6 +293,10 @@ class VolumeMini(ModelNormal):
 
 
         self.id = id
+        self.path = path
+        self.display_name = display_name
+        self.visual_tag = visual_tag
+        self.type = type
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

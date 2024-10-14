@@ -242,12 +242,39 @@ class ProxyProfile(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, proxy_generator, type, resolution, rate_control, crf, bitrate, audio_bitrate, variants_limit, enable_dense_filmstrip, enable_watermark, watermark_image, watermark_position, watermark_opacity, watermark_size, enable_timecode, timecode_position, timecode_opacity, timecode_size, lut, hotfolder_copy_to, hotfolder_read_from, hotfolder_queue_timeout, hotfolder_encode_timeout, vantage_workflow_id, external_transcoder_staging_path, allow_download, external_transcoder, *args, **xkwargs):  # noqa: E501
         """ProxyProfile - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
+            proxy_generator (str):
+            type (str):
+            resolution (str, none_type):
+            rate_control (str):
+            crf (int, none_type):
+            bitrate (int, none_type):
+            audio_bitrate (int):
+            variants_limit (int):
+            enable_dense_filmstrip (bool):
+            enable_watermark (bool):
+            watermark_image (str, none_type):
+            watermark_position (str):
+            watermark_opacity (float):
+            watermark_size (float):
+            enable_timecode (bool):
+            timecode_position (str):
+            timecode_opacity (float):
+            timecode_size (float):
+            lut (str, none_type):
+            hotfolder_copy_to (str, none_type):
+            hotfolder_read_from (str, none_type):
+            hotfolder_queue_timeout (int):
+            hotfolder_encode_timeout (int):
+            vantage_workflow_id (str, none_type):
+            external_transcoder_staging_path (str, none_type):
+            allow_download (bool):
+            external_transcoder (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -280,33 +307,6 @@ class ProxyProfile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            proxy_generator (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            resolution (str, none_type): [optional]  # noqa: E501
-            rate_control (str): [optional]  # noqa: E501
-            crf (int, none_type): [optional]  # noqa: E501
-            bitrate (int, none_type): [optional]  # noqa: E501
-            audio_bitrate (int): [optional]  # noqa: E501
-            variants_limit (int): [optional]  # noqa: E501
-            enable_dense_filmstrip (bool): [optional]  # noqa: E501
-            enable_watermark (bool): [optional]  # noqa: E501
-            watermark_image (str, none_type): [optional]  # noqa: E501
-            watermark_position (str): [optional]  # noqa: E501
-            watermark_opacity (float): [optional]  # noqa: E501
-            watermark_size (float): [optional]  # noqa: E501
-            enable_timecode (bool): [optional]  # noqa: E501
-            timecode_position (str): [optional]  # noqa: E501
-            timecode_opacity (float): [optional]  # noqa: E501
-            timecode_size (float): [optional]  # noqa: E501
-            lut (str, none_type): [optional]  # noqa: E501
-            hotfolder_copy_to (str, none_type): [optional]  # noqa: E501
-            hotfolder_read_from (str, none_type): [optional]  # noqa: E501
-            hotfolder_queue_timeout (int): [optional]  # noqa: E501
-            hotfolder_encode_timeout (int): [optional]  # noqa: E501
-            vantage_workflow_id (str, none_type): [optional]  # noqa: E501
-            external_transcoder_staging_path (str, none_type): [optional]  # noqa: E501
-            allow_download (bool): [optional]  # noqa: E501
-            external_transcoder (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -337,6 +337,33 @@ class ProxyProfile(ModelNormal):
 
         self.id = id
         self.name = name
+        self.proxy_generator = proxy_generator
+        self.type = type
+        self.resolution = resolution
+        self.rate_control = rate_control
+        self.crf = crf
+        self.bitrate = bitrate
+        self.audio_bitrate = audio_bitrate
+        self.variants_limit = variants_limit
+        self.enable_dense_filmstrip = enable_dense_filmstrip
+        self.enable_watermark = enable_watermark
+        self.watermark_image = watermark_image
+        self.watermark_position = watermark_position
+        self.watermark_opacity = watermark_opacity
+        self.watermark_size = watermark_size
+        self.enable_timecode = enable_timecode
+        self.timecode_position = timecode_position
+        self.timecode_opacity = timecode_opacity
+        self.timecode_size = timecode_size
+        self.lut = lut
+        self.hotfolder_copy_to = hotfolder_copy_to
+        self.hotfolder_read_from = hotfolder_read_from
+        self.hotfolder_queue_timeout = hotfolder_queue_timeout
+        self.hotfolder_encode_timeout = hotfolder_encode_timeout
+        self.vantage_workflow_id = vantage_workflow_id
+        self.external_transcoder_staging_path = external_transcoder_staging_path
+        self.allow_download = allow_download
+        self.external_transcoder = external_transcoder
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -358,12 +385,39 @@ class ProxyProfile(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, proxy_generator, type, resolution, rate_control, crf, bitrate, audio_bitrate, variants_limit, enable_dense_filmstrip, enable_watermark, watermark_image, watermark_position, watermark_opacity, watermark_size, enable_timecode, timecode_position, timecode_opacity, timecode_size, lut, hotfolder_copy_to, hotfolder_read_from, hotfolder_queue_timeout, hotfolder_encode_timeout, vantage_workflow_id, external_transcoder_staging_path, allow_download, external_transcoder, *args, **xkwargs):  # noqa: E501
         """ProxyProfile - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
+            proxy_generator (str):
+            type (str):
+            resolution (str, none_type):
+            rate_control (str):
+            crf (int, none_type):
+            bitrate (int, none_type):
+            audio_bitrate (int):
+            variants_limit (int):
+            enable_dense_filmstrip (bool):
+            enable_watermark (bool):
+            watermark_image (str, none_type):
+            watermark_position (str):
+            watermark_opacity (float):
+            watermark_size (float):
+            enable_timecode (bool):
+            timecode_position (str):
+            timecode_opacity (float):
+            timecode_size (float):
+            lut (str, none_type):
+            hotfolder_copy_to (str, none_type):
+            hotfolder_read_from (str, none_type):
+            hotfolder_queue_timeout (int):
+            hotfolder_encode_timeout (int):
+            vantage_workflow_id (str, none_type):
+            external_transcoder_staging_path (str, none_type):
+            allow_download (bool):
+            external_transcoder (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -396,33 +450,6 @@ class ProxyProfile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            proxy_generator (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            resolution (str, none_type): [optional]  # noqa: E501
-            rate_control (str): [optional]  # noqa: E501
-            crf (int, none_type): [optional]  # noqa: E501
-            bitrate (int, none_type): [optional]  # noqa: E501
-            audio_bitrate (int): [optional]  # noqa: E501
-            variants_limit (int): [optional]  # noqa: E501
-            enable_dense_filmstrip (bool): [optional]  # noqa: E501
-            enable_watermark (bool): [optional]  # noqa: E501
-            watermark_image (str, none_type): [optional]  # noqa: E501
-            watermark_position (str): [optional]  # noqa: E501
-            watermark_opacity (float): [optional]  # noqa: E501
-            watermark_size (float): [optional]  # noqa: E501
-            enable_timecode (bool): [optional]  # noqa: E501
-            timecode_position (str): [optional]  # noqa: E501
-            timecode_opacity (float): [optional]  # noqa: E501
-            timecode_size (float): [optional]  # noqa: E501
-            lut (str, none_type): [optional]  # noqa: E501
-            hotfolder_copy_to (str, none_type): [optional]  # noqa: E501
-            hotfolder_read_from (str, none_type): [optional]  # noqa: E501
-            hotfolder_queue_timeout (int): [optional]  # noqa: E501
-            hotfolder_encode_timeout (int): [optional]  # noqa: E501
-            vantage_workflow_id (str, none_type): [optional]  # noqa: E501
-            external_transcoder_staging_path (str, none_type): [optional]  # noqa: E501
-            allow_download (bool): [optional]  # noqa: E501
-            external_transcoder (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -451,6 +478,33 @@ class ProxyProfile(ModelNormal):
 
         self.id = id
         self.name = name
+        self.proxy_generator = proxy_generator
+        self.type = type
+        self.resolution = resolution
+        self.rate_control = rate_control
+        self.crf = crf
+        self.bitrate = bitrate
+        self.audio_bitrate = audio_bitrate
+        self.variants_limit = variants_limit
+        self.enable_dense_filmstrip = enable_dense_filmstrip
+        self.enable_watermark = enable_watermark
+        self.watermark_image = watermark_image
+        self.watermark_position = watermark_position
+        self.watermark_opacity = watermark_opacity
+        self.watermark_size = watermark_size
+        self.enable_timecode = enable_timecode
+        self.timecode_position = timecode_position
+        self.timecode_opacity = timecode_opacity
+        self.timecode_size = timecode_size
+        self.lut = lut
+        self.hotfolder_copy_to = hotfolder_copy_to
+        self.hotfolder_read_from = hotfolder_read_from
+        self.hotfolder_queue_timeout = hotfolder_queue_timeout
+        self.hotfolder_encode_timeout = hotfolder_encode_timeout
+        self.vantage_workflow_id = vantage_workflow_id
+        self.external_transcoder_staging_path = external_transcoder_staging_path
+        self.allow_download = allow_download
+        self.external_transcoder = external_transcoder
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -110,9 +110,8 @@ class Schedule(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
-            'next_run': (datetime,),  # noqa: E501
-            'job': (int,),  # noqa: E501
             'variables': ({str: (str, none_type)},),  # noqa: E501
+            'next_run': (datetime,),  # noqa: E501
             'type': (int,),  # noqa: E501
             'enabled': (bool,),  # noqa: E501
             'last_run': (datetime, none_type,),  # noqa: E501
@@ -123,6 +122,7 @@ class Schedule(ModelNormal):
             'crontab_hour': (str,),  # noqa: E501
             'crontab_minute': (str,),  # noqa: E501
             'crontab_month_of_year': (str,),  # noqa: E501
+            'job': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -132,9 +132,8 @@ class Schedule(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'next_run': 'next_run',  # noqa: E501
-        'job': 'job',  # noqa: E501
         'variables': 'variables',  # noqa: E501
+        'next_run': 'next_run',  # noqa: E501
         'type': 'type',  # noqa: E501
         'enabled': 'enabled',  # noqa: E501
         'last_run': 'last_run',  # noqa: E501
@@ -145,6 +144,7 @@ class Schedule(ModelNormal):
         'crontab_hour': 'crontab_hour',  # noqa: E501
         'crontab_minute': 'crontab_minute',  # noqa: E501
         'crontab_month_of_year': 'crontab_month_of_year',  # noqa: E501
+        'job': 'job',  # noqa: E501
     }
 
     read_only_vars = {
@@ -155,12 +155,23 @@ class Schedule(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, next_run, job, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, variables, next_run, type, enabled, last_run, every, period, crontab_day_of_month, crontab_day_of_week, crontab_hour, crontab_minute, crontab_month_of_year, job, *args, **xkwargs):  # noqa: E501
         """Schedule - a model defined in OpenAPI
 
         Args:
             id (int):
+            variables ({str: (str, none_type)}):
             next_run (datetime):
+            type (int):
+            enabled (bool):
+            last_run (datetime, none_type):
+            every (int):
+            period (str):
+            crontab_day_of_month (str):
+            crontab_day_of_week (str):
+            crontab_hour (str):
+            crontab_minute (str):
+            crontab_month_of_year (str):
             job (int):
 
         Keyword Args:
@@ -194,17 +205,6 @@ class Schedule(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            variables ({str: (str, none_type)}): [optional]  # noqa: E501
-            type (int): [optional]  # noqa: E501
-            enabled (bool): [optional]  # noqa: E501
-            last_run (datetime, none_type): [optional]  # noqa: E501
-            every (int): [optional]  # noqa: E501
-            period (str): [optional]  # noqa: E501
-            crontab_day_of_month (str): [optional]  # noqa: E501
-            crontab_day_of_week (str): [optional]  # noqa: E501
-            crontab_hour (str): [optional]  # noqa: E501
-            crontab_minute (str): [optional]  # noqa: E501
-            crontab_month_of_year (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -234,7 +234,18 @@ class Schedule(ModelNormal):
 
 
         self.id = id
+        self.variables = variables
         self.next_run = next_run
+        self.type = type
+        self.enabled = enabled
+        self.last_run = last_run
+        self.every = every
+        self.period = period
+        self.crontab_day_of_month = crontab_day_of_month
+        self.crontab_day_of_week = crontab_day_of_week
+        self.crontab_hour = crontab_hour
+        self.crontab_minute = crontab_minute
+        self.crontab_month_of_year = crontab_month_of_year
         self.job = job
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -257,11 +268,22 @@ class Schedule(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, job, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, variables, type, enabled, last_run, every, period, crontab_day_of_month, crontab_day_of_week, crontab_hour, crontab_minute, crontab_month_of_year, job, *args, **xkwargs):  # noqa: E501
         """Schedule - a model defined in OpenAPI
 
         Args:
             id (int):
+            variables ({str: (str, none_type)}):
+            type (int):
+            enabled (bool):
+            last_run (datetime, none_type):
+            every (int):
+            period (str):
+            crontab_day_of_month (str):
+            crontab_day_of_week (str):
+            crontab_hour (str):
+            crontab_minute (str):
+            crontab_month_of_year (str):
             job (int):
 
         Keyword Args:
@@ -295,17 +317,6 @@ class Schedule(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            variables ({str: (str, none_type)}): [optional]  # noqa: E501
-            type (int): [optional]  # noqa: E501
-            enabled (bool): [optional]  # noqa: E501
-            last_run (datetime, none_type): [optional]  # noqa: E501
-            every (int): [optional]  # noqa: E501
-            period (str): [optional]  # noqa: E501
-            crontab_day_of_month (str): [optional]  # noqa: E501
-            crontab_day_of_week (str): [optional]  # noqa: E501
-            crontab_hour (str): [optional]  # noqa: E501
-            crontab_minute (str): [optional]  # noqa: E501
-            crontab_month_of_year (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -333,6 +344,17 @@ class Schedule(ModelNormal):
 
 
         self.id = id
+        self.variables = variables
+        self.type = type
+        self.enabled = enabled
+        self.last_run = last_run
+        self.every = every
+        self.period = period
+        self.crontab_day_of_month = crontab_day_of_month
+        self.crontab_day_of_week = crontab_day_of_week
+        self.crontab_hour = crontab_hour
+        self.crontab_minute = crontab_minute
+        self.crontab_month_of_year = crontab_month_of_year
         self.job = job
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

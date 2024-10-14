@@ -102,16 +102,16 @@ class ElementsGroup(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
+            'permissions': ([str, none_type],),  # noqa: E501
             'members_preview': ([MemberPreview],),  # noqa: E501
             'effective_permissions': ([str, none_type],),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'members': ([int],),  # noqa: E501
-            'permissions': ([str, none_type],),  # noqa: E501
             'ldap_dn': (str, none_type,),  # noqa: E501
             'ldap_guid': (str, none_type,),  # noqa: E501
             'unix_groupname': (str, none_type,),  # noqa: E501
             'gid': (int, none_type,),  # noqa: E501
             'ldap': (int, none_type,),  # noqa: E501
+            'members': ([int],),  # noqa: E501
         }
 
     @cached_property
@@ -121,16 +121,16 @@ class ElementsGroup(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'permissions': 'permissions',  # noqa: E501
         'members_preview': 'members_preview',  # noqa: E501
         'effective_permissions': 'effective_permissions',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'members': 'members',  # noqa: E501
-        'permissions': 'permissions',  # noqa: E501
         'ldap_dn': 'ldap_dn',  # noqa: E501
         'ldap_guid': 'ldap_guid',  # noqa: E501
         'unix_groupname': 'unix_groupname',  # noqa: E501
         'gid': 'gid',  # noqa: E501
         'ldap': 'ldap',  # noqa: E501
+        'members': 'members',  # noqa: E501
     }
 
     read_only_vars = {
@@ -142,14 +142,20 @@ class ElementsGroup(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, members_preview, effective_permissions, name, members, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, permissions, members_preview, effective_permissions, name, ldap_dn, ldap_guid, unix_groupname, gid, ldap, members, *args, **xkwargs):  # noqa: E501
         """ElementsGroup - a model defined in OpenAPI
 
         Args:
             id (int):
+            permissions ([str, none_type]):
             members_preview ([MemberPreview]):
             effective_permissions ([str, none_type]):
             name (str):
+            ldap_dn (str, none_type):
+            ldap_guid (str, none_type):
+            unix_groupname (str, none_type):
+            gid (int, none_type):
+            ldap (int, none_type):
             members ([int]):
 
         Keyword Args:
@@ -183,12 +189,6 @@ class ElementsGroup(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            permissions ([str, none_type]): [optional]  # noqa: E501
-            ldap_dn (str, none_type): [optional]  # noqa: E501
-            ldap_guid (str, none_type): [optional]  # noqa: E501
-            unix_groupname (str, none_type): [optional]  # noqa: E501
-            gid (int, none_type): [optional]  # noqa: E501
-            ldap (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -218,9 +218,15 @@ class ElementsGroup(ModelNormal):
 
 
         self.id = id
+        self.permissions = permissions
         self.members_preview = members_preview
         self.effective_permissions = effective_permissions
         self.name = name
+        self.ldap_dn = ldap_dn
+        self.ldap_guid = ldap_guid
+        self.unix_groupname = unix_groupname
+        self.gid = gid
+        self.ldap = ldap
         self.members = members
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -243,12 +249,18 @@ class ElementsGroup(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, members, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, permissions, name, ldap_dn, ldap_guid, unix_groupname, gid, ldap, members, *args, **xkwargs):  # noqa: E501
         """ElementsGroup - a model defined in OpenAPI
 
         Args:
             id (int):
+            permissions ([str, none_type]):
             name (str):
+            ldap_dn (str, none_type):
+            ldap_guid (str, none_type):
+            unix_groupname (str, none_type):
+            gid (int, none_type):
+            ldap (int, none_type):
             members ([int]):
 
         Keyword Args:
@@ -282,12 +294,6 @@ class ElementsGroup(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            permissions ([str, none_type]): [optional]  # noqa: E501
-            ldap_dn (str, none_type): [optional]  # noqa: E501
-            ldap_guid (str, none_type): [optional]  # noqa: E501
-            unix_groupname (str, none_type): [optional]  # noqa: E501
-            gid (int, none_type): [optional]  # noqa: E501
-            ldap (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -315,7 +321,13 @@ class ElementsGroup(ModelNormal):
 
 
         self.id = id
+        self.permissions = permissions
         self.name = name
+        self.ldap_dn = ldap_dn
+        self.ldap_guid = ldap_guid
+        self.unix_groupname = unix_groupname
+        self.gid = gid
+        self.ldap = ldap
         self.members = members
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

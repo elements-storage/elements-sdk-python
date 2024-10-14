@@ -109,9 +109,9 @@ class MediaFileBundle(ModelNormal):
             'exclusion_info': (MediaFileBundleExclusionInfo,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'location': (int,),  # noqa: E501
+            'shared_via_tokens': ([int],),  # noqa: E501
             'asset': (Asset,),  # noqa: E501
             'is_excluded_from_proxy_generation': (str, none_type,),  # noqa: E501
-            'shared_via_tokens': ([int],),  # noqa: E501
         }
 
     @cached_property
@@ -128,9 +128,9 @@ class MediaFileBundle(ModelNormal):
         'exclusion_info': 'exclusion_info',  # noqa: E501
         'name': 'name',  # noqa: E501
         'location': 'location',  # noqa: E501
+        'shared_via_tokens': 'shared_via_tokens',  # noqa: E501
         'asset': 'asset',  # noqa: E501
         'is_excluded_from_proxy_generation': 'is_excluded_from_proxy_generation',  # noqa: E501
-        'shared_via_tokens': 'shared_via_tokens',  # noqa: E501
     }
 
     read_only_vars = {
@@ -143,7 +143,7 @@ class MediaFileBundle(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, mainfile, snm_attributes, is_shared, file_count, exclusion_info, name, location, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, mainfile, snm_attributes, is_shared, file_count, exclusion_info, name, location, shared_via_tokens, *args, **xkwargs):  # noqa: E501
         """MediaFileBundle - a model defined in OpenAPI
 
         Args:
@@ -155,6 +155,7 @@ class MediaFileBundle(ModelNormal):
             exclusion_info (MediaFileBundleExclusionInfo):
             name (str):
             location (int):
+            shared_via_tokens ([int]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -189,7 +190,6 @@ class MediaFileBundle(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             asset (Asset): [optional]  # noqa: E501
             is_excluded_from_proxy_generation (str, none_type): [optional]  # noqa: E501
-            shared_via_tokens ([int]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -226,6 +226,7 @@ class MediaFileBundle(ModelNormal):
         self.exclusion_info = exclusion_info
         self.name = name
         self.location = location
+        self.shared_via_tokens = shared_via_tokens
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -247,7 +248,7 @@ class MediaFileBundle(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, mainfile, snm_attributes, exclusion_info, name, location, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, mainfile, snm_attributes, exclusion_info, name, location, shared_via_tokens, *args, **xkwargs):  # noqa: E501
         """MediaFileBundle - a model defined in OpenAPI
 
         Args:
@@ -257,6 +258,7 @@ class MediaFileBundle(ModelNormal):
             exclusion_info (MediaFileBundleExclusionInfo):
             name (str):
             location (int):
+            shared_via_tokens ([int]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -291,7 +293,6 @@ class MediaFileBundle(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             asset (Asset): [optional]  # noqa: E501
             is_excluded_from_proxy_generation (str, none_type): [optional]  # noqa: E501
-            shared_via_tokens ([int]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -324,6 +325,7 @@ class MediaFileBundle(ModelNormal):
         self.exclusion_info = exclusion_info
         self.name = name
         self.location = location
+        self.shared_via_tokens = shared_via_tokens
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

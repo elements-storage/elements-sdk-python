@@ -30,11 +30,7 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.address import Address
-    from elements_sdk.model.storage_node_mini import StorageNodeMini
     from elements_sdk.model.workspace_mini import WorkspaceMini
-    globals()['Address'] = Address
-    globals()['StorageNodeMini'] = StorageNodeMini
     globals()['WorkspaceMini'] = WorkspaceMini
 
 
@@ -66,11 +62,11 @@ class MountedWorkspace(ModelNormal):
     }
 
     validations = {
-        ('address',): {
+        ('mountpoint',): {
             'max_length': 255,
             'min_length': 1,
         },
-        ('mountpoint',): {
+        ('address',): {
             'max_length': 255,
             'min_length': 1,
         },
@@ -105,13 +101,13 @@ class MountedWorkspace(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'workspace': (WorkspaceMini,),  # noqa: E501
-            'mount_node': (StorageNodeMini,),  # noqa: E501
-            'mount_address': (Address,),  # noqa: E501
+            'mount_node': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'mount_address': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'mountpoint': (str, none_type,),  # noqa: E501
             'address': (str,),  # noqa: E501
+            'protocol': (str, none_type,),  # noqa: E501
             'last_updated': (datetime,),  # noqa: E501
             'user': (int,),  # noqa: E501
-            'mountpoint': (str, none_type,),  # noqa: E501
-            'protocol': (str, none_type,),  # noqa: E501
             'client_session': (int, none_type,),  # noqa: E501
         }
 
@@ -125,11 +121,11 @@ class MountedWorkspace(ModelNormal):
         'workspace': 'workspace',  # noqa: E501
         'mount_node': 'mount_node',  # noqa: E501
         'mount_address': 'mount_address',  # noqa: E501
+        'mountpoint': 'mountpoint',  # noqa: E501
         'address': 'address',  # noqa: E501
+        'protocol': 'protocol',  # noqa: E501
         'last_updated': 'last_updated',  # noqa: E501
         'user': 'user',  # noqa: E501
-        'mountpoint': 'mountpoint',  # noqa: E501
-        'protocol': 'protocol',  # noqa: E501
         'client_session': 'client_session',  # noqa: E501
     }
 
@@ -141,17 +137,20 @@ class MountedWorkspace(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, workspace, mount_node, mount_address, address, last_updated, user, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, workspace, mount_node, mount_address, mountpoint, address, protocol, last_updated, user, client_session, *args, **xkwargs):  # noqa: E501
         """MountedWorkspace - a model defined in OpenAPI
 
         Args:
             id (int):
             workspace (WorkspaceMini):
-            mount_node (StorageNodeMini):
-            mount_address (Address):
+            mount_node (bool, date, datetime, dict, float, int, list, str, none_type):
+            mount_address (bool, date, datetime, dict, float, int, list, str, none_type):
+            mountpoint (str, none_type):
             address (str):
+            protocol (str, none_type):
             last_updated (datetime):
             user (int):
+            client_session (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -184,9 +183,6 @@ class MountedWorkspace(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            mountpoint (str, none_type): [optional]  # noqa: E501
-            protocol (str, none_type): [optional]  # noqa: E501
-            client_session (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -219,9 +215,12 @@ class MountedWorkspace(ModelNormal):
         self.workspace = workspace
         self.mount_node = mount_node
         self.mount_address = mount_address
+        self.mountpoint = mountpoint
         self.address = address
+        self.protocol = protocol
         self.last_updated = last_updated
         self.user = user
+        self.client_session = client_session
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -243,16 +242,19 @@ class MountedWorkspace(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, workspace, mount_node, mount_address, address, user, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, workspace, mount_node, mount_address, mountpoint, address, protocol, user, client_session, *args, **xkwargs):  # noqa: E501
         """MountedWorkspace - a model defined in OpenAPI
 
         Args:
             id (int):
             workspace (WorkspaceMini):
-            mount_node (StorageNodeMini):
-            mount_address (Address):
+            mount_node (bool, date, datetime, dict, float, int, list, str, none_type):
+            mount_address (bool, date, datetime, dict, float, int, list, str, none_type):
+            mountpoint (str, none_type):
             address (str):
+            protocol (str, none_type):
             user (int):
+            client_session (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -285,9 +287,6 @@ class MountedWorkspace(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            mountpoint (str, none_type): [optional]  # noqa: E501
-            protocol (str, none_type): [optional]  # noqa: E501
-            client_session (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -318,8 +317,11 @@ class MountedWorkspace(ModelNormal):
         self.workspace = workspace
         self.mount_node = mount_node
         self.mount_address = mount_address
+        self.mountpoint = mountpoint
         self.address = address
+        self.protocol = protocol
         self.user = user
+        self.client_session = client_session
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

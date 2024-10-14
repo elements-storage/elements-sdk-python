@@ -22,8 +22,6 @@ from elements_sdk.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from elements_sdk.model.alert import Alert
-from elements_sdk.model.alert_partial_update import AlertPartialUpdate
-from elements_sdk.model.alert_update import AlertUpdate
 from elements_sdk.model.kapacitor_alert import KapacitorAlert
 
 
@@ -38,6 +36,126 @@ class StatusApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.acknowledge_alert_endpoint = _Endpoint(
+            settings={
+                'response_type': (Alert,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/alerts/{id}/acknowledge',
+                'operation_id': 'acknowledge_alert',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_active_alerts_endpoint = _Endpoint(
+            settings={
+                'response_type': ([Alert],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/alerts/active',
+                'operation_id': 'get_active_alerts',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'is_open',
+                    'id',
+                    'ordering',
+                    'limit',
+                    'offset',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'is_open':
+                        (str,),
+                    'id':
+                        (float,),
+                    'ordering':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'is_open': 'is_open',
+                    'id': 'id',
+                    'ordering': 'ordering',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'is_open': 'query',
+                    'id': 'query',
+                    'ordering': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_alert_endpoint = _Endpoint(
             settings={
                 'response_type': (Alert,),
@@ -200,25 +318,23 @@ class StatusApi(object):
             },
             api_client=api_client
         )
-        self.patch_alert_endpoint = _Endpoint(
+        self.silence_alert_endpoint = _Endpoint(
             settings={
                 'response_type': (Alert,),
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/alerts/{id}',
-                'operation_id': 'patch_alert',
-                'http_method': 'PATCH',
+                'endpoint_path': '/api/2/alerts/{id}/silence',
+                'operation_id': 'silence_alert',
+                'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'alert_partial_update',
                 ],
                 'required': [
                     'id',
-                    'alert_partial_update',
                 ],
                 'nullable': [
                 ],
@@ -235,15 +351,12 @@ class StatusApi(object):
                 'openapi_types': {
                     'id':
                         (int,),
-                    'alert_partial_update':
-                        (AlertPartialUpdate,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'alert_partial_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -252,9 +365,7 @@ class StatusApi(object):
                 'accept': [
                     'application/json'
                 ],
-                'content_type': [
-                    'application/json'
-                ]
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -308,64 +419,162 @@ class StatusApi(object):
             },
             api_client=api_client
         )
-        self.update_alert_endpoint = _Endpoint(
-            settings={
-                'response_type': (Alert,),
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/alerts/{id}',
-                'operation_id': 'update_alert',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                    'alert_update',
-                ],
-                'required': [
-                    'id',
-                    'alert_update',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (int,),
-                    'alert_update':
-                        (AlertUpdate,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                },
-                'location_map': {
-                    'id': 'path',
-                    'alert_update': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
+
+    def acknowledge_alert(
+        self,
+        id,
+        **kwargs
+    ):
+        """acknowledge_alert  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.acknowledge_alert(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this alert.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Alert
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.acknowledge_alert_endpoint.call_with_http_info(**kwargs)
+
+    def get_active_alerts(
+        self,
+        **kwargs
+    ):
+        """get_active_alerts  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_active_alerts(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            is_open (str): Filter the returned list by `is_open`.. [optional]
+            id (float): Filter the returned list by `id`.. [optional]
+            ordering (str): Which field to use when ordering the results.. [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [Alert]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_active_alerts_endpoint.call_with_http_info(**kwargs)
 
     def get_alert(
         self,
@@ -595,24 +804,22 @@ class StatusApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_telegraf_stats_endpoint.call_with_http_info(**kwargs)
 
-    def patch_alert(
+    def silence_alert(
         self,
         id,
-        alert_partial_update,
         **kwargs
     ):
-        """patch_alert  # noqa: E501
+        """silence_alert  # noqa: E501
 
         ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.patch_alert(id, alert_partial_update, async_req=True)
+        >>> thread = api.silence_alert(id, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (int): A unique integer value identifying this alert.
-            alert_partial_update (AlertPartialUpdate):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -673,9 +880,7 @@ class StatusApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['id'] = \
             id
-        kwargs['alert_partial_update'] = \
-            alert_partial_update
-        return self.patch_alert_endpoint.call_with_http_info(**kwargs)
+        return self.silence_alert_endpoint.call_with_http_info(**kwargs)
 
     def submit_kapacitor_alert(
         self,
@@ -754,86 +959,4 @@ class StatusApi(object):
         kwargs['kapacitor_alert'] = \
             kapacitor_alert
         return self.submit_kapacitor_alert_endpoint.call_with_http_info(**kwargs)
-
-    def update_alert(
-        self,
-        id,
-        alert_update,
-        **kwargs
-    ):
-        """update_alert  # noqa: E501
-
-        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.update_alert(id, alert_update, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            id (int): A unique integer value identifying this alert.
-            alert_update (AlertUpdate):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Alert
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['id'] = \
-            id
-        kwargs['alert_update'] = \
-            alert_update
-        return self.update_alert_endpoint.call_with_http_info(**kwargs)
 

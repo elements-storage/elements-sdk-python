@@ -96,6 +96,7 @@ class MediaFileMini(ModelNormal):
             'id': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'full_path': (str,),  # noqa: E501
+            'custom_fields': ({str: (str, none_type)},),  # noqa: E501
             'is_dir': (bool,),  # noqa: E501
             'is_hardlink': (bool,),  # noqa: E501
             'mtime': (int,),  # noqa: E501
@@ -104,7 +105,6 @@ class MediaFileMini(ModelNormal):
             'size': (int,),  # noqa: E501
             'volume': (VolumeMini,),  # noqa: E501
             'bundle': (int, none_type,),  # noqa: E501
-            'custom_fields': ({str: (str, none_type)},),  # noqa: E501
             'parent': (int, none_type,),  # noqa: E501
             'parent_file': ({str: (str, none_type)},),  # noqa: E501
         }
@@ -118,6 +118,7 @@ class MediaFileMini(ModelNormal):
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'full_path': 'full_path',  # noqa: E501
+        'custom_fields': 'custom_fields',  # noqa: E501
         'is_dir': 'is_dir',  # noqa: E501
         'is_hardlink': 'is_hardlink',  # noqa: E501
         'mtime': 'mtime',  # noqa: E501
@@ -126,7 +127,6 @@ class MediaFileMini(ModelNormal):
         'size': 'size',  # noqa: E501
         'volume': 'volume',  # noqa: E501
         'bundle': 'bundle',  # noqa: E501
-        'custom_fields': 'custom_fields',  # noqa: E501
         'parent': 'parent',  # noqa: E501
         'parent_file': 'parent_file',  # noqa: E501
     }
@@ -149,13 +149,14 @@ class MediaFileMini(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, full_path, is_dir, is_hardlink, mtime, path, present, size, volume, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, full_path, custom_fields, is_dir, is_hardlink, mtime, path, present, size, volume, *args, **xkwargs):  # noqa: E501
         """MediaFileMini - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
             full_path (str):
+            custom_fields ({str: (str, none_type)}):
             is_dir (bool):
             is_hardlink (bool):
             mtime (int):
@@ -196,7 +197,6 @@ class MediaFileMini(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             bundle (int, none_type): [optional]  # noqa: E501
-            custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
             parent (int, none_type): [optional]  # noqa: E501
             parent_file ({str: (str, none_type)}): [optional]  # noqa: E501
         """
@@ -230,6 +230,7 @@ class MediaFileMini(ModelNormal):
         self.id = id
         self.name = name
         self.full_path = full_path
+        self.custom_fields = custom_fields
         self.is_dir = is_dir
         self.is_hardlink = is_hardlink
         self.mtime = mtime
@@ -258,11 +259,12 @@ class MediaFileMini(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, volume, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, custom_fields, volume, *args, **xkwargs):  # noqa: E501
         """MediaFileMini - a model defined in OpenAPI
 
         Args:
             id (int):
+            custom_fields ({str: (str, none_type)}):
             volume (VolumeMini):
 
         Keyword Args:
@@ -297,7 +299,6 @@ class MediaFileMini(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             bundle (int, none_type): [optional]  # noqa: E501
-            custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
             parent (int, none_type): [optional]  # noqa: E501
             parent_file ({str: (str, none_type)}): [optional]  # noqa: E501
         """
@@ -327,6 +328,7 @@ class MediaFileMini(ModelNormal):
 
 
         self.id = id
+        self.custom_fields = custom_fields
         self.volume = volume
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

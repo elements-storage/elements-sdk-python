@@ -85,6 +85,7 @@ class Certificate(ModelNormal):
         """
         return {
             'certificate': (str,),  # noqa: E501
+            'key': (str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'issuer': (str,),  # noqa: E501
             'domains': ([str],),  # noqa: E501
@@ -94,7 +95,6 @@ class Certificate(ModelNormal):
             'expired': (bool,),  # noqa: E501
             'key_matches': (bool,),  # noqa: E501
             'domain_matches': (bool,),  # noqa: E501
-            'key': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -104,6 +104,7 @@ class Certificate(ModelNormal):
 
     attribute_map = {
         'certificate': 'certificate',  # noqa: E501
+        'key': 'key',  # noqa: E501
         'name': 'name',  # noqa: E501
         'issuer': 'issuer',  # noqa: E501
         'domains': 'domains',  # noqa: E501
@@ -113,7 +114,6 @@ class Certificate(ModelNormal):
         'expired': 'expired',  # noqa: E501
         'key_matches': 'key_matches',  # noqa: E501
         'domain_matches': 'domain_matches',  # noqa: E501
-        'key': 'key',  # noqa: E501
     }
 
     read_only_vars = {
@@ -132,11 +132,12 @@ class Certificate(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, certificate, name, issuer, domains, fingerprint, not_valid_before, not_valid_after, expired, key_matches, domain_matches, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, certificate, key, name, issuer, domains, fingerprint, not_valid_before, not_valid_after, expired, key_matches, domain_matches, *args, **xkwargs):  # noqa: E501
         """Certificate - a model defined in OpenAPI
 
         Args:
             certificate (str):
+            key (str, none_type):
             name (str):
             issuer (str):
             domains ([str]):
@@ -178,7 +179,6 @@ class Certificate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            key (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -208,6 +208,7 @@ class Certificate(ModelNormal):
 
 
         self.certificate = certificate
+        self.key = key
         self.name = name
         self.issuer = issuer
         self.domains = domains
@@ -238,11 +239,12 @@ class Certificate(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, certificate, *args, **xkwargs):  # noqa: E501
+    def __init__(self, certificate, key, *args, **xkwargs):  # noqa: E501
         """Certificate - a model defined in OpenAPI
 
         Args:
             certificate (str):
+            key (str, none_type):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -274,7 +276,6 @@ class Certificate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            key (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -302,6 +303,7 @@ class Certificate(ModelNormal):
 
 
         self.certificate = certificate
+        self.key = key
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

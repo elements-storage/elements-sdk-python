@@ -85,7 +85,7 @@ class CheckCertificateRequest(ModelNormal):
         """
         return {
             'certificate': (str,),  # noqa: E501
-            'key': (str,),  # noqa: E501
+            'key': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -105,11 +105,12 @@ class CheckCertificateRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, certificate, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, certificate, key, *args, **xkwargs):  # noqa: E501
         """CheckCertificateRequest - a model defined in OpenAPI
 
         Args:
             certificate (str):
+            key (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -142,7 +143,6 @@ class CheckCertificateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            key (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -172,6 +172,7 @@ class CheckCertificateRequest(ModelNormal):
 
 
         self.certificate = certificate
+        self.key = key
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -193,11 +194,12 @@ class CheckCertificateRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, certificate, *args, **xkwargs):  # noqa: E501
+    def __init__(self, certificate, key, *args, **xkwargs):  # noqa: E501
         """CheckCertificateRequest - a model defined in OpenAPI
 
         Args:
             certificate (str):
+            key (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -230,7 +232,6 @@ class CheckCertificateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            key (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -258,6 +259,7 @@ class CheckCertificateRequest(ModelNormal):
 
 
         self.certificate = certificate
+        self.key = key
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

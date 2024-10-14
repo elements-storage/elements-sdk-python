@@ -22,12 +22,16 @@ from elements_sdk.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from elements_sdk.model.event import Event
+from elements_sdk.model.field_option import FieldOption
 from elements_sdk.model.import_job_request import ImportJobRequest
 from elements_sdk.model.import_job_response import ImportJobResponse
 from elements_sdk.model.job import Job
 from elements_sdk.model.job_detail import JobDetail
 from elements_sdk.model.job_detail_partial_update import JobDetailPartialUpdate
 from elements_sdk.model.job_detail_update import JobDetailUpdate
+from elements_sdk.model.job_fs_trigger import JobFSTrigger
+from elements_sdk.model.job_fs_trigger_partial_update import JobFSTriggerPartialUpdate
+from elements_sdk.model.job_fs_trigger_update import JobFSTriggerUpdate
 from elements_sdk.model.python_environment import PythonEnvironment
 from elements_sdk.model.queue import Queue
 from elements_sdk.model.schedule import Schedule
@@ -143,6 +147,58 @@ class AutomationApi(object):
                 },
                 'location_map': {
                     'job_detail_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.create_job_fs_trigger_endpoint = _Endpoint(
+            settings={
+                'response_type': (JobFSTrigger,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/jobs/fs-triggers',
+                'operation_id': 'create_job_fs_trigger',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'job_fs_trigger_update',
+                ],
+                'required': [
+                    'job_fs_trigger_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'job_fs_trigger_update':
+                        (JobFSTriggerUpdate,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'job_fs_trigger_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -311,6 +367,55 @@ class AutomationApi(object):
                 ],
                 'endpoint_path': '/api/2/jobs/{id}',
                 'operation_id': 'delete_job',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_job_fs_trigger_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/jobs/fs-triggers/{id}',
+                'operation_id': 'delete_job_fs_trigger',
                 'http_method': 'DELETE',
                 'servers': None,
             },
@@ -758,6 +863,70 @@ class AutomationApi(object):
                     'offset': 'offset',
                 },
                 'location_map': {
+                    'ordering': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_all_job_fs_triggers_endpoint = _Endpoint(
+            settings={
+                'response_type': ([JobFSTrigger],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/jobs/fs-triggers',
+                'operation_id': 'get_all_job_fs_triggers',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'job',
+                    'ordering',
+                    'limit',
+                    'offset',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'job':
+                        (int,),
+                    'ordering':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'job': 'job',
+                    'ordering': 'ordering',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'job': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -1431,6 +1600,119 @@ class AutomationApi(object):
                 },
                 'location_map': {
                     'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_job_fs_trigger_endpoint = _Endpoint(
+            settings={
+                'response_type': (JobFSTrigger,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/jobs/fs-triggers/{id}',
+                'operation_id': 'get_job_fs_trigger',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_job_variable_options_endpoint = _Endpoint(
+            settings={
+                'response_type': ([FieldOption],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/jobs/{id}/variables/{name}/options',
+                'operation_id': 'get_job_variable_options',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'name',
+                    'q',
+                ],
+                'required': [
+                    'id',
+                    'name',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'name':
+                        (str,),
+                    'q':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'name': 'name',
+                    'q': 'q',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'name': 'path',
+                    'q': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -2244,6 +2526,64 @@ class AutomationApi(object):
             },
             api_client=api_client
         )
+        self.patch_job_fs_trigger_endpoint = _Endpoint(
+            settings={
+                'response_type': (JobFSTrigger,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/jobs/fs-triggers/{id}',
+                'operation_id': 'patch_job_fs_trigger',
+                'http_method': 'PATCH',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'job_fs_trigger_partial_update',
+                ],
+                'required': [
+                    'id',
+                    'job_fs_trigger_partial_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'job_fs_trigger_partial_update':
+                        (JobFSTriggerPartialUpdate,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'job_fs_trigger_partial_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.patch_schedule_endpoint = _Endpoint(
             settings={
                 'response_type': (Schedule,),
@@ -2579,6 +2919,64 @@ class AutomationApi(object):
             },
             api_client=api_client
         )
+        self.update_job_fs_trigger_endpoint = _Endpoint(
+            settings={
+                'response_type': (JobFSTrigger,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/jobs/fs-triggers/{id}',
+                'operation_id': 'update_job_fs_trigger',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'job_fs_trigger_update',
+                ],
+                'required': [
+                    'id',
+                    'job_fs_trigger_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'job_fs_trigger_update':
+                        (JobFSTriggerUpdate,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'job_fs_trigger_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.update_schedule_endpoint = _Endpoint(
             settings={
                 'response_type': (Schedule,),
@@ -2851,6 +3249,84 @@ class AutomationApi(object):
         kwargs['job_detail_update'] = \
             job_detail_update
         return self.create_job_endpoint.call_with_http_info(**kwargs)
+
+    def create_job_fs_trigger(
+        self,
+        job_fs_trigger_update,
+        **kwargs
+    ):
+        """create_job_fs_trigger  # noqa: E501
+
+        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_job_fs_trigger(job_fs_trigger_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            job_fs_trigger_update (JobFSTriggerUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            JobFSTrigger
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['job_fs_trigger_update'] = \
+            job_fs_trigger_update
+        return self.create_job_fs_trigger_endpoint.call_with_http_info(**kwargs)
 
     def create_schedule(
         self,
@@ -3158,6 +3634,84 @@ class AutomationApi(object):
         kwargs['id'] = \
             id
         return self.delete_job_endpoint.call_with_http_info(**kwargs)
+
+    def delete_job_fs_trigger(
+        self,
+        id,
+        **kwargs
+    ):
+        """delete_job_fs_trigger  # noqa: E501
+
+        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_job_fs_trigger(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Job FS trigger.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.delete_job_fs_trigger_endpoint.call_with_http_info(**kwargs)
 
     def delete_schedule(
         self,
@@ -3488,7 +4042,7 @@ class AutomationApi(object):
     ):
         """download_task_log  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:view`   # noqa: E501
+        ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3711,6 +4265,83 @@ class AutomationApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_all_events_endpoint.call_with_http_info(**kwargs)
+
+    def get_all_job_fs_triggers(
+        self,
+        **kwargs
+    ):
+        """get_all_job_fs_triggers  # noqa: E501
+
+        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_all_job_fs_triggers(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            job (int): Filter the returned list by `job`.. [optional]
+            ordering (str): Which field to use when ordering the results.. [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [JobFSTrigger]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_all_job_fs_triggers_endpoint.call_with_http_info(**kwargs)
 
     def get_all_jobs(
         self,
@@ -4429,6 +5060,167 @@ class AutomationApi(object):
             id
         return self.get_job_endpoint.call_with_http_info(**kwargs)
 
+    def get_job_fs_trigger(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_job_fs_trigger  # noqa: E501
+
+        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_job_fs_trigger(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Job FS trigger.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            JobFSTrigger
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_job_fs_trigger_endpoint.call_with_http_info(**kwargs)
+
+    def get_job_variable_options(
+        self,
+        id,
+        name,
+        **kwargs
+    ):
+        """get_job_variable_options  # noqa: E501
+
+        ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_job_variable_options(id, name, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this job.
+            name (str):
+
+        Keyword Args:
+            q (str): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [FieldOption]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['name'] = \
+            name
+        return self.get_job_variable_options_endpoint.call_with_http_info(**kwargs)
+
     def get_pending_tasks(
         self,
         **kwargs
@@ -4832,7 +5624,7 @@ class AutomationApi(object):
     ):
         """get_task_log  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:view`   # noqa: E501
+        ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4910,7 +5702,7 @@ class AutomationApi(object):
     ):
         """get_task_log_v2  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:view`   # noqa: E501
+        ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5457,6 +6249,88 @@ class AutomationApi(object):
             job_detail_partial_update
         return self.patch_job_endpoint.call_with_http_info(**kwargs)
 
+    def patch_job_fs_trigger(
+        self,
+        id,
+        job_fs_trigger_partial_update,
+        **kwargs
+    ):
+        """patch_job_fs_trigger  # noqa: E501
+
+        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.patch_job_fs_trigger(id, job_fs_trigger_partial_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Job FS trigger.
+            job_fs_trigger_partial_update (JobFSTriggerPartialUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            JobFSTrigger
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['job_fs_trigger_partial_update'] = \
+            job_fs_trigger_partial_update
+        return self.patch_job_fs_trigger_endpoint.call_with_http_info(**kwargs)
+
     def patch_schedule(
         self,
         id,
@@ -5939,6 +6813,88 @@ class AutomationApi(object):
         kwargs['job_detail_update'] = \
             job_detail_update
         return self.update_job_endpoint.call_with_http_info(**kwargs)
+
+    def update_job_fs_trigger(
+        self,
+        id,
+        job_fs_trigger_update,
+        **kwargs
+    ):
+        """update_job_fs_trigger  # noqa: E501
+
+        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_job_fs_trigger(id, job_fs_trigger_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Job FS trigger.
+            job_fs_trigger_update (JobFSTriggerUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            JobFSTrigger
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['job_fs_trigger_update'] = \
+            job_fs_trigger_update
+        return self.update_job_fs_trigger_endpoint.call_with_http_info(**kwargs)
 
     def update_schedule(
         self,

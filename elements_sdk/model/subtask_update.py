@@ -109,7 +109,7 @@ class SubtaskUpdate(ModelNormal):
         return {
             'kwargs': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'parent': (int,),  # noqa: E501
-            'graph_layout': ({str: (str, none_type)},),  # noqa: E501
+            'graph_layout': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'trigger': (str, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'noop_dont_save': (bool,),  # noqa: E501
@@ -194,7 +194,7 @@ class SubtaskUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            graph_layout ({str: (str, none_type)}): [optional]  # noqa: E501
+            graph_layout ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             trigger (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             noop_dont_save (bool): [optional]  # noqa: E501
@@ -297,7 +297,7 @@ class SubtaskUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            graph_layout ({str: (str, none_type)}): [optional]  # noqa: E501
+            graph_layout ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             trigger (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             noop_dont_save (bool): [optional]  # noqa: E501

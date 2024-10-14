@@ -152,6 +152,7 @@ class StorageNodePartialUpdate(ModelNormal):
             'ipmi_password': (str,),  # noqa: E501
             'proxy_queue': (bool,),  # noqa: E501
             'email_queue': (bool,),  # noqa: E501
+            'apply_configuration_queue': (bool,),  # noqa: E501
             'solr_indexer_enabled': (bool,),  # noqa: E501
             'discovery_enabled': (bool,),  # noqa: E501
             'discovery_address_override': (str, none_type,),  # noqa: E501
@@ -185,6 +186,7 @@ class StorageNodePartialUpdate(ModelNormal):
         'ipmi_password': 'ipmi_password',  # noqa: E501
         'proxy_queue': 'proxy_queue',  # noqa: E501
         'email_queue': 'email_queue',  # noqa: E501
+        'apply_configuration_queue': 'apply_configuration_queue',  # noqa: E501
         'solr_indexer_enabled': 'solr_indexer_enabled',  # noqa: E501
         'discovery_enabled': 'discovery_enabled',  # noqa: E501
         'discovery_address_override': 'discovery_address_override',  # noqa: E501
@@ -253,6 +255,7 @@ class StorageNodePartialUpdate(ModelNormal):
             ipmi_password (str): [optional]  # noqa: E501
             proxy_queue (bool): [optional]  # noqa: E501
             email_queue (bool): [optional]  # noqa: E501
+            apply_configuration_queue (bool): [optional]  # noqa: E501
             solr_indexer_enabled (bool): [optional]  # noqa: E501
             discovery_enabled (bool): [optional]  # noqa: E501
             discovery_address_override (str, none_type): [optional]  # noqa: E501
@@ -361,6 +364,7 @@ class StorageNodePartialUpdate(ModelNormal):
             ipmi_password (str): [optional]  # noqa: E501
             proxy_queue (bool): [optional]  # noqa: E501
             email_queue (bool): [optional]  # noqa: E501
+            apply_configuration_queue (bool): [optional]  # noqa: E501
             solr_indexer_enabled (bool): [optional]  # noqa: E501
             discovery_enabled (bool): [optional]  # noqa: E501
             discovery_address_override (str, none_type): [optional]  # noqa: E501

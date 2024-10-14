@@ -69,6 +69,7 @@ class JobDetailUpdate(ModelNormal):
             'None': None,
             '2': "2",
             '3': "3",
+            '4': "4",
         },
         ('input_type',): {
             'None': None,
@@ -119,13 +120,14 @@ class JobDetailUpdate(ModelNormal):
         """
         lazy_import()
         return {
+            'variable_definitions': ([{str: (str, none_type)}],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'schedules': ([ScheduleReference],),  # noqa: E501
-            'variable_definitions': ([{str: (str, none_type)}],),  # noqa: E501
             'subtasks': ([SubtaskReference],),  # noqa: E501
             'allow_users': ([ElementsUserReference],),  # noqa: E501
             'allow_groups': ([ElementsGroupReference],),  # noqa: E501
             'media_roots': ([int],),  # noqa: E501
+            'workflow': (int, none_type,),  # noqa: E501
             'special_type': (int, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'enabled': (bool,),  # noqa: E501
@@ -138,7 +140,6 @@ class JobDetailUpdate(ModelNormal):
             'webhook_secret': (str, none_type,),  # noqa: E501
             'elements_release': (str,),  # noqa: E501
             'security_context': (int, none_type,),  # noqa: E501
-            'part_of_workflow_for': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -147,13 +148,14 @@ class JobDetailUpdate(ModelNormal):
 
 
     attribute_map = {
+        'variable_definitions': 'variable_definitions',  # noqa: E501
         'name': 'name',  # noqa: E501
         'schedules': 'schedules',  # noqa: E501
-        'variable_definitions': 'variable_definitions',  # noqa: E501
         'subtasks': 'subtasks',  # noqa: E501
         'allow_users': 'allow_users',  # noqa: E501
         'allow_groups': 'allow_groups',  # noqa: E501
         'media_roots': 'media_roots',  # noqa: E501
+        'workflow': 'workflow',  # noqa: E501
         'special_type': 'special_type',  # noqa: E501
         'description': 'description',  # noqa: E501
         'enabled': 'enabled',  # noqa: E501
@@ -166,7 +168,6 @@ class JobDetailUpdate(ModelNormal):
         'webhook_secret': 'webhook_secret',  # noqa: E501
         'elements_release': 'elements_release',  # noqa: E501
         'security_context': 'security_context',  # noqa: E501
-        'part_of_workflow_for': 'part_of_workflow_for',  # noqa: E501
     }
 
     read_only_vars = {
@@ -176,10 +177,11 @@ class JobDetailUpdate(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, variable_definitions, name, *args, **xkwargs):  # noqa: E501
         """JobDetailUpdate - a model defined in OpenAPI
 
         Args:
+            variable_definitions ([{str: (str, none_type)}]):
             name (str):
 
         Keyword Args:
@@ -214,11 +216,11 @@ class JobDetailUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             schedules ([ScheduleReference]): [optional]  # noqa: E501
-            variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
             subtasks ([SubtaskReference]): [optional]  # noqa: E501
             allow_users ([ElementsUserReference]): [optional]  # noqa: E501
             allow_groups ([ElementsGroupReference]): [optional]  # noqa: E501
             media_roots ([int]): [optional]  # noqa: E501
+            workflow (int, none_type): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501
@@ -231,7 +233,6 @@ class JobDetailUpdate(ModelNormal):
             webhook_secret (str, none_type): [optional]  # noqa: E501
             elements_release (str): [optional]  # noqa: E501
             security_context (int, none_type): [optional]  # noqa: E501
-            part_of_workflow_for (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -260,6 +261,7 @@ class JobDetailUpdate(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
+        self.variable_definitions = variable_definitions
         self.name = name
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -282,10 +284,11 @@ class JobDetailUpdate(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, variable_definitions, name, *args, **xkwargs):  # noqa: E501
         """JobDetailUpdate - a model defined in OpenAPI
 
         Args:
+            variable_definitions ([{str: (str, none_type)}]):
             name (str):
 
         Keyword Args:
@@ -320,11 +323,11 @@ class JobDetailUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             schedules ([ScheduleReference]): [optional]  # noqa: E501
-            variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
             subtasks ([SubtaskReference]): [optional]  # noqa: E501
             allow_users ([ElementsUserReference]): [optional]  # noqa: E501
             allow_groups ([ElementsGroupReference]): [optional]  # noqa: E501
             media_roots ([int]): [optional]  # noqa: E501
+            workflow (int, none_type): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501
@@ -337,7 +340,6 @@ class JobDetailUpdate(ModelNormal):
             webhook_secret (str, none_type): [optional]  # noqa: E501
             elements_release (str): [optional]  # noqa: E501
             security_context (int, none_type): [optional]  # noqa: E501
-            part_of_workflow_for (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -364,6 +366,7 @@ class JobDetailUpdate(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
+        self.variable_definitions = variable_definitions
         self.name = name
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

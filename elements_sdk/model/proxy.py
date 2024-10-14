@@ -113,14 +113,14 @@ class Proxy(ModelNormal):
             'failed_reason': (str, none_type,),  # noqa: E501
             'skipped': (bool,),  # noqa: E501
             'generated': (bool,),  # noqa: E501
-            'asset': (int,),  # noqa: E501
-            'transforms': (Transforms,),  # noqa: E501
             'generated_date': (datetime, none_type,),  # noqa: E501
             'failed': (bool,),  # noqa: E501
             'failed_count': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'variant_id': (str,),  # noqa: E501
             'variant_config': (str,),  # noqa: E501
+            'asset': (int,),  # noqa: E501
+            'transforms': (Transforms,),  # noqa: E501
         }
 
     @cached_property
@@ -135,14 +135,14 @@ class Proxy(ModelNormal):
         'failed_reason': 'failed_reason',  # noqa: E501
         'skipped': 'skipped',  # noqa: E501
         'generated': 'generated',  # noqa: E501
-        'asset': 'asset',  # noqa: E501
-        'transforms': 'transforms',  # noqa: E501
         'generated_date': 'generated_date',  # noqa: E501
         'failed': 'failed',  # noqa: E501
         'failed_count': 'failed_count',  # noqa: E501
         'name': 'name',  # noqa: E501
         'variant_id': 'variant_id',  # noqa: E501
         'variant_config': 'variant_config',  # noqa: E501
+        'asset': 'asset',  # noqa: E501
+        'transforms': 'transforms',  # noqa: E501
     }
 
     read_only_vars = {
@@ -156,7 +156,7 @@ class Proxy(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, urls, profile, failed_reason, skipped, generated, asset, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, urls, profile, failed_reason, skipped, generated, generated_date, failed, failed_count, name, variant_config, asset, *args, **xkwargs):  # noqa: E501
         """Proxy - a model defined in OpenAPI
 
         Args:
@@ -166,9 +166,15 @@ class Proxy(ModelNormal):
             failed_reason (str, none_type):
             skipped (bool):
             generated (bool):
+            generated_date (datetime, none_type):
+            failed (bool):
+            failed_count (int):
+            name (str):
+            variant_config (str):
             asset (int):
 
         Keyword Args:
+            variant_id (str): defaults to "default"  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -200,14 +206,9 @@ class Proxy(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             transforms (Transforms): [optional]  # noqa: E501
-            generated_date (datetime, none_type): [optional]  # noqa: E501
-            failed (bool): [optional]  # noqa: E501
-            failed_count (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            variant_id (str): [optional] if omitted the server will use the default value of "default"  # noqa: E501
-            variant_config (str): [optional]  # noqa: E501
         """
 
+        variant_id = xkwargs.get('variant_id', "default")
         _check_type = xkwargs.pop('_check_type', True)
         _spec_property_naming = xkwargs.pop('_spec_property_naming', False)
         _path_to_item = xkwargs.pop('_path_to_item', ())
@@ -240,6 +241,12 @@ class Proxy(ModelNormal):
         self.failed_reason = failed_reason
         self.skipped = skipped
         self.generated = generated
+        self.generated_date = generated_date
+        self.failed = failed
+        self.failed_count = failed_count
+        self.name = name
+        self.variant_id = variant_id
+        self.variant_config = variant_config
         self.asset = asset
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -262,15 +269,21 @@ class Proxy(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, profile, asset, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, profile, generated_date, failed, failed_count, name, variant_config, asset, *args, **xkwargs):  # noqa: E501
         """Proxy - a model defined in OpenAPI
 
         Args:
             id (int):
             profile (ProxyProfileMini):
+            generated_date (datetime, none_type):
+            failed (bool):
+            failed_count (int):
+            name (str):
+            variant_config (str):
             asset (int):
 
         Keyword Args:
+            variant_id (str): defaults to "default"  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -302,14 +315,9 @@ class Proxy(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             transforms (Transforms): [optional]  # noqa: E501
-            generated_date (datetime, none_type): [optional]  # noqa: E501
-            failed (bool): [optional]  # noqa: E501
-            failed_count (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            variant_id (str): [optional] if omitted the server will use the default value of "default"  # noqa: E501
-            variant_config (str): [optional]  # noqa: E501
         """
 
+        variant_id = xkwargs.get('variant_id', "default")
         _check_type = xkwargs.pop('_check_type', True)
         _spec_property_naming = xkwargs.pop('_spec_property_naming', False)
         _path_to_item = xkwargs.pop('_path_to_item', ())
@@ -336,6 +344,12 @@ class Proxy(ModelNormal):
 
         self.id = id
         self.profile = profile
+        self.generated_date = generated_date
+        self.failed = failed
+        self.failed_count = failed_count
+        self.name = name
+        self.variant_id = variant_id
+        self.variant_config = variant_config
         self.asset = asset
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

@@ -101,7 +101,6 @@ class AssetMiniReference(ModelNormal):
             'type': (str, none_type,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
             'format': (FormatMetadata,),  # noqa: E501
-            'info': ({str: (str, none_type)},),  # noqa: E501
             'thumbnail_generated': (bool,),  # noqa: E501
             'proxies': ([Proxy],),  # noqa: E501
         }
@@ -118,7 +117,6 @@ class AssetMiniReference(ModelNormal):
         'type': 'type',  # noqa: E501
         'display_name': 'display_name',  # noqa: E501
         'format': 'format',  # noqa: E501
-        'info': 'info',  # noqa: E501
         'thumbnail_generated': 'thumbnail_generated',  # noqa: E501
         'proxies': 'proxies',  # noqa: E501
     }
@@ -127,7 +125,6 @@ class AssetMiniReference(ModelNormal):
         'sync_id',  # noqa: E501
         'type',  # noqa: E501
         'display_name',  # noqa: E501
-        'info',  # noqa: E501
         'thumbnail_generated',  # noqa: E501
         'proxies',  # noqa: E501
     }
@@ -178,7 +175,6 @@ class AssetMiniReference(ModelNormal):
             type (str, none_type): [optional]  # noqa: E501
             display_name (str): [optional]  # noqa: E501
             format (FormatMetadata): [optional]  # noqa: E501
-            info ({str: (str, none_type)}): [optional]  # noqa: E501
             thumbnail_generated (bool): [optional]  # noqa: E501
             proxies ([Proxy]): [optional]  # noqa: E501
         """
@@ -273,7 +269,6 @@ class AssetMiniReference(ModelNormal):
             type (str, none_type): [optional]  # noqa: E501
             display_name (str): [optional]  # noqa: E501
             format (FormatMetadata): [optional]  # noqa: E501
-            info ({str: (str, none_type)}): [optional]  # noqa: E501
             thumbnail_generated (bool): [optional]  # noqa: E501
             proxies ([Proxy]): [optional]  # noqa: E501
         """

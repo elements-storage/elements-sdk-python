@@ -87,8 +87,8 @@ class Snapshot(ModelNormal):
             'id': (int,),  # noqa: E501
             'created_by': (int,),  # noqa: E501
             'workspace': (int,),  # noqa: E501
-            'created_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'created_at': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -100,8 +100,8 @@ class Snapshot(ModelNormal):
         'id': 'id',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
         'workspace': 'workspace',  # noqa: E501
-        'created_at': 'created_at',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'created_at': 'created_at',  # noqa: E501
     }
 
     read_only_vars = {
@@ -113,13 +113,14 @@ class Snapshot(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, created_by, workspace, created_at, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, created_by, workspace, name, created_at, *args, **xkwargs):  # noqa: E501
         """Snapshot - a model defined in OpenAPI
 
         Args:
             id (int):
             created_by (int):
             workspace (int):
+            name (str):
             created_at (datetime):
 
         Keyword Args:
@@ -153,7 +154,6 @@ class Snapshot(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -185,6 +185,7 @@ class Snapshot(ModelNormal):
         self.id = id
         self.created_by = created_by
         self.workspace = workspace
+        self.name = name
         self.created_at = created_at
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -207,12 +208,13 @@ class Snapshot(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, workspace, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, workspace, name, *args, **xkwargs):  # noqa: E501
         """Snapshot - a model defined in OpenAPI
 
         Args:
             id (int):
             workspace (int):
+            name (str):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -244,7 +246,6 @@ class Snapshot(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -273,6 +274,7 @@ class Snapshot(ModelNormal):
 
         self.id = id
         self.workspace = workspace
+        self.name = name
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
