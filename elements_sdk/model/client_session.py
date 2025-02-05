@@ -30,10 +30,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.elements_user_mini import ElementsUserMini
     from elements_sdk.model.mounted_workspace import MountedWorkspace
     from elements_sdk.model.workstation_mini import WorkstationMini
-    globals()['ElementsUserMini'] = ElementsUserMini
     globals()['MountedWorkspace'] = MountedWorkspace
     globals()['WorkstationMini'] = WorkstationMini
 
@@ -92,7 +90,7 @@ class ClientSession(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'user': (ElementsUserMini,),  # noqa: E501
+            'user': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'mounted_workspaces': ([MountedWorkspace],),  # noqa: E501
             'started': (datetime,),  # noqa: E501
             'last_updated': (datetime,),  # noqa: E501
@@ -128,7 +126,7 @@ class ClientSession(ModelNormal):
 
         Args:
             id (int):
-            user (ElementsUserMini):
+            user (bool, date, datetime, dict, float, int, list, str, none_type):
             mounted_workspaces ([MountedWorkspace]):
             started (datetime):
             last_updated (datetime):
@@ -225,7 +223,7 @@ class ClientSession(ModelNormal):
 
         Args:
             id (int):
-            user (ElementsUserMini):
+            user (bool, date, datetime, dict, float, int, list, str, none_type):
             workstation (WorkstationMini):
 
         Keyword Args:

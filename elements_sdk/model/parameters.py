@@ -150,6 +150,7 @@ class Parameters(ModelNormal):
             'ltfs_library_address': (str, none_type,),  # noqa: E501
             'mail_styling': (EmailStyling,),  # noqa: E501
             'media_allow_anonymous_links': (bool,),  # noqa: E501
+            'media_allow_changing_archived': (bool,),  # noqa: E501
             'media_auto_play': (bool,),  # noqa: E501
             'media_auto_proxy': (bool,),  # noqa: E501
             'media_auto_scan': (bool,),  # noqa: E501
@@ -196,6 +197,7 @@ class Parameters(ModelNormal):
         'ltfs_library_address': 'ltfs_library_address',  # noqa: E501
         'mail_styling': 'mail_styling',  # noqa: E501
         'media_allow_anonymous_links': 'media_allow_anonymous_links',  # noqa: E501
+        'media_allow_changing_archived': 'media_allow_changing_archived',  # noqa: E501
         'media_auto_play': 'media_auto_play',  # noqa: E501
         'media_auto_proxy': 'media_auto_proxy',  # noqa: E501
         'media_auto_scan': 'media_auto_scan',  # noqa: E501
@@ -229,7 +231,7 @@ class Parameters(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, analytics, branding_css, branding_logo, email_logo_url, client_offer_file_search, external_url, file_manager_recycle_bin, https_redirect, language, ltfs_default_restore_to_original_location, ltfs_default_search_directories, ltfs_library_address, mail_styling, media_allow_anonymous_links, media_auto_play, media_auto_proxy, media_auto_scan, media_auto_transport, media_background_auto_pause, media_default_custom_field_type, media_default_delete_behaviour, media_detect_versions, media_force_show_deleted, media_keep_selection_when_browsing, media_recycle_bin, media_require_link_password, media_max_link_views, media_shuttle_left_behaviour, ntp_enable, ntp_offer_sync, otp_policy, password_login, session_key_restrict_to_ip, tasks_run_scheduled, update_in_progress, users_default_permissions, user_notification_settings, workspaces_path, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, analytics, branding_css, branding_logo, email_logo_url, client_offer_file_search, external_url, file_manager_recycle_bin, https_redirect, language, ltfs_default_restore_to_original_location, ltfs_default_search_directories, ltfs_library_address, mail_styling, media_allow_anonymous_links, media_allow_changing_archived, media_auto_play, media_auto_proxy, media_auto_scan, media_auto_transport, media_background_auto_pause, media_default_custom_field_type, media_default_delete_behaviour, media_detect_versions, media_force_show_deleted, media_keep_selection_when_browsing, media_recycle_bin, media_require_link_password, media_max_link_views, media_shuttle_left_behaviour, ntp_enable, ntp_offer_sync, otp_policy, password_login, session_key_restrict_to_ip, tasks_run_scheduled, update_in_progress, users_default_permissions, user_notification_settings, workspaces_path, *args, **xkwargs):  # noqa: E501
         """Parameters - a model defined in OpenAPI
 
         Args:
@@ -247,6 +249,7 @@ class Parameters(ModelNormal):
             ltfs_library_address (str, none_type):
             mail_styling (EmailStyling):
             media_allow_anonymous_links (bool):
+            media_allow_changing_archived (bool):
             media_auto_play (bool):
             media_auto_proxy (bool):
             media_auto_scan (bool):
@@ -345,6 +348,7 @@ class Parameters(ModelNormal):
         self.ltfs_library_address = ltfs_library_address
         self.mail_styling = mail_styling
         self.media_allow_anonymous_links = media_allow_anonymous_links
+        self.media_allow_changing_archived = media_allow_changing_archived
         self.media_auto_play = media_auto_play
         self.media_auto_proxy = media_auto_proxy
         self.media_auto_scan = media_auto_scan
@@ -390,7 +394,7 @@ class Parameters(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, analytics, branding_css, branding_logo, email_logo_url, client_offer_file_search, external_url, file_manager_recycle_bin, https_redirect, language, ltfs_default_restore_to_original_location, ltfs_default_search_directories, ltfs_library_address, mail_styling, media_allow_anonymous_links, media_auto_play, media_auto_proxy, media_auto_scan, media_auto_transport, media_background_auto_pause, media_default_custom_field_type, media_default_delete_behaviour, media_detect_versions, media_force_show_deleted, media_keep_selection_when_browsing, media_recycle_bin, media_require_link_password, media_max_link_views, media_shuttle_left_behaviour, ntp_enable, ntp_offer_sync, otp_policy, password_login, session_key_restrict_to_ip, tasks_run_scheduled, update_in_progress, users_default_permissions, user_notification_settings, workspaces_path, *args, **xkwargs):  # noqa: E501
+    def __init__(self, analytics, branding_css, branding_logo, email_logo_url, client_offer_file_search, external_url, file_manager_recycle_bin, https_redirect, language, ltfs_default_restore_to_original_location, ltfs_default_search_directories, ltfs_library_address, mail_styling, media_allow_anonymous_links, media_allow_changing_archived, media_auto_play, media_auto_proxy, media_auto_scan, media_auto_transport, media_background_auto_pause, media_default_custom_field_type, media_default_delete_behaviour, media_detect_versions, media_force_show_deleted, media_keep_selection_when_browsing, media_recycle_bin, media_require_link_password, media_max_link_views, media_shuttle_left_behaviour, ntp_enable, ntp_offer_sync, otp_policy, password_login, session_key_restrict_to_ip, tasks_run_scheduled, update_in_progress, users_default_permissions, user_notification_settings, workspaces_path, *args, **xkwargs):  # noqa: E501
         """Parameters - a model defined in OpenAPI
 
         Args:
@@ -408,6 +412,7 @@ class Parameters(ModelNormal):
             ltfs_library_address (str, none_type):
             mail_styling (EmailStyling):
             media_allow_anonymous_links (bool):
+            media_allow_changing_archived (bool):
             media_auto_play (bool):
             media_auto_proxy (bool):
             media_auto_scan (bool):
@@ -504,6 +509,7 @@ class Parameters(ModelNormal):
         self.ltfs_library_address = ltfs_library_address
         self.mail_styling = mail_styling
         self.media_allow_anonymous_links = media_allow_anonymous_links
+        self.media_allow_changing_archived = media_allow_changing_archived
         self.media_auto_play = media_auto_play
         self.media_auto_proxy = media_auto_proxy
         self.media_auto_scan = media_auto_scan

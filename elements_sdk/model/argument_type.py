@@ -89,6 +89,7 @@ class ArgumentType(ModelNormal):
         return {
             'display_name': (str,),  # noqa: E501
             'documentation': ([TypeDocumentation],),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -99,11 +100,13 @@ class ArgumentType(ModelNormal):
     attribute_map = {
         'display_name': 'display_name',  # noqa: E501
         'documentation': 'documentation',  # noqa: E501
+        'description': 'description',  # noqa: E501
     }
 
     read_only_vars = {
         'display_name',  # noqa: E501
         'documentation',  # noqa: E501
+        'description',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -148,6 +151,7 @@ class ArgumentType(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            description (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -233,6 +237,7 @@ class ArgumentType(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            description (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

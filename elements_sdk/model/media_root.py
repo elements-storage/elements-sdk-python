@@ -127,6 +127,7 @@ class MediaRoot(ModelNormal):
             'workflow': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'path': (str,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
             'needs_rescan': (bool,),  # noqa: E501
             'view_mode': (str,),  # noqa: E501
             'view_style': (str,),  # noqa: E501
@@ -144,14 +145,11 @@ class MediaRoot(ModelNormal):
             'prefetch_thumbnail_strips': (bool,),  # noqa: E501
             'cover': (str, none_type,),  # noqa: E501
             'name_field': (str, none_type,),  # noqa: E501
-            'ai_config': (str,),  # noqa: E501
             'share_comments': (bool,),  # noqa: E501
             'share_link_duration': (int,),  # noqa: E501
             'disable_framestacks': (bool,),  # noqa: E501
             'default_proxy_profile': (int, none_type,),  # noqa: E501
             'cloud_proxy_profile': (int, none_type,),  # noqa: E501
-            'ai_connection': (int, none_type,),  # noqa: E501
-            'ai_proxy_profile': (int, none_type,),  # noqa: E501
             'resolved_permissions': ([MediaRootPermission],),  # noqa: E501
         }
 
@@ -168,6 +166,7 @@ class MediaRoot(ModelNormal):
         'workflow': 'workflow',  # noqa: E501
         'name': 'name',  # noqa: E501
         'path': 'path',  # noqa: E501
+        'description': 'description',  # noqa: E501
         'needs_rescan': 'needs_rescan',  # noqa: E501
         'view_mode': 'view_mode',  # noqa: E501
         'view_style': 'view_style',  # noqa: E501
@@ -185,14 +184,11 @@ class MediaRoot(ModelNormal):
         'prefetch_thumbnail_strips': 'prefetch_thumbnail_strips',  # noqa: E501
         'cover': 'cover',  # noqa: E501
         'name_field': 'name_field',  # noqa: E501
-        'ai_config': 'ai_config',  # noqa: E501
         'share_comments': 'share_comments',  # noqa: E501
         'share_link_duration': 'share_link_duration',  # noqa: E501
         'disable_framestacks': 'disable_framestacks',  # noqa: E501
         'default_proxy_profile': 'default_proxy_profile',  # noqa: E501
         'cloud_proxy_profile': 'cloud_proxy_profile',  # noqa: E501
-        'ai_connection': 'ai_connection',  # noqa: E501
-        'ai_proxy_profile': 'ai_proxy_profile',  # noqa: E501
         'resolved_permissions': 'resolved_permissions',  # noqa: E501
     }
 
@@ -205,7 +201,7 @@ class MediaRoot(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, custom_fields, volume, full_path, workflow, name, path, needs_rescan, view_mode, view_style, view_default_tab, show_tags, show_comments, show_locations, show_custom_fields, show_ratings, show_subclips, show_subtitles, show_markers, show_history, show_ai_metadata, prefetch_thumbnail_strips, cover, name_field, ai_config, share_comments, share_link_duration, disable_framestacks, default_proxy_profile, cloud_proxy_profile, ai_connection, ai_proxy_profile, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, custom_fields, volume, full_path, workflow, name, path, description, needs_rescan, view_mode, view_style, view_default_tab, show_tags, show_comments, show_locations, show_custom_fields, show_ratings, show_subclips, show_subtitles, show_markers, show_history, show_ai_metadata, prefetch_thumbnail_strips, cover, name_field, share_comments, share_link_duration, disable_framestacks, default_proxy_profile, cloud_proxy_profile, *args, **xkwargs):  # noqa: E501
         """MediaRoot - a model defined in OpenAPI
 
         Args:
@@ -216,6 +212,7 @@ class MediaRoot(ModelNormal):
             workflow (bool, date, datetime, dict, float, int, list, str, none_type):
             name (str):
             path (str):
+            description (str, none_type):
             needs_rescan (bool):
             view_mode (str):
             view_style (str):
@@ -233,14 +230,11 @@ class MediaRoot(ModelNormal):
             prefetch_thumbnail_strips (bool):
             cover (str, none_type):
             name_field (str, none_type):
-            ai_config (str):
             share_comments (bool):
             share_link_duration (int):
             disable_framestacks (bool):
             default_proxy_profile (int, none_type):
             cloud_proxy_profile (int, none_type):
-            ai_connection (int, none_type):
-            ai_proxy_profile (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -309,6 +303,7 @@ class MediaRoot(ModelNormal):
         self.workflow = workflow
         self.name = name
         self.path = path
+        self.description = description
         self.needs_rescan = needs_rescan
         self.view_mode = view_mode
         self.view_style = view_style
@@ -326,14 +321,11 @@ class MediaRoot(ModelNormal):
         self.prefetch_thumbnail_strips = prefetch_thumbnail_strips
         self.cover = cover
         self.name_field = name_field
-        self.ai_config = ai_config
         self.share_comments = share_comments
         self.share_link_duration = share_link_duration
         self.disable_framestacks = disable_framestacks
         self.default_proxy_profile = default_proxy_profile
         self.cloud_proxy_profile = cloud_proxy_profile
-        self.ai_connection = ai_connection
-        self.ai_proxy_profile = ai_proxy_profile
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -355,7 +347,7 @@ class MediaRoot(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, custom_fields, volume, workflow, name, path, needs_rescan, view_mode, view_style, view_default_tab, show_tags, show_comments, show_locations, show_custom_fields, show_ratings, show_subclips, show_subtitles, show_markers, show_history, show_ai_metadata, prefetch_thumbnail_strips, cover, name_field, ai_config, share_comments, share_link_duration, disable_framestacks, default_proxy_profile, cloud_proxy_profile, ai_connection, ai_proxy_profile, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, custom_fields, volume, workflow, name, path, description, needs_rescan, view_mode, view_style, view_default_tab, show_tags, show_comments, show_locations, show_custom_fields, show_ratings, show_subclips, show_subtitles, show_markers, show_history, show_ai_metadata, prefetch_thumbnail_strips, cover, name_field, share_comments, share_link_duration, disable_framestacks, default_proxy_profile, cloud_proxy_profile, *args, **xkwargs):  # noqa: E501
         """MediaRoot - a model defined in OpenAPI
 
         Args:
@@ -365,6 +357,7 @@ class MediaRoot(ModelNormal):
             workflow (bool, date, datetime, dict, float, int, list, str, none_type):
             name (str):
             path (str):
+            description (str, none_type):
             needs_rescan (bool):
             view_mode (str):
             view_style (str):
@@ -382,14 +375,11 @@ class MediaRoot(ModelNormal):
             prefetch_thumbnail_strips (bool):
             cover (str, none_type):
             name_field (str, none_type):
-            ai_config (str):
             share_comments (bool):
             share_link_duration (int):
             disable_framestacks (bool):
             default_proxy_profile (int, none_type):
             cloud_proxy_profile (int, none_type):
-            ai_connection (int, none_type):
-            ai_proxy_profile (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -455,6 +445,7 @@ class MediaRoot(ModelNormal):
         self.workflow = workflow
         self.name = name
         self.path = path
+        self.description = description
         self.needs_rescan = needs_rescan
         self.view_mode = view_mode
         self.view_style = view_style
@@ -472,14 +463,11 @@ class MediaRoot(ModelNormal):
         self.prefetch_thumbnail_strips = prefetch_thumbnail_strips
         self.cover = cover
         self.name_field = name_field
-        self.ai_config = ai_config
         self.share_comments = share_comments
         self.share_link_duration = share_link_duration
         self.disable_framestacks = disable_framestacks
         self.default_proxy_profile = default_proxy_profile
         self.cloud_proxy_profile = cloud_proxy_profile
-        self.ai_connection = ai_connection
-        self.ai_proxy_profile = ai_proxy_profile
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

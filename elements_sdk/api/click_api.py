@@ -27,7 +27,6 @@ from elements_sdk.model.click_gallery import ClickGallery
 from elements_sdk.model.click_gallery_link import ClickGalleryLink
 from elements_sdk.model.click_gallery_update import ClickGalleryUpdate
 from elements_sdk.model.click_start_upload_endpoint_request import ClickStartUploadEndpointRequest
-from elements_sdk.model.inline_response200 import InlineResponse200
 from elements_sdk.model.task_info import TaskInfo
 
 
@@ -464,7 +463,7 @@ class ClickApi(object):
         )
         self.get_all_click_gallery_links_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse200,),
+                'response_type': ([ClickGalleryLink],),
                 'auth': [
                     'Bearer'
                 ],
@@ -1386,7 +1385,7 @@ class ClickApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse200
+            [ClickGalleryLink]
                 If the method is called asynchronously, returns the request
                 thread.
         """

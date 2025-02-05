@@ -55,6 +55,14 @@ class ClientsEndpointResponse(ModelNormal):
     """
 
     allowed_values = {
+        ('platform',): {
+            'WINDOWS': "Windows",
+            'MACOS-INTEL': "macOS-Intel",
+            'MACOS-SILICON': "macOS-Silicon",
+            'LINUX': "Linux",
+            'RHEL': "RHEL",
+            'DEBIAN': "Debian",
+        },
     }
 
     validations = {
@@ -62,9 +70,6 @@ class ClientsEndpointResponse(ModelNormal):
             'min_length': 1,
         },
         ('full_version',): {
-            'min_length': 1,
-        },
-        ('platform',): {
             'min_length': 1,
         },
         ('file',): {

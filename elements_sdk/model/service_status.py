@@ -82,6 +82,8 @@ class ServiceStatus(ModelNormal):
         """
         return {
             'running': (bool,),  # noqa: E501
+            'enabled': (bool,),  # noqa: E501
+            'masked': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -91,6 +93,8 @@ class ServiceStatus(ModelNormal):
 
     attribute_map = {
         'running': 'running',  # noqa: E501
+        'enabled': 'enabled',  # noqa: E501
+        'masked': 'masked',  # noqa: E501
     }
 
     read_only_vars = {
@@ -100,11 +104,13 @@ class ServiceStatus(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, running, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, running, enabled, masked, *args, **xkwargs):  # noqa: E501
         """ServiceStatus - a model defined in OpenAPI
 
         Args:
             running (bool):
+            enabled (bool):
+            masked (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -166,6 +172,8 @@ class ServiceStatus(ModelNormal):
 
 
         self.running = running
+        self.enabled = enabled
+        self.masked = masked
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -187,11 +195,13 @@ class ServiceStatus(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, running, *args, **xkwargs):  # noqa: E501
+    def __init__(self, running, enabled, masked, *args, **xkwargs):  # noqa: E501
         """ServiceStatus - a model defined in OpenAPI
 
         Args:
             running (bool):
+            enabled (bool):
+            masked (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -251,6 +261,8 @@ class ServiceStatus(ModelNormal):
 
 
         self.running = running
+        self.enabled = enabled
+        self.masked = masked
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

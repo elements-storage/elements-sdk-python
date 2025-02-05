@@ -70,6 +70,10 @@ class Interface(ModelNormal):
             'inclusive_maximum': 9223372036854775000,
             'inclusive_minimum': -9223372036854775000,
         },
+        ('mac',): {
+            'max_length': 255,
+            'min_length': 1,
+        },
         ('mtu',): {
             'inclusive_maximum': 2147483647,
             'inclusive_minimum': -2147483648,
@@ -111,6 +115,7 @@ class Interface(ModelNormal):
             'device': (str,),  # noqa: E501
             'addresses': ([Address],),  # noqa: E501
             'speed': (int, none_type,),  # noqa: E501
+            'mac': (str,),  # noqa: E501
             'mtu': (int,),  # noqa: E501
             'use_for_mounts': (bool,),  # noqa: E501
             'priority': (int,),  # noqa: E501
@@ -127,6 +132,7 @@ class Interface(ModelNormal):
         'device': 'device',  # noqa: E501
         'addresses': 'addresses',  # noqa: E501
         'speed': 'speed',  # noqa: E501
+        'mac': 'mac',  # noqa: E501
         'mtu': 'mtu',  # noqa: E501
         'use_for_mounts': 'use_for_mounts',  # noqa: E501
         'priority': 'priority',  # noqa: E501
@@ -141,7 +147,7 @@ class Interface(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, device, addresses, speed, mtu, use_for_mounts, priority, port, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, device, addresses, speed, mac, mtu, use_for_mounts, priority, port, *args, **xkwargs):  # noqa: E501
         """Interface - a model defined in OpenAPI
 
         Args:
@@ -149,6 +155,7 @@ class Interface(ModelNormal):
             device (str):
             addresses ([Address]):
             speed (int, none_type):
+            mac (str):
             mtu (int):
             use_for_mounts (bool):
             priority (int):
@@ -217,6 +224,7 @@ class Interface(ModelNormal):
         self.device = device
         self.addresses = addresses
         self.speed = speed
+        self.mac = mac
         self.mtu = mtu
         self.use_for_mounts = use_for_mounts
         self.priority = priority
@@ -242,13 +250,14 @@ class Interface(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, device, speed, mtu, use_for_mounts, priority, port, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, device, speed, mac, mtu, use_for_mounts, priority, port, *args, **xkwargs):  # noqa: E501
         """Interface - a model defined in OpenAPI
 
         Args:
             id (int):
             device (str):
             speed (int, none_type):
+            mac (str):
             mtu (int):
             use_for_mounts (bool):
             priority (int):
@@ -314,6 +323,7 @@ class Interface(ModelNormal):
         self.id = id
         self.device = device
         self.speed = speed
+        self.mac = mac
         self.mtu = mtu
         self.use_for_mounts = use_for_mounts
         self.priority = priority

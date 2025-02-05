@@ -235,6 +235,7 @@ class WorkspaceDetail(ModelNormal):
             'external_linux_url': (str, none_type,),  # noqa: E501
             'allow_symlinks': (bool,),  # noqa: E501
             'rw_permission_priority': (bool,),  # noqa: E501
+            'veto_dot_underscore': (bool,),  # noqa: E501
             'template': (int, none_type,),  # noqa: E501
             'volume_path': (str, none_type,),  # noqa: E501
             'path': (str, none_type,),  # noqa: E501
@@ -299,6 +300,7 @@ class WorkspaceDetail(ModelNormal):
         'external_linux_url': 'external_linux_url',  # noqa: E501
         'allow_symlinks': 'allow_symlinks',  # noqa: E501
         'rw_permission_priority': 'rw_permission_priority',  # noqa: E501
+        'veto_dot_underscore': 'veto_dot_underscore',  # noqa: E501
         'template': 'template',  # noqa: E501
         'volume_path': 'volume_path',  # noqa: E501
         'path': 'path',  # noqa: E501
@@ -332,7 +334,7 @@ class WorkspaceDetail(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, production, volume, sharing_nfs_permissions, current_share_name, size_used, size_total, bookmarked, quota_size_hard, quota_size_soft, resolved_read_only, recycle_bin_path, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_ntfs_streams, emulate_recycle_bin, emulate_fruit, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, template, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, production, volume, sharing_nfs_permissions, current_share_name, size_used, size_total, bookmarked, quota_size_hard, quota_size_soft, resolved_read_only, recycle_bin_path, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_ntfs_streams, emulate_recycle_bin, emulate_fruit, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, veto_dot_underscore, template, *args, **xkwargs):  # noqa: E501
         """WorkspaceDetail - a model defined in OpenAPI
 
         Args:
@@ -382,6 +384,7 @@ class WorkspaceDetail(ModelNormal):
             external_linux_url (str, none_type):
             allow_symlinks (bool):
             rw_permission_priority (bool):
+            veto_dot_underscore (bool):
             template (int, none_type):
 
         Keyword Args:
@@ -498,6 +501,7 @@ class WorkspaceDetail(ModelNormal):
         self.external_linux_url = external_linux_url
         self.allow_symlinks = allow_symlinks
         self.rw_permission_priority = rw_permission_priority
+        self.veto_dot_underscore = veto_dot_underscore
         self.template = template
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -520,7 +524,7 @@ class WorkspaceDetail(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, production, volume, sharing_nfs_permissions, quota_size_hard, quota_size_soft, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_ntfs_streams, emulate_recycle_bin, emulate_fruit, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, template, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, production, volume, sharing_nfs_permissions, quota_size_hard, quota_size_soft, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_ntfs_streams, emulate_recycle_bin, emulate_fruit, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, veto_dot_underscore, template, *args, **xkwargs):  # noqa: E501
         """WorkspaceDetail - a model defined in OpenAPI
 
         Args:
@@ -564,6 +568,7 @@ class WorkspaceDetail(ModelNormal):
             external_linux_url (str, none_type):
             allow_symlinks (bool):
             rw_permission_priority (bool):
+            veto_dot_underscore (bool):
             template (int, none_type):
 
         Keyword Args:
@@ -672,6 +677,7 @@ class WorkspaceDetail(ModelNormal):
         self.external_linux_url = external_linux_url
         self.allow_symlinks = allow_symlinks
         self.rw_permission_priority = rw_permission_priority
+        self.veto_dot_underscore = veto_dot_underscore
         self.template = template
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

@@ -72,6 +72,9 @@ from elements_sdk.model.media_file_update import MediaFileUpdate
 from elements_sdk.model.media_files_lookup_request import MediaFilesLookupRequest
 from elements_sdk.model.media_library_delete_request import MediaLibraryDeleteRequest
 from elements_sdk.model.media_library_share_request import MediaLibraryShareRequest
+from elements_sdk.model.media_pinned_item import MediaPinnedItem
+from elements_sdk.model.media_pinned_item_partial_update import MediaPinnedItemPartialUpdate
+from elements_sdk.model.media_pinned_item_update import MediaPinnedItemUpdate
 from elements_sdk.model.media_root import MediaRoot
 from elements_sdk.model.media_root_detail import MediaRootDetail
 from elements_sdk.model.media_root_detail_partial_update import MediaRootDetailPartialUpdate
@@ -1992,6 +1995,55 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.delete_media_pinned_item_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/pinned-items/{id}',
+                'operation_id': 'delete_media_pinned_item',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.delete_media_root_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -2755,12 +2807,12 @@ class MediaLibraryApi(object):
             },
             params_map={
                 'all': [
-                    'filename',
                     'id',
+                    'filename',
                 ],
                 'required': [
-                    'filename',
                     'id',
+                    'filename',
                 ],
                 'nullable': [
                 ],
@@ -2775,18 +2827,18 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'filename':
-                        (str,),
                     'id':
                         (int,),
+                    'filename':
+                        (str,),
                 },
                 'attribute_map': {
-                    'filename': 'filename',
                     'id': 'id',
+                    'filename': 'filename',
                 },
                 'location_map': {
-                    'filename': 'path',
                     'id': 'path',
+                    'filename': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -3911,6 +3963,17 @@ class MediaLibraryApi(object):
                     'ordering',
                     'limit',
                     'offset',
+                    'include_deleted',
+                    'include_deleted_and_archived',
+                    'include_unrecognized',
+                    'include_proxies',
+                    'include_parents',
+                    'include_modified_by',
+                    'advanced_search',
+                    'in_media_root',
+                    'in_directory',
+                    'for_root',
+                    'resolve_asset_permission',
                 ],
                 'required': [
                     'root',
@@ -3946,6 +4009,28 @@ class MediaLibraryApi(object):
                         (int,),
                     'offset':
                         (int,),
+                    'include_deleted':
+                        (bool,),
+                    'include_deleted_and_archived':
+                        (bool,),
+                    'include_unrecognized':
+                        (bool,),
+                    'include_proxies':
+                        (bool,),
+                    'include_parents':
+                        (bool,),
+                    'include_modified_by':
+                        (bool,),
+                    'advanced_search':
+                        (str,),
+                    'in_media_root':
+                        (int,),
+                    'in_directory':
+                        (int,),
+                    'for_root':
+                        (int,),
+                    'resolve_asset_permission':
+                        (bool,),
                 },
                 'attribute_map': {
                     'root': 'root',
@@ -3957,6 +4042,17 @@ class MediaLibraryApi(object):
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
+                    'include_deleted': 'include_deleted',
+                    'include_deleted_and_archived': 'include_deleted_and_archived',
+                    'include_unrecognized': 'include_unrecognized',
+                    'include_proxies': 'include_proxies',
+                    'include_parents': 'include_parents',
+                    'include_modified_by': 'include_modified_by',
+                    'advanced_search': 'advanced_search',
+                    'in_media_root': 'in_media_root',
+                    'in_directory': 'in_directory',
+                    'for_root': 'for_root',
+                    'resolve_asset_permission': 'resolve_asset_permission',
                 },
                 'location_map': {
                     'root': 'path',
@@ -3968,6 +4064,17 @@ class MediaLibraryApi(object):
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                    'include_deleted': 'query',
+                    'include_deleted_and_archived': 'query',
+                    'include_unrecognized': 'query',
+                    'include_proxies': 'query',
+                    'include_parents': 'query',
+                    'include_modified_by': 'query',
+                    'advanced_search': 'query',
+                    'in_media_root': 'query',
+                    'in_directory': 'query',
+                    'for_root': 'query',
+                    'resolve_asset_permission': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -4002,8 +4109,9 @@ class MediaLibraryApi(object):
                     'ordering',
                     'limit',
                     'offset',
-                    'exclude_deleted',
-                    'exclude_unrecognized',
+                    'include_deleted',
+                    'include_deleted_and_archived',
+                    'include_unrecognized',
                     'include_proxies',
                     'include_parents',
                     'include_modified_by',
@@ -4011,6 +4119,7 @@ class MediaLibraryApi(object):
                     'in_media_root',
                     'in_directory',
                     'for_root',
+                    'resolve_asset_permission',
                 ],
                 'required': [
                     'file',
@@ -4046,9 +4155,11 @@ class MediaLibraryApi(object):
                         (int,),
                     'offset':
                         (int,),
-                    'exclude_deleted':
+                    'include_deleted':
                         (bool,),
-                    'exclude_unrecognized':
+                    'include_deleted_and_archived':
+                        (bool,),
+                    'include_unrecognized':
                         (bool,),
                     'include_proxies':
                         (bool,),
@@ -4064,6 +4175,8 @@ class MediaLibraryApi(object):
                         (int,),
                     'for_root':
                         (int,),
+                    'resolve_asset_permission':
+                        (bool,),
                 },
                 'attribute_map': {
                     'file': 'file',
@@ -4075,8 +4188,9 @@ class MediaLibraryApi(object):
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
-                    'exclude_deleted': 'exclude_deleted',
-                    'exclude_unrecognized': 'exclude_unrecognized',
+                    'include_deleted': 'include_deleted',
+                    'include_deleted_and_archived': 'include_deleted_and_archived',
+                    'include_unrecognized': 'include_unrecognized',
                     'include_proxies': 'include_proxies',
                     'include_parents': 'include_parents',
                     'include_modified_by': 'include_modified_by',
@@ -4084,6 +4198,7 @@ class MediaLibraryApi(object):
                     'in_media_root': 'in_media_root',
                     'in_directory': 'in_directory',
                     'for_root': 'for_root',
+                    'resolve_asset_permission': 'resolve_asset_permission',
                 },
                 'location_map': {
                     'file': 'path',
@@ -4095,8 +4210,9 @@ class MediaLibraryApi(object):
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
-                    'exclude_deleted': 'query',
-                    'exclude_unrecognized': 'query',
+                    'include_deleted': 'query',
+                    'include_deleted_and_archived': 'query',
+                    'include_unrecognized': 'query',
                     'include_proxies': 'query',
                     'include_parents': 'query',
                     'include_modified_by': 'query',
@@ -4104,6 +4220,7 @@ class MediaLibraryApi(object):
                     'in_media_root': 'query',
                     'in_directory': 'query',
                     'for_root': 'query',
+                    'resolve_asset_permission': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -4384,7 +4501,7 @@ class MediaLibraryApi(object):
                     'name':
                         (str,),
                     'id':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -4509,8 +4626,9 @@ class MediaLibraryApi(object):
                     'ordering',
                     'limit',
                     'offset',
-                    'exclude_deleted',
-                    'exclude_unrecognized',
+                    'include_deleted',
+                    'include_deleted_and_archived',
+                    'include_unrecognized',
                     'include_proxies',
                     'include_parents',
                     'include_modified_by',
@@ -4518,6 +4636,7 @@ class MediaLibraryApi(object):
                     'in_media_root',
                     'in_directory',
                     'for_root',
+                    'resolve_asset_permission',
                 ],
                 'required': [],
                 'nullable': [
@@ -4549,9 +4668,11 @@ class MediaLibraryApi(object):
                         (int,),
                     'offset':
                         (int,),
-                    'exclude_deleted':
+                    'include_deleted':
                         (bool,),
-                    'exclude_unrecognized':
+                    'include_deleted_and_archived':
+                        (bool,),
+                    'include_unrecognized':
                         (bool,),
                     'include_proxies':
                         (bool,),
@@ -4567,6 +4688,8 @@ class MediaLibraryApi(object):
                         (int,),
                     'for_root':
                         (int,),
+                    'resolve_asset_permission':
+                        (bool,),
                 },
                 'attribute_map': {
                     'asset': 'asset',
@@ -4577,8 +4700,9 @@ class MediaLibraryApi(object):
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
-                    'exclude_deleted': 'exclude_deleted',
-                    'exclude_unrecognized': 'exclude_unrecognized',
+                    'include_deleted': 'include_deleted',
+                    'include_deleted_and_archived': 'include_deleted_and_archived',
+                    'include_unrecognized': 'include_unrecognized',
                     'include_proxies': 'include_proxies',
                     'include_parents': 'include_parents',
                     'include_modified_by': 'include_modified_by',
@@ -4586,6 +4710,7 @@ class MediaLibraryApi(object):
                     'in_media_root': 'in_media_root',
                     'in_directory': 'in_directory',
                     'for_root': 'for_root',
+                    'resolve_asset_permission': 'resolve_asset_permission',
                 },
                 'location_map': {
                     'asset': 'query',
@@ -4596,8 +4721,9 @@ class MediaLibraryApi(object):
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
-                    'exclude_deleted': 'query',
-                    'exclude_unrecognized': 'query',
+                    'include_deleted': 'query',
+                    'include_deleted_and_archived': 'query',
+                    'include_unrecognized': 'query',
                     'include_proxies': 'query',
                     'include_parents': 'query',
                     'include_modified_by': 'query',
@@ -4605,6 +4731,7 @@ class MediaLibraryApi(object):
                     'in_media_root': 'query',
                     'in_directory': 'query',
                     'for_root': 'query',
+                    'resolve_asset_permission': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -4697,6 +4824,7 @@ class MediaLibraryApi(object):
                     'is_dir',
                     'is_showroom',
                     'present',
+                    'archived',
                     'volume',
                     'shared_via_tokens',
                     'shared_via_tokens__token',
@@ -4711,7 +4839,8 @@ class MediaLibraryApi(object):
                     'advanced_search',
                     'in_media_root',
                     'in_directory',
-                    'exclude_deleted',
+                    'include_deleted',
+                    'include_deleted_and_archived',
                 ],
                 'required': [],
                 'nullable': [
@@ -4743,6 +4872,8 @@ class MediaLibraryApi(object):
                         (str,),
                     'present':
                         (str,),
+                    'archived':
+                        (str,),
                     'volume':
                         (int,),
                     'shared_via_tokens':
@@ -4771,7 +4902,9 @@ class MediaLibraryApi(object):
                         (int,),
                     'in_directory':
                         (int,),
-                    'exclude_deleted':
+                    'include_deleted':
+                        (bool,),
+                    'include_deleted_and_archived':
                         (bool,),
                 },
                 'attribute_map': {
@@ -4783,6 +4916,7 @@ class MediaLibraryApi(object):
                     'is_dir': 'is_dir',
                     'is_showroom': 'is_showroom',
                     'present': 'present',
+                    'archived': 'archived',
                     'volume': 'volume',
                     'shared_via_tokens': 'shared_via_tokens',
                     'shared_via_tokens__token': 'shared_via_tokens__token',
@@ -4797,7 +4931,8 @@ class MediaLibraryApi(object):
                     'advanced_search': 'advanced_search',
                     'in_media_root': 'in_media_root',
                     'in_directory': 'in_directory',
-                    'exclude_deleted': 'exclude_deleted',
+                    'include_deleted': 'include_deleted',
+                    'include_deleted_and_archived': 'include_deleted_and_archived',
                 },
                 'location_map': {
                     'bundle': 'query',
@@ -4808,6 +4943,7 @@ class MediaLibraryApi(object):
                     'is_dir': 'query',
                     'is_showroom': 'query',
                     'present': 'query',
+                    'archived': 'query',
                     'volume': 'query',
                     'shared_via_tokens': 'query',
                     'shared_via_tokens__token': 'query',
@@ -4822,7 +4958,8 @@ class MediaLibraryApi(object):
                     'advanced_search': 'query',
                     'in_media_root': 'query',
                     'in_directory': 'query',
-                    'exclude_deleted': 'query',
+                    'include_deleted': 'query',
+                    'include_deleted_and_archived': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -4909,6 +5046,7 @@ class MediaLibraryApi(object):
                     'is_dir',
                     'is_showroom',
                     'present',
+                    'archived',
                     'volume',
                     'shared_via_tokens',
                     'shared_via_tokens__token',
@@ -4950,6 +5088,8 @@ class MediaLibraryApi(object):
                         (str,),
                     'present':
                         (str,),
+                    'archived':
+                        (str,),
                     'volume':
                         (int,),
                     'shared_via_tokens':
@@ -4973,6 +5113,7 @@ class MediaLibraryApi(object):
                     'is_dir': 'is_dir',
                     'is_showroom': 'is_showroom',
                     'present': 'present',
+                    'archived': 'archived',
                     'volume': 'volume',
                     'shared_via_tokens': 'shared_via_tokens',
                     'shared_via_tokens__token': 'shared_via_tokens__token',
@@ -4990,6 +5131,7 @@ class MediaLibraryApi(object):
                     'is_dir': 'query',
                     'is_showroom': 'query',
                     'present': 'query',
+                    'archived': 'query',
                     'volume': 'query',
                     'shared_via_tokens': 'query',
                     'shared_via_tokens__token': 'query',
@@ -5030,6 +5172,7 @@ class MediaLibraryApi(object):
                     'is_dir',
                     'is_showroom',
                     'present',
+                    'archived',
                     'volume',
                     'shared_via_tokens',
                     'shared_via_tokens__token',
@@ -5071,6 +5214,8 @@ class MediaLibraryApi(object):
                         (str,),
                     'present':
                         (str,),
+                    'archived':
+                        (str,),
                     'volume':
                         (int,),
                     'shared_via_tokens':
@@ -5094,6 +5239,7 @@ class MediaLibraryApi(object):
                     'is_dir': 'is_dir',
                     'is_showroom': 'is_showroom',
                     'present': 'present',
+                    'archived': 'archived',
                     'volume': 'volume',
                     'shared_via_tokens': 'shared_via_tokens',
                     'shared_via_tokens__token': 'shared_via_tokens__token',
@@ -5111,6 +5257,7 @@ class MediaLibraryApi(object):
                     'is_dir': 'query',
                     'is_showroom': 'query',
                     'present': 'query',
+                    'archived': 'query',
                     'volume': 'query',
                     'shared_via_tokens': 'query',
                     'shared_via_tokens__token': 'query',
@@ -5166,7 +5313,7 @@ class MediaLibraryApi(object):
                     'root':
                         (int,),
                     'id':
-                        (float,),
+                        (int,),
                     'is_temporary_for_token':
                         (int,),
                     'ordering':
@@ -5322,7 +5469,7 @@ class MediaLibraryApi(object):
                 },
                 'openapi_types': {
                     'id':
-                        (float,),
+                        (int,),
                     'id__in':
                         (str,),
                     'name':
@@ -5453,6 +5600,70 @@ class MediaLibraryApi(object):
                     'limit': 'query',
                     'offset': 'query',
                     'filter': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_all_pinned_items_endpoint = _Endpoint(
+            settings={
+                'response_type': ([MediaPinnedItem],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/pinned-items',
+                'operation_id': 'get_all_pinned_items',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'user',
+                    'ordering',
+                    'limit',
+                    'offset',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'user':
+                        (int,),
+                    'ordering':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'user': 'user',
+                    'ordering': 'ordering',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'user': 'query',
+                    'ordering': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -5606,7 +5817,6 @@ class MediaLibraryApi(object):
             },
             params_map={
                 'all': [
-                    'shared',
                     'name',
                     'root',
                     'user',
@@ -5628,8 +5838,6 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'shared':
-                        (str,),
                     'name':
                         (str,),
                     'root':
@@ -5644,7 +5852,6 @@ class MediaLibraryApi(object):
                         (int,),
                 },
                 'attribute_map': {
-                    'shared': 'shared',
                     'name': 'name',
                     'root': 'root',
                     'user': 'user',
@@ -5653,7 +5860,6 @@ class MediaLibraryApi(object):
                     'offset': 'offset',
                 },
                 'location_map': {
-                    'shared': 'query',
                     'name': 'query',
                     'root': 'query',
                     'user': 'query',
@@ -5708,7 +5914,7 @@ class MediaLibraryApi(object):
                     'name':
                         (str,),
                     'id':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -6330,6 +6536,7 @@ class MediaLibraryApi(object):
                     'is_dir',
                     'is_showroom',
                     'present',
+                    'archived',
                     'volume',
                     'shared_via_tokens',
                     'shared_via_tokens__token',
@@ -6367,6 +6574,8 @@ class MediaLibraryApi(object):
                         (str,),
                     'present':
                         (str,),
+                    'archived':
+                        (str,),
                     'volume':
                         (int,),
                     'shared_via_tokens':
@@ -6389,6 +6598,7 @@ class MediaLibraryApi(object):
                     'is_dir': 'is_dir',
                     'is_showroom': 'is_showroom',
                     'present': 'present',
+                    'archived': 'archived',
                     'volume': 'volume',
                     'shared_via_tokens': 'shared_via_tokens',
                     'shared_via_tokens__token': 'shared_via_tokens__token',
@@ -6405,6 +6615,7 @@ class MediaLibraryApi(object):
                     'is_dir': 'query',
                     'is_showroom': 'query',
                     'present': 'query',
+                    'archived': 'query',
                     'volume': 'query',
                     'shared_via_tokens': 'query',
                     'shared_via_tokens__token': 'query',
@@ -6925,12 +7136,12 @@ class MediaLibraryApi(object):
             },
             params_map={
                 'all': [
-                    'frame',
                     'id',
+                    'frame',
                 ],
                 'required': [
-                    'frame',
                     'id',
+                    'frame',
                 ],
                 'nullable': [
                 ],
@@ -6945,18 +7156,18 @@ class MediaLibraryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'frame':
-                        (str,),
                     'id':
                         (int,),
+                    'frame':
+                        (str,),
                 },
                 'attribute_map': {
-                    'frame': 'frame',
                     'id': 'id',
+                    'frame': 'frame',
                 },
                 'location_map': {
-                    'frame': 'path',
                     'id': 'path',
+                    'frame': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -6992,7 +7203,8 @@ class MediaLibraryApi(object):
                     'advanced_search',
                     'in_media_root',
                     'in_directory',
-                    'exclude_deleted',
+                    'include_deleted',
+                    'include_deleted_and_archived',
                     'path',
                 ],
                 'required': [
@@ -7029,7 +7241,9 @@ class MediaLibraryApi(object):
                         (int,),
                     'in_directory':
                         (int,),
-                    'exclude_deleted':
+                    'include_deleted':
+                        (bool,),
+                    'include_deleted_and_archived':
                         (bool,),
                     'path':
                         (str,),
@@ -7044,7 +7258,8 @@ class MediaLibraryApi(object):
                     'advanced_search': 'advanced_search',
                     'in_media_root': 'in_media_root',
                     'in_directory': 'in_directory',
-                    'exclude_deleted': 'exclude_deleted',
+                    'include_deleted': 'include_deleted',
+                    'include_deleted_and_archived': 'include_deleted_and_archived',
                     'path': 'path',
                 },
                 'location_map': {
@@ -7057,7 +7272,8 @@ class MediaLibraryApi(object):
                     'advanced_search': 'query',
                     'in_media_root': 'query',
                     'in_directory': 'query',
-                    'exclude_deleted': 'query',
+                    'include_deleted': 'query',
+                    'include_deleted_and_archived': 'query',
                     'path': 'query',
                 },
                 'collection_format_map': {
@@ -7085,8 +7301,9 @@ class MediaLibraryApi(object):
             params_map={
                 'all': [
                     'id',
-                    'exclude_deleted',
-                    'exclude_unrecognized',
+                    'include_deleted',
+                    'include_deleted_and_archived',
+                    'include_unrecognized',
                     'include_proxies',
                     'include_parents',
                     'include_modified_by',
@@ -7096,6 +7313,7 @@ class MediaLibraryApi(object):
                     'in_media_root',
                     'in_directory',
                     'for_root',
+                    'resolve_asset_permission',
                 ],
                 'required': [
                     'id',
@@ -7115,9 +7333,11 @@ class MediaLibraryApi(object):
                 'openapi_types': {
                     'id':
                         (int,),
-                    'exclude_deleted':
+                    'include_deleted':
                         (bool,),
-                    'exclude_unrecognized':
+                    'include_deleted_and_archived':
+                        (bool,),
+                    'include_unrecognized':
                         (bool,),
                     'include_proxies':
                         (bool,),
@@ -7137,11 +7357,14 @@ class MediaLibraryApi(object):
                         (int,),
                     'for_root':
                         (int,),
+                    'resolve_asset_permission':
+                        (bool,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'exclude_deleted': 'exclude_deleted',
-                    'exclude_unrecognized': 'exclude_unrecognized',
+                    'include_deleted': 'include_deleted',
+                    'include_deleted_and_archived': 'include_deleted_and_archived',
+                    'include_unrecognized': 'include_unrecognized',
                     'include_proxies': 'include_proxies',
                     'include_parents': 'include_parents',
                     'include_modified_by': 'include_modified_by',
@@ -7151,11 +7374,13 @@ class MediaLibraryApi(object):
                     'in_media_root': 'in_media_root',
                     'in_directory': 'in_directory',
                     'for_root': 'for_root',
+                    'resolve_asset_permission': 'resolve_asset_permission',
                 },
                 'location_map': {
                     'id': 'path',
-                    'exclude_deleted': 'query',
-                    'exclude_unrecognized': 'query',
+                    'include_deleted': 'query',
+                    'include_deleted_and_archived': 'query',
+                    'include_unrecognized': 'query',
                     'include_proxies': 'query',
                     'include_parents': 'query',
                     'include_modified_by': 'query',
@@ -7165,6 +7390,7 @@ class MediaLibraryApi(object):
                     'in_media_root': 'query',
                     'in_directory': 'query',
                     'for_root': 'query',
+                    'resolve_asset_permission': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -7191,8 +7417,9 @@ class MediaLibraryApi(object):
             params_map={
                 'all': [
                     'id',
-                    'exclude_deleted',
-                    'exclude_unrecognized',
+                    'include_deleted',
+                    'include_deleted_and_archived',
+                    'include_unrecognized',
                     'offset',
                     'limit',
                     'ordering',
@@ -7216,9 +7443,11 @@ class MediaLibraryApi(object):
                 'openapi_types': {
                     'id':
                         (int,),
-                    'exclude_deleted':
+                    'include_deleted':
                         (bool,),
-                    'exclude_unrecognized':
+                    'include_deleted_and_archived':
+                        (bool,),
+                    'include_unrecognized':
                         (bool,),
                     'offset':
                         (int,),
@@ -7231,8 +7460,9 @@ class MediaLibraryApi(object):
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'exclude_deleted': 'exclude_deleted',
-                    'exclude_unrecognized': 'exclude_unrecognized',
+                    'include_deleted': 'include_deleted',
+                    'include_deleted_and_archived': 'include_deleted_and_archived',
+                    'include_unrecognized': 'include_unrecognized',
                     'offset': 'offset',
                     'limit': 'limit',
                     'ordering': 'ordering',
@@ -7240,8 +7470,9 @@ class MediaLibraryApi(object):
                 },
                 'location_map': {
                     'id': 'path',
-                    'exclude_deleted': 'query',
-                    'exclude_unrecognized': 'query',
+                    'include_deleted': 'query',
+                    'include_deleted_and_archived': 'query',
+                    'include_unrecognized': 'query',
                     'offset': 'query',
                     'limit': 'query',
                     'ordering': 'query',
@@ -7266,6 +7497,57 @@ class MediaLibraryApi(object):
                 ],
                 'endpoint_path': '/api/2/media/files/templates/{id}',
                 'operation_id': 'get_media_file_template',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_media_pinned_item_endpoint = _Endpoint(
+            settings={
+                'response_type': (MediaPinnedItem,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/pinned-items/{id}',
+                'operation_id': 'get_media_pinned_item',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -7800,7 +8082,7 @@ class MediaLibraryApi(object):
                     'root':
                         (int,),
                     'id':
-                        (float,),
+                        (int,),
                     'is_temporary_for_token':
                         (int,),
                     'ordering':
@@ -7874,7 +8156,7 @@ class MediaLibraryApi(object):
                     'root':
                         (int,),
                     'id':
-                        (float,),
+                        (int,),
                     'is_temporary_for_token':
                         (int,),
                     'ordering':
@@ -8756,6 +9038,108 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.mark_file_archived_endpoint = _Endpoint(
+            settings={
+                'response_type': (TaskInfo,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/files/{id}/mark-archived',
+                'operation_id': 'mark_file_archived',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.mark_file_not_archived_endpoint = _Endpoint(
+            settings={
+                'response_type': (TaskInfo,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/files/{id}/mark-not-archived',
+                'operation_id': 'mark_file_not_archived',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.mark_media_directory_as_showroom_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -9407,6 +9791,64 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.patch_media_pinned_item_endpoint = _Endpoint(
+            settings={
+                'response_type': (MediaPinnedItem,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/pinned-items/{id}',
+                'operation_id': 'patch_media_pinned_item',
+                'http_method': 'PATCH',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'media_pinned_item_partial_update',
+                ],
+                'required': [
+                    'id',
+                    'media_pinned_item_partial_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'media_pinned_item_partial_update':
+                        (MediaPinnedItemPartialUpdate,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'media_pinned_item_partial_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.patch_media_root_endpoint = _Endpoint(
             settings={
                 'response_type': (MediaRootDetail,),
@@ -9874,6 +10316,108 @@ class MediaLibraryApi(object):
                 'content_type': [
                     'application/json'
                 ]
+            },
+            api_client=api_client
+        )
+        self.pin_media_item_globally_endpoint = _Endpoint(
+            settings={
+                'response_type': (MediaPinnedItem,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/pinned-items/{id}/pin-globally',
+                'operation_id': 'pin_media_item_globally',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.pin_media_root_permission_endpoint = _Endpoint(
+            settings={
+                'response_type': (MediaPinnedItem,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/root-permissions/{id}/pin',
+                'operation_id': 'pin_media_root_permission',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -10707,6 +11251,57 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.unpin_media_item_globally_endpoint = _Endpoint(
+            settings={
+                'response_type': (MediaPinnedItem,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/pinned-items/{id}/unpin-globally',
+                'operation_id': 'unpin_media_item_globally',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.unresolve_comment_endpoint = _Endpoint(
             settings={
                 'response_type': (Comment,),
@@ -11346,6 +11941,64 @@ class MediaLibraryApi(object):
                 'location_map': {
                     'id': 'path',
                     'media_file_template_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_media_pinned_item_endpoint = _Endpoint(
+            settings={
+                'response_type': (MediaPinnedItem,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/pinned-items/{id}',
+                'operation_id': 'update_media_pinned_item',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'media_pinned_item_update',
+                ],
+                'required': [
+                    'id',
+                    'media_pinned_item_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'media_pinned_item_update':
+                        (MediaPinnedItemUpdate,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'media_pinned_item_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -14747,6 +15400,84 @@ class MediaLibraryApi(object):
             media_library_delete_request
         return self.delete_media_library_objects_endpoint.call_with_http_info(**kwargs)
 
+    def delete_media_pinned_item(
+        self,
+        id,
+        **kwargs
+    ):
+        """delete_media_pinned_item  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_media_pinned_item(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this media pinned item.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.delete_media_pinned_item_endpoint.call_with_http_info(**kwargs)
+
     def delete_media_root(
         self,
         id,
@@ -15927,8 +16658,8 @@ class MediaLibraryApi(object):
 
     def download_asset_proxy_file(
         self,
-        filename,
         id,
+        filename,
         **kwargs
     ):
         """download_asset_proxy_file  # noqa: E501
@@ -15937,12 +16668,12 @@ class MediaLibraryApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.download_asset_proxy_file(filename, id, async_req=True)
+        >>> thread = api.download_asset_proxy_file(id, filename, async_req=True)
         >>> result = thread.get()
 
         Args:
-            filename (str):
             id (int): A unique integer value identifying this Asset.
+            filename (str):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -16001,10 +16732,10 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['filename'] = \
-            filename
         kwargs['id'] = \
             id
+        kwargs['filename'] = \
+            filename
         return self.download_asset_proxy_file_endpoint.call_with_http_info(**kwargs)
 
     def download_media_file(
@@ -17404,8 +18135,19 @@ class MediaLibraryApi(object):
             shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
-            limit (int): Number of results to return per page.. [optional]
-            offset (int): The initial index from which to return the results.. [optional]
+            limit (int): [optional]
+            offset (int): [optional]
+            include_deleted (bool): [optional]
+            include_deleted_and_archived (bool): [optional]
+            include_unrecognized (bool): [optional]
+            include_proxies (bool): [optional]
+            include_parents (bool): [optional]
+            include_modified_by (bool): [optional]
+            advanced_search (str): [optional]
+            in_media_root (int): [optional]
+            in_directory (int): [optional]
+            for_root (int): [optional]
+            resolve_asset_permission (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -17492,8 +18234,9 @@ class MediaLibraryApi(object):
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): [optional]
             offset (int): [optional]
-            exclude_deleted (bool): [optional]
-            exclude_unrecognized (bool): [optional]
+            include_deleted (bool): [optional]
+            include_deleted_and_archived (bool): [optional]
+            include_unrecognized (bool): [optional]
             include_proxies (bool): [optional]
             include_parents (bool): [optional]
             include_modified_by (bool): [optional]
@@ -17501,6 +18244,7 @@ class MediaLibraryApi(object):
             in_media_root (int): [optional]
             in_directory (int): [optional]
             for_root (int): [optional]
+            resolve_asset_permission (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -17816,7 +18560,7 @@ class MediaLibraryApi(object):
 
         Keyword Args:
             name (str): Filter the returned list by `name`.. [optional]
-            id (float): Filter the returned list by `id`.. [optional]
+            id (int): Filter the returned list by `id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -17983,8 +18727,9 @@ class MediaLibraryApi(object):
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): [optional]
             offset (int): [optional]
-            exclude_deleted (bool): [optional]
-            exclude_unrecognized (bool): [optional]
+            include_deleted (bool): [optional]
+            include_deleted_and_archived (bool): [optional]
+            include_unrecognized (bool): [optional]
             include_proxies (bool): [optional]
             include_parents (bool): [optional]
             include_modified_by (bool): [optional]
@@ -17992,6 +18737,7 @@ class MediaLibraryApi(object):
             in_media_root (int): [optional]
             in_directory (int): [optional]
             for_root (int): [optional]
+            resolve_asset_permission (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -18142,13 +18888,14 @@ class MediaLibraryApi(object):
 
         Keyword Args:
             bundle (int): Filter the returned list by `bundle`.. [optional]
-            bundle__in (str): Multiple values may be separated by commas.. [optional]
+            bundle__in (str): Filter the returned list by `bundle__in`.. [optional]
             parent (int): Filter the returned list by `parent`.. [optional]
             path (str): [optional]
             name (str): Filter the returned list by `name`.. [optional]
             is_dir (str): Filter the returned list by `is_dir`.. [optional]
             is_showroom (str): Filter the returned list by `is_showroom`.. [optional]
             present (str): Filter the returned list by `present`.. [optional]
+            archived (str): Filter the returned list by `archived`.. [optional]
             volume (int): Filter the returned list by `volume`.. [optional]
             shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
             shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
@@ -18163,7 +18910,8 @@ class MediaLibraryApi(object):
             advanced_search (str): [optional]
             in_media_root (int): [optional]
             in_directory (int): [optional]
-            exclude_deleted (bool): [optional]
+            include_deleted (bool): [optional]
+            include_deleted_and_archived (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -18319,13 +19067,14 @@ class MediaLibraryApi(object):
 
         Keyword Args:
             bundle (int): Filter the returned list by `bundle`.. [optional]
-            bundle__in (str): Multiple values may be separated by commas.. [optional]
+            bundle__in (str): Filter the returned list by `bundle__in`.. [optional]
             parent (int): Filter the returned list by `parent`.. [optional]
             path (str): Filter the returned list by `path`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             is_dir (str): Filter the returned list by `is_dir`.. [optional]
             is_showroom (str): Filter the returned list by `is_showroom`.. [optional]
             present (str): Filter the returned list by `present`.. [optional]
+            archived (str): Filter the returned list by `archived`.. [optional]
             volume (int): Filter the returned list by `volume`.. [optional]
             shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
             shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
@@ -18411,13 +19160,14 @@ class MediaLibraryApi(object):
 
         Keyword Args:
             bundle (int): Filter the returned list by `bundle`.. [optional]
-            bundle__in (str): Multiple values may be separated by commas.. [optional]
+            bundle__in (str): Filter the returned list by `bundle__in`.. [optional]
             parent (int): Filter the returned list by `parent`.. [optional]
             path (str): Filter the returned list by `path`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             is_dir (str): Filter the returned list by `is_dir`.. [optional]
             is_showroom (str): Filter the returned list by `is_showroom`.. [optional]
             present (str): Filter the returned list by `present`.. [optional]
+            archived (str): Filter the returned list by `archived`.. [optional]
             volume (int): Filter the returned list by `volume`.. [optional]
             shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
             shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
@@ -18500,7 +19250,7 @@ class MediaLibraryApi(object):
 
         Keyword Args:
             root (int): Filter the returned list by `root`.. [optional]
-            id (float): Filter the returned list by `id`.. [optional]
+            id (int): Filter the returned list by `id`.. [optional]
             is_temporary_for_token (int): Filter the returned list by `is_temporary_for_token`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
@@ -18658,7 +19408,7 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            id (float): Filter the returned list by `id`.. [optional]
+            id (int): Filter the returned list by `id`.. [optional]
             id__in (str): [optional]
             name (str): Filter the returned list by `name`.. [optional]
             name__icontains (str): Filter the returned list by `name__icontains`.. [optional]
@@ -18807,6 +19557,83 @@ class MediaLibraryApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_all_media_updates_endpoint.call_with_http_info(**kwargs)
+
+    def get_all_pinned_items(
+        self,
+        **kwargs
+    ):
+        """get_all_pinned_items  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_all_pinned_items(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            user (int): Filter the returned list by `user`.. [optional]
+            ordering (str): Which field to use when ordering the results.. [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [MediaPinnedItem]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_all_pinned_items_endpoint.call_with_http_info(**kwargs)
 
     def get_all_proxy_generators(
         self,
@@ -18977,7 +19804,6 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            shared (str): Filter the returned list by `shared`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             root (int): Filter the returned list by `root`.. [optional]
             user (int): Filter the returned list by `user`.. [optional]
@@ -19058,7 +19884,7 @@ class MediaLibraryApi(object):
 
         Keyword Args:
             name (str): Filter the returned list by `name`.. [optional]
-            id (float): Filter the returned list by `id`.. [optional]
+            id (int): Filter the returned list by `id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -19851,13 +20677,14 @@ class MediaLibraryApi(object):
 
         Keyword Args:
             bundle (int): Filter the returned list by `bundle`.. [optional]
-            bundle__in (str): Multiple values may be separated by commas.. [optional]
+            bundle__in (str): Filter the returned list by `bundle__in`.. [optional]
             parent (int): Filter the returned list by `parent`.. [optional]
             path (str): Filter the returned list by `path`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             is_dir (str): Filter the returned list by `is_dir`.. [optional]
             is_showroom (str): Filter the returned list by `is_showroom`.. [optional]
             present (str): Filter the returned list by `present`.. [optional]
+            archived (str): Filter the returned list by `archived`.. [optional]
             volume (int): Filter the returned list by `volume`.. [optional]
             shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
             shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
@@ -20632,8 +21459,8 @@ class MediaLibraryApi(object):
 
     def get_frame(
         self,
-        frame,
         id,
+        frame,
         **kwargs
     ):
         """get_frame  # noqa: E501
@@ -20642,12 +21469,12 @@ class MediaLibraryApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_frame(frame, id, async_req=True)
+        >>> thread = api.get_frame(id, frame, async_req=True)
         >>> result = thread.get()
 
         Args:
-            frame (str):
             id (int): A unique integer value identifying this Asset.
+            frame (str):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -20706,10 +21533,10 @@ class MediaLibraryApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['frame'] = \
-            frame
         kwargs['id'] = \
             id
+        kwargs['frame'] = \
+            frame
         return self.get_frame_endpoint.call_with_http_info(**kwargs)
 
     def get_media_file(
@@ -20738,7 +21565,8 @@ class MediaLibraryApi(object):
             advanced_search (str): [optional]
             in_media_root (int): [optional]
             in_directory (int): [optional]
-            exclude_deleted (bool): [optional]
+            include_deleted (bool): [optional]
+            include_deleted_and_archived (bool): [optional]
             path (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -20818,8 +21646,9 @@ class MediaLibraryApi(object):
             id (int): A unique integer value identifying this Bundle.
 
         Keyword Args:
-            exclude_deleted (bool): [optional]
-            exclude_unrecognized (bool): [optional]
+            include_deleted (bool): [optional]
+            include_deleted_and_archived (bool): [optional]
+            include_unrecognized (bool): [optional]
             include_proxies (bool): [optional]
             include_parents (bool): [optional]
             include_modified_by (bool): [optional]
@@ -20829,6 +21658,7 @@ class MediaLibraryApi(object):
             in_media_root (int): [optional]
             in_directory (int): [optional]
             for_root (int): [optional]
+            resolve_asset_permission (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -20907,8 +21737,9 @@ class MediaLibraryApi(object):
             id (int): A unique integer value identifying this File.
 
         Keyword Args:
-            exclude_deleted (bool): [optional]
-            exclude_unrecognized (bool): [optional]
+            include_deleted (bool): [optional]
+            include_deleted_and_archived (bool): [optional]
+            include_unrecognized (bool): [optional]
             offset (int): [optional]
             limit (int): [optional]
             ordering (str): [optional]
@@ -21050,6 +21881,84 @@ class MediaLibraryApi(object):
         kwargs['id'] = \
             id
         return self.get_media_file_template_endpoint.call_with_http_info(**kwargs)
+
+    def get_media_pinned_item(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_media_pinned_item  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_media_pinned_item(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this media pinned item.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            MediaPinnedItem
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_media_pinned_item_endpoint.call_with_http_info(**kwargs)
 
     def get_media_root(
         self,
@@ -21700,7 +22609,7 @@ class MediaLibraryApi(object):
 
         Keyword Args:
             root (int): Filter the returned list by `root`.. [optional]
-            id (float): Filter the returned list by `id`.. [optional]
+            id (int): Filter the returned list by `id`.. [optional]
             is_temporary_for_token (int): Filter the returned list by `is_temporary_for_token`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
@@ -21779,7 +22688,7 @@ class MediaLibraryApi(object):
 
         Keyword Args:
             root (int): Filter the returned list by `root`.. [optional]
-            id (float): Filter the returned list by `id`.. [optional]
+            id (int): Filter the returned list by `id`.. [optional]
             is_temporary_for_token (int): Filter the returned list by `is_temporary_for_token`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
@@ -23107,6 +24016,162 @@ class MediaLibraryApi(object):
             media_files_lookup_request
         return self.lookup_media_files_endpoint.call_with_http_info(**kwargs)
 
+    def mark_file_archived(
+        self,
+        id,
+        **kwargs
+    ):
+        """mark_file_archived  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_delete_db Media Library permissions   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.mark_file_archived(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this File.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TaskInfo
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.mark_file_archived_endpoint.call_with_http_info(**kwargs)
+
+    def mark_file_not_archived(
+        self,
+        id,
+        **kwargs
+    ):
+        """mark_file_not_archived  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.mark_file_not_archived(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this File.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TaskInfo
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.mark_file_not_archived_endpoint.call_with_http_info(**kwargs)
+
     def mark_media_directory_as_showroom(
         self,
         id,
@@ -24015,6 +25080,88 @@ class MediaLibraryApi(object):
             media_file_template_partial_update
         return self.patch_media_file_template_endpoint.call_with_http_info(**kwargs)
 
+    def patch_media_pinned_item(
+        self,
+        id,
+        media_pinned_item_partial_update,
+        **kwargs
+    ):
+        """patch_media_pinned_item  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.patch_media_pinned_item(id, media_pinned_item_partial_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this media pinned item.
+            media_pinned_item_partial_update (MediaPinnedItemPartialUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            MediaPinnedItem
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['media_pinned_item_partial_update'] = \
+            media_pinned_item_partial_update
+        return self.patch_media_pinned_item_endpoint.call_with_http_info(**kwargs)
+
     def patch_media_root(
         self,
         id,
@@ -24674,6 +25821,162 @@ class MediaLibraryApi(object):
         kwargs['workflow_partial_update'] = \
             workflow_partial_update
         return self.patch_workflow_endpoint.call_with_http_info(**kwargs)
+
+    def pin_media_item_globally(
+        self,
+        id,
+        **kwargs
+    ):
+        """pin_media_item_globally  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.pin_media_item_globally(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this media pinned item.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            MediaPinnedItem
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.pin_media_item_globally_endpoint.call_with_http_info(**kwargs)
+
+    def pin_media_root_permission(
+        self,
+        id,
+        **kwargs
+    ):
+        """pin_media_root_permission  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.pin_media_root_permission(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Media Root Permission.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            MediaPinnedItem
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.pin_media_root_permission_endpoint.call_with_http_info(**kwargs)
 
     def recursively_tag_media_directory(
         self,
@@ -25937,6 +27240,84 @@ class MediaLibraryApi(object):
             id
         return self.unmark_media_directory_as_showroom_endpoint.call_with_http_info(**kwargs)
 
+    def unpin_media_item_globally(
+        self,
+        id,
+        **kwargs
+    ):
+        """unpin_media_item_globally  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.unpin_media_item_globally(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this media pinned item.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            MediaPinnedItem
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.unpin_media_item_globally_endpoint.call_with_http_info(**kwargs)
+
     def unresolve_comment(
         self,
         id,
@@ -26844,6 +28225,88 @@ class MediaLibraryApi(object):
         kwargs['media_file_template_update'] = \
             media_file_template_update
         return self.update_media_file_template_endpoint.call_with_http_info(**kwargs)
+
+    def update_media_pinned_item(
+        self,
+        id,
+        media_pinned_item_update,
+        **kwargs
+    ):
+        """update_media_pinned_item  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_media_pinned_item(id, media_pinned_item_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this media pinned item.
+            media_pinned_item_update (MediaPinnedItemUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            MediaPinnedItem
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['media_pinned_item_update'] = \
+            media_pinned_item_update
+        return self.update_media_pinned_item_endpoint.call_with_http_info(**kwargs)
 
     def update_media_root(
         self,

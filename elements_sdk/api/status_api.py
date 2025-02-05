@@ -123,7 +123,7 @@ class StatusApi(object):
                     'is_open':
                         (str,),
                     'id':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -243,7 +243,7 @@ class StatusApi(object):
                     'is_open':
                         (str,),
                     'id':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -514,7 +514,7 @@ class StatusApi(object):
 
         Keyword Args:
             is_open (str): Filter the returned list by `is_open`.. [optional]
-            id (float): Filter the returned list by `id`.. [optional]
+            id (int): Filter the returned list by `id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -670,7 +670,7 @@ class StatusApi(object):
 
         Keyword Args:
             is_open (str): Filter the returned list by `is_open`.. [optional]
-            id (float): Filter the returned list by `id`.. [optional]
+            id (int): Filter the returned list by `id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]

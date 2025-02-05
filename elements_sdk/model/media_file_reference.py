@@ -145,6 +145,7 @@ class MediaFileReference(ModelNormal):
             'size': (int,),  # noqa: E501
             'mtime': (int,),  # noqa: E501
             'present': (bool,),  # noqa: E501
+            'archived': (bool,),  # noqa: E501
             'needs_rescan': (bool,),  # noqa: E501
             'is_showroom': (bool,),  # noqa: E501
             'bundle_index': (int,),  # noqa: E501
@@ -185,6 +186,7 @@ class MediaFileReference(ModelNormal):
         'size': 'size',  # noqa: E501
         'mtime': 'mtime',  # noqa: E501
         'present': 'present',  # noqa: E501
+        'archived': 'archived',  # noqa: E501
         'needs_rescan': 'needs_rescan',  # noqa: E501
         'is_showroom': 'is_showroom',  # noqa: E501
         'bundle_index': 'bundle_index',  # noqa: E501
@@ -214,6 +216,7 @@ class MediaFileReference(ModelNormal):
         'size',  # noqa: E501
         'mtime',  # noqa: E501
         'present',  # noqa: E501
+        'archived',  # noqa: E501
         'needs_rescan',  # noqa: E501
         'is_showroom',  # noqa: E501
         'bundle_index',  # noqa: E501
@@ -288,6 +291,7 @@ class MediaFileReference(ModelNormal):
             size (int): [optional]  # noqa: E501
             mtime (int): [optional]  # noqa: E501
             present (bool): [optional]  # noqa: E501
+            archived (bool): [optional]  # noqa: E501
             needs_rescan (bool): [optional]  # noqa: E501
             is_showroom (bool): [optional]  # noqa: E501
             bundle_index (int): [optional]  # noqa: E501
@@ -406,6 +410,7 @@ class MediaFileReference(ModelNormal):
             size (int): [optional]  # noqa: E501
             mtime (int): [optional]  # noqa: E501
             present (bool): [optional]  # noqa: E501
+            archived (bool): [optional]  # noqa: E501
             needs_rescan (bool): [optional]  # noqa: E501
             is_showroom (bool): [optional]  # noqa: E501
             bundle_index (int): [optional]  # noqa: E501

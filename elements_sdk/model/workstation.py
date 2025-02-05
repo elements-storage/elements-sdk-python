@@ -97,7 +97,7 @@ class Workstation(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
-            'report': ({str: (str, none_type)},),  # noqa: E501
+            'report': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'hostname': (str,),  # noqa: E501
             'last_seen': (datetime, none_type,),  # noqa: E501
@@ -131,7 +131,7 @@ class Workstation(ModelNormal):
         Args:
             id (str):
             display_name (str):
-            report ({str: (str, none_type)}):
+            report ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             name (str, none_type):
             hostname (str):
             last_seen (datetime, none_type):
@@ -227,7 +227,7 @@ class Workstation(ModelNormal):
 
         Args:
             id (str):
-            report ({str: (str, none_type)}):
+            report ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             name (str, none_type):
             hostname (str):
             last_seen (datetime, none_type):

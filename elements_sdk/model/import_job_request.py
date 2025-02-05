@@ -87,8 +87,8 @@ class ImportJobRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'content': (str,),  # noqa: E501
             'replace': (bool,),  # noqa: E501
+            'content': (str,),  # noqa: E501
             'rename': (str, none_type,),  # noqa: E501
         }
 
@@ -98,8 +98,8 @@ class ImportJobRequest(ModelNormal):
 
 
     attribute_map = {
-        'content': 'content',  # noqa: E501
         'replace': 'replace',  # noqa: E501
+        'content': 'content',  # noqa: E501
         'rename': 'rename',  # noqa: E501
     }
 
@@ -110,11 +110,10 @@ class ImportJobRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, content, replace, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, replace, *args, **xkwargs):  # noqa: E501
         """ImportJobRequest - a model defined in OpenAPI
 
         Args:
-            content (str):
             replace (bool):
 
         Keyword Args:
@@ -148,6 +147,7 @@ class ImportJobRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            content (str): [optional]  # noqa: E501
             rename (str, none_type): [optional]  # noqa: E501
         """
 
@@ -177,7 +177,6 @@ class ImportJobRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
-        self.content = content
         self.replace = replace
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -200,11 +199,10 @@ class ImportJobRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, content, replace, *args, **xkwargs):  # noqa: E501
+    def __init__(self, replace, *args, **xkwargs):  # noqa: E501
         """ImportJobRequest - a model defined in OpenAPI
 
         Args:
-            content (str):
             replace (bool):
 
         Keyword Args:
@@ -238,6 +236,7 @@ class ImportJobRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            content (str): [optional]  # noqa: E501
             rename (str, none_type): [optional]  # noqa: E501
         """
 
@@ -265,7 +264,6 @@ class ImportJobRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
-        self.content = content
         self.replace = replace
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

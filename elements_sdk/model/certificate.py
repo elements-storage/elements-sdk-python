@@ -95,6 +95,7 @@ class Certificate(ModelNormal):
             'expired': (bool,),  # noqa: E501
             'key_matches': (bool,),  # noqa: E501
             'domain_matches': (bool,),  # noqa: E501
+            'error': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -114,6 +115,7 @@ class Certificate(ModelNormal):
         'expired': 'expired',  # noqa: E501
         'key_matches': 'key_matches',  # noqa: E501
         'domain_matches': 'domain_matches',  # noqa: E501
+        'error': 'error',  # noqa: E501
     }
 
     read_only_vars = {
@@ -126,13 +128,14 @@ class Certificate(ModelNormal):
         'expired',  # noqa: E501
         'key_matches',  # noqa: E501
         'domain_matches',  # noqa: E501
+        'error',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, certificate, key, name, issuer, domains, fingerprint, not_valid_before, not_valid_after, expired, key_matches, domain_matches, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, certificate, key, name, issuer, domains, fingerprint, not_valid_before, not_valid_after, expired, key_matches, domain_matches, error, *args, **xkwargs):  # noqa: E501
         """Certificate - a model defined in OpenAPI
 
         Args:
@@ -147,6 +150,7 @@ class Certificate(ModelNormal):
             expired (bool):
             key_matches (bool):
             domain_matches (bool):
+            error (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -218,6 +222,7 @@ class Certificate(ModelNormal):
         self.expired = expired
         self.key_matches = key_matches
         self.domain_matches = domain_matches
+        self.error = error
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

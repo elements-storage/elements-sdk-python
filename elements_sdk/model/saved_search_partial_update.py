@@ -88,7 +88,6 @@ class SavedSearchPartialUpdate(ModelNormal):
             'root': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'query': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'shared': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -100,7 +99,6 @@ class SavedSearchPartialUpdate(ModelNormal):
         'root': 'root',  # noqa: E501
         'query': 'query',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'shared': 'shared',  # noqa: E501
     }
 
     read_only_vars = {
@@ -147,7 +145,6 @@ class SavedSearchPartialUpdate(ModelNormal):
             root (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             query ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
-            shared (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -234,7 +231,6 @@ class SavedSearchPartialUpdate(ModelNormal):
             root (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             query ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
-            shared (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

@@ -31,7 +31,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.task_info import TaskInfo
+    from elements_sdk.model.zip_info import ZipInfo
     globals()['TaskInfo'] = TaskInfo
+    globals()['ZipInfo'] = ZipInfo
 
 
 class DownloadArchive(ModelNormal):
@@ -104,7 +106,7 @@ class DownloadArchive(ModelNormal):
             'uncompressed_size': (int,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'expires': (str,),  # noqa: E501
-            'files': ([str, none_type],),  # noqa: E501
+            'files': ([ZipInfo],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'path': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
@@ -152,7 +154,7 @@ class DownloadArchive(ModelNormal):
             uncompressed_size (int):
             size (int):
             expires (str):
-            files ([str, none_type]):
+            files ([ZipInfo]):
             name (str):
             path (str):
             created_at (datetime):

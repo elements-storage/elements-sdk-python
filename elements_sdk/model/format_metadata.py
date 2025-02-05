@@ -65,6 +65,12 @@ class FormatMetadata(ModelNormal):
         ('type',): {
             'min_length': 1,
         },
+        ('timecode_format',): {
+            'min_length': 1,
+        },
+        ('system_timecode_format',): {
+            'min_length': 1,
+        },
         ('vcodec',): {
             'min_length': 1,
         },
@@ -113,7 +119,9 @@ class FormatMetadata(ModelNormal):
             'height': (int, none_type,),  # noqa: E501
             'duration': (float, none_type,),  # noqa: E501
             'timecode': (float, none_type,),  # noqa: E501
+            'timecode_format': (str, none_type,),  # noqa: E501
             'system_timecode': (float, none_type,),  # noqa: E501
+            'system_timecode_format': (str, none_type,),  # noqa: E501
             'bpp': (float, none_type,),  # noqa: E501
             'vcodec': (str, none_type,),  # noqa: E501
             'vcodec_long': (str, none_type,),  # noqa: E501
@@ -139,7 +147,9 @@ class FormatMetadata(ModelNormal):
         'height': 'height',  # noqa: E501
         'duration': 'duration',  # noqa: E501
         'timecode': 'timecode',  # noqa: E501
+        'timecode_format': 'timecode_format',  # noqa: E501
         'system_timecode': 'system_timecode',  # noqa: E501
+        'system_timecode_format': 'system_timecode_format',  # noqa: E501
         'bpp': 'bpp',  # noqa: E501
         'vcodec': 'vcodec',  # noqa: E501
         'vcodec_long': 'vcodec_long',  # noqa: E501
@@ -160,7 +170,9 @@ class FormatMetadata(ModelNormal):
         'height',  # noqa: E501
         'duration',  # noqa: E501
         'timecode',  # noqa: E501
+        'timecode_format',  # noqa: E501
         'system_timecode',  # noqa: E501
+        'system_timecode_format',  # noqa: E501
         'bpp',  # noqa: E501
         'vcodec',  # noqa: E501
         'vcodec_long',  # noqa: E501
@@ -220,7 +232,9 @@ class FormatMetadata(ModelNormal):
             height (int, none_type): [optional]  # noqa: E501
             duration (float, none_type): [optional]  # noqa: E501
             timecode (float, none_type): [optional]  # noqa: E501
+            timecode_format (str, none_type): [optional]  # noqa: E501
             system_timecode (float, none_type): [optional]  # noqa: E501
+            system_timecode_format (str, none_type): [optional]  # noqa: E501
             bpp (float, none_type): [optional]  # noqa: E501
             vcodec (str, none_type): [optional]  # noqa: E501
             vcodec_long (str, none_type): [optional]  # noqa: E501
@@ -321,7 +335,9 @@ class FormatMetadata(ModelNormal):
             height (int, none_type): [optional]  # noqa: E501
             duration (float, none_type): [optional]  # noqa: E501
             timecode (float, none_type): [optional]  # noqa: E501
+            timecode_format (str, none_type): [optional]  # noqa: E501
             system_timecode (float, none_type): [optional]  # noqa: E501
+            system_timecode_format (str, none_type): [optional]  # noqa: E501
             bpp (float, none_type): [optional]  # noqa: E501
             vcodec (str, none_type): [optional]  # noqa: E501
             vcodec_long (str, none_type): [optional]  # noqa: E501

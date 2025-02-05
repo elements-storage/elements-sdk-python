@@ -71,6 +71,13 @@ class MediaRootMiniWithCustomFields(ModelNormal):
         ('path',): {
             'max_length': 255,
         },
+        ('view_mode',): {
+            'max_length': 63,
+            'min_length': 1,
+        },
+        ('cover',): {
+            'max_length': 255,
+        },
     }
 
     @cached_property
@@ -98,10 +105,13 @@ class MediaRootMiniWithCustomFields(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
             'full_path': (str,),  # noqa: E501
             'volume': (VolumeMini,),  # noqa: E501
             'path': (str,),  # noqa: E501
             'prefetch_thumbnail_strips': (bool,),  # noqa: E501
+            'view_mode': (str,),  # noqa: E501
+            'cover': (str, none_type,),  # noqa: E501
             'custom_fields': ([CustomField],),  # noqa: E501
         }
 
@@ -113,10 +123,13 @@ class MediaRootMiniWithCustomFields(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'description': 'description',  # noqa: E501
         'full_path': 'full_path',  # noqa: E501
         'volume': 'volume',  # noqa: E501
         'path': 'path',  # noqa: E501
         'prefetch_thumbnail_strips': 'prefetch_thumbnail_strips',  # noqa: E501
+        'view_mode': 'view_mode',  # noqa: E501
+        'cover': 'cover',  # noqa: E501
         'custom_fields': 'custom_fields',  # noqa: E501
     }
 
@@ -128,16 +141,19 @@ class MediaRootMiniWithCustomFields(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, full_path, volume, path, prefetch_thumbnail_strips, custom_fields, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, description, full_path, volume, path, prefetch_thumbnail_strips, view_mode, cover, custom_fields, *args, **xkwargs):  # noqa: E501
         """MediaRootMiniWithCustomFields - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
+            description (str, none_type):
             full_path (str):
             volume (VolumeMini):
             path (str):
             prefetch_thumbnail_strips (bool):
+            view_mode (str):
+            cover (str, none_type):
             custom_fields ([CustomField]):
 
         Keyword Args:
@@ -201,10 +217,13 @@ class MediaRootMiniWithCustomFields(ModelNormal):
 
         self.id = id
         self.name = name
+        self.description = description
         self.full_path = full_path
         self.volume = volume
         self.path = path
         self.prefetch_thumbnail_strips = prefetch_thumbnail_strips
+        self.view_mode = view_mode
+        self.cover = cover
         self.custom_fields = custom_fields
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -227,15 +246,18 @@ class MediaRootMiniWithCustomFields(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, volume, path, prefetch_thumbnail_strips, custom_fields, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, description, volume, path, prefetch_thumbnail_strips, view_mode, cover, custom_fields, *args, **xkwargs):  # noqa: E501
         """MediaRootMiniWithCustomFields - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
+            description (str, none_type):
             volume (VolumeMini):
             path (str):
             prefetch_thumbnail_strips (bool):
+            view_mode (str):
+            cover (str, none_type):
             custom_fields ([CustomField]):
 
         Keyword Args:
@@ -297,9 +319,12 @@ class MediaRootMiniWithCustomFields(ModelNormal):
 
         self.id = id
         self.name = name
+        self.description = description
         self.volume = volume
         self.path = path
         self.prefetch_thumbnail_strips = prefetch_thumbnail_strips
+        self.view_mode = view_mode
+        self.cover = cover
         self.custom_fields = custom_fields
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

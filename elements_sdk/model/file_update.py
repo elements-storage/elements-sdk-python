@@ -30,8 +30,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.basic_file import BasicFile
-    globals()['BasicFile'] = BasicFile
+    from elements_sdk.model.directory_entry import DirectoryEntry
+    globals()['DirectoryEntry'] = DirectoryEntry
 
 
 class FileUpdate(ModelNormal):
@@ -107,7 +107,6 @@ class FileUpdate(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'parent': (str,),  # noqa: E501
-            'files': ([BasicFile], none_type,),  # noqa: E501
             'mode': (str,),  # noqa: E501
             'uid': (int,),  # noqa: E501
             'gid': (int,),  # noqa: E501
@@ -115,6 +114,7 @@ class FileUpdate(ModelNormal):
             'group': (str,),  # noqa: E501
             'recursive': (bool,),  # noqa: E501
             'affinity': (str, none_type,),  # noqa: E501
+            'files': ([DirectoryEntry], none_type,),  # noqa: E501
             'mode_setuid': (bool,),  # noqa: E501
             'mode_setgid': (bool,),  # noqa: E501
             'mode_setvfx': (bool,),  # noqa: E501
@@ -137,7 +137,6 @@ class FileUpdate(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'parent': 'parent',  # noqa: E501
-        'files': 'files',  # noqa: E501
         'mode': 'mode',  # noqa: E501
         'uid': 'uid',  # noqa: E501
         'gid': 'gid',  # noqa: E501
@@ -145,6 +144,7 @@ class FileUpdate(ModelNormal):
         'group': 'group',  # noqa: E501
         'recursive': 'recursive',  # noqa: E501
         'affinity': 'affinity',  # noqa: E501
+        'files': 'files',  # noqa: E501
         'mode_setuid': 'mode_setuid',  # noqa: E501
         'mode_setgid': 'mode_setgid',  # noqa: E501
         'mode_setvfx': 'mode_setvfx',  # noqa: E501
@@ -204,7 +204,6 @@ class FileUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            files ([BasicFile], none_type): [optional]  # noqa: E501
             mode (str): [optional]  # noqa: E501
             uid (int): [optional]  # noqa: E501
             gid (int): [optional]  # noqa: E501
@@ -212,6 +211,7 @@ class FileUpdate(ModelNormal):
             group (str): [optional]  # noqa: E501
             recursive (bool): [optional]  # noqa: E501
             affinity (str, none_type): [optional]  # noqa: E501
+            files ([DirectoryEntry], none_type): [optional]  # noqa: E501
             mode_setuid (bool): [optional]  # noqa: E501
             mode_setgid (bool): [optional]  # noqa: E501
             mode_setvfx (bool): [optional]  # noqa: E501
@@ -313,7 +313,6 @@ class FileUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            files ([BasicFile], none_type): [optional]  # noqa: E501
             mode (str): [optional]  # noqa: E501
             uid (int): [optional]  # noqa: E501
             gid (int): [optional]  # noqa: E501
@@ -321,6 +320,7 @@ class FileUpdate(ModelNormal):
             group (str): [optional]  # noqa: E501
             recursive (bool): [optional]  # noqa: E501
             affinity (str, none_type): [optional]  # noqa: E501
+            files ([DirectoryEntry], none_type): [optional]  # noqa: E501
             mode_setuid (bool): [optional]  # noqa: E501
             mode_setgid (bool): [optional]  # noqa: E501
             mode_setvfx (bool): [optional]  # noqa: E501

@@ -3,21 +3,10 @@
 .travis.yml
 README.md
 docs/AIAnnotation.md
-docs/AIAnnotationCreateRequest.md
-docs/AIAnnotationPartialUpdate.md
-docs/AIAnnotationUpdate.md
 docs/AIApi.md
-docs/AICategory.md
-docs/AICategoryDetail.md
-docs/AICategoryDetailPartialUpdate.md
-docs/AICategoryDetailUpdate.md
 docs/AICategoryMini.md
-docs/AICategoryMiniReference.md
 docs/AICombinedInferenceResult.md
-docs/AIConnection.md
 docs/AIDataset.md
-docs/AIDatasetDetail.md
-docs/AIDatasetDetailReference.md
 docs/AIDatasetExportRequest.md
 docs/AIDatasetExportResponse.md
 docs/AIDatasetReference.md
@@ -25,7 +14,6 @@ docs/AIDatasetWithPreview.md
 docs/AIDatasetWithPreviewPartialUpdate.md
 docs/AIDatasetWithPreviewUpdate.md
 docs/AIImage.md
-docs/AIImageReference.md
 docs/AIInferencePosition.md
 docs/AIMetadata.md
 docs/AIModel.md
@@ -71,7 +59,6 @@ docs/AuthLoginEndpointResponse.md
 docs/AutomationApi.md
 docs/Backend.md
 docs/BackendProperties.md
-docs/BasicFile.md
 docs/BeeGFSNode.md
 docs/BeeGFSTarget.md
 docs/BenchmarkEndpointRequest.md
@@ -118,7 +105,9 @@ docs/CustomField.md
 docs/CustomFieldPartialUpdate.md
 docs/CustomFieldReference.md
 docs/CustomFieldUpdate.md
+docs/DeleteDisabledUsersRequest.md
 docs/DeletedWorkspace.md
+docs/DirectoryEntry.md
 docs/Download.md
 docs/DownloadArchive.md
 docs/DownloadArchivePartialUpdate.md
@@ -194,11 +183,12 @@ docs/ImportAIModelRequest.md
 docs/ImportAIModelResponse.md
 docs/ImportJobRequest.md
 docs/ImportJobResponse.md
-docs/InlineResponse200.md
 docs/InstallLicenseEndpointRequest.md
 docs/InstantiateFileTemplateRequest.md
 docs/IntegrationsApi.md
 docs/Interface.md
+docs/InterfacePartialUpdate.md
+docs/InterfaceUpdate.md
 docs/Ipmi.md
 docs/Job.md
 docs/JobDetail.md
@@ -242,6 +232,7 @@ docs/MediaFileBundleMiniReference.md
 docs/MediaFileContents.md
 docs/MediaFileExclusionInfo.md
 docs/MediaFileMini.md
+docs/MediaFileMiniReference.md
 docs/MediaFilePartialUpdate.md
 docs/MediaFileReference.md
 docs/MediaFileTemplate.md
@@ -249,9 +240,13 @@ docs/MediaFileTemplatePartialUpdate.md
 docs/MediaFileTemplateUpdate.md
 docs/MediaFileUpdate.md
 docs/MediaFilesLookupRequest.md
+docs/MediaHomepageContentEndpointResponse.md
 docs/MediaLibraryApi.md
 docs/MediaLibraryDeleteRequest.md
 docs/MediaLibraryShareRequest.md
+docs/MediaPinnedItem.md
+docs/MediaPinnedItemPartialUpdate.md
+docs/MediaPinnedItemUpdate.md
 docs/MediaRoot.md
 docs/MediaRootDetail.md
 docs/MediaRootDetailPartialUpdate.md
@@ -261,6 +256,7 @@ docs/MediaRootMiniReference.md
 docs/MediaRootMiniWithCustomFields.md
 docs/MediaRootPermission.md
 docs/MediaRootPermissionAccessOptions.md
+docs/MediaRootPermissionMini.md
 docs/MediaRootPermissionPartialUpdate.md
 docs/MediaRootPermissionUpdate.md
 docs/MediaUpdate.md
@@ -299,6 +295,7 @@ docs/Path.md
 docs/PathExclusionInfo.md
 docs/PathInput.md
 docs/PathMapping.md
+docs/PhysicalFile.md
 docs/PrivateApi.md
 docs/Production.md
 docs/ProductionMini.md
@@ -343,6 +340,7 @@ docs/SMTPConfigurationUpdate.md
 docs/SNFSStripeGroup.md
 docs/SavedSearch.md
 docs/SavedSearchPartialUpdate.md
+docs/SavedSearchReference.md
 docs/SavedSearchUpdate.md
 docs/ScannerDiscoverEndpointRequest.md
 docs/ScannerScanEndpointRequest.md
@@ -355,6 +353,7 @@ docs/SearchEndpointResponse.md
 docs/SendLinkEmailRequest.md
 docs/Sensor.md
 docs/Sensors.md
+docs/SequenceRenderRequestOptions.md
 docs/ServiceStatus.md
 docs/SetTimeRequest.md
 docs/Share.md
@@ -472,7 +471,6 @@ docs/UnreadCount.md
 docs/UnresolvedCount.md
 docs/UpdateQuotaRequest.md
 docs/UpdatedFile.md
-docs/UploadAIImageRequest.md
 docs/UploadChunkEndpointRequest.md
 docs/VantageWorkflow.md
 docs/VantageWorkflows.md
@@ -500,7 +498,6 @@ docs/WorkspaceDetailPartialUpdate.md
 docs/WorkspaceDetailUpdate.md
 docs/WorkspaceEndpoint.md
 docs/WorkspaceMini.md
-docs/WorkspaceMoveToRequest.md
 docs/WorkspacePermission.md
 docs/WorkspacePermissionPartialUpdate.md
 docs/WorkspacePermissionUpdate.md
@@ -510,6 +507,7 @@ docs/WorkstationMini.md
 docs/WorkstationPartialUpdate.md
 docs/WorkstationUpdate.md
 docs/XMLExport.md
+docs/ZipInfo.md
 elements_sdk/__init__.py
 elements_sdk/api/__init__.py
 elements_sdk/api/ai_api.py
@@ -533,20 +531,9 @@ elements_sdk/model/__init__.py
 elements_sdk/model/add_assets_to_click_gallery.py
 elements_sdk/model/address.py
 elements_sdk/model/ai_annotation.py
-elements_sdk/model/ai_annotation_create_request.py
-elements_sdk/model/ai_annotation_partial_update.py
-elements_sdk/model/ai_annotation_update.py
-elements_sdk/model/ai_category.py
-elements_sdk/model/ai_category_detail.py
-elements_sdk/model/ai_category_detail_partial_update.py
-elements_sdk/model/ai_category_detail_update.py
 elements_sdk/model/ai_category_mini.py
-elements_sdk/model/ai_category_mini_reference.py
 elements_sdk/model/ai_combined_inference_result.py
-elements_sdk/model/ai_connection.py
 elements_sdk/model/ai_dataset.py
-elements_sdk/model/ai_dataset_detail.py
-elements_sdk/model/ai_dataset_detail_reference.py
 elements_sdk/model/ai_dataset_export_request.py
 elements_sdk/model/ai_dataset_export_response.py
 elements_sdk/model/ai_dataset_reference.py
@@ -554,7 +541,6 @@ elements_sdk/model/ai_dataset_with_preview.py
 elements_sdk/model/ai_dataset_with_preview_partial_update.py
 elements_sdk/model/ai_dataset_with_preview_update.py
 elements_sdk/model/ai_image.py
-elements_sdk/model/ai_image_reference.py
 elements_sdk/model/ai_inference_position.py
 elements_sdk/model/ai_metadata.py
 elements_sdk/model/ai_model.py
@@ -595,7 +581,6 @@ elements_sdk/model/auth_login_endpoint_request.py
 elements_sdk/model/auth_login_endpoint_response.py
 elements_sdk/model/backend.py
 elements_sdk/model/backend_properties.py
-elements_sdk/model/basic_file.py
 elements_sdk/model/bee_gfs_node.py
 elements_sdk/model/bee_gfs_target.py
 elements_sdk/model/benchmark_endpoint_request.py
@@ -641,7 +626,9 @@ elements_sdk/model/custom_field.py
 elements_sdk/model/custom_field_partial_update.py
 elements_sdk/model/custom_field_reference.py
 elements_sdk/model/custom_field_update.py
+elements_sdk/model/delete_disabled_users_request.py
 elements_sdk/model/deleted_workspace.py
+elements_sdk/model/directory_entry.py
 elements_sdk/model/download.py
 elements_sdk/model/download_archive.py
 elements_sdk/model/download_archive_partial_update.py
@@ -716,10 +703,11 @@ elements_sdk/model/import_ai_model_request.py
 elements_sdk/model/import_ai_model_response.py
 elements_sdk/model/import_job_request.py
 elements_sdk/model/import_job_response.py
-elements_sdk/model/inline_response200.py
 elements_sdk/model/install_license_endpoint_request.py
 elements_sdk/model/instantiate_file_template_request.py
 elements_sdk/model/interface.py
+elements_sdk/model/interface_partial_update.py
+elements_sdk/model/interface_update.py
 elements_sdk/model/io_stat.py
 elements_sdk/model/ipmi.py
 elements_sdk/model/job.py
@@ -763,6 +751,7 @@ elements_sdk/model/media_file_bundle_mini_reference.py
 elements_sdk/model/media_file_contents.py
 elements_sdk/model/media_file_exclusion_info.py
 elements_sdk/model/media_file_mini.py
+elements_sdk/model/media_file_mini_reference.py
 elements_sdk/model/media_file_partial_update.py
 elements_sdk/model/media_file_reference.py
 elements_sdk/model/media_file_template.py
@@ -770,8 +759,12 @@ elements_sdk/model/media_file_template_partial_update.py
 elements_sdk/model/media_file_template_update.py
 elements_sdk/model/media_file_update.py
 elements_sdk/model/media_files_lookup_request.py
+elements_sdk/model/media_homepage_content_endpoint_response.py
 elements_sdk/model/media_library_delete_request.py
 elements_sdk/model/media_library_share_request.py
+elements_sdk/model/media_pinned_item.py
+elements_sdk/model/media_pinned_item_partial_update.py
+elements_sdk/model/media_pinned_item_update.py
 elements_sdk/model/media_root.py
 elements_sdk/model/media_root_detail.py
 elements_sdk/model/media_root_detail_partial_update.py
@@ -781,6 +774,7 @@ elements_sdk/model/media_root_mini_reference.py
 elements_sdk/model/media_root_mini_with_custom_fields.py
 elements_sdk/model/media_root_permission.py
 elements_sdk/model/media_root_permission_access_options.py
+elements_sdk/model/media_root_permission_mini.py
 elements_sdk/model/media_root_permission_partial_update.py
 elements_sdk/model/media_root_permission_update.py
 elements_sdk/model/media_update.py
@@ -819,6 +813,7 @@ elements_sdk/model/path.py
 elements_sdk/model/path_exclusion_info.py
 elements_sdk/model/path_input.py
 elements_sdk/model/path_mapping.py
+elements_sdk/model/physical_file.py
 elements_sdk/model/production.py
 elements_sdk/model/production_mini.py
 elements_sdk/model/production_partial_update.py
@@ -859,6 +854,7 @@ elements_sdk/model/saml_provider_partial_update.py
 elements_sdk/model/saml_provider_update.py
 elements_sdk/model/saved_search.py
 elements_sdk/model/saved_search_partial_update.py
+elements_sdk/model/saved_search_reference.py
 elements_sdk/model/saved_search_update.py
 elements_sdk/model/scanner_discover_endpoint_request.py
 elements_sdk/model/scanner_scan_endpoint_request.py
@@ -871,6 +867,7 @@ elements_sdk/model/search_endpoint_response.py
 elements_sdk/model/send_link_email_request.py
 elements_sdk/model/sensor.py
 elements_sdk/model/sensors.py
+elements_sdk/model/sequence_render_request_options.py
 elements_sdk/model/service_status.py
 elements_sdk/model/set_time_request.py
 elements_sdk/model/share.py
@@ -987,7 +984,6 @@ elements_sdk/model/unread_count.py
 elements_sdk/model/unresolved_count.py
 elements_sdk/model/update_quota_request.py
 elements_sdk/model/updated_file.py
-elements_sdk/model/upload_ai_image_request.py
 elements_sdk/model/upload_chunk_endpoint_request.py
 elements_sdk/model/vantage_workflow.py
 elements_sdk/model/vantage_workflows.py
@@ -1015,7 +1011,6 @@ elements_sdk/model/workspace_detail_partial_update.py
 elements_sdk/model/workspace_detail_update.py
 elements_sdk/model/workspace_endpoint.py
 elements_sdk/model/workspace_mini.py
-elements_sdk/model/workspace_move_to_request.py
 elements_sdk/model/workspace_permission.py
 elements_sdk/model/workspace_permission_partial_update.py
 elements_sdk/model/workspace_permission_update.py
@@ -1025,6 +1020,7 @@ elements_sdk/model/workstation_mini.py
 elements_sdk/model/workstation_partial_update.py
 elements_sdk/model/workstation_update.py
 elements_sdk/model/xml_export.py
+elements_sdk/model/zip_info.py
 elements_sdk/model_utils.py
 elements_sdk/models/__init__.py
 elements_sdk/rest.py
@@ -1034,4 +1030,18 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_delete_disabled_users_request.py
+test/test_directory_entry.py
+test/test_interface_partial_update.py
+test/test_interface_update.py
+test/test_media_file_mini_reference.py
+test/test_media_homepage_content_endpoint_response.py
+test/test_media_pinned_item.py
+test/test_media_pinned_item_partial_update.py
+test/test_media_pinned_item_update.py
+test/test_media_root_permission_mini.py
+test/test_physical_file.py
+test/test_saved_search_reference.py
+test/test_sequence_render_request_options.py
+test/test_zip_info.py
 tox.ini

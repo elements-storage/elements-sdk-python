@@ -30,7 +30,6 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.ai_connection import AIConnection
     from elements_sdk.model.cloud_connection import CloudConnection
     from elements_sdk.model.elements_user_detail import ElementsUserDetail
     from elements_sdk.model.elements_user_mini import ElementsUserMini
@@ -45,7 +44,6 @@ def lazy_import():
     from elements_sdk.model.storage_node import StorageNode
     from elements_sdk.model.task_type import TaskType
     from elements_sdk.model.tasks_summary import TasksSummary
-    globals()['AIConnection'] = AIConnection
     globals()['CloudConnection'] = CloudConnection
     globals()['ElementsUserDetail'] = ElementsUserDetail
     globals()['ElementsUserMini'] = ElementsUserMini
@@ -137,7 +135,6 @@ class BootstrapData(ModelNormal):
             'client_os': (str,),  # noqa: E501
             'session_id': (str,),  # noqa: E501
             'cloud_connections': ([CloudConnection],),  # noqa: E501
-            'ai_connections': ([AIConnection],),  # noqa: E501
             'events': ([Event],),  # noqa: E501
             'sentry_config': ({str: (str, none_type)},),  # noqa: E501
             'has_wan_networks': (bool,),  # noqa: E501
@@ -178,7 +175,6 @@ class BootstrapData(ModelNormal):
         'client_os': 'client_os',  # noqa: E501
         'session_id': 'session_id',  # noqa: E501
         'cloud_connections': 'cloud_connections',  # noqa: E501
-        'ai_connections': 'ai_connections',  # noqa: E501
         'events': 'events',  # noqa: E501
         'sentry_config': 'sentry_config',  # noqa: E501
         'has_wan_networks': 'has_wan_networks',  # noqa: E501
@@ -210,7 +206,7 @@ class BootstrapData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, public_parameters, known_usernames, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, ai_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, system_name, stream_proxy_url_prefix, has_password_policy, has_filesystem_events, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, public_parameters, known_usernames, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, system_name, stream_proxy_url_prefix, has_password_policy, has_filesystem_events, *args, **xkwargs):  # noqa: E501
         """BootstrapData - a model defined in OpenAPI
 
         Args:
@@ -224,7 +220,6 @@ class BootstrapData(ModelNormal):
             client_os (str):
             session_id (str):
             cloud_connections ([CloudConnection]):
-            ai_connections ([AIConnection]):
             events ([Event]):
             sentry_config ({str: (str, none_type)}):
             has_wan_networks (bool):
@@ -317,7 +312,6 @@ class BootstrapData(ModelNormal):
         self.client_os = client_os
         self.session_id = session_id
         self.cloud_connections = cloud_connections
-        self.ai_connections = ai_connections
         self.events = events
         self.sentry_config = sentry_config
         self.has_wan_networks = has_wan_networks
@@ -354,7 +348,7 @@ class BootstrapData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, public_parameters, known_usernames, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, ai_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, system_name, stream_proxy_url_prefix, has_password_policy, has_filesystem_events, *args, **xkwargs):  # noqa: E501
+    def __init__(self, public_parameters, known_usernames, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, system_name, stream_proxy_url_prefix, has_password_policy, has_filesystem_events, *args, **xkwargs):  # noqa: E501
         """BootstrapData - a model defined in OpenAPI
 
         Args:
@@ -368,7 +362,6 @@ class BootstrapData(ModelNormal):
             client_os (str):
             session_id (str):
             cloud_connections ([CloudConnection]):
-            ai_connections ([AIConnection]):
             events ([Event]):
             sentry_config ({str: (str, none_type)}):
             has_wan_networks (bool):
@@ -459,7 +452,6 @@ class BootstrapData(ModelNormal):
         self.client_os = client_os
         self.session_id = session_id
         self.cloud_connections = cloud_connections
-        self.ai_connections = ai_connections
         self.events = events
         self.sentry_config = sentry_config
         self.has_wan_networks = has_wan_networks

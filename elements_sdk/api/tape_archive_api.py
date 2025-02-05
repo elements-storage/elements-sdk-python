@@ -656,7 +656,7 @@ class TapeArchiveApi(object):
                 },
                 'openapi_types': {
                     'id':
-                        (float,),
+                        (int,),
                     'is_dir':
                         (str,),
                     'name':
@@ -796,7 +796,7 @@ class TapeArchiveApi(object):
                 },
                 'openapi_types': {
                     'id':
-                        (float,),
+                        (int,),
                     'name':
                         (str,),
                     'ordering':
@@ -867,7 +867,7 @@ class TapeArchiveApi(object):
                 },
                 'openapi_types': {
                     'id':
-                        (float,),
+                        (int,),
                     'name':
                         (str,),
                     'group':
@@ -2936,7 +2936,7 @@ class TapeArchiveApi(object):
 
 
         Keyword Args:
-            id (float): Filter the returned list by `id`.. [optional]
+            id (int): Filter the returned list by `id`.. [optional]
             is_dir (str): Filter the returned list by `is_dir`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             fullpath (str): Filter the returned list by `fullpath`.. [optional]
@@ -3093,7 +3093,7 @@ class TapeArchiveApi(object):
 
 
         Keyword Args:
-            id (float): Filter the returned list by `id`.. [optional]
+            id (int): Filter the returned list by `id`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
@@ -3171,7 +3171,7 @@ class TapeArchiveApi(object):
 
 
         Keyword Args:
-            id (float): Filter the returned list by `id`.. [optional]
+            id (int): Filter the returned list by `id`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             group (int): Filter the returned list by `group`.. [optional]
             group__isnull (str): Filter the returned list by `group__isnull`.. [optional]

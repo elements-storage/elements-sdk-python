@@ -96,8 +96,8 @@ class SavedSearch(ModelNormal):
             'root': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'query': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'url': (str,),  # noqa: E501
+            'url_params': ({str: (str,)},),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'shared': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -111,19 +111,20 @@ class SavedSearch(ModelNormal):
         'root': 'root',  # noqa: E501
         'query': 'query',  # noqa: E501
         'url': 'url',  # noqa: E501
+        'url_params': 'url_params',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'shared': 'shared',  # noqa: E501
     }
 
     read_only_vars = {
         'url',  # noqa: E501
+        'url_params',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, user, root, query, url, name, shared, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, user, root, query, url, url_params, name, *args, **xkwargs):  # noqa: E501
         """SavedSearch - a model defined in OpenAPI
 
         Args:
@@ -132,8 +133,8 @@ class SavedSearch(ModelNormal):
             root (bool, date, datetime, dict, float, int, list, str, none_type):
             query ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             url (str):
+            url_params ({str: (str,)}):
             name (str):
-            shared (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -199,8 +200,8 @@ class SavedSearch(ModelNormal):
         self.root = root
         self.query = query
         self.url = url
+        self.url_params = url_params
         self.name = name
-        self.shared = shared
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -222,7 +223,7 @@ class SavedSearch(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, user, root, query, name, shared, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, user, root, query, name, *args, **xkwargs):  # noqa: E501
         """SavedSearch - a model defined in OpenAPI
 
         Args:
@@ -231,7 +232,6 @@ class SavedSearch(ModelNormal):
             root (bool, date, datetime, dict, float, int, list, str, none_type):
             query ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             name (str):
-            shared (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -295,7 +295,6 @@ class SavedSearch(ModelNormal):
         self.root = root
         self.query = query
         self.name = name
-        self.shared = shared
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

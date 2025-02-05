@@ -102,6 +102,7 @@ class MediaFileMini(ModelNormal):
             'mtime': (int,),  # noqa: E501
             'path': (str,),  # noqa: E501
             'present': (bool,),  # noqa: E501
+            'archived': (bool,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'volume': (VolumeMini,),  # noqa: E501
             'bundle': (int, none_type,),  # noqa: E501
@@ -124,6 +125,7 @@ class MediaFileMini(ModelNormal):
         'mtime': 'mtime',  # noqa: E501
         'path': 'path',  # noqa: E501
         'present': 'present',  # noqa: E501
+        'archived': 'archived',  # noqa: E501
         'size': 'size',  # noqa: E501
         'volume': 'volume',  # noqa: E501
         'bundle': 'bundle',  # noqa: E501
@@ -139,6 +141,7 @@ class MediaFileMini(ModelNormal):
         'mtime',  # noqa: E501
         'path',  # noqa: E501
         'present',  # noqa: E501
+        'archived',  # noqa: E501
         'size',  # noqa: E501
         'bundle',  # noqa: E501
         'parent',  # noqa: E501
@@ -149,7 +152,7 @@ class MediaFileMini(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, full_path, custom_fields, is_dir, is_hardlink, mtime, path, present, size, volume, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, full_path, custom_fields, is_dir, is_hardlink, mtime, path, present, archived, size, volume, *args, **xkwargs):  # noqa: E501
         """MediaFileMini - a model defined in OpenAPI
 
         Args:
@@ -162,6 +165,7 @@ class MediaFileMini(ModelNormal):
             mtime (int):
             path (str):
             present (bool):
+            archived (bool):
             size (int):
             volume (VolumeMini):
 
@@ -236,6 +240,7 @@ class MediaFileMini(ModelNormal):
         self.mtime = mtime
         self.path = path
         self.present = present
+        self.archived = archived
         self.size = size
         self.volume = volume
         for var_name, var_value in xkwargs.items():

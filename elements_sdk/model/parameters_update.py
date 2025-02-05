@@ -150,6 +150,7 @@ class ParametersUpdate(ModelNormal):
             'ltfs_default_search_directories': (bool,),  # noqa: E501
             'ltfs_library_address': (str, none_type,),  # noqa: E501
             'media_allow_anonymous_links': (bool,),  # noqa: E501
+            'media_allow_changing_archived': (bool,),  # noqa: E501
             'media_auto_play': (bool,),  # noqa: E501
             'media_auto_proxy': (bool,),  # noqa: E501
             'media_auto_scan': (bool,),  # noqa: E501
@@ -196,6 +197,7 @@ class ParametersUpdate(ModelNormal):
         'ltfs_default_search_directories': 'ltfs_default_search_directories',  # noqa: E501
         'ltfs_library_address': 'ltfs_library_address',  # noqa: E501
         'media_allow_anonymous_links': 'media_allow_anonymous_links',  # noqa: E501
+        'media_allow_changing_archived': 'media_allow_changing_archived',  # noqa: E501
         'media_auto_play': 'media_auto_play',  # noqa: E501
         'media_auto_proxy': 'media_auto_proxy',  # noqa: E501
         'media_auto_scan': 'media_auto_scan',  # noqa: E501
@@ -279,6 +281,7 @@ class ParametersUpdate(ModelNormal):
             ltfs_default_search_directories (bool): [optional]  # noqa: E501
             ltfs_library_address (str, none_type): [optional]  # noqa: E501
             media_allow_anonymous_links (bool): [optional]  # noqa: E501
+            media_allow_changing_archived (bool): [optional]  # noqa: E501
             media_auto_play (bool): [optional]  # noqa: E501
             media_auto_proxy (bool): [optional]  # noqa: E501
             media_auto_scan (bool): [optional]  # noqa: E501
@@ -403,6 +406,7 @@ class ParametersUpdate(ModelNormal):
             ltfs_default_search_directories (bool): [optional]  # noqa: E501
             ltfs_library_address (str, none_type): [optional]  # noqa: E501
             media_allow_anonymous_links (bool): [optional]  # noqa: E501
+            media_allow_changing_archived (bool): [optional]  # noqa: E501
             media_auto_play (bool): [optional]  # noqa: E501
             media_auto_proxy (bool): [optional]  # noqa: E501
             media_auto_scan (bool): [optional]  # noqa: E501

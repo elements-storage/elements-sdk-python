@@ -124,9 +124,9 @@ class MediaRootDetailPartialUpdate(ModelNormal):
             'volume': (VolumeReference,),  # noqa: E501
             'workflow': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'jobs': ([JobReference],),  # noqa: E501
-            'ai_config': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'path': (str,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
             'needs_rescan': (bool,),  # noqa: E501
             'view_mode': (str,),  # noqa: E501
             'view_style': (str,),  # noqa: E501
@@ -149,8 +149,6 @@ class MediaRootDetailPartialUpdate(ModelNormal):
             'disable_framestacks': (bool,),  # noqa: E501
             'default_proxy_profile': (int, none_type,),  # noqa: E501
             'cloud_proxy_profile': (int, none_type,),  # noqa: E501
-            'ai_connection': (int, none_type,),  # noqa: E501
-            'ai_proxy_profile': (int, none_type,),  # noqa: E501
             'proxy_profiles': ([int],),  # noqa: E501
             'tags': ([int],),  # noqa: E501
         }
@@ -165,9 +163,9 @@ class MediaRootDetailPartialUpdate(ModelNormal):
         'volume': 'volume',  # noqa: E501
         'workflow': 'workflow',  # noqa: E501
         'jobs': 'jobs',  # noqa: E501
-        'ai_config': 'ai_config',  # noqa: E501
         'name': 'name',  # noqa: E501
         'path': 'path',  # noqa: E501
+        'description': 'description',  # noqa: E501
         'needs_rescan': 'needs_rescan',  # noqa: E501
         'view_mode': 'view_mode',  # noqa: E501
         'view_style': 'view_style',  # noqa: E501
@@ -190,8 +188,6 @@ class MediaRootDetailPartialUpdate(ModelNormal):
         'disable_framestacks': 'disable_framestacks',  # noqa: E501
         'default_proxy_profile': 'default_proxy_profile',  # noqa: E501
         'cloud_proxy_profile': 'cloud_proxy_profile',  # noqa: E501
-        'ai_connection': 'ai_connection',  # noqa: E501
-        'ai_proxy_profile': 'ai_proxy_profile',  # noqa: E501
         'proxy_profiles': 'proxy_profiles',  # noqa: E501
         'tags': 'tags',  # noqa: E501
     }
@@ -242,9 +238,9 @@ class MediaRootDetailPartialUpdate(ModelNormal):
             volume (VolumeReference): [optional]  # noqa: E501
             workflow (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             jobs ([JobReference]): [optional]  # noqa: E501
-            ai_config ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
             needs_rescan (bool): [optional]  # noqa: E501
             view_mode (str): [optional]  # noqa: E501
             view_style (str): [optional]  # noqa: E501
@@ -267,8 +263,6 @@ class MediaRootDetailPartialUpdate(ModelNormal):
             disable_framestacks (bool): [optional]  # noqa: E501
             default_proxy_profile (int, none_type): [optional]  # noqa: E501
             cloud_proxy_profile (int, none_type): [optional]  # noqa: E501
-            ai_connection (int, none_type): [optional]  # noqa: E501
-            ai_proxy_profile (int, none_type): [optional]  # noqa: E501
             proxy_profiles ([int]): [optional]  # noqa: E501
             tags ([int]): [optional]  # noqa: E501
         """
@@ -358,9 +352,9 @@ class MediaRootDetailPartialUpdate(ModelNormal):
             volume (VolumeReference): [optional]  # noqa: E501
             workflow (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             jobs ([JobReference]): [optional]  # noqa: E501
-            ai_config ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
             needs_rescan (bool): [optional]  # noqa: E501
             view_mode (str): [optional]  # noqa: E501
             view_style (str): [optional]  # noqa: E501
@@ -383,8 +377,6 @@ class MediaRootDetailPartialUpdate(ModelNormal):
             disable_framestacks (bool): [optional]  # noqa: E501
             default_proxy_profile (int, none_type): [optional]  # noqa: E501
             cloud_proxy_profile (int, none_type): [optional]  # noqa: E501
-            ai_connection (int, none_type): [optional]  # noqa: E501
-            ai_proxy_profile (int, none_type): [optional]  # noqa: E501
             proxy_profiles ([int]): [optional]  # noqa: E501
             tags ([int]): [optional]  # noqa: E501
         """

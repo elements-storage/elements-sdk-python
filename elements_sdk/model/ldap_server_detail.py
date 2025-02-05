@@ -65,6 +65,10 @@ class LDAPServerDetail(ModelNormal):
             'SSL': "ssl",
             'STARTTLS': "starttls",
         },
+        ('username_format',): {
+            'SAMACCOUNTNAME': "sAMAccountName",
+            'USERPRINCIPALNAME': "userPrincipalName",
+        },
     }
 
     validations = {
@@ -144,6 +148,7 @@ class LDAPServerDetail(ModelNormal):
             'users_root': (str,),  # noqa: E501
             'groups_root': (str,),  # noqa: E501
             'use_wbinfo': (bool,),  # noqa: E501
+            'username_format': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -169,6 +174,7 @@ class LDAPServerDetail(ModelNormal):
         'users_root': 'users_root',  # noqa: E501
         'groups_root': 'groups_root',  # noqa: E501
         'use_wbinfo': 'use_wbinfo',  # noqa: E501
+        'username_format': 'username_format',  # noqa: E501
     }
 
     read_only_vars = {
@@ -179,7 +185,7 @@ class LDAPServerDetail(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, winbind_separator, type, name, host, tls, username, password, domain, search_filter, group_search_filter, nt_domain, nt_domain_mapping, root, users_root, groups_root, use_wbinfo, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, winbind_separator, type, name, host, tls, username, password, domain, search_filter, group_search_filter, nt_domain, nt_domain_mapping, root, users_root, groups_root, use_wbinfo, username_format, *args, **xkwargs):  # noqa: E501
         """LDAPServerDetail - a model defined in OpenAPI
 
         Args:
@@ -200,6 +206,7 @@ class LDAPServerDetail(ModelNormal):
             users_root (str):
             groups_root (str):
             use_wbinfo (bool):
+            username_format (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -277,6 +284,7 @@ class LDAPServerDetail(ModelNormal):
         self.users_root = users_root
         self.groups_root = groups_root
         self.use_wbinfo = use_wbinfo
+        self.username_format = username_format
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -298,7 +306,7 @@ class LDAPServerDetail(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, type, name, host, tls, username, password, domain, search_filter, group_search_filter, nt_domain, nt_domain_mapping, root, users_root, groups_root, use_wbinfo, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, type, name, host, tls, username, password, domain, search_filter, group_search_filter, nt_domain, nt_domain_mapping, root, users_root, groups_root, use_wbinfo, username_format, *args, **xkwargs):  # noqa: E501
         """LDAPServerDetail - a model defined in OpenAPI
 
         Args:
@@ -318,6 +326,7 @@ class LDAPServerDetail(ModelNormal):
             users_root (str):
             groups_root (str):
             use_wbinfo (bool):
+            username_format (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -392,6 +401,7 @@ class LDAPServerDetail(ModelNormal):
         self.users_root = users_root
         self.groups_root = groups_root
         self.use_wbinfo = use_wbinfo
+        self.username_format = username_format
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

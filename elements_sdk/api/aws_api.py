@@ -175,7 +175,7 @@ class AWSApi(object):
                     'name':
                         (str,),
                     'id':
-                        (float,),
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -604,7 +604,7 @@ class AWSApi(object):
 
         Keyword Args:
             name (str): Filter the returned list by `name`.. [optional]
-            id (float): Filter the returned list by `id`.. [optional]
+            id (int): Filter the returned list by `id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]

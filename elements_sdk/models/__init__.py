@@ -10,20 +10,9 @@
 # sys.setrecursionlimit(n)
 
 from elements_sdk.model.ai_annotation import AIAnnotation
-from elements_sdk.model.ai_annotation_create_request import AIAnnotationCreateRequest
-from elements_sdk.model.ai_annotation_partial_update import AIAnnotationPartialUpdate
-from elements_sdk.model.ai_annotation_update import AIAnnotationUpdate
-from elements_sdk.model.ai_category import AICategory
-from elements_sdk.model.ai_category_detail import AICategoryDetail
-from elements_sdk.model.ai_category_detail_partial_update import AICategoryDetailPartialUpdate
-from elements_sdk.model.ai_category_detail_update import AICategoryDetailUpdate
 from elements_sdk.model.ai_category_mini import AICategoryMini
-from elements_sdk.model.ai_category_mini_reference import AICategoryMiniReference
 from elements_sdk.model.ai_combined_inference_result import AICombinedInferenceResult
-from elements_sdk.model.ai_connection import AIConnection
 from elements_sdk.model.ai_dataset import AIDataset
-from elements_sdk.model.ai_dataset_detail import AIDatasetDetail
-from elements_sdk.model.ai_dataset_detail_reference import AIDatasetDetailReference
 from elements_sdk.model.ai_dataset_export_request import AIDatasetExportRequest
 from elements_sdk.model.ai_dataset_export_response import AIDatasetExportResponse
 from elements_sdk.model.ai_dataset_reference import AIDatasetReference
@@ -31,7 +20,6 @@ from elements_sdk.model.ai_dataset_with_preview import AIDatasetWithPreview
 from elements_sdk.model.ai_dataset_with_preview_partial_update import AIDatasetWithPreviewPartialUpdate
 from elements_sdk.model.ai_dataset_with_preview_update import AIDatasetWithPreviewUpdate
 from elements_sdk.model.ai_image import AIImage
-from elements_sdk.model.ai_image_reference import AIImageReference
 from elements_sdk.model.ai_inference_position import AIInferencePosition
 from elements_sdk.model.ai_metadata import AIMetadata
 from elements_sdk.model.ai_model import AIModel
@@ -74,7 +62,6 @@ from elements_sdk.model.auth_login_endpoint_request import AuthLoginEndpointRequ
 from elements_sdk.model.auth_login_endpoint_response import AuthLoginEndpointResponse
 from elements_sdk.model.backend import Backend
 from elements_sdk.model.backend_properties import BackendProperties
-from elements_sdk.model.basic_file import BasicFile
 from elements_sdk.model.bee_gfs_node import BeeGFSNode
 from elements_sdk.model.bee_gfs_target import BeeGFSTarget
 from elements_sdk.model.benchmark_endpoint_request import BenchmarkEndpointRequest
@@ -120,7 +107,9 @@ from elements_sdk.model.custom_field import CustomField
 from elements_sdk.model.custom_field_partial_update import CustomFieldPartialUpdate
 from elements_sdk.model.custom_field_reference import CustomFieldReference
 from elements_sdk.model.custom_field_update import CustomFieldUpdate
+from elements_sdk.model.delete_disabled_users_request import DeleteDisabledUsersRequest
 from elements_sdk.model.deleted_workspace import DeletedWorkspace
+from elements_sdk.model.directory_entry import DirectoryEntry
 from elements_sdk.model.download import Download
 from elements_sdk.model.download_archive import DownloadArchive
 from elements_sdk.model.download_archive_partial_update import DownloadArchivePartialUpdate
@@ -196,10 +185,11 @@ from elements_sdk.model.import_ai_model_request import ImportAIModelRequest
 from elements_sdk.model.import_ai_model_response import ImportAIModelResponse
 from elements_sdk.model.import_job_request import ImportJobRequest
 from elements_sdk.model.import_job_response import ImportJobResponse
-from elements_sdk.model.inline_response200 import InlineResponse200
 from elements_sdk.model.install_license_endpoint_request import InstallLicenseEndpointRequest
 from elements_sdk.model.instantiate_file_template_request import InstantiateFileTemplateRequest
 from elements_sdk.model.interface import Interface
+from elements_sdk.model.interface_partial_update import InterfacePartialUpdate
+from elements_sdk.model.interface_update import InterfaceUpdate
 from elements_sdk.model.ipmi import Ipmi
 from elements_sdk.model.job import Job
 from elements_sdk.model.job_detail import JobDetail
@@ -242,6 +232,7 @@ from elements_sdk.model.media_file_bundle_mini_reference import MediaFileBundleM
 from elements_sdk.model.media_file_contents import MediaFileContents
 from elements_sdk.model.media_file_exclusion_info import MediaFileExclusionInfo
 from elements_sdk.model.media_file_mini import MediaFileMini
+from elements_sdk.model.media_file_mini_reference import MediaFileMiniReference
 from elements_sdk.model.media_file_partial_update import MediaFilePartialUpdate
 from elements_sdk.model.media_file_reference import MediaFileReference
 from elements_sdk.model.media_file_template import MediaFileTemplate
@@ -249,8 +240,12 @@ from elements_sdk.model.media_file_template_partial_update import MediaFileTempl
 from elements_sdk.model.media_file_template_update import MediaFileTemplateUpdate
 from elements_sdk.model.media_file_update import MediaFileUpdate
 from elements_sdk.model.media_files_lookup_request import MediaFilesLookupRequest
+from elements_sdk.model.media_homepage_content_endpoint_response import MediaHomepageContentEndpointResponse
 from elements_sdk.model.media_library_delete_request import MediaLibraryDeleteRequest
 from elements_sdk.model.media_library_share_request import MediaLibraryShareRequest
+from elements_sdk.model.media_pinned_item import MediaPinnedItem
+from elements_sdk.model.media_pinned_item_partial_update import MediaPinnedItemPartialUpdate
+from elements_sdk.model.media_pinned_item_update import MediaPinnedItemUpdate
 from elements_sdk.model.media_root import MediaRoot
 from elements_sdk.model.media_root_detail import MediaRootDetail
 from elements_sdk.model.media_root_detail_partial_update import MediaRootDetailPartialUpdate
@@ -260,6 +255,7 @@ from elements_sdk.model.media_root_mini_reference import MediaRootMiniReference
 from elements_sdk.model.media_root_mini_with_custom_fields import MediaRootMiniWithCustomFields
 from elements_sdk.model.media_root_permission import MediaRootPermission
 from elements_sdk.model.media_root_permission_access_options import MediaRootPermissionAccessOptions
+from elements_sdk.model.media_root_permission_mini import MediaRootPermissionMini
 from elements_sdk.model.media_root_permission_partial_update import MediaRootPermissionPartialUpdate
 from elements_sdk.model.media_root_permission_update import MediaRootPermissionUpdate
 from elements_sdk.model.media_update import MediaUpdate
@@ -298,6 +294,7 @@ from elements_sdk.model.path import Path
 from elements_sdk.model.path_exclusion_info import PathExclusionInfo
 from elements_sdk.model.path_input import PathInput
 from elements_sdk.model.path_mapping import PathMapping
+from elements_sdk.model.physical_file import PhysicalFile
 from elements_sdk.model.production import Production
 from elements_sdk.model.production_mini import ProductionMini
 from elements_sdk.model.production_partial_update import ProductionPartialUpdate
@@ -341,6 +338,7 @@ from elements_sdk.model.smtp_configuration_update import SMTPConfigurationUpdate
 from elements_sdk.model.snfs_stripe_group import SNFSStripeGroup
 from elements_sdk.model.saved_search import SavedSearch
 from elements_sdk.model.saved_search_partial_update import SavedSearchPartialUpdate
+from elements_sdk.model.saved_search_reference import SavedSearchReference
 from elements_sdk.model.saved_search_update import SavedSearchUpdate
 from elements_sdk.model.scanner_discover_endpoint_request import ScannerDiscoverEndpointRequest
 from elements_sdk.model.scanner_scan_endpoint_request import ScannerScanEndpointRequest
@@ -353,6 +351,7 @@ from elements_sdk.model.search_endpoint_response import SearchEndpointResponse
 from elements_sdk.model.send_link_email_request import SendLinkEmailRequest
 from elements_sdk.model.sensor import Sensor
 from elements_sdk.model.sensors import Sensors
+from elements_sdk.model.sequence_render_request_options import SequenceRenderRequestOptions
 from elements_sdk.model.service_status import ServiceStatus
 from elements_sdk.model.set_time_request import SetTimeRequest
 from elements_sdk.model.share import Share
@@ -466,7 +465,6 @@ from elements_sdk.model.unread_count import UnreadCount
 from elements_sdk.model.unresolved_count import UnresolvedCount
 from elements_sdk.model.update_quota_request import UpdateQuotaRequest
 from elements_sdk.model.updated_file import UpdatedFile
-from elements_sdk.model.upload_ai_image_request import UploadAIImageRequest
 from elements_sdk.model.upload_chunk_endpoint_request import UploadChunkEndpointRequest
 from elements_sdk.model.vantage_workflow import VantageWorkflow
 from elements_sdk.model.vantage_workflows import VantageWorkflows
@@ -494,7 +492,6 @@ from elements_sdk.model.workspace_detail_partial_update import WorkspaceDetailPa
 from elements_sdk.model.workspace_detail_update import WorkspaceDetailUpdate
 from elements_sdk.model.workspace_endpoint import WorkspaceEndpoint
 from elements_sdk.model.workspace_mini import WorkspaceMini
-from elements_sdk.model.workspace_move_to_request import WorkspaceMoveToRequest
 from elements_sdk.model.workspace_permission import WorkspacePermission
 from elements_sdk.model.workspace_permission_partial_update import WorkspacePermissionPartialUpdate
 from elements_sdk.model.workspace_permission_update import WorkspacePermissionUpdate
@@ -504,3 +501,4 @@ from elements_sdk.model.workstation_mini import WorkstationMini
 from elements_sdk.model.workstation_partial_update import WorkstationPartialUpdate
 from elements_sdk.model.workstation_update import WorkstationUpdate
 from elements_sdk.model.xml_export import XMLExport
+from elements_sdk.model.zip_info import ZipInfo

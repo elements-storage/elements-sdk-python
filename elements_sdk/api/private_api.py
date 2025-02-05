@@ -28,6 +28,7 @@ from elements_sdk.model.bootstrap_data import BootstrapData
 from elements_sdk.model.client_side_path_endpoint_request import ClientSidePathEndpointRequest
 from elements_sdk.model.client_side_path_endpoint_response import ClientSidePathEndpointResponse
 from elements_sdk.model.help_endpoint_response import HelpEndpointResponse
+from elements_sdk.model.impersonation_endpoint_request import ImpersonationEndpointRequest
 from elements_sdk.model.install_license_endpoint_request import InstallLicenseEndpointRequest
 from elements_sdk.model.locale_endpoint_response import LocaleEndpointResponse
 from elements_sdk.model.locate_endpoint_request import LocateEndpointRequest
@@ -37,6 +38,7 @@ from elements_sdk.model.locate_proxies_endpoint_request import LocateProxiesEndp
 from elements_sdk.model.locate_proxies_endpoint_response import LocateProxiesEndpointResponse
 from elements_sdk.model.locate_result import LocateResult
 from elements_sdk.model.media_file import MediaFile
+from elements_sdk.model.media_homepage_content_endpoint_response import MediaHomepageContentEndpointResponse
 from elements_sdk.model.proxy_fs_size_endpoint_response import ProxyFSSizeEndpointResponse
 from elements_sdk.model.qumulo_integration import QumuloIntegration
 from elements_sdk.model.qumulo_integration_partial_update import QumuloIntegrationPartialUpdate
@@ -218,12 +220,12 @@ class PrivateApi(object):
             },
             params_map={
                 'all': [
-                    'path',
                     'root_id',
+                    'path',
                 ],
                 'required': [
-                    'path',
                     'root_id',
+                    'path',
                 ],
                 'nullable': [
                 ],
@@ -238,18 +240,18 @@ class PrivateApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'path':
-                        (str,),
                     'root_id':
+                        (str,),
+                    'path':
                         (str,),
                 },
                 'attribute_map': {
-                    'path': 'path',
                     'root_id': 'root_id',
+                    'path': 'path',
                 },
                 'location_map': {
-                    'path': 'path',
                     'root_id': 'path',
+                    'path': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -705,6 +707,50 @@ class PrivateApi(object):
                 },
                 'location_map': {
                     'lang': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_media_library_homepage_content_endpoint = _Endpoint(
+            settings={
+                'response_type': (MediaHomepageContentEndpointResponse,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/private/media/homepage-content',
+                'operation_id': 'get_media_library_homepage_content',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
                 },
                 'collection_format_map': {
                 }
@@ -1329,6 +1375,147 @@ class PrivateApi(object):
             },
             api_client=api_client
         )
+        self.start_impersonation_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/auth/impersonation',
+                'operation_id': 'start_impersonation',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'impersonation_endpoint_request',
+                ],
+                'required': [
+                    'impersonation_endpoint_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'impersonation_endpoint_request':
+                        (ImpersonationEndpointRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'impersonation_endpoint_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.start_impersonation_via_redirect_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/auth/impersonation/redirect/{user_id}',
+                'operation_id': 'start_impersonation_via_redirect',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'user_id',
+                ],
+                'required': [
+                    'user_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'user_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'user_id': 'user_id',
+                },
+                'location_map': {
+                    'user_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.stop_impersonation_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/auth/impersonation/stop',
+                'operation_id': 'stop_impersonation',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.submit_node_status_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -1666,8 +1853,8 @@ class PrivateApi(object):
 
     def export_non_proxied_assets_for_path(
         self,
-        path,
         root_id,
+        path,
         **kwargs
     ):
         """export_non_proxied_assets_for_path  # noqa: E501
@@ -1676,12 +1863,12 @@ class PrivateApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.export_non_proxied_assets_for_path(path, root_id, async_req=True)
+        >>> thread = api.export_non_proxied_assets_for_path(root_id, path, async_req=True)
         >>> result = thread.get()
 
         Args:
-            path (str):
             root_id (str):
+            path (str):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -1740,10 +1927,10 @@ class PrivateApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['path'] = \
-            path
         kwargs['root_id'] = \
             root_id
+        kwargs['path'] = \
+            path
         return self.export_non_proxied_assets_for_path_endpoint.call_with_http_info(**kwargs)
 
     def export_updates(
@@ -2435,6 +2622,79 @@ class PrivateApi(object):
         kwargs['lang'] = \
             lang
         return self.get_locale_endpoint.call_with_http_info(**kwargs)
+
+    def get_media_library_homepage_content(
+        self,
+        **kwargs
+    ):
+        """get_media_library_homepage_content  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_media_library_homepage_content(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            MediaHomepageContentEndpointResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_media_library_homepage_content_endpoint.call_with_http_info(**kwargs)
 
     def get_proxy_fs_size(
         self,
@@ -3363,6 +3623,235 @@ class PrivateApi(object):
         kwargs['benchmark_endpoint_request'] = \
             benchmark_endpoint_request
         return self.start_benchmark_session_endpoint.call_with_http_info(**kwargs)
+
+    def start_impersonation(
+        self,
+        impersonation_endpoint_request,
+        **kwargs
+    ):
+        """start_impersonation  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.start_impersonation(impersonation_endpoint_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            impersonation_endpoint_request (ImpersonationEndpointRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['impersonation_endpoint_request'] = \
+            impersonation_endpoint_request
+        return self.start_impersonation_endpoint.call_with_http_info(**kwargs)
+
+    def start_impersonation_via_redirect(
+        self,
+        user_id,
+        **kwargs
+    ):
+        """start_impersonation_via_redirect  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.start_impersonation_via_redirect(user_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            user_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['user_id'] = \
+            user_id
+        return self.start_impersonation_via_redirect_endpoint.call_with_http_info(**kwargs)
+
+    def stop_impersonation(
+        self,
+        **kwargs
+    ):
+        """stop_impersonation  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.stop_impersonation(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.stop_impersonation_endpoint.call_with_http_info(**kwargs)
 
     def submit_node_status(
         self,

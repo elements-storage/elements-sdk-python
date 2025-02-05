@@ -37,6 +37,7 @@ from elements_sdk.model.cloud_account_update import CloudAccountUpdate
 from elements_sdk.model.create_download_archive import CreateDownloadArchive
 from elements_sdk.model.create_home_workspace_request import CreateHomeWorkspaceRequest
 from elements_sdk.model.create_storage_node_request import CreateStorageNodeRequest
+from elements_sdk.model.delete_disabled_users_request import DeleteDisabledUsersRequest
 from elements_sdk.model.download import Download
 from elements_sdk.model.download_archive import DownloadArchive
 from elements_sdk.model.download_archive_partial_update import DownloadArchivePartialUpdate
@@ -62,6 +63,9 @@ from elements_sdk.model.finish_upload_endpoint_request import FinishUploadEndpoi
 from elements_sdk.model.get_cloud_account_costs_response import GetCloudAccountCostsResponse
 from elements_sdk.model.get_cloud_account_volume_sizes_response import GetCloudAccountVolumeSizesResponse
 from elements_sdk.model.image_upload_request import ImageUploadRequest
+from elements_sdk.model.interface import Interface
+from elements_sdk.model.interface_partial_update import InterfacePartialUpdate
+from elements_sdk.model.interface_update import InterfaceUpdate
 from elements_sdk.model.ipmi import Ipmi
 from elements_sdk.model.ldap_probe_request import LDAPProbeRequest
 from elements_sdk.model.ldap_probe_response import LDAPProbeResponse
@@ -1325,6 +1329,56 @@ class MainApi(object):
             },
             api_client=api_client
         )
+        self.delete_disabled_users_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/users/delete-disabled',
+                'operation_id': 'delete_disabled_users',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'delete_disabled_users_request',
+                ],
+                'required': [
+                    'delete_disabled_users_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'delete_disabled_users_request':
+                        (DeleteDisabledUsersRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'delete_disabled_users_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.delete_download_archive_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -2300,6 +2354,7 @@ class MainApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'provider',
                 ],
                 'validation': [
                 ]
@@ -2308,6 +2363,13 @@ class MainApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('provider',): {
+
+                        "AZURE": "azure",
+                        "AWS": "aws",
+                        "BACKBLAZE": "backblaze",
+                        "GCLOUD": "gcloud"
+                    },
                 },
                 'openapi_types': {
                     'name':
@@ -2592,6 +2654,70 @@ class MainApi(object):
                 },
                 'location_map': {
                     'name': 'query',
+                    'ordering': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_all_interfaces_endpoint = _Endpoint(
+            settings={
+                'response_type': ([Interface],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/interfaces',
+                'operation_id': 'get_all_interfaces',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'node_id',
+                    'ordering',
+                    'limit',
+                    'offset',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'node_id':
+                        (int,),
+                    'ordering':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'node_id': 'node_id',
+                    'ordering': 'ordering',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'node_id': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -2948,6 +3074,8 @@ class MainApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'type',
+                    'backend',
                 ],
                 'validation': [
                 ]
@@ -2956,6 +3084,17 @@ class MainApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('type',): {
+
+                        "1": "1",
+                        "2": "2",
+                        "3": "3"
+                    },
+                    ('backend',): {
+
+                        "ELEMENTS": "elements",
+                        "ONEFS": "onefs"
+                    },
                 },
                 'openapi_types': {
                     'type':
@@ -3625,6 +3764,8 @@ class MainApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'type',
+                    'backend',
                 ],
                 'validation': [
                 ]
@@ -3633,6 +3774,17 @@ class MainApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('type',): {
+
+                        "1": "1",
+                        "2": "2",
+                        "3": "3"
+                    },
+                    ('backend',): {
+
+                        "ELEMENTS": "elements",
+                        "ONEFS": "onefs"
+                    },
                 },
                 'openapi_types': {
                     'type':
@@ -4097,6 +4249,57 @@ class MainApi(object):
                 ],
                 'endpoint_path': '/api/2/users/{id}/home',
                 'operation_id': 'get_home_workspace',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_interface_endpoint = _Endpoint(
+            settings={
+                'response_type': (Interface,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/interfaces/{id}',
+                'operation_id': 'get_interface',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -5958,6 +6161,64 @@ class MainApi(object):
             },
             api_client=api_client
         )
+        self.patch_interface_endpoint = _Endpoint(
+            settings={
+                'response_type': (Interface,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/interfaces/{id}',
+                'operation_id': 'patch_interface',
+                'http_method': 'PATCH',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'interface_partial_update',
+                ],
+                'required': [
+                    'id',
+                    'interface_partial_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'interface_partial_update':
+                        (InterfacePartialUpdate,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'interface_partial_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.patch_ldap_server_endpoint = _Endpoint(
             settings={
                 'response_type': (LDAPServerDetail,),
@@ -6720,6 +6981,55 @@ class MainApi(object):
             },
             api_client=api_client
         )
+        self.rescan_interfaces_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/nodes/{id}/rescan-interfaces',
+                'operation_id': 'rescan_interfaces',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.reset_user_password_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -6825,13 +7135,13 @@ class MainApi(object):
             params_map={
                 'all': [
                     'id',
-                    'operation',
                     'service',
+                    'operation',
                 ],
                 'required': [
                     'id',
-                    'operation',
                     'service',
+                    'operation',
                 ],
                 'nullable': [
                 ],
@@ -6848,20 +7158,20 @@ class MainApi(object):
                 'openapi_types': {
                     'id':
                         (int,),
-                    'operation':
-                        (str,),
                     'service':
+                        (str,),
+                    'operation':
                         (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'operation': 'operation',
                     'service': 'service',
+                    'operation': 'operation',
                 },
                 'location_map': {
                     'id': 'path',
-                    'operation': 'path',
                     'service': 'path',
+                    'operation': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -7639,6 +7949,7 @@ class MainApi(object):
             params_map={
                 'all': [
                     'check_certificate_request',
+                    'force',
                 ],
                 'required': [
                     'check_certificate_request',
@@ -7658,11 +7969,15 @@ class MainApi(object):
                 'openapi_types': {
                     'check_certificate_request':
                         (CheckCertificateRequest,),
+                    'force':
+                        (bool,),
                 },
                 'attribute_map': {
+                    'force': 'force',
                 },
                 'location_map': {
                     'check_certificate_request': 'body',
+                    'force': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -7947,6 +8262,64 @@ class MainApi(object):
                 'location_map': {
                     'id': 'path',
                     'elements_group_detail_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_interface_endpoint = _Endpoint(
+            settings={
+                'response_type': (Interface,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/interfaces/{id}',
+                'operation_id': 'update_interface',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'interface_update',
+                ],
+                'required': [
+                    'id',
+                    'interface_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'interface_update':
+                        (InterfaceUpdate,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'interface_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -10623,6 +10996,84 @@ class MainApi(object):
             id
         return self.delete_cloud_account_endpoint.call_with_http_info(**kwargs)
 
+    def delete_disabled_users(
+        self,
+        delete_disabled_users_request,
+        **kwargs
+    ):
+        """delete_disabled_users  # noqa: E501
+
+        ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_disabled_users(delete_disabled_users_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            delete_disabled_users_request (DeleteDisabledUsersRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['delete_disabled_users_request'] = \
+            delete_disabled_users_request
+        return self.delete_disabled_users_endpoint.call_with_http_info(**kwargs)
+
     def delete_download_archive(
         self,
         id,
@@ -12483,6 +12934,83 @@ class MainApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_all_groups_endpoint.call_with_http_info(**kwargs)
+
+    def get_all_interfaces(
+        self,
+        **kwargs
+    ):
+        """get_all_interfaces  # noqa: E501
+
+        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_all_interfaces(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            node_id (int): Filter the returned list by `node_id`.. [optional]
+            ordering (str): Which field to use when ordering the results.. [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [Interface]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_all_interfaces_endpoint.call_with_http_info(**kwargs)
 
     def get_all_ldap_servers(
         self,
@@ -14571,6 +15099,84 @@ class MainApi(object):
         kwargs['id'] = \
             id
         return self.get_home_workspace_endpoint.call_with_http_info(**kwargs)
+
+    def get_interface(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_interface  # noqa: E501
+
+        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_interface(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this interface.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Interface
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_interface_endpoint.call_with_http_info(**kwargs)
 
     def get_ipmi_configuration(
         self,
@@ -17281,6 +17887,88 @@ class MainApi(object):
             elements_group_detail_partial_update
         return self.patch_group_endpoint.call_with_http_info(**kwargs)
 
+    def patch_interface(
+        self,
+        id,
+        interface_partial_update,
+        **kwargs
+    ):
+        """patch_interface  # noqa: E501
+
+        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.patch_interface(id, interface_partial_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this interface.
+            interface_partial_update (InterfacePartialUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Interface
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['interface_partial_update'] = \
+            interface_partial_update
+        return self.patch_interface_endpoint.call_with_http_info(**kwargs)
+
     def patch_ldap_server(
         self,
         id,
@@ -18400,6 +19088,84 @@ class MainApi(object):
             email_preview_request
         return self.render_email_template_preview_endpoint.call_with_http_info(**kwargs)
 
+    def rescan_interfaces(
+        self,
+        id,
+        **kwargs
+    ):
+        """rescan_interfaces  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.rescan_interfaces(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Storage Node.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.rescan_interfaces_endpoint.call_with_http_info(**kwargs)
+
     def reset_user_password(
         self,
         id,
@@ -18554,8 +19320,8 @@ class MainApi(object):
     def run_service_operation(
         self,
         id,
-        operation,
         service,
+        operation,
         **kwargs
     ):
         """run_service_operation  # noqa: E501
@@ -18564,13 +19330,13 @@ class MainApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.run_service_operation(id, operation, service, async_req=True)
+        >>> thread = api.run_service_operation(id, service, operation, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (int): A unique integer value identifying this Storage Node.
-            operation (str):
             service (str):
+            operation (str):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -18631,10 +19397,10 @@ class MainApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['id'] = \
             id
-        kwargs['operation'] = \
-            operation
         kwargs['service'] = \
             service
+        kwargs['operation'] = \
+            operation
         return self.run_service_operation_endpoint.call_with_http_info(**kwargs)
 
     def set_ipmi_configuration(
@@ -19820,6 +20586,7 @@ class MainApi(object):
             check_certificate_request (CheckCertificateRequest):
 
         Keyword Args:
+            force (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -20284,6 +21051,88 @@ class MainApi(object):
         kwargs['elements_group_detail_update'] = \
             elements_group_detail_update
         return self.update_group_endpoint.call_with_http_info(**kwargs)
+
+    def update_interface(
+        self,
+        id,
+        interface_update,
+        **kwargs
+    ):
+        """update_interface  # noqa: E501
+
+        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_interface(id, interface_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this interface.
+            interface_update (InterfaceUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Interface
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['interface_update'] = \
+            interface_update
+        return self.update_interface_endpoint.call_with_http_info(**kwargs)
 
     def update_ldap_server(
         self,

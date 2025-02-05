@@ -125,6 +125,7 @@ class TaskType(ModelNormal):
             'allow_in_jobs': (bool,),  # noqa: E501
             'required_permissions': ([str],),  # noqa: E501
             'new_since_version': (str, none_type,),  # noqa: E501
+            'wildcard_input': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -150,6 +151,7 @@ class TaskType(ModelNormal):
         'allow_in_jobs': 'allow_in_jobs',  # noqa: E501
         'required_permissions': 'required_permissions',  # noqa: E501
         'new_since_version': 'new_since_version',  # noqa: E501
+        'wildcard_input': 'wildcard_input',  # noqa: E501
     }
 
     read_only_vars = {
@@ -162,7 +164,7 @@ class TaskType(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, type, display_name, display_group, input_type, abortable, arg_template, arg_types, required_args, output_names, output_types, parameters_editor_component, superuser_only, icon_class, is_available, allow_in_jobs, required_permissions, new_since_version, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, type, display_name, display_group, input_type, abortable, arg_template, arg_types, required_args, output_names, output_types, parameters_editor_component, superuser_only, icon_class, is_available, allow_in_jobs, required_permissions, new_since_version, wildcard_input, *args, **xkwargs):  # noqa: E501
         """TaskType - a model defined in OpenAPI
 
         Args:
@@ -183,6 +185,7 @@ class TaskType(ModelNormal):
             allow_in_jobs (bool):
             required_permissions ([str]):
             new_since_version (str, none_type):
+            wildcard_input (bool, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -260,6 +263,7 @@ class TaskType(ModelNormal):
         self.allow_in_jobs = allow_in_jobs
         self.required_permissions = required_permissions
         self.new_since_version = new_since_version
+        self.wildcard_input = wildcard_input
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -281,7 +285,7 @@ class TaskType(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, type, display_name, display_group, input_type, abortable, arg_template, required_args, output_names, parameters_editor_component, superuser_only, icon_class, allow_in_jobs, required_permissions, new_since_version, *args, **xkwargs):  # noqa: E501
+    def __init__(self, type, display_name, display_group, input_type, abortable, arg_template, required_args, output_names, parameters_editor_component, superuser_only, icon_class, allow_in_jobs, required_permissions, new_since_version, wildcard_input, *args, **xkwargs):  # noqa: E501
         """TaskType - a model defined in OpenAPI
 
         Args:
@@ -299,6 +303,7 @@ class TaskType(ModelNormal):
             allow_in_jobs (bool):
             required_permissions ([str]):
             new_since_version (str, none_type):
+            wildcard_input (bool, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -371,6 +376,7 @@ class TaskType(ModelNormal):
         self.allow_in_jobs = allow_in_jobs
         self.required_permissions = required_permissions
         self.new_since_version = new_since_version
+        self.wildcard_input = wildcard_input
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -109,6 +109,108 @@ class AutomationApi(object):
             },
             api_client=api_client
         )
+        self.convert_job_to_python_script_endpoint = _Endpoint(
+            settings={
+                'response_type': (Job,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/jobs/{id}/convert-to-python-script',
+                'operation_id': 'convert_job_to_python_script',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.convert_subtask_to_python_script_endpoint = _Endpoint(
+            settings={
+                'response_type': (Subtask,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/subtasks/{id}/convert-to-python-script',
+                'operation_id': 'convert_subtask_to_python_script',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.create_job_endpoint = _Endpoint(
             settings={
                 'response_type': (JobDetail,),
@@ -637,6 +739,7 @@ class AutomationApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'state',
                 ],
                 'validation': [
                 ]
@@ -645,6 +748,17 @@ class AutomationApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('state',): {
+
+                        "0": "0",
+                        "1": "1",
+                        "2": "2",
+                        "3": "3",
+                        "4": "4",
+                        "5": "5",
+                        "6": "6",
+                        "7": "7"
+                    },
                 },
                 'openapi_types': {
                     'job_instance':
@@ -656,7 +770,7 @@ class AutomationApi(object):
                     'state':
                         (str,),
                     'state__in':
-                        (float,),
+                        (str,),
                     'id':
                         (str,),
                     'id__in':
@@ -670,7 +784,7 @@ class AutomationApi(object):
                     'is_running':
                         (str,),
                     'related_proxy_id':
-                        (float,),
+                        (str,),
                     'ordering':
                         (str,),
                     'limit':
@@ -967,6 +1081,7 @@ class AutomationApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'special_type',
                 ],
                 'validation': [
                 ]
@@ -975,6 +1090,12 @@ class AutomationApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('special_type',): {
+
+                        "2": "2",
+                        "3": "3",
+                        "4": "4"
+                    },
                 },
                 'openapi_types': {
                     'special_type':
@@ -1301,6 +1422,7 @@ class AutomationApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'state',
                 ],
                 'validation': [
                 ]
@@ -1309,6 +1431,17 @@ class AutomationApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('state',): {
+
+                        "0": "0",
+                        "1": "1",
+                        "2": "2",
+                        "3": "3",
+                        "4": "4",
+                        "5": "5",
+                        "6": "6",
+                        "7": "7"
+                    },
                 },
                 'openapi_types': {
                     'job_instance':
@@ -1320,7 +1453,7 @@ class AutomationApi(object):
                     'state':
                         (str,),
                     'state__in':
-                        (float,),
+                        (str,),
                     'id':
                         (str,),
                     'id__in':
@@ -1334,7 +1467,7 @@ class AutomationApi(object):
                     'is_running':
                         (str,),
                     'related_proxy_id':
-                        (float,),
+                        (str,),
                     'ordering':
                         (str,),
                     'limit':
@@ -1475,6 +1608,7 @@ class AutomationApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'state',
                 ],
                 'validation': [
                 ]
@@ -1483,6 +1617,17 @@ class AutomationApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('state',): {
+
+                        "0": "0",
+                        "1": "1",
+                        "2": "2",
+                        "3": "3",
+                        "4": "4",
+                        "5": "5",
+                        "6": "6",
+                        "7": "7"
+                    },
                 },
                 'openapi_types': {
                     'job_instance':
@@ -1494,7 +1639,7 @@ class AutomationApi(object):
                     'state':
                         (str,),
                     'state__in':
-                        (float,),
+                        (str,),
                     'id':
                         (str,),
                     'id__in':
@@ -1508,7 +1653,7 @@ class AutomationApi(object):
                     'is_running':
                         (str,),
                     'related_proxy_id':
-                        (float,),
+                        (str,),
                     'ordering':
                         (str,),
                     'limit':
@@ -1758,6 +1903,7 @@ class AutomationApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'state',
                 ],
                 'validation': [
                 ]
@@ -1766,6 +1912,17 @@ class AutomationApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('state',): {
+
+                        "0": "0",
+                        "1": "1",
+                        "2": "2",
+                        "3": "3",
+                        "4": "4",
+                        "5": "5",
+                        "6": "6",
+                        "7": "7"
+                    },
                 },
                 'openapi_types': {
                     'job_instance':
@@ -1777,7 +1934,7 @@ class AutomationApi(object):
                     'state':
                         (str,),
                     'state__in':
-                        (float,),
+                        (str,),
                     'id':
                         (str,),
                     'id__in':
@@ -1791,7 +1948,7 @@ class AutomationApi(object):
                     'is_running':
                         (str,),
                     'related_proxy_id':
-                        (float,),
+                        (str,),
                     'ordering':
                         (str,),
                     'limit':
@@ -2239,6 +2396,7 @@ class AutomationApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'state',
                 ],
                 'validation': [
                 ]
@@ -2247,6 +2405,17 @@ class AutomationApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('state',): {
+
+                        "0": "0",
+                        "1": "1",
+                        "2": "2",
+                        "3": "3",
+                        "4": "4",
+                        "5": "5",
+                        "6": "6",
+                        "7": "7"
+                    },
                 },
                 'openapi_types': {
                     'job_instance':
@@ -2258,7 +2427,7 @@ class AutomationApi(object):
                     'state':
                         (str,),
                     'state__in':
-                        (float,),
+                        (str,),
                     'id':
                         (str,),
                     'id__in':
@@ -2272,7 +2441,7 @@ class AutomationApi(object):
                     'is_running':
                         (str,),
                     'related_proxy_id':
-                        (float,),
+                        (str,),
                     'ordering':
                         (str,),
                     'limit':
@@ -3172,6 +3341,162 @@ class AutomationApi(object):
             id
         return self.abort_task_endpoint.call_with_http_info(**kwargs)
 
+    def convert_job_to_python_script(
+        self,
+        id,
+        **kwargs
+    ):
+        """convert_job_to_python_script  # noqa: E501
+
+        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.convert_job_to_python_script(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this job.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Job
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.convert_job_to_python_script_endpoint.call_with_http_info(**kwargs)
+
+    def convert_subtask_to_python_script(
+        self,
+        id,
+        **kwargs
+    ):
+        """convert_subtask_to_python_script  # noqa: E501
+
+        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.convert_subtask_to_python_script(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this subtask.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Subtask
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.convert_subtask_to_python_script_endpoint.call_with_http_info(**kwargs)
+
     def create_job(
         self,
         job_detail_update,
@@ -3963,17 +4288,17 @@ class AutomationApi(object):
 
         Keyword Args:
             job_instance (str): Filter the returned list by `job_instance`.. [optional]
-            job_instance__in (str): Multiple values may be separated by commas.. [optional]
+            job_instance__in (str): Filter the returned list by `job_instance__in`.. [optional]
             subtask (int): Filter the returned list by `subtask`.. [optional]
             state (str): Filter the returned list by `state`.. [optional]
-            state__in (float): Multiple values may be separated by commas.. [optional]
+            state__in (str): Filter the returned list by `state__in`.. [optional]
             id (str): Filter the returned list by `id`.. [optional]
-            id__in (str): Multiple values may be separated by commas.. [optional]
+            id__in (str): Filter the returned list by `id__in`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             task_name (str): Filter the returned list by `task_name`.. [optional]
             is_finished (str): Filter the returned list by `is_finished`.. [optional]
             is_running (str): Filter the returned list by `is_running`.. [optional]
-            related_proxy_id (float): Filter the returned list by `related_proxy_id`.. [optional]
+            related_proxy_id (str): Filter the returned list by `related_proxy_id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -4744,17 +5069,17 @@ class AutomationApi(object):
 
         Keyword Args:
             job_instance (str): Filter the returned list by `job_instance`.. [optional]
-            job_instance__in (str): Multiple values may be separated by commas.. [optional]
+            job_instance__in (str): Filter the returned list by `job_instance__in`.. [optional]
             subtask (int): Filter the returned list by `subtask`.. [optional]
             state (str): Filter the returned list by `state`.. [optional]
-            state__in (float): Multiple values may be separated by commas.. [optional]
+            state__in (str): Filter the returned list by `state__in`.. [optional]
             id (str): Filter the returned list by `id`.. [optional]
-            id__in (str): Multiple values may be separated by commas.. [optional]
+            id__in (str): Filter the returned list by `id__in`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             task_name (str): Filter the returned list by `task_name`.. [optional]
             is_finished (str): Filter the returned list by `is_finished`.. [optional]
             is_running (str): Filter the returned list by `is_running`.. [optional]
-            related_proxy_id (float): Filter the returned list by `related_proxy_id`.. [optional]
+            related_proxy_id (str): Filter the returned list by `related_proxy_id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -4910,17 +5235,17 @@ class AutomationApi(object):
 
         Keyword Args:
             job_instance (str): Filter the returned list by `job_instance`.. [optional]
-            job_instance__in (str): Multiple values may be separated by commas.. [optional]
+            job_instance__in (str): Filter the returned list by `job_instance__in`.. [optional]
             subtask (int): Filter the returned list by `subtask`.. [optional]
             state (str): Filter the returned list by `state`.. [optional]
-            state__in (float): Multiple values may be separated by commas.. [optional]
+            state__in (str): Filter the returned list by `state__in`.. [optional]
             id (str): Filter the returned list by `id`.. [optional]
-            id__in (str): Multiple values may be separated by commas.. [optional]
+            id__in (str): Filter the returned list by `id__in`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             task_name (str): Filter the returned list by `task_name`.. [optional]
             is_finished (str): Filter the returned list by `is_finished`.. [optional]
             is_running (str): Filter the returned list by `is_running`.. [optional]
-            related_proxy_id (float): Filter the returned list by `related_proxy_id`.. [optional]
+            related_proxy_id (str): Filter the returned list by `related_proxy_id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -5237,17 +5562,17 @@ class AutomationApi(object):
 
         Keyword Args:
             job_instance (str): Filter the returned list by `job_instance`.. [optional]
-            job_instance__in (str): Multiple values may be separated by commas.. [optional]
+            job_instance__in (str): Filter the returned list by `job_instance__in`.. [optional]
             subtask (int): Filter the returned list by `subtask`.. [optional]
             state (str): Filter the returned list by `state`.. [optional]
-            state__in (float): Multiple values may be separated by commas.. [optional]
+            state__in (str): Filter the returned list by `state__in`.. [optional]
             id (str): Filter the returned list by `id`.. [optional]
-            id__in (str): Multiple values may be separated by commas.. [optional]
+            id__in (str): Filter the returned list by `id__in`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             task_name (str): Filter the returned list by `task_name`.. [optional]
             is_finished (str): Filter the returned list by `is_finished`.. [optional]
             is_running (str): Filter the returned list by `is_running`.. [optional]
-            related_proxy_id (float): Filter the returned list by `related_proxy_id`.. [optional]
+            related_proxy_id (str): Filter the returned list by `related_proxy_id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -5866,17 +6191,17 @@ class AutomationApi(object):
 
         Keyword Args:
             job_instance (str): Filter the returned list by `job_instance`.. [optional]
-            job_instance__in (str): Multiple values may be separated by commas.. [optional]
+            job_instance__in (str): Filter the returned list by `job_instance__in`.. [optional]
             subtask (int): Filter the returned list by `subtask`.. [optional]
             state (str): Filter the returned list by `state`.. [optional]
-            state__in (float): Multiple values may be separated by commas.. [optional]
+            state__in (str): Filter the returned list by `state__in`.. [optional]
             id (str): Filter the returned list by `id`.. [optional]
-            id__in (str): Multiple values may be separated by commas.. [optional]
+            id__in (str): Filter the returned list by `id__in`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             task_name (str): Filter the returned list by `task_name`.. [optional]
             is_finished (str): Filter the returned list by `is_finished`.. [optional]
             is_running (str): Filter the returned list by `is_running`.. [optional]
-            related_proxy_id (float): Filter the returned list by `related_proxy_id`.. [optional]
+            related_proxy_id (str): Filter the returned list by `related_proxy_id`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]

@@ -138,6 +138,7 @@ class MediaFile(ModelNormal):
             'size': (int,),  # noqa: E501
             'mtime': (int,),  # noqa: E501
             'present': (bool,),  # noqa: E501
+            'archived': (bool,),  # noqa: E501
             'needs_rescan': (bool,),  # noqa: E501
             'is_showroom': (bool,),  # noqa: E501
             'bundle_index': (int,),  # noqa: E501
@@ -178,6 +179,7 @@ class MediaFile(ModelNormal):
         'size': 'size',  # noqa: E501
         'mtime': 'mtime',  # noqa: E501
         'present': 'present',  # noqa: E501
+        'archived': 'archived',  # noqa: E501
         'needs_rescan': 'needs_rescan',  # noqa: E501
         'is_showroom': 'is_showroom',  # noqa: E501
         'bundle_index': 'bundle_index',  # noqa: E501
@@ -207,6 +209,7 @@ class MediaFile(ModelNormal):
         'size',  # noqa: E501
         'mtime',  # noqa: E501
         'present',  # noqa: E501
+        'archived',  # noqa: E501
         'is_showroom',  # noqa: E501
         'bundle_index',  # noqa: E501
         'modified',  # noqa: E501
@@ -222,7 +225,7 @@ class MediaFile(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, volume, info, custom_fields, full_path, is_shared, is_hardlink, is_bookmarked, exclusion_info, child_count, name, path, pathhash, ancestry, is_dir, total_files, size, mtime, present, needs_rescan, is_showroom, bundle_index, modified, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, volume, info, custom_fields, full_path, is_shared, is_hardlink, is_bookmarked, exclusion_info, child_count, name, path, pathhash, ancestry, is_dir, total_files, size, mtime, present, archived, needs_rescan, is_showroom, bundle_index, modified, *args, **xkwargs):  # noqa: E501
         """MediaFile - a model defined in OpenAPI
 
         Args:
@@ -245,6 +248,7 @@ class MediaFile(ModelNormal):
             size (int):
             mtime (int):
             present (bool):
+            archived (bool):
             needs_rescan (bool):
             is_showroom (bool):
             bundle_index (int):
@@ -337,6 +341,7 @@ class MediaFile(ModelNormal):
         self.size = size
         self.mtime = mtime
         self.present = present
+        self.archived = archived
         self.needs_rescan = needs_rescan
         self.is_showroom = is_showroom
         self.bundle_index = bundle_index

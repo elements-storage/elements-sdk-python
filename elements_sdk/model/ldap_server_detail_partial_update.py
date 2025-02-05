@@ -65,6 +65,10 @@ class LDAPServerDetailPartialUpdate(ModelNormal):
             'SSL': "ssl",
             'STARTTLS': "starttls",
         },
+        ('username_format',): {
+            'SAMACCOUNTNAME': "sAMAccountName",
+            'USERPRINCIPALNAME': "userPrincipalName",
+        },
     }
 
     validations = {
@@ -142,6 +146,7 @@ class LDAPServerDetailPartialUpdate(ModelNormal):
             'users_root': (str,),  # noqa: E501
             'groups_root': (str,),  # noqa: E501
             'use_wbinfo': (bool,),  # noqa: E501
+            'username_format': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -165,6 +170,7 @@ class LDAPServerDetailPartialUpdate(ModelNormal):
         'users_root': 'users_root',  # noqa: E501
         'groups_root': 'groups_root',  # noqa: E501
         'use_wbinfo': 'use_wbinfo',  # noqa: E501
+        'username_format': 'username_format',  # noqa: E501
     }
 
     read_only_vars = {
@@ -223,6 +229,7 @@ class LDAPServerDetailPartialUpdate(ModelNormal):
             users_root (str): [optional]  # noqa: E501
             groups_root (str): [optional]  # noqa: E501
             use_wbinfo (bool): [optional]  # noqa: E501
+            username_format (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -321,6 +328,7 @@ class LDAPServerDetailPartialUpdate(ModelNormal):
             users_root (str): [optional]  # noqa: E501
             groups_root (str): [optional]  # noqa: E501
             use_wbinfo (bool): [optional]  # noqa: E501
+            username_format (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

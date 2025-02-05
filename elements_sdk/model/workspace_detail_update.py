@@ -207,6 +207,7 @@ class WorkspaceDetailUpdate(ModelNormal):
             'external_linux_url': (str, none_type,),  # noqa: E501
             'allow_symlinks': (bool,),  # noqa: E501
             'rw_permission_priority': (bool,),  # noqa: E501
+            'veto_dot_underscore': (bool,),  # noqa: E501
             'template': (int, none_type,),  # noqa: E501
         }
 
@@ -255,6 +256,7 @@ class WorkspaceDetailUpdate(ModelNormal):
         'external_linux_url': 'external_linux_url',  # noqa: E501
         'allow_symlinks': 'allow_symlinks',  # noqa: E501
         'rw_permission_priority': 'rw_permission_priority',  # noqa: E501
+        'veto_dot_underscore': 'veto_dot_underscore',  # noqa: E501
         'template': 'template',  # noqa: E501
     }
 
@@ -340,6 +342,7 @@ class WorkspaceDetailUpdate(ModelNormal):
             external_linux_url (str, none_type): [optional]  # noqa: E501
             allow_symlinks (bool): [optional]  # noqa: E501
             rw_permission_priority (bool): [optional]  # noqa: E501
+            veto_dot_underscore (bool): [optional]  # noqa: E501
             template (int, none_type): [optional]  # noqa: E501
         """
 
@@ -466,6 +469,7 @@ class WorkspaceDetailUpdate(ModelNormal):
             external_linux_url (str, none_type): [optional]  # noqa: E501
             allow_symlinks (bool): [optional]  # noqa: E501
             rw_permission_priority (bool): [optional]  # noqa: E501
+            veto_dot_underscore (bool): [optional]  # noqa: E501
             template (int, none_type): [optional]  # noqa: E501
         """
 

@@ -69,6 +69,13 @@ class MediaRootMiniReference(ModelNormal):
         ('path',): {
             'max_length': 255,
         },
+        ('view_mode',): {
+            'max_length': 63,
+            'min_length': 1,
+        },
+        ('cover',): {
+            'max_length': 255,
+        },
     }
 
     @cached_property
@@ -97,9 +104,12 @@ class MediaRootMiniReference(ModelNormal):
             'id': (int,),  # noqa: E501
             'volume': (VolumeMini,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
             'full_path': (str,),  # noqa: E501
             'path': (str,),  # noqa: E501
             'prefetch_thumbnail_strips': (bool,),  # noqa: E501
+            'view_mode': (str,),  # noqa: E501
+            'cover': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -111,15 +121,21 @@ class MediaRootMiniReference(ModelNormal):
         'id': 'id',  # noqa: E501
         'volume': 'volume',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'description': 'description',  # noqa: E501
         'full_path': 'full_path',  # noqa: E501
         'path': 'path',  # noqa: E501
         'prefetch_thumbnail_strips': 'prefetch_thumbnail_strips',  # noqa: E501
+        'view_mode': 'view_mode',  # noqa: E501
+        'cover': 'cover',  # noqa: E501
     }
 
     read_only_vars = {
         'name',  # noqa: E501
+        'description',  # noqa: E501
         'full_path',  # noqa: E501
         'prefetch_thumbnail_strips',  # noqa: E501
+        'view_mode',  # noqa: E501
+        'cover',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -165,9 +181,12 @@ class MediaRootMiniReference(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
             full_path (str): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
             prefetch_thumbnail_strips (bool): [optional]  # noqa: E501
+            view_mode (str): [optional]  # noqa: E501
+            cover (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -258,9 +277,12 @@ class MediaRootMiniReference(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
             full_path (str): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
             prefetch_thumbnail_strips (bool): [optional]  # noqa: E501
+            view_mode (str): [optional]  # noqa: E501
+            cover (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
