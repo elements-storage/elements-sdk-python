@@ -58,9 +58,6 @@ class ElementsVersion(ModelNormal):
     }
 
     validations = {
-        ('release',): {
-            'min_length': 1,
-        },
         ('branch',): {
             'min_length': 1,
         },

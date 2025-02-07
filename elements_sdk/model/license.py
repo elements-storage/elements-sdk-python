@@ -67,9 +67,6 @@ class License(ModelNormal):
         ('product_subtype',): {
             'min_length': 1,
         },
-        ('serial',): {
-            'min_length': 1,
-        },
         ('partner',): {
             'min_length': 1,
         },
