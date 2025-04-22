@@ -124,6 +124,7 @@ class JobReference(ModelNormal):
             'webhook_url': (str, none_type,),  # noqa: E501
             'needs_compatibility_check': (bool,),  # noqa: E501
             'fs_triggers': ([str],),  # noqa: E501
+            'part_of_workflow_for': ([str],),  # noqa: E501
             'special_type': (int, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -153,6 +154,7 @@ class JobReference(ModelNormal):
         'webhook_url': 'webhook_url',  # noqa: E501
         'needs_compatibility_check': 'needs_compatibility_check',  # noqa: E501
         'fs_triggers': 'fs_triggers',  # noqa: E501
+        'part_of_workflow_for': 'part_of_workflow_for',  # noqa: E501
         'special_type': 'special_type',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -176,6 +178,7 @@ class JobReference(ModelNormal):
         'webhook_url',  # noqa: E501
         'needs_compatibility_check',  # noqa: E501
         'fs_triggers',  # noqa: E501
+        'part_of_workflow_for',  # noqa: E501
         'special_type',  # noqa: E501
         'name',  # noqa: E501
         'description',  # noqa: E501
@@ -239,6 +242,7 @@ class JobReference(ModelNormal):
             webhook_url (str, none_type): [optional]  # noqa: E501
             needs_compatibility_check (bool): [optional]  # noqa: E501
             fs_triggers ([str]): [optional]  # noqa: E501
+            part_of_workflow_for ([str]): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
@@ -346,6 +350,7 @@ class JobReference(ModelNormal):
             webhook_url (str, none_type): [optional]  # noqa: E501
             needs_compatibility_check (bool): [optional]  # noqa: E501
             fs_triggers ([str]): [optional]  # noqa: E501
+            part_of_workflow_for ([str]): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501

@@ -62,6 +62,14 @@ class SubtaskReference(ModelNormal):
             'max_length': 1,
             'min_length': 1,
         },
+        ('condition_variable',): {
+            'max_length': 1,
+            'min_length': 1,
+        },
+        ('condition_value',): {
+            'max_length': 1,
+            'min_length': 1,
+        },
         ('trigger',): {
             'max_length': 255,
         },
@@ -110,6 +118,8 @@ class SubtaskReference(ModelNormal):
             'kwargs': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'graph_layout': (str, none_type,),  # noqa: E501
             'validation_error': (str, none_type,),  # noqa: E501
+            'condition_variable': (str, none_type,),  # noqa: E501
+            'condition_value': (str, none_type,),  # noqa: E501
             'trigger': (str, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'noop_dont_save': (bool,),  # noqa: E501
@@ -135,6 +145,8 @@ class SubtaskReference(ModelNormal):
         'kwargs': 'kwargs',  # noqa: E501
         'graph_layout': 'graph_layout',  # noqa: E501
         'validation_error': 'validation_error',  # noqa: E501
+        'condition_variable': 'condition_variable',  # noqa: E501
+        'condition_value': 'condition_value',  # noqa: E501
         'trigger': 'trigger',  # noqa: E501
         'name': 'name',  # noqa: E501
         'noop_dont_save': 'noop_dont_save',  # noqa: E501
@@ -154,6 +166,8 @@ class SubtaskReference(ModelNormal):
         'kwargs',  # noqa: E501
         'graph_layout',  # noqa: E501
         'validation_error',  # noqa: E501
+        'condition_variable',  # noqa: E501
+        'condition_value',  # noqa: E501
         'trigger',  # noqa: E501
         'name',  # noqa: E501
         'noop_dont_save',  # noqa: E501
@@ -213,6 +227,8 @@ class SubtaskReference(ModelNormal):
             kwargs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             graph_layout (str, none_type): [optional]  # noqa: E501
             validation_error (str, none_type): [optional]  # noqa: E501
+            condition_variable (str, none_type): [optional]  # noqa: E501
+            condition_value (str, none_type): [optional]  # noqa: E501
             trigger (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             noop_dont_save (bool): [optional]  # noqa: E501
@@ -316,6 +332,8 @@ class SubtaskReference(ModelNormal):
             kwargs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             graph_layout (str, none_type): [optional]  # noqa: E501
             validation_error (str, none_type): [optional]  # noqa: E501
+            condition_variable (str, none_type): [optional]  # noqa: E501
+            condition_value (str, none_type): [optional]  # noqa: E501
             trigger (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             noop_dont_save (bool): [optional]  # noqa: E501

@@ -91,6 +91,22 @@ class Volume(ModelNormal):
         ('snfs_name',): {
             'max_length': 255,
         },
+        ('onefs_host',): {
+            'max_length': 1,
+            'min_length': 1,
+        },
+        ('onefs_username',): {
+            'max_length': 1,
+            'min_length': 1,
+        },
+        ('onefs_password',): {
+            'max_length': 1,
+            'min_length': 1,
+        },
+        ('onefs_zone',): {
+            'max_length': 1,
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -134,6 +150,10 @@ class Volume(ModelNormal):
             'onefs_integration': (int, none_type,),  # noqa: E501
             'fs_properties': (FSProperties,),  # noqa: E501
             'status': (VolumeStatus,),  # noqa: E501
+            'onefs_host': (str, none_type,),  # noqa: E501
+            'onefs_username': (str, none_type,),  # noqa: E501
+            'onefs_password': (str, none_type,),  # noqa: E501
+            'onefs_zone': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -160,9 +180,17 @@ class Volume(ModelNormal):
         'onefs_integration': 'onefs_integration',  # noqa: E501
         'fs_properties': 'fs_properties',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'onefs_host': 'onefs_host',  # noqa: E501
+        'onefs_username': 'onefs_username',  # noqa: E501
+        'onefs_password': 'onefs_password',  # noqa: E501
+        'onefs_zone': 'onefs_zone',  # noqa: E501
     }
 
     read_only_vars = {
+        'onefs_host',  # noqa: E501
+        'onefs_username',  # noqa: E501
+        'onefs_password',  # noqa: E501
+        'onefs_zone',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -223,6 +251,10 @@ class Volume(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             fs_properties (FSProperties): [optional]  # noqa: E501
             status (VolumeStatus): [optional]  # noqa: E501
+            onefs_host (str, none_type): [optional]  # noqa: E501
+            onefs_username (str, none_type): [optional]  # noqa: E501
+            onefs_password (str, none_type): [optional]  # noqa: E501
+            onefs_zone (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -342,6 +374,10 @@ class Volume(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             fs_properties (FSProperties): [optional]  # noqa: E501
             status (VolumeStatus): [optional]  # noqa: E501
+            onefs_host (str, none_type): [optional]  # noqa: E501
+            onefs_username (str, none_type): [optional]  # noqa: E501
+            onefs_password (str, none_type): [optional]  # noqa: E501
+            onefs_zone (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

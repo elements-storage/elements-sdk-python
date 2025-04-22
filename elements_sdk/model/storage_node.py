@@ -106,6 +106,10 @@ class StorageNode(ModelNormal):
         ('address_override',): {
             'max_length': 255,
         },
+        ('backend',): {
+            'max_length': 1,
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -156,6 +160,7 @@ class StorageNode(ModelNormal):
             'auto_scan_interfaces': (bool,),  # noqa: E501
             'volume_queues': ([int],),  # noqa: E501
             'status': (StorageNodeStatus,),  # noqa: E501
+            'backend': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -189,11 +194,13 @@ class StorageNode(ModelNormal):
         'auto_scan_interfaces': 'auto_scan_interfaces',  # noqa: E501
         'volume_queues': 'volume_queues',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'backend': 'backend',  # noqa: E501
     }
 
     read_only_vars = {
         'interfaces',  # noqa: E501
         'is_log_aggregator',  # noqa: E501
+        'backend',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -261,6 +268,7 @@ class StorageNode(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             status (StorageNodeStatus): [optional]  # noqa: E501
+            backend (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -393,6 +401,7 @@ class StorageNode(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             status (StorageNodeStatus): [optional]  # noqa: E501
+            backend (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

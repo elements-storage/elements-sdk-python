@@ -132,6 +132,7 @@ class JobDetail(ModelNormal):
             'webhook_url': (str, none_type,),  # noqa: E501
             'needs_compatibility_check': (bool,),  # noqa: E501
             'fs_triggers': ([JobFSTrigger],),  # noqa: E501
+            'part_of_workflow_for': ([str],),  # noqa: E501
             'subtasks': ([Subtask],),  # noqa: E501
             'allow_users': ([ElementsUser],),  # noqa: E501
             'allow_groups': ([ElementsGroup],),  # noqa: E501
@@ -165,6 +166,7 @@ class JobDetail(ModelNormal):
         'webhook_url': 'webhook_url',  # noqa: E501
         'needs_compatibility_check': 'needs_compatibility_check',  # noqa: E501
         'fs_triggers': 'fs_triggers',  # noqa: E501
+        'part_of_workflow_for': 'part_of_workflow_for',  # noqa: E501
         'subtasks': 'subtasks',  # noqa: E501
         'allow_users': 'allow_users',  # noqa: E501
         'allow_groups': 'allow_groups',  # noqa: E501
@@ -190,13 +192,14 @@ class JobDetail(ModelNormal):
         'webhook_url',  # noqa: E501
         'needs_compatibility_check',  # noqa: E501
         'fs_triggers',  # noqa: E501
+        'part_of_workflow_for',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, schedules, startable, variable_definitions, webhook_url, needs_compatibility_check, fs_triggers, subtasks, allow_users, allow_groups, media_roots, workflow, special_type, name, description, enabled, allow_others_to_start, allow_client_to_start, show_as_button, input_type, add_to_new_media_roots, hook, webhook_secret, elements_release, security_context, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, schedules, startable, variable_definitions, webhook_url, needs_compatibility_check, fs_triggers, part_of_workflow_for, subtasks, allow_users, allow_groups, media_roots, workflow, special_type, name, description, enabled, allow_others_to_start, allow_client_to_start, show_as_button, input_type, add_to_new_media_roots, hook, webhook_secret, elements_release, security_context, *args, **xkwargs):  # noqa: E501
         """JobDetail - a model defined in OpenAPI
 
         Args:
@@ -207,6 +210,7 @@ class JobDetail(ModelNormal):
             webhook_url (str, none_type):
             needs_compatibility_check (bool):
             fs_triggers ([JobFSTrigger]):
+            part_of_workflow_for ([str]):
             subtasks ([Subtask]):
             allow_users ([ElementsUser]):
             allow_groups ([ElementsGroup]):
@@ -292,6 +296,7 @@ class JobDetail(ModelNormal):
         self.webhook_url = webhook_url
         self.needs_compatibility_check = needs_compatibility_check
         self.fs_triggers = fs_triggers
+        self.part_of_workflow_for = part_of_workflow_for
         self.subtasks = subtasks
         self.allow_users = allow_users
         self.allow_groups = allow_groups
