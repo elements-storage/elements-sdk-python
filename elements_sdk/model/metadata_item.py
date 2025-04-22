@@ -61,6 +61,9 @@ class MetadataItem(ModelNormal):
         ('path',): {
             'min_length': 1,
         },
+        ('upload_id',): {
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -87,6 +90,7 @@ class MetadataItem(ModelNormal):
             'custom_fields': ({str: (str, none_type)},),  # noqa: E501
             'tags': ([{str: (str, none_type)}],),  # noqa: E501
             'path': (str,),  # noqa: E501
+            'upload_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -98,6 +102,7 @@ class MetadataItem(ModelNormal):
         'custom_fields': 'custom_fields',  # noqa: E501
         'tags': 'tags',  # noqa: E501
         'path': 'path',  # noqa: E501
+        'upload_id': 'upload_id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -146,6 +151,7 @@ class MetadataItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            upload_id (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -237,6 +243,7 @@ class MetadataItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            upload_id (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

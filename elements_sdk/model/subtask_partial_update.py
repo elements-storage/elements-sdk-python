@@ -73,12 +73,7 @@ class SubtaskPartialUpdate(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
-        ('condition_variable',): {
-            'max_length': 255,
-            'min_length': 1,
-        },
-        ('condition_value',): {
-            'max_length': 255,
+        ('condition',): {
             'min_length': 1,
         },
         ('queue',): {
@@ -108,7 +103,6 @@ class SubtaskPartialUpdate(ModelNormal):
         """
         return {
             'kwargs': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
-            'graph_layout': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'trigger': (str, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'noop_dont_save': (bool,),  # noqa: E501
@@ -116,8 +110,7 @@ class SubtaskPartialUpdate(ModelNormal):
             'timeout': (int, none_type,),  # noqa: E501
             'log_variable': (bool,),  # noqa: E501
             'task': (str, none_type,),  # noqa: E501
-            'condition_variable': (str, none_type,),  # noqa: E501
-            'condition_value': (str, none_type,),  # noqa: E501
+            'condition': (str, none_type,),  # noqa: E501
             'sync': (bool,),  # noqa: E501
             'queue': (str, none_type,),  # noqa: E501
             'enqueue_at_front': (bool,),  # noqa: E501
@@ -132,7 +125,6 @@ class SubtaskPartialUpdate(ModelNormal):
 
     attribute_map = {
         'kwargs': 'kwargs',  # noqa: E501
-        'graph_layout': 'graph_layout',  # noqa: E501
         'trigger': 'trigger',  # noqa: E501
         'name': 'name',  # noqa: E501
         'noop_dont_save': 'noop_dont_save',  # noqa: E501
@@ -140,8 +132,7 @@ class SubtaskPartialUpdate(ModelNormal):
         'timeout': 'timeout',  # noqa: E501
         'log_variable': 'log_variable',  # noqa: E501
         'task': 'task',  # noqa: E501
-        'condition_variable': 'condition_variable',  # noqa: E501
-        'condition_value': 'condition_value',  # noqa: E501
+        'condition': 'condition',  # noqa: E501
         'sync': 'sync',  # noqa: E501
         'queue': 'queue',  # noqa: E501
         'enqueue_at_front': 'enqueue_at_front',  # noqa: E501
@@ -191,7 +182,6 @@ class SubtaskPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             kwargs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
-            graph_layout ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             trigger (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             noop_dont_save (bool): [optional]  # noqa: E501
@@ -199,8 +189,7 @@ class SubtaskPartialUpdate(ModelNormal):
             timeout (int, none_type): [optional]  # noqa: E501
             log_variable (bool): [optional]  # noqa: E501
             task (str, none_type): [optional]  # noqa: E501
-            condition_variable (str, none_type): [optional]  # noqa: E501
-            condition_value (str, none_type): [optional]  # noqa: E501
+            condition (str, none_type): [optional]  # noqa: E501
             sync (bool): [optional]  # noqa: E501
             queue (str, none_type): [optional]  # noqa: E501
             enqueue_at_front (bool): [optional]  # noqa: E501
@@ -290,7 +279,6 @@ class SubtaskPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             kwargs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
-            graph_layout ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             trigger (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             noop_dont_save (bool): [optional]  # noqa: E501
@@ -298,8 +286,7 @@ class SubtaskPartialUpdate(ModelNormal):
             timeout (int, none_type): [optional]  # noqa: E501
             log_variable (bool): [optional]  # noqa: E501
             task (str, none_type): [optional]  # noqa: E501
-            condition_variable (str, none_type): [optional]  # noqa: E501
-            condition_value (str, none_type): [optional]  # noqa: E501
+            condition (str, none_type): [optional]  # noqa: E501
             sync (bool): [optional]  # noqa: E501
             queue (str, none_type): [optional]  # noqa: E501
             enqueue_at_front (bool): [optional]  # noqa: E501

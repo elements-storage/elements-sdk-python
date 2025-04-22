@@ -119,6 +119,7 @@ class Proxy(ModelNormal):
             'name': (str,),  # noqa: E501
             'variant_id': (str,),  # noqa: E501
             'variant_config': (str,),  # noqa: E501
+            'source_audio_layout_preserved': (bool,),  # noqa: E501
             'asset': (int,),  # noqa: E501
             'transforms': (Transforms,),  # noqa: E501
         }
@@ -141,6 +142,7 @@ class Proxy(ModelNormal):
         'name': 'name',  # noqa: E501
         'variant_id': 'variant_id',  # noqa: E501
         'variant_config': 'variant_config',  # noqa: E501
+        'source_audio_layout_preserved': 'source_audio_layout_preserved',  # noqa: E501
         'asset': 'asset',  # noqa: E501
         'transforms': 'transforms',  # noqa: E501
     }
@@ -156,7 +158,7 @@ class Proxy(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, urls, profile, failed_reason, skipped, generated, generated_date, failed, failed_count, name, variant_config, asset, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, urls, profile, failed_reason, skipped, generated, generated_date, failed, failed_count, name, variant_config, source_audio_layout_preserved, asset, *args, **xkwargs):  # noqa: E501
         """Proxy - a model defined in OpenAPI
 
         Args:
@@ -171,6 +173,7 @@ class Proxy(ModelNormal):
             failed_count (int):
             name (str):
             variant_config (str):
+            source_audio_layout_preserved (bool):
             asset (int):
 
         Keyword Args:
@@ -247,6 +250,7 @@ class Proxy(ModelNormal):
         self.name = name
         self.variant_id = variant_id
         self.variant_config = variant_config
+        self.source_audio_layout_preserved = source_audio_layout_preserved
         self.asset = asset
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -269,7 +273,7 @@ class Proxy(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, profile, generated_date, failed, failed_count, name, variant_config, asset, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, profile, generated_date, failed, failed_count, name, variant_config, source_audio_layout_preserved, asset, *args, **xkwargs):  # noqa: E501
         """Proxy - a model defined in OpenAPI
 
         Args:
@@ -280,6 +284,7 @@ class Proxy(ModelNormal):
             failed_count (int):
             name (str):
             variant_config (str):
+            source_audio_layout_preserved (bool):
             asset (int):
 
         Keyword Args:
@@ -350,6 +355,7 @@ class Proxy(ModelNormal):
         self.name = name
         self.variant_id = variant_id
         self.variant_config = variant_config
+        self.source_audio_layout_preserved = source_audio_layout_preserved
         self.asset = asset
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

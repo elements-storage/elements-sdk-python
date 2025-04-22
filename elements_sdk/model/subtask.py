@@ -73,16 +73,13 @@ class Subtask(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
-        ('condition_variable',): {
-            'max_length': 255,
-            'min_length': 1,
-        },
-        ('condition_value',): {
-            'max_length': 255,
+        ('condition',): {
             'min_length': 1,
         },
         ('queue',): {
             'max_length': 255,
+        },
+        ('graph_layout',): {
         },
     }
 
@@ -109,7 +106,6 @@ class Subtask(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'kwargs': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
-            'graph_layout': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'trigger': (str, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'noop_dont_save': (bool,),  # noqa: E501
@@ -117,13 +113,13 @@ class Subtask(ModelNormal):
             'timeout': (int, none_type,),  # noqa: E501
             'log_variable': (bool,),  # noqa: E501
             'task': (str, none_type,),  # noqa: E501
-            'condition_variable': (str, none_type,),  # noqa: E501
-            'condition_value': (str, none_type,),  # noqa: E501
+            'condition': (str, none_type,),  # noqa: E501
             'sync': (bool,),  # noqa: E501
             'queue': (str, none_type,),  # noqa: E501
             'enqueue_at_front': (bool,),  # noqa: E501
             'parent': (int,),  # noqa: E501
             'relative_to': (int, none_type,),  # noqa: E501
+            'graph_layout': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'validation_error': (str, none_type,),  # noqa: E501
         }
 
@@ -135,7 +131,6 @@ class Subtask(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'kwargs': 'kwargs',  # noqa: E501
-        'graph_layout': 'graph_layout',  # noqa: E501
         'trigger': 'trigger',  # noqa: E501
         'name': 'name',  # noqa: E501
         'noop_dont_save': 'noop_dont_save',  # noqa: E501
@@ -143,17 +138,18 @@ class Subtask(ModelNormal):
         'timeout': 'timeout',  # noqa: E501
         'log_variable': 'log_variable',  # noqa: E501
         'task': 'task',  # noqa: E501
-        'condition_variable': 'condition_variable',  # noqa: E501
-        'condition_value': 'condition_value',  # noqa: E501
+        'condition': 'condition',  # noqa: E501
         'sync': 'sync',  # noqa: E501
         'queue': 'queue',  # noqa: E501
         'enqueue_at_front': 'enqueue_at_front',  # noqa: E501
         'parent': 'parent',  # noqa: E501
         'relative_to': 'relative_to',  # noqa: E501
+        'graph_layout': 'graph_layout',  # noqa: E501
         'validation_error': 'validation_error',  # noqa: E501
     }
 
     read_only_vars = {
+        'graph_layout',  # noqa: E501
         'validation_error',  # noqa: E501
     }
 
@@ -161,13 +157,12 @@ class Subtask(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, kwargs, graph_layout, trigger, name, noop_dont_save, no_concurrency, timeout, log_variable, task, condition_variable, condition_value, sync, queue, enqueue_at_front, parent, relative_to, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, kwargs, trigger, name, noop_dont_save, no_concurrency, timeout, log_variable, task, condition, sync, queue, enqueue_at_front, parent, relative_to, *args, **xkwargs):  # noqa: E501
         """Subtask - a model defined in OpenAPI
 
         Args:
             id (int):
             kwargs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-            graph_layout ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type):
             trigger (str, none_type):
             name (str, none_type):
             noop_dont_save (bool):
@@ -175,8 +170,7 @@ class Subtask(ModelNormal):
             timeout (int, none_type):
             log_variable (bool):
             task (str, none_type):
-            condition_variable (str, none_type):
-            condition_value (str, none_type):
+            condition (str, none_type):
             sync (bool):
             queue (str, none_type):
             enqueue_at_front (bool):
@@ -214,6 +208,7 @@ class Subtask(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            graph_layout ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             validation_error (str, none_type): [optional]  # noqa: E501
         """
 
@@ -245,7 +240,6 @@ class Subtask(ModelNormal):
 
         self.id = id
         self.kwargs = kwargs
-        self.graph_layout = graph_layout
         self.trigger = trigger
         self.name = name
         self.noop_dont_save = noop_dont_save
@@ -253,8 +247,7 @@ class Subtask(ModelNormal):
         self.timeout = timeout
         self.log_variable = log_variable
         self.task = task
-        self.condition_variable = condition_variable
-        self.condition_value = condition_value
+        self.condition = condition
         self.sync = sync
         self.queue = queue
         self.enqueue_at_front = enqueue_at_front
@@ -281,13 +274,12 @@ class Subtask(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, kwargs, graph_layout, trigger, name, noop_dont_save, no_concurrency, timeout, log_variable, task, condition_variable, condition_value, sync, queue, enqueue_at_front, parent, relative_to, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, kwargs, trigger, name, noop_dont_save, no_concurrency, timeout, log_variable, task, condition, sync, queue, enqueue_at_front, parent, relative_to, *args, **xkwargs):  # noqa: E501
         """Subtask - a model defined in OpenAPI
 
         Args:
             id (int):
             kwargs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-            graph_layout ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type):
             trigger (str, none_type):
             name (str, none_type):
             noop_dont_save (bool):
@@ -295,8 +287,7 @@ class Subtask(ModelNormal):
             timeout (int, none_type):
             log_variable (bool):
             task (str, none_type):
-            condition_variable (str, none_type):
-            condition_value (str, none_type):
+            condition (str, none_type):
             sync (bool):
             queue (str, none_type):
             enqueue_at_front (bool):
@@ -334,6 +325,7 @@ class Subtask(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            graph_layout ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             validation_error (str, none_type): [optional]  # noqa: E501
         """
 
@@ -363,7 +355,6 @@ class Subtask(ModelNormal):
 
         self.id = id
         self.kwargs = kwargs
-        self.graph_layout = graph_layout
         self.trigger = trigger
         self.name = name
         self.noop_dont_save = noop_dont_save
@@ -371,8 +362,7 @@ class Subtask(ModelNormal):
         self.timeout = timeout
         self.log_variable = log_variable
         self.task = task
-        self.condition_variable = condition_variable
-        self.condition_value = condition_value
+        self.condition = condition
         self.sync = sync
         self.queue = queue
         self.enqueue_at_front = enqueue_at_front

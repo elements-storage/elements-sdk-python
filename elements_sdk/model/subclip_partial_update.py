@@ -30,7 +30,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from elements_sdk.model.asset_mini_reference import AssetMiniReference
     from elements_sdk.model.media_root_mini_reference import MediaRootMiniReference
+    globals()['AssetMiniReference'] = AssetMiniReference
     globals()['MediaRootMiniReference'] = MediaRootMiniReference
 
 

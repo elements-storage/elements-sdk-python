@@ -22,7 +22,6 @@ from elements_sdk.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from elements_sdk.model.cloud_mount_authorization import CloudMountAuthorization
-from elements_sdk.model.create_path_quota_request import CreatePathQuotaRequest
 from elements_sdk.model.deleted_workspace import DeletedWorkspace
 from elements_sdk.model.file_copy_endpoint_request import FileCopyEndpointRequest
 from elements_sdk.model.file_delete_endpoint_request import FileDeleteEndpointRequest
@@ -503,12 +502,10 @@ class StorageApi(object):
                 'all': [
                     'id',
                     'relative_path',
-                    'create_path_quota_request',
                 ],
                 'required': [
                     'id',
                     'relative_path',
-                    'create_path_quota_request',
                 ],
                 'nullable': [
                 ],
@@ -527,8 +524,6 @@ class StorageApi(object):
                         (int,),
                     'relative_path':
                         (str,),
-                    'create_path_quota_request':
-                        (CreatePathQuotaRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -537,16 +532,13 @@ class StorageApi(object):
                 'location_map': {
                     'id': 'path',
                     'relative_path': 'path',
-                    'create_path_quota_request': 'body',
                 },
                 'collection_format_map': {
                 }
             },
             headers_map={
                 'accept': [],
-                'content_type': [
-                    'application/json'
-                ]
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -4888,7 +4880,6 @@ class StorageApi(object):
         self,
         id,
         relative_path,
-        create_path_quota_request,
         **kwargs
     ):
         """create_path_quota  # noqa: E501
@@ -4897,13 +4888,12 @@ class StorageApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_path_quota(id, relative_path, create_path_quota_request, async_req=True)
+        >>> thread = api.create_path_quota(id, relative_path, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (int): A unique integer value identifying this volume.
             relative_path (str):
-            create_path_quota_request (CreatePathQuotaRequest):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -4966,8 +4956,6 @@ class StorageApi(object):
             id
         kwargs['relative_path'] = \
             relative_path
-        kwargs['create_path_quota_request'] = \
-            create_path_quota_request
         return self.create_path_quota_endpoint.call_with_http_info(**kwargs)
 
     def create_production(

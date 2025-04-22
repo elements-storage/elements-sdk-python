@@ -100,10 +100,6 @@ class JobDetail(ModelNormal):
             'max_length': 128,
             'min_length': 1,
         },
-        ('part_of_workflow_for',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
     }
 
     @cached_property
@@ -154,7 +150,6 @@ class JobDetail(ModelNormal):
             'webhook_secret': (str, none_type,),  # noqa: E501
             'elements_release': (str,),  # noqa: E501
             'security_context': (int, none_type,),  # noqa: E501
-            'part_of_workflow_for': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -188,7 +183,6 @@ class JobDetail(ModelNormal):
         'webhook_secret': 'webhook_secret',  # noqa: E501
         'elements_release': 'elements_release',  # noqa: E501
         'security_context': 'security_context',  # noqa: E501
-        'part_of_workflow_for': 'part_of_workflow_for',  # noqa: E501
     }
 
     read_only_vars = {
@@ -196,7 +190,6 @@ class JobDetail(ModelNormal):
         'webhook_url',  # noqa: E501
         'needs_compatibility_check',  # noqa: E501
         'fs_triggers',  # noqa: E501
-        'part_of_workflow_for',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -264,7 +257,6 @@ class JobDetail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            part_of_workflow_for (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -396,7 +388,6 @@ class JobDetail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            part_of_workflow_for (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

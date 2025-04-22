@@ -61,9 +61,6 @@ class CreateStorageNodeRequest(ModelNormal):
         ('name',): {
             'min_length': 1,
         },
-        ('backend',): {
-            'min_length': 1,
-        },
     }
 
     @cached_property
@@ -88,7 +85,6 @@ class CreateStorageNodeRequest(ModelNormal):
         """
         return {
             'name': (str,),  # noqa: E501
-            'backend': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -98,7 +94,6 @@ class CreateStorageNodeRequest(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
-        'backend': 'backend',  # noqa: E501
     }
 
     read_only_vars = {
@@ -108,12 +103,11 @@ class CreateStorageNodeRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, backend, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, *args, **xkwargs):  # noqa: E501
         """CreateStorageNodeRequest - a model defined in OpenAPI
 
         Args:
             name (str):
-            backend (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -175,7 +169,6 @@ class CreateStorageNodeRequest(ModelNormal):
 
 
         self.name = name
-        self.backend = backend
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -197,12 +190,11 @@ class CreateStorageNodeRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, backend, *args, **xkwargs):  # noqa: E501
+    def __init__(self, name, *args, **xkwargs):  # noqa: E501
         """CreateStorageNodeRequest - a model defined in OpenAPI
 
         Args:
             name (str):
-            backend (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -262,7 +254,6 @@ class CreateStorageNodeRequest(ModelNormal):
 
 
         self.name = name
-        self.backend = backend
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

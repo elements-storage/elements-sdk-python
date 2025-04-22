@@ -31,7 +31,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.asset_mini import AssetMini
+    from elements_sdk.model.media_file_bundle_mini import MediaFileBundleMini
     globals()['AssetMini'] = AssetMini
+    globals()['MediaFileBundleMini'] = MediaFileBundleMini
 
 
 class SubtitleClipboardEntry(ModelNormal):

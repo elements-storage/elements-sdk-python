@@ -30,8 +30,10 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from elements_sdk.model.elements_user_mini import ElementsUserMini
     from elements_sdk.model.mounted_workspace import MountedWorkspace
     from elements_sdk.model.workstation_mini import WorkstationMini
+    globals()['ElementsUserMini'] = ElementsUserMini
     globals()['MountedWorkspace'] = MountedWorkspace
     globals()['WorkstationMini'] = WorkstationMini
 

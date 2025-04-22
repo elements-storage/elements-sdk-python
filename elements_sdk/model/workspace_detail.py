@@ -33,11 +33,13 @@ def lazy_import():
     from elements_sdk.model.nfs_permission import NFSPermission
     from elements_sdk.model.production import Production
     from elements_sdk.model.quota import Quota
+    from elements_sdk.model.volume import Volume
     from elements_sdk.model.workspace_endpoint import WorkspaceEndpoint
     from elements_sdk.model.workspace_resolved_permission import WorkspaceResolvedPermission
     globals()['NFSPermission'] = NFSPermission
     globals()['Production'] = Production
     globals()['Quota'] = Quota
+    globals()['Volume'] = Volume
     globals()['WorkspaceEndpoint'] = WorkspaceEndpoint
     globals()['WorkspaceResolvedPermission'] = WorkspaceResolvedPermission
 

@@ -131,6 +131,7 @@ class Volume(ModelNormal):
             'backend': (Backend,),  # noqa: E501
             'cloud_account': (int, none_type,),  # noqa: E501
             'qumulo_integration': (int, none_type,),  # noqa: E501
+            'onefs_integration': (int, none_type,),  # noqa: E501
             'fs_properties': (FSProperties,),  # noqa: E501
             'status': (VolumeStatus,),  # noqa: E501
         }
@@ -156,6 +157,7 @@ class Volume(ModelNormal):
         'backend': 'backend',  # noqa: E501
         'cloud_account': 'cloud_account',  # noqa: E501
         'qumulo_integration': 'qumulo_integration',  # noqa: E501
+        'onefs_integration': 'onefs_integration',  # noqa: E501
         'fs_properties': 'fs_properties',  # noqa: E501
         'status': 'status',  # noqa: E501
     }
@@ -167,7 +169,7 @@ class Volume(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, simulated_quotas, backend, cloud_account, qumulo_integration, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, simulated_quotas, backend, cloud_account, qumulo_integration, onefs_integration, *args, **xkwargs):  # noqa: E501
         """Volume - a model defined in OpenAPI
 
         Args:
@@ -186,6 +188,7 @@ class Volume(ModelNormal):
             backend (Backend):
             cloud_account (int, none_type):
             qumulo_integration (int, none_type):
+            onefs_integration (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -263,6 +266,7 @@ class Volume(ModelNormal):
         self.backend = backend
         self.cloud_account = cloud_account
         self.qumulo_integration = qumulo_integration
+        self.onefs_integration = onefs_integration
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -284,7 +288,7 @@ class Volume(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, simulated_quotas, backend, cloud_account, qumulo_integration, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, simulated_quotas, backend, cloud_account, qumulo_integration, onefs_integration, *args, **xkwargs):  # noqa: E501
         """Volume - a model defined in OpenAPI
 
         Args:
@@ -303,6 +307,7 @@ class Volume(ModelNormal):
             backend (Backend):
             cloud_account (int, none_type):
             qumulo_integration (int, none_type):
+            onefs_integration (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -378,6 +383,7 @@ class Volume(ModelNormal):
         self.backend = backend
         self.cloud_account = cloud_account
         self.qumulo_integration = qumulo_integration
+        self.onefs_integration = onefs_integration
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

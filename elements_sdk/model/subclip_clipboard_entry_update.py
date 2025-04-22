@@ -30,7 +30,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from elements_sdk.model.media_file_bundle_mini_reference import MediaFileBundleMiniReference
     from elements_sdk.model.subclip_reference import SubclipReference
+    globals()['MediaFileBundleMiniReference'] = MediaFileBundleMiniReference
     globals()['SubclipReference'] = SubclipReference
 
 

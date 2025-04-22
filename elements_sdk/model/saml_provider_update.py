@@ -114,6 +114,7 @@ class SAMLProviderUpdate(ModelNormal):
             'sso_url': (str,),  # noqa: E501
             'certificate': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'disabled_in_client': (bool,),  # noqa: E501
             'slo_url': (str, none_type,),  # noqa: E501
             'sp_certificate': (str, none_type,),  # noqa: E501
             'sp_certificate_key': (str, none_type,),  # noqa: E501
@@ -132,6 +133,7 @@ class SAMLProviderUpdate(ModelNormal):
         'sso_url': 'sso_url',  # noqa: E501
         'certificate': 'certificate',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'disabled_in_client': 'disabled_in_client',  # noqa: E501
         'slo_url': 'slo_url',  # noqa: E501
         'sp_certificate': 'sp_certificate',  # noqa: E501
         'sp_certificate_key': 'sp_certificate_key',  # noqa: E501
@@ -187,6 +189,7 @@ class SAMLProviderUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
+            disabled_in_client (bool): [optional]  # noqa: E501
             slo_url (str, none_type): [optional]  # noqa: E501
             sp_certificate (str, none_type): [optional]  # noqa: E501
             sp_certificate_key (str, none_type): [optional]  # noqa: E501
@@ -285,6 +288,7 @@ class SAMLProviderUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
+            disabled_in_client (bool): [optional]  # noqa: E501
             slo_url (str, none_type): [optional]  # noqa: E501
             sp_certificate (str, none_type): [optional]  # noqa: E501
             sp_certificate_key (str, none_type): [optional]  # noqa: E501

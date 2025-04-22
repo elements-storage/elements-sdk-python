@@ -31,7 +31,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.elements_user_mini import ElementsUserMini
+    from elements_sdk.model.media_root_mini import MediaRootMini
     globals()['ElementsUserMini'] = ElementsUserMini
+    globals()['MediaRootMini'] = MediaRootMini
 
 
 class SavedSearch(ModelNormal):
@@ -92,7 +94,7 @@ class SavedSearch(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'user': (ElementsUserMini,),  # noqa: E501
+            'user': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'root': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'query': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'url': (str,),  # noqa: E501
@@ -116,6 +118,7 @@ class SavedSearch(ModelNormal):
     }
 
     read_only_vars = {
+        'user',  # noqa: E501
         'url',  # noqa: E501
         'url_params',  # noqa: E501
     }
@@ -129,7 +132,7 @@ class SavedSearch(ModelNormal):
 
         Args:
             id (int):
-            user (ElementsUserMini):
+            user (bool, date, datetime, dict, float, int, list, str, none_type):
             root (bool, date, datetime, dict, float, int, list, str, none_type):
             query ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             url (str):
@@ -223,12 +226,11 @@ class SavedSearch(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, user, root, query, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, root, query, name, *args, **xkwargs):  # noqa: E501
         """SavedSearch - a model defined in OpenAPI
 
         Args:
             id (int):
-            user (ElementsUserMini):
             root (bool, date, datetime, dict, float, int, list, str, none_type):
             query ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             name (str):
@@ -291,7 +293,6 @@ class SavedSearch(ModelNormal):
 
 
         self.id = id
-        self.user = user
         self.root = root
         self.query = query
         self.name = name

@@ -637,6 +637,7 @@ class TapeArchiveApi(object):
                     'name',
                     'fullpath',
                     'parent',
+                    'tape',
                     'ordering',
                     'limit',
                     'offset',
@@ -665,6 +666,8 @@ class TapeArchiveApi(object):
                         (str,),
                     'parent':
                         (int,),
+                    'tape':
+                        (int,),
                     'ordering':
                         (str,),
                     'limit':
@@ -678,6 +681,7 @@ class TapeArchiveApi(object):
                     'name': 'name',
                     'fullpath': 'fullpath',
                     'parent': 'parent',
+                    'tape': 'tape',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
@@ -688,6 +692,7 @@ class TapeArchiveApi(object):
                     'name': 'query',
                     'fullpath': 'query',
                     'parent': 'query',
+                    'tape': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -2941,6 +2946,7 @@ class TapeArchiveApi(object):
             name (str): Filter the returned list by `name`.. [optional]
             fullpath (str): Filter the returned list by `fullpath`.. [optional]
             parent (int): Filter the returned list by `parent`.. [optional]
+            tape (int): Filter the returned list by `tape`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]

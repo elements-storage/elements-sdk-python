@@ -21,6 +21,7 @@ from elements_sdk.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from elements_sdk.model.bulk_delete_users_request import BulkDeleteUsersRequest
 from elements_sdk.model.csr_file import CSRFile
 from elements_sdk.model.certificate import Certificate
 from elements_sdk.model.certificate_partial_update import CertificatePartialUpdate
@@ -89,6 +90,8 @@ from elements_sdk.model.notification_setting import NotificationSetting
 from elements_sdk.model.notification_setting_partial_update import NotificationSettingPartialUpdate
 from elements_sdk.model.notification_setting_update import NotificationSettingUpdate
 from elements_sdk.model.notification_update import NotificationUpdate
+from elements_sdk.model.pwa_configuration import PWAConfiguration
+from elements_sdk.model.pwa_configuration_update import PWAConfigurationUpdate
 from elements_sdk.model.parameters import Parameters
 from elements_sdk.model.parameters_update import ParametersUpdate
 from elements_sdk.model.password_policy import PasswordPolicy
@@ -268,6 +271,56 @@ class MainApi(object):
             },
             api_client=api_client
         )
+        self.bulk_delete_users_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/users/bulk-delete',
+                'operation_id': 'bulk_delete_users',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'bulk_delete_users_request',
+                ],
+                'required': [
+                    'bulk_delete_users_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'bulk_delete_users_request':
+                        (BulkDeleteUsersRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'bulk_delete_users_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.check_certificate_endpoint = _Endpoint(
             settings={
                 'response_type': (Certificate,),
@@ -385,6 +438,7 @@ class MainApi(object):
             },
             params_map={
                 'all': [
+                    'run_on_all_nodes',
                 ],
                 'required': [],
                 'nullable': [
@@ -400,10 +454,14 @@ class MainApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'run_on_all_nodes':
+                        (bool,),
                 },
                 'attribute_map': {
+                    'run_on_all_nodes': 'run_on_all_nodes',
                 },
                 'location_map': {
+                    'run_on_all_nodes': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1813,6 +1871,48 @@ class MainApi(object):
             },
             api_client=api_client
         )
+        self.delete_pwa_icon_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/system/pwa-configuration/icon',
+                'operation_id': 'delete_pwa_icon',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.delete_smtp_configuration_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -3062,7 +3162,6 @@ class MainApi(object):
             params_map={
                 'all': [
                     'type',
-                    'backend',
                     'name',
                     'address',
                     'ordering',
@@ -3075,7 +3174,6 @@ class MainApi(object):
                 ],
                 'enum': [
                     'type',
-                    'backend',
                 ],
                 'validation': [
                 ]
@@ -3090,16 +3188,9 @@ class MainApi(object):
                         "2": "2",
                         "3": "3"
                     },
-                    ('backend',): {
-
-                        "ELEMENTS": "elements",
-                        "ONEFS": "onefs"
-                    },
                 },
                 'openapi_types': {
                     'type':
-                        (str,),
-                    'backend':
                         (str,),
                     'name':
                         (str,),
@@ -3116,7 +3207,6 @@ class MainApi(object):
                 },
                 'attribute_map': {
                     'type': 'type',
-                    'backend': 'backend',
                     'name': 'name',
                     'address': 'address',
                     'ordering': 'ordering',
@@ -3126,7 +3216,6 @@ class MainApi(object):
                 },
                 'location_map': {
                     'type': 'query',
-                    'backend': 'query',
                     'name': 'query',
                     'address': 'query',
                     'ordering': 'query',
@@ -3162,9 +3251,13 @@ class MainApi(object):
                     'home',
                     'full_name',
                     'groups',
+                    'is_cloud',
+                    'is_enabled',
                     'ordering',
                     'limit',
                     'offset',
+                    'filter',
+                    'filtering_mode',
                     'include_allowed_fs_paths',
                     'include_effective_permissions',
                 ],
@@ -3172,6 +3265,7 @@ class MainApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'filtering_mode',
                 ],
                 'validation': [
                 ]
@@ -3180,6 +3274,11 @@ class MainApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('filtering_mode',): {
+
+                        "EXACT": "exact",
+                        "FUZZY": "fuzzy"
+                    },
                 },
                 'openapi_types': {
                     'username':
@@ -3190,12 +3289,20 @@ class MainApi(object):
                         (str,),
                     'groups':
                         (str,),
+                    'is_cloud':
+                        (str,),
+                    'is_enabled':
+                        (str,),
                     'ordering':
                         (str,),
                     'limit':
                         (int,),
                     'offset':
                         (int,),
+                    'filter':
+                        (str,),
+                    'filtering_mode':
+                        (str,),
                     'include_allowed_fs_paths':
                         (bool,),
                     'include_effective_permissions':
@@ -3206,9 +3313,13 @@ class MainApi(object):
                     'home': 'home',
                     'full_name': 'full_name',
                     'groups': 'groups',
+                    'is_cloud': 'is_cloud',
+                    'is_enabled': 'is_enabled',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
+                    'filter': 'filter',
+                    'filtering_mode': 'filtering_mode',
                     'include_allowed_fs_paths': 'include_allowed_fs_paths',
                     'include_effective_permissions': 'include_effective_permissions',
                 },
@@ -3217,9 +3328,13 @@ class MainApi(object):
                     'home': 'query',
                     'full_name': 'query',
                     'groups': 'query',
+                    'is_cloud': 'query',
+                    'is_enabled': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                    'filter': 'query',
+                    'filtering_mode': 'query',
                     'include_allowed_fs_paths': 'query',
                     'include_effective_permissions': 'query',
                 },
@@ -3753,7 +3868,6 @@ class MainApi(object):
             params_map={
                 'all': [
                     'type',
-                    'backend',
                     'name',
                     'address',
                     'ordering',
@@ -3765,7 +3879,6 @@ class MainApi(object):
                 ],
                 'enum': [
                     'type',
-                    'backend',
                 ],
                 'validation': [
                 ]
@@ -3780,16 +3893,9 @@ class MainApi(object):
                         "2": "2",
                         "3": "3"
                     },
-                    ('backend',): {
-
-                        "ELEMENTS": "elements",
-                        "ONEFS": "onefs"
-                    },
                 },
                 'openapi_types': {
                     'type':
-                        (str,),
-                    'backend':
                         (str,),
                     'name':
                         (str,),
@@ -3804,7 +3910,6 @@ class MainApi(object):
                 },
                 'attribute_map': {
                     'type': 'type',
-                    'backend': 'backend',
                     'name': 'name',
                     'address': 'address',
                     'ordering': 'ordering',
@@ -3813,7 +3918,6 @@ class MainApi(object):
                 },
                 'location_map': {
                     'type': 'query',
-                    'backend': 'query',
                     'name': 'query',
                     'address': 'query',
                     'ordering': 'query',
@@ -5319,6 +5423,92 @@ class MainApi(object):
                 'accept': [
                     'application/json'
                 ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_pwa_configuration_endpoint = _Endpoint(
+            settings={
+                'response_type': (PWAConfiguration,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/system/pwa-configuration',
+                'operation_id': 'get_pwa_configuration',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_pwa_icon_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/system/pwa-configuration/icon',
+                'operation_id': 'get_pwa_icon',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
                 'content_type': [],
             },
             api_client=api_client
@@ -8830,6 +9020,108 @@ class MainApi(object):
             },
             api_client=api_client
         )
+        self.update_pwa_configuration_endpoint = _Endpoint(
+            settings={
+                'response_type': (PWAConfiguration,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/system/pwa-configuration',
+                'operation_id': 'update_pwa_configuration',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'pwa_configuration_update',
+                ],
+                'required': [
+                    'pwa_configuration_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'pwa_configuration_update':
+                        (PWAConfigurationUpdate,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'pwa_configuration_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_pwa_icon_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/system/pwa-configuration/icon',
+                'operation_id': 'update_pwa_icon',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'image_upload_request',
+                ],
+                'required': [
+                    'image_upload_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'image_upload_request':
+                        (ImageUploadRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'image_upload_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.update_smtp_configuration_endpoint = _Endpoint(
             settings={
                 'response_type': (SMTPConfiguration,),
@@ -9380,6 +9672,84 @@ class MainApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.beep_endpoint.call_with_http_info(**kwargs)
 
+    def bulk_delete_users(
+        self,
+        bulk_delete_users_request,
+        **kwargs
+    ):
+        """bulk_delete_users  # noqa: E501
+
+        ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.bulk_delete_users(bulk_delete_users_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            bulk_delete_users_request (BulkDeleteUsersRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['bulk_delete_users_request'] = \
+            bulk_delete_users_request
+        return self.bulk_delete_users_endpoint.call_with_http_info(**kwargs)
+
     def check_certificate(
         self,
         check_certificate_request,
@@ -9548,6 +9918,7 @@ class MainApi(object):
 
 
         Keyword Args:
+            run_on_all_nodes (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -11771,6 +12142,79 @@ class MainApi(object):
             id
         return self.delete_ntp_server_endpoint.call_with_http_info(**kwargs)
 
+    def delete_pwa_icon(
+        self,
+        **kwargs
+    ):
+        """delete_pwa_icon  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_pwa_icon(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.delete_pwa_icon_endpoint.call_with_http_info(**kwargs)
+
     def delete_smtp_configuration(
         self,
         **kwargs
@@ -13412,7 +13856,6 @@ class MainApi(object):
 
         Keyword Args:
             type (str): Filter the returned list by `type`.. [optional]
-            backend (str): Filter the returned list by `backend`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             address (str): Filter the returned list by `address`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
@@ -13496,9 +13939,13 @@ class MainApi(object):
             home (str): Filter the returned list by `home`.. [optional]
             full_name (str): Filter the returned list by `full_name`.. [optional]
             groups (str): Filter the returned list by `groups`.. [optional]
+            is_cloud (str): Filter the returned list by `is_cloud`.. [optional]
+            is_enabled (str): Filter the returned list by `is_enabled`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
+            filter (str): [optional]
+            filtering_mode (str): [optional]
             include_allowed_fs_paths (bool): [optional]
             include_effective_permissions (bool): [optional]
             _return_http_data_only (bool): response data without head status
@@ -14337,7 +14784,6 @@ class MainApi(object):
 
         Keyword Args:
             type (str): Filter the returned list by `type`.. [optional]
-            backend (str): Filter the returned list by `backend`.. [optional]
             name (str): Filter the returned list by `name`.. [optional]
             address (str): Filter the returned list by `address`.. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
@@ -16637,6 +17083,152 @@ class MainApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_profile_endpoint.call_with_http_info(**kwargs)
+
+    def get_pwa_configuration(
+        self,
+        **kwargs
+    ):
+        """get_pwa_configuration  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_pwa_configuration(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            PWAConfiguration
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_pwa_configuration_endpoint.call_with_http_info(**kwargs)
+
+    def get_pwa_icon(
+        self,
+        **kwargs
+    ):
+        """get_pwa_icon  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_pwa_icon(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_pwa_icon_endpoint.call_with_http_info(**kwargs)
 
     def get_release_notes(
         self,
@@ -21854,6 +22446,162 @@ class MainApi(object):
         kwargs['elements_user_profile_update'] = \
             elements_user_profile_update
         return self.update_profile_endpoint.call_with_http_info(**kwargs)
+
+    def update_pwa_configuration(
+        self,
+        pwa_configuration_update,
+        **kwargs
+    ):
+        """update_pwa_configuration  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_pwa_configuration(pwa_configuration_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            pwa_configuration_update (PWAConfigurationUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            PWAConfiguration
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['pwa_configuration_update'] = \
+            pwa_configuration_update
+        return self.update_pwa_configuration_endpoint.call_with_http_info(**kwargs)
+
+    def update_pwa_icon(
+        self,
+        image_upload_request,
+        **kwargs
+    ):
+        """update_pwa_icon  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_pwa_icon(image_upload_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            image_upload_request (ImageUploadRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['image_upload_request'] = \
+            image_upload_request
+        return self.update_pwa_icon_endpoint.call_with_http_info(**kwargs)
 
     def update_smtp_configuration(
         self,

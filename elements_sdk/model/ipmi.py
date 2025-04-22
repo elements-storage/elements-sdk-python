@@ -90,9 +90,9 @@ class Ipmi(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'ip': (str,),  # noqa: E501
-            'netmask': (str,),  # noqa: E501
-            'gateway': (str,),  # noqa: E501
+            'ip': (str, none_type,),  # noqa: E501
+            'netmask': (str, none_type,),  # noqa: E501
+            'gateway': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -117,9 +117,9 @@ class Ipmi(ModelNormal):
         """Ipmi - a model defined in OpenAPI
 
         Args:
-            ip (str):
-            netmask (str):
-            gateway (str):
+            ip (str, none_type):
+            netmask (str, none_type):
+            gateway (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -208,9 +208,9 @@ class Ipmi(ModelNormal):
         """Ipmi - a model defined in OpenAPI
 
         Args:
-            ip (str):
-            netmask (str):
-            gateway (str):
+            ip (str, none_type):
+            netmask (str, none_type):
+            gateway (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -115,6 +115,7 @@ class SAMLProvider(ModelNormal):
             'metadata_url': (str,),  # noqa: E501
             'assertion_url': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'disabled_in_client': (bool,),  # noqa: E501
             'entity_id': (str,),  # noqa: E501
             'sso_url': (str,),  # noqa: E501
             'slo_url': (str, none_type,),  # noqa: E501
@@ -138,6 +139,7 @@ class SAMLProvider(ModelNormal):
         'metadata_url': 'metadata_url',  # noqa: E501
         'assertion_url': 'assertion_url',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'disabled_in_client': 'disabled_in_client',  # noqa: E501
         'entity_id': 'entity_id',  # noqa: E501
         'sso_url': 'sso_url',  # noqa: E501
         'slo_url': 'slo_url',  # noqa: E501
@@ -161,7 +163,7 @@ class SAMLProvider(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, login_url, metadata_url, assertion_url, name, entity_id, sso_url, slo_url, certificate, sp_certificate, sp_certificate_key, nameid_format, auto_create_users, user_template, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, login_url, metadata_url, assertion_url, name, disabled_in_client, entity_id, sso_url, slo_url, certificate, sp_certificate, sp_certificate_key, nameid_format, auto_create_users, user_template, *args, **xkwargs):  # noqa: E501
         """SAMLProvider - a model defined in OpenAPI
 
         Args:
@@ -170,6 +172,7 @@ class SAMLProvider(ModelNormal):
             metadata_url (str):
             assertion_url (str):
             name (str):
+            disabled_in_client (bool):
             entity_id (str):
             sso_url (str):
             slo_url (str, none_type):
@@ -245,6 +248,7 @@ class SAMLProvider(ModelNormal):
         self.metadata_url = metadata_url
         self.assertion_url = assertion_url
         self.name = name
+        self.disabled_in_client = disabled_in_client
         self.entity_id = entity_id
         self.sso_url = sso_url
         self.slo_url = slo_url
@@ -275,12 +279,13 @@ class SAMLProvider(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, entity_id, sso_url, slo_url, certificate, sp_certificate, sp_certificate_key, nameid_format, auto_create_users, user_template, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, disabled_in_client, entity_id, sso_url, slo_url, certificate, sp_certificate, sp_certificate_key, nameid_format, auto_create_users, user_template, *args, **xkwargs):  # noqa: E501
         """SAMLProvider - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
+            disabled_in_client (bool):
             entity_id (str):
             sso_url (str):
             slo_url (str, none_type):
@@ -351,6 +356,7 @@ class SAMLProvider(ModelNormal):
 
         self.id = id
         self.name = name
+        self.disabled_in_client = disabled_in_client
         self.entity_id = entity_id
         self.sso_url = sso_url
         self.slo_url = slo_url

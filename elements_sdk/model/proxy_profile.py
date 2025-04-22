@@ -81,6 +81,10 @@ class ProxyProfile(ModelNormal):
             'CBR': "CBR",
             'VBR': "VBR",
         },
+        ('image_format',): {
+            'PNG': "png",
+            'JPEG': "jpeg",
+        },
         ('watermark_position',): {
             'TL': "TL",
             'TR': "TR",
@@ -178,6 +182,7 @@ class ProxyProfile(ModelNormal):
             'audio_bitrate': (int,),  # noqa: E501
             'variants_limit': (int,),  # noqa: E501
             'enable_dense_filmstrip': (bool,),  # noqa: E501
+            'image_format': (str,),  # noqa: E501
             'enable_watermark': (bool,),  # noqa: E501
             'watermark_image': (str, none_type,),  # noqa: E501
             'watermark_position': (str,),  # noqa: E501
@@ -195,6 +200,7 @@ class ProxyProfile(ModelNormal):
             'vantage_workflow_id': (str, none_type,),  # noqa: E501
             'external_transcoder_staging_path': (str, none_type,),  # noqa: E501
             'allow_download': (bool,),  # noqa: E501
+            'keep_audio_layout': (bool,),  # noqa: E501
             'external_transcoder': (int, none_type,),  # noqa: E501
         }
 
@@ -215,6 +221,7 @@ class ProxyProfile(ModelNormal):
         'audio_bitrate': 'audio_bitrate',  # noqa: E501
         'variants_limit': 'variants_limit',  # noqa: E501
         'enable_dense_filmstrip': 'enable_dense_filmstrip',  # noqa: E501
+        'image_format': 'image_format',  # noqa: E501
         'enable_watermark': 'enable_watermark',  # noqa: E501
         'watermark_image': 'watermark_image',  # noqa: E501
         'watermark_position': 'watermark_position',  # noqa: E501
@@ -232,6 +239,7 @@ class ProxyProfile(ModelNormal):
         'vantage_workflow_id': 'vantage_workflow_id',  # noqa: E501
         'external_transcoder_staging_path': 'external_transcoder_staging_path',  # noqa: E501
         'allow_download': 'allow_download',  # noqa: E501
+        'keep_audio_layout': 'keep_audio_layout',  # noqa: E501
         'external_transcoder': 'external_transcoder',  # noqa: E501
     }
 
@@ -242,7 +250,7 @@ class ProxyProfile(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, proxy_generator, type, resolution, rate_control, crf, bitrate, audio_bitrate, variants_limit, enable_dense_filmstrip, enable_watermark, watermark_image, watermark_position, watermark_opacity, watermark_size, enable_timecode, timecode_position, timecode_opacity, timecode_size, lut, hotfolder_copy_to, hotfolder_read_from, hotfolder_queue_timeout, hotfolder_encode_timeout, vantage_workflow_id, external_transcoder_staging_path, allow_download, external_transcoder, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, proxy_generator, type, resolution, rate_control, crf, bitrate, audio_bitrate, variants_limit, enable_dense_filmstrip, image_format, enable_watermark, watermark_image, watermark_position, watermark_opacity, watermark_size, enable_timecode, timecode_position, timecode_opacity, timecode_size, lut, hotfolder_copy_to, hotfolder_read_from, hotfolder_queue_timeout, hotfolder_encode_timeout, vantage_workflow_id, external_transcoder_staging_path, allow_download, keep_audio_layout, external_transcoder, *args, **xkwargs):  # noqa: E501
         """ProxyProfile - a model defined in OpenAPI
 
         Args:
@@ -257,6 +265,7 @@ class ProxyProfile(ModelNormal):
             audio_bitrate (int):
             variants_limit (int):
             enable_dense_filmstrip (bool):
+            image_format (str):
             enable_watermark (bool):
             watermark_image (str, none_type):
             watermark_position (str):
@@ -274,6 +283,7 @@ class ProxyProfile(ModelNormal):
             vantage_workflow_id (str, none_type):
             external_transcoder_staging_path (str, none_type):
             allow_download (bool):
+            keep_audio_layout (bool):
             external_transcoder (int, none_type):
 
         Keyword Args:
@@ -346,6 +356,7 @@ class ProxyProfile(ModelNormal):
         self.audio_bitrate = audio_bitrate
         self.variants_limit = variants_limit
         self.enable_dense_filmstrip = enable_dense_filmstrip
+        self.image_format = image_format
         self.enable_watermark = enable_watermark
         self.watermark_image = watermark_image
         self.watermark_position = watermark_position
@@ -363,6 +374,7 @@ class ProxyProfile(ModelNormal):
         self.vantage_workflow_id = vantage_workflow_id
         self.external_transcoder_staging_path = external_transcoder_staging_path
         self.allow_download = allow_download
+        self.keep_audio_layout = keep_audio_layout
         self.external_transcoder = external_transcoder
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -385,7 +397,7 @@ class ProxyProfile(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, proxy_generator, type, resolution, rate_control, crf, bitrate, audio_bitrate, variants_limit, enable_dense_filmstrip, enable_watermark, watermark_image, watermark_position, watermark_opacity, watermark_size, enable_timecode, timecode_position, timecode_opacity, timecode_size, lut, hotfolder_copy_to, hotfolder_read_from, hotfolder_queue_timeout, hotfolder_encode_timeout, vantage_workflow_id, external_transcoder_staging_path, allow_download, external_transcoder, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, proxy_generator, type, resolution, rate_control, crf, bitrate, audio_bitrate, variants_limit, enable_dense_filmstrip, image_format, enable_watermark, watermark_image, watermark_position, watermark_opacity, watermark_size, enable_timecode, timecode_position, timecode_opacity, timecode_size, lut, hotfolder_copy_to, hotfolder_read_from, hotfolder_queue_timeout, hotfolder_encode_timeout, vantage_workflow_id, external_transcoder_staging_path, allow_download, keep_audio_layout, external_transcoder, *args, **xkwargs):  # noqa: E501
         """ProxyProfile - a model defined in OpenAPI
 
         Args:
@@ -400,6 +412,7 @@ class ProxyProfile(ModelNormal):
             audio_bitrate (int):
             variants_limit (int):
             enable_dense_filmstrip (bool):
+            image_format (str):
             enable_watermark (bool):
             watermark_image (str, none_type):
             watermark_position (str):
@@ -417,6 +430,7 @@ class ProxyProfile(ModelNormal):
             vantage_workflow_id (str, none_type):
             external_transcoder_staging_path (str, none_type):
             allow_download (bool):
+            keep_audio_layout (bool):
             external_transcoder (int, none_type):
 
         Keyword Args:
@@ -487,6 +501,7 @@ class ProxyProfile(ModelNormal):
         self.audio_bitrate = audio_bitrate
         self.variants_limit = variants_limit
         self.enable_dense_filmstrip = enable_dense_filmstrip
+        self.image_format = image_format
         self.enable_watermark = enable_watermark
         self.watermark_image = watermark_image
         self.watermark_position = watermark_position
@@ -504,6 +519,7 @@ class ProxyProfile(ModelNormal):
         self.vantage_workflow_id = vantage_workflow_id
         self.external_transcoder_staging_path = external_transcoder_staging_path
         self.allow_download = allow_download
+        self.keep_audio_layout = keep_audio_layout
         self.external_transcoder = external_transcoder
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

@@ -2346,7 +2346,7 @@ class MediaLibraryApi(object):
         )
         self.delete_proxy_profile_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': (TaskInfo,),
                 'auth': [
                     'Bearer'
                 ],
@@ -2388,7 +2388,9 @@ class MediaLibraryApi(object):
                 }
             },
             headers_map={
-                'accept': [],
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [],
             },
             api_client=api_client
@@ -15996,7 +15998,7 @@ class MediaLibraryApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            TaskInfo
                 If the method is called asynchronously, returns the request
                 thread.
         """

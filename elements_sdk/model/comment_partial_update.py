@@ -30,7 +30,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from elements_sdk.model.elements_user_mini_reference import ElementsUserMiniReference
     from elements_sdk.model.tag_reference import TagReference
+    globals()['ElementsUserMiniReference'] = ElementsUserMiniReference
     globals()['TagReference'] = TagReference
 
 

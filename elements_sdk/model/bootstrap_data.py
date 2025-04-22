@@ -150,6 +150,7 @@ class BootstrapData(ModelNormal):
             'stream_proxy_url_prefix': (str,),  # noqa: E501
             'has_password_policy': (bool,),  # noqa: E501
             'has_filesystem_events': (bool,),  # noqa: E501
+            'cluster_node_ips': ([str],),  # noqa: E501
             'current_node': (StorageNode,),  # noqa: E501
             'license': (License,),  # noqa: E501
             'parameter_values': (Parameters,),  # noqa: E501
@@ -190,6 +191,7 @@ class BootstrapData(ModelNormal):
         'stream_proxy_url_prefix': 'stream_proxy_url_prefix',  # noqa: E501
         'has_password_policy': 'has_password_policy',  # noqa: E501
         'has_filesystem_events': 'has_filesystem_events',  # noqa: E501
+        'cluster_node_ips': 'cluster_node_ips',  # noqa: E501
         'current_node': 'current_node',  # noqa: E501
         'license': 'license',  # noqa: E501
         'parameter_values': 'parameter_values',  # noqa: E501
@@ -206,7 +208,7 @@ class BootstrapData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, public_parameters, known_usernames, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, system_name, stream_proxy_url_prefix, has_password_policy, has_filesystem_events, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, public_parameters, known_usernames, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, system_name, stream_proxy_url_prefix, has_password_policy, has_filesystem_events, cluster_node_ips, *args, **xkwargs):  # noqa: E501
         """BootstrapData - a model defined in OpenAPI
 
         Args:
@@ -235,6 +237,7 @@ class BootstrapData(ModelNormal):
             stream_proxy_url_prefix (str):
             has_password_policy (bool):
             has_filesystem_events (bool):
+            cluster_node_ips ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -327,6 +330,7 @@ class BootstrapData(ModelNormal):
         self.stream_proxy_url_prefix = stream_proxy_url_prefix
         self.has_password_policy = has_password_policy
         self.has_filesystem_events = has_filesystem_events
+        self.cluster_node_ips = cluster_node_ips
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -348,7 +352,7 @@ class BootstrapData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, public_parameters, known_usernames, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, system_name, stream_proxy_url_prefix, has_password_policy, has_filesystem_events, *args, **xkwargs):  # noqa: E501
+    def __init__(self, public_parameters, known_usernames, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, system_name, stream_proxy_url_prefix, has_password_policy, has_filesystem_events, cluster_node_ips, *args, **xkwargs):  # noqa: E501
         """BootstrapData - a model defined in OpenAPI
 
         Args:
@@ -377,6 +381,7 @@ class BootstrapData(ModelNormal):
             stream_proxy_url_prefix (str):
             has_password_policy (bool):
             has_filesystem_events (bool):
+            cluster_node_ips ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -467,6 +472,7 @@ class BootstrapData(ModelNormal):
         self.stream_proxy_url_prefix = stream_proxy_url_prefix
         self.has_password_policy = has_password_policy
         self.has_filesystem_events = has_filesystem_events
+        self.cluster_node_ips = cluster_node_ips
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

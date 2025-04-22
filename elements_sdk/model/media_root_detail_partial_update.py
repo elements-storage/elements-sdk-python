@@ -33,9 +33,11 @@ def lazy_import():
     from elements_sdk.model.custom_field_reference import CustomFieldReference
     from elements_sdk.model.job_reference import JobReference
     from elements_sdk.model.volume_reference import VolumeReference
+    from elements_sdk.model.workflow_reference import WorkflowReference
     globals()['CustomFieldReference'] = CustomFieldReference
     globals()['JobReference'] = JobReference
     globals()['VolumeReference'] = VolumeReference
+    globals()['WorkflowReference'] = WorkflowReference
 
 
 class MediaRootDetailPartialUpdate(ModelNormal):
@@ -121,7 +123,7 @@ class MediaRootDetailPartialUpdate(ModelNormal):
         lazy_import()
         return {
             'custom_fields': ([CustomFieldReference],),  # noqa: E501
-            'volume': (VolumeReference,),  # noqa: E501
+            'volume': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'workflow': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'jobs': ([JobReference],),  # noqa: E501
             'name': (str,),  # noqa: E501
@@ -193,6 +195,7 @@ class MediaRootDetailPartialUpdate(ModelNormal):
     }
 
     read_only_vars = {
+        'volume',  # noqa: E501
         'path',  # noqa: E501
     }
 
@@ -235,7 +238,7 @@ class MediaRootDetailPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             custom_fields ([CustomFieldReference]): [optional]  # noqa: E501
-            volume (VolumeReference): [optional]  # noqa: E501
+            volume (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             workflow (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             jobs ([JobReference]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
@@ -349,7 +352,7 @@ class MediaRootDetailPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             custom_fields ([CustomFieldReference]): [optional]  # noqa: E501
-            volume (VolumeReference): [optional]  # noqa: E501
+            volume (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             workflow (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             jobs ([JobReference]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501

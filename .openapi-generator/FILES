@@ -40,6 +40,7 @@ docs/ArchiveEndpointRequest.md
 docs/ArgumentType.md
 docs/Asset.md
 docs/AssetBackup.md
+docs/AssetBackupMini.md
 docs/AssetCloudLink.md
 docs/AssetMini.md
 docs/AssetMiniReference.md
@@ -63,6 +64,7 @@ docs/BeeGFSNode.md
 docs/BeeGFSTarget.md
 docs/BenchmarkEndpointRequest.md
 docs/BootstrapData.md
+docs/BulkDeleteUsersRequest.md
 docs/CPUStat.md
 docs/CSRFile.md
 docs/Certificate.md
@@ -99,7 +101,6 @@ docs/CommentUpdate.md
 docs/Cost.md
 docs/CreateDownloadArchive.md
 docs/CreateHomeWorkspaceRequest.md
-docs/CreatePathQuotaRequest.md
 docs/CreateStorageNodeRequest.md
 docs/CustomField.md
 docs/CustomFieldPartialUpdate.md
@@ -280,9 +281,14 @@ docs/NotificationSetting.md
 docs/NotificationSettingPartialUpdate.md
 docs/NotificationSettingUpdate.md
 docs/NotificationUpdate.md
+docs/OneFSIntegration.md
+docs/OneFSIntegrationPartialUpdate.md
+docs/OneFSIntegrationUpdate.md
 docs/OneTimeAccessToken.md
 docs/OneTimeAccessTokenActivity.md
 docs/OneTimeAccessTokenSharedObject.md
+docs/PWAConfiguration.md
+docs/PWAConfigurationUpdate.md
 docs/Parameters.md
 docs/ParametersUpdate.md
 docs/ParseSAMLIDPMetadataRequest.md
@@ -384,6 +390,7 @@ docs/StorNextConnection.md
 docs/StorNextConnections.md
 docs/StorNextLicenseCheckEndpointResponse.md
 docs/StorNextLicenseEndpointResponse.md
+docs/StorNextLicenseUsage.md
 docs/StorageApi.md
 docs/StorageNode.md
 docs/StorageNodeMini.md
@@ -564,6 +571,7 @@ elements_sdk/model/archive_endpoint_request.py
 elements_sdk/model/argument_type.py
 elements_sdk/model/asset.py
 elements_sdk/model/asset_backup.py
+elements_sdk/model/asset_backup_mini.py
 elements_sdk/model/asset_cloud_link.py
 elements_sdk/model/asset_mini.py
 elements_sdk/model/asset_mini_reference.py
@@ -585,6 +593,7 @@ elements_sdk/model/bee_gfs_node.py
 elements_sdk/model/bee_gfs_target.py
 elements_sdk/model/benchmark_endpoint_request.py
 elements_sdk/model/bootstrap_data.py
+elements_sdk/model/bulk_delete_users_request.py
 elements_sdk/model/certificate.py
 elements_sdk/model/certificate_partial_update.py
 elements_sdk/model/certificate_signing_request.py
@@ -619,7 +628,6 @@ elements_sdk/model/cost.py
 elements_sdk/model/cpu_stat.py
 elements_sdk/model/create_download_archive.py
 elements_sdk/model/create_home_workspace_request.py
-elements_sdk/model/create_path_quota_request.py
 elements_sdk/model/create_storage_node_request.py
 elements_sdk/model/csr_file.py
 elements_sdk/model/custom_field.py
@@ -798,6 +806,9 @@ elements_sdk/model/notification_update.py
 elements_sdk/model/ntp_server.py
 elements_sdk/model/ntp_server_partial_update.py
 elements_sdk/model/ntp_server_update.py
+elements_sdk/model/one_fs_integration.py
+elements_sdk/model/one_fs_integration_partial_update.py
+elements_sdk/model/one_fs_integration_update.py
 elements_sdk/model/one_time_access_token.py
 elements_sdk/model/one_time_access_token_activity.py
 elements_sdk/model/one_time_access_token_shared_object.py
@@ -832,6 +843,8 @@ elements_sdk/model/proxy_profile_partial_update.py
 elements_sdk/model/proxy_profile_update.py
 elements_sdk/model/public_parameters.py
 elements_sdk/model/public_settings.py
+elements_sdk/model/pwa_configuration.py
+elements_sdk/model/pwa_configuration_update.py
 elements_sdk/model/python_environment.py
 elements_sdk/model/queue.py
 elements_sdk/model/qumulo_integration.py
@@ -899,6 +912,7 @@ elements_sdk/model/stor_next_connection.py
 elements_sdk/model/stor_next_connections.py
 elements_sdk/model/stor_next_license_check_endpoint_response.py
 elements_sdk/model/stor_next_license_endpoint_response.py
+elements_sdk/model/stor_next_license_usage.py
 elements_sdk/model/storage_node.py
 elements_sdk/model/storage_node_mini.py
 elements_sdk/model/storage_node_partial_update.py

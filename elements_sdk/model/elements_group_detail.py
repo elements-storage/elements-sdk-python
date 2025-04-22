@@ -31,8 +31,10 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.elements_user import ElementsUser
+    from elements_sdk.model.ldap_server import LDAPServer
     from elements_sdk.model.member_preview import MemberPreview
     globals()['ElementsUser'] = ElementsUser
+    globals()['LDAPServer'] = LDAPServer
     globals()['MemberPreview'] = MemberPreview
 
 

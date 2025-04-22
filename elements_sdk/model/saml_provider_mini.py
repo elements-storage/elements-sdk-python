@@ -87,6 +87,7 @@ class SAMLProviderMini(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'disabled_in_client': (bool,),  # noqa: E501
             'login_url': (str,),  # noqa: E501
             'logout_url': (str, none_type,),  # noqa: E501
         }
@@ -99,6 +100,7 @@ class SAMLProviderMini(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'disabled_in_client': 'disabled_in_client',  # noqa: E501
         'login_url': 'login_url',  # noqa: E501
         'logout_url': 'logout_url',  # noqa: E501
     }
@@ -112,12 +114,13 @@ class SAMLProviderMini(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, login_url, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, disabled_in_client, login_url, *args, **xkwargs):  # noqa: E501
         """SAMLProviderMini - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
+            disabled_in_client (bool):
             login_url (str):
 
         Keyword Args:
@@ -182,6 +185,7 @@ class SAMLProviderMini(ModelNormal):
 
         self.id = id
         self.name = name
+        self.disabled_in_client = disabled_in_client
         self.login_url = login_url
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -204,12 +208,13 @@ class SAMLProviderMini(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, disabled_in_client, *args, **xkwargs):  # noqa: E501
         """SAMLProviderMini - a model defined in OpenAPI
 
         Args:
             id (int):
             name (str):
+            disabled_in_client (bool):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -270,6 +275,7 @@ class SAMLProviderMini(ModelNormal):
 
         self.id = id
         self.name = name
+        self.disabled_in_client = disabled_in_client
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -120,6 +120,7 @@ class SubclipReference(ModelNormal):
     }
 
     read_only_vars = {
+        'rendered',  # noqa: E501
         'shared',  # noqa: E501
         'date',  # noqa: E501
         'name',  # noqa: E501

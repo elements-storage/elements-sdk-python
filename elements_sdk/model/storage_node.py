@@ -30,10 +30,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.backend import Backend
     from elements_sdk.model.interface import Interface
     from elements_sdk.model.storage_node_status import StorageNodeStatus
-    globals()['Backend'] = Backend
     globals()['Interface'] = Interface
     globals()['StorageNodeStatus'] = StorageNodeStatus
 
@@ -108,18 +106,6 @@ class StorageNode(ModelNormal):
         ('address_override',): {
             'max_length': 255,
         },
-        ('onefs_host',): {
-            'max_length': 255,
-        },
-        ('onefs_username',): {
-            'max_length': 255,
-        },
-        ('onefs_password',): {
-            'max_length': 255,
-        },
-        ('onefs_zone',): {
-            'max_length': 255,
-        },
     }
 
     @cached_property
@@ -146,7 +132,6 @@ class StorageNode(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'backend': (Backend,),  # noqa: E501
             'interfaces': ([Interface],),  # noqa: E501
             'is_log_aggregator': (bool,),  # noqa: E501
             'task_queues': ([str],),  # noqa: E501
@@ -169,10 +154,6 @@ class StorageNode(ModelNormal):
             'permission_mask': (str,),  # noqa: E501
             'address_override': (str, none_type,),  # noqa: E501
             'auto_scan_interfaces': (bool,),  # noqa: E501
-            'onefs_host': (str, none_type,),  # noqa: E501
-            'onefs_username': (str, none_type,),  # noqa: E501
-            'onefs_password': (str, none_type,),  # noqa: E501
-            'onefs_zone': (str, none_type,),  # noqa: E501
             'volume_queues': ([int],),  # noqa: E501
             'status': (StorageNodeStatus,),  # noqa: E501
         }
@@ -184,7 +165,6 @@ class StorageNode(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'backend': 'backend',  # noqa: E501
         'interfaces': 'interfaces',  # noqa: E501
         'is_log_aggregator': 'is_log_aggregator',  # noqa: E501
         'task_queues': 'task_queues',  # noqa: E501
@@ -207,10 +187,6 @@ class StorageNode(ModelNormal):
         'permission_mask': 'permission_mask',  # noqa: E501
         'address_override': 'address_override',  # noqa: E501
         'auto_scan_interfaces': 'auto_scan_interfaces',  # noqa: E501
-        'onefs_host': 'onefs_host',  # noqa: E501
-        'onefs_username': 'onefs_username',  # noqa: E501
-        'onefs_password': 'onefs_password',  # noqa: E501
-        'onefs_zone': 'onefs_zone',  # noqa: E501
         'volume_queues': 'volume_queues',  # noqa: E501
         'status': 'status',  # noqa: E501
     }
@@ -224,12 +200,11 @@ class StorageNode(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, backend, interfaces, is_log_aggregator, task_queues, unique_id, name, address, ipmi, ipmi_address, ipmi_username, ipmi_password, proxy_queue, email_queue, apply_configuration_queue, solr_indexer_enabled, discovery_enabled, discovery_address_override, ntp_enabled, type, allow_root_login, permission_mask, address_override, auto_scan_interfaces, onefs_host, onefs_username, onefs_password, onefs_zone, volume_queues, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, interfaces, is_log_aggregator, task_queues, unique_id, name, address, ipmi, ipmi_address, ipmi_username, ipmi_password, proxy_queue, email_queue, apply_configuration_queue, solr_indexer_enabled, discovery_enabled, discovery_address_override, ntp_enabled, type, allow_root_login, permission_mask, address_override, auto_scan_interfaces, volume_queues, *args, **xkwargs):  # noqa: E501
         """StorageNode - a model defined in OpenAPI
 
         Args:
             id (int):
-            backend (Backend):
             interfaces ([Interface]):
             is_log_aggregator (bool):
             task_queues ([str]):
@@ -252,10 +227,6 @@ class StorageNode(ModelNormal):
             permission_mask (str): Comma-separated list of user permissions allowed on this node
             address_override (str, none_type): Enforces mounting from a specific address/hostname instead of the available interfaces
             auto_scan_interfaces (bool):
-            onefs_host (str, none_type):
-            onefs_username (str, none_type):
-            onefs_password (str, none_type):
-            onefs_zone (str, none_type):
             volume_queues ([int]): Run volume-specific tasks for selected volumes.
 
         Keyword Args:
@@ -319,7 +290,6 @@ class StorageNode(ModelNormal):
 
 
         self.id = id
-        self.backend = backend
         self.interfaces = interfaces
         self.is_log_aggregator = is_log_aggregator
         self.task_queues = task_queues
@@ -342,10 +312,6 @@ class StorageNode(ModelNormal):
         self.permission_mask = permission_mask
         self.address_override = address_override
         self.auto_scan_interfaces = auto_scan_interfaces
-        self.onefs_host = onefs_host
-        self.onefs_username = onefs_username
-        self.onefs_password = onefs_password
-        self.onefs_zone = onefs_zone
         self.volume_queues = volume_queues
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -368,12 +334,11 @@ class StorageNode(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, backend, task_queues, unique_id, name, address, ipmi, ipmi_address, ipmi_username, ipmi_password, proxy_queue, email_queue, apply_configuration_queue, solr_indexer_enabled, discovery_enabled, discovery_address_override, ntp_enabled, type, allow_root_login, permission_mask, address_override, auto_scan_interfaces, onefs_host, onefs_username, onefs_password, onefs_zone, volume_queues, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, task_queues, unique_id, name, address, ipmi, ipmi_address, ipmi_username, ipmi_password, proxy_queue, email_queue, apply_configuration_queue, solr_indexer_enabled, discovery_enabled, discovery_address_override, ntp_enabled, type, allow_root_login, permission_mask, address_override, auto_scan_interfaces, volume_queues, *args, **xkwargs):  # noqa: E501
         """StorageNode - a model defined in OpenAPI
 
         Args:
             id (int):
-            backend (Backend):
             task_queues ([str]):
             unique_id (str, none_type):
             name (str):
@@ -394,10 +359,6 @@ class StorageNode(ModelNormal):
             permission_mask (str): Comma-separated list of user permissions allowed on this node
             address_override (str, none_type): Enforces mounting from a specific address/hostname instead of the available interfaces
             auto_scan_interfaces (bool):
-            onefs_host (str, none_type):
-            onefs_username (str, none_type):
-            onefs_password (str, none_type):
-            onefs_zone (str, none_type):
             volume_queues ([int]): Run volume-specific tasks for selected volumes.
 
         Keyword Args:
@@ -459,7 +420,6 @@ class StorageNode(ModelNormal):
 
 
         self.id = id
-        self.backend = backend
         self.task_queues = task_queues
         self.unique_id = unique_id
         self.name = name
@@ -480,10 +440,6 @@ class StorageNode(ModelNormal):
         self.permission_mask = permission_mask
         self.address_override = address_override
         self.auto_scan_interfaces = auto_scan_interfaces
-        self.onefs_host = onefs_host
-        self.onefs_username = onefs_username
-        self.onefs_password = onefs_password
-        self.onefs_zone = onefs_zone
         self.volume_queues = volume_queues
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

@@ -31,7 +31,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.elements_user_reference import ElementsUserReference
+    from elements_sdk.model.ldap_server_reference import LDAPServerReference
     globals()['ElementsUserReference'] = ElementsUserReference
+    globals()['LDAPServerReference'] = LDAPServerReference
 
 
 class ElementsGroupDetailPartialUpdate(ModelNormal):

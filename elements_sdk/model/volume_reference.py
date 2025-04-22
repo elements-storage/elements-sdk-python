@@ -133,6 +133,7 @@ class VolumeReference(ModelNormal):
             'status': (VolumeStatus,),  # noqa: E501
             'cloud_account': (int, none_type,),  # noqa: E501
             'qumulo_integration': (int, none_type,),  # noqa: E501
+            'onefs_integration': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -158,6 +159,7 @@ class VolumeReference(ModelNormal):
         'status': 'status',  # noqa: E501
         'cloud_account': 'cloud_account',  # noqa: E501
         'qumulo_integration': 'qumulo_integration',  # noqa: E501
+        'onefs_integration': 'onefs_integration',  # noqa: E501
     }
 
     read_only_vars = {
@@ -174,6 +176,7 @@ class VolumeReference(ModelNormal):
         'simulated_quotas',  # noqa: E501
         'cloud_account',  # noqa: E501
         'qumulo_integration',  # noqa: E501
+        'onefs_integration',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -233,6 +236,7 @@ class VolumeReference(ModelNormal):
             status (VolumeStatus): [optional]  # noqa: E501
             cloud_account (int, none_type): [optional]  # noqa: E501
             qumulo_integration (int, none_type): [optional]  # noqa: E501
+            onefs_integration (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -336,6 +340,7 @@ class VolumeReference(ModelNormal):
             status (VolumeStatus): [optional]  # noqa: E501
             cloud_account (int, none_type): [optional]  # noqa: E501
             qumulo_integration (int, none_type): [optional]  # noqa: E501
+            onefs_integration (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

@@ -81,7 +81,7 @@ class FSProperties(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'needs_ssh_connection': (bool,),  # noqa: E501
+            'needs_node': (bool,),  # noqa: E501
             'supports_directory_quotas': (bool,),  # noqa: E501
             'supports_workspace_quotas': (bool,),  # noqa: E501
             'supports_soft_quotas': (bool,),  # noqa: E501
@@ -102,7 +102,7 @@ class FSProperties(ModelNormal):
 
 
     attribute_map = {
-        'needs_ssh_connection': 'needs_ssh_connection',  # noqa: E501
+        'needs_node': 'needs_node',  # noqa: E501
         'supports_directory_quotas': 'supports_directory_quotas',  # noqa: E501
         'supports_workspace_quotas': 'supports_workspace_quotas',  # noqa: E501
         'supports_soft_quotas': 'supports_soft_quotas',  # noqa: E501
@@ -158,7 +158,7 @@ class FSProperties(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            needs_ssh_connection (bool): [optional]  # noqa: E501
+            needs_node (bool): [optional]  # noqa: E501
             supports_directory_quotas (bool): [optional]  # noqa: E501
             supports_workspace_quotas (bool): [optional]  # noqa: E501
             supports_soft_quotas (bool): [optional]  # noqa: E501
@@ -254,7 +254,7 @@ class FSProperties(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            needs_ssh_connection (bool): [optional]  # noqa: E501
+            needs_node (bool): [optional]  # noqa: E501
             supports_directory_quotas (bool): [optional]  # noqa: E501
             supports_workspace_quotas (bool): [optional]  # noqa: E501
             supports_soft_quotas (bool): [optional]  # noqa: E501

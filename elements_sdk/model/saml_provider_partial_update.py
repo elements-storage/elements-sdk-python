@@ -111,6 +111,7 @@ class SAMLProviderPartialUpdate(ModelNormal):
         """
         return {
             'name': (str,),  # noqa: E501
+            'disabled_in_client': (bool,),  # noqa: E501
             'entity_id': (str,),  # noqa: E501
             'sso_url': (str,),  # noqa: E501
             'slo_url': (str, none_type,),  # noqa: E501
@@ -129,6 +130,7 @@ class SAMLProviderPartialUpdate(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
+        'disabled_in_client': 'disabled_in_client',  # noqa: E501
         'entity_id': 'entity_id',  # noqa: E501
         'sso_url': 'sso_url',  # noqa: E501
         'slo_url': 'slo_url',  # noqa: E501
@@ -182,6 +184,7 @@ class SAMLProviderPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
+            disabled_in_client (bool): [optional]  # noqa: E501
             entity_id (str): [optional]  # noqa: E501
             sso_url (str): [optional]  # noqa: E501
             slo_url (str, none_type): [optional]  # noqa: E501
@@ -275,6 +278,7 @@ class SAMLProviderPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
+            disabled_in_client (bool): [optional]  # noqa: E501
             entity_id (str): [optional]  # noqa: E501
             sso_url (str): [optional]  # noqa: E501
             slo_url (str, none_type): [optional]  # noqa: E501

@@ -34,10 +34,12 @@ def lazy_import():
     from elements_sdk.model.job import Job
     from elements_sdk.model.media_root_permission import MediaRootPermission
     from elements_sdk.model.volume import Volume
+    from elements_sdk.model.workflow import Workflow
     globals()['CustomField'] = CustomField
     globals()['Job'] = Job
     globals()['MediaRootPermission'] = MediaRootPermission
     globals()['Volume'] = Volume
+    globals()['Workflow'] = Workflow
 
 
 class MediaRootDetail(ModelNormal):

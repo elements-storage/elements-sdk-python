@@ -81,6 +81,10 @@ class ProxyProfilePartialUpdate(ModelNormal):
             'CBR': "CBR",
             'VBR': "VBR",
         },
+        ('image_format',): {
+            'PNG': "png",
+            'JPEG': "jpeg",
+        },
         ('watermark_position',): {
             'TL': "TL",
             'TR': "TR",
@@ -177,6 +181,7 @@ class ProxyProfilePartialUpdate(ModelNormal):
             'audio_bitrate': (int,),  # noqa: E501
             'variants_limit': (int,),  # noqa: E501
             'enable_dense_filmstrip': (bool,),  # noqa: E501
+            'image_format': (str,),  # noqa: E501
             'enable_watermark': (bool,),  # noqa: E501
             'watermark_image': (str, none_type,),  # noqa: E501
             'watermark_position': (str,),  # noqa: E501
@@ -194,6 +199,7 @@ class ProxyProfilePartialUpdate(ModelNormal):
             'vantage_workflow_id': (str, none_type,),  # noqa: E501
             'external_transcoder_staging_path': (str, none_type,),  # noqa: E501
             'allow_download': (bool,),  # noqa: E501
+            'keep_audio_layout': (bool,),  # noqa: E501
             'external_transcoder': (int, none_type,),  # noqa: E501
         }
 
@@ -213,6 +219,7 @@ class ProxyProfilePartialUpdate(ModelNormal):
         'audio_bitrate': 'audio_bitrate',  # noqa: E501
         'variants_limit': 'variants_limit',  # noqa: E501
         'enable_dense_filmstrip': 'enable_dense_filmstrip',  # noqa: E501
+        'image_format': 'image_format',  # noqa: E501
         'enable_watermark': 'enable_watermark',  # noqa: E501
         'watermark_image': 'watermark_image',  # noqa: E501
         'watermark_position': 'watermark_position',  # noqa: E501
@@ -230,6 +237,7 @@ class ProxyProfilePartialUpdate(ModelNormal):
         'vantage_workflow_id': 'vantage_workflow_id',  # noqa: E501
         'external_transcoder_staging_path': 'external_transcoder_staging_path',  # noqa: E501
         'allow_download': 'allow_download',  # noqa: E501
+        'keep_audio_layout': 'keep_audio_layout',  # noqa: E501
         'external_transcoder': 'external_transcoder',  # noqa: E501
     }
 
@@ -284,6 +292,7 @@ class ProxyProfilePartialUpdate(ModelNormal):
             audio_bitrate (int): [optional]  # noqa: E501
             variants_limit (int): [optional]  # noqa: E501
             enable_dense_filmstrip (bool): [optional]  # noqa: E501
+            image_format (str): [optional]  # noqa: E501
             enable_watermark (bool): [optional]  # noqa: E501
             watermark_image (str, none_type): [optional]  # noqa: E501
             watermark_position (str): [optional]  # noqa: E501
@@ -301,6 +310,7 @@ class ProxyProfilePartialUpdate(ModelNormal):
             vantage_workflow_id (str, none_type): [optional]  # noqa: E501
             external_transcoder_staging_path (str, none_type): [optional]  # noqa: E501
             allow_download (bool): [optional]  # noqa: E501
+            keep_audio_layout (bool): [optional]  # noqa: E501
             external_transcoder (int, none_type): [optional]  # noqa: E501
         """
 
@@ -395,6 +405,7 @@ class ProxyProfilePartialUpdate(ModelNormal):
             audio_bitrate (int): [optional]  # noqa: E501
             variants_limit (int): [optional]  # noqa: E501
             enable_dense_filmstrip (bool): [optional]  # noqa: E501
+            image_format (str): [optional]  # noqa: E501
             enable_watermark (bool): [optional]  # noqa: E501
             watermark_image (str, none_type): [optional]  # noqa: E501
             watermark_position (str): [optional]  # noqa: E501
@@ -412,6 +423,7 @@ class ProxyProfilePartialUpdate(ModelNormal):
             vantage_workflow_id (str, none_type): [optional]  # noqa: E501
             external_transcoder_staging_path (str, none_type): [optional]  # noqa: E501
             allow_download (bool): [optional]  # noqa: E501
+            keep_audio_layout (bool): [optional]  # noqa: E501
             external_transcoder (int, none_type): [optional]  # noqa: E501
         """
 

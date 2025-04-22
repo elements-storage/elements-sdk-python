@@ -32,8 +32,10 @@ from elements_sdk.exceptions import ApiAttributeError
 def lazy_import():
     from elements_sdk.model.nfs_permission import NFSPermission
     from elements_sdk.model.production_reference import ProductionReference
+    from elements_sdk.model.volume_reference import VolumeReference
     globals()['NFSPermission'] = NFSPermission
     globals()['ProductionReference'] = ProductionReference
+    globals()['VolumeReference'] = VolumeReference
 
 
 class WorkspaceDetailPartialUpdate(ModelNormal):

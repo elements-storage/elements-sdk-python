@@ -59,6 +59,13 @@ class TaskType(ModelNormal):
     """
 
     allowed_values = {
+        ('input_type',): {
+            'None': None,
+            'PATH': "path",
+            'PATHS': "paths",
+            'DIR': "dir",
+            'DIRS': "dirs",
+        },
     }
 
     validations = {
@@ -69,9 +76,6 @@ class TaskType(ModelNormal):
             'min_length': 1,
         },
         ('display_group',): {
-            'min_length': 1,
-        },
-        ('input_type',): {
             'min_length': 1,
         },
         ('parameters_editor_component',): {

@@ -30,9 +30,7 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.job_fs_trigger import JobFSTrigger
     from elements_sdk.model.schedule import Schedule
-    globals()['JobFSTrigger'] = JobFSTrigger
     globals()['Schedule'] = Schedule
 
 
@@ -94,10 +92,6 @@ class Job(ModelNormal):
             'max_length': 128,
             'min_length': 1,
         },
-        ('part_of_workflow_for',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
     }
 
     @cached_property
@@ -129,7 +123,7 @@ class Job(ModelNormal):
             'variable_definitions': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'webhook_url': (str, none_type,),  # noqa: E501
             'needs_compatibility_check': (bool,),  # noqa: E501
-            'fs_triggers': ([JobFSTrigger],),  # noqa: E501
+            'fs_triggers': ([str],),  # noqa: E501
             'special_type': (int, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -144,7 +138,6 @@ class Job(ModelNormal):
             'elements_release': (str,),  # noqa: E501
             'security_context': (int, none_type,),  # noqa: E501
             'workflow': (int, none_type,),  # noqa: E501
-            'part_of_workflow_for': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -174,7 +167,6 @@ class Job(ModelNormal):
         'elements_release': 'elements_release',  # noqa: E501
         'security_context': 'security_context',  # noqa: E501
         'workflow': 'workflow',  # noqa: E501
-        'part_of_workflow_for': 'part_of_workflow_for',  # noqa: E501
     }
 
     read_only_vars = {
@@ -182,7 +174,6 @@ class Job(ModelNormal):
         'webhook_url',  # noqa: E501
         'needs_compatibility_check',  # noqa: E501
         'fs_triggers',  # noqa: E501
-        'part_of_workflow_for',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -199,7 +190,7 @@ class Job(ModelNormal):
             variable_definitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             webhook_url (str, none_type):
             needs_compatibility_check (bool):
-            fs_triggers ([JobFSTrigger]):
+            fs_triggers ([str]):
             special_type (int, none_type):
             name (str):
             description (str, none_type):
@@ -246,7 +237,6 @@ class Job(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            part_of_workflow_for (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -370,7 +360,6 @@ class Job(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            part_of_workflow_for (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

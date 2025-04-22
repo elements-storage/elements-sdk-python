@@ -45,6 +45,7 @@ from elements_sdk.model.archive_endpoint_request import ArchiveEndpointRequest
 from elements_sdk.model.argument_type import ArgumentType
 from elements_sdk.model.asset import Asset
 from elements_sdk.model.asset_backup import AssetBackup
+from elements_sdk.model.asset_backup_mini import AssetBackupMini
 from elements_sdk.model.asset_cloud_link import AssetCloudLink
 from elements_sdk.model.asset_mini import AssetMini
 from elements_sdk.model.asset_mini_reference import AssetMiniReference
@@ -66,6 +67,7 @@ from elements_sdk.model.bee_gfs_node import BeeGFSNode
 from elements_sdk.model.bee_gfs_target import BeeGFSTarget
 from elements_sdk.model.benchmark_endpoint_request import BenchmarkEndpointRequest
 from elements_sdk.model.bootstrap_data import BootstrapData
+from elements_sdk.model.bulk_delete_users_request import BulkDeleteUsersRequest
 from elements_sdk.model.cpu_stat import CPUStat
 from elements_sdk.model.csr_file import CSRFile
 from elements_sdk.model.certificate import Certificate
@@ -101,7 +103,6 @@ from elements_sdk.model.comment_update import CommentUpdate
 from elements_sdk.model.cost import Cost
 from elements_sdk.model.create_download_archive import CreateDownloadArchive
 from elements_sdk.model.create_home_workspace_request import CreateHomeWorkspaceRequest
-from elements_sdk.model.create_path_quota_request import CreatePathQuotaRequest
 from elements_sdk.model.create_storage_node_request import CreateStorageNodeRequest
 from elements_sdk.model.custom_field import CustomField
 from elements_sdk.model.custom_field_partial_update import CustomFieldPartialUpdate
@@ -279,9 +280,14 @@ from elements_sdk.model.notification_setting import NotificationSetting
 from elements_sdk.model.notification_setting_partial_update import NotificationSettingPartialUpdate
 from elements_sdk.model.notification_setting_update import NotificationSettingUpdate
 from elements_sdk.model.notification_update import NotificationUpdate
+from elements_sdk.model.one_fs_integration import OneFSIntegration
+from elements_sdk.model.one_fs_integration_partial_update import OneFSIntegrationPartialUpdate
+from elements_sdk.model.one_fs_integration_update import OneFSIntegrationUpdate
 from elements_sdk.model.one_time_access_token import OneTimeAccessToken
 from elements_sdk.model.one_time_access_token_activity import OneTimeAccessTokenActivity
 from elements_sdk.model.one_time_access_token_shared_object import OneTimeAccessTokenSharedObject
+from elements_sdk.model.pwa_configuration import PWAConfiguration
+from elements_sdk.model.pwa_configuration_update import PWAConfigurationUpdate
 from elements_sdk.model.parameters import Parameters
 from elements_sdk.model.parameters_update import ParametersUpdate
 from elements_sdk.model.parse_samlidp_metadata_request import ParseSAMLIDPMetadataRequest
@@ -380,6 +386,7 @@ from elements_sdk.model.stor_next_connection import StorNextConnection
 from elements_sdk.model.stor_next_connections import StorNextConnections
 from elements_sdk.model.stor_next_license_check_endpoint_response import StorNextLicenseCheckEndpointResponse
 from elements_sdk.model.stor_next_license_endpoint_response import StorNextLicenseEndpointResponse
+from elements_sdk.model.stor_next_license_usage import StorNextLicenseUsage
 from elements_sdk.model.storage_node import StorageNode
 from elements_sdk.model.storage_node_mini import StorageNodeMini
 from elements_sdk.model.storage_node_partial_update import StorageNodePartialUpdate

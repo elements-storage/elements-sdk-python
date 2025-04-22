@@ -31,7 +31,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.elements_user_mini import ElementsUserMini
+    from elements_sdk.model.media_root_mini import MediaRootMini
     globals()['ElementsUserMini'] = ElementsUserMini
+    globals()['MediaRootMini'] = MediaRootMini
 
 
 class SavedSearchReference(ModelNormal):
@@ -92,7 +94,7 @@ class SavedSearchReference(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'user': (ElementsUserMini,),  # noqa: E501
+            'user': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'root': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'query': ([{str: (str, none_type)}],),  # noqa: E501
             'url': (str,),  # noqa: E501
@@ -116,6 +118,8 @@ class SavedSearchReference(ModelNormal):
     }
 
     read_only_vars = {
+        'user',  # noqa: E501
+        'root',  # noqa: E501
         'query',  # noqa: E501
         'url',  # noqa: E501
         'url_params',  # noqa: E501
@@ -163,7 +167,7 @@ class SavedSearchReference(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user (ElementsUserMini): [optional]  # noqa: E501
+            user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             root (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             query ([{str: (str, none_type)}]): [optional]  # noqa: E501
             url (str): [optional]  # noqa: E501
@@ -256,7 +260,7 @@ class SavedSearchReference(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user (ElementsUserMini): [optional]  # noqa: E501
+            user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             root (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             query ([{str: (str, none_type)}]): [optional]  # noqa: E501
             url (str): [optional]  # noqa: E501

@@ -33,9 +33,11 @@ def lazy_import():
     from elements_sdk.model.custom_field import CustomField
     from elements_sdk.model.media_root_permission import MediaRootPermission
     from elements_sdk.model.volume_mini import VolumeMini
+    from elements_sdk.model.workflow import Workflow
     globals()['CustomField'] = CustomField
     globals()['MediaRootPermission'] = MediaRootPermission
     globals()['VolumeMini'] = VolumeMini
+    globals()['Workflow'] = Workflow
 
 
 class MediaRoot(ModelNormal):

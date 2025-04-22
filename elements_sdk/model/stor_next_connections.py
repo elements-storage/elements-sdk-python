@@ -31,7 +31,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.stor_next_connection import StorNextConnection
+    from elements_sdk.model.stor_next_license_usage import StorNextLicenseUsage
     globals()['StorNextConnection'] = StorNextConnection
+    globals()['StorNextLicenseUsage'] = StorNextLicenseUsage
 
 
 class StorNextConnections(ModelNormal):
@@ -88,9 +90,9 @@ class StorNextConnections(ModelNormal):
         lazy_import()
         return {
             'list': ([StorNextConnection],),  # noqa: E501
-            'normal': ({str: (str, none_type)},),  # noqa: E501
-            'proxy': ({str: (str, none_type)},),  # noqa: E501
-            'gateway': ({str: (str, none_type)},),  # noqa: E501
+            'normal': (StorNextLicenseUsage,),  # noqa: E501
+            'proxy': (StorNextLicenseUsage,),  # noqa: E501
+            'gateway': (StorNextLicenseUsage,),  # noqa: E501
         }
 
     @cached_property
@@ -117,9 +119,9 @@ class StorNextConnections(ModelNormal):
 
         Args:
             list ([StorNextConnection]):
-            normal ({str: (str, none_type)}):
-            proxy ({str: (str, none_type)}):
-            gateway ({str: (str, none_type)}):
+            normal (StorNextLicenseUsage):
+            proxy (StorNextLicenseUsage):
+            gateway (StorNextLicenseUsage):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -210,9 +212,9 @@ class StorNextConnections(ModelNormal):
 
         Args:
             list ([StorNextConnection]):
-            normal ({str: (str, none_type)}):
-            proxy ({str: (str, none_type)}):
-            gateway ({str: (str, none_type)}):
+            normal (StorNextLicenseUsage):
+            proxy (StorNextLicenseUsage):
+            gateway (StorNextLicenseUsage):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

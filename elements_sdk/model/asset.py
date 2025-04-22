@@ -30,12 +30,14 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from elements_sdk.model.asset_backup_mini import AssetBackupMini
     from elements_sdk.model.elements_user_mini import ElementsUserMini
     from elements_sdk.model.format_metadata import FormatMetadata
     from elements_sdk.model.media_file_bundle_mini import MediaFileBundleMini
     from elements_sdk.model.media_root_permission import MediaRootPermission
     from elements_sdk.model.proxy import Proxy
     from elements_sdk.model.tag import Tag
+    globals()['AssetBackupMini'] = AssetBackupMini
     globals()['ElementsUserMini'] = ElementsUserMini
     globals()['FormatMetadata'] = FormatMetadata
     globals()['MediaFileBundleMini'] = MediaFileBundleMini
@@ -121,7 +123,7 @@ class Asset(ModelNormal):
             'proxy_info': ({str: (str, none_type)},),  # noqa: E501
             'custom_fields': ({str: (str, none_type)},),  # noqa: E501
             'tags': ([Tag],),  # noqa: E501
-            'backups': (str,),  # noqa: E501
+            'backups': ([AssetBackupMini],),  # noqa: E501
             'proxies_generated': (bool,),  # noqa: E501
             'proxies_failed': (bool,),  # noqa: E501
             'bundles': ([MediaFileBundleMini],),  # noqa: E501
@@ -228,7 +230,7 @@ class Asset(ModelNormal):
             proxy_info ({str: (str, none_type)}):
             custom_fields ({str: (str, none_type)}):
             tags ([Tag]):
-            backups (str):
+            backups ([AssetBackupMini]):
             proxies_generated (bool):
             proxies_failed (bool):
             bundles ([MediaFileBundleMini]):

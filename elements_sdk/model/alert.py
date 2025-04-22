@@ -30,7 +30,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from elements_sdk.model.elements_user_mini import ElementsUserMini
     from elements_sdk.model.storage_node_mini import StorageNodeMini
+    globals()['ElementsUserMini'] = ElementsUserMini
     globals()['StorageNodeMini'] = StorageNodeMini
 
 

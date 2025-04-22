@@ -33,9 +33,11 @@ def lazy_import():
     from elements_sdk.model.custom_field_reference import CustomFieldReference
     from elements_sdk.model.job_reference import JobReference
     from elements_sdk.model.volume_reference import VolumeReference
+    from elements_sdk.model.workflow_reference import WorkflowReference
     globals()['CustomFieldReference'] = CustomFieldReference
     globals()['JobReference'] = JobReference
     globals()['VolumeReference'] = VolumeReference
+    globals()['WorkflowReference'] = WorkflowReference
 
 
 class MediaRootDetailUpdate(ModelNormal):
