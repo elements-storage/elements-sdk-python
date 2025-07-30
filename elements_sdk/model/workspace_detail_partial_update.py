@@ -197,9 +197,8 @@ class WorkspaceDetailPartialUpdate(ModelNormal):
             'emulate_avid': (bool,),  # noqa: E501
             'emulate_capture': (bool,),  # noqa: E501
             'emulate_preopen': (bool,),  # noqa: E501
-            'emulate_ntfs_streams': (bool,),  # noqa: E501
+            'emulate_alternate_data_streams': (bool,),  # noqa: E501
             'emulate_recycle_bin': (bool,),  # noqa: E501
-            'emulate_fruit': (bool,),  # noqa: E501
             'smb_extra_config': (str,),  # noqa: E501
             'afp_extra_config': (str,),  # noqa: E501
             'recycle_bin_exclude': (str, none_type,),  # noqa: E501
@@ -246,9 +245,8 @@ class WorkspaceDetailPartialUpdate(ModelNormal):
         'emulate_avid': 'emulate_avid',  # noqa: E501
         'emulate_capture': 'emulate_capture',  # noqa: E501
         'emulate_preopen': 'emulate_preopen',  # noqa: E501
-        'emulate_ntfs_streams': 'emulate_ntfs_streams',  # noqa: E501
+        'emulate_alternate_data_streams': 'emulate_alternate_data_streams',  # noqa: E501
         'emulate_recycle_bin': 'emulate_recycle_bin',  # noqa: E501
-        'emulate_fruit': 'emulate_fruit',  # noqa: E501
         'smb_extra_config': 'smb_extra_config',  # noqa: E501
         'afp_extra_config': 'afp_extra_config',  # noqa: E501
         'recycle_bin_exclude': 'recycle_bin_exclude',  # noqa: E501
@@ -330,9 +328,8 @@ class WorkspaceDetailPartialUpdate(ModelNormal):
             emulate_avid (bool): [optional]  # noqa: E501
             emulate_capture (bool): [optional]  # noqa: E501
             emulate_preopen (bool): [optional]  # noqa: E501
-            emulate_ntfs_streams (bool): [optional]  # noqa: E501
+            emulate_alternate_data_streams (bool): [optional]  # noqa: E501
             emulate_recycle_bin (bool): [optional]  # noqa: E501
-            emulate_fruit (bool): [optional]  # noqa: E501
             smb_extra_config (str): [optional]  # noqa: E501
             afp_extra_config (str): [optional]  # noqa: E501
             recycle_bin_exclude (str, none_type): [optional]  # noqa: E501
@@ -454,9 +451,8 @@ class WorkspaceDetailPartialUpdate(ModelNormal):
             emulate_avid (bool): [optional]  # noqa: E501
             emulate_capture (bool): [optional]  # noqa: E501
             emulate_preopen (bool): [optional]  # noqa: E501
-            emulate_ntfs_streams (bool): [optional]  # noqa: E501
+            emulate_alternate_data_streams (bool): [optional]  # noqa: E501
             emulate_recycle_bin (bool): [optional]  # noqa: E501
-            emulate_fruit (bool): [optional]  # noqa: E501
             smb_extra_config (str): [optional]  # noqa: E501
             afp_extra_config (str): [optional]  # noqa: E501
             recycle_bin_exclude (str, none_type): [optional]  # noqa: E501

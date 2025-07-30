@@ -72,6 +72,9 @@ class Workstation(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
+        ('address',): {
+            'max_length': 255,
+        },
     }
 
     @cached_property
@@ -100,6 +103,7 @@ class Workstation(ModelNormal):
             'report': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'hostname': (str,),  # noqa: E501
+            'address': (str, none_type,),  # noqa: E501
             'last_seen': (datetime, none_type,),  # noqa: E501
         }
 
@@ -114,6 +118,7 @@ class Workstation(ModelNormal):
         'report': 'report',  # noqa: E501
         'name': 'name',  # noqa: E501
         'hostname': 'hostname',  # noqa: E501
+        'address': 'address',  # noqa: E501
         'last_seen': 'last_seen',  # noqa: E501
     }
 
@@ -125,7 +130,7 @@ class Workstation(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, display_name, report, name, hostname, last_seen, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, display_name, report, name, hostname, address, last_seen, *args, **xkwargs):  # noqa: E501
         """Workstation - a model defined in OpenAPI
 
         Args:
@@ -134,6 +139,7 @@ class Workstation(ModelNormal):
             report ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             name (str, none_type):
             hostname (str):
+            address (str, none_type):
             last_seen (datetime, none_type):
 
         Keyword Args:
@@ -200,6 +206,7 @@ class Workstation(ModelNormal):
         self.report = report
         self.name = name
         self.hostname = hostname
+        self.address = address
         self.last_seen = last_seen
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -222,7 +229,7 @@ class Workstation(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, report, name, hostname, last_seen, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, report, name, hostname, address, last_seen, *args, **xkwargs):  # noqa: E501
         """Workstation - a model defined in OpenAPI
 
         Args:
@@ -230,6 +237,7 @@ class Workstation(ModelNormal):
             report ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             name (str, none_type):
             hostname (str):
+            address (str, none_type):
             last_seen (datetime, none_type):
 
         Keyword Args:
@@ -293,6 +301,7 @@ class Workstation(ModelNormal):
         self.report = report
         self.name = name
         self.hostname = hostname
+        self.address = address
         self.last_seen = last_seen
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

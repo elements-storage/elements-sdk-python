@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **simulated_quotas** | **bool** |  | [optional] 
 **cloud_account** | **int, none_type** |  | [optional] 
 **qumulo_integration** | **int, none_type** |  | [optional] 
+**nfsv4_export** | **bool** |  | [optional] 
 **onefs_integration** | **int, none_type** |  | [optional] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)

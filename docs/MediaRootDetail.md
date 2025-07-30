@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **volume** | [**Volume**](Volume.md) |  | 
 **full_path** | **str** |  | [readonly] 
 **workflow** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
+**cover** | **str, none_type** |  | [readonly] 
 **jobs** | [**[Job]**](Job.md) |  | 
 **name** | **str** |  | 
 **path** | **str** |  | 
@@ -29,7 +30,6 @@ Name | Type | Description | Notes
 **show_history** | **bool** |  | 
 **show_ai_metadata** | **bool** |  | 
 **prefetch_thumbnail_strips** | **bool** |  | 
-**cover** | **str, none_type** |  | 
 **name_field** | **str, none_type** |  | 
 **share_comments** | **bool** |  | 
 **share_link_duration** | **int** |  | 

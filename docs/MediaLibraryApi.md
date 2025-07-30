@@ -101,6 +101,7 @@ Method | HTTP request | Description
 [**get_all_transcoder_profiles**](MediaLibraryApi.md#get_all_transcoder_profiles) | **GET** `/api/2/transcoder-profiles` | 
 [**get_all_workflows**](MediaLibraryApi.md#get_all_workflows) | **GET** `/api/2/media/workflows` | 
 [**get_asset**](MediaLibraryApi.md#get_asset) | **GET** `/api/2/media/assets/{id}` | 
+[**get_asset_bundles**](MediaLibraryApi.md#get_asset_bundles) | **GET** `/api/2/media/assets/{id}/bundles` | 
 [**get_asset_rating**](MediaLibraryApi.md#get_asset_rating) | **GET** `/api/2/media/assets/{asset_id}/ratings/{id}` | 
 [**get_asset_stack_members**](MediaLibraryApi.md#get_asset_stack_members) | **GET** `/api/2/media/stacks/{id}/members` | 
 [**get_asset_subtitle_link**](MediaLibraryApi.md#get_asset_subtitle_link) | **GET** `/api/2/media/assets/{asset_id}/subtitle-links/{id}` | 
@@ -494,7 +495,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset_id = "asset_id_example" # str | 
     asset_rating_update = AssetRatingUpdate(
-        user=ElementsUserMiniReference(
+        user=ElementsUserMiniWithAvatarReference(
             id=1,
         ),
         rating=-2147483648,
@@ -1128,16 +1129,21 @@ with elements_sdk.ApiClient(configuration) as api_client:
                 path="path_example",
                 prefetch_thumbnail_strips=True,
                 view_mode="view_mode_example",
-                cover="cover_example",
             ),
             modified_by=ElementsUserMini(
                 id=1,
-                avatar="avatar_example",
                 email="email_example",
                 full_name="full_name_example",
                 is_external=True,
                 is_cloud=True,
                 username="username_example",
+            ),
+            path_permissions=PathPermissions(
+                read=True,
+                write=True,
+                create=True,
+                delete=True,
+                update=True,
             ),
             exclusion_info=MediaFileExclusionInfo(
                 scan=PathExclusionInfo(
@@ -1319,7 +1325,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
         show_history=True,
         show_ai_metadata=True,
         prefetch_thumbnail_strips=True,
-        cover="cover_example",
         name_field="name_field_example",
         share_comments=True,
         share_link_duration=-2147483648,
@@ -1531,7 +1536,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
         enable_dense_filmstrip=True,
         image_format="png",
         enable_watermark=True,
-        watermark_image="watermark_image_example",
         watermark_position="TL",
         watermark_opacity=3.14,
         watermark_size=3.14,
@@ -1862,7 +1866,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
                 path="path_example",
                 prefetch_thumbnail_strips=True,
                 view_mode="view_mode_example",
-                cover="cover_example",
             ),
         ),
         bundle=None,
@@ -5232,10 +5235,33 @@ with elements_sdk.ApiClient(configuration) as api_client:
             1,
         ],
     ) # AllMediaFilesForBundlesRequest | 
+    bundle = 1 # int | Filter the returned list by `bundle`. (optional)
+    bundle__in = "bundle__in_example" # str | Filter the returned list by `bundle__in`. (optional)
+    parent = 1 # int | Filter the returned list by `parent`. (optional)
+    path = "path_example" # str | Filter the returned list by `path`. (optional)
+    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    is_dir = "is_dir_example" # str | Filter the returned list by `is_dir`. (optional)
+    is_showroom = "is_showroom_example" # str | Filter the returned list by `is_showroom`. (optional)
+    present = "present_example" # str | Filter the returned list by `present`. (optional)
+    archived = "archived_example" # str | Filter the returned list by `archived`. (optional)
+    volume = 1 # int | Filter the returned list by `volume`. (optional)
+    shared_via_tokens = "shared_via_tokens_example" # str | Filter the returned list by `shared_via_tokens`. (optional)
+    shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token`. (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_all_media_files_for_bundles(all_media_files_for_bundles_request)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_all_media_files_for_bundles: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.get_all_media_files_for_bundles(all_media_files_for_bundles_request, bundle=bundle, bundle__in=bundle__in, parent=parent, path=path, name=name, is_dir=is_dir, is_showroom=is_showroom, present=present, archived=archived, volume=volume, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
     except elements_sdk.ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_media_files_for_bundles: %s\n" % e)
@@ -5247,6 +5273,21 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **all_media_files_for_bundles_request** | [**AllMediaFilesForBundlesRequest**](AllMediaFilesForBundlesRequest.md)|  |
+ **bundle** | **int**| Filter the returned list by &#x60;bundle&#x60;. | [optional]
+ **bundle__in** | **str**| Filter the returned list by &#x60;bundle__in&#x60;. | [optional]
+ **parent** | **int**| Filter the returned list by &#x60;parent&#x60;. | [optional]
+ **path** | **str**| Filter the returned list by &#x60;path&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **is_dir** | **str**| Filter the returned list by &#x60;is_dir&#x60;. | [optional]
+ **is_showroom** | **str**| Filter the returned list by &#x60;is_showroom&#x60;. | [optional]
+ **present** | **str**| Filter the returned list by &#x60;present&#x60;. | [optional]
+ **archived** | **str**| Filter the returned list by &#x60;archived&#x60;. | [optional]
+ **volume** | **int**| Filter the returned list by &#x60;volume&#x60;. | [optional]
+ **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60;. | [optional]
+ **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60;. | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
@@ -6343,6 +6384,68 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **get_asset_bundles**
+    def [MediaFileBundleMini] get_asset_bundles(id)
+
+
+
+### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+
+### Example
+
+
+```python
+import elements_sdk
+from elements_sdk.api import media_library_api
+from elements_sdk.model.media_file_bundle_mini import MediaFileBundleMini
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local:8080",
+    discard_unknown_keys=True,
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+with elements_sdk.ApiClient(configuration) as api_client:
+    api_instance = media_library_api.MediaLibraryApi(api_client)
+    id = 1 # int | A unique integer value identifying this Asset.
+    limit = 1 # int |  (optional)
+    offset = 1 # int |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.get_asset_bundles(id)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_asset_bundles: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.get_asset_bundles(id, limit=limit, offset=offset)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_asset_bundles: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this Asset. |
+ **limit** | **int**|  | [optional]
+ **offset** | **int**|  | [optional]
+
+### Return type
+
+[**[MediaFileBundleMini]**](MediaFileBundleMini.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
 # **get_asset_rating**
     def AssetRating get_asset_rating(asset_id, id)
 
@@ -6604,10 +6707,20 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Bundle.
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_bundle_files(id)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_bundle_files: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.get_bundle_files(id, limit=limit, offset=offset)
         pprint(api_response)
     except elements_sdk.ApiException as e:
         print("Exception when calling MediaLibraryApi->get_bundle_files: %s\n" % e)
@@ -6619,6 +6732,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this Bundle. |
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
@@ -7822,10 +7937,31 @@ with elements_sdk.ApiClient(configuration) as api_client:
             1,
         ],
     ) # GetMultipleBundlesRequest | 
+    limit = 1 # int |  (optional)
+    offset = 1 # int |  (optional)
+    include_deleted = True # bool |  (optional)
+    include_deleted_and_archived = True # bool |  (optional)
+    include_unrecognized = True # bool |  (optional)
+    include_proxies = True # bool |  (optional)
+    include_parents = True # bool |  (optional)
+    include_modified_by = True # bool |  (optional)
+    advanced_search = "advanced_search_example" # str |  (optional)
+    in_media_root = 1 # int |  (optional)
+    in_directory = 1 # int |  (optional)
+    for_root = 1 # int |  (optional)
+    resolve_asset_permission = True # bool |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_multiple_bundles(get_multiple_bundles_request)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_multiple_bundles: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.get_multiple_bundles(get_multiple_bundles_request, limit=limit, offset=offset, include_deleted=include_deleted, include_deleted_and_archived=include_deleted_and_archived, include_unrecognized=include_unrecognized, include_proxies=include_proxies, include_parents=include_parents, include_modified_by=include_modified_by, advanced_search=advanced_search, in_media_root=in_media_root, in_directory=in_directory, for_root=for_root, resolve_asset_permission=resolve_asset_permission)
         pprint(api_response)
     except elements_sdk.ApiException as e:
         print("Exception when calling MediaLibraryApi->get_multiple_bundles: %s\n" % e)
@@ -7837,6 +7973,19 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **get_multiple_bundles_request** | [**GetMultipleBundlesRequest**](GetMultipleBundlesRequest.md)|  |
+ **limit** | **int**|  | [optional]
+ **offset** | **int**|  | [optional]
+ **include_deleted** | **bool**|  | [optional]
+ **include_deleted_and_archived** | **bool**|  | [optional]
+ **include_unrecognized** | **bool**|  | [optional]
+ **include_proxies** | **bool**|  | [optional]
+ **include_parents** | **bool**|  | [optional]
+ **include_modified_by** | **bool**|  | [optional]
+ **advanced_search** | **str**|  | [optional]
+ **in_media_root** | **int**|  | [optional]
+ **in_directory** | **int**|  | [optional]
+ **for_root** | **int**|  | [optional]
+ **resolve_asset_permission** | **bool**|  | [optional]
 
 ### Return type
 
@@ -7877,10 +8026,20 @@ with elements_sdk.ApiClient(configuration) as api_client:
             1,
         ],
     ) # GetMultipleFilesRequest | 
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_multiple_files(get_multiple_files_request)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_multiple_files: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.get_multiple_files(get_multiple_files_request, limit=limit, offset=offset)
         pprint(api_response)
     except elements_sdk.ApiException as e:
         print("Exception when calling MediaLibraryApi->get_multiple_files: %s\n" % e)
@@ -7892,6 +8051,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **get_multiple_files_request** | [**GetMultipleFilesRequest**](GetMultipleFilesRequest.md)|  |
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
@@ -8825,10 +8986,20 @@ with elements_sdk.ApiClient(configuration) as api_client:
     media_files_lookup_request = MediaFilesLookupRequest(
         query="query_example",
     ) # MediaFilesLookupRequest | 
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.lookup_media_files(media_files_lookup_request)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MediaLibraryApi->lookup_media_files: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.lookup_media_files(media_files_lookup_request, limit=limit, offset=offset)
         pprint(api_response)
     except elements_sdk.ApiException as e:
         print("Exception when calling MediaLibraryApi->lookup_media_files: %s\n" % e)
@@ -8840,6 +9011,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **media_files_lookup_request** | [**MediaFilesLookupRequest**](MediaFilesLookupRequest.md)|  |
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
@@ -9741,16 +9914,21 @@ with elements_sdk.ApiClient(configuration) as api_client:
                 path="path_example",
                 prefetch_thumbnail_strips=True,
                 view_mode="view_mode_example",
-                cover="cover_example",
             ),
             modified_by=ElementsUserMini(
                 id=1,
-                avatar="avatar_example",
                 email="email_example",
                 full_name="full_name_example",
                 is_external=True,
                 is_cloud=True,
                 username="username_example",
+            ),
+            path_permissions=PathPermissions(
+                read=True,
+                write=True,
+                create=True,
+                delete=True,
+                update=True,
             ),
             exclusion_info=MediaFileExclusionInfo(
                 scan=PathExclusionInfo(
@@ -9905,7 +10083,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
         show_history=True,
         show_ai_metadata=True,
         prefetch_thumbnail_strips=True,
-        cover="cover_example",
         name_field="name_field_example",
         share_comments=True,
         share_link_duration=-2147483648,
@@ -10123,7 +10300,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
         enable_dense_filmstrip=True,
         image_format="png",
         enable_watermark=True,
-        watermark_image="watermark_image_example",
         watermark_position="TL",
         watermark_opacity=3.14,
         watermark_size=3.14,
@@ -11120,7 +11296,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
         ),
         user=1,
         email="email_example",
-        link_type="link_type_example",
+        link_type="download-original",
         password="password_example",
     ) # MediaLibraryShareRequest | 
 
@@ -12250,16 +12426,21 @@ with elements_sdk.ApiClient(configuration) as api_client:
                 path="path_example",
                 prefetch_thumbnail_strips=True,
                 view_mode="view_mode_example",
-                cover="cover_example",
             ),
             modified_by=ElementsUserMini(
                 id=1,
-                avatar="avatar_example",
                 email="email_example",
                 full_name="full_name_example",
                 is_external=True,
                 is_cloud=True,
                 username="username_example",
+            ),
+            path_permissions=PathPermissions(
+                read=True,
+                write=True,
+                create=True,
+                delete=True,
+                update=True,
             ),
             exclusion_info=MediaFileExclusionInfo(
                 scan=PathExclusionInfo(
@@ -12500,7 +12681,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
         show_history=True,
         show_ai_metadata=True,
         prefetch_thumbnail_strips=True,
-        cover="cover_example",
         name_field="name_field_example",
         share_comments=True,
         share_link_duration=-2147483648,
@@ -12771,7 +12951,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
         enable_dense_filmstrip=True,
         image_format="png",
         enable_watermark=True,
-        watermark_image="watermark_image_example",
         watermark_position="TL",
         watermark_opacity=3.14,
         watermark_size=3.14,

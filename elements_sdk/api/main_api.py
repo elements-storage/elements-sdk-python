@@ -115,6 +115,7 @@ from elements_sdk.model.storage_node_partial_update import StorageNodePartialUpd
 from elements_sdk.model.storage_node_update import StorageNodeUpdate
 from elements_sdk.model.storage_root import StorageRoot
 from elements_sdk.model.stornext_license import StornextLicense
+from elements_sdk.model.submit_workstation_report import SubmitWorkstationReport
 from elements_sdk.model.sync_totp import SyncTOTP
 from elements_sdk.model.sync_totp_request import SyncTOTPRequest
 from elements_sdk.model.system_info_endpoint_response import SystemInfoEndpointResponse
@@ -2722,11 +2723,14 @@ class MainApi(object):
                     'ordering',
                     'limit',
                     'offset',
+                    'filter',
+                    'filtering_mode',
                 ],
                 'required': [],
                 'nullable': [
                 ],
                 'enum': [
+                    'filtering_mode',
                 ],
                 'validation': [
                 ]
@@ -2735,6 +2739,11 @@ class MainApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('filtering_mode',): {
+
+                        "EXACT": "exact",
+                        "FUZZY": "fuzzy"
+                    },
                 },
                 'openapi_types': {
                     'name':
@@ -2745,18 +2754,26 @@ class MainApi(object):
                         (int,),
                     'offset':
                         (int,),
+                    'filter':
+                        (str,),
+                    'filtering_mode':
+                        (str,),
                 },
                 'attribute_map': {
                     'name': 'name',
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
+                    'filter': 'filter',
+                    'filtering_mode': 'filtering_mode',
                 },
                 'location_map': {
                     'name': 'query',
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                    'filter': 'query',
+                    'filtering_mode': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -3367,11 +3384,16 @@ class MainApi(object):
                     'ordering',
                     'limit',
                     'offset',
+                    'filter',
+                    'filtering_mode',
+                    'sort',
                 ],
                 'required': [],
                 'nullable': [
                 ],
                 'enum': [
+                    'filtering_mode',
+                    'sort',
                 ],
                 'validation': [
                 ]
@@ -3380,6 +3402,22 @@ class MainApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('filtering_mode',): {
+
+                        "EXACT": "exact",
+                        "FUZZY": "fuzzy"
+                    },
+                    ('sort',): {
+
+                        "NAME": "name",
+                        "NAME-REVERSE": "name-reverse",
+                        "CLIENT-USERNAME": "client-username",
+                        "CLIENT-USERNAME-REVERSE": "client-username-reverse",
+                        "ADDRESS": "address",
+                        "ADDRESS-REVERSE": "address-reverse",
+                        "LAST-SEEN": "last-seen",
+                        "LAST-SEEN-REVERSE": "last-seen-reverse"
+                    },
                 },
                 'openapi_types': {
                     'hostname':
@@ -3392,6 +3430,12 @@ class MainApi(object):
                         (int,),
                     'offset':
                         (int,),
+                    'filter':
+                        (str,),
+                    'filtering_mode':
+                        (str,),
+                    'sort':
+                        (str,),
                 },
                 'attribute_map': {
                     'hostname': 'hostname',
@@ -3399,6 +3443,9 @@ class MainApi(object):
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
+                    'filter': 'filter',
+                    'filtering_mode': 'filtering_mode',
+                    'sort': 'sort',
                 },
                 'location_map': {
                     'hostname': 'query',
@@ -3406,6 +3453,9 @@ class MainApi(object):
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                    'filter': 'query',
+                    'filtering_mode': 'query',
+                    'sort': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -3920,65 +3970,6 @@ class MainApi(object):
                     'type': 'query',
                     'name': 'query',
                     'address': 'query',
-                    'ordering': 'query',
-                    'limit': 'query',
-                    'offset': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_current_workstation_endpoint = _Endpoint(
-            settings={
-                'response_type': (Workstation,),
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/workstations/current',
-                'operation_id': 'get_current_workstation',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'ordering',
-                    'limit',
-                    'offset',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'ordering':
-                        (str,),
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
-                },
-                'attribute_map': {
-                    'ordering': 'ordering',
-                    'limit': 'limit',
-                    'offset': 'offset',
-                },
-                'location_map': {
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
@@ -6138,10 +6129,10 @@ class MainApi(object):
             },
             params_map={
                 'all': [
-                    'workstation_partial_update',
+                    'submit_workstation_report',
                 ],
                 'required': [
-                    'workstation_partial_update',
+                    'submit_workstation_report',
                 ],
                 'nullable': [
                 ],
@@ -6156,13 +6147,13 @@ class MainApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'workstation_partial_update':
-                        (WorkstationPartialUpdate,),
+                    'submit_workstation_report':
+                        (SubmitWorkstationReport,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'workstation_partial_update': 'body',
+                    'submit_workstation_report': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -8226,58 +8217,6 @@ class MainApi(object):
                 'location_map': {
                     'id': 'path',
                     'cloud_account_update': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-        self.update_current_workstation_endpoint = _Endpoint(
-            settings={
-                'response_type': (Workstation,),
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/workstations/current',
-                'operation_id': 'update_current_workstation',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'workstation_update',
-                ],
-                'required': [
-                    'workstation_update',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'workstation_update':
-                        (WorkstationUpdate,),
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                    'workstation_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -13321,6 +13260,8 @@ class MainApi(object):
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
+            filter (str): [optional]
+            filtering_mode (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -14026,6 +13967,9 @@ class MainApi(object):
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
+            filter (str): [optional]
+            filtering_mode (str): [optional]
+            sort (str): [optional] if omitted the server will use the default value of "name"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -14846,81 +14790,6 @@ class MainApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_current_node_endpoint.call_with_http_info(**kwargs)
-
-    def get_current_workstation(
-        self,
-        **kwargs
-    ):
-        """get_current_workstation  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_current_workstation(async_req=True)
-        >>> result = thread.get()
-
-
-        Keyword Args:
-            ordering (str): Which field to use when ordering the results.. [optional]
-            limit (int): Number of results to return per page.. [optional]
-            offset (int): The initial index from which to return the results.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Workstation
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.get_current_workstation_endpoint.call_with_http_info(**kwargs)
 
     def get_download(
         self,
@@ -18158,7 +18027,7 @@ class MainApi(object):
 
     def patch_current_workstation(
         self,
-        workstation_partial_update,
+        submit_workstation_report,
         **kwargs
     ):
         """patch_current_workstation  # noqa: E501
@@ -18166,11 +18035,11 @@ class MainApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.patch_current_workstation(workstation_partial_update, async_req=True)
+        >>> thread = api.patch_current_workstation(submit_workstation_report, async_req=True)
         >>> result = thread.get()
 
         Args:
-            workstation_partial_update (WorkstationPartialUpdate):
+            submit_workstation_report (SubmitWorkstationReport):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -18229,8 +18098,8 @@ class MainApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['workstation_partial_update'] = \
-            workstation_partial_update
+        kwargs['submit_workstation_report'] = \
+            submit_workstation_report
         return self.patch_current_workstation_endpoint.call_with_http_info(**kwargs)
 
     def patch_download_archive(
@@ -21320,83 +21189,6 @@ class MainApi(object):
         kwargs['cloud_account_update'] = \
             cloud_account_update
         return self.update_cloud_account_endpoint.call_with_http_info(**kwargs)
-
-    def update_current_workstation(
-        self,
-        workstation_update,
-        **kwargs
-    ):
-        """update_current_workstation  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.update_current_workstation(workstation_update, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            workstation_update (WorkstationUpdate):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Workstation
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['workstation_update'] = \
-            workstation_update
-        return self.update_current_workstation_endpoint.call_with_http_info(**kwargs)
 
     def update_download_archive(
         self,

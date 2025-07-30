@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **is_hardlink** | **bool** |  | [readonly] 
 **mtime** | **int** |  | [readonly] 
 **path** | **str** |  | [readonly] 
+**path_permissions** | [**PathPermissions**](PathPermissions.md) |  | 
 **present** | **bool** |  | [readonly] 
 **archived** | **bool** |  | [readonly] 
 **size** | **int** |  | [readonly] 

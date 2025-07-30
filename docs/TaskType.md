@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **type** | **str** |  | 
 **display_name** | **str** |  | 
 **display_group** | **str** |  | 
+**description** | **str, none_type** |  | 
 **input_type** | **str, none_type** |  | 
 **abortable** | **bool** |  | 
 **arg_template** | **{str: (str, none_type)}, none_type** |  | 

@@ -96,6 +96,7 @@ class AssetSubtitleLink(ModelNormal):
         lazy_import()
         return {
             'subtitle': (AssetMini,),  # noqa: E501
+            'editable': (bool,),  # noqa: E501
             'label': (str,),  # noqa: E501
             'id': (int,),  # noqa: E501
             'key': (str, none_type,),  # noqa: E501
@@ -108,12 +109,14 @@ class AssetSubtitleLink(ModelNormal):
 
     attribute_map = {
         'subtitle': 'subtitle',  # noqa: E501
+        'editable': 'editable',  # noqa: E501
         'label': 'label',  # noqa: E501
         'id': 'id',  # noqa: E501
         'key': 'key',  # noqa: E501
     }
 
     read_only_vars = {
+        'editable',  # noqa: E501
         'id',  # noqa: E501
     }
 
@@ -121,11 +124,12 @@ class AssetSubtitleLink(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, subtitle, label, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, subtitle, editable, label, *args, **xkwargs):  # noqa: E501
         """AssetSubtitleLink - a model defined in OpenAPI
 
         Args:
             subtitle (AssetMini):
+            editable (bool):
             label (str):
 
         Keyword Args:
@@ -190,6 +194,7 @@ class AssetSubtitleLink(ModelNormal):
 
 
         self.subtitle = subtitle
+        self.editable = editable
         self.label = label
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

@@ -67,6 +67,9 @@ class Stream(ModelNormal):
         ('codec_long_name',): {
             'min_length': 1,
         },
+        ('codec_tag_string',): {
+            'min_length': 1,
+        },
         ('pix_fmt',): {
             'min_length': 1,
         },
@@ -102,6 +105,7 @@ class Stream(ModelNormal):
             'codec_type': (str,),  # noqa: E501
             'codec_name': (str,),  # noqa: E501
             'codec_long_name': (str,),  # noqa: E501
+            'codec_tag_string': (str,),  # noqa: E501
             'index': (int, none_type,),  # noqa: E501
             'bit_rate': (int, none_type,),  # noqa: E501
             'width': (int, none_type,),  # noqa: E501
@@ -123,6 +127,7 @@ class Stream(ModelNormal):
         'codec_type': 'codec_type',  # noqa: E501
         'codec_name': 'codec_name',  # noqa: E501
         'codec_long_name': 'codec_long_name',  # noqa: E501
+        'codec_tag_string': 'codec_tag_string',  # noqa: E501
         'index': 'index',  # noqa: E501
         'bit_rate': 'bit_rate',  # noqa: E501
         'width': 'width',  # noqa: E501
@@ -139,6 +144,7 @@ class Stream(ModelNormal):
         'codec_type',  # noqa: E501
         'codec_name',  # noqa: E501
         'codec_long_name',  # noqa: E501
+        'codec_tag_string',  # noqa: E501
         'index',  # noqa: E501
         'bit_rate',  # noqa: E501
         'width',  # noqa: E501
@@ -155,13 +161,14 @@ class Stream(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, codec_type, codec_name, codec_long_name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, codec_type, codec_name, codec_long_name, codec_tag_string, *args, **xkwargs):  # noqa: E501
         """Stream - a model defined in OpenAPI
 
         Args:
             codec_type (str):
             codec_name (str):
             codec_long_name (str):
+            codec_tag_string (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -235,6 +242,7 @@ class Stream(ModelNormal):
         self.codec_type = codec_type
         self.codec_name = codec_name
         self.codec_long_name = codec_long_name
+        self.codec_tag_string = codec_tag_string
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

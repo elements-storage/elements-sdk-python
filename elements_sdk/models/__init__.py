@@ -47,6 +47,7 @@ from elements_sdk.model.asset import Asset
 from elements_sdk.model.asset_backup import AssetBackup
 from elements_sdk.model.asset_backup_mini import AssetBackupMini
 from elements_sdk.model.asset_cloud_link import AssetCloudLink
+from elements_sdk.model.asset_micro import AssetMicro
 from elements_sdk.model.asset_mini import AssetMini
 from elements_sdk.model.asset_mini_reference import AssetMiniReference
 from elements_sdk.model.asset_partial_update import AssetPartialUpdate
@@ -77,6 +78,7 @@ from elements_sdk.model.change_own_password_request import ChangeOwnPasswordRequ
 from elements_sdk.model.change_password_request import ChangePasswordRequest
 from elements_sdk.model.check_certificate_request import CheckCertificateRequest
 from elements_sdk.model.check_connectivity_endpoint_response import CheckConnectivityEndpointResponse
+from elements_sdk.model.cleanup_media_root_request import CleanupMediaRootRequest
 from elements_sdk.model.click_background_upload_endpoint_request import ClickBackgroundUploadEndpointRequest
 from elements_sdk.model.click_gallery import ClickGallery
 from elements_sdk.model.click_gallery_link import ClickGalleryLink
@@ -133,6 +135,8 @@ from elements_sdk.model.elements_user_detail_partial_update import ElementsUserD
 from elements_sdk.model.elements_user_detail_update import ElementsUserDetailUpdate
 from elements_sdk.model.elements_user_mini import ElementsUserMini
 from elements_sdk.model.elements_user_mini_reference import ElementsUserMiniReference
+from elements_sdk.model.elements_user_mini_with_avatar import ElementsUserMiniWithAvatar
+from elements_sdk.model.elements_user_mini_with_avatar_reference import ElementsUserMiniWithAvatarReference
 from elements_sdk.model.elements_user_profile import ElementsUserProfile
 from elements_sdk.model.elements_user_profile_partial_update import ElementsUserProfilePartialUpdate
 from elements_sdk.model.elements_user_profile_update import ElementsUserProfileUpdate
@@ -169,6 +173,7 @@ from elements_sdk.model.filesystem_trace_endpoint_request import FilesystemTrace
 from elements_sdk.model.filesystem_trace_endpoint_response import FilesystemTraceEndpointResponse
 from elements_sdk.model.finish_upload_endpoint_request import FinishUploadEndpointRequest
 from elements_sdk.model.format_metadata import FormatMetadata
+from elements_sdk.model.format_metadata_mini import FormatMetadataMini
 from elements_sdk.model.generate_password_endpoint_response import GeneratePasswordEndpointResponse
 from elements_sdk.model.generate_proxies_request import GenerateProxiesRequest
 from elements_sdk.model.get_cloud_account_costs_response import GetCloudAccountCostsResponse
@@ -300,6 +305,7 @@ from elements_sdk.model.path import Path
 from elements_sdk.model.path_exclusion_info import PathExclusionInfo
 from elements_sdk.model.path_input import PathInput
 from elements_sdk.model.path_mapping import PathMapping
+from elements_sdk.model.path_permissions import PathPermissions
 from elements_sdk.model.physical_file import PhysicalFile
 from elements_sdk.model.production import Production
 from elements_sdk.model.production_mini import ProductionMini
@@ -404,6 +410,7 @@ from elements_sdk.model.subclip_clipboard_entry_update import SubclipClipboardEn
 from elements_sdk.model.subclip_partial_update import SubclipPartialUpdate
 from elements_sdk.model.subclip_reference import SubclipReference
 from elements_sdk.model.subclip_update import SubclipUpdate
+from elements_sdk.model.submit_workstation_report import SubmitWorkstationReport
 from elements_sdk.model.subscription import Subscription
 from elements_sdk.model.subtask import Subtask
 from elements_sdk.model.subtask_partial_update import SubtaskPartialUpdate
@@ -443,7 +450,6 @@ from elements_sdk.model.task_log import TaskLog
 from elements_sdk.model.task_log_entry import TaskLogEntry
 from elements_sdk.model.task_log_entry_data import TaskLogEntryData
 from elements_sdk.model.task_log_v2 import TaskLogV2
-from elements_sdk.model.task_progress import TaskProgress
 from elements_sdk.model.task_type import TaskType
 from elements_sdk.model.tasks_summary import TasksSummary
 from elements_sdk.model.teams_connection import TeamsConnection

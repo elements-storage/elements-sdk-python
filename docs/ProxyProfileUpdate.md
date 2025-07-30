@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **enable_dense_filmstrip** | **bool** |  | [optional] 
 **image_format** | **str** |  | [optional] 
 **enable_watermark** | **bool** |  | [optional] 
-**watermark_image** | **str, none_type** |  | [optional] 
 **watermark_position** | **str** |  | [optional] 
 **watermark_opacity** | **float** |  | [optional] 
 **watermark_size** | **float** |  | [optional] 

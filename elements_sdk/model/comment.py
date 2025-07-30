@@ -32,9 +32,11 @@ from elements_sdk.exceptions import ApiAttributeError
 def lazy_import():
     from elements_sdk.model.asset import Asset
     from elements_sdk.model.elements_user_mini import ElementsUserMini
+    from elements_sdk.model.elements_user_mini_with_avatar import ElementsUserMiniWithAvatar
     from elements_sdk.model.tag import Tag
     globals()['Asset'] = Asset
     globals()['ElementsUserMini'] = ElementsUserMini
+    globals()['ElementsUserMiniWithAvatar'] = ElementsUserMiniWithAvatar
     globals()['Tag'] = Tag
 
 

@@ -389,9 +389,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = automation_api.AutomationApi(api_client)
     schedule_update = ScheduleUpdate(
-        variables={
-            "key": "key_example",
-        },
+        variables={},
         type=1,
         enabled=True,
         last_run=dateutil_parser('1970-01-01T00:00:00.00Z'),
@@ -2561,9 +2559,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = automation_api.AutomationApi(api_client)
     id = 1 # int | A unique integer value identifying this schedule.
     schedule_partial_update = SchedulePartialUpdate(
-        variables={
-            "key": "key_example",
-        },
+        variables={},
         type=1,
         enabled=True,
         last_run=dateutil_parser('1970-01-01T00:00:00.00Z'),
@@ -3018,9 +3014,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = automation_api.AutomationApi(api_client)
     id = 1 # int | A unique integer value identifying this schedule.
     schedule_update = ScheduleUpdate(
-        variables={
-            "key": "key_example",
-        },
+        variables={},
         type=1,
         enabled=True,
         last_run=dateutil_parser('1970-01-01T00:00:00.00Z'),

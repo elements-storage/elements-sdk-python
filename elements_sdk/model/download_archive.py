@@ -61,10 +61,6 @@ class DownloadArchive(ModelNormal):
     """
 
     allowed_values = {
-        ('progress_unit',): {
-            '0': 0,
-            '1': 1,
-        },
     }
 
     validations = {
@@ -75,6 +71,10 @@ class DownloadArchive(ModelNormal):
         ('path',): {
             'max_length': 255,
             'min_length': 1,
+        },
+        ('progress_unit',): {
+            'max_length': 0,
+            'min_length': 0,
         },
     }
 
@@ -102,7 +102,7 @@ class DownloadArchive(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'task_info': (TaskInfo,),  # noqa: E501
+            'task_info': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'uncompressed_size': (int,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'expires': (str,),  # noqa: E501
@@ -110,8 +110,8 @@ class DownloadArchive(ModelNormal):
             'name': (str,),  # noqa: E501
             'path': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
-            'progress_unit': (int,),  # noqa: E501
             'user': (int, none_type,),  # noqa: E501
+            'progress_unit': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -129,8 +129,8 @@ class DownloadArchive(ModelNormal):
         'name': 'name',  # noqa: E501
         'path': 'path',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
-        'progress_unit': 'progress_unit',  # noqa: E501
         'user': 'user',  # noqa: E501
+        'progress_unit': 'progress_unit',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,18 +139,19 @@ class DownloadArchive(ModelNormal):
         'expires',  # noqa: E501
         'files',  # noqa: E501
         'created_at',  # noqa: E501
+        'progress_unit',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, task_info, uncompressed_size, size, expires, files, name, path, created_at, progress_unit, user, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, task_info, uncompressed_size, size, expires, files, name, path, created_at, user, *args, **xkwargs):  # noqa: E501
         """DownloadArchive - a model defined in OpenAPI
 
         Args:
             id (str):
-            task_info (TaskInfo):
+            task_info (bool, date, datetime, dict, float, int, list, str, none_type):
             uncompressed_size (int):
             size (int):
             expires (str):
@@ -158,7 +159,6 @@ class DownloadArchive(ModelNormal):
             name (str):
             path (str):
             created_at (datetime):
-            progress_unit (int):
             user (int, none_type):
 
         Keyword Args:
@@ -192,6 +192,7 @@ class DownloadArchive(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            progress_unit (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -229,7 +230,6 @@ class DownloadArchive(ModelNormal):
         self.name = name
         self.path = path
         self.created_at = created_at
-        self.progress_unit = progress_unit
         self.user = user
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -252,15 +252,14 @@ class DownloadArchive(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, task_info, name, path, progress_unit, user, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, task_info, name, path, user, *args, **xkwargs):  # noqa: E501
         """DownloadArchive - a model defined in OpenAPI
 
         Args:
             id (str):
-            task_info (TaskInfo):
+            task_info (bool, date, datetime, dict, float, int, list, str, none_type):
             name (str):
             path (str):
-            progress_unit (int):
             user (int, none_type):
 
         Keyword Args:
@@ -294,6 +293,7 @@ class DownloadArchive(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            progress_unit (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -324,7 +324,6 @@ class DownloadArchive(ModelNormal):
         self.task_info = task_info
         self.name = name
         self.path = path
-        self.progress_unit = progress_unit
         self.user = user
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

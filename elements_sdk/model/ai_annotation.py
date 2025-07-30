@@ -94,7 +94,7 @@ class AIAnnotation(ModelNormal):
             'id': (str,),  # noqa: E501
             'image': (AIImage,),  # noqa: E501
             'category': (AICategoryMini,),  # noqa: E501
-            'asset_display_name': (str,),  # noqa: E501
+            'asset_display_name': (str, none_type,),  # noqa: E501
             'transforms': (Transforms,),  # noqa: E501
             'relative_left': (float,),  # noqa: E501
             'relative_top': (float,),  # noqa: E501
@@ -141,7 +141,7 @@ class AIAnnotation(ModelNormal):
             id (str):
             image (AIImage):
             category (AICategoryMini):
-            asset_display_name (str):
+            asset_display_name (str, none_type):
             transforms (Transforms):
             relative_left (float):
             relative_top (float):

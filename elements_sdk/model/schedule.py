@@ -110,7 +110,7 @@ class Schedule(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
-            'variables': ({str: (str, none_type)},),  # noqa: E501
+            'variables': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'next_run': (datetime,),  # noqa: E501
             'type': (int,),  # noqa: E501
             'enabled': (bool,),  # noqa: E501
@@ -160,7 +160,7 @@ class Schedule(ModelNormal):
 
         Args:
             id (int):
-            variables ({str: (str, none_type)}):
+            variables ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             next_run (datetime):
             type (int):
             enabled (bool):
@@ -273,7 +273,7 @@ class Schedule(ModelNormal):
 
         Args:
             id (int):
-            variables ({str: (str, none_type)}):
+            variables ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             type (int):
             enabled (bool):
             last_run (datetime, none_type):

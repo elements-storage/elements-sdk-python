@@ -79,16 +79,6 @@ class Subtask(ModelNormal):
         ('queue',): {
             'max_length': 255,
         },
-        ('graph_layout',): {
-        },
-        ('condition_variable',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
-        ('condition_value',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
     }
 
     @cached_property
@@ -127,10 +117,7 @@ class Subtask(ModelNormal):
             'enqueue_at_front': (bool,),  # noqa: E501
             'parent': (int,),  # noqa: E501
             'relative_to': (int, none_type,),  # noqa: E501
-            'graph_layout': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'validation_error': (str, none_type,),  # noqa: E501
-            'condition_variable': (str, none_type,),  # noqa: E501
-            'condition_value': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -154,17 +141,11 @@ class Subtask(ModelNormal):
         'enqueue_at_front': 'enqueue_at_front',  # noqa: E501
         'parent': 'parent',  # noqa: E501
         'relative_to': 'relative_to',  # noqa: E501
-        'graph_layout': 'graph_layout',  # noqa: E501
         'validation_error': 'validation_error',  # noqa: E501
-        'condition_variable': 'condition_variable',  # noqa: E501
-        'condition_value': 'condition_value',  # noqa: E501
     }
 
     read_only_vars = {
-        'graph_layout',  # noqa: E501
         'validation_error',  # noqa: E501
-        'condition_variable',  # noqa: E501
-        'condition_value',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -222,10 +203,7 @@ class Subtask(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            graph_layout ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             validation_error (str, none_type): [optional]  # noqa: E501
-            condition_variable (str, none_type): [optional]  # noqa: E501
-            condition_value (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -341,10 +319,7 @@ class Subtask(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            graph_layout ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             validation_error (str, none_type): [optional]  # noqa: E501
-            condition_variable (str, none_type): [optional]  # noqa: E501
-            condition_value (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

@@ -114,10 +114,10 @@ class FormatMetadata(ModelNormal):
             'streams': ([Stream],),  # noqa: E501
             'metadata': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'subtitles': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'duration': (float, none_type,),  # noqa: E501
             'type': (str, none_type,),  # noqa: E501
             'width': (int, none_type,),  # noqa: E501
             'height': (int, none_type,),  # noqa: E501
-            'duration': (float, none_type,),  # noqa: E501
             'timecode': (float, none_type,),  # noqa: E501
             'timecode_format': (str, none_type,),  # noqa: E501
             'system_timecode': (float, none_type,),  # noqa: E501
@@ -142,10 +142,10 @@ class FormatMetadata(ModelNormal):
         'streams': 'streams',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'subtitles': 'subtitles',  # noqa: E501
+        'duration': 'duration',  # noqa: E501
         'type': 'type',  # noqa: E501
         'width': 'width',  # noqa: E501
         'height': 'height',  # noqa: E501
-        'duration': 'duration',  # noqa: E501
         'timecode': 'timecode',  # noqa: E501
         'timecode_format': 'timecode_format',  # noqa: E501
         'system_timecode': 'system_timecode',  # noqa: E501
@@ -165,10 +165,10 @@ class FormatMetadata(ModelNormal):
         'streams',  # noqa: E501
         'metadata',  # noqa: E501
         'subtitles',  # noqa: E501
+        'duration',  # noqa: E501
         'type',  # noqa: E501
         'width',  # noqa: E501
         'height',  # noqa: E501
-        'duration',  # noqa: E501
         'timecode',  # noqa: E501
         'timecode_format',  # noqa: E501
         'system_timecode',  # noqa: E501
@@ -227,10 +227,10 @@ class FormatMetadata(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            duration (float, none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             width (int, none_type): [optional]  # noqa: E501
             height (int, none_type): [optional]  # noqa: E501
-            duration (float, none_type): [optional]  # noqa: E501
             timecode (float, none_type): [optional]  # noqa: E501
             timecode_format (str, none_type): [optional]  # noqa: E501
             system_timecode (float, none_type): [optional]  # noqa: E501
@@ -330,10 +330,10 @@ class FormatMetadata(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            duration (float, none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             width (int, none_type): [optional]  # noqa: E501
             height (int, none_type): [optional]  # noqa: E501
-            duration (float, none_type): [optional]  # noqa: E501
             timecode (float, none_type): [optional]  # noqa: E501
             timecode_format (str, none_type): [optional]  # noqa: E501
             system_timecode (float, none_type): [optional]  # noqa: E501

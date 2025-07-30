@@ -87,9 +87,6 @@ class MediaRootDetailUpdate(ModelNormal):
             'max_length': 63,
             'min_length': 1,
         },
-        ('cover',): {
-            'max_length': 255,
-        },
         ('name_field',): {
             'max_length': 255,
         },
@@ -144,7 +141,6 @@ class MediaRootDetailUpdate(ModelNormal):
             'show_history': (bool,),  # noqa: E501
             'show_ai_metadata': (bool,),  # noqa: E501
             'prefetch_thumbnail_strips': (bool,),  # noqa: E501
-            'cover': (str, none_type,),  # noqa: E501
             'name_field': (str, none_type,),  # noqa: E501
             'share_comments': (bool,),  # noqa: E501
             'share_link_duration': (int,),  # noqa: E501
@@ -183,7 +179,6 @@ class MediaRootDetailUpdate(ModelNormal):
         'show_history': 'show_history',  # noqa: E501
         'show_ai_metadata': 'show_ai_metadata',  # noqa: E501
         'prefetch_thumbnail_strips': 'prefetch_thumbnail_strips',  # noqa: E501
-        'cover': 'cover',  # noqa: E501
         'name_field': 'name_field',  # noqa: E501
         'share_comments': 'share_comments',  # noqa: E501
         'share_link_duration': 'share_link_duration',  # noqa: E501
@@ -259,7 +254,6 @@ class MediaRootDetailUpdate(ModelNormal):
             show_history (bool): [optional]  # noqa: E501
             show_ai_metadata (bool): [optional]  # noqa: E501
             prefetch_thumbnail_strips (bool): [optional]  # noqa: E501
-            cover (str, none_type): [optional]  # noqa: E501
             name_field (str, none_type): [optional]  # noqa: E501
             share_comments (bool): [optional]  # noqa: E501
             share_link_duration (int): [optional]  # noqa: E501
@@ -377,7 +371,6 @@ class MediaRootDetailUpdate(ModelNormal):
             show_history (bool): [optional]  # noqa: E501
             show_ai_metadata (bool): [optional]  # noqa: E501
             prefetch_thumbnail_strips (bool): [optional]  # noqa: E501
-            cover (str, none_type): [optional]  # noqa: E501
             name_field (str, none_type): [optional]  # noqa: E501
             share_comments (bool): [optional]  # noqa: E501
             share_link_duration (int): [optional]  # noqa: E501

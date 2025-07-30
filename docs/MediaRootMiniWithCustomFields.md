@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **path** | **str** |  | 
 **prefetch_thumbnail_strips** | **bool** |  | 
 **view_mode** | **str** |  | 
-**cover** | **str, none_type** |  | 
+**cover** | **str, none_type** |  | [readonly] 
 **custom_fields** | [**[CustomField]**](CustomField.md) |  | 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)

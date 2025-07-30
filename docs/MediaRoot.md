@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **volume** | [**VolumeMini**](VolumeMini.md) |  | 
 **full_path** | **str** |  | [readonly] 
 **workflow** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
+**cover** | **str, none_type** |  | [readonly] 
 **name** | **str** |  | 
 **path** | **str** |  | 
 **description** | **str, none_type** |  | 
@@ -28,7 +29,6 @@ Name | Type | Description | Notes
 **show_history** | **bool** |  | 
 **show_ai_metadata** | **bool** |  | 
 **prefetch_thumbnail_strips** | **bool** |  | 
-**cover** | **str, none_type** |  | 
 **name_field** | **str, none_type** |  | 
 **share_comments** | **bool** |  | 
 **share_link_duration** | **int** |  | 

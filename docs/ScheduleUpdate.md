@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **job** | **int** |  | 
-**variables** | **{str: (str, none_type)}** |  | [optional] 
+**variables** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | [optional] 
 **type** | **int** |  | [optional] 
 **enabled** | **bool** |  | [optional] 
 **last_run** | **datetime, none_type** |  | [optional] 

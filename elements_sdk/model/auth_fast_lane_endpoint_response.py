@@ -65,6 +65,9 @@ class AuthFastLaneEndpointResponse(ModelNormal):
         ('redirect',): {
             'min_length': 1,
         },
+        ('login_redirect',): {
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -91,6 +94,7 @@ class AuthFastLaneEndpointResponse(ModelNormal):
         lazy_import()
         return {
             'redirect': (str,),  # noqa: E501
+            'login_redirect': (str,),  # noqa: E501
             'user': (ElementsUserDetail,),  # noqa: E501
         }
 
@@ -101,6 +105,7 @@ class AuthFastLaneEndpointResponse(ModelNormal):
 
     attribute_map = {
         'redirect': 'redirect',  # noqa: E501
+        'login_redirect': 'login_redirect',  # noqa: E501
         'user': 'user',  # noqa: E501
     }
 
@@ -146,6 +151,7 @@ class AuthFastLaneEndpointResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             redirect (str): [optional]  # noqa: E501
+            login_redirect (str): [optional]  # noqa: E501
             user (ElementsUserDetail): [optional]  # noqa: E501
         """
 
@@ -231,6 +237,7 @@ class AuthFastLaneEndpointResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             redirect (str): [optional]  # noqa: E501
+            login_redirect (str): [optional]  # noqa: E501
             user (ElementsUserDetail): [optional]  # noqa: E501
         """
 

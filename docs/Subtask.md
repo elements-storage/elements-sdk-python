@@ -20,10 +20,7 @@ Name | Type | Description | Notes
 **enqueue_at_front** | **bool** |  | 
 **parent** | **int** |  | 
 **relative_to** | **int, none_type** |  | 
-**graph_layout** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] [readonly] 
 **validation_error** | **str, none_type** |  | [optional] [readonly] 
-**condition_variable** | **str, none_type** |  | [optional] [readonly] 
-**condition_value** | **str, none_type** |  | [optional] [readonly] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 

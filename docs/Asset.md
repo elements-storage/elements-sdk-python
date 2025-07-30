@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **backups** | [**[AssetBackupMini]**](AssetBackupMini.md) |  | [readonly] 
 **proxies_generated** | **bool** |  | [readonly] 
 **proxies_failed** | **bool** |  | [readonly] 
-**bundles** | [**[MediaFileBundleMini]**](MediaFileBundleMini.md) |  | [readonly] 
 **format** | [**FormatMetadata**](FormatMetadata.md) |  | 
 **info** | **{str: (str, none_type)}** |  | [readonly] 
 **sync_id** | **str** |  | [readonly] 

@@ -27,7 +27,6 @@ Name | Type | Description | Notes
 **show_history** | **bool** |  | [optional] 
 **show_ai_metadata** | **bool** |  | [optional] 
 **prefetch_thumbnail_strips** | **bool** |  | [optional] 
-**cover** | **str, none_type** |  | [optional] 
 **name_field** | **str, none_type** |  | [optional] 
 **share_comments** | **bool** |  | [optional] 
 **share_link_duration** | **int** |  | [optional] 

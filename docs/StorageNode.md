@@ -30,7 +30,6 @@ Name | Type | Description | Notes
 **auto_scan_interfaces** | **bool** |  | 
 **volume_queues** | **[int]** | Run volume-specific tasks for selected volumes. | 
 **status** | [**StorageNodeStatus**](StorageNodeStatus.md) |  | [optional] 
-**backend** | **str, none_type** |  | [optional] [readonly] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 

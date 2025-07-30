@@ -86,8 +86,8 @@ class Certificate(ModelNormal):
         return {
             'certificate': (str,),  # noqa: E501
             'key': (str, none_type,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'issuer': (str,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'issuer': (str, none_type,),  # noqa: E501
             'domains': ([str],),  # noqa: E501
             'fingerprint': (str,),  # noqa: E501
             'not_valid_before': (str,),  # noqa: E501
@@ -141,8 +141,8 @@ class Certificate(ModelNormal):
         Args:
             certificate (str):
             key (str, none_type):
-            name (str):
-            issuer (str):
+            name (str, none_type):
+            issuer (str, none_type):
             domains ([str]):
             fingerprint (str):
             not_valid_before (str):

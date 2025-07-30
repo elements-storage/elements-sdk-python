@@ -60,15 +60,17 @@ class ElementsUser(ModelNormal):
             'EN': "en",
             'FR': "fr",
             'DE': "de",
-            'IT': "it",
-            'PT': "pt",
+            'NB': "nb",
+            'JA': "ja",
             'ES': "es",
-            'DA': "da",
             'XX': "xx",
         },
     }
 
     validations = {
+        ('avatar',): {
+            'min_length': 1,
+        },
         ('default_page',): {
             'max_length': 255,
             'min_length': 1,
@@ -211,6 +213,7 @@ class ElementsUser(ModelNormal):
     read_only_vars = {
         'allowed_fs_paths',  # noqa: E501
         'allowed_fs_write_paths',  # noqa: E501
+        'avatar',  # noqa: E501
         'display_name',  # noqa: E501
         'effective_permissions',  # noqa: E501
         'group_permissions',  # noqa: E501
@@ -379,14 +382,13 @@ class ElementsUser(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, allow_changing_password, allow_wan_login, avatar, default_page, email, expiry, fm_bookmarks, full_name, gid, home, is_external, is_cloud, is_enabled, language, ldap_dn, password_change_required, permissions, shaper_ceiling, shaper_rate, uid, unix_username, username, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, allow_changing_password, allow_wan_login, default_page, email, expiry, fm_bookmarks, full_name, gid, home, is_external, is_cloud, is_enabled, language, ldap_dn, password_change_required, permissions, shaper_ceiling, shaper_rate, uid, unix_username, username, *args, **xkwargs):  # noqa: E501
         """ElementsUser - a model defined in OpenAPI
 
         Args:
             id (int):
             allow_changing_password (bool):
             allow_wan_login (bool):
-            avatar (str, none_type):
             default_page (str):
             email (str, none_type):
             expiry (datetime, none_type):
@@ -470,7 +472,6 @@ class ElementsUser(ModelNormal):
         self.id = id
         self.allow_changing_password = allow_changing_password
         self.allow_wan_login = allow_wan_login
-        self.avatar = avatar
         self.default_page = default_page
         self.email = email
         self.expiry = expiry

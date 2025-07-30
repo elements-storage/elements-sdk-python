@@ -91,22 +91,6 @@ class Volume(ModelNormal):
         ('snfs_name',): {
             'max_length': 255,
         },
-        ('onefs_host',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
-        ('onefs_username',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
-        ('onefs_password',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
-        ('onefs_zone',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
     }
 
     @cached_property
@@ -147,13 +131,10 @@ class Volume(ModelNormal):
             'backend': (Backend,),  # noqa: E501
             'cloud_account': (int, none_type,),  # noqa: E501
             'qumulo_integration': (int, none_type,),  # noqa: E501
+            'nfsv4_export': (bool,),  # noqa: E501
             'onefs_integration': (int, none_type,),  # noqa: E501
             'fs_properties': (FSProperties,),  # noqa: E501
             'status': (VolumeStatus,),  # noqa: E501
-            'onefs_host': (str, none_type,),  # noqa: E501
-            'onefs_username': (str, none_type,),  # noqa: E501
-            'onefs_password': (str, none_type,),  # noqa: E501
-            'onefs_zone': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -177,27 +158,20 @@ class Volume(ModelNormal):
         'backend': 'backend',  # noqa: E501
         'cloud_account': 'cloud_account',  # noqa: E501
         'qumulo_integration': 'qumulo_integration',  # noqa: E501
+        'nfsv4_export': 'nfsv4_export',  # noqa: E501
         'onefs_integration': 'onefs_integration',  # noqa: E501
         'fs_properties': 'fs_properties',  # noqa: E501
         'status': 'status',  # noqa: E501
-        'onefs_host': 'onefs_host',  # noqa: E501
-        'onefs_username': 'onefs_username',  # noqa: E501
-        'onefs_password': 'onefs_password',  # noqa: E501
-        'onefs_zone': 'onefs_zone',  # noqa: E501
     }
 
     read_only_vars = {
-        'onefs_host',  # noqa: E501
-        'onefs_username',  # noqa: E501
-        'onefs_password',  # noqa: E501
-        'onefs_zone',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, simulated_quotas, backend, cloud_account, qumulo_integration, onefs_integration, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, simulated_quotas, backend, cloud_account, qumulo_integration, nfsv4_export, onefs_integration, *args, **xkwargs):  # noqa: E501
         """Volume - a model defined in OpenAPI
 
         Args:
@@ -216,6 +190,7 @@ class Volume(ModelNormal):
             backend (Backend):
             cloud_account (int, none_type):
             qumulo_integration (int, none_type):
+            nfsv4_export (bool):
             onefs_integration (int, none_type):
 
         Keyword Args:
@@ -251,10 +226,6 @@ class Volume(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             fs_properties (FSProperties): [optional]  # noqa: E501
             status (VolumeStatus): [optional]  # noqa: E501
-            onefs_host (str, none_type): [optional]  # noqa: E501
-            onefs_username (str, none_type): [optional]  # noqa: E501
-            onefs_password (str, none_type): [optional]  # noqa: E501
-            onefs_zone (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -298,6 +269,7 @@ class Volume(ModelNormal):
         self.backend = backend
         self.cloud_account = cloud_account
         self.qumulo_integration = qumulo_integration
+        self.nfsv4_export = nfsv4_export
         self.onefs_integration = onefs_integration
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -320,7 +292,7 @@ class Volume(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, simulated_quotas, backend, cloud_account, qumulo_integration, onefs_integration, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, simulated_quotas, backend, cloud_account, qumulo_integration, nfsv4_export, onefs_integration, *args, **xkwargs):  # noqa: E501
         """Volume - a model defined in OpenAPI
 
         Args:
@@ -339,6 +311,7 @@ class Volume(ModelNormal):
             backend (Backend):
             cloud_account (int, none_type):
             qumulo_integration (int, none_type):
+            nfsv4_export (bool):
             onefs_integration (int, none_type):
 
         Keyword Args:
@@ -374,10 +347,6 @@ class Volume(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             fs_properties (FSProperties): [optional]  # noqa: E501
             status (VolumeStatus): [optional]  # noqa: E501
-            onefs_host (str, none_type): [optional]  # noqa: E501
-            onefs_username (str, none_type): [optional]  # noqa: E501
-            onefs_password (str, none_type): [optional]  # noqa: E501
-            onefs_zone (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -419,6 +388,7 @@ class Volume(ModelNormal):
         self.backend = backend
         self.cloud_account = cloud_account
         self.qumulo_integration = qumulo_integration
+        self.nfsv4_export = nfsv4_export
         self.onefs_integration = onefs_integration
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

@@ -68,6 +68,10 @@ class ElementsUserMini(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
+        ('avatar',): {
+            'max_length': 0,
+            'min_length': 0,
+        },
     }
 
     @cached_property
@@ -92,13 +96,13 @@ class ElementsUserMini(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
-            'avatar': (str, none_type,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
             'email': (str, none_type,),  # noqa: E501
             'full_name': (str, none_type,),  # noqa: E501
             'is_external': (bool,),  # noqa: E501
             'is_cloud': (bool,),  # noqa: E501
             'username': (str,),  # noqa: E501
+            'avatar': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -108,29 +112,29 @@ class ElementsUserMini(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'avatar': 'avatar',  # noqa: E501
         'display_name': 'display_name',  # noqa: E501
         'email': 'email',  # noqa: E501
         'full_name': 'full_name',  # noqa: E501
         'is_external': 'is_external',  # noqa: E501
         'is_cloud': 'is_cloud',  # noqa: E501
         'username': 'username',  # noqa: E501
+        'avatar': 'avatar',  # noqa: E501
     }
 
     read_only_vars = {
         'display_name',  # noqa: E501
+        'avatar',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, avatar, display_name, email, full_name, is_external, is_cloud, username, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, display_name, email, full_name, is_external, is_cloud, username, *args, **xkwargs):  # noqa: E501
         """ElementsUserMini - a model defined in OpenAPI
 
         Args:
             id (int):
-            avatar (str, none_type):
             display_name (str):
             email (str, none_type):
             full_name (str, none_type):
@@ -169,6 +173,7 @@ class ElementsUserMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            avatar (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -198,7 +203,6 @@ class ElementsUserMini(ModelNormal):
 
 
         self.id = id
-        self.avatar = avatar
         self.display_name = display_name
         self.email = email
         self.full_name = full_name
@@ -226,12 +230,11 @@ class ElementsUserMini(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, avatar, email, full_name, is_external, is_cloud, username, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, email, full_name, is_external, is_cloud, username, *args, **xkwargs):  # noqa: E501
         """ElementsUserMini - a model defined in OpenAPI
 
         Args:
             id (int):
-            avatar (str, none_type):
             email (str, none_type):
             full_name (str, none_type):
             is_external (bool):
@@ -269,6 +272,7 @@ class ElementsUserMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            avatar (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -296,7 +300,6 @@ class ElementsUserMini(ModelNormal):
 
 
         self.id = id
-        self.avatar = avatar
         self.email = email
         self.full_name = full_name
         self.is_external = is_external

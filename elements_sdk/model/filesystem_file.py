@@ -31,7 +31,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.directory_entry import DirectoryEntry
+    from elements_sdk.model.path_permissions import PathPermissions
     globals()['DirectoryEntry'] = DirectoryEntry
+    globals()['PathPermissions'] = PathPermissions
 
 
 class FilesystemFile(ModelNormal):
@@ -113,6 +115,7 @@ class FilesystemFile(ModelNormal):
             'size': (int,),  # noqa: E501
             'modification_time': (datetime,),  # noqa: E501
             'is_dir': (bool,),  # noqa: E501
+            'path_permissions': (PathPermissions,),  # noqa: E501
             'total_size': (int,),  # noqa: E501
             'parent': (str,),  # noqa: E501
             'access_time': (datetime,),  # noqa: E501
@@ -150,6 +153,7 @@ class FilesystemFile(ModelNormal):
         'size': 'size',  # noqa: E501
         'modification_time': 'modification_time',  # noqa: E501
         'is_dir': 'is_dir',  # noqa: E501
+        'path_permissions': 'path_permissions',  # noqa: E501
         'total_size': 'total_size',  # noqa: E501
         'parent': 'parent',  # noqa: E501
         'access_time': 'access_time',  # noqa: E501
@@ -190,7 +194,7 @@ class FilesystemFile(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, path, name, size, modification_time, is_dir, total_size, parent, access_time, creation_time, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, path, name, size, modification_time, is_dir, path_permissions, total_size, parent, access_time, creation_time, *args, **xkwargs):  # noqa: E501
         """FilesystemFile - a model defined in OpenAPI
 
         Args:
@@ -199,6 +203,7 @@ class FilesystemFile(ModelNormal):
             size (int):
             modification_time (datetime):
             is_dir (bool):
+            path_permissions (PathPermissions):
             total_size (int):
             parent (str):
             access_time (datetime):
@@ -288,6 +293,7 @@ class FilesystemFile(ModelNormal):
         self.size = size
         self.modification_time = modification_time
         self.is_dir = is_dir
+        self.path_permissions = path_permissions
         self.total_size = total_size
         self.parent = parent
         self.access_time = access_time
@@ -313,10 +319,11 @@ class FilesystemFile(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, parent, *args, **xkwargs):  # noqa: E501
+    def __init__(self, name, path_permissions, parent, *args, **xkwargs):  # noqa: E501
         """FilesystemFile - a model defined in OpenAPI
 
             name (str):
+            path_permissions (PathPermissions):
             parent (str):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -396,6 +403,7 @@ class FilesystemFile(ModelNormal):
 
 
         self.name = name
+        self.path_permissions = path_permissions
         self.parent = parent
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

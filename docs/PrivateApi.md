@@ -4,6 +4,7 @@
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**cleanup_media_root**](PrivateApi.md#cleanup_media_root) | **POST** `/api/2/media/root-cleanup` | 
 [**create_one_fs_integration**](PrivateApi.md#create_one_fs_integration) | **POST** `/api/2/private/onefs-integrations` | 
 [**create_qumulo_integration**](PrivateApi.md#create_qumulo_integration) | **POST** `/api/2/private/qumulo-integrations` | 
 [**delete_one_fs_integration**](PrivateApi.md#delete_one_fs_integration) | **DELETE** `/api/2/private/onefs-integrations/{id}` | 
@@ -11,8 +12,8 @@ Method | HTTP request | Description
 [**export_non_proxied_assets**](PrivateApi.md#export_non_proxied_assets) | **GET** `/api/2/private/export/non-proxied/{root_id}` | 
 [**export_non_proxied_assets_for_path**](PrivateApi.md#export_non_proxied_assets_for_path) | **GET** `/api/2/private/export/non-proxied/{root_id}/{path}` | 
 [**export_updates**](PrivateApi.md#export_updates) | **GET** `/api/2/private/export/updates/{root_id}` | 
-[**fast_lane_login_page**](PrivateApi.md#fast_lane_login_page) | **GET** `/auth/fast-lane/{token}` | 
-[**fast_lane_login_with_password**](PrivateApi.md#fast_lane_login_with_password) | **POST** `/auth/fast-lane/{token}` | 
+[**fast_lane_get_token_params**](PrivateApi.md#fast_lane_get_token_params) | **GET** `/api/2/private/fast-lane/{token}` | 
+[**fast_lane_login_with_password**](PrivateApi.md#fast_lane_login_with_password) | **POST** `/api/2/private/fast-lane/{token}` | 
 [**get**](PrivateApi.md#get) | **GET** `/api/2/private/bootstrap` | 
 [**get_agent_auth_token**](PrivateApi.md#get_agent_auth_token) | **GET** `/api/2/private/elements-agent-auth` | 
 [**get_all_one_fs_integrations**](PrivateApi.md#get_all_one_fs_integrations) | **GET** `/api/2/private/onefs-integrations` | 
@@ -25,7 +26,6 @@ Method | HTTP request | Description
 [**get_proxy_fs_size**](PrivateApi.md#get_proxy_fs_size) | **GET** `/api/2/private/media/proxyfs-size` | 
 [**get_qumulo_integration**](PrivateApi.md#get_qumulo_integration) | **GET** `/api/2/private/qumulo-integrations/{id}` | 
 [**get_samba_dfree_string**](PrivateApi.md#get_samba_dfree_string) | **POST** `/api/2/private/dfree` | 
-[**get_stored_image**](PrivateApi.md#get_stored_image) | **GET** `/api/2/image/{name}` | 
 [**install_license**](PrivateApi.md#install_license) | **POST** `/api/2/license/install` | 
 [**language_server_request**](PrivateApi.md#language_server_request) | **POST** `/api/2/language-server/{language}` | 
 [**locate_file**](PrivateApi.md#locate_file) | **POST** `/api/2/private/locate` | 
@@ -42,6 +42,62 @@ Method | HTTP request | Description
 [**update_one_fs_integration**](PrivateApi.md#update_one_fs_integration) | **PUT** `/api/2/private/onefs-integrations/{id}` | 
 [**update_qumulo_integration**](PrivateApi.md#update_qumulo_integration) | **PUT** `/api/2/private/qumulo-integrations/{id}` | 
 
+
+# **cleanup_media_root**
+    def TaskInfo cleanup_media_root(cleanup_media_root_request)
+
+
+
+### Required permissions    * User account permission: `media:roots:manage`   * License component: media 
+
+### Example
+
+
+```python
+import elements_sdk
+from elements_sdk.api import private_api
+from elements_sdk.model.task_info import TaskInfo
+from elements_sdk.model.cleanup_media_root_request import CleanupMediaRootRequest
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local:8080",
+    discard_unknown_keys=True,
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+with elements_sdk.ApiClient(configuration) as api_client:
+    api_instance = private_api.PrivateApi(api_client)
+    cleanup_media_root_request = CleanupMediaRootRequest(
+        mr_name="mr_name_example",
+        mr_path="mr_path_example",
+        deletion_status="deletion_status_example",
+        no_backups=True,
+    ) # CleanupMediaRootRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.cleanup_media_root(cleanup_media_root_request)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling PrivateApi->cleanup_media_root: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cleanup_media_root_request** | [**CleanupMediaRootRequest**](CleanupMediaRootRequest.md)|  |
+
+### Return type
+
+[**TaskInfo**](TaskInfo.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **create_one_fs_integration**
     def OneFSIntegration create_one_fs_integration(one_fs_integration_update)
@@ -406,8 +462,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-# **fast_lane_login_page**
-    def AuthFastLaneEndpointResponse fast_lane_login_page(token)
+# **fast_lane_get_token_params**
+    def AuthFastLaneEndpointResponse fast_lane_get_token_params(token)
 
 
 
@@ -435,10 +491,10 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.fast_lane_login_page(token)
+        api_response = api_instance.fast_lane_get_token_params(token)
         pprint(api_response)
     except elements_sdk.ApiException as e:
-        print("Exception when calling PrivateApi->fast_lane_login_page: %s\n" % e)
+        print("Exception when calling PrivateApi->fast_lane_get_token_params: %s\n" % e)
 ```
 
 
@@ -483,6 +539,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     token = "token_example" # str | 
     auth_fast_lane_endpoint_request = AuthFastLaneEndpointRequest(
         password="password_example",
+        override_redirect="override_redirect_example",
     ) # AuthFastLaneEndpointRequest | 
 
     # example passing only required values which don't have defaults set
@@ -1086,54 +1143,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 ### Parameters
 This endpoint does not need any parameter.
-
-### Return type
-
-void (empty response body)
-
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
-
-# **get_stored_image**
-    def get_stored_image(name)
-
-
-
-### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write) 
-
-### Example
-
-
-```python
-import elements_sdk
-from elements_sdk.api import private_api
-from pprint import pprint
-
-# See configuration.py for a list of all supported configuration parameters.
-configuration = elements_sdk.Configuration(
-    host="https://elements.local:8080",
-    discard_unknown_keys=True,
-)
-
-configuration.client_side_validation = False
-configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
-
-with elements_sdk.ApiClient(configuration) as api_client:
-    api_instance = private_api.PrivateApi(api_client)
-    name = "name_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        api_instance.get_stored_image(name)
-    except elements_sdk.ApiException as e:
-        print("Exception when calling PrivateApi->get_stored_image: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **str**|  |
 
 ### Return type
 

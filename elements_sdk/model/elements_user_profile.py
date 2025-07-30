@@ -64,15 +64,17 @@ class ElementsUserProfile(ModelNormal):
             'EN': "en",
             'FR': "fr",
             'DE': "de",
-            'IT': "it",
-            'PT': "pt",
+            'NB': "nb",
+            'JA': "ja",
             'ES': "es",
-            'DA': "da",
             'XX': "xx",
         },
     }
 
     validations = {
+        ('avatar',): {
+            'min_length': 1,
+        },
         ('default_page',): {
             'max_length': 255,
             'min_length': 1,
@@ -159,6 +161,7 @@ class ElementsUserProfile(ModelNormal):
     }
 
     read_only_vars = {
+        'avatar',  # noqa: E501
         'username',  # noqa: E501
         'display_name',  # noqa: E501
         'effective_permissions',  # noqa: E501
@@ -290,11 +293,9 @@ class ElementsUserProfile(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, avatar, default_page, full_name, language, fm_bookmarks, id, ldap, *args, **xkwargs):  # noqa: E501
+    def __init__(self, default_page, full_name, language, fm_bookmarks, id, ldap, *args, **xkwargs):  # noqa: E501
         """ElementsUserProfile - a model defined in OpenAPI
 
-        Args:
-            avatar (str, none_type):
             default_page (str):
             full_name (str, none_type):
             language (str, none_type):
@@ -362,7 +363,6 @@ class ElementsUserProfile(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
-        self.avatar = avatar
         self.default_page = default_page
         self.full_name = full_name
         self.language = language

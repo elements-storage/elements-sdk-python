@@ -2,7 +2,7 @@
 
 - API version: 2
 - Python 2.7 and 3.4+
-- Latest build: 25.4.1
+- Latest build: 25.7.0
 
 ## Installation & Usage
 
@@ -265,7 +265,6 @@ Class | Method | HTTP request | Description
 *MainApi* | [**get_cloud_account_storage_roots**](docs/MainApi#get_cloud_account_storage_roots) | **GET** `/api/2/cloud/accounts/{id}/storage-roots` | 
 *MainApi* | [**get_cloud_account_volume_sizes**](docs/MainApi#get_cloud_account_volume_sizes) | **GET** `/api/2/cloud/accounts/{id}/volume-sizes` | 
 *MainApi* | [**get_current_node**](docs/MainApi#get_current_node) | **GET** `/api/2/nodes/current` | 
-*MainApi* | [**get_current_workstation**](docs/MainApi#get_current_workstation) | **GET** `/api/2/workstations/current` | 
 *MainApi* | [**get_download**](docs/MainApi#get_download) | **GET** `/api/2/downloads/{id}` | 
 *MainApi* | [**get_download_archive**](docs/MainApi#get_download_archive) | **GET** `/api/2/download-archive/{id}` | 
 *MainApi* | [**get_download_archive_file**](docs/MainApi#get_download_archive_file) | **GET** `/api/2/download-archive/{id}/download` | 
@@ -348,7 +347,6 @@ Class | Method | HTTP request | Description
 *MainApi* | [**test_smtp_configuration**](docs/MainApi#test_smtp_configuration) | **POST** `/api/2/system/smtp/test` | 
 *MainApi* | [**update_certificate_configuration**](docs/MainApi#update_certificate_configuration) | **PUT** `/api/2/system/certificate` | 
 *MainApi* | [**update_cloud_account**](docs/MainApi#update_cloud_account) | **PUT** `/api/2/cloud/accounts/{id}` | 
-*MainApi* | [**update_current_workstation**](docs/MainApi#update_current_workstation) | **PUT** `/api/2/workstations/current` | 
 *MainApi* | [**update_download_archive**](docs/MainApi#update_download_archive) | **PUT** `/api/2/download-archive/{id}` | 
 *MainApi* | [**update_filesystem_permission**](docs/MainApi#update_filesystem_permission) | **PUT** `/api/2/filesystem-permissions/{id}` | 
 *MainApi* | [**update_group**](docs/MainApi#update_group) | **PUT** `/api/2/groups/{id}` | 
@@ -467,6 +465,7 @@ Class | Method | HTTP request | Description
 *MediaLibraryApi* | [**get_all_transcoder_profiles**](docs/MediaLibraryApi#get_all_transcoder_profiles) | **GET** `/api/2/transcoder-profiles` | 
 *MediaLibraryApi* | [**get_all_workflows**](docs/MediaLibraryApi#get_all_workflows) | **GET** `/api/2/media/workflows` | 
 *MediaLibraryApi* | [**get_asset**](docs/MediaLibraryApi#get_asset) | **GET** `/api/2/media/assets/{id}` | 
+*MediaLibraryApi* | [**get_asset_bundles**](docs/MediaLibraryApi#get_asset_bundles) | **GET** `/api/2/media/assets/{id}/bundles` | 
 *MediaLibraryApi* | [**get_asset_rating**](docs/MediaLibraryApi#get_asset_rating) | **GET** `/api/2/media/assets/{asset_id}/ratings/{id}` | 
 *MediaLibraryApi* | [**get_asset_stack_members**](docs/MediaLibraryApi#get_asset_stack_members) | **GET** `/api/2/media/stacks/{id}/members` | 
 *MediaLibraryApi* | [**get_asset_subtitle_link**](docs/MediaLibraryApi#get_asset_subtitle_link) | **GET** `/api/2/media/assets/{asset_id}/subtitle-links/{id}` | 
@@ -576,6 +575,7 @@ Class | Method | HTTP request | Description
 *MediaLibraryApi* | [**update_subclip**](docs/MediaLibraryApi#update_subclip) | **PUT** `/api/2/media/{asset_id}/subclips/{id}` | 
 *MediaLibraryApi* | [**update_workflow**](docs/MediaLibraryApi#update_workflow) | **PUT** `/api/2/media/workflows/{id}` | 
 *MediaLibraryApi* | [**web_upload_completed**](docs/MediaLibraryApi#web_upload_completed) | **POST** `/api/2/media/web/upload-completed` | 
+*PrivateApi* | [**cleanup_media_root**](docs/PrivateApi#cleanup_media_root) | **POST** `/api/2/media/root-cleanup` | 
 *PrivateApi* | [**create_one_fs_integration**](docs/PrivateApi#create_one_fs_integration) | **POST** `/api/2/private/onefs-integrations` | 
 *PrivateApi* | [**create_qumulo_integration**](docs/PrivateApi#create_qumulo_integration) | **POST** `/api/2/private/qumulo-integrations` | 
 *PrivateApi* | [**delete_one_fs_integration**](docs/PrivateApi#delete_one_fs_integration) | **DELETE** `/api/2/private/onefs-integrations/{id}` | 
@@ -583,8 +583,8 @@ Class | Method | HTTP request | Description
 *PrivateApi* | [**export_non_proxied_assets**](docs/PrivateApi#export_non_proxied_assets) | **GET** `/api/2/private/export/non-proxied/{root_id}` | 
 *PrivateApi* | [**export_non_proxied_assets_for_path**](docs/PrivateApi#export_non_proxied_assets_for_path) | **GET** `/api/2/private/export/non-proxied/{root_id}/{path}` | 
 *PrivateApi* | [**export_updates**](docs/PrivateApi#export_updates) | **GET** `/api/2/private/export/updates/{root_id}` | 
-*PrivateApi* | [**fast_lane_login_page**](docs/PrivateApi#fast_lane_login_page) | **GET** `/auth/fast-lane/{token}` | 
-*PrivateApi* | [**fast_lane_login_with_password**](docs/PrivateApi#fast_lane_login_with_password) | **POST** `/auth/fast-lane/{token}` | 
+*PrivateApi* | [**fast_lane_get_token_params**](docs/PrivateApi#fast_lane_get_token_params) | **GET** `/api/2/private/fast-lane/{token}` | 
+*PrivateApi* | [**fast_lane_login_with_password**](docs/PrivateApi#fast_lane_login_with_password) | **POST** `/api/2/private/fast-lane/{token}` | 
 *PrivateApi* | [**get**](docs/PrivateApi#get) | **GET** `/api/2/private/bootstrap` | 
 *PrivateApi* | [**get_agent_auth_token**](docs/PrivateApi#get_agent_auth_token) | **GET** `/api/2/private/elements-agent-auth` | 
 *PrivateApi* | [**get_all_one_fs_integrations**](docs/PrivateApi#get_all_one_fs_integrations) | **GET** `/api/2/private/onefs-integrations` | 
@@ -597,7 +597,6 @@ Class | Method | HTTP request | Description
 *PrivateApi* | [**get_proxy_fs_size**](docs/PrivateApi#get_proxy_fs_size) | **GET** `/api/2/private/media/proxyfs-size` | 
 *PrivateApi* | [**get_qumulo_integration**](docs/PrivateApi#get_qumulo_integration) | **GET** `/api/2/private/qumulo-integrations/{id}` | 
 *PrivateApi* | [**get_samba_dfree_string**](docs/PrivateApi#get_samba_dfree_string) | **POST** `/api/2/private/dfree` | 
-*PrivateApi* | [**get_stored_image**](docs/PrivateApi#get_stored_image) | **GET** `/api/2/image/{name}` | 
 *PrivateApi* | [**install_license**](docs/PrivateApi#install_license) | **POST** `/api/2/license/install` | 
 *PrivateApi* | [**language_server_request**](docs/PrivateApi#language_server_request) | **POST** `/api/2/language-server/{language}` | 
 *PrivateApi* | [**locate_file**](docs/PrivateApi#locate_file) | **POST** `/api/2/private/locate` | 
@@ -773,6 +772,7 @@ Class | Method | HTTP request | Description
  - [AssetBackup](docs/AssetBackup)
  - [AssetBackupMini](docs/AssetBackupMini)
  - [AssetCloudLink](docs/AssetCloudLink)
+ - [AssetMicro](docs/AssetMicro)
  - [AssetMini](docs/AssetMini)
  - [AssetMiniReference](docs/AssetMiniReference)
  - [AssetPartialUpdate](docs/AssetPartialUpdate)
@@ -803,6 +803,7 @@ Class | Method | HTTP request | Description
  - [ChangePasswordRequest](docs/ChangePasswordRequest)
  - [CheckCertificateRequest](docs/CheckCertificateRequest)
  - [CheckConnectivityEndpointResponse](docs/CheckConnectivityEndpointResponse)
+ - [CleanupMediaRootRequest](docs/CleanupMediaRootRequest)
  - [ClickBackgroundUploadEndpointRequest](docs/ClickBackgroundUploadEndpointRequest)
  - [ClickGallery](docs/ClickGallery)
  - [ClickGalleryLink](docs/ClickGalleryLink)
@@ -859,6 +860,8 @@ Class | Method | HTTP request | Description
  - [ElementsUserDetailUpdate](docs/ElementsUserDetailUpdate)
  - [ElementsUserMini](docs/ElementsUserMini)
  - [ElementsUserMiniReference](docs/ElementsUserMiniReference)
+ - [ElementsUserMiniWithAvatar](docs/ElementsUserMiniWithAvatar)
+ - [ElementsUserMiniWithAvatarReference](docs/ElementsUserMiniWithAvatarReference)
  - [ElementsUserProfile](docs/ElementsUserProfile)
  - [ElementsUserProfilePartialUpdate](docs/ElementsUserProfilePartialUpdate)
  - [ElementsUserProfileUpdate](docs/ElementsUserProfileUpdate)
@@ -895,6 +898,7 @@ Class | Method | HTTP request | Description
  - [FilesystemTraceEndpointResponse](docs/FilesystemTraceEndpointResponse)
  - [FinishUploadEndpointRequest](docs/FinishUploadEndpointRequest)
  - [FormatMetadata](docs/FormatMetadata)
+ - [FormatMetadataMini](docs/FormatMetadataMini)
  - [GeneratePasswordEndpointResponse](docs/GeneratePasswordEndpointResponse)
  - [GenerateProxiesRequest](docs/GenerateProxiesRequest)
  - [GetCloudAccountCostsResponse](docs/GetCloudAccountCostsResponse)
@@ -1026,6 +1030,7 @@ Class | Method | HTTP request | Description
  - [PathExclusionInfo](docs/PathExclusionInfo)
  - [PathInput](docs/PathInput)
  - [PathMapping](docs/PathMapping)
+ - [PathPermissions](docs/PathPermissions)
  - [PhysicalFile](docs/PhysicalFile)
  - [Production](docs/Production)
  - [ProductionMini](docs/ProductionMini)
@@ -1130,6 +1135,7 @@ Class | Method | HTTP request | Description
  - [SubclipPartialUpdate](docs/SubclipPartialUpdate)
  - [SubclipReference](docs/SubclipReference)
  - [SubclipUpdate](docs/SubclipUpdate)
+ - [SubmitWorkstationReport](docs/SubmitWorkstationReport)
  - [Subscription](docs/Subscription)
  - [Subtask](docs/Subtask)
  - [SubtaskPartialUpdate](docs/SubtaskPartialUpdate)
@@ -1169,7 +1175,6 @@ Class | Method | HTTP request | Description
  - [TaskLogEntry](docs/TaskLogEntry)
  - [TaskLogEntryData](docs/TaskLogEntryData)
  - [TaskLogV2](docs/TaskLogV2)
- - [TaskProgress](docs/TaskProgress)
  - [TaskType](docs/TaskType)
  - [TasksSummary](docs/TasksSummary)
  - [TeamsConnection](docs/TeamsConnection)

@@ -65,6 +65,9 @@ class WorkstationUpdate(ModelNormal):
         ('name',): {
             'max_length': 255,
         },
+        ('address',): {
+            'max_length': 255,
+        },
     }
 
     @cached_property
@@ -91,6 +94,7 @@ class WorkstationUpdate(ModelNormal):
             'hostname': (str,),  # noqa: E501
             'report': ({str: (str, none_type)},),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
+            'address': (str, none_type,),  # noqa: E501
             'last_seen': (datetime, none_type,),  # noqa: E501
         }
 
@@ -103,6 +107,7 @@ class WorkstationUpdate(ModelNormal):
         'hostname': 'hostname',  # noqa: E501
         'report': 'report',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'address': 'address',  # noqa: E501
         'last_seen': 'last_seen',  # noqa: E501
     }
 
@@ -152,6 +157,7 @@ class WorkstationUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             report ({str: (str, none_type)}): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
+            address (str, none_type): [optional]  # noqa: E501
             last_seen (datetime, none_type): [optional]  # noqa: E501
         """
 
@@ -242,6 +248,7 @@ class WorkstationUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             report ({str: (str, none_type)}): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
+            address (str, none_type): [optional]  # noqa: E501
             last_seen (datetime, none_type): [optional]  # noqa: E501
         """
 

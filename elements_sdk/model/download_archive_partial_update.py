@@ -59,10 +59,6 @@ class DownloadArchivePartialUpdate(ModelNormal):
     """
 
     allowed_values = {
-        ('progress_unit',): {
-            '0': 0,
-            '1': 1,
-        },
     }
 
     validations = {
@@ -99,10 +95,9 @@ class DownloadArchivePartialUpdate(ModelNormal):
         """
         lazy_import()
         return {
-            'task_info': (TaskInfo,),  # noqa: E501
+            'task_info': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'path': (str,),  # noqa: E501
-            'progress_unit': (int,),  # noqa: E501
             'user': (int, none_type,),  # noqa: E501
         }
 
@@ -115,7 +110,6 @@ class DownloadArchivePartialUpdate(ModelNormal):
         'task_info': 'task_info',  # noqa: E501
         'name': 'name',  # noqa: E501
         'path': 'path',  # noqa: E501
-        'progress_unit': 'progress_unit',  # noqa: E501
         'user': 'user',  # noqa: E501
     }
 
@@ -160,10 +154,9 @@ class DownloadArchivePartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            task_info (TaskInfo): [optional]  # noqa: E501
+            task_info (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
-            progress_unit (int): [optional]  # noqa: E501
             user (int, none_type): [optional]  # noqa: E501
         """
 
@@ -248,10 +241,9 @@ class DownloadArchivePartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            task_info (TaskInfo): [optional]  # noqa: E501
+            task_info (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
-            progress_unit (int): [optional]  # noqa: E501
             user (int, none_type): [optional]  # noqa: E501
         """
 

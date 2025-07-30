@@ -102,6 +102,9 @@ class ProxyProfile(ModelNormal):
     }
 
     validations = {
+        ('watermark_image',): {
+            'min_length': 1,
+        },
         ('name',): {
             'max_length': 255,
             'min_length': 1,
@@ -124,9 +127,6 @@ class ProxyProfile(ModelNormal):
         ('variants_limit',): {
             'inclusive_maximum': 2147483647,
             'inclusive_minimum': -2147483648,
-        },
-        ('watermark_image',): {
-            'max_length': 1023,
         },
         ('hotfolder_copy_to',): {
             'max_length': 1023,
@@ -172,6 +172,7 @@ class ProxyProfile(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
+            'watermark_image': (str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'proxy_generator': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
@@ -184,7 +185,6 @@ class ProxyProfile(ModelNormal):
             'enable_dense_filmstrip': (bool,),  # noqa: E501
             'image_format': (str,),  # noqa: E501
             'enable_watermark': (bool,),  # noqa: E501
-            'watermark_image': (str, none_type,),  # noqa: E501
             'watermark_position': (str,),  # noqa: E501
             'watermark_opacity': (float,),  # noqa: E501
             'watermark_size': (float,),  # noqa: E501
@@ -211,6 +211,7 @@ class ProxyProfile(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'watermark_image': 'watermark_image',  # noqa: E501
         'name': 'name',  # noqa: E501
         'proxy_generator': 'proxy_generator',  # noqa: E501
         'type': 'type',  # noqa: E501
@@ -223,7 +224,6 @@ class ProxyProfile(ModelNormal):
         'enable_dense_filmstrip': 'enable_dense_filmstrip',  # noqa: E501
         'image_format': 'image_format',  # noqa: E501
         'enable_watermark': 'enable_watermark',  # noqa: E501
-        'watermark_image': 'watermark_image',  # noqa: E501
         'watermark_position': 'watermark_position',  # noqa: E501
         'watermark_opacity': 'watermark_opacity',  # noqa: E501
         'watermark_size': 'watermark_size',  # noqa: E501
@@ -244,17 +244,19 @@ class ProxyProfile(ModelNormal):
     }
 
     read_only_vars = {
+        'watermark_image',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, proxy_generator, type, resolution, rate_control, crf, bitrate, audio_bitrate, variants_limit, enable_dense_filmstrip, image_format, enable_watermark, watermark_image, watermark_position, watermark_opacity, watermark_size, enable_timecode, timecode_position, timecode_opacity, timecode_size, lut, hotfolder_copy_to, hotfolder_read_from, hotfolder_queue_timeout, hotfolder_encode_timeout, vantage_workflow_id, external_transcoder_staging_path, allow_download, keep_audio_layout, external_transcoder, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, watermark_image, name, proxy_generator, type, resolution, rate_control, crf, bitrate, audio_bitrate, variants_limit, enable_dense_filmstrip, image_format, enable_watermark, watermark_position, watermark_opacity, watermark_size, enable_timecode, timecode_position, timecode_opacity, timecode_size, lut, hotfolder_copy_to, hotfolder_read_from, hotfolder_queue_timeout, hotfolder_encode_timeout, vantage_workflow_id, external_transcoder_staging_path, allow_download, keep_audio_layout, external_transcoder, *args, **xkwargs):  # noqa: E501
         """ProxyProfile - a model defined in OpenAPI
 
         Args:
             id (int):
+            watermark_image (str, none_type):
             name (str):
             proxy_generator (str):
             type (str):
@@ -267,7 +269,6 @@ class ProxyProfile(ModelNormal):
             enable_dense_filmstrip (bool):
             image_format (str):
             enable_watermark (bool):
-            watermark_image (str, none_type):
             watermark_position (str):
             watermark_opacity (float):
             watermark_size (float):
@@ -346,6 +347,7 @@ class ProxyProfile(ModelNormal):
 
 
         self.id = id
+        self.watermark_image = watermark_image
         self.name = name
         self.proxy_generator = proxy_generator
         self.type = type
@@ -358,7 +360,6 @@ class ProxyProfile(ModelNormal):
         self.enable_dense_filmstrip = enable_dense_filmstrip
         self.image_format = image_format
         self.enable_watermark = enable_watermark
-        self.watermark_image = watermark_image
         self.watermark_position = watermark_position
         self.watermark_opacity = watermark_opacity
         self.watermark_size = watermark_size
@@ -397,7 +398,7 @@ class ProxyProfile(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, proxy_generator, type, resolution, rate_control, crf, bitrate, audio_bitrate, variants_limit, enable_dense_filmstrip, image_format, enable_watermark, watermark_image, watermark_position, watermark_opacity, watermark_size, enable_timecode, timecode_position, timecode_opacity, timecode_size, lut, hotfolder_copy_to, hotfolder_read_from, hotfolder_queue_timeout, hotfolder_encode_timeout, vantage_workflow_id, external_transcoder_staging_path, allow_download, keep_audio_layout, external_transcoder, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, proxy_generator, type, resolution, rate_control, crf, bitrate, audio_bitrate, variants_limit, enable_dense_filmstrip, image_format, enable_watermark, watermark_position, watermark_opacity, watermark_size, enable_timecode, timecode_position, timecode_opacity, timecode_size, lut, hotfolder_copy_to, hotfolder_read_from, hotfolder_queue_timeout, hotfolder_encode_timeout, vantage_workflow_id, external_transcoder_staging_path, allow_download, keep_audio_layout, external_transcoder, *args, **xkwargs):  # noqa: E501
         """ProxyProfile - a model defined in OpenAPI
 
         Args:
@@ -414,7 +415,6 @@ class ProxyProfile(ModelNormal):
             enable_dense_filmstrip (bool):
             image_format (str):
             enable_watermark (bool):
-            watermark_image (str, none_type):
             watermark_position (str):
             watermark_opacity (float):
             watermark_size (float):
@@ -503,7 +503,6 @@ class ProxyProfile(ModelNormal):
         self.enable_dense_filmstrip = enable_dense_filmstrip
         self.image_format = image_format
         self.enable_watermark = enable_watermark
-        self.watermark_image = watermark_image
         self.watermark_position = watermark_position
         self.watermark_opacity = watermark_opacity
         self.watermark_size = watermark_size

@@ -119,6 +119,7 @@ class VolumePartialUpdate(ModelNormal):
             'simulated_quotas': (bool,),  # noqa: E501
             'cloud_account': (int, none_type,),  # noqa: E501
             'qumulo_integration': (int, none_type,),  # noqa: E501
+            'nfsv4_export': (bool,),  # noqa: E501
             'onefs_integration': (int, none_type,),  # noqa: E501
         }
 
@@ -141,6 +142,7 @@ class VolumePartialUpdate(ModelNormal):
         'simulated_quotas': 'simulated_quotas',  # noqa: E501
         'cloud_account': 'cloud_account',  # noqa: E501
         'qumulo_integration': 'qumulo_integration',  # noqa: E501
+        'nfsv4_export': 'nfsv4_export',  # noqa: E501
         'onefs_integration': 'onefs_integration',  # noqa: E501
     }
 
@@ -198,6 +200,7 @@ class VolumePartialUpdate(ModelNormal):
             simulated_quotas (bool): [optional]  # noqa: E501
             cloud_account (int, none_type): [optional]  # noqa: E501
             qumulo_integration (int, none_type): [optional]  # noqa: E501
+            nfsv4_export (bool): [optional]  # noqa: E501
             onefs_integration (int, none_type): [optional]  # noqa: E501
         """
 
@@ -295,6 +298,7 @@ class VolumePartialUpdate(ModelNormal):
             simulated_quotas (bool): [optional]  # noqa: E501
             cloud_account (int, none_type): [optional]  # noqa: E501
             qumulo_integration (int, none_type): [optional]  # noqa: E501
+            nfsv4_export (bool): [optional]  # noqa: E501
             onefs_integration (int, none_type): [optional]  # noqa: E501
         """
 

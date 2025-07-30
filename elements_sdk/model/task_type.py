@@ -78,6 +78,9 @@ class TaskType(ModelNormal):
         ('display_group',): {
             'min_length': 1,
         },
+        ('description',): {
+            'min_length': 1,
+        },
         ('parameters_editor_component',): {
             'min_length': 1,
         },
@@ -115,6 +118,7 @@ class TaskType(ModelNormal):
             'type': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
             'display_group': (str,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
             'input_type': (str, none_type,),  # noqa: E501
             'abortable': (bool,),  # noqa: E501
             'arg_template': ({str: (str, none_type)}, none_type,),  # noqa: E501
@@ -141,6 +145,7 @@ class TaskType(ModelNormal):
         'type': 'type',  # noqa: E501
         'display_name': 'display_name',  # noqa: E501
         'display_group': 'display_group',  # noqa: E501
+        'description': 'description',  # noqa: E501
         'input_type': 'input_type',  # noqa: E501
         'abortable': 'abortable',  # noqa: E501
         'arg_template': 'arg_template',  # noqa: E501
@@ -168,13 +173,14 @@ class TaskType(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, type, display_name, display_group, input_type, abortable, arg_template, arg_types, required_args, output_names, output_types, parameters_editor_component, superuser_only, icon_class, is_available, allow_in_jobs, required_permissions, new_since_version, wildcard_input, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, type, display_name, display_group, description, input_type, abortable, arg_template, arg_types, required_args, output_names, output_types, parameters_editor_component, superuser_only, icon_class, is_available, allow_in_jobs, required_permissions, new_since_version, wildcard_input, *args, **xkwargs):  # noqa: E501
         """TaskType - a model defined in OpenAPI
 
         Args:
             type (str):
             display_name (str):
             display_group (str):
+            description (str, none_type):
             input_type (str, none_type):
             abortable (bool):
             arg_template ({str: (str, none_type)}, none_type):
@@ -253,6 +259,7 @@ class TaskType(ModelNormal):
         self.type = type
         self.display_name = display_name
         self.display_group = display_group
+        self.description = description
         self.input_type = input_type
         self.abortable = abortable
         self.arg_template = arg_template
@@ -289,13 +296,14 @@ class TaskType(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, type, display_name, display_group, input_type, abortable, arg_template, required_args, output_names, parameters_editor_component, superuser_only, icon_class, allow_in_jobs, required_permissions, new_since_version, wildcard_input, *args, **xkwargs):  # noqa: E501
+    def __init__(self, type, display_name, display_group, description, input_type, abortable, arg_template, required_args, output_names, parameters_editor_component, superuser_only, icon_class, allow_in_jobs, required_permissions, new_since_version, wildcard_input, *args, **xkwargs):  # noqa: E501
         """TaskType - a model defined in OpenAPI
 
         Args:
             type (str):
             display_name (str):
             display_group (str):
+            description (str, none_type):
             input_type (str, none_type):
             abortable (bool):
             arg_template ({str: (str, none_type)}, none_type):
@@ -369,6 +377,7 @@ class TaskType(ModelNormal):
         self.type = type
         self.display_name = display_name
         self.display_group = display_group
+        self.description = description
         self.input_type = input_type
         self.abortable = abortable
         self.arg_template = arg_template

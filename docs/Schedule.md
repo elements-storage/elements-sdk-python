@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
-**variables** | **{str: (str, none_type)}** |  | 
+**variables** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | 
 **next_run** | **datetime** |  | [readonly] 
 **type** | **int** |  | 
 **enabled** | **bool** |  | 

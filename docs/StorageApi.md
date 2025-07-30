@@ -481,9 +481,23 @@ with elements_sdk.ApiClient(configuration) as api_client:
         files=[
             DirectoryEntry(
                 name="name_example",
+                path_permissions=PathPermissions(
+                    read=True,
+                    write=True,
+                    create=True,
+                    delete=True,
+                    update=True,
+                ),
                 files=[
                     PhysicalFile(
                         name="name_example",
+                        path_permissions=PathPermissions(
+                            read=True,
+                            write=True,
+                            create=True,
+                            delete=True,
+                            update=True,
+                        ),
                     ),
                 ],
             ),
@@ -896,6 +910,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
         simulated_quotas=True,
         cloud_account=1,
         qumulo_integration=1,
+        nfsv4_export=True,
         onefs_integration=1,
     ) # VolumeUpdate | 
 
@@ -984,9 +999,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
         emulate_avid=True,
         emulate_capture=True,
         emulate_preopen=True,
-        emulate_ntfs_streams=True,
+        emulate_alternate_data_streams=True,
         emulate_recycle_bin=True,
-        emulate_fruit=True,
         smb_extra_config="smb_extra_config_example",
         afp_extra_config="afp_extra_config_example",
         recycle_bin_exclude="recycle_bin_exclude_example",
@@ -1638,11 +1652,13 @@ with elements_sdk.ApiClient(configuration) as api_client:
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
     include_total_size = True # bool |  (optional)
+    filter = "filter_example" # str |  (optional)
+    filtering_mode = "exact" # str |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.get_all_productions(active=active, name=name, ordering=ordering, limit=limit, offset=offset, include_total_size=include_total_size)
+        api_response = api_instance.get_all_productions(active=active, name=name, ordering=ordering, limit=limit, offset=offset, include_total_size=include_total_size, filter=filter, filtering_mode=filtering_mode)
         pprint(api_response)
     except elements_sdk.ApiException as e:
         print("Exception when calling StorageApi->get_all_productions: %s\n" % e)
@@ -1659,6 +1675,8 @@ Name | Type | Description  | Notes
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
  **include_total_size** | **bool**|  | [optional]
+ **filter** | **str**|  | [optional]
+ **filtering_mode** | **str**|  | [optional]
 
 ### Return type
 
@@ -2973,9 +2991,23 @@ with elements_sdk.ApiClient(configuration) as api_client:
         files=[
             DirectoryEntry(
                 name="name_example",
+                path_permissions=PathPermissions(
+                    read=True,
+                    write=True,
+                    create=True,
+                    delete=True,
+                    update=True,
+                ),
                 files=[
                     PhysicalFile(
                         name="name_example",
+                        path_permissions=PathPermissions(
+                            read=True,
+                            write=True,
+                            create=True,
+                            delete=True,
+                            update=True,
+                        ),
                     ),
                 ],
             ),
@@ -3348,6 +3380,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
         simulated_quotas=True,
         cloud_account=1,
         qumulo_integration=1,
+        nfsv4_export=True,
         onefs_integration=1,
     ) # VolumePartialUpdate | 
 
@@ -3438,9 +3471,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
         emulate_avid=True,
         emulate_capture=True,
         emulate_preopen=True,
-        emulate_ntfs_streams=True,
+        emulate_alternate_data_streams=True,
         emulate_recycle_bin=True,
-        emulate_fruit=True,
         smb_extra_config="smb_extra_config_example",
         afp_extra_config="afp_extra_config_example",
         recycle_bin_exclude="recycle_bin_exclude_example",
@@ -4285,6 +4317,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
         simulated_quotas=True,
         cloud_account=1,
         qumulo_integration=1,
+        nfsv4_export=True,
         onefs_integration=1,
     ) # VolumeUpdate | 
 
@@ -4375,9 +4408,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
         emulate_avid=True,
         emulate_capture=True,
         emulate_preopen=True,
-        emulate_ntfs_streams=True,
+        emulate_alternate_data_streams=True,
         emulate_recycle_bin=True,
-        emulate_fruit=True,
         smb_extra_config="smb_extra_config_example",
         afp_extra_config="afp_extra_config_example",
         recycle_bin_exclude="recycle_bin_exclude_example",

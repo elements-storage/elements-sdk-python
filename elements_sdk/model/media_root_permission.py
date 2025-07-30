@@ -31,9 +31,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.elements_group import ElementsGroup
-    from elements_sdk.model.elements_user_mini import ElementsUserMini
+    from elements_sdk.model.elements_user_mini_with_avatar import ElementsUserMiniWithAvatar
     globals()['ElementsGroup'] = ElementsGroup
-    globals()['ElementsUserMini'] = ElementsUserMini
+    globals()['ElementsUserMiniWithAvatar'] = ElementsUserMiniWithAvatar
 
 
 class MediaRootPermission(ModelNormal):

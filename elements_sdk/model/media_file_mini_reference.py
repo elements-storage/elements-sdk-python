@@ -30,7 +30,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from elements_sdk.model.path_permissions import PathPermissions
     from elements_sdk.model.volume_mini import VolumeMini
+    globals()['PathPermissions'] = PathPermissions
     globals()['VolumeMini'] = VolumeMini
 
 
@@ -104,6 +106,7 @@ class MediaFileMiniReference(ModelNormal):
             'parent': (int, none_type,),  # noqa: E501
             'parent_file': ({str: (str, none_type)},),  # noqa: E501
             'path': (str,),  # noqa: E501
+            'path_permissions': (PathPermissions,),  # noqa: E501
             'present': (bool,),  # noqa: E501
             'archived': (bool,),  # noqa: E501
             'size': (int,),  # noqa: E501
@@ -127,6 +130,7 @@ class MediaFileMiniReference(ModelNormal):
         'parent': 'parent',  # noqa: E501
         'parent_file': 'parent_file',  # noqa: E501
         'path': 'path',  # noqa: E501
+        'path_permissions': 'path_permissions',  # noqa: E501
         'present': 'present',  # noqa: E501
         'archived': 'archived',  # noqa: E501
         'size': 'size',  # noqa: E501
@@ -200,6 +204,7 @@ class MediaFileMiniReference(ModelNormal):
             parent (int, none_type): [optional]  # noqa: E501
             parent_file ({str: (str, none_type)}): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
+            path_permissions (PathPermissions): [optional]  # noqa: E501
             present (bool): [optional]  # noqa: E501
             archived (bool): [optional]  # noqa: E501
             size (int): [optional]  # noqa: E501
@@ -301,6 +306,7 @@ class MediaFileMiniReference(ModelNormal):
             parent (int, none_type): [optional]  # noqa: E501
             parent_file ({str: (str, none_type)}): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
+            path_permissions (PathPermissions): [optional]  # noqa: E501
             present (bool): [optional]  # noqa: E501
             archived (bool): [optional]  # noqa: E501
             size (int): [optional]  # noqa: E501

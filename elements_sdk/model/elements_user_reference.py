@@ -60,15 +60,17 @@ class ElementsUserReference(ModelNormal):
             'EN': "en",
             'FR': "fr",
             'DE': "de",
-            'IT': "it",
-            'PT': "pt",
+            'NB': "nb",
+            'JA': "ja",
             'ES': "es",
-            'DA': "da",
             'XX': "xx",
         },
     }
 
     validations = {
+        ('avatar',): {
+            'min_length': 1,
+        },
         ('default_page',): {
             'max_length': 255,
             'min_length': 1,

@@ -110,7 +110,7 @@ class ScheduleReference(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
-            'variables': ({str: (str, none_type)},),  # noqa: E501
+            'variables': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'next_run': (datetime,),  # noqa: E501
             'type': (int,),  # noqa: E501
             'enabled': (bool,),  # noqa: E501
@@ -204,7 +204,7 @@ class ScheduleReference(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            variables ({str: (str, none_type)}): [optional]  # noqa: E501
+            variables ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             next_run (datetime): [optional]  # noqa: E501
             type (int): [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501
@@ -304,7 +304,7 @@ class ScheduleReference(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            variables ({str: (str, none_type)}): [optional]  # noqa: E501
+            variables ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             next_run (datetime): [optional]  # noqa: E501
             type (int): [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501

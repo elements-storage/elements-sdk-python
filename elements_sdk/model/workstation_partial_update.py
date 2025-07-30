@@ -65,6 +65,9 @@ class WorkstationPartialUpdate(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
+        ('address',): {
+            'max_length': 255,
+        },
     }
 
     @cached_property
@@ -91,6 +94,7 @@ class WorkstationPartialUpdate(ModelNormal):
             'report': ({str: (str, none_type)},),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'hostname': (str,),  # noqa: E501
+            'address': (str, none_type,),  # noqa: E501
             'last_seen': (datetime, none_type,),  # noqa: E501
         }
 
@@ -103,6 +107,7 @@ class WorkstationPartialUpdate(ModelNormal):
         'report': 'report',  # noqa: E501
         'name': 'name',  # noqa: E501
         'hostname': 'hostname',  # noqa: E501
+        'address': 'address',  # noqa: E501
         'last_seen': 'last_seen',  # noqa: E501
     }
 
@@ -150,6 +155,7 @@ class WorkstationPartialUpdate(ModelNormal):
             report ({str: (str, none_type)}): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             hostname (str): [optional]  # noqa: E501
+            address (str, none_type): [optional]  # noqa: E501
             last_seen (datetime, none_type): [optional]  # noqa: E501
         """
 
@@ -237,6 +243,7 @@ class WorkstationPartialUpdate(ModelNormal):
             report ({str: (str, none_type)}): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             hostname (str): [optional]  # noqa: E501
+            address (str, none_type): [optional]  # noqa: E501
             last_seen (datetime, none_type): [optional]  # noqa: E501
         """
 

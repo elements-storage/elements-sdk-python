@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **parent** | **int, none_type** |  | [optional] [readonly] 
 **parent_file** | **{str: (str, none_type)}** |  | [optional] [readonly] 
 **path** | **str** |  | [optional] [readonly] 
+**path_permissions** | [**PathPermissions**](PathPermissions.md) |  | [optional] 
 **present** | **bool** |  | [optional] [readonly] 
 **archived** | **bool** |  | [optional] [readonly] 
 **size** | **int** |  | [optional] [readonly] 

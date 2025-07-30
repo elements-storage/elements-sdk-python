@@ -20,13 +20,10 @@ Name | Type | Description | Notes
 **backend** | [**Backend**](Backend.md) |  | 
 **cloud_account** | **int, none_type** |  | 
 **qumulo_integration** | **int, none_type** |  | 
+**nfsv4_export** | **bool** |  | 
 **onefs_integration** | **int, none_type** |  | 
 **fs_properties** | [**FSProperties**](FSProperties.md) |  | [optional] 
 **status** | [**VolumeStatus**](VolumeStatus.md) |  | [optional] 
-**onefs_host** | **str, none_type** |  | [optional] [readonly] 
-**onefs_username** | **str, none_type** |  | [optional] [readonly] 
-**onefs_password** | **str, none_type** |  | [optional] [readonly] 
-**onefs_zone** | **str, none_type** |  | [optional] [readonly] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 

@@ -224,7 +224,7 @@ class JobDetailUpdate(ModelNormal):
             special_type (int, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501
-            allow_others_to_start (bool): [optional]  # noqa: E501
+            allow_others_to_start (bool):  When `allow_users` is an empty array, this flag allows users with the \"tasks:start\" permission to run this job, even without the \"tasks:manage\" permission. Otherwise, only users specified in `allow_users` and belonging to `allow_groups` can start the job (irrespective of permissions \"tasks:start\" and \"tasks:manage\"). . [optional]  # noqa: E501
             allow_client_to_start (bool): [optional]  # noqa: E501
             show_as_button (bool): [optional]  # noqa: E501
             input_type (str, none_type): [optional]  # noqa: E501
@@ -331,7 +331,7 @@ class JobDetailUpdate(ModelNormal):
             special_type (int, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501
-            allow_others_to_start (bool): [optional]  # noqa: E501
+            allow_others_to_start (bool):  When `allow_users` is an empty array, this flag allows users with the \"tasks:start\" permission to run this job, even without the \"tasks:manage\" permission. Otherwise, only users specified in `allow_users` and belonging to `allow_groups` can start the job (irrespective of permissions \"tasks:start\" and \"tasks:manage\"). . [optional]  # noqa: E501
             allow_client_to_start (bool): [optional]  # noqa: E501
             show_as_button (bool): [optional]  # noqa: E501
             input_type (str, none_type): [optional]  # noqa: E501

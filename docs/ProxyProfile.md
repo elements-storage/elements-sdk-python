@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
+**watermark_image** | **str, none_type** |  | [readonly] 
 **name** | **str** |  | 
 **proxy_generator** | **str** |  | 
 **type** | **str** |  | 
@@ -18,7 +19,6 @@ Name | Type | Description | Notes
 **enable_dense_filmstrip** | **bool** |  | 
 **image_format** | **str** |  | 
 **enable_watermark** | **bool** |  | 
-**watermark_image** | **str, none_type** |  | 
 **watermark_position** | **str** |  | 
 **watermark_opacity** | **float** |  | 
 **watermark_size** | **float** |  | 

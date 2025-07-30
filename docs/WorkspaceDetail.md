@@ -39,9 +39,8 @@ Name | Type | Description | Notes
 **emulate_avid** | **bool** |  | 
 **emulate_capture** | **bool** |  | 
 **emulate_preopen** | **bool** |  | 
-**emulate_ntfs_streams** | **bool** |  | 
+**emulate_alternate_data_streams** | **bool** |  | 
 **emulate_recycle_bin** | **bool** |  | 
-**emulate_fruit** | **bool** |  | 
 **smb_extra_config** | **str** |  | 
 **afp_extra_config** | **str** |  | 
 **recycle_bin_exclude** | **str, none_type** |  | 
@@ -58,6 +57,8 @@ Name | Type | Description | Notes
 **full_path** | **str, none_type** |  | [optional] [readonly] 
 **endpoints** | [**[WorkspaceEndpoint], none_type**](WorkspaceEndpoint.md) |  | [optional] [readonly] 
 **quota** | [**Quota**](Quota.md) |  | [optional] 
+**emulate_fruit** | **str, none_type** | This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string. | [optional] [readonly] 
+**emulate_ntfs_streams** | **str, none_type** | This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string. | [optional] [readonly] 
 **resolved_permissions** | [**[WorkspaceResolvedPermission], none_type**](WorkspaceResolvedPermission.md) |  | [optional] [readonly] 
 **directory** | **str, none_type** |  | [optional] [readonly] 
 **last_login** | **datetime, none_type** |  | [optional] [readonly] 

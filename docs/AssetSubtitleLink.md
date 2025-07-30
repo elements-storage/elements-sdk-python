@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **subtitle** | [**AssetMini**](AssetMini.md) |  | 
+**editable** | **bool** |  | [readonly] 
 **label** | **str** |  | 
 **id** | **int** |  | [optional] [readonly] 
 **key** | **str, none_type** |  | [optional] 

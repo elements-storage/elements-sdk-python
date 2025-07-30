@@ -33,14 +33,12 @@ def lazy_import():
     from elements_sdk.model.asset_backup_mini import AssetBackupMini
     from elements_sdk.model.elements_user_mini import ElementsUserMini
     from elements_sdk.model.format_metadata import FormatMetadata
-    from elements_sdk.model.media_file_bundle_mini import MediaFileBundleMini
     from elements_sdk.model.media_root_permission import MediaRootPermission
     from elements_sdk.model.proxy import Proxy
     from elements_sdk.model.tag import Tag
     globals()['AssetBackupMini'] = AssetBackupMini
     globals()['ElementsUserMini'] = ElementsUserMini
     globals()['FormatMetadata'] = FormatMetadata
-    globals()['MediaFileBundleMini'] = MediaFileBundleMini
     globals()['MediaRootPermission'] = MediaRootPermission
     globals()['Proxy'] = Proxy
     globals()['Tag'] = Tag
@@ -126,7 +124,6 @@ class Asset(ModelNormal):
             'backups': ([AssetBackupMini],),  # noqa: E501
             'proxies_generated': (bool,),  # noqa: E501
             'proxies_failed': (bool,),  # noqa: E501
-            'bundles': ([MediaFileBundleMini],),  # noqa: E501
             'format': (FormatMetadata,),  # noqa: E501
             'info': ({str: (str, none_type)},),  # noqa: E501
             'sync_id': (str,),  # noqa: E501
@@ -166,7 +163,6 @@ class Asset(ModelNormal):
         'backups': 'backups',  # noqa: E501
         'proxies_generated': 'proxies_generated',  # noqa: E501
         'proxies_failed': 'proxies_failed',  # noqa: E501
-        'bundles': 'bundles',  # noqa: E501
         'format': 'format',  # noqa: E501
         'info': 'info',  # noqa: E501
         'sync_id': 'sync_id',  # noqa: E501
@@ -198,7 +194,6 @@ class Asset(ModelNormal):
         'backups',  # noqa: E501
         'proxies_generated',  # noqa: E501
         'proxies_failed',  # noqa: E501
-        'bundles',  # noqa: E501
         'info',  # noqa: E501
         'sync_id',  # noqa: E501
         'display_name',  # noqa: E501
@@ -222,7 +217,7 @@ class Asset(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, proxy_info, custom_fields, tags, backups, proxies_generated, proxies_failed, bundles, format, info, sync_id, display_name, has_files, has_backups, has_cloud_links, thumbnail_generated, workflow_state, is_temporary, created, modified, timecode, set_stack_order, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, proxy_info, custom_fields, tags, backups, proxies_generated, proxies_failed, format, info, sync_id, display_name, has_files, has_backups, has_cloud_links, thumbnail_generated, workflow_state, is_temporary, created, modified, timecode, set_stack_order, *args, **xkwargs):  # noqa: E501
         """Asset - a model defined in OpenAPI
 
         Args:
@@ -233,7 +228,6 @@ class Asset(ModelNormal):
             backups ([AssetBackupMini]):
             proxies_generated (bool):
             proxies_failed (bool):
-            bundles ([MediaFileBundleMini]):
             format (FormatMetadata):
             info ({str: (str, none_type)}):
             sync_id (str):
@@ -325,7 +319,6 @@ class Asset(ModelNormal):
         self.backups = backups
         self.proxies_generated = proxies_generated
         self.proxies_failed = proxies_failed
-        self.bundles = bundles
         self.format = format
         self.info = info
         self.sync_id = sync_id

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **view_limit** | **int, none_type** |  | [optional] 
 **user** | **int** |  | [optional] 
 **email** | **str** |  | [optional] 
-**link_type** | **str** |  | [optional] 
+**link_type** | **str, none_type** |  | [optional] 
 **password** | **str, none_type** |  | [optional] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)

@@ -70,6 +70,9 @@ class MediaRootDetail(ModelNormal):
     }
 
     validations = {
+        ('cover',): {
+            'min_length': 1,
+        },
         ('name',): {
             'max_length': 255,
             'min_length': 1,
@@ -88,9 +91,6 @@ class MediaRootDetail(ModelNormal):
         ('view_default_tab',): {
             'max_length': 63,
             'min_length': 1,
-        },
-        ('cover',): {
-            'max_length': 255,
         },
         ('name_field',): {
             'max_length': 255,
@@ -129,6 +129,7 @@ class MediaRootDetail(ModelNormal):
             'volume': (Volume,),  # noqa: E501
             'full_path': (str,),  # noqa: E501
             'workflow': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'cover': (str, none_type,),  # noqa: E501
             'jobs': ([Job],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'path': (str,),  # noqa: E501
@@ -148,7 +149,6 @@ class MediaRootDetail(ModelNormal):
             'show_history': (bool,),  # noqa: E501
             'show_ai_metadata': (bool,),  # noqa: E501
             'prefetch_thumbnail_strips': (bool,),  # noqa: E501
-            'cover': (str, none_type,),  # noqa: E501
             'name_field': (str, none_type,),  # noqa: E501
             'share_comments': (bool,),  # noqa: E501
             'share_link_duration': (int,),  # noqa: E501
@@ -171,6 +171,7 @@ class MediaRootDetail(ModelNormal):
         'volume': 'volume',  # noqa: E501
         'full_path': 'full_path',  # noqa: E501
         'workflow': 'workflow',  # noqa: E501
+        'cover': 'cover',  # noqa: E501
         'jobs': 'jobs',  # noqa: E501
         'name': 'name',  # noqa: E501
         'path': 'path',  # noqa: E501
@@ -190,7 +191,6 @@ class MediaRootDetail(ModelNormal):
         'show_history': 'show_history',  # noqa: E501
         'show_ai_metadata': 'show_ai_metadata',  # noqa: E501
         'prefetch_thumbnail_strips': 'prefetch_thumbnail_strips',  # noqa: E501
-        'cover': 'cover',  # noqa: E501
         'name_field': 'name_field',  # noqa: E501
         'share_comments': 'share_comments',  # noqa: E501
         'share_link_duration': 'share_link_duration',  # noqa: E501
@@ -204,6 +204,7 @@ class MediaRootDetail(ModelNormal):
 
     read_only_vars = {
         'full_path',  # noqa: E501
+        'cover',  # noqa: E501
         'resolved_permissions',  # noqa: E501
     }
 
@@ -211,7 +212,7 @@ class MediaRootDetail(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, custom_fields, volume, full_path, workflow, jobs, name, path, description, needs_rescan, view_mode, view_style, view_default_tab, show_tags, show_comments, show_locations, show_custom_fields, show_ratings, show_subclips, show_subtitles, show_markers, show_history, show_ai_metadata, prefetch_thumbnail_strips, cover, name_field, share_comments, share_link_duration, disable_framestacks, default_proxy_profile, cloud_proxy_profile, proxy_profiles, tags, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, custom_fields, volume, full_path, workflow, cover, jobs, name, path, description, needs_rescan, view_mode, view_style, view_default_tab, show_tags, show_comments, show_locations, show_custom_fields, show_ratings, show_subclips, show_subtitles, show_markers, show_history, show_ai_metadata, prefetch_thumbnail_strips, name_field, share_comments, share_link_duration, disable_framestacks, default_proxy_profile, cloud_proxy_profile, proxy_profiles, tags, *args, **xkwargs):  # noqa: E501
         """MediaRootDetail - a model defined in OpenAPI
 
         Args:
@@ -220,6 +221,7 @@ class MediaRootDetail(ModelNormal):
             volume (Volume):
             full_path (str):
             workflow (bool, date, datetime, dict, float, int, list, str, none_type):
+            cover (str, none_type):
             jobs ([Job]):
             name (str):
             path (str):
@@ -239,7 +241,6 @@ class MediaRootDetail(ModelNormal):
             show_history (bool):
             show_ai_metadata (bool):
             prefetch_thumbnail_strips (bool):
-            cover (str, none_type):
             name_field (str, none_type):
             share_comments (bool):
             share_link_duration (int):
@@ -314,6 +315,7 @@ class MediaRootDetail(ModelNormal):
         self.volume = volume
         self.full_path = full_path
         self.workflow = workflow
+        self.cover = cover
         self.jobs = jobs
         self.name = name
         self.path = path
@@ -333,7 +335,6 @@ class MediaRootDetail(ModelNormal):
         self.show_history = show_history
         self.show_ai_metadata = show_ai_metadata
         self.prefetch_thumbnail_strips = prefetch_thumbnail_strips
-        self.cover = cover
         self.name_field = name_field
         self.share_comments = share_comments
         self.share_link_duration = share_link_duration
@@ -363,7 +364,7 @@ class MediaRootDetail(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, custom_fields, volume, workflow, jobs, name, path, description, needs_rescan, view_mode, view_style, view_default_tab, show_tags, show_comments, show_locations, show_custom_fields, show_ratings, show_subclips, show_subtitles, show_markers, show_history, show_ai_metadata, prefetch_thumbnail_strips, cover, name_field, share_comments, share_link_duration, disable_framestacks, default_proxy_profile, cloud_proxy_profile, proxy_profiles, tags, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, custom_fields, volume, workflow, jobs, name, path, description, needs_rescan, view_mode, view_style, view_default_tab, show_tags, show_comments, show_locations, show_custom_fields, show_ratings, show_subclips, show_subtitles, show_markers, show_history, show_ai_metadata, prefetch_thumbnail_strips, name_field, share_comments, share_link_duration, disable_framestacks, default_proxy_profile, cloud_proxy_profile, proxy_profiles, tags, *args, **xkwargs):  # noqa: E501
         """MediaRootDetail - a model defined in OpenAPI
 
         Args:
@@ -390,7 +391,6 @@ class MediaRootDetail(ModelNormal):
             show_history (bool):
             show_ai_metadata (bool):
             prefetch_thumbnail_strips (bool):
-            cover (str, none_type):
             name_field (str, none_type):
             share_comments (bool):
             share_link_duration (int):
@@ -481,7 +481,6 @@ class MediaRootDetail(ModelNormal):
         self.show_history = show_history
         self.show_ai_metadata = show_ai_metadata
         self.prefetch_thumbnail_strips = prefetch_thumbnail_strips
-        self.cover = cover
         self.name_field = name_field
         self.share_comments = share_comments
         self.share_link_duration = share_link_duration

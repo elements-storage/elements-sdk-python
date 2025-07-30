@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **image** | [**AIImage**](AIImage.md) |  | 
 **category** | [**AICategoryMini**](AICategoryMini.md) |  | 
-**asset_display_name** | **str** |  | [readonly] 
+**asset_display_name** | **str, none_type** |  | [readonly] 
 **transforms** | [**Transforms**](Transforms.md) |  | 
 **relative_left** | **float** |  | 
 **relative_top** | **float** |  | 

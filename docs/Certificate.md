@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **certificate** | **str** |  | 
 **key** | **str, none_type** |  | 
-**name** | **str** |  | [readonly] 
-**issuer** | **str** |  | [readonly] 
+**name** | **str, none_type** |  | [readonly] 
+**issuer** | **str, none_type** |  | [readonly] 
 **domains** | **[str]** |  | [readonly] 
 **fingerprint** | **str** |  | [readonly] 
 **not_valid_before** | **str** |  | [readonly] 

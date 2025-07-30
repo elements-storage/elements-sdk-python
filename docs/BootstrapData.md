@@ -31,11 +31,12 @@ Name | Type | Description | Notes
 **has_password_policy** | **bool** |  | 
 **has_filesystem_events** | **bool** |  | 
 **cluster_node_ips** | **[str]** |  | 
+**is_panel** | **bool** |  | 
 **current_node** | [**StorageNode**](StorageNode.md) |  | [optional] 
 **license** | [**License**](License.md) |  | [optional] 
 **parameter_values** | [**Parameters**](Parameters.md) |  | [optional] 
 **identity_value** | [**ElementsUserDetail**](ElementsUserDetail.md) |  | [optional] 
-**identity_value_from_cookie_session** | [**ElementsUserMini**](ElementsUserMini.md) |  | [optional] 
+**identity_value_from_cookie_session** | [**ElementsUserMiniWithAvatar**](ElementsUserMiniWithAvatar.md) |  | [optional] 
 **active_saml_provider** | [**SAMLProviderMini**](SAMLProviderMini.md) |  | [optional] 
 **tasks_summary** | [**TasksSummary**](TasksSummary.md) |  | [optional] 
 

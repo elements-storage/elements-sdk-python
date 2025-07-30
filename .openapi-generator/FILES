@@ -42,6 +42,7 @@ docs/Asset.md
 docs/AssetBackup.md
 docs/AssetBackupMini.md
 docs/AssetCloudLink.md
+docs/AssetMicro.md
 docs/AssetMini.md
 docs/AssetMiniReference.md
 docs/AssetPartialUpdate.md
@@ -74,6 +75,7 @@ docs/ChangeOwnPasswordRequest.md
 docs/ChangePasswordRequest.md
 docs/CheckCertificateRequest.md
 docs/CheckConnectivityEndpointResponse.md
+docs/CleanupMediaRootRequest.md
 docs/ClickApi.md
 docs/ClickBackgroundUploadEndpointRequest.md
 docs/ClickGallery.md
@@ -131,6 +133,8 @@ docs/ElementsUserDetailPartialUpdate.md
 docs/ElementsUserDetailUpdate.md
 docs/ElementsUserMini.md
 docs/ElementsUserMiniReference.md
+docs/ElementsUserMiniWithAvatar.md
+docs/ElementsUserMiniWithAvatarReference.md
 docs/ElementsUserProfile.md
 docs/ElementsUserProfilePartialUpdate.md
 docs/ElementsUserProfileUpdate.md
@@ -167,6 +171,7 @@ docs/FilesystemTraceEndpointRequest.md
 docs/FilesystemTraceEndpointResponse.md
 docs/FinishUploadEndpointRequest.md
 docs/FormatMetadata.md
+docs/FormatMetadataMini.md
 docs/GeneratePasswordEndpointResponse.md
 docs/GenerateProxiesRequest.md
 docs/GetCloudAccountCostsResponse.md
@@ -301,6 +306,7 @@ docs/Path.md
 docs/PathExclusionInfo.md
 docs/PathInput.md
 docs/PathMapping.md
+docs/PathPermissions.md
 docs/PhysicalFile.md
 docs/PrivateApi.md
 docs/Production.md
@@ -409,6 +415,7 @@ docs/SubclipClipboardEntryUpdate.md
 docs/SubclipPartialUpdate.md
 docs/SubclipReference.md
 docs/SubclipUpdate.md
+docs/SubmitWorkstationReport.md
 docs/Subscription.md
 docs/Subtask.md
 docs/SubtaskPartialUpdate.md
@@ -449,7 +456,6 @@ docs/TaskLog.md
 docs/TaskLogEntry.md
 docs/TaskLogEntryData.md
 docs/TaskLogV2.md
-docs/TaskProgress.md
 docs/TaskType.md
 docs/TasksSummary.md
 docs/TeamsConnection.md
@@ -573,6 +579,7 @@ elements_sdk/model/asset.py
 elements_sdk/model/asset_backup.py
 elements_sdk/model/asset_backup_mini.py
 elements_sdk/model/asset_cloud_link.py
+elements_sdk/model/asset_micro.py
 elements_sdk/model/asset_mini.py
 elements_sdk/model/asset_mini_reference.py
 elements_sdk/model/asset_partial_update.py
@@ -601,6 +608,7 @@ elements_sdk/model/change_own_password_request.py
 elements_sdk/model/change_password_request.py
 elements_sdk/model/check_certificate_request.py
 elements_sdk/model/check_connectivity_endpoint_response.py
+elements_sdk/model/cleanup_media_root_request.py
 elements_sdk/model/click_background_upload_endpoint_request.py
 elements_sdk/model/click_gallery.py
 elements_sdk/model/click_gallery_link.py
@@ -659,6 +667,8 @@ elements_sdk/model/elements_user_detail_partial_update.py
 elements_sdk/model/elements_user_detail_update.py
 elements_sdk/model/elements_user_mini.py
 elements_sdk/model/elements_user_mini_reference.py
+elements_sdk/model/elements_user_mini_with_avatar.py
+elements_sdk/model/elements_user_mini_with_avatar_reference.py
 elements_sdk/model/elements_user_profile.py
 elements_sdk/model/elements_user_profile_partial_update.py
 elements_sdk/model/elements_user_profile_update.py
@@ -694,6 +704,7 @@ elements_sdk/model/filesystem_trace_endpoint_request.py
 elements_sdk/model/filesystem_trace_endpoint_response.py
 elements_sdk/model/finish_upload_endpoint_request.py
 elements_sdk/model/format_metadata.py
+elements_sdk/model/format_metadata_mini.py
 elements_sdk/model/fs_properties.py
 elements_sdk/model/generate_password_endpoint_response.py
 elements_sdk/model/generate_proxies_request.py
@@ -824,6 +835,7 @@ elements_sdk/model/path.py
 elements_sdk/model/path_exclusion_info.py
 elements_sdk/model/path_input.py
 elements_sdk/model/path_mapping.py
+elements_sdk/model/path_permissions.py
 elements_sdk/model/physical_file.py
 elements_sdk/model/production.py
 elements_sdk/model/production_mini.py
@@ -930,6 +942,7 @@ elements_sdk/model/subclip_clipboard_entry_update.py
 elements_sdk/model/subclip_partial_update.py
 elements_sdk/model/subclip_reference.py
 elements_sdk/model/subclip_update.py
+elements_sdk/model/submit_workstation_report.py
 elements_sdk/model/subscription.py
 elements_sdk/model/subtask.py
 elements_sdk/model/subtask_partial_update.py
@@ -969,7 +982,6 @@ elements_sdk/model/task_log.py
 elements_sdk/model/task_log_entry.py
 elements_sdk/model/task_log_entry_data.py
 elements_sdk/model/task_log_v2.py
-elements_sdk/model/task_progress.py
 elements_sdk/model/task_type.py
 elements_sdk/model/tasks_summary.py
 elements_sdk/model/teams_connection.py
@@ -1044,4 +1056,11 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_asset_micro.py
+test/test_cleanup_media_root_request.py
+test/test_elements_user_mini_with_avatar.py
+test/test_elements_user_mini_with_avatar_reference.py
+test/test_format_metadata_mini.py
+test/test_path_permissions.py
+test/test_submit_workstation_report.py
 tox.ini

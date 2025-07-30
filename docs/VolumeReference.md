@@ -22,11 +22,8 @@ Name | Type | Description | Notes
 **status** | [**VolumeStatus**](VolumeStatus.md) |  | [optional] 
 **cloud_account** | **int, none_type** |  | [optional] [readonly] 
 **qumulo_integration** | **int, none_type** |  | [optional] [readonly] 
+**nfsv4_export** | **bool** |  | [optional] [readonly] 
 **onefs_integration** | **int, none_type** |  | [optional] [readonly] 
-**onefs_host** | **str, none_type** |  | [optional] [readonly] 
-**onefs_username** | **str, none_type** |  | [optional] [readonly] 
-**onefs_password** | **str, none_type** |  | [optional] [readonly] 
-**onefs_zone** | **str, none_type** |  | [optional] [readonly] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 

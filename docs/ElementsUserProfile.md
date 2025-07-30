@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**avatar** | **str, none_type** |  | 
+**avatar** | **str, none_type** |  | [readonly] 
 **default_page** | **str** |  | 
 **full_name** | **str, none_type** |  | 
 **language** | **str, none_type** |  | 

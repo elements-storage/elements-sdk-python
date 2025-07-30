@@ -76,7 +76,7 @@ class MediaRootMiniWithCustomFields(ModelNormal):
             'min_length': 1,
         },
         ('cover',): {
-            'max_length': 255,
+            'min_length': 1,
         },
     }
 
@@ -135,6 +135,7 @@ class MediaRootMiniWithCustomFields(ModelNormal):
 
     read_only_vars = {
         'full_path',  # noqa: E501
+        'cover',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -246,7 +247,7 @@ class MediaRootMiniWithCustomFields(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, description, volume, path, prefetch_thumbnail_strips, view_mode, cover, custom_fields, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, description, volume, path, prefetch_thumbnail_strips, view_mode, custom_fields, *args, **xkwargs):  # noqa: E501
         """MediaRootMiniWithCustomFields - a model defined in OpenAPI
 
         Args:
@@ -257,7 +258,6 @@ class MediaRootMiniWithCustomFields(ModelNormal):
             path (str):
             prefetch_thumbnail_strips (bool):
             view_mode (str):
-            cover (str, none_type):
             custom_fields ([CustomField]):
 
         Keyword Args:
@@ -324,7 +324,6 @@ class MediaRootMiniWithCustomFields(ModelNormal):
         self.path = path
         self.prefetch_thumbnail_strips = prefetch_thumbnail_strips
         self.view_mode = view_mode
-        self.cover = cover
         self.custom_fields = custom_fields
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

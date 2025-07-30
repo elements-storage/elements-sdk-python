@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
-**user** | [**ElementsUserMini**](ElementsUserMini.md) |  | 
+**user** | [**ElementsUserMiniWithAvatar**](ElementsUserMiniWithAvatar.md) |  | 
 **rating** | **int** |  | 
 **date** | **datetime** |  | [readonly] 
 

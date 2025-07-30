@@ -160,6 +160,14 @@ class Workspace(ModelNormal):
         ('full_path',): {
             'min_length': 1,
         },
+        ('emulate_fruit',): {
+            'max_length': 0,
+            'min_length': 0,
+        },
+        ('emulate_ntfs_streams',): {
+            'max_length': 0,
+            'min_length': 0,
+        },
         ('directory',): {
             'min_length': 1,
         },
@@ -221,9 +229,8 @@ class Workspace(ModelNormal):
             'emulate_avid': (bool,),  # noqa: E501
             'emulate_capture': (bool,),  # noqa: E501
             'emulate_preopen': (bool,),  # noqa: E501
-            'emulate_ntfs_streams': (bool,),  # noqa: E501
+            'emulate_alternate_data_streams': (bool,),  # noqa: E501
             'emulate_recycle_bin': (bool,),  # noqa: E501
-            'emulate_fruit': (bool,),  # noqa: E501
             'smb_extra_config': (str,),  # noqa: E501
             'afp_extra_config': (str,),  # noqa: E501
             'recycle_bin_exclude': (str, none_type,),  # noqa: E501
@@ -240,6 +247,8 @@ class Workspace(ModelNormal):
             'full_path': (str, none_type,),  # noqa: E501
             'endpoints': ([WorkspaceEndpoint], none_type,),  # noqa: E501
             'quota': (Quota,),  # noqa: E501
+            'emulate_fruit': (str, none_type,),  # noqa: E501
+            'emulate_ntfs_streams': (str, none_type,),  # noqa: E501
             'resolved_permissions': ([WorkspaceResolvedPermission], none_type,),  # noqa: E501
             'directory': (str, none_type,),  # noqa: E501
             'last_login': (datetime, none_type,),  # noqa: E501
@@ -285,9 +294,8 @@ class Workspace(ModelNormal):
         'emulate_avid': 'emulate_avid',  # noqa: E501
         'emulate_capture': 'emulate_capture',  # noqa: E501
         'emulate_preopen': 'emulate_preopen',  # noqa: E501
-        'emulate_ntfs_streams': 'emulate_ntfs_streams',  # noqa: E501
+        'emulate_alternate_data_streams': 'emulate_alternate_data_streams',  # noqa: E501
         'emulate_recycle_bin': 'emulate_recycle_bin',  # noqa: E501
-        'emulate_fruit': 'emulate_fruit',  # noqa: E501
         'smb_extra_config': 'smb_extra_config',  # noqa: E501
         'afp_extra_config': 'afp_extra_config',  # noqa: E501
         'recycle_bin_exclude': 'recycle_bin_exclude',  # noqa: E501
@@ -304,6 +312,8 @@ class Workspace(ModelNormal):
         'full_path': 'full_path',  # noqa: E501
         'endpoints': 'endpoints',  # noqa: E501
         'quota': 'quota',  # noqa: E501
+        'emulate_fruit': 'emulate_fruit',  # noqa: E501
+        'emulate_ntfs_streams': 'emulate_ntfs_streams',  # noqa: E501
         'resolved_permissions': 'resolved_permissions',  # noqa: E501
         'directory': 'directory',  # noqa: E501
         'last_login': 'last_login',  # noqa: E501
@@ -320,6 +330,8 @@ class Workspace(ModelNormal):
         'path',  # noqa: E501
         'full_path',  # noqa: E501
         'endpoints',  # noqa: E501
+        'emulate_fruit',  # noqa: E501
+        'emulate_ntfs_streams',  # noqa: E501
         'resolved_permissions',  # noqa: E501
         'directory',  # noqa: E501
         'last_login',  # noqa: E501
@@ -330,7 +342,7 @@ class Workspace(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, production, volume, sharing_nfs_permissions, current_share_name, size_used, size_total, bookmarked, quota_size_hard, quota_size_soft, resolved_read_only, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_ntfs_streams, emulate_recycle_bin, emulate_fruit, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, veto_dot_underscore, template, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, production, volume, sharing_nfs_permissions, current_share_name, size_used, size_total, bookmarked, quota_size_hard, quota_size_soft, resolved_read_only, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_alternate_data_streams, emulate_recycle_bin, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, veto_dot_underscore, template, *args, **xkwargs):  # noqa: E501
         """Workspace - a model defined in OpenAPI
 
         Args:
@@ -367,9 +379,8 @@ class Workspace(ModelNormal):
             emulate_avid (bool):
             emulate_capture (bool):
             emulate_preopen (bool):
-            emulate_ntfs_streams (bool):
+            emulate_alternate_data_streams (bool):
             emulate_recycle_bin (bool):
-            emulate_fruit (bool):
             smb_extra_config (str):
             afp_extra_config (str):
             recycle_bin_exclude (str, none_type):
@@ -418,6 +429,8 @@ class Workspace(ModelNormal):
             full_path (str, none_type): [optional]  # noqa: E501
             endpoints ([WorkspaceEndpoint], none_type): [optional]  # noqa: E501
             quota (Quota): [optional]  # noqa: E501
+            emulate_fruit (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
+            emulate_ntfs_streams (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
             resolved_permissions ([WorkspaceResolvedPermission], none_type): [optional]  # noqa: E501
             directory (str, none_type): [optional]  # noqa: E501
             last_login (datetime, none_type): [optional]  # noqa: E501
@@ -483,9 +496,8 @@ class Workspace(ModelNormal):
         self.emulate_avid = emulate_avid
         self.emulate_capture = emulate_capture
         self.emulate_preopen = emulate_preopen
-        self.emulate_ntfs_streams = emulate_ntfs_streams
+        self.emulate_alternate_data_streams = emulate_alternate_data_streams
         self.emulate_recycle_bin = emulate_recycle_bin
-        self.emulate_fruit = emulate_fruit
         self.smb_extra_config = smb_extra_config
         self.afp_extra_config = afp_extra_config
         self.recycle_bin_exclude = recycle_bin_exclude
@@ -518,7 +530,7 @@ class Workspace(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, production, volume, sharing_nfs_permissions, quota_size_hard, quota_size_soft, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_ntfs_streams, emulate_recycle_bin, emulate_fruit, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, veto_dot_underscore, template, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, production, volume, sharing_nfs_permissions, quota_size_hard, quota_size_soft, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_alternate_data_streams, emulate_recycle_bin, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, veto_dot_underscore, template, *args, **xkwargs):  # noqa: E501
         """Workspace - a model defined in OpenAPI
 
         Args:
@@ -550,9 +562,8 @@ class Workspace(ModelNormal):
             emulate_avid (bool):
             emulate_capture (bool):
             emulate_preopen (bool):
-            emulate_ntfs_streams (bool):
+            emulate_alternate_data_streams (bool):
             emulate_recycle_bin (bool):
-            emulate_fruit (bool):
             smb_extra_config (str):
             afp_extra_config (str):
             recycle_bin_exclude (str, none_type):
@@ -601,6 +612,8 @@ class Workspace(ModelNormal):
             full_path (str, none_type): [optional]  # noqa: E501
             endpoints ([WorkspaceEndpoint], none_type): [optional]  # noqa: E501
             quota (Quota): [optional]  # noqa: E501
+            emulate_fruit (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
+            emulate_ntfs_streams (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
             resolved_permissions ([WorkspaceResolvedPermission], none_type): [optional]  # noqa: E501
             directory (str, none_type): [optional]  # noqa: E501
             last_login (datetime, none_type): [optional]  # noqa: E501
@@ -659,9 +672,8 @@ class Workspace(ModelNormal):
         self.emulate_avid = emulate_avid
         self.emulate_capture = emulate_capture
         self.emulate_preopen = emulate_preopen
-        self.emulate_ntfs_streams = emulate_ntfs_streams
+        self.emulate_alternate_data_streams = emulate_alternate_data_streams
         self.emulate_recycle_bin = emulate_recycle_bin
-        self.emulate_fruit = emulate_fruit
         self.smb_extra_config = smb_extra_config
         self.afp_extra_config = afp_extra_config
         self.recycle_bin_exclude = recycle_bin_exclude

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **description** | **str, none_type** |  | [optional] 
 **enabled** | **bool** |  | [optional] 
-**allow_others_to_start** | **bool** |  | [optional] 
+**allow_others_to_start** | **bool** |  When &#x60;allow_users&#x60; is an empty array, this flag allows users with the \&quot;tasks:start\&quot; permission to run this job, even without the \&quot;tasks:manage\&quot; permission. Otherwise, only users specified in &#x60;allow_users&#x60; and belonging to &#x60;allow_groups&#x60; can start the job (irrespective of permissions \&quot;tasks:start\&quot; and \&quot;tasks:manage\&quot;).  | [optional] 
 **allow_client_to_start** | **bool** |  | [optional] 
 **show_as_button** | **bool** |  | [optional] 
 **input_type** | **str, none_type** |  | [optional] 

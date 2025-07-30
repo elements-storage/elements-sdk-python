@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **groups** | **[int]** |  | 
 **allow_changing_password** | **bool** |  | [optional] 
 **allow_wan_login** | **bool** |  | [optional] 
-**avatar** | **str, none_type** |  | [optional] 
 **default_page** | **str** |  | [optional] 
 **email** | **str, none_type** |  | [optional] 
 **expiry** | **datetime, none_type** |  | [optional] 

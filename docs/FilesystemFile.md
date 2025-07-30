@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **size** | **int** |  | [readonly] 
 **modification_time** | **datetime** |  | [readonly] 
 **is_dir** | **bool** |  | [readonly] 
+**path_permissions** | [**PathPermissions**](PathPermissions.md) |  | 
 **total_size** | **int** |  | [readonly] 
 **parent** | **str** |  | 
 **access_time** | **datetime** |  | [readonly] 

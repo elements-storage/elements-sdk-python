@@ -60,10 +60,9 @@ class ElementsUserProfilePartialUpdate(ModelNormal):
             'EN': "en",
             'FR': "fr",
             'DE': "de",
-            'IT': "it",
-            'PT': "pt",
+            'NB': "nb",
+            'JA': "ja",
             'ES': "es",
-            'DA': "da",
             'XX': "xx",
         },
     }
@@ -99,7 +98,6 @@ class ElementsUserProfilePartialUpdate(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'avatar': (str, none_type,),  # noqa: E501
             'default_page': (str,),  # noqa: E501
             'full_name': (str, none_type,),  # noqa: E501
             'language': (str, none_type,),  # noqa: E501
@@ -112,7 +110,6 @@ class ElementsUserProfilePartialUpdate(ModelNormal):
 
 
     attribute_map = {
-        'avatar': 'avatar',  # noqa: E501
         'default_page': 'default_page',  # noqa: E501
         'full_name': 'full_name',  # noqa: E501
         'language': 'language',  # noqa: E501
@@ -160,7 +157,6 @@ class ElementsUserProfilePartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            avatar (str, none_type): [optional]  # noqa: E501
             default_page (str): [optional]  # noqa: E501
             full_name (str, none_type): [optional]  # noqa: E501
             language (str, none_type): [optional]  # noqa: E501
@@ -248,7 +244,6 @@ class ElementsUserProfilePartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            avatar (str, none_type): [optional]  # noqa: E501
             default_page (str): [optional]  # noqa: E501
             full_name (str, none_type): [optional]  # noqa: E501
             language (str, none_type): [optional]  # noqa: E501

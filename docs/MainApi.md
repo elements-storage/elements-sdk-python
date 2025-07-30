@@ -74,7 +74,6 @@ Method | HTTP request | Description
 [**get_cloud_account_storage_roots**](MainApi.md#get_cloud_account_storage_roots) | **GET** `/api/2/cloud/accounts/{id}/storage-roots` | 
 [**get_cloud_account_volume_sizes**](MainApi.md#get_cloud_account_volume_sizes) | **GET** `/api/2/cloud/accounts/{id}/volume-sizes` | 
 [**get_current_node**](MainApi.md#get_current_node) | **GET** `/api/2/nodes/current` | 
-[**get_current_workstation**](MainApi.md#get_current_workstation) | **GET** `/api/2/workstations/current` | 
 [**get_download**](MainApi.md#get_download) | **GET** `/api/2/downloads/{id}` | 
 [**get_download_archive**](MainApi.md#get_download_archive) | **GET** `/api/2/download-archive/{id}` | 
 [**get_download_archive_file**](MainApi.md#get_download_archive_file) | **GET** `/api/2/download-archive/{id}/download` | 
@@ -157,7 +156,6 @@ Method | HTTP request | Description
 [**test_smtp_configuration**](MainApi.md#test_smtp_configuration) | **POST** `/api/2/system/smtp/test` | 
 [**update_certificate_configuration**](MainApi.md#update_certificate_configuration) | **PUT** `/api/2/system/certificate` | 
 [**update_cloud_account**](MainApi.md#update_cloud_account) | **PUT** `/api/2/cloud/accounts/{id}` | 
-[**update_current_workstation**](MainApi.md#update_current_workstation) | **PUT** `/api/2/workstations/current` | 
 [**update_download_archive**](MainApi.md#update_download_archive) | **PUT** `/api/2/download-archive/{id}` | 
 [**update_filesystem_permission**](MainApi.md#update_filesystem_permission) | **PUT** `/api/2/filesystem-permissions/{id}` | 
 [**update_group**](MainApi.md#update_group) | **PUT** `/api/2/groups/{id}` | 
@@ -1298,7 +1296,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
     elements_user_detail_update = ElementsUserDetailUpdate(
         allow_changing_password=True,
         allow_wan_login=True,
-        avatar="avatar_example",
         default_page="default_page_example",
         email="email_example",
         expiry=dateutil_parser('1970-01-01T00:00:00.00Z'),
@@ -1383,6 +1380,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
         },
         name="name_example",
         hostname="hostname_example",
+        address="address_example",
         last_seen=dateutil_parser('1970-01-01T00:00:00.00Z'),
     ) # WorkstationUpdate | 
 
@@ -2824,11 +2822,13 @@ with elements_sdk.ApiClient(configuration) as api_client:
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
+    filter = "filter_example" # str |  (optional)
+    filtering_mode = "exact" # str |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.get_all_groups(name=name, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_groups(name=name, ordering=ordering, limit=limit, offset=offset, filter=filter, filtering_mode=filtering_mode)
         pprint(api_response)
     except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_all_groups: %s\n" % e)
@@ -2843,6 +2843,8 @@ Name | Type | Description  | Notes
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
+ **filter** | **str**|  | [optional]
+ **filtering_mode** | **str**|  | [optional]
 
 ### Return type
 
@@ -3360,11 +3362,14 @@ with elements_sdk.ApiClient(configuration) as api_client:
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
+    filter = "filter_example" # str |  (optional)
+    filtering_mode = "exact" # str |  (optional)
+    sort = "name" # str |  (optional) if omitted the server will use the default value of "name"
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.get_all_workstations(hostname=hostname, name=name, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_workstations(hostname=hostname, name=name, ordering=ordering, limit=limit, offset=offset, filter=filter, filtering_mode=filtering_mode, sort=sort)
         pprint(api_response)
     except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_all_workstations: %s\n" % e)
@@ -3380,6 +3385,9 @@ Name | Type | Description  | Notes
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
+ **filter** | **str**|  | [optional]
+ **filtering_mode** | **str**|  | [optional]
+ **sort** | **str**|  | [optional] if omitted the server will use the default value of "name"
 
 ### Return type
 
@@ -3875,59 +3883,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StorageNode**](StorageNode.md)
-
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
-
-# **get_current_workstation**
-    def Workstation get_current_workstation()
-
-
-
-### Example
-
-
-```python
-import elements_sdk
-from elements_sdk.api import main_api
-from elements_sdk.model.workstation import Workstation
-from pprint import pprint
-
-# See configuration.py for a list of all supported configuration parameters.
-configuration = elements_sdk.Configuration(
-    host="https://elements.local:8080",
-    discard_unknown_keys=True,
-)
-
-configuration.client_side_validation = False
-configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
-
-with elements_sdk.ApiClient(configuration) as api_client:
-    api_instance = main_api.MainApi(api_client)
-    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
-    limit = 1 # int | Number of results to return per page. (optional)
-    offset = 1 # int | The initial index from which to return the results. (optional)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        api_response = api_instance.get_current_workstation(ordering=ordering, limit=limit, offset=offset)
-        pprint(api_response)
-    except elements_sdk.ApiException as e:
-        print("Exception when calling MainApi->get_current_workstation: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ordering** | **str**| Which field to use when ordering the results. | [optional]
- **limit** | **int**| Number of results to return per page. | [optional]
- **offset** | **int**| The initial index from which to return the results. | [optional]
-
-### Return type
-
-[**Workstation**](Workstation.md)
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
@@ -6054,7 +6009,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **patch_current_workstation**
-    def Workstation patch_current_workstation(workstation_partial_update)
+    def Workstation patch_current_workstation(submit_workstation_report)
 
 
 
@@ -6065,7 +6020,7 @@ Name | Type | Description  | Notes
 import elements_sdk
 from elements_sdk.api import main_api
 from elements_sdk.model.workstation import Workstation
-from elements_sdk.model.workstation_partial_update import WorkstationPartialUpdate
+from elements_sdk.model.submit_workstation_report import SubmitWorkstationReport
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -6079,18 +6034,15 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
-    workstation_partial_update = WorkstationPartialUpdate(
+    submit_workstation_report = SubmitWorkstationReport(
         report={
             "key": "key_example",
         },
-        name="name_example",
-        hostname="hostname_example",
-        last_seen=dateutil_parser('1970-01-01T00:00:00.00Z'),
-    ) # WorkstationPartialUpdate | 
+    ) # SubmitWorkstationReport | 
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.patch_current_workstation(workstation_partial_update)
+        api_response = api_instance.patch_current_workstation(submit_workstation_report)
         pprint(api_response)
     except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->patch_current_workstation: %s\n" % e)
@@ -6101,7 +6053,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workstation_partial_update** | [**WorkstationPartialUpdate**](WorkstationPartialUpdate.md)|  |
+ **submit_workstation_report** | [**SubmitWorkstationReport**](SubmitWorkstationReport.md)|  |
 
 ### Return type
 
@@ -6139,37 +6091,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
     id = "id_example" # str | A UUID string identifying this download archive.
     download_archive_partial_update = DownloadArchivePartialUpdate(
-        task_info=TaskInfo(
-            id="id_example",
-            subtask=None,
-            worker=None,
-            user=None,
-            workstation=None,
-            progress=TaskProgress(
-                message="message_example",
-                current=1,
-                max=3.14,
-                bar=True,
-            ),
-            name="name_example",
-            task_name="task_name_example",
-            is_private=True,
-            worker_name="worker_name_example",
-            queue="queue_example",
-            state=0,
-            state_text="state_text_example",
-            job_instance="job_instance_example",
-            is_running=True,
-            is_finished=True,
-            exception="exception_example",
-            traceback="traceback_example",
-            related_bundle_id=-2147483648,
-            related_proxy_id=-2147483648,
-            schedule=1,
-        ),
+        task_info=None,
         name="name_example",
         path="path_example",
-        progress_unit=0,
         user=1,
     ) # DownloadArchivePartialUpdate | 
 
@@ -6714,7 +6638,6 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
     elements_user_profile_partial_update = ElementsUserProfilePartialUpdate(
-        avatar="avatar_example",
         default_page="default_page_example",
         full_name="full_name_example",
         language="en",
@@ -6855,7 +6778,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
     elements_user_detail_partial_update = ElementsUserDetailPartialUpdate(
         allow_changing_password=True,
         allow_wan_login=True,
-        avatar="avatar_example",
         default_page="default_page_example",
         email="email_example",
         expiry=dateutil_parser('1970-01-01T00:00:00.00Z'),
@@ -6942,6 +6864,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
         },
         name="name_example",
         hostname="hostname_example",
+        address="address_example",
         last_seen=dateutil_parser('1970-01-01T00:00:00.00Z'),
     ) # WorkstationPartialUpdate | 
 
@@ -8324,62 +8247,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-# **update_current_workstation**
-    def Workstation update_current_workstation(workstation_update)
-
-
-
-### Example
-
-
-```python
-import elements_sdk
-from elements_sdk.api import main_api
-from elements_sdk.model.workstation_update import WorkstationUpdate
-from elements_sdk.model.workstation import Workstation
-from pprint import pprint
-
-# See configuration.py for a list of all supported configuration parameters.
-configuration = elements_sdk.Configuration(
-    host="https://elements.local:8080",
-    discard_unknown_keys=True,
-)
-
-configuration.client_side_validation = False
-configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
-
-with elements_sdk.ApiClient(configuration) as api_client:
-    api_instance = main_api.MainApi(api_client)
-    workstation_update = WorkstationUpdate(
-        report={
-            "key": "key_example",
-        },
-        name="name_example",
-        hostname="hostname_example",
-        last_seen=dateutil_parser('1970-01-01T00:00:00.00Z'),
-    ) # WorkstationUpdate | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        api_response = api_instance.update_current_workstation(workstation_update)
-        pprint(api_response)
-    except elements_sdk.ApiException as e:
-        print("Exception when calling MainApi->update_current_workstation: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **workstation_update** | [**WorkstationUpdate**](WorkstationUpdate.md)|  |
-
-### Return type
-
-[**Workstation**](Workstation.md)
-
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
-
 # **update_download_archive**
     def DownloadArchive update_download_archive(id, download_archive_update)
 
@@ -8410,37 +8277,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
     id = "id_example" # str | A UUID string identifying this download archive.
     download_archive_update = DownloadArchiveUpdate(
-        task_info=TaskInfo(
-            id="id_example",
-            subtask=None,
-            worker=None,
-            user=None,
-            workstation=None,
-            progress=TaskProgress(
-                message="message_example",
-                current=1,
-                max=3.14,
-                bar=True,
-            ),
-            name="name_example",
-            task_name="task_name_example",
-            is_private=True,
-            worker_name="worker_name_example",
-            queue="queue_example",
-            state=0,
-            state_text="state_text_example",
-            job_instance="job_instance_example",
-            is_running=True,
-            is_finished=True,
-            exception="exception_example",
-            traceback="traceback_example",
-            related_bundle_id=-2147483648,
-            related_proxy_id=-2147483648,
-            schedule=1,
-        ),
+        task_info=None,
         name="name_example",
         path="path_example",
-        progress_unit=0,
         user=1,
     ) # DownloadArchiveUpdate | 
 
@@ -9193,7 +9032,6 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
     elements_user_profile_update = ElementsUserProfileUpdate(
-        avatar="avatar_example",
         default_page="default_page_example",
         full_name="full_name_example",
         language="en",
@@ -9497,7 +9335,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
     elements_user_detail_update = ElementsUserDetailUpdate(
         allow_changing_password=True,
         allow_wan_login=True,
-        avatar="avatar_example",
         default_page="default_page_example",
         email="email_example",
         expiry=dateutil_parser('1970-01-01T00:00:00.00Z'),
@@ -9637,6 +9474,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
         },
         name="name_example",
         hostname="hostname_example",
+        address="address_example",
         last_seen=dateutil_parser('1970-01-01T00:00:00.00Z'),
     ) # WorkstationUpdate | 
 

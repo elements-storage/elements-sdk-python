@@ -82,6 +82,7 @@ class AuthFastLaneEndpointRequest(ModelNormal):
         """
         return {
             'password': (str,),  # noqa: E501
+            'override_redirect': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -91,6 +92,7 @@ class AuthFastLaneEndpointRequest(ModelNormal):
 
     attribute_map = {
         'password': 'password',  # noqa: E501
+        'override_redirect': 'override_redirect',  # noqa: E501
     }
 
     read_only_vars = {
@@ -137,6 +139,7 @@ class AuthFastLaneEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            override_redirect (str, none_type): Overrides the generated redirect URL. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -224,6 +227,7 @@ class AuthFastLaneEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            override_redirect (str, none_type): Overrides the generated redirect URL. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

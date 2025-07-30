@@ -30,15 +30,15 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.asset_mini import AssetMini
+    from elements_sdk.model.asset_micro import AssetMicro
     from elements_sdk.model.comment import Comment
-    from elements_sdk.model.elements_user_mini import ElementsUserMini
+    from elements_sdk.model.elements_user_mini_with_avatar import ElementsUserMiniWithAvatar
     from elements_sdk.model.media_file import MediaFile
     from elements_sdk.model.media_root_mini_with_custom_fields import MediaRootMiniWithCustomFields
     from elements_sdk.model.unfiltered_tag import UnfilteredTag
-    globals()['AssetMini'] = AssetMini
+    globals()['AssetMicro'] = AssetMicro
     globals()['Comment'] = Comment
-    globals()['ElementsUserMini'] = ElementsUserMini
+    globals()['ElementsUserMiniWithAvatar'] = ElementsUserMiniWithAvatar
     globals()['MediaFile'] = MediaFile
     globals()['MediaRootMiniWithCustomFields'] = MediaRootMiniWithCustomFields
     globals()['UnfilteredTag'] = UnfilteredTag
@@ -106,7 +106,7 @@ class MediaUpdate(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'asset': (AssetMini,),  # noqa: E501
+            'asset': (AssetMicro,),  # noqa: E501
             'root': (MediaRootMiniWithCustomFields,),  # noqa: E501
             'custom_fields_diff': ({str: (str, none_type)},),  # noqa: E501
             'added_tags': ([UnfilteredTag],),  # noqa: E501
@@ -116,7 +116,7 @@ class MediaUpdate(ModelNormal):
             'rating': (int, none_type,),  # noqa: E501
             'comment': (Comment,),  # noqa: E501
             'directory': (MediaFile,),  # noqa: E501
-            'user': (ElementsUserMini,),  # noqa: E501
+            'user': (ElementsUserMiniWithAvatar,),  # noqa: E501
         }
 
     @cached_property
@@ -154,7 +154,7 @@ class MediaUpdate(ModelNormal):
 
         Args:
             id (int):
-            asset (AssetMini):
+            asset (AssetMicro):
             root (MediaRootMiniWithCustomFields):
             custom_fields_diff ({str: (str, none_type)}):
             added_tags ([UnfilteredTag]):
@@ -196,7 +196,7 @@ class MediaUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             comment (Comment): [optional]  # noqa: E501
             directory (MediaFile): [optional]  # noqa: E501
-            user (ElementsUserMini): [optional]  # noqa: E501
+            user (ElementsUserMiniWithAvatar): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -260,7 +260,7 @@ class MediaUpdate(ModelNormal):
 
         Args:
             id (int):
-            asset (AssetMini):
+            asset (AssetMicro):
             root (MediaRootMiniWithCustomFields):
             custom_fields_diff ({str: (str, none_type)}):
             type (str):
@@ -299,7 +299,7 @@ class MediaUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             comment (Comment): [optional]  # noqa: E501
             directory (MediaFile): [optional]  # noqa: E501
-            user (ElementsUserMini): [optional]  # noqa: E501
+            user (ElementsUserMiniWithAvatar): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

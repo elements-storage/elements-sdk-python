@@ -72,10 +72,6 @@ class MediaFileBundle(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
-        ('is_excluded_from_proxy_generation',): {
-            'max_length': 1,
-            'min_length': 1,
-        },
     }
 
     @cached_property
@@ -111,7 +107,6 @@ class MediaFileBundle(ModelNormal):
             'location': (int,),  # noqa: E501
             'shared_via_tokens': ([int],),  # noqa: E501
             'asset': (Asset,),  # noqa: E501
-            'is_excluded_from_proxy_generation': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -130,13 +125,11 @@ class MediaFileBundle(ModelNormal):
         'location': 'location',  # noqa: E501
         'shared_via_tokens': 'shared_via_tokens',  # noqa: E501
         'asset': 'asset',  # noqa: E501
-        'is_excluded_from_proxy_generation': 'is_excluded_from_proxy_generation',  # noqa: E501
     }
 
     read_only_vars = {
         'is_shared',  # noqa: E501
         'file_count',  # noqa: E501
-        'is_excluded_from_proxy_generation',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -189,7 +182,6 @@ class MediaFileBundle(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             asset (Asset): [optional]  # noqa: E501
-            is_excluded_from_proxy_generation (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -292,7 +284,6 @@ class MediaFileBundle(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             asset (Asset): [optional]  # noqa: E501
-            is_excluded_from_proxy_generation (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

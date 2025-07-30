@@ -125,9 +125,6 @@ class ProxyProfileUpdate(ModelNormal):
             'inclusive_maximum': 2147483647,
             'inclusive_minimum': -2147483648,
         },
-        ('watermark_image',): {
-            'max_length': 1023,
-        },
         ('hotfolder_copy_to',): {
             'max_length': 1023,
         },
@@ -183,7 +180,6 @@ class ProxyProfileUpdate(ModelNormal):
             'enable_dense_filmstrip': (bool,),  # noqa: E501
             'image_format': (str,),  # noqa: E501
             'enable_watermark': (bool,),  # noqa: E501
-            'watermark_image': (str, none_type,),  # noqa: E501
             'watermark_position': (str,),  # noqa: E501
             'watermark_opacity': (float,),  # noqa: E501
             'watermark_size': (float,),  # noqa: E501
@@ -221,7 +217,6 @@ class ProxyProfileUpdate(ModelNormal):
         'enable_dense_filmstrip': 'enable_dense_filmstrip',  # noqa: E501
         'image_format': 'image_format',  # noqa: E501
         'enable_watermark': 'enable_watermark',  # noqa: E501
-        'watermark_image': 'watermark_image',  # noqa: E501
         'watermark_position': 'watermark_position',  # noqa: E501
         'watermark_opacity': 'watermark_opacity',  # noqa: E501
         'watermark_size': 'watermark_size',  # noqa: E501
@@ -296,7 +291,6 @@ class ProxyProfileUpdate(ModelNormal):
             enable_dense_filmstrip (bool): [optional]  # noqa: E501
             image_format (str): [optional]  # noqa: E501
             enable_watermark (bool): [optional]  # noqa: E501
-            watermark_image (str, none_type): [optional]  # noqa: E501
             watermark_position (str): [optional]  # noqa: E501
             watermark_opacity (float): [optional]  # noqa: E501
             watermark_size (float): [optional]  # noqa: E501
@@ -412,7 +406,6 @@ class ProxyProfileUpdate(ModelNormal):
             enable_dense_filmstrip (bool): [optional]  # noqa: E501
             image_format (str): [optional]  # noqa: E501
             enable_watermark (bool): [optional]  # noqa: E501
-            watermark_image (str, none_type): [optional]  # noqa: E501
             watermark_position (str): [optional]  # noqa: E501
             watermark_opacity (float): [optional]  # noqa: E501
             watermark_size (float): [optional]  # noqa: E501

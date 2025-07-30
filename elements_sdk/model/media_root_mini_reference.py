@@ -74,7 +74,7 @@ class MediaRootMiniReference(ModelNormal):
             'min_length': 1,
         },
         ('cover',): {
-            'max_length': 255,
+            'min_length': 1,
         },
     }
 

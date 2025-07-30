@@ -7,10 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
 **kwargs** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | [optional] [readonly] 
-**graph_layout** | **str, none_type** |  | [optional] [readonly] 
 **validation_error** | **str, none_type** |  | [optional] [readonly] 
-**condition_variable** | **str, none_type** |  | [optional] [readonly] 
-**condition_value** | **str, none_type** |  | [optional] [readonly] 
 **trigger** | **str, none_type** |  | [optional] [readonly] 
 **name** | **str, none_type** |  | [optional] [readonly] 
 **noop_dont_save** | **bool** |  | [optional] [readonly] 

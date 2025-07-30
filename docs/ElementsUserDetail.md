@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **allow_wan_login** | **bool** |  | 
 **allowed_fs_paths** | **[str, none_type], none_type** |  | [readonly] 
 **allowed_fs_write_paths** | **[str, none_type], none_type** |  | [readonly] 
-**avatar** | **str, none_type** |  | 
+**avatar** | **str, none_type** |  | [readonly] 
 **default_page** | **str** |  | 
 **display_name** | **str** |  | [readonly] 
 **effective_permissions** | **[str, none_type]** |  | [readonly] 

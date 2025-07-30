@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **info** | **{str: (str, none_type)}** |  | 
 **custom_fields** | **{str: (str, none_type)}** |  | 
 **full_path** | **str** |  | [readonly] 
+**path_permissions** | [**PathPermissions**](PathPermissions.md) |  | 
 **is_shared** | **bool, none_type** |  | [readonly] 
 **is_hardlink** | **bool** |  | [readonly] 
 **is_bookmarked** | **bool, none_type** |  | [readonly] 
@@ -34,8 +35,6 @@ Name | Type | Description | Notes
 **root** | [**MediaRootMini**](MediaRootMini.md) |  | [optional] 
 **effective_custom_fields** | **{str: (str, none_type)}, none_type** |  | [optional] [readonly] 
 **modified_by** | [**ElementsUserMini**](ElementsUserMini.md) |  | [optional] 
-**is_excluded** | **str, none_type** |  | [optional] [readonly] 
-**is_excluded_from_proxy_generation** | **str, none_type** |  | [optional] [readonly] 
 **parent** | **int, none_type** |  | [optional] [readonly] 
 **bundle** | **int, none_type** |  | [optional] [readonly] 
 

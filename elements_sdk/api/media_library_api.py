@@ -62,6 +62,7 @@ from elements_sdk.model.marker_partial_update import MarkerPartialUpdate
 from elements_sdk.model.marker_update import MarkerUpdate
 from elements_sdk.model.media_file import MediaFile
 from elements_sdk.model.media_file_bundle import MediaFileBundle
+from elements_sdk.model.media_file_bundle_mini import MediaFileBundleMini
 from elements_sdk.model.media_file_contents import MediaFileContents
 from elements_sdk.model.media_file_mini import MediaFileMini
 from elements_sdk.model.media_file_partial_update import MediaFilePartialUpdate
@@ -4988,6 +4989,21 @@ class MediaLibraryApi(object):
             params_map={
                 'all': [
                     'all_media_files_for_bundles_request',
+                    'bundle',
+                    'bundle__in',
+                    'parent',
+                    'path',
+                    'name',
+                    'is_dir',
+                    'is_showroom',
+                    'present',
+                    'archived',
+                    'volume',
+                    'shared_via_tokens',
+                    'shared_via_tokens__token',
+                    'ordering',
+                    'limit',
+                    'offset',
                 ],
                 'required': [
                     'all_media_files_for_bundles_request',
@@ -5007,11 +5023,71 @@ class MediaLibraryApi(object):
                 'openapi_types': {
                     'all_media_files_for_bundles_request':
                         (AllMediaFilesForBundlesRequest,),
+                    'bundle':
+                        (int,),
+                    'bundle__in':
+                        (str,),
+                    'parent':
+                        (int,),
+                    'path':
+                        (str,),
+                    'name':
+                        (str,),
+                    'is_dir':
+                        (str,),
+                    'is_showroom':
+                        (str,),
+                    'present':
+                        (str,),
+                    'archived':
+                        (str,),
+                    'volume':
+                        (int,),
+                    'shared_via_tokens':
+                        (str,),
+                    'shared_via_tokens__token':
+                        (str,),
+                    'ordering':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
                 },
                 'attribute_map': {
+                    'bundle': 'bundle',
+                    'bundle__in': 'bundle__in',
+                    'parent': 'parent',
+                    'path': 'path',
+                    'name': 'name',
+                    'is_dir': 'is_dir',
+                    'is_showroom': 'is_showroom',
+                    'present': 'present',
+                    'archived': 'archived',
+                    'volume': 'volume',
+                    'shared_via_tokens': 'shared_via_tokens',
+                    'shared_via_tokens__token': 'shared_via_tokens__token',
+                    'ordering': 'ordering',
+                    'limit': 'limit',
+                    'offset': 'offset',
                 },
                 'location_map': {
                     'all_media_files_for_bundles_request': 'body',
+                    'bundle': 'query',
+                    'bundle__in': 'query',
+                    'parent': 'query',
+                    'path': 'query',
+                    'name': 'query',
+                    'is_dir': 'query',
+                    'is_showroom': 'query',
+                    'present': 'query',
+                    'archived': 'query',
+                    'volume': 'query',
+                    'shared_via_tokens': 'query',
+                    'shared_via_tokens__token': 'query',
+                    'ordering': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -6352,6 +6428,67 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.get_asset_bundles_endpoint = _Endpoint(
+            settings={
+                'response_type': ([MediaFileBundleMini],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/assets/{id}/bundles',
+                'operation_id': 'get_asset_bundles',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'limit',
+                    'offset',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'limit': 'query',
+                    'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_asset_rating_endpoint = _Endpoint(
             settings={
                 'response_type': (AssetRating,),
@@ -6650,6 +6787,8 @@ class MediaLibraryApi(object):
             params_map={
                 'all': [
                     'id',
+                    'limit',
+                    'offset',
                 ],
                 'required': [
                     'id',
@@ -6669,12 +6808,20 @@ class MediaLibraryApi(object):
                 'openapi_types': {
                     'id':
                         (int,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
                 },
                 'attribute_map': {
                     'id': 'id',
+                    'limit': 'limit',
+                    'offset': 'offset',
                 },
                 'location_map': {
                     'id': 'path',
+                    'limit': 'query',
+                    'offset': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -7957,6 +8104,19 @@ class MediaLibraryApi(object):
             params_map={
                 'all': [
                     'get_multiple_bundles_request',
+                    'limit',
+                    'offset',
+                    'include_deleted',
+                    'include_deleted_and_archived',
+                    'include_unrecognized',
+                    'include_proxies',
+                    'include_parents',
+                    'include_modified_by',
+                    'advanced_search',
+                    'in_media_root',
+                    'in_directory',
+                    'for_root',
+                    'resolve_asset_permission',
                 ],
                 'required': [
                     'get_multiple_bundles_request',
@@ -7976,11 +8136,63 @@ class MediaLibraryApi(object):
                 'openapi_types': {
                     'get_multiple_bundles_request':
                         (GetMultipleBundlesRequest,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                    'include_deleted':
+                        (bool,),
+                    'include_deleted_and_archived':
+                        (bool,),
+                    'include_unrecognized':
+                        (bool,),
+                    'include_proxies':
+                        (bool,),
+                    'include_parents':
+                        (bool,),
+                    'include_modified_by':
+                        (bool,),
+                    'advanced_search':
+                        (str,),
+                    'in_media_root':
+                        (int,),
+                    'in_directory':
+                        (int,),
+                    'for_root':
+                        (int,),
+                    'resolve_asset_permission':
+                        (bool,),
                 },
                 'attribute_map': {
+                    'limit': 'limit',
+                    'offset': 'offset',
+                    'include_deleted': 'include_deleted',
+                    'include_deleted_and_archived': 'include_deleted_and_archived',
+                    'include_unrecognized': 'include_unrecognized',
+                    'include_proxies': 'include_proxies',
+                    'include_parents': 'include_parents',
+                    'include_modified_by': 'include_modified_by',
+                    'advanced_search': 'advanced_search',
+                    'in_media_root': 'in_media_root',
+                    'in_directory': 'in_directory',
+                    'for_root': 'for_root',
+                    'resolve_asset_permission': 'resolve_asset_permission',
                 },
                 'location_map': {
                     'get_multiple_bundles_request': 'body',
+                    'limit': 'query',
+                    'offset': 'query',
+                    'include_deleted': 'query',
+                    'include_deleted_and_archived': 'query',
+                    'include_unrecognized': 'query',
+                    'include_proxies': 'query',
+                    'include_parents': 'query',
+                    'include_modified_by': 'query',
+                    'advanced_search': 'query',
+                    'in_media_root': 'query',
+                    'in_directory': 'query',
+                    'for_root': 'query',
+                    'resolve_asset_permission': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -8009,6 +8221,8 @@ class MediaLibraryApi(object):
             params_map={
                 'all': [
                     'get_multiple_files_request',
+                    'limit',
+                    'offset',
                 ],
                 'required': [
                     'get_multiple_files_request',
@@ -8028,11 +8242,19 @@ class MediaLibraryApi(object):
                 'openapi_types': {
                     'get_multiple_files_request':
                         (GetMultipleFilesRequest,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
                 },
                 'attribute_map': {
+                    'limit': 'limit',
+                    'offset': 'offset',
                 },
                 'location_map': {
                     'get_multiple_files_request': 'body',
+                    'limit': 'query',
+                    'offset': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -9002,6 +9224,8 @@ class MediaLibraryApi(object):
             params_map={
                 'all': [
                     'media_files_lookup_request',
+                    'limit',
+                    'offset',
                 ],
                 'required': [
                     'media_files_lookup_request',
@@ -9021,11 +9245,19 @@ class MediaLibraryApi(object):
                 'openapi_types': {
                     'media_files_lookup_request':
                         (MediaFilesLookupRequest,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
                 },
                 'attribute_map': {
+                    'limit': 'limit',
+                    'offset': 'offset',
                 },
                 'location_map': {
                     'media_files_lookup_request': 'body',
+                    'limit': 'query',
+                    'offset': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -18990,6 +19222,21 @@ class MediaLibraryApi(object):
             all_media_files_for_bundles_request (AllMediaFilesForBundlesRequest):
 
         Keyword Args:
+            bundle (int): Filter the returned list by `bundle`.. [optional]
+            bundle__in (str): Filter the returned list by `bundle__in`.. [optional]
+            parent (int): Filter the returned list by `parent`.. [optional]
+            path (str): Filter the returned list by `path`.. [optional]
+            name (str): Filter the returned list by `name`.. [optional]
+            is_dir (str): Filter the returned list by `is_dir`.. [optional]
+            is_showroom (str): Filter the returned list by `is_showroom`.. [optional]
+            present (str): Filter the returned list by `present`.. [optional]
+            archived (str): Filter the returned list by `archived`.. [optional]
+            volume (int): Filter the returned list by `volume`.. [optional]
+            shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
+            shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
+            ordering (str): Which field to use when ordering the results.. [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -20421,6 +20668,86 @@ class MediaLibraryApi(object):
             id
         return self.get_asset_endpoint.call_with_http_info(**kwargs)
 
+    def get_asset_bundles(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_asset_bundles  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_asset_bundles(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Asset.
+
+        Keyword Args:
+            limit (int): [optional]
+            offset (int): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [MediaFileBundleMini]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_asset_bundles_endpoint.call_with_http_info(**kwargs)
+
     def get_asset_rating(
         self,
         asset_id,
@@ -20769,6 +21096,8 @@ class MediaLibraryApi(object):
             id (int): A unique integer value identifying this Bundle.
 
         Keyword Args:
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -22457,6 +22786,19 @@ class MediaLibraryApi(object):
             get_multiple_bundles_request (GetMultipleBundlesRequest):
 
         Keyword Args:
+            limit (int): [optional]
+            offset (int): [optional]
+            include_deleted (bool): [optional]
+            include_deleted_and_archived (bool): [optional]
+            include_unrecognized (bool): [optional]
+            include_proxies (bool): [optional]
+            include_parents (bool): [optional]
+            include_modified_by (bool): [optional]
+            advanced_search (str): [optional]
+            in_media_root (int): [optional]
+            in_directory (int): [optional]
+            for_root (int): [optional]
+            resolve_asset_permission (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -22535,6 +22877,8 @@ class MediaLibraryApi(object):
             get_multiple_files_request (GetMultipleFilesRequest):
 
         Keyword Args:
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -23958,6 +24302,8 @@ class MediaLibraryApi(object):
             media_files_lookup_request (MediaFilesLookupRequest):
 
         Keyword Args:
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

@@ -30,8 +30,8 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from elements_sdk.model.elements_user_mini_reference import ElementsUserMiniReference
-    globals()['ElementsUserMiniReference'] = ElementsUserMiniReference
+    from elements_sdk.model.elements_user_mini_with_avatar_reference import ElementsUserMiniWithAvatarReference
+    globals()['ElementsUserMiniWithAvatarReference'] = ElementsUserMiniWithAvatarReference
 
 
 class AssetRatingUpdate(ModelNormal):
@@ -91,7 +91,7 @@ class AssetRatingUpdate(ModelNormal):
         """
         lazy_import()
         return {
-            'user': (ElementsUserMiniReference,),  # noqa: E501
+            'user': (ElementsUserMiniWithAvatarReference,),  # noqa: E501
             'rating': (int,),  # noqa: E501
         }
 
@@ -116,7 +116,7 @@ class AssetRatingUpdate(ModelNormal):
         """AssetRatingUpdate - a model defined in OpenAPI
 
         Args:
-            user (ElementsUserMiniReference):
+            user (ElementsUserMiniWithAvatarReference):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -204,7 +204,7 @@ class AssetRatingUpdate(ModelNormal):
         """AssetRatingUpdate - a model defined in OpenAPI
 
         Args:
-            user (ElementsUserMiniReference):
+            user (ElementsUserMiniWithAvatarReference):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

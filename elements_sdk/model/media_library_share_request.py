@@ -59,13 +59,18 @@ class MediaLibraryShareRequest(ModelNormal):
     """
 
     allowed_values = {
+        ('link_type',): {
+            'None': None,
+            'DOWNLOAD-ORIGINAL': "download-original",
+            'DOWNLOAD-PROXY': "download-proxy",
+            'EMBED-PLAYER': "embed-player",
+            'EMBED-FULL': "embed-full",
+            'PLAYLIST': "playlist",
+        },
     }
 
     validations = {
         ('email',): {
-            'min_length': 1,
-        },
-        ('link_type',): {
             'min_length': 1,
         },
         ('password',): {
@@ -103,7 +108,7 @@ class MediaLibraryShareRequest(ModelNormal):
             'view_limit': (int, none_type,),  # noqa: E501
             'user': (int,),  # noqa: E501
             'email': (str,),  # noqa: E501
-            'link_type': (str,),  # noqa: E501
+            'link_type': (str, none_type,),  # noqa: E501
             'password': (str, none_type,),  # noqa: E501
         }
 
@@ -174,7 +179,7 @@ class MediaLibraryShareRequest(ModelNormal):
             view_limit (int, none_type): [optional]  # noqa: E501
             user (int): [optional]  # noqa: E501
             email (str): [optional]  # noqa: E501
-            link_type (str): [optional]  # noqa: E501
+            link_type (str, none_type): [optional]  # noqa: E501
             password (str, none_type): [optional]  # noqa: E501
         """
 
@@ -270,7 +275,7 @@ class MediaLibraryShareRequest(ModelNormal):
             view_limit (int, none_type): [optional]  # noqa: E501
             user (int): [optional]  # noqa: E501
             email (str): [optional]  # noqa: E501
-            link_type (str): [optional]  # noqa: E501
+            link_type (str, none_type): [optional]  # noqa: E501
             password (str, none_type): [optional]  # noqa: E501
         """
 

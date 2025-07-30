@@ -104,6 +104,7 @@ class MemberPreview(ModelNormal):
     }
 
     read_only_vars = {
+        'avatar',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -201,12 +202,11 @@ class MemberPreview(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, avatar, email, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, email, *args, **xkwargs):  # noqa: E501
         """MemberPreview - a model defined in OpenAPI
 
         Args:
             id (int):
-            avatar (str, none_type):
             email (str, none_type):
 
         Keyword Args:
@@ -267,7 +267,6 @@ class MemberPreview(ModelNormal):
 
 
         self.id = id
-        self.avatar = avatar
         self.email = email
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

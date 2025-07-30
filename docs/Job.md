@@ -11,13 +11,11 @@ Name | Type | Description | Notes
 **variable_definitions** | **[{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]** |  | 
 **webhook_url** | **str, none_type** |  | [readonly] 
 **needs_compatibility_check** | **bool** |  | [readonly] 
-**fs_triggers** | **[str]** |  | [readonly] 
-**part_of_workflow_for** | **[str]** |  | [readonly] 
 **special_type** | **int, none_type** |  | 
 **name** | **str** |  | 
 **description** | **str, none_type** |  | 
 **enabled** | **bool** |  | 
-**allow_others_to_start** | **bool** |  | 
+**allow_others_to_start** | **bool** |  When &#x60;allow_users&#x60; is an empty array, this flag allows users with the \&quot;tasks:start\&quot; permission to run this job, even without the \&quot;tasks:manage\&quot; permission. Otherwise, only users specified in &#x60;allow_users&#x60; and belonging to &#x60;allow_groups&#x60; can start the job (irrespective of permissions \&quot;tasks:start\&quot; and \&quot;tasks:manage\&quot;).  | 
 **allow_client_to_start** | **bool** |  | 
 **show_as_button** | **bool** |  | 
 **input_type** | **str, none_type** |  | 

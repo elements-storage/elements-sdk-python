@@ -68,10 +68,9 @@ class Parameters(ModelNormal):
             'EN': "en",
             'FR': "fr",
             'DE': "de",
-            'IT': "it",
-            'PT': "pt",
+            'NB': "nb",
+            'JA': "ja",
             'ES': "es",
-            'DA': "da",
             'XX': "xx",
         },
         ('media_default_custom_field_type',): {

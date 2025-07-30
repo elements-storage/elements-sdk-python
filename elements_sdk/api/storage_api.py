@@ -1464,11 +1464,14 @@ class StorageApi(object):
                     'limit',
                     'offset',
                     'include_total_size',
+                    'filter',
+                    'filtering_mode',
                 ],
                 'required': [],
                 'nullable': [
                 ],
                 'enum': [
+                    'filtering_mode',
                 ],
                 'validation': [
                 ]
@@ -1477,6 +1480,11 @@ class StorageApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('filtering_mode',): {
+
+                        "EXACT": "exact",
+                        "FUZZY": "fuzzy"
+                    },
                 },
                 'openapi_types': {
                     'active':
@@ -1491,6 +1499,10 @@ class StorageApi(object):
                         (int,),
                     'include_total_size':
                         (bool,),
+                    'filter':
+                        (str,),
+                    'filtering_mode':
+                        (str,),
                 },
                 'attribute_map': {
                     'active': 'active',
@@ -1499,6 +1511,8 @@ class StorageApi(object):
                     'limit': 'limit',
                     'offset': 'offset',
                     'include_total_size': 'include_total_size',
+                    'filter': 'filter',
+                    'filtering_mode': 'filtering_mode',
                 },
                 'location_map': {
                     'active': 'query',
@@ -1507,6 +1521,8 @@ class StorageApi(object):
                     'limit': 'query',
                     'offset': 'query',
                     'include_total_size': 'query',
+                    'filter': 'query',
+                    'filtering_mode': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -6241,6 +6257,8 @@ class StorageApi(object):
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
             include_total_size (bool): [optional]
+            filter (str): [optional]
+            filtering_mode (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

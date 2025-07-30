@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **codec_type** | **str** |  | [readonly] 
 **codec_name** | **str** |  | [readonly] 
 **codec_long_name** | **str** |  | [readonly] 
+**codec_tag_string** | **str** |  | [readonly] 
 **index** | **int, none_type** |  | [optional] [readonly] 
 **bit_rate** | **int, none_type** |  | [optional] [readonly] 
 **width** | **int, none_type** |  | [optional] [readonly] 

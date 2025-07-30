@@ -30,7 +30,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from elements_sdk.model.path_permissions import PathPermissions
     from elements_sdk.model.volume_mini import VolumeMini
+    globals()['PathPermissions'] = PathPermissions
     globals()['VolumeMini'] = VolumeMini
 
 
@@ -101,6 +103,7 @@ class MediaFileMini(ModelNormal):
             'is_hardlink': (bool,),  # noqa: E501
             'mtime': (int,),  # noqa: E501
             'path': (str,),  # noqa: E501
+            'path_permissions': (PathPermissions,),  # noqa: E501
             'present': (bool,),  # noqa: E501
             'archived': (bool,),  # noqa: E501
             'size': (int,),  # noqa: E501
@@ -124,6 +127,7 @@ class MediaFileMini(ModelNormal):
         'is_hardlink': 'is_hardlink',  # noqa: E501
         'mtime': 'mtime',  # noqa: E501
         'path': 'path',  # noqa: E501
+        'path_permissions': 'path_permissions',  # noqa: E501
         'present': 'present',  # noqa: E501
         'archived': 'archived',  # noqa: E501
         'size': 'size',  # noqa: E501
@@ -152,7 +156,7 @@ class MediaFileMini(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, full_path, custom_fields, is_dir, is_hardlink, mtime, path, present, archived, size, volume, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, full_path, custom_fields, is_dir, is_hardlink, mtime, path, path_permissions, present, archived, size, volume, *args, **xkwargs):  # noqa: E501
         """MediaFileMini - a model defined in OpenAPI
 
         Args:
@@ -164,6 +168,7 @@ class MediaFileMini(ModelNormal):
             is_hardlink (bool):
             mtime (int):
             path (str):
+            path_permissions (PathPermissions):
             present (bool):
             archived (bool):
             size (int):
@@ -239,6 +244,7 @@ class MediaFileMini(ModelNormal):
         self.is_hardlink = is_hardlink
         self.mtime = mtime
         self.path = path
+        self.path_permissions = path_permissions
         self.present = present
         self.archived = archived
         self.size = size
@@ -264,12 +270,13 @@ class MediaFileMini(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, custom_fields, volume, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, custom_fields, path_permissions, volume, *args, **xkwargs):  # noqa: E501
         """MediaFileMini - a model defined in OpenAPI
 
         Args:
             id (int):
             custom_fields ({str: (str, none_type)}):
+            path_permissions (PathPermissions):
             volume (VolumeMini):
 
         Keyword Args:
@@ -334,6 +341,7 @@ class MediaFileMini(ModelNormal):
 
         self.id = id
         self.custom_fields = custom_fields
+        self.path_permissions = path_permissions
         self.volume = volume
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

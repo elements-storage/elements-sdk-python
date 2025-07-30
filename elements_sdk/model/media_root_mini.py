@@ -74,7 +74,7 @@ class MediaRootMini(ModelNormal):
             'min_length': 1,
         },
         ('cover',): {
-            'max_length': 255,
+            'min_length': 1,
         },
     }
 
@@ -131,6 +131,7 @@ class MediaRootMini(ModelNormal):
 
     read_only_vars = {
         'full_path',  # noqa: E501
+        'cover',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -240,7 +241,7 @@ class MediaRootMini(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, description, volume, path, prefetch_thumbnail_strips, view_mode, cover, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, description, volume, path, prefetch_thumbnail_strips, view_mode, *args, **xkwargs):  # noqa: E501
         """MediaRootMini - a model defined in OpenAPI
 
         Args:
@@ -251,8 +252,6 @@ class MediaRootMini(ModelNormal):
             path (str):
             prefetch_thumbnail_strips (bool):
             view_mode (str):
-            cover (str, none_type):
-
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -317,7 +316,6 @@ class MediaRootMini(ModelNormal):
         self.path = path
         self.prefetch_thumbnail_strips = prefetch_thumbnail_strips
         self.view_mode = view_mode
-        self.cover = cover
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

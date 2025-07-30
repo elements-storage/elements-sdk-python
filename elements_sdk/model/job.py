@@ -123,8 +123,6 @@ class Job(ModelNormal):
             'variable_definitions': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'webhook_url': (str, none_type,),  # noqa: E501
             'needs_compatibility_check': (bool,),  # noqa: E501
-            'fs_triggers': ([str],),  # noqa: E501
-            'part_of_workflow_for': ([str],),  # noqa: E501
             'special_type': (int, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -153,8 +151,6 @@ class Job(ModelNormal):
         'variable_definitions': 'variable_definitions',  # noqa: E501
         'webhook_url': 'webhook_url',  # noqa: E501
         'needs_compatibility_check': 'needs_compatibility_check',  # noqa: E501
-        'fs_triggers': 'fs_triggers',  # noqa: E501
-        'part_of_workflow_for': 'part_of_workflow_for',  # noqa: E501
         'special_type': 'special_type',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -175,15 +171,13 @@ class Job(ModelNormal):
         'startable',  # noqa: E501
         'webhook_url',  # noqa: E501
         'needs_compatibility_check',  # noqa: E501
-        'fs_triggers',  # noqa: E501
-        'part_of_workflow_for',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, schedules, startable, variable_definitions, webhook_url, needs_compatibility_check, fs_triggers, part_of_workflow_for, special_type, name, description, enabled, allow_others_to_start, allow_client_to_start, show_as_button, input_type, add_to_new_media_roots, hook, webhook_secret, elements_release, security_context, workflow, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, schedules, startable, variable_definitions, webhook_url, needs_compatibility_check, special_type, name, description, enabled, allow_others_to_start, allow_client_to_start, show_as_button, input_type, add_to_new_media_roots, hook, webhook_secret, elements_release, security_context, workflow, *args, **xkwargs):  # noqa: E501
         """Job - a model defined in OpenAPI
 
         Args:
@@ -193,13 +187,11 @@ class Job(ModelNormal):
             variable_definitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             webhook_url (str, none_type):
             needs_compatibility_check (bool):
-            fs_triggers ([str]):
-            part_of_workflow_for ([str]):
             special_type (int, none_type):
             name (str):
             description (str, none_type):
             enabled (bool):
-            allow_others_to_start (bool):
+            allow_others_to_start (bool):  When `allow_users` is an empty array, this flag allows users with the \"tasks:start\" permission to run this job, even without the \"tasks:manage\" permission. Otherwise, only users specified in `allow_users` and belonging to `allow_groups` can start the job (irrespective of permissions \"tasks:start\" and \"tasks:manage\"). 
             allow_client_to_start (bool):
             show_as_button (bool):
             input_type (str, none_type):
@@ -275,8 +267,6 @@ class Job(ModelNormal):
         self.variable_definitions = variable_definitions
         self.webhook_url = webhook_url
         self.needs_compatibility_check = needs_compatibility_check
-        self.fs_triggers = fs_triggers
-        self.part_of_workflow_for = part_of_workflow_for
         self.special_type = special_type
         self.name = name
         self.description = description
@@ -323,7 +313,7 @@ class Job(ModelNormal):
             name (str):
             description (str, none_type):
             enabled (bool):
-            allow_others_to_start (bool):
+            allow_others_to_start (bool):  When `allow_users` is an empty array, this flag allows users with the \"tasks:start\" permission to run this job, even without the \"tasks:manage\" permission. Otherwise, only users specified in `allow_users` and belonging to `allow_groups` can start the job (irrespective of permissions \"tasks:start\" and \"tasks:manage\"). 
             allow_client_to_start (bool):
             show_as_button (bool):
             input_type (str, none_type):

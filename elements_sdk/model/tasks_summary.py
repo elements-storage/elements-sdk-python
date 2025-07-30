@@ -114,9 +114,9 @@ class TasksSummary(ModelNormal):
         """TasksSummary - a model defined in OpenAPI
 
         Args:
-            running ([TaskInfo]):
-            recent_finished ([TaskInfo]):
-            pending_count (int):
+            running ([TaskInfo]): List of all currently running tasks (RUNNING (1), ABORTING (3)).
+            recent_finished ([TaskInfo]): The latest five tasks that have finished (FINISHED (2), ABORTED (4), FAILED (5), WARNINGS (6), NOOP (7)) in the past hour.
+            pending_count (int): The number of tasks currently in the queue (PENDING (0), awaiting execution.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -205,9 +205,9 @@ class TasksSummary(ModelNormal):
         """TasksSummary - a model defined in OpenAPI
 
         Args:
-            running ([TaskInfo]):
-            recent_finished ([TaskInfo]):
-            pending_count (int):
+            running ([TaskInfo]): List of all currently running tasks (RUNNING (1), ABORTING (3)).
+            recent_finished ([TaskInfo]): The latest five tasks that have finished (FINISHED (2), ABORTED (4), FAILED (5), WARNINGS (6), NOOP (7)) in the past hour.
+            pending_count (int): The number of tasks currently in the queue (PENDING (0), awaiting execution.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

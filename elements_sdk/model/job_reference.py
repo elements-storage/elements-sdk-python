@@ -123,8 +123,6 @@ class JobReference(ModelNormal):
             'variable_definitions': ([{str: (str, none_type)}],),  # noqa: E501
             'webhook_url': (str, none_type,),  # noqa: E501
             'needs_compatibility_check': (bool,),  # noqa: E501
-            'fs_triggers': ([str],),  # noqa: E501
-            'part_of_workflow_for': ([str],),  # noqa: E501
             'special_type': (int, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -153,8 +151,6 @@ class JobReference(ModelNormal):
         'variable_definitions': 'variable_definitions',  # noqa: E501
         'webhook_url': 'webhook_url',  # noqa: E501
         'needs_compatibility_check': 'needs_compatibility_check',  # noqa: E501
-        'fs_triggers': 'fs_triggers',  # noqa: E501
-        'part_of_workflow_for': 'part_of_workflow_for',  # noqa: E501
         'special_type': 'special_type',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -177,8 +173,6 @@ class JobReference(ModelNormal):
         'variable_definitions',  # noqa: E501
         'webhook_url',  # noqa: E501
         'needs_compatibility_check',  # noqa: E501
-        'fs_triggers',  # noqa: E501
-        'part_of_workflow_for',  # noqa: E501
         'special_type',  # noqa: E501
         'name',  # noqa: E501
         'description',  # noqa: E501
@@ -241,13 +235,11 @@ class JobReference(ModelNormal):
             variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
             webhook_url (str, none_type): [optional]  # noqa: E501
             needs_compatibility_check (bool): [optional]  # noqa: E501
-            fs_triggers ([str]): [optional]  # noqa: E501
-            part_of_workflow_for ([str]): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501
-            allow_others_to_start (bool): [optional]  # noqa: E501
+            allow_others_to_start (bool):  When `allow_users` is an empty array, this flag allows users with the \"tasks:start\" permission to run this job, even without the \"tasks:manage\" permission. Otherwise, only users specified in `allow_users` and belonging to `allow_groups` can start the job (irrespective of permissions \"tasks:start\" and \"tasks:manage\"). . [optional]  # noqa: E501
             allow_client_to_start (bool): [optional]  # noqa: E501
             show_as_button (bool): [optional]  # noqa: E501
             input_type (str, none_type): [optional]  # noqa: E501
@@ -349,13 +341,11 @@ class JobReference(ModelNormal):
             variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
             webhook_url (str, none_type): [optional]  # noqa: E501
             needs_compatibility_check (bool): [optional]  # noqa: E501
-            fs_triggers ([str]): [optional]  # noqa: E501
-            part_of_workflow_for ([str]): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501
-            allow_others_to_start (bool): [optional]  # noqa: E501
+            allow_others_to_start (bool):  When `allow_users` is an empty array, this flag allows users with the \"tasks:start\" permission to run this job, even without the \"tasks:manage\" permission. Otherwise, only users specified in `allow_users` and belonging to `allow_groups` can start the job (irrespective of permissions \"tasks:start\" and \"tasks:manage\"). . [optional]  # noqa: E501
             allow_client_to_start (bool): [optional]  # noqa: E501
             show_as_button (bool): [optional]  # noqa: E501
             input_type (str, none_type): [optional]  # noqa: E501

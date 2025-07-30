@@ -64,10 +64,9 @@ class ElementsUserDetailPartialUpdate(ModelNormal):
             'EN': "en",
             'FR': "fr",
             'DE': "de",
-            'IT': "it",
-            'PT': "pt",
+            'NB': "nb",
+            'JA': "ja",
             'ES': "es",
-            'DA': "da",
             'XX': "xx",
         },
     }
@@ -136,7 +135,6 @@ class ElementsUserDetailPartialUpdate(ModelNormal):
         return {
             'allow_changing_password': (bool,),  # noqa: E501
             'allow_wan_login': (bool,),  # noqa: E501
-            'avatar': (str, none_type,),  # noqa: E501
             'default_page': (str,),  # noqa: E501
             'email': (str, none_type,),  # noqa: E501
             'expiry': (datetime, none_type,),  # noqa: E501
@@ -168,7 +166,6 @@ class ElementsUserDetailPartialUpdate(ModelNormal):
     attribute_map = {
         'allow_changing_password': 'allow_changing_password',  # noqa: E501
         'allow_wan_login': 'allow_wan_login',  # noqa: E501
-        'avatar': 'avatar',  # noqa: E501
         'default_page': 'default_page',  # noqa: E501
         'email': 'email',  # noqa: E501
         'expiry': 'expiry',  # noqa: E501
@@ -235,7 +232,6 @@ class ElementsUserDetailPartialUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             allow_changing_password (bool): [optional]  # noqa: E501
             allow_wan_login (bool): [optional]  # noqa: E501
-            avatar (str, none_type): [optional]  # noqa: E501
             default_page (str): [optional]  # noqa: E501
             email (str, none_type): [optional]  # noqa: E501
             expiry (datetime, none_type): [optional]  # noqa: E501
@@ -342,7 +338,6 @@ class ElementsUserDetailPartialUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             allow_changing_password (bool): [optional]  # noqa: E501
             allow_wan_login (bool): [optional]  # noqa: E501
-            avatar (str, none_type): [optional]  # noqa: E501
             default_page (str): [optional]  # noqa: E501
             email (str, none_type): [optional]  # noqa: E501
             expiry (datetime, none_type): [optional]  # noqa: E501
