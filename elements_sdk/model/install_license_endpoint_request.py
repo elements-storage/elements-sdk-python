@@ -61,6 +61,9 @@ class InstallLicenseEndpointRequest(ModelNormal):
         ('license',): {
             'min_length': 1,
         },
+        ('password',): {
+            'min_length': 1,
+        },
         ('signature',): {
             'min_length': 1,
         },
@@ -88,6 +91,7 @@ class InstallLicenseEndpointRequest(ModelNormal):
         """
         return {
             'license': (str,),  # noqa: E501
+            'password': (str,),  # noqa: E501
             'signature': (str,),  # noqa: E501
         }
 
@@ -98,6 +102,7 @@ class InstallLicenseEndpointRequest(ModelNormal):
 
     attribute_map = {
         'license': 'license',  # noqa: E501
+        'password': 'password',  # noqa: E501
         'signature': 'signature',  # noqa: E501
     }
 
@@ -108,12 +113,11 @@ class InstallLicenseEndpointRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, license, signature, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, license, *args, **xkwargs):  # noqa: E501
         """InstallLicenseEndpointRequest - a model defined in OpenAPI
 
         Args:
             license (str):
-            signature (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -146,6 +150,8 @@ class InstallLicenseEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            password (str): [optional]  # noqa: E501
+            signature (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -175,7 +181,6 @@ class InstallLicenseEndpointRequest(ModelNormal):
 
 
         self.license = license
-        self.signature = signature
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -197,12 +202,11 @@ class InstallLicenseEndpointRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, license, signature, *args, **xkwargs):  # noqa: E501
+    def __init__(self, license, *args, **xkwargs):  # noqa: E501
         """InstallLicenseEndpointRequest - a model defined in OpenAPI
 
         Args:
             license (str):
-            signature (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -235,6 +239,8 @@ class InstallLicenseEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            password (str): [optional]  # noqa: E501
+            signature (str): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -262,7 +268,6 @@ class InstallLicenseEndpointRequest(ModelNormal):
 
 
         self.license = license
-        self.signature = signature
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

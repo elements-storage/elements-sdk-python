@@ -110,7 +110,7 @@ class MediaFileMini(ModelNormal):
             'volume': (VolumeMini,),  # noqa: E501
             'bundle': (int, none_type,),  # noqa: E501
             'parent': (int, none_type,),  # noqa: E501
-            'parent_file': ({str: (str, none_type)},),  # noqa: E501
+            'parent_file': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
         }
 
     @cached_property
@@ -207,7 +207,7 @@ class MediaFileMini(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             bundle (int, none_type): [optional]  # noqa: E501
             parent (int, none_type): [optional]  # noqa: E501
-            parent_file ({str: (str, none_type)}): [optional]  # noqa: E501
+            parent_file ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -312,7 +312,7 @@ class MediaFileMini(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             bundle (int, none_type): [optional]  # noqa: E501
             parent (int, none_type): [optional]  # noqa: E501
-            parent_file ({str: (str, none_type)}): [optional]  # noqa: E501
+            parent_file ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

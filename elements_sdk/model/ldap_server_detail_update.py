@@ -93,6 +93,9 @@ class LDAPServerDetailUpdate(ModelNormal):
         ('group_search_filter',): {
             'max_length': 255,
         },
+        ('group_members_search_filter',): {
+            'max_length': 255,
+        },
         ('nt_domain',): {
             'max_length': 255,
         },
@@ -140,6 +143,7 @@ class LDAPServerDetailUpdate(ModelNormal):
             'domain': (str,),  # noqa: E501
             'search_filter': (str,),  # noqa: E501
             'group_search_filter': (str,),  # noqa: E501
+            'group_members_search_filter': (str,),  # noqa: E501
             'nt_domain': (str,),  # noqa: E501
             'nt_domain_mapping': (str,),  # noqa: E501
             'root': (str,),  # noqa: E501
@@ -164,6 +168,7 @@ class LDAPServerDetailUpdate(ModelNormal):
         'domain': 'domain',  # noqa: E501
         'search_filter': 'search_filter',  # noqa: E501
         'group_search_filter': 'group_search_filter',  # noqa: E501
+        'group_members_search_filter': 'group_members_search_filter',  # noqa: E501
         'nt_domain': 'nt_domain',  # noqa: E501
         'nt_domain_mapping': 'nt_domain_mapping',  # noqa: E501
         'root': 'root',  # noqa: E501
@@ -223,6 +228,7 @@ class LDAPServerDetailUpdate(ModelNormal):
             domain (str): [optional]  # noqa: E501
             search_filter (str): [optional]  # noqa: E501
             group_search_filter (str): [optional]  # noqa: E501
+            group_members_search_filter (str): [optional]  # noqa: E501
             nt_domain (str): [optional]  # noqa: E501
             nt_domain_mapping (str): Incorrect domain first, true domain second, comma separated. [optional]  # noqa: E501
             root (str): [optional]  # noqa: E501
@@ -322,6 +328,7 @@ class LDAPServerDetailUpdate(ModelNormal):
             domain (str): [optional]  # noqa: E501
             search_filter (str): [optional]  # noqa: E501
             group_search_filter (str): [optional]  # noqa: E501
+            group_members_search_filter (str): [optional]  # noqa: E501
             nt_domain (str): [optional]  # noqa: E501
             nt_domain_mapping (str): Incorrect domain first, true domain second, comma separated. [optional]  # noqa: E501
             root (str): [optional]  # noqa: E501

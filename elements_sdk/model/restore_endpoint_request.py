@@ -95,7 +95,7 @@ class RestoreEndpointRequest(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'source': ([TapeJobSource],),  # noqa: E501
-            'exclude': ([str, none_type],),  # noqa: E501
+            'exclude': ([str],),  # noqa: E501
             'tape': (str,),  # noqa: E501
             'start_date': (datetime,),  # noqa: E501
             'destination': (str, none_type,),  # noqa: E501
@@ -130,7 +130,7 @@ class RestoreEndpointRequest(ModelNormal):
         Args:
             name (str):
             source ([TapeJobSource]):
-            exclude ([str, none_type]):
+            exclude ([str]):
             tape (str):
             start_date (datetime):
 
@@ -227,7 +227,7 @@ class RestoreEndpointRequest(ModelNormal):
         Args:
             name (str):
             source ([TapeJobSource]):
-            exclude ([str, none_type]):
+            exclude ([str]):
             tape (str):
             start_date (datetime):
 

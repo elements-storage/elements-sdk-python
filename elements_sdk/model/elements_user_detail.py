@@ -139,18 +139,18 @@ class ElementsUserDetail(ModelNormal):
             'id': (int,),  # noqa: E501
             'allow_changing_password': (bool,),  # noqa: E501
             'allow_wan_login': (bool,),  # noqa: E501
-            'allowed_fs_paths': ([str, none_type], none_type,),  # noqa: E501
-            'allowed_fs_write_paths': ([str, none_type], none_type,),  # noqa: E501
+            'allowed_fs_paths': ([str], none_type,),  # noqa: E501
+            'allowed_fs_write_paths': ([str], none_type,),  # noqa: E501
             'avatar': (str, none_type,),  # noqa: E501
             'default_page': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
-            'effective_permissions': ([str, none_type],),  # noqa: E501
+            'effective_permissions': ([str],),  # noqa: E501
             'email': (str, none_type,),  # noqa: E501
             'expiry': (datetime, none_type,),  # noqa: E501
-            'fm_bookmarks': ([str, none_type],),  # noqa: E501
+            'fm_bookmarks': ([str],),  # noqa: E501
             'full_name': (str, none_type,),  # noqa: E501
             'gid': (int, none_type,),  # noqa: E501
-            'group_permissions': ([str, none_type],),  # noqa: E501
+            'group_permissions': ([str],),  # noqa: E501
             'has_password': (bool,),  # noqa: E501
             'home': (int, none_type,),  # noqa: E501
             'is_external': (bool,),  # noqa: E501
@@ -161,7 +161,7 @@ class ElementsUserDetail(ModelNormal):
             'ldap': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'ldap_dn': (str, none_type,),  # noqa: E501
             'password_change_required': (bool,),  # noqa: E501
-            'permissions': ([str, none_type],),  # noqa: E501
+            'permissions': ([str],),  # noqa: E501
             'shaper_ceiling': (int, none_type,),  # noqa: E501
             'shaper_rate': (int, none_type,),  # noqa: E501
             'sync_id': (str,),  # noqa: E501
@@ -244,18 +244,18 @@ class ElementsUserDetail(ModelNormal):
             id (int):
             allow_changing_password (bool):
             allow_wan_login (bool):
-            allowed_fs_paths ([str, none_type], none_type):
-            allowed_fs_write_paths ([str, none_type], none_type):
+            allowed_fs_paths ([str], none_type):
+            allowed_fs_write_paths ([str], none_type):
             avatar (str, none_type):
             default_page (str):
             display_name (str):
-            effective_permissions ([str, none_type]):
+            effective_permissions ([str]):
             email (str, none_type):
             expiry (datetime, none_type):
-            fm_bookmarks ([str, none_type]):
+            fm_bookmarks ([str]):
             full_name (str, none_type):
             gid (int, none_type):
-            group_permissions ([str, none_type]):
+            group_permissions ([str]):
             has_password (bool):
             home (int, none_type):
             is_external (bool):
@@ -266,7 +266,7 @@ class ElementsUserDetail(ModelNormal):
             ldap (bool, date, datetime, dict, float, int, list, str, none_type):
             ldap_dn (str, none_type):
             password_change_required (bool):
-            permissions ([str, none_type]):
+            permissions ([str]):
             shaper_ceiling (int, none_type):
             shaper_rate (int, none_type):
             sync_id (str):
@@ -402,7 +402,7 @@ class ElementsUserDetail(ModelNormal):
             default_page (str):
             email (str, none_type):
             expiry (datetime, none_type):
-            fm_bookmarks ([str, none_type]):
+            fm_bookmarks ([str]):
             full_name (str, none_type):
             gid (int, none_type):
             home (int, none_type):
@@ -413,7 +413,7 @@ class ElementsUserDetail(ModelNormal):
             ldap (bool, date, datetime, dict, float, int, list, str, none_type):
             ldap_dn (str, none_type):
             password_change_required (bool):
-            permissions ([str, none_type]):
+            permissions ([str]):
             shaper_ceiling (int, none_type):
             shaper_rate (int, none_type):
             uid (int, none_type):

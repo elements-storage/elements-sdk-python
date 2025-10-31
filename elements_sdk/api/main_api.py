@@ -76,8 +76,8 @@ from elements_sdk.model.ldap_server_detail_partial_update import LDAPServerDetai
 from elements_sdk.model.ldap_server_detail_update import LDAPServerDetailUpdate
 from elements_sdk.model.ldap_server_groups import LDAPServerGroups
 from elements_sdk.model.ldap_server_users import LDAPServerUsers
-from elements_sdk.model.license import License
 from elements_sdk.model.license_components_endpoint_response import LicenseComponentsEndpointResponse
+from elements_sdk.model.license_endpoint_response import LicenseEndpointResponse
 from elements_sdk.model.ntp_server import NTPServer
 from elements_sdk.model.ntp_server_partial_update import NTPServerPartialUpdate
 from elements_sdk.model.ntp_server_update import NTPServerUpdate
@@ -4644,7 +4644,7 @@ class MainApi(object):
         )
         self.get_license_endpoint = _Endpoint(
             settings={
-                'response_type': (License,),
+                'response_type': (LicenseEndpointResponse,),
                 'auth': [
                     'Bearer'
                 ],
@@ -15847,7 +15847,7 @@ class MainApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            License
+            LicenseEndpointResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

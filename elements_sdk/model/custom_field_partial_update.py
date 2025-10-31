@@ -124,7 +124,7 @@ class CustomFieldPartialUpdate(ModelNormal):
         """
         return {
             'labels': ([{str: (str, none_type)}],),  # noqa: E501
-            'options': ([str, none_type],),  # noqa: E501
+            'options': ([str],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'order': (int,),  # noqa: E501
             'type': (str,),  # noqa: E501
@@ -211,7 +211,7 @@ class CustomFieldPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             labels ([{str: (str, none_type)}]): [optional]  # noqa: E501
-            options ([str, none_type]): [optional]  # noqa: E501
+            options ([str]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             order (int): [optional]  # noqa: E501
             type (str): [optional]  # noqa: E501
@@ -312,7 +312,7 @@ class CustomFieldPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             labels ([{str: (str, none_type)}]): [optional]  # noqa: E501
-            options ([str, none_type]): [optional]  # noqa: E501
+            options ([str]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             order (int): [optional]  # noqa: E501
             type (str): [optional]  # noqa: E501

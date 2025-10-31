@@ -85,6 +85,11 @@ class ProxyProfilePartialUpdate(ModelNormal):
             'PNG': "png",
             'JPEG': "jpeg",
         },
+        ('codecs',): {
+            'None': None,
+            'AV1_OPUS': "av1_opus",
+            'H264_AAC': "h264_aac",
+        },
         ('watermark_position',): {
             'TL': "TL",
             'TR': "TR",
@@ -179,6 +184,7 @@ class ProxyProfilePartialUpdate(ModelNormal):
             'variants_limit': (int,),  # noqa: E501
             'enable_dense_filmstrip': (bool,),  # noqa: E501
             'image_format': (str,),  # noqa: E501
+            'codecs': (str, none_type,),  # noqa: E501
             'enable_watermark': (bool,),  # noqa: E501
             'watermark_position': (str,),  # noqa: E501
             'watermark_opacity': (float,),  # noqa: E501
@@ -216,6 +222,7 @@ class ProxyProfilePartialUpdate(ModelNormal):
         'variants_limit': 'variants_limit',  # noqa: E501
         'enable_dense_filmstrip': 'enable_dense_filmstrip',  # noqa: E501
         'image_format': 'image_format',  # noqa: E501
+        'codecs': 'codecs',  # noqa: E501
         'enable_watermark': 'enable_watermark',  # noqa: E501
         'watermark_position': 'watermark_position',  # noqa: E501
         'watermark_opacity': 'watermark_opacity',  # noqa: E501
@@ -288,6 +295,7 @@ class ProxyProfilePartialUpdate(ModelNormal):
             variants_limit (int): [optional]  # noqa: E501
             enable_dense_filmstrip (bool): [optional]  # noqa: E501
             image_format (str): [optional]  # noqa: E501
+            codecs (str, none_type): [optional]  # noqa: E501
             enable_watermark (bool): [optional]  # noqa: E501
             watermark_position (str): [optional]  # noqa: E501
             watermark_opacity (float): [optional]  # noqa: E501
@@ -400,6 +408,7 @@ class ProxyProfilePartialUpdate(ModelNormal):
             variants_limit (int): [optional]  # noqa: E501
             enable_dense_filmstrip (bool): [optional]  # noqa: E501
             image_format (str): [optional]  # noqa: E501
+            codecs (str, none_type): [optional]  # noqa: E501
             enable_watermark (bool): [optional]  # noqa: E501
             watermark_position (str): [optional]  # noqa: E501
             watermark_opacity (float): [optional]  # noqa: E501

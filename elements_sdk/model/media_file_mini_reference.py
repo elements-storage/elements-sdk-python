@@ -104,7 +104,7 @@ class MediaFileMiniReference(ModelNormal):
             'is_hardlink': (bool,),  # noqa: E501
             'mtime': (int,),  # noqa: E501
             'parent': (int, none_type,),  # noqa: E501
-            'parent_file': ({str: (str, none_type)},),  # noqa: E501
+            'parent_file': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'path': (str,),  # noqa: E501
             'path_permissions': (PathPermissions,),  # noqa: E501
             'present': (bool,),  # noqa: E501
@@ -202,7 +202,7 @@ class MediaFileMiniReference(ModelNormal):
             is_hardlink (bool): [optional]  # noqa: E501
             mtime (int): [optional]  # noqa: E501
             parent (int, none_type): [optional]  # noqa: E501
-            parent_file ({str: (str, none_type)}): [optional]  # noqa: E501
+            parent_file ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
             path_permissions (PathPermissions): [optional]  # noqa: E501
             present (bool): [optional]  # noqa: E501
@@ -304,7 +304,7 @@ class MediaFileMiniReference(ModelNormal):
             is_hardlink (bool): [optional]  # noqa: E501
             mtime (int): [optional]  # noqa: E501
             parent (int, none_type): [optional]  # noqa: E501
-            parent_file ({str: (str, none_type)}): [optional]  # noqa: E501
+            parent_file ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
             path_permissions (PathPermissions): [optional]  # noqa: E501
             present (bool): [optional]  # noqa: E501

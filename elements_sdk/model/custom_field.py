@@ -124,8 +124,8 @@ class CustomField(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
-            'labels': ([{str: (str, none_type)}],),  # noqa: E501
-            'options': ([str, none_type],),  # noqa: E501
+            'labels': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
+            'options': ([str],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'order': (int,),  # noqa: E501
             'type': (str,),  # noqa: E501
@@ -183,8 +183,8 @@ class CustomField(ModelNormal):
 
         Args:
             id (int):
-            labels ([{str: (str, none_type)}]):
-            options ([str, none_type]):
+            labels ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
+            options ([str]):
             name (str):
             order (int):
             type (str):
@@ -306,8 +306,8 @@ class CustomField(ModelNormal):
 
         Args:
             id (int):
-            labels ([{str: (str, none_type)}]):
-            options ([str, none_type]):
+            labels ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
+            options ([str]):
             name (str):
             order (int):
             type (str):

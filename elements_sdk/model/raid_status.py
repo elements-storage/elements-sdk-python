@@ -81,9 +81,9 @@ class RAIDStatus(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'lsi': ([str, none_type],),  # noqa: E501
+            'lsi': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'areca': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
-            'raidix': ([str, none_type],),  # noqa: E501
+            'raidix': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -108,9 +108,9 @@ class RAIDStatus(ModelNormal):
         """RAIDStatus - a model defined in OpenAPI
 
         Args:
-            lsi ([str, none_type]):
+            lsi ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             areca ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-            raidix ([str, none_type]):
+            raidix ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -199,9 +199,9 @@ class RAIDStatus(ModelNormal):
         """RAIDStatus - a model defined in OpenAPI
 
         Args:
-            lsi ([str, none_type]):
+            lsi ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             areca ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-            raidix ([str, none_type]):
+            raidix ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

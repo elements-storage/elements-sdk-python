@@ -32,10 +32,12 @@ from elements_sdk.exceptions import ApiAttributeError
 def lazy_import():
     from elements_sdk.model.elements_group_reference import ElementsGroupReference
     from elements_sdk.model.elements_user_reference import ElementsUserReference
+    from elements_sdk.model.job_variable_definition import JobVariableDefinition
     from elements_sdk.model.schedule_reference import ScheduleReference
     from elements_sdk.model.subtask_reference import SubtaskReference
     globals()['ElementsGroupReference'] = ElementsGroupReference
     globals()['ElementsUserReference'] = ElementsUserReference
+    globals()['JobVariableDefinition'] = JobVariableDefinition
     globals()['ScheduleReference'] = ScheduleReference
     globals()['SubtaskReference'] = SubtaskReference
 
@@ -120,7 +122,7 @@ class JobDetailUpdate(ModelNormal):
         """
         lazy_import()
         return {
-            'variable_definitions': ([{str: (str, none_type)}],),  # noqa: E501
+            'variable_definitions': ([JobVariableDefinition],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'schedules': ([ScheduleReference],),  # noqa: E501
             'subtasks': ([SubtaskReference],),  # noqa: E501
@@ -181,7 +183,7 @@ class JobDetailUpdate(ModelNormal):
         """JobDetailUpdate - a model defined in OpenAPI
 
         Args:
-            variable_definitions ([{str: (str, none_type)}]):
+            variable_definitions ([JobVariableDefinition]):
             name (str):
 
         Keyword Args:
@@ -288,7 +290,7 @@ class JobDetailUpdate(ModelNormal):
         """JobDetailUpdate - a model defined in OpenAPI
 
         Args:
-            variable_definitions ([{str: (str, none_type)}]):
+            variable_definitions ([JobVariableDefinition]):
             name (str):
 
         Keyword Args:

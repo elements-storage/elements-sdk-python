@@ -134,6 +134,7 @@ class TaskType(ModelNormal):
             'required_permissions': ([str],),  # noqa: E501
             'new_since_version': (str, none_type,),  # noqa: E501
             'wildcard_input': (bool, none_type,),  # noqa: E501
+            'license_component': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -161,19 +162,21 @@ class TaskType(ModelNormal):
         'required_permissions': 'required_permissions',  # noqa: E501
         'new_since_version': 'new_since_version',  # noqa: E501
         'wildcard_input': 'wildcard_input',  # noqa: E501
+        'license_component': 'license_component',  # noqa: E501
     }
 
     read_only_vars = {
         'arg_types',  # noqa: E501
         'output_types',  # noqa: E501
         'is_available',  # noqa: E501
+        'license_component',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, type, display_name, display_group, description, input_type, abortable, arg_template, arg_types, required_args, output_names, output_types, parameters_editor_component, superuser_only, icon_class, is_available, allow_in_jobs, required_permissions, new_since_version, wildcard_input, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, type, display_name, display_group, description, input_type, abortable, arg_template, arg_types, required_args, output_names, output_types, parameters_editor_component, superuser_only, icon_class, is_available, allow_in_jobs, required_permissions, new_since_version, wildcard_input, license_component, *args, **xkwargs):  # noqa: E501
         """TaskType - a model defined in OpenAPI
 
         Args:
@@ -196,6 +199,7 @@ class TaskType(ModelNormal):
             required_permissions ([str]):
             new_since_version (str, none_type):
             wildcard_input (bool, none_type):
+            license_component (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -275,6 +279,7 @@ class TaskType(ModelNormal):
         self.required_permissions = required_permissions
         self.new_since_version = new_since_version
         self.wildcard_input = wildcard_input
+        self.license_component = license_component
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -316,7 +321,6 @@ class TaskType(ModelNormal):
             required_permissions ([str]):
             new_since_version (str, none_type):
             wildcard_input (bool, none_type):
-
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be

@@ -31,7 +31,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.production_mini import ProductionMini
+    from elements_sdk.model.volume_mini import VolumeMini
     globals()['ProductionMini'] = ProductionMini
+    globals()['VolumeMini'] = VolumeMini
 
 
 class WorkspaceMini(ModelNormal):
@@ -92,8 +94,11 @@ class WorkspaceMini(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
+            'volume': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'production': (ProductionMini,),  # noqa: E501
+            'is_offloaded': (bool,),  # noqa: E501
+            'offload_volume': (VolumeMini,),  # noqa: E501
         }
 
     @cached_property
@@ -103,24 +108,30 @@ class WorkspaceMini(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'volume': 'volume',  # noqa: E501
         'name': 'name',  # noqa: E501
         'production': 'production',  # noqa: E501
+        'is_offloaded': 'is_offloaded',  # noqa: E501
+        'offload_volume': 'offload_volume',  # noqa: E501
     }
 
     read_only_vars = {
+        'is_offloaded',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, production, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, volume, name, production, is_offloaded, *args, **xkwargs):  # noqa: E501
         """WorkspaceMini - a model defined in OpenAPI
 
         Args:
             id (int):
+            volume (bool, date, datetime, dict, float, int, list, str, none_type):
             name (str):
             production (ProductionMini):
+            is_offloaded (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -153,6 +164,7 @@ class WorkspaceMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            offload_volume (VolumeMini): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -182,8 +194,10 @@ class WorkspaceMini(ModelNormal):
 
 
         self.id = id
+        self.volume = volume
         self.name = name
         self.production = production
+        self.is_offloaded = is_offloaded
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -205,14 +219,14 @@ class WorkspaceMini(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, production, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, volume, name, production, *args, **xkwargs):  # noqa: E501
         """WorkspaceMini - a model defined in OpenAPI
 
         Args:
             id (int):
+            volume (bool, date, datetime, dict, float, int, list, str, none_type):
             name (str):
             production (ProductionMini):
-
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -244,6 +258,7 @@ class WorkspaceMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            offload_volume (VolumeMini): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -271,6 +286,7 @@ class WorkspaceMini(ModelNormal):
 
 
         self.id = id
+        self.volume = volume
         self.name = name
         self.production = production
         for var_name, var_value in xkwargs.items():

@@ -106,9 +106,9 @@ class ElementsGroupDetail(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'permissions': ([str, none_type],),  # noqa: E501
+            'permissions': ([str],),  # noqa: E501
             'members_preview': ([MemberPreview],),  # noqa: E501
-            'effective_permissions': ([str, none_type],),  # noqa: E501
+            'effective_permissions': ([str],),  # noqa: E501
             'members': ([ElementsUser],),  # noqa: E501
             'ldap': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
@@ -151,9 +151,9 @@ class ElementsGroupDetail(ModelNormal):
 
         Args:
             id (int):
-            permissions ([str, none_type]):
+            permissions ([str]):
             members_preview ([MemberPreview]):
-            effective_permissions ([str, none_type]):
+            effective_permissions ([str]):
             members ([ElementsUser]):
             ldap (bool, date, datetime, dict, float, int, list, str, none_type):
             name (str):
@@ -258,7 +258,7 @@ class ElementsGroupDetail(ModelNormal):
 
         Args:
             id (int):
-            permissions ([str, none_type]):
+            permissions ([str]):
             members ([ElementsUser]):
             ldap (bool, date, datetime, dict, float, int, list, str, none_type):
             name (str):

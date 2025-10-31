@@ -62,6 +62,7 @@ class VolumeMini(ModelNormal):
             'BTRFS': "btrfs",
             'BCACHEFS': "bcachefs",
             'BEEGFS': "beegfs",
+            'CEPH': "ceph",
             'CLOUD': "cloud",
             'ONEFS': "onefs",
             'QUMULO': "qumulo",
@@ -105,6 +106,7 @@ class VolumeMini(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'path': (str,),  # noqa: E501
+            'is_default': (bool,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
             'visual_tag': (str, none_type,),  # noqa: E501
             'type': (str,),  # noqa: E501
@@ -118,6 +120,7 @@ class VolumeMini(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'path': 'path',  # noqa: E501
+        'is_default': 'is_default',  # noqa: E501
         'display_name': 'display_name',  # noqa: E501
         'visual_tag': 'visual_tag',  # noqa: E501
         'type': 'type',  # noqa: E501
@@ -130,12 +133,13 @@ class VolumeMini(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, path, display_name, visual_tag, type, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, path, is_default, display_name, visual_tag, type, *args, **xkwargs):  # noqa: E501
         """VolumeMini - a model defined in OpenAPI
 
         Args:
             id (int):
             path (str):
+            is_default (bool):
             display_name (str):
             visual_tag (str, none_type):
             type (str):
@@ -201,6 +205,7 @@ class VolumeMini(ModelNormal):
 
         self.id = id
         self.path = path
+        self.is_default = is_default
         self.display_name = display_name
         self.visual_tag = visual_tag
         self.type = type
@@ -225,12 +230,13 @@ class VolumeMini(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, path, display_name, visual_tag, type, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, path, is_default, display_name, visual_tag, type, *args, **xkwargs):  # noqa: E501
         """VolumeMini - a model defined in OpenAPI
 
         Args:
             id (int):
             path (str):
+            is_default (bool):
             display_name (str):
             visual_tag (str, none_type):
             type (str):
@@ -294,6 +300,7 @@ class VolumeMini(ModelNormal):
 
         self.id = id
         self.path = path
+        self.is_default = is_default
         self.display_name = display_name
         self.visual_tag = visual_tag
         self.type = type

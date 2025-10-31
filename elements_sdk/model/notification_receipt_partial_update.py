@@ -90,7 +90,7 @@ class NotificationReceiptPartialUpdate(ModelNormal):
         """
         lazy_import()
         return {
-            'user': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'user': (ElementsUserMiniReference,),  # noqa: E501
             'notify_type': (str,),  # noqa: E501
             'failed': (bool,),  # noqa: E501
             'acknowledged': (bool,),  # noqa: E501
@@ -153,7 +153,7 @@ class NotificationReceiptPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            user (ElementsUserMiniReference): [optional]  # noqa: E501
             notify_type (str): [optional]  # noqa: E501
             failed (bool): [optional]  # noqa: E501
             acknowledged (bool): [optional]  # noqa: E501
@@ -242,7 +242,7 @@ class NotificationReceiptPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            user (ElementsUserMiniReference): [optional]  # noqa: E501
             notify_type (str): [optional]  # noqa: E501
             failed (bool): [optional]  # noqa: E501
             acknowledged (bool): [optional]  # noqa: E501

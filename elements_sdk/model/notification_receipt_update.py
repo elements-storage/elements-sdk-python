@@ -92,7 +92,7 @@ class NotificationReceiptUpdate(ModelNormal):
         return {
             'notify_type': (str,),  # noqa: E501
             'notification': (str,),  # noqa: E501
-            'user': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'user': (ElementsUserMiniReference,),  # noqa: E501
             'failed': (bool,),  # noqa: E501
             'acknowledged': (bool,),  # noqa: E501
             'removed': (bool,),  # noqa: E501
@@ -157,7 +157,7 @@ class NotificationReceiptUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            user (ElementsUserMiniReference): [optional]  # noqa: E501
             failed (bool): [optional]  # noqa: E501
             acknowledged (bool): [optional]  # noqa: E501
             removed (bool): [optional]  # noqa: E501
@@ -250,7 +250,7 @@ class NotificationReceiptUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            user (ElementsUserMiniReference): [optional]  # noqa: E501
             failed (bool): [optional]  # noqa: E501
             acknowledged (bool): [optional]  # noqa: E501
             removed (bool): [optional]  # noqa: E501

@@ -87,7 +87,7 @@ class NotificationPartialUpdate(ModelNormal):
         """
         lazy_import()
         return {
-            'receipts': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
+            'receipts': ([NotificationReceiptReference],),  # noqa: E501
             'kwargs': ({str: (str, none_type)},),  # noqa: E501
         }
 
@@ -142,7 +142,7 @@ class NotificationPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            receipts ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
+            receipts ([NotificationReceiptReference]): [optional]  # noqa: E501
             kwargs ({str: (str, none_type)}): [optional]  # noqa: E501
         """
 
@@ -227,7 +227,7 @@ class NotificationPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            receipts ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
+            receipts ([NotificationReceiptReference]): [optional]  # noqa: E501
             kwargs ({str: (str, none_type)}): [optional]  # noqa: E501
         """
 

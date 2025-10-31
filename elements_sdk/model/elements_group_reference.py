@@ -102,9 +102,9 @@ class ElementsGroupReference(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'permissions': ([str, none_type],),  # noqa: E501
+            'permissions': ([str],),  # noqa: E501
             'members_preview': ([MemberPreview],),  # noqa: E501
-            'effective_permissions': ([str, none_type],),  # noqa: E501
+            'effective_permissions': ([str],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'ldap_dn': (str, none_type,),  # noqa: E501
             'ldap_guid': (str, none_type,),  # noqa: E501
@@ -187,9 +187,9 @@ class ElementsGroupReference(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            permissions ([str, none_type]): [optional]  # noqa: E501
+            permissions ([str]): [optional]  # noqa: E501
             members_preview ([MemberPreview]): [optional]  # noqa: E501
-            effective_permissions ([str, none_type]): [optional]  # noqa: E501
+            effective_permissions ([str]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
             ldap_guid (str, none_type): [optional]  # noqa: E501
@@ -284,9 +284,9 @@ class ElementsGroupReference(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            permissions ([str, none_type]): [optional]  # noqa: E501
+            permissions ([str]): [optional]  # noqa: E501
             members_preview ([MemberPreview]): [optional]  # noqa: E501
-            effective_permissions ([str, none_type]): [optional]  # noqa: E501
+            effective_permissions ([str]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
             ldap_guid (str, none_type): [optional]  # noqa: E501

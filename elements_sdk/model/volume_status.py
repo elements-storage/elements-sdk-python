@@ -31,9 +31,13 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.volume_bee_gfs_status import VolumeBeeGFSStatus
+    from elements_sdk.model.volume_ceph_status import VolumeCephStatus
     from elements_sdk.model.volume_snfs_status import VolumeSNFSStatus
+    from elements_sdk.model.volume_usage import VolumeUsage
     globals()['VolumeBeeGFSStatus'] = VolumeBeeGFSStatus
+    globals()['VolumeCephStatus'] = VolumeCephStatus
     globals()['VolumeSNFSStatus'] = VolumeSNFSStatus
+    globals()['VolumeUsage'] = VolumeUsage
 
 
 class VolumeStatus(ModelNormal):
@@ -64,6 +68,18 @@ class VolumeStatus(ModelNormal):
     }
 
     validations = {
+        ('size_total',): {
+            'max_length': 0,
+            'min_length': 0,
+        },
+        ('size_used',): {
+            'max_length': 0,
+            'min_length': 0,
+        },
+        ('size_free',): {
+            'max_length': 0,
+            'min_length': 0,
+        },
     }
 
     @cached_property
@@ -90,11 +106,13 @@ class VolumeStatus(ModelNormal):
         lazy_import()
         return {
             'online': (bool, none_type,),  # noqa: E501
-            'size_total': (int, none_type,),  # noqa: E501
-            'size_used': (int, none_type,),  # noqa: E501
-            'size_free': (int, none_type,),  # noqa: E501
+            'size_total': (str, none_type,),  # noqa: E501
+            'size_used': (str, none_type,),  # noqa: E501
+            'size_free': (str, none_type,),  # noqa: E501
+            'usage': (VolumeUsage,),  # noqa: E501
             'snfs': (VolumeSNFSStatus,),  # noqa: E501
             'beegfs': (VolumeBeeGFSStatus,),  # noqa: E501
+            'ceph': (VolumeCephStatus,),  # noqa: E501
         }
 
     @cached_property
@@ -107,25 +125,27 @@ class VolumeStatus(ModelNormal):
         'size_total': 'size_total',  # noqa: E501
         'size_used': 'size_used',  # noqa: E501
         'size_free': 'size_free',  # noqa: E501
+        'usage': 'usage',  # noqa: E501
         'snfs': 'snfs',  # noqa: E501
         'beegfs': 'beegfs',  # noqa: E501
+        'ceph': 'ceph',  # noqa: E501
     }
 
     read_only_vars = {
+        'size_total',  # noqa: E501
+        'size_used',  # noqa: E501
+        'size_free',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, online, size_total, size_used, size_free, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, online, *args, **xkwargs):  # noqa: E501
         """VolumeStatus - a model defined in OpenAPI
 
         Args:
             online (bool, none_type):
-            size_total (int, none_type):
-            size_used (int, none_type):
-            size_free (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -158,8 +178,13 @@ class VolumeStatus(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            size_total (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
+            size_used (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
+            size_free (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
+            usage (VolumeUsage): [optional]  # noqa: E501
             snfs (VolumeSNFSStatus): [optional]  # noqa: E501
             beegfs (VolumeBeeGFSStatus): [optional]  # noqa: E501
+            ceph (VolumeCephStatus): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -189,9 +214,6 @@ class VolumeStatus(ModelNormal):
 
 
         self.online = online
-        self.size_total = size_total
-        self.size_used = size_used
-        self.size_free = size_free
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -213,14 +235,11 @@ class VolumeStatus(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, online, size_total, size_used, size_free, *args, **xkwargs):  # noqa: E501
+    def __init__(self, online, *args, **xkwargs):  # noqa: E501
         """VolumeStatus - a model defined in OpenAPI
 
         Args:
             online (bool, none_type):
-            size_total (int, none_type):
-            size_used (int, none_type):
-            size_free (int, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -253,8 +272,13 @@ class VolumeStatus(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            size_total (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
+            size_used (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
+            size_free (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
+            usage (VolumeUsage): [optional]  # noqa: E501
             snfs (VolumeSNFSStatus): [optional]  # noqa: E501
             beegfs (VolumeBeeGFSStatus): [optional]  # noqa: E501
+            ceph (VolumeCephStatus): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -282,9 +306,6 @@ class VolumeStatus(ModelNormal):
 
 
         self.online = online
-        self.size_total = size_total
-        self.size_used = size_used
-        self.size_free = size_free
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -33,11 +33,13 @@ def lazy_import():
     from elements_sdk.model.elements_group import ElementsGroup
     from elements_sdk.model.elements_user import ElementsUser
     from elements_sdk.model.job_fs_trigger import JobFSTrigger
+    from elements_sdk.model.job_variable_definition import JobVariableDefinition
     from elements_sdk.model.schedule import Schedule
     from elements_sdk.model.subtask import Subtask
     globals()['ElementsGroup'] = ElementsGroup
     globals()['ElementsUser'] = ElementsUser
     globals()['JobFSTrigger'] = JobFSTrigger
+    globals()['JobVariableDefinition'] = JobVariableDefinition
     globals()['Schedule'] = Schedule
     globals()['Subtask'] = Subtask
 
@@ -128,7 +130,7 @@ class JobDetail(ModelNormal):
             'id': (int,),  # noqa: E501
             'schedules': ([Schedule],),  # noqa: E501
             'startable': (bool,),  # noqa: E501
-            'variable_definitions': ([{str: (str, none_type)}],),  # noqa: E501
+            'variable_definitions': ([JobVariableDefinition],),  # noqa: E501
             'webhook_url': (str, none_type,),  # noqa: E501
             'needs_compatibility_check': (bool,),  # noqa: E501
             'subtasks': ([Subtask],),  # noqa: E501
@@ -203,7 +205,7 @@ class JobDetail(ModelNormal):
             id (int):
             schedules ([Schedule]):
             startable (bool):
-            variable_definitions ([{str: (str, none_type)}]):
+            variable_definitions ([JobVariableDefinition]):
             webhook_url (str, none_type):
             needs_compatibility_check (bool):
             subtasks ([Subtask]):
@@ -337,7 +339,7 @@ class JobDetail(ModelNormal):
         Args:
             id (int):
             schedules ([Schedule]):
-            variable_definitions ([{str: (str, none_type)}]):
+            variable_definitions ([JobVariableDefinition]):
             subtasks ([Subtask]):
             allow_users ([ElementsUser]):
             allow_groups ([ElementsGroup]):

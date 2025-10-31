@@ -104,7 +104,7 @@ class ElementsGroupDetailUpdate(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'permissions': ([str, none_type],),  # noqa: E501
+            'permissions': ([str],),  # noqa: E501
             'members': ([ElementsUserReference],),  # noqa: E501
             'ldap': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'ldap_dn': (str, none_type,),  # noqa: E501
@@ -173,7 +173,7 @@ class ElementsGroupDetailUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            permissions ([str, none_type]): [optional]  # noqa: E501
+            permissions ([str]): [optional]  # noqa: E501
             members ([ElementsUserReference]): [optional]  # noqa: E501
             ldap (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501
@@ -267,7 +267,7 @@ class ElementsGroupDetailUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            permissions ([str, none_type]): [optional]  # noqa: E501
+            permissions ([str]): [optional]  # noqa: E501
             members ([ElementsUserReference]): [optional]  # noqa: E501
             ldap (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             ldap_dn (str, none_type): [optional]  # noqa: E501

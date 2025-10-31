@@ -32,10 +32,12 @@ from elements_sdk.exceptions import ApiAttributeError
 def lazy_import():
     from elements_sdk.model.elements_group_reference import ElementsGroupReference
     from elements_sdk.model.elements_user_reference import ElementsUserReference
+    from elements_sdk.model.job_variable_definition import JobVariableDefinition
     from elements_sdk.model.schedule_reference import ScheduleReference
     from elements_sdk.model.subtask_reference import SubtaskReference
     globals()['ElementsGroupReference'] = ElementsGroupReference
     globals()['ElementsUserReference'] = ElementsUserReference
+    globals()['JobVariableDefinition'] = JobVariableDefinition
     globals()['ScheduleReference'] = ScheduleReference
     globals()['SubtaskReference'] = SubtaskReference
 
@@ -121,7 +123,7 @@ class JobDetailPartialUpdate(ModelNormal):
         lazy_import()
         return {
             'schedules': ([ScheduleReference],),  # noqa: E501
-            'variable_definitions': ([{str: (str, none_type)}],),  # noqa: E501
+            'variable_definitions': ([JobVariableDefinition],),  # noqa: E501
             'subtasks': ([SubtaskReference],),  # noqa: E501
             'allow_users': ([ElementsUserReference],),  # noqa: E501
             'allow_groups': ([ElementsGroupReference],),  # noqa: E501
@@ -212,7 +214,7 @@ class JobDetailPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             schedules ([ScheduleReference]): [optional]  # noqa: E501
-            variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
+            variable_definitions ([JobVariableDefinition]): [optional]  # noqa: E501
             subtasks ([SubtaskReference]): [optional]  # noqa: E501
             allow_users ([ElementsUserReference]): [optional]  # noqa: E501
             allow_groups ([ElementsGroupReference]): [optional]  # noqa: E501
@@ -315,7 +317,7 @@ class JobDetailPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             schedules ([ScheduleReference]): [optional]  # noqa: E501
-            variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
+            variable_definitions ([JobVariableDefinition]): [optional]  # noqa: E501
             subtasks ([SubtaskReference]): [optional]  # noqa: E501
             allow_users ([ElementsUserReference]): [optional]  # noqa: E501
             allow_groups ([ElementsGroupReference]): [optional]  # noqa: E501

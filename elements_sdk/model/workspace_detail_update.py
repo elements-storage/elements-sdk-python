@@ -130,6 +130,10 @@ class WorkspaceDetailUpdate(ModelNormal):
         ('share_name',): {
             'max_length': 255,
         },
+        ('current_size',): {
+            'inclusive_maximum': 9223372036854775000,
+            'inclusive_minimum': -9223372036854775000,
+        },
         ('affinity',): {
             'max_length': 255,
         },
@@ -193,6 +197,7 @@ class WorkspaceDetailUpdate(ModelNormal):
             'sharing_read_only': (bool,),  # noqa: E501
             'sharing_allow_execute': (bool,),  # noqa: E501
             'enable_quota': (bool,),  # noqa: E501
+            'current_size': (int, none_type,),  # noqa: E501
             'affinity': (str, none_type,),  # noqa: E501
             'emulate_avid': (bool,),  # noqa: E501
             'emulate_capture': (bool,),  # noqa: E501
@@ -241,6 +246,7 @@ class WorkspaceDetailUpdate(ModelNormal):
         'sharing_read_only': 'sharing_read_only',  # noqa: E501
         'sharing_allow_execute': 'sharing_allow_execute',  # noqa: E501
         'enable_quota': 'enable_quota',  # noqa: E501
+        'current_size': 'current_size',  # noqa: E501
         'affinity': 'affinity',  # noqa: E501
         'emulate_avid': 'emulate_avid',  # noqa: E501
         'emulate_capture': 'emulate_capture',  # noqa: E501
@@ -326,6 +332,7 @@ class WorkspaceDetailUpdate(ModelNormal):
             sharing_read_only (bool): [optional]  # noqa: E501
             sharing_allow_execute (bool): [optional]  # noqa: E501
             enable_quota (bool): [optional]  # noqa: E501
+            current_size (int, none_type): [optional]  # noqa: E501
             affinity (str, none_type): [optional]  # noqa: E501
             emulate_avid (bool): [optional]  # noqa: E501
             emulate_capture (bool): [optional]  # noqa: E501
@@ -452,6 +459,7 @@ class WorkspaceDetailUpdate(ModelNormal):
             sharing_read_only (bool): [optional]  # noqa: E501
             sharing_allow_execute (bool): [optional]  # noqa: E501
             enable_quota (bool): [optional]  # noqa: E501
+            current_size (int, none_type): [optional]  # noqa: E501
             affinity (str, none_type): [optional]  # noqa: E501
             emulate_avid (bool): [optional]  # noqa: E501
             emulate_capture (bool): [optional]  # noqa: E501

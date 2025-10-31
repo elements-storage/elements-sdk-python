@@ -55,6 +55,16 @@ class MoveWorkspaceRequest(ModelNormal):
     """
 
     allowed_values = {
+        ('priority',): {
+            'INTERACTIVE': "interactive",
+            'HIGH': "high",
+            'NORMAL': "normal",
+            'LOW': "low",
+        },
+        ('transfer_using',): {
+            'INTERNAL': "internal",
+            'RCLONE': "rclone",
+        },
     }
 
     validations = {
@@ -84,9 +94,13 @@ class MoveWorkspaceRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'bandwidth_limit': (int, none_type,),  # noqa: E501
+            'enqueue_at_front': (bool,),  # noqa: E501
+            'priority': (str,),  # noqa: E501
             'production': (int,),  # noqa: E501
             'volume': (int,),  # noqa: E501
             'directory': (str,),  # noqa: E501
+            'transfer_using': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -95,9 +109,13 @@ class MoveWorkspaceRequest(ModelNormal):
 
 
     attribute_map = {
+        'bandwidth_limit': 'bandwidth_limit',  # noqa: E501
+        'enqueue_at_front': 'enqueue_at_front',  # noqa: E501
+        'priority': 'priority',  # noqa: E501
         'production': 'production',  # noqa: E501
         'volume': 'volume',  # noqa: E501
         'directory': 'directory',  # noqa: E501
+        'transfer_using': 'transfer_using',  # noqa: E501
     }
 
     read_only_vars = {
@@ -107,8 +125,12 @@ class MoveWorkspaceRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, bandwidth_limit, enqueue_at_front, *args, **xkwargs):  # noqa: E501
         """MoveWorkspaceRequest - a model defined in OpenAPI
+
+        Args:
+            bandwidth_limit (int, none_type):
+            enqueue_at_front (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -141,9 +163,11 @@ class MoveWorkspaceRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            priority (str): [optional] if omitted the server will use the default value of "interactive"  # noqa: E501
             production (int): [optional]  # noqa: E501
             volume (int): [optional]  # noqa: E501
             directory (str): [optional]  # noqa: E501
+            transfer_using (str): [optional] if omitted the server will use the default value of "internal"  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -172,6 +196,8 @@ class MoveWorkspaceRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
+        self.bandwidth_limit = bandwidth_limit
+        self.enqueue_at_front = enqueue_at_front
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -193,8 +219,12 @@ class MoveWorkspaceRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **xkwargs):  # noqa: E501
+    def __init__(self, bandwidth_limit, enqueue_at_front, *args, **xkwargs):  # noqa: E501
         """MoveWorkspaceRequest - a model defined in OpenAPI
+
+        Args:
+            bandwidth_limit (int, none_type):
+            enqueue_at_front (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -227,9 +257,11 @@ class MoveWorkspaceRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            priority (str): [optional] if omitted the server will use the default value of "interactive"  # noqa: E501
             production (int): [optional]  # noqa: E501
             volume (int): [optional]  # noqa: E501
             directory (str): [optional]  # noqa: E501
+            transfer_using (str): [optional] if omitted the server will use the default value of "internal"  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -256,6 +288,8 @@ class MoveWorkspaceRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
+        self.bandwidth_limit = bandwidth_limit
+        self.enqueue_at_front = enqueue_at_front
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

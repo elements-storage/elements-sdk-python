@@ -94,7 +94,7 @@ class WorkflowReference(ModelNormal):
             'id': (int,),  # noqa: E501
             'states': ([{str: (str, none_type)}],),  # noqa: E501
             'transitions': ([{str: (str, none_type)}],),  # noqa: E501
-            'roots': ([int, none_type],),  # noqa: E501
+            'roots': ([int],),  # noqa: E501
             'jobs': ([Job],),  # noqa: E501
             'name': (str,),  # noqa: E501
         }
@@ -164,7 +164,7 @@ class WorkflowReference(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             states ([{str: (str, none_type)}]): [optional]  # noqa: E501
             transitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
-            roots ([int, none_type]): [optional]  # noqa: E501
+            roots ([int]): [optional]  # noqa: E501
             jobs ([Job]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
         """
@@ -256,7 +256,7 @@ class WorkflowReference(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             states ([{str: (str, none_type)}]): [optional]  # noqa: E501
             transitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
-            roots ([int, none_type]): [optional]  # noqa: E501
+            roots ([int]): [optional]  # noqa: E501
             jobs ([Job]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
         """

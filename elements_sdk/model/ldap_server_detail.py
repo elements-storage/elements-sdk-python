@@ -93,6 +93,9 @@ class LDAPServerDetail(ModelNormal):
         ('group_search_filter',): {
             'max_length': 255,
         },
+        ('group_members_search_filter',): {
+            'max_length': 255,
+        },
         ('nt_domain',): {
             'max_length': 255,
         },
@@ -142,6 +145,7 @@ class LDAPServerDetail(ModelNormal):
             'domain': (str,),  # noqa: E501
             'search_filter': (str,),  # noqa: E501
             'group_search_filter': (str,),  # noqa: E501
+            'group_members_search_filter': (str,),  # noqa: E501
             'nt_domain': (str,),  # noqa: E501
             'nt_domain_mapping': (str,),  # noqa: E501
             'root': (str,),  # noqa: E501
@@ -168,6 +172,7 @@ class LDAPServerDetail(ModelNormal):
         'domain': 'domain',  # noqa: E501
         'search_filter': 'search_filter',  # noqa: E501
         'group_search_filter': 'group_search_filter',  # noqa: E501
+        'group_members_search_filter': 'group_members_search_filter',  # noqa: E501
         'nt_domain': 'nt_domain',  # noqa: E501
         'nt_domain_mapping': 'nt_domain_mapping',  # noqa: E501
         'root': 'root',  # noqa: E501
@@ -185,7 +190,7 @@ class LDAPServerDetail(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, winbind_separator, type, name, host, tls, username, password, domain, search_filter, group_search_filter, nt_domain, nt_domain_mapping, root, users_root, groups_root, use_wbinfo, username_format, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, winbind_separator, type, name, host, tls, username, password, domain, search_filter, group_search_filter, group_members_search_filter, nt_domain, nt_domain_mapping, root, users_root, groups_root, use_wbinfo, username_format, *args, **xkwargs):  # noqa: E501
         """LDAPServerDetail - a model defined in OpenAPI
 
         Args:
@@ -200,6 +205,7 @@ class LDAPServerDetail(ModelNormal):
             domain (str):
             search_filter (str):
             group_search_filter (str):
+            group_members_search_filter (str):
             nt_domain (str):
             nt_domain_mapping (str): Incorrect domain first, true domain second, comma separated
             root (str):
@@ -278,6 +284,7 @@ class LDAPServerDetail(ModelNormal):
         self.domain = domain
         self.search_filter = search_filter
         self.group_search_filter = group_search_filter
+        self.group_members_search_filter = group_members_search_filter
         self.nt_domain = nt_domain
         self.nt_domain_mapping = nt_domain_mapping
         self.root = root
@@ -306,7 +313,7 @@ class LDAPServerDetail(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, type, name, host, tls, username, password, domain, search_filter, group_search_filter, nt_domain, nt_domain_mapping, root, users_root, groups_root, use_wbinfo, username_format, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, type, name, host, tls, username, password, domain, search_filter, group_search_filter, group_members_search_filter, nt_domain, nt_domain_mapping, root, users_root, groups_root, use_wbinfo, username_format, *args, **xkwargs):  # noqa: E501
         """LDAPServerDetail - a model defined in OpenAPI
 
         Args:
@@ -320,6 +327,7 @@ class LDAPServerDetail(ModelNormal):
             domain (str):
             search_filter (str):
             group_search_filter (str):
+            group_members_search_filter (str):
             nt_domain (str):
             nt_domain_mapping (str): Incorrect domain first, true domain second, comma separated
             root (str):
@@ -395,6 +403,7 @@ class LDAPServerDetail(ModelNormal):
         self.domain = domain
         self.search_filter = search_filter
         self.group_search_filter = group_search_filter
+        self.group_members_search_filter = group_members_search_filter
         self.nt_domain = nt_domain
         self.nt_domain_mapping = nt_domain_mapping
         self.root = root

@@ -59,6 +59,24 @@ class StorageNodePartialUpdate(ModelNormal):
             'MEDIA': "media",
             'DEFAULT': "default",
         },
+        ('product',): {
+            'ELEMENTS': "ELEMENTS",
+            'ELEMENTS_BOLT': "ELEMENTS BOLT",
+            'ELEMENTS_CUBE': "ELEMENTS CUBE",
+            'ELEMENTS_GATEWAY': "ELEMENTS GATEWAY",
+            'ELEMENTS_MDC': "ELEMENTS MDC",
+            'ELEMENTS_NAS': "ELEMENTS NAS",
+            'ELEMENTS_ONE': "ELEMENTS ONE",
+            'ELEMENTS_WORKER': "ELEMENTS WORKER",
+        },
+        ('product_subtype',): {
+            'DMZ': "DMZ",
+            'PERFORMANCE': "PERFORMANCE",
+            'VM': "VM",
+            'SAN': "SAN",
+            'LTFS': "LTFS",
+            'EMPTY': "",
+        },
         ('ipmi',): {
             '1': 1,
             '2': 2,
@@ -75,6 +93,9 @@ class StorageNodePartialUpdate(ModelNormal):
         ('name',): {
             'max_length': 255,
             'min_length': 1,
+        },
+        ('serial',): {
+            'max_length': 255,
         },
         ('address',): {
             'max_length': 255,
@@ -126,6 +147,9 @@ class StorageNodePartialUpdate(ModelNormal):
             'task_queues': ([str],),  # noqa: E501
             'unique_id': (str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'product': (str,),  # noqa: E501
+            'product_subtype': (str,),  # noqa: E501
+            'serial': (str,),  # noqa: E501
             'address': (str,),  # noqa: E501
             'ipmi': (int,),  # noqa: E501
             'ipmi_address': (str, none_type,),  # noqa: E501
@@ -134,6 +158,7 @@ class StorageNodePartialUpdate(ModelNormal):
             'proxy_queue': (bool,),  # noqa: E501
             'email_queue': (bool,),  # noqa: E501
             'apply_configuration_queue': (bool,),  # noqa: E501
+            'workspace_transfer_queue': (bool,),  # noqa: E501
             'solr_indexer_enabled': (bool,),  # noqa: E501
             'discovery_enabled': (bool,),  # noqa: E501
             'discovery_address_override': (str, none_type,),  # noqa: E501
@@ -155,6 +180,9 @@ class StorageNodePartialUpdate(ModelNormal):
         'task_queues': 'task_queues',  # noqa: E501
         'unique_id': 'unique_id',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'product': 'product',  # noqa: E501
+        'product_subtype': 'product_subtype',  # noqa: E501
+        'serial': 'serial',  # noqa: E501
         'address': 'address',  # noqa: E501
         'ipmi': 'ipmi',  # noqa: E501
         'ipmi_address': 'ipmi_address',  # noqa: E501
@@ -163,6 +191,7 @@ class StorageNodePartialUpdate(ModelNormal):
         'proxy_queue': 'proxy_queue',  # noqa: E501
         'email_queue': 'email_queue',  # noqa: E501
         'apply_configuration_queue': 'apply_configuration_queue',  # noqa: E501
+        'workspace_transfer_queue': 'workspace_transfer_queue',  # noqa: E501
         'solr_indexer_enabled': 'solr_indexer_enabled',  # noqa: E501
         'discovery_enabled': 'discovery_enabled',  # noqa: E501
         'discovery_address_override': 'discovery_address_override',  # noqa: E501
@@ -219,6 +248,9 @@ class StorageNodePartialUpdate(ModelNormal):
             task_queues ([str]): [optional]  # noqa: E501
             unique_id (str, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
+            product (str): [optional]  # noqa: E501
+            product_subtype (str): [optional]  # noqa: E501
+            serial (str): [optional]  # noqa: E501
             address (str): For communication between nodes only. [optional]  # noqa: E501
             ipmi (int): [optional]  # noqa: E501
             ipmi_address (str, none_type): [optional]  # noqa: E501
@@ -227,6 +259,7 @@ class StorageNodePartialUpdate(ModelNormal):
             proxy_queue (bool): [optional]  # noqa: E501
             email_queue (bool): [optional]  # noqa: E501
             apply_configuration_queue (bool): [optional]  # noqa: E501
+            workspace_transfer_queue (bool): [optional]  # noqa: E501
             solr_indexer_enabled (bool): [optional]  # noqa: E501
             discovery_enabled (bool): [optional]  # noqa: E501
             discovery_address_override (str, none_type): [optional]  # noqa: E501
@@ -323,6 +356,9 @@ class StorageNodePartialUpdate(ModelNormal):
             task_queues ([str]): [optional]  # noqa: E501
             unique_id (str, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
+            product (str): [optional]  # noqa: E501
+            product_subtype (str): [optional]  # noqa: E501
+            serial (str): [optional]  # noqa: E501
             address (str): For communication between nodes only. [optional]  # noqa: E501
             ipmi (int): [optional]  # noqa: E501
             ipmi_address (str, none_type): [optional]  # noqa: E501
@@ -331,6 +367,7 @@ class StorageNodePartialUpdate(ModelNormal):
             proxy_queue (bool): [optional]  # noqa: E501
             email_queue (bool): [optional]  # noqa: E501
             apply_configuration_queue (bool): [optional]  # noqa: E501
+            workspace_transfer_queue (bool): [optional]  # noqa: E501
             solr_indexer_enabled (bool): [optional]  # noqa: E501
             discovery_enabled (bool): [optional]  # noqa: E501
             discovery_address_override (str, none_type): [optional]  # noqa: E501

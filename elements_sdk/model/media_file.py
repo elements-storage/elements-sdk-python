@@ -139,7 +139,7 @@ class MediaFile(ModelNormal):
             'bundle_index': (int,),  # noqa: E501
             'modified': (datetime,),  # noqa: E501
             'resolved_permission': (MediaRootPermission,),  # noqa: E501
-            'parent_file': ({str: (str, none_type)},),  # noqa: E501
+            'parent_file': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'root': (MediaRootMini,),  # noqa: E501
             'effective_custom_fields': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'modified_by': (ElementsUserMini,),  # noqa: E501
@@ -277,7 +277,7 @@ class MediaFile(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             resolved_permission (MediaRootPermission): [optional]  # noqa: E501
-            parent_file ({str: (str, none_type)}): [optional]  # noqa: E501
+            parent_file ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             root (MediaRootMini): [optional]  # noqa: E501
             effective_custom_fields ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             modified_by (ElementsUserMini): [optional]  # noqa: E501
@@ -401,7 +401,7 @@ class MediaFile(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             resolved_permission (MediaRootPermission): [optional]  # noqa: E501
-            parent_file ({str: (str, none_type)}): [optional]  # noqa: E501
+            parent_file ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             root (MediaRootMini): [optional]  # noqa: E501
             effective_custom_fields ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             modified_by (ElementsUserMini): [optional]  # noqa: E501

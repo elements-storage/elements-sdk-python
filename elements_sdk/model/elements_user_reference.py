@@ -133,18 +133,18 @@ class ElementsUserReference(ModelNormal):
             'id': (int,),  # noqa: E501
             'allow_changing_password': (bool,),  # noqa: E501
             'allow_wan_login': (bool,),  # noqa: E501
-            'allowed_fs_paths': ([str, none_type], none_type,),  # noqa: E501
-            'allowed_fs_write_paths': ([str, none_type], none_type,),  # noqa: E501
+            'allowed_fs_paths': ([str], none_type,),  # noqa: E501
+            'allowed_fs_write_paths': ([str], none_type,),  # noqa: E501
             'avatar': (str, none_type,),  # noqa: E501
             'default_page': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
-            'effective_permissions': ([str, none_type],),  # noqa: E501
+            'effective_permissions': ([str],),  # noqa: E501
             'email': (str, none_type,),  # noqa: E501
             'expiry': (datetime, none_type,),  # noqa: E501
-            'fm_bookmarks': ([str, none_type],),  # noqa: E501
+            'fm_bookmarks': ([str],),  # noqa: E501
             'full_name': (str, none_type,),  # noqa: E501
             'gid': (int, none_type,),  # noqa: E501
-            'group_permissions': ([str, none_type],),  # noqa: E501
+            'group_permissions': ([str],),  # noqa: E501
             'has_password': (bool,),  # noqa: E501
             'home': (int, none_type,),  # noqa: E501
             'is_external': (bool,),  # noqa: E501
@@ -157,7 +157,7 @@ class ElementsUserReference(ModelNormal):
             'ldap_dn': (str, none_type,),  # noqa: E501
             'ldap_guid': (str, none_type,),  # noqa: E501
             'password_change_required': (bool,),  # noqa: E501
-            'permissions': ([str, none_type],),  # noqa: E501
+            'permissions': ([str],),  # noqa: E501
             'shaper_ceiling': (int, none_type,),  # noqa: E501
             'shaper_rate': (int, none_type,),  # noqa: E501
             'sync_id': (str,),  # noqa: E501
@@ -290,18 +290,18 @@ class ElementsUserReference(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             allow_changing_password (bool): [optional]  # noqa: E501
             allow_wan_login (bool): [optional]  # noqa: E501
-            allowed_fs_paths ([str, none_type], none_type): [optional]  # noqa: E501
-            allowed_fs_write_paths ([str, none_type], none_type): [optional]  # noqa: E501
+            allowed_fs_paths ([str], none_type): [optional]  # noqa: E501
+            allowed_fs_write_paths ([str], none_type): [optional]  # noqa: E501
             avatar (str, none_type): [optional]  # noqa: E501
             default_page (str): [optional]  # noqa: E501
             display_name (str): [optional]  # noqa: E501
-            effective_permissions ([str, none_type]): [optional]  # noqa: E501
+            effective_permissions ([str]): [optional]  # noqa: E501
             email (str, none_type): [optional]  # noqa: E501
             expiry (datetime, none_type): [optional]  # noqa: E501
-            fm_bookmarks ([str, none_type]): [optional]  # noqa: E501
+            fm_bookmarks ([str]): [optional]  # noqa: E501
             full_name (str, none_type): [optional]  # noqa: E501
             gid (int, none_type): [optional]  # noqa: E501
-            group_permissions ([str, none_type]): [optional]  # noqa: E501
+            group_permissions ([str]): [optional]  # noqa: E501
             has_password (bool): [optional]  # noqa: E501
             home (int, none_type): [optional]  # noqa: E501
             is_external (bool): [optional]  # noqa: E501
@@ -314,7 +314,7 @@ class ElementsUserReference(ModelNormal):
             ldap_dn (str, none_type): [optional]  # noqa: E501
             ldap_guid (str, none_type): [optional]  # noqa: E501
             password_change_required (bool): [optional]  # noqa: E501
-            permissions ([str, none_type]): [optional]  # noqa: E501
+            permissions ([str]): [optional]  # noqa: E501
             shaper_ceiling (int, none_type): [optional]  # noqa: E501
             shaper_rate (int, none_type): [optional]  # noqa: E501
             sync_id (str): [optional]  # noqa: E501
@@ -411,18 +411,18 @@ class ElementsUserReference(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             allow_changing_password (bool): [optional]  # noqa: E501
             allow_wan_login (bool): [optional]  # noqa: E501
-            allowed_fs_paths ([str, none_type], none_type): [optional]  # noqa: E501
-            allowed_fs_write_paths ([str, none_type], none_type): [optional]  # noqa: E501
+            allowed_fs_paths ([str], none_type): [optional]  # noqa: E501
+            allowed_fs_write_paths ([str], none_type): [optional]  # noqa: E501
             avatar (str, none_type): [optional]  # noqa: E501
             default_page (str): [optional]  # noqa: E501
             display_name (str): [optional]  # noqa: E501
-            effective_permissions ([str, none_type]): [optional]  # noqa: E501
+            effective_permissions ([str]): [optional]  # noqa: E501
             email (str, none_type): [optional]  # noqa: E501
             expiry (datetime, none_type): [optional]  # noqa: E501
-            fm_bookmarks ([str, none_type]): [optional]  # noqa: E501
+            fm_bookmarks ([str]): [optional]  # noqa: E501
             full_name (str, none_type): [optional]  # noqa: E501
             gid (int, none_type): [optional]  # noqa: E501
-            group_permissions ([str, none_type]): [optional]  # noqa: E501
+            group_permissions ([str]): [optional]  # noqa: E501
             has_password (bool): [optional]  # noqa: E501
             home (int, none_type): [optional]  # noqa: E501
             is_external (bool): [optional]  # noqa: E501
@@ -435,7 +435,7 @@ class ElementsUserReference(ModelNormal):
             ldap_dn (str, none_type): [optional]  # noqa: E501
             ldap_guid (str, none_type): [optional]  # noqa: E501
             password_change_required (bool): [optional]  # noqa: E501
-            permissions ([str, none_type]): [optional]  # noqa: E501
+            permissions ([str]): [optional]  # noqa: E501
             shaper_ceiling (int, none_type): [optional]  # noqa: E501
             shaper_rate (int, none_type): [optional]  # noqa: E501
             sync_id (str): [optional]  # noqa: E501

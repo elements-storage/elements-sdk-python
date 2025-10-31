@@ -30,7 +30,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from elements_sdk.model.job_variable_definition import JobVariableDefinition
     from elements_sdk.model.schedule import Schedule
+    globals()['JobVariableDefinition'] = JobVariableDefinition
     globals()['Schedule'] = Schedule
 
 
@@ -120,7 +122,7 @@ class JobReference(ModelNormal):
             'id': (int,),  # noqa: E501
             'schedules': ([Schedule],),  # noqa: E501
             'startable': (bool,),  # noqa: E501
-            'variable_definitions': ([{str: (str, none_type)}],),  # noqa: E501
+            'variable_definitions': ([JobVariableDefinition],),  # noqa: E501
             'webhook_url': (str, none_type,),  # noqa: E501
             'needs_compatibility_check': (bool,),  # noqa: E501
             'special_type': (int, none_type,),  # noqa: E501
@@ -232,7 +234,7 @@ class JobReference(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             schedules ([Schedule]): [optional]  # noqa: E501
             startable (bool): [optional]  # noqa: E501
-            variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
+            variable_definitions ([JobVariableDefinition]): [optional]  # noqa: E501
             webhook_url (str, none_type): [optional]  # noqa: E501
             needs_compatibility_check (bool): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501
@@ -338,7 +340,7 @@ class JobReference(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             schedules ([Schedule]): [optional]  # noqa: E501
             startable (bool): [optional]  # noqa: E501
-            variable_definitions ([{str: (str, none_type)}]): [optional]  # noqa: E501
+            variable_definitions ([JobVariableDefinition]): [optional]  # noqa: E501
             webhook_url (str, none_type): [optional]  # noqa: E501
             needs_compatibility_check (bool): [optional]  # noqa: E501
             special_type (int, none_type): [optional]  # noqa: E501

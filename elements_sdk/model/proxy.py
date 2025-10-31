@@ -61,6 +61,11 @@ class Proxy(ModelNormal):
     """
 
     allowed_values = {
+        ('codecs',): {
+            'None': None,
+            'AV1_OPUS': "av1_opus",
+            'H264_AAC': "h264_aac",
+        },
     }
 
     validations = {
@@ -81,6 +86,10 @@ class Proxy(ModelNormal):
         },
         ('variant_config',): {
             'min_length': 1,
+        },
+        ('video_codec',): {
+            'max_length': 0,
+            'min_length': 0,
         },
     }
 
@@ -120,8 +129,10 @@ class Proxy(ModelNormal):
             'variant_id': (str,),  # noqa: E501
             'variant_config': (str,),  # noqa: E501
             'source_audio_layout_preserved': (bool,),  # noqa: E501
+            'codecs': (str, none_type,),  # noqa: E501
             'asset': (int,),  # noqa: E501
             'transforms': (Transforms,),  # noqa: E501
+            'video_codec': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -143,8 +154,10 @@ class Proxy(ModelNormal):
         'variant_id': 'variant_id',  # noqa: E501
         'variant_config': 'variant_config',  # noqa: E501
         'source_audio_layout_preserved': 'source_audio_layout_preserved',  # noqa: E501
+        'codecs': 'codecs',  # noqa: E501
         'asset': 'asset',  # noqa: E501
         'transforms': 'transforms',  # noqa: E501
+        'video_codec': 'video_codec',  # noqa: E501
     }
 
     read_only_vars = {
@@ -152,13 +165,14 @@ class Proxy(ModelNormal):
         'failed_reason',  # noqa: E501
         'skipped',  # noqa: E501
         'generated',  # noqa: E501
+        'video_codec',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, urls, profile, failed_reason, skipped, generated, generated_date, failed, failed_count, name, variant_config, source_audio_layout_preserved, asset, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, urls, profile, failed_reason, skipped, generated, generated_date, failed, failed_count, name, variant_config, source_audio_layout_preserved, codecs, asset, *args, **xkwargs):  # noqa: E501
         """Proxy - a model defined in OpenAPI
 
         Args:
@@ -174,6 +188,7 @@ class Proxy(ModelNormal):
             name (str):
             variant_config (str):
             source_audio_layout_preserved (bool):
+            codecs (str, none_type):
             asset (int):
 
         Keyword Args:
@@ -209,6 +224,7 @@ class Proxy(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             transforms (Transforms): [optional]  # noqa: E501
+            video_codec (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         variant_id = xkwargs.get('variant_id', "default")
@@ -251,6 +267,7 @@ class Proxy(ModelNormal):
         self.variant_id = variant_id
         self.variant_config = variant_config
         self.source_audio_layout_preserved = source_audio_layout_preserved
+        self.codecs = codecs
         self.asset = asset
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -273,7 +290,7 @@ class Proxy(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, profile, generated_date, failed, failed_count, name, variant_config, source_audio_layout_preserved, asset, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, profile, generated_date, failed, failed_count, name, variant_config, source_audio_layout_preserved, codecs, asset, *args, **xkwargs):  # noqa: E501
         """Proxy - a model defined in OpenAPI
 
         Args:
@@ -285,6 +302,7 @@ class Proxy(ModelNormal):
             name (str):
             variant_config (str):
             source_audio_layout_preserved (bool):
+            codecs (str, none_type):
             asset (int):
 
         Keyword Args:
@@ -320,6 +338,7 @@ class Proxy(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             transforms (Transforms): [optional]  # noqa: E501
+            video_codec (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         variant_id = xkwargs.get('variant_id', "default")
@@ -356,6 +375,7 @@ class Proxy(ModelNormal):
         self.variant_id = variant_id
         self.variant_config = variant_config
         self.source_audio_layout_preserved = source_audio_layout_preserved
+        self.codecs = codecs
         self.asset = asset
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

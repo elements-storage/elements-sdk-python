@@ -133,7 +133,7 @@ class ElementsUserDetailUpdate(ModelNormal):
         """
         lazy_import()
         return {
-            'permissions': ([str, none_type],),  # noqa: E501
+            'permissions': ([str],),  # noqa: E501
             'username': (str,),  # noqa: E501
             'groups': ([int],),  # noqa: E501
             'allow_changing_password': (bool,),  # noqa: E501
@@ -141,7 +141,7 @@ class ElementsUserDetailUpdate(ModelNormal):
             'default_page': (str,),  # noqa: E501
             'email': (str, none_type,),  # noqa: E501
             'expiry': (datetime, none_type,),  # noqa: E501
-            'fm_bookmarks': ([str, none_type],),  # noqa: E501
+            'fm_bookmarks': ([str],),  # noqa: E501
             'full_name': (str, none_type,),  # noqa: E501
             'gid': (int, none_type,),  # noqa: E501
             'home': (int, none_type,),  # noqa: E501
@@ -200,7 +200,7 @@ class ElementsUserDetailUpdate(ModelNormal):
         """ElementsUserDetailUpdate - a model defined in OpenAPI
 
         Args:
-            permissions ([str, none_type]):
+            permissions ([str]):
             username (str):
             groups ([int]):
 
@@ -240,7 +240,7 @@ class ElementsUserDetailUpdate(ModelNormal):
             default_page (str): [optional]  # noqa: E501
             email (str, none_type): [optional]  # noqa: E501
             expiry (datetime, none_type): [optional]  # noqa: E501
-            fm_bookmarks ([str, none_type]): [optional]  # noqa: E501
+            fm_bookmarks ([str]): [optional]  # noqa: E501
             full_name (str, none_type): [optional]  # noqa: E501
             gid (int, none_type): [optional]  # noqa: E501
             home (int, none_type): [optional]  # noqa: E501
@@ -311,7 +311,7 @@ class ElementsUserDetailUpdate(ModelNormal):
         """ElementsUserDetailUpdate - a model defined in OpenAPI
 
         Args:
-            permissions ([str, none_type]):
+            permissions ([str]):
             username (str):
             groups ([int]):
 
@@ -351,7 +351,7 @@ class ElementsUserDetailUpdate(ModelNormal):
             default_page (str): [optional]  # noqa: E501
             email (str, none_type): [optional]  # noqa: E501
             expiry (datetime, none_type): [optional]  # noqa: E501
-            fm_bookmarks ([str, none_type]): [optional]  # noqa: E501
+            fm_bookmarks ([str]): [optional]  # noqa: E501
             full_name (str, none_type): [optional]  # noqa: E501
             gid (int, none_type): [optional]  # noqa: E501
             home (int, none_type): [optional]  # noqa: E501

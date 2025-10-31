@@ -62,6 +62,7 @@ class VolumePartialUpdate(ModelNormal):
             'BTRFS': "btrfs",
             'BCACHEFS': "bcachefs",
             'BEEGFS': "beegfs",
+            'CEPH': "ceph",
             'CLOUD': "cloud",
             'ONEFS': "onefs",
             'QUMULO': "qumulo",

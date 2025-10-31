@@ -34,14 +34,18 @@ def lazy_import():
     from elements_sdk.model.production import Production
     from elements_sdk.model.quota import Quota
     from elements_sdk.model.volume import Volume
+    from elements_sdk.model.volume_mini import VolumeMini
     from elements_sdk.model.workspace_endpoint import WorkspaceEndpoint
     from elements_sdk.model.workspace_resolved_permission import WorkspaceResolvedPermission
+    from elements_sdk.model.workspace_transfer_status import WorkspaceTransferStatus
     globals()['NFSPermission'] = NFSPermission
     globals()['Production'] = Production
     globals()['Quota'] = Quota
     globals()['Volume'] = Volume
+    globals()['VolumeMini'] = VolumeMini
     globals()['WorkspaceEndpoint'] = WorkspaceEndpoint
     globals()['WorkspaceResolvedPermission'] = WorkspaceResolvedPermission
+    globals()['WorkspaceTransferStatus'] = WorkspaceTransferStatus
 
 
 class WorkspaceDetail(ModelNormal):
@@ -139,6 +143,10 @@ class WorkspaceDetail(ModelNormal):
         ('share_name',): {
             'max_length': 255,
         },
+        ('current_size',): {
+            'inclusive_maximum': 9223372036854775000,
+            'inclusive_minimum': -9223372036854775000,
+        },
         ('affinity',): {
             'max_length': 255,
         },
@@ -172,6 +180,9 @@ class WorkspaceDetail(ModelNormal):
             'min_length': 0,
         },
         ('directory',): {
+            'min_length': 1,
+        },
+        ('offload_volume_path',): {
             'min_length': 1,
         },
     }
@@ -229,6 +240,7 @@ class WorkspaceDetail(ModelNormal):
             'sharing_read_only': (bool,),  # noqa: E501
             'sharing_allow_execute': (bool,),  # noqa: E501
             'enable_quota': (bool,),  # noqa: E501
+            'current_size': (int, none_type,),  # noqa: E501
             'affinity': (str, none_type,),  # noqa: E501
             'emulate_avid': (bool,),  # noqa: E501
             'emulate_capture': (bool,),  # noqa: E501
@@ -245,7 +257,9 @@ class WorkspaceDetail(ModelNormal):
             'allow_symlinks': (bool,),  # noqa: E501
             'rw_permission_priority': (bool,),  # noqa: E501
             'veto_dot_underscore': (bool,),  # noqa: E501
+            'is_offloaded': (bool,),  # noqa: E501
             'template': (int, none_type,),  # noqa: E501
+            'offload_volume': (VolumeMini,),  # noqa: E501
             'volume_path': (str, none_type,),  # noqa: E501
             'path': (str, none_type,),  # noqa: E501
             'full_path': (str, none_type,),  # noqa: E501
@@ -254,8 +268,11 @@ class WorkspaceDetail(ModelNormal):
             'emulate_fruit': (str, none_type,),  # noqa: E501
             'emulate_ntfs_streams': (str, none_type,),  # noqa: E501
             'resolved_permissions': ([WorkspaceResolvedPermission], none_type,),  # noqa: E501
+            'transfer_status': (WorkspaceTransferStatus,),  # noqa: E501
             'directory': (str, none_type,),  # noqa: E501
             'last_login': (datetime, none_type,),  # noqa: E501
+            'offload_volume_path': (str, none_type,),  # noqa: E501
+            'last_offload_sync_date': (datetime, none_type,),  # noqa: E501
             'home_for': (int, none_type,),  # noqa: E501
         }
 
@@ -295,6 +312,7 @@ class WorkspaceDetail(ModelNormal):
         'sharing_read_only': 'sharing_read_only',  # noqa: E501
         'sharing_allow_execute': 'sharing_allow_execute',  # noqa: E501
         'enable_quota': 'enable_quota',  # noqa: E501
+        'current_size': 'current_size',  # noqa: E501
         'affinity': 'affinity',  # noqa: E501
         'emulate_avid': 'emulate_avid',  # noqa: E501
         'emulate_capture': 'emulate_capture',  # noqa: E501
@@ -311,7 +329,9 @@ class WorkspaceDetail(ModelNormal):
         'allow_symlinks': 'allow_symlinks',  # noqa: E501
         'rw_permission_priority': 'rw_permission_priority',  # noqa: E501
         'veto_dot_underscore': 'veto_dot_underscore',  # noqa: E501
+        'is_offloaded': 'is_offloaded',  # noqa: E501
         'template': 'template',  # noqa: E501
+        'offload_volume': 'offload_volume',  # noqa: E501
         'volume_path': 'volume_path',  # noqa: E501
         'path': 'path',  # noqa: E501
         'full_path': 'full_path',  # noqa: E501
@@ -320,8 +340,11 @@ class WorkspaceDetail(ModelNormal):
         'emulate_fruit': 'emulate_fruit',  # noqa: E501
         'emulate_ntfs_streams': 'emulate_ntfs_streams',  # noqa: E501
         'resolved_permissions': 'resolved_permissions',  # noqa: E501
+        'transfer_status': 'transfer_status',  # noqa: E501
         'directory': 'directory',  # noqa: E501
         'last_login': 'last_login',  # noqa: E501
+        'offload_volume_path': 'offload_volume_path',  # noqa: E501
+        'last_offload_sync_date': 'last_offload_sync_date',  # noqa: E501
         'home_for': 'home_for',  # noqa: E501
     }
 
@@ -332,6 +355,7 @@ class WorkspaceDetail(ModelNormal):
         'bookmarked',  # noqa: E501
         'resolved_read_only',  # noqa: E501
         'recycle_bin_path',  # noqa: E501
+        'is_offloaded',  # noqa: E501
         'volume_path',  # noqa: E501
         'path',  # noqa: E501
         'full_path',  # noqa: E501
@@ -341,6 +365,8 @@ class WorkspaceDetail(ModelNormal):
         'resolved_permissions',  # noqa: E501
         'directory',  # noqa: E501
         'last_login',  # noqa: E501
+        'offload_volume_path',  # noqa: E501
+        'last_offload_sync_date',  # noqa: E501
         'home_for',  # noqa: E501
     }
 
@@ -348,7 +374,7 @@ class WorkspaceDetail(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, production, volume, sharing_nfs_permissions, current_share_name, size_used, size_total, bookmarked, quota_size_hard, quota_size_soft, resolved_read_only, recycle_bin_path, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_alternate_data_streams, emulate_recycle_bin, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, veto_dot_underscore, template, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, production, volume, sharing_nfs_permissions, current_share_name, size_used, size_total, bookmarked, quota_size_hard, quota_size_soft, resolved_read_only, recycle_bin_path, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, current_size, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_alternate_data_streams, emulate_recycle_bin, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, veto_dot_underscore, is_offloaded, template, *args, **xkwargs):  # noqa: E501
         """WorkspaceDetail - a model defined in OpenAPI
 
         Args:
@@ -382,6 +408,7 @@ class WorkspaceDetail(ModelNormal):
             sharing_read_only (bool):
             sharing_allow_execute (bool):
             enable_quota (bool):
+            current_size (int, none_type):
             affinity (str, none_type):
             emulate_avid (bool):
             emulate_capture (bool):
@@ -398,6 +425,7 @@ class WorkspaceDetail(ModelNormal):
             allow_symlinks (bool):
             rw_permission_priority (bool):
             veto_dot_underscore (bool):
+            is_offloaded (bool):
             template (int, none_type):
 
         Keyword Args:
@@ -431,6 +459,7 @@ class WorkspaceDetail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            offload_volume (VolumeMini): [optional]  # noqa: E501
             volume_path (str, none_type): [optional]  # noqa: E501
             path (str, none_type): [optional]  # noqa: E501
             full_path (str, none_type): [optional]  # noqa: E501
@@ -439,8 +468,11 @@ class WorkspaceDetail(ModelNormal):
             emulate_fruit (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
             emulate_ntfs_streams (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
             resolved_permissions ([WorkspaceResolvedPermission], none_type): [optional]  # noqa: E501
+            transfer_status (WorkspaceTransferStatus): [optional]  # noqa: E501
             directory (str, none_type): [optional]  # noqa: E501
             last_login (datetime, none_type): [optional]  # noqa: E501
+            offload_volume_path (str, none_type): [optional]  # noqa: E501
+            last_offload_sync_date (datetime, none_type): [optional]  # noqa: E501
             home_for (int, none_type): [optional]  # noqa: E501
         """
 
@@ -500,6 +532,7 @@ class WorkspaceDetail(ModelNormal):
         self.sharing_read_only = sharing_read_only
         self.sharing_allow_execute = sharing_allow_execute
         self.enable_quota = enable_quota
+        self.current_size = current_size
         self.affinity = affinity
         self.emulate_avid = emulate_avid
         self.emulate_capture = emulate_capture
@@ -516,6 +549,7 @@ class WorkspaceDetail(ModelNormal):
         self.allow_symlinks = allow_symlinks
         self.rw_permission_priority = rw_permission_priority
         self.veto_dot_underscore = veto_dot_underscore
+        self.is_offloaded = is_offloaded
         self.template = template
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -538,7 +572,7 @@ class WorkspaceDetail(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, production, volume, sharing_nfs_permissions, quota_size_hard, quota_size_soft, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_alternate_data_streams, emulate_recycle_bin, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, veto_dot_underscore, template, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, production, volume, sharing_nfs_permissions, quota_size_hard, quota_size_soft, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, current_size, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_alternate_data_streams, emulate_recycle_bin, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, veto_dot_underscore, template, *args, **xkwargs):  # noqa: E501
         """WorkspaceDetail - a model defined in OpenAPI
 
         Args:
@@ -566,6 +600,7 @@ class WorkspaceDetail(ModelNormal):
             sharing_read_only (bool):
             sharing_allow_execute (bool):
             enable_quota (bool):
+            current_size (int, none_type):
             affinity (str, none_type):
             emulate_avid (bool):
             emulate_capture (bool):
@@ -615,6 +650,7 @@ class WorkspaceDetail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            offload_volume (VolumeMini): [optional]  # noqa: E501
             volume_path (str, none_type): [optional]  # noqa: E501
             path (str, none_type): [optional]  # noqa: E501
             full_path (str, none_type): [optional]  # noqa: E501
@@ -623,8 +659,11 @@ class WorkspaceDetail(ModelNormal):
             emulate_fruit (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
             emulate_ntfs_streams (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
             resolved_permissions ([WorkspaceResolvedPermission], none_type): [optional]  # noqa: E501
+            transfer_status (WorkspaceTransferStatus): [optional]  # noqa: E501
             directory (str, none_type): [optional]  # noqa: E501
             last_login (datetime, none_type): [optional]  # noqa: E501
+            offload_volume_path (str, none_type): [optional]  # noqa: E501
+            last_offload_sync_date (datetime, none_type): [optional]  # noqa: E501
             home_for (int, none_type): [optional]  # noqa: E501
         """
 
@@ -676,6 +715,7 @@ class WorkspaceDetail(ModelNormal):
         self.sharing_read_only = sharing_read_only
         self.sharing_allow_execute = sharing_allow_execute
         self.enable_quota = enable_quota
+        self.current_size = current_size
         self.affinity = affinity
         self.emulate_avid = emulate_avid
         self.emulate_capture = emulate_capture

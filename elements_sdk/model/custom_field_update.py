@@ -124,7 +124,7 @@ class CustomFieldUpdate(ModelNormal):
         """
         return {
             'labels': ([{str: (str, none_type)}],),  # noqa: E501
-            'options': ([str, none_type],),  # noqa: E501
+            'options': ([str],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'order': (int,),  # noqa: E501
@@ -181,7 +181,7 @@ class CustomFieldUpdate(ModelNormal):
 
         Args:
             labels ([{str: (str, none_type)}]):
-            options ([str, none_type]):
+            options ([str]):
             name (str):
             type (str):
 
@@ -288,7 +288,7 @@ class CustomFieldUpdate(ModelNormal):
 
         Args:
             labels ([{str: (str, none_type)}]):
-            options ([str, none_type]):
+            options ([str]):
             name (str):
             type (str):
 

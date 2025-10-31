@@ -85,6 +85,11 @@ class ProxyProfile(ModelNormal):
             'PNG': "png",
             'JPEG': "jpeg",
         },
+        ('codecs',): {
+            'None': None,
+            'AV1_OPUS': "av1_opus",
+            'H264_AAC': "h264_aac",
+        },
         ('watermark_position',): {
             'TL': "TL",
             'TR': "TR",
@@ -148,6 +153,10 @@ class ProxyProfile(ModelNormal):
         ('external_transcoder_staging_path',): {
             'max_length': 1023,
         },
+        ('video_codec',): {
+            'max_length': 0,
+            'min_length': 0,
+        },
     }
 
     @cached_property
@@ -184,6 +193,7 @@ class ProxyProfile(ModelNormal):
             'variants_limit': (int,),  # noqa: E501
             'enable_dense_filmstrip': (bool,),  # noqa: E501
             'image_format': (str,),  # noqa: E501
+            'codecs': (str, none_type,),  # noqa: E501
             'enable_watermark': (bool,),  # noqa: E501
             'watermark_position': (str,),  # noqa: E501
             'watermark_opacity': (float,),  # noqa: E501
@@ -202,6 +212,7 @@ class ProxyProfile(ModelNormal):
             'allow_download': (bool,),  # noqa: E501
             'keep_audio_layout': (bool,),  # noqa: E501
             'external_transcoder': (int, none_type,),  # noqa: E501
+            'video_codec': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -223,6 +234,7 @@ class ProxyProfile(ModelNormal):
         'variants_limit': 'variants_limit',  # noqa: E501
         'enable_dense_filmstrip': 'enable_dense_filmstrip',  # noqa: E501
         'image_format': 'image_format',  # noqa: E501
+        'codecs': 'codecs',  # noqa: E501
         'enable_watermark': 'enable_watermark',  # noqa: E501
         'watermark_position': 'watermark_position',  # noqa: E501
         'watermark_opacity': 'watermark_opacity',  # noqa: E501
@@ -241,17 +253,19 @@ class ProxyProfile(ModelNormal):
         'allow_download': 'allow_download',  # noqa: E501
         'keep_audio_layout': 'keep_audio_layout',  # noqa: E501
         'external_transcoder': 'external_transcoder',  # noqa: E501
+        'video_codec': 'video_codec',  # noqa: E501
     }
 
     read_only_vars = {
         'watermark_image',  # noqa: E501
+        'video_codec',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, watermark_image, name, proxy_generator, type, resolution, rate_control, crf, bitrate, audio_bitrate, variants_limit, enable_dense_filmstrip, image_format, enable_watermark, watermark_position, watermark_opacity, watermark_size, enable_timecode, timecode_position, timecode_opacity, timecode_size, lut, hotfolder_copy_to, hotfolder_read_from, hotfolder_queue_timeout, hotfolder_encode_timeout, vantage_workflow_id, external_transcoder_staging_path, allow_download, keep_audio_layout, external_transcoder, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, watermark_image, name, proxy_generator, type, resolution, rate_control, crf, bitrate, audio_bitrate, variants_limit, enable_dense_filmstrip, image_format, codecs, enable_watermark, watermark_position, watermark_opacity, watermark_size, enable_timecode, timecode_position, timecode_opacity, timecode_size, lut, hotfolder_copy_to, hotfolder_read_from, hotfolder_queue_timeout, hotfolder_encode_timeout, vantage_workflow_id, external_transcoder_staging_path, allow_download, keep_audio_layout, external_transcoder, *args, **xkwargs):  # noqa: E501
         """ProxyProfile - a model defined in OpenAPI
 
         Args:
@@ -268,6 +282,7 @@ class ProxyProfile(ModelNormal):
             variants_limit (int):
             enable_dense_filmstrip (bool):
             image_format (str):
+            codecs (str, none_type):
             enable_watermark (bool):
             watermark_position (str):
             watermark_opacity (float):
@@ -318,6 +333,7 @@ class ProxyProfile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            video_codec (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -359,6 +375,7 @@ class ProxyProfile(ModelNormal):
         self.variants_limit = variants_limit
         self.enable_dense_filmstrip = enable_dense_filmstrip
         self.image_format = image_format
+        self.codecs = codecs
         self.enable_watermark = enable_watermark
         self.watermark_position = watermark_position
         self.watermark_opacity = watermark_opacity
@@ -398,7 +415,7 @@ class ProxyProfile(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, proxy_generator, type, resolution, rate_control, crf, bitrate, audio_bitrate, variants_limit, enable_dense_filmstrip, image_format, enable_watermark, watermark_position, watermark_opacity, watermark_size, enable_timecode, timecode_position, timecode_opacity, timecode_size, lut, hotfolder_copy_to, hotfolder_read_from, hotfolder_queue_timeout, hotfolder_encode_timeout, vantage_workflow_id, external_transcoder_staging_path, allow_download, keep_audio_layout, external_transcoder, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, proxy_generator, type, resolution, rate_control, crf, bitrate, audio_bitrate, variants_limit, enable_dense_filmstrip, image_format, codecs, enable_watermark, watermark_position, watermark_opacity, watermark_size, enable_timecode, timecode_position, timecode_opacity, timecode_size, lut, hotfolder_copy_to, hotfolder_read_from, hotfolder_queue_timeout, hotfolder_encode_timeout, vantage_workflow_id, external_transcoder_staging_path, allow_download, keep_audio_layout, external_transcoder, *args, **xkwargs):  # noqa: E501
         """ProxyProfile - a model defined in OpenAPI
 
         Args:
@@ -414,6 +431,7 @@ class ProxyProfile(ModelNormal):
             variants_limit (int):
             enable_dense_filmstrip (bool):
             image_format (str):
+            codecs (str, none_type):
             enable_watermark (bool):
             watermark_position (str):
             watermark_opacity (float):
@@ -464,6 +482,7 @@ class ProxyProfile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            video_codec (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -502,6 +521,7 @@ class ProxyProfile(ModelNormal):
         self.variants_limit = variants_limit
         self.enable_dense_filmstrip = enable_dense_filmstrip
         self.image_format = image_format
+        self.codecs = codecs
         self.enable_watermark = enable_watermark
         self.watermark_position = watermark_position
         self.watermark_opacity = watermark_opacity

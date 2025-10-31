@@ -120,17 +120,17 @@ class ElementsUserProfile(ModelNormal):
             'default_page': (str,),  # noqa: E501
             'full_name': (str, none_type,),  # noqa: E501
             'language': (str, none_type,),  # noqa: E501
-            'fm_bookmarks': ([str, none_type],),  # noqa: E501
+            'fm_bookmarks': ([str],),  # noqa: E501
             'id': (int,),  # noqa: E501
             'username': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
-            'ldap': (LDAPServer,),  # noqa: E501
-            'effective_permissions': ([str, none_type],),  # noqa: E501
+            'effective_permissions': ([str],),  # noqa: E501
             'has_password': (bool,),  # noqa: E501
             'allow_changing_password': (bool,),  # noqa: E501
             'totp_enabled': (bool,),  # noqa: E501
             'unix_username': (str, none_type,),  # noqa: E501
             'email': (str, none_type,),  # noqa: E501
+            'ldap': (LDAPServer,),  # noqa: E501
             'shaper_rate': (int, none_type,),  # noqa: E501
             'shaper_ceiling': (int, none_type,),  # noqa: E501
         }
@@ -149,13 +149,13 @@ class ElementsUserProfile(ModelNormal):
         'id': 'id',  # noqa: E501
         'username': 'username',  # noqa: E501
         'display_name': 'display_name',  # noqa: E501
-        'ldap': 'ldap',  # noqa: E501
         'effective_permissions': 'effective_permissions',  # noqa: E501
         'has_password': 'has_password',  # noqa: E501
         'allow_changing_password': 'allow_changing_password',  # noqa: E501
         'totp_enabled': 'totp_enabled',  # noqa: E501
         'unix_username': 'unix_username',  # noqa: E501
         'email': 'email',  # noqa: E501
+        'ldap': 'ldap',  # noqa: E501
         'shaper_rate': 'shaper_rate',  # noqa: E501
         'shaper_ceiling': 'shaper_ceiling',  # noqa: E501
     }
@@ -178,7 +178,7 @@ class ElementsUserProfile(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, avatar, default_page, full_name, language, fm_bookmarks, id, username, display_name, ldap, effective_permissions, has_password, allow_changing_password, totp_enabled, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, avatar, default_page, full_name, language, fm_bookmarks, id, username, display_name, effective_permissions, has_password, allow_changing_password, totp_enabled, *args, **xkwargs):  # noqa: E501
         """ElementsUserProfile - a model defined in OpenAPI
 
         Args:
@@ -186,12 +186,11 @@ class ElementsUserProfile(ModelNormal):
             default_page (str):
             full_name (str, none_type):
             language (str, none_type):
-            fm_bookmarks ([str, none_type]):
+            fm_bookmarks ([str]):
             id (int):
             username (str):
             display_name (str):
-            ldap (LDAPServer):
-            effective_permissions ([str, none_type]):
+            effective_permissions ([str]):
             has_password (bool):
             allow_changing_password (bool):
             totp_enabled (bool):
@@ -229,6 +228,7 @@ class ElementsUserProfile(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             unix_username (str, none_type): [optional]  # noqa: E501
             email (str, none_type): [optional]  # noqa: E501
+            ldap (LDAPServer): [optional]  # noqa: E501
             shaper_rate (int, none_type): [optional]  # noqa: E501
             shaper_ceiling (int, none_type): [optional]  # noqa: E501
         """
@@ -267,7 +267,6 @@ class ElementsUserProfile(ModelNormal):
         self.id = id
         self.username = username
         self.display_name = display_name
-        self.ldap = ldap
         self.effective_permissions = effective_permissions
         self.has_password = has_password
         self.allow_changing_password = allow_changing_password
@@ -293,15 +292,14 @@ class ElementsUserProfile(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, default_page, full_name, language, fm_bookmarks, id, ldap, *args, **xkwargs):  # noqa: E501
+    def __init__(self, default_page, full_name, language, fm_bookmarks, id, *args, **xkwargs):  # noqa: E501
         """ElementsUserProfile - a model defined in OpenAPI
 
             default_page (str):
             full_name (str, none_type):
             language (str, none_type):
-            fm_bookmarks ([str, none_type]):
+            fm_bookmarks ([str]):
             id (int):
-            ldap (LDAPServer):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -335,6 +333,7 @@ class ElementsUserProfile(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             unix_username (str, none_type): [optional]  # noqa: E501
             email (str, none_type): [optional]  # noqa: E501
+            ldap (LDAPServer): [optional]  # noqa: E501
             shaper_rate (int, none_type): [optional]  # noqa: E501
             shaper_ceiling (int, none_type): [optional]  # noqa: E501
         """
@@ -368,7 +367,6 @@ class ElementsUserProfile(ModelNormal):
         self.language = language
         self.fm_bookmarks = fm_bookmarks
         self.id = id
-        self.ldap = ldap
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

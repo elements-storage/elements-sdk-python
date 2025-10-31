@@ -25,12 +25,15 @@ from elements_sdk.model.auth_fast_lane_endpoint_request import AuthFastLaneEndpo
 from elements_sdk.model.auth_fast_lane_endpoint_response import AuthFastLaneEndpointResponse
 from elements_sdk.model.benchmark_endpoint_request import BenchmarkEndpointRequest
 from elements_sdk.model.bootstrap_data import BootstrapData
+from elements_sdk.model.check_pmr_endpoint_request import CheckPMREndpointRequest
+from elements_sdk.model.check_pmr_endpoint_response import CheckPMREndpointResponse
 from elements_sdk.model.cleanup_media_root_request import CleanupMediaRootRequest
 from elements_sdk.model.client_side_path_endpoint_request import ClientSidePathEndpointRequest
 from elements_sdk.model.client_side_path_endpoint_response import ClientSidePathEndpointResponse
 from elements_sdk.model.help_endpoint_response import HelpEndpointResponse
 from elements_sdk.model.impersonation_endpoint_request import ImpersonationEndpointRequest
 from elements_sdk.model.install_license_endpoint_request import InstallLicenseEndpointRequest
+from elements_sdk.model.licensing_state_endpoint_response import LicensingStateEndpointResponse
 from elements_sdk.model.locale_endpoint_response import LocaleEndpointResponse
 from elements_sdk.model.locate_endpoint_request import LocateEndpointRequest
 from elements_sdk.model.locate_markers_endpoint_request import LocateMarkersEndpointRequest
@@ -61,6 +64,58 @@ class PrivateApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.check_pmr_endpoint = _Endpoint(
+            settings={
+                'response_type': (CheckPMREndpointResponse,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/panel/check-pmr',
+                'operation_id': 'check_pmr',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'check_pmr_endpoint_request',
+                ],
+                'required': [
+                    'check_pmr_endpoint_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'check_pmr_endpoint_request':
+                        (CheckPMREndpointRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'check_pmr_endpoint_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.cleanup_media_root_endpoint = _Endpoint(
             settings={
                 'response_type': (TaskInfo,),
@@ -872,6 +927,50 @@ class PrivateApi(object):
                 },
                 'location_map': {
                     'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_licensing_state_endpoint = _Endpoint(
+            settings={
+                'response_type': (LicensingStateEndpointResponse,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/private/licensing-state',
+                'operation_id': 'get_licensing_state',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
                 },
                 'collection_format_map': {
                 }
@@ -1950,6 +2049,84 @@ class PrivateApi(object):
             },
             api_client=api_client
         )
+
+    def check_pmr(
+        self,
+        check_pmr_endpoint_request,
+        **kwargs
+    ):
+        """check_pmr  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.check_pmr(check_pmr_endpoint_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            check_pmr_endpoint_request (CheckPMREndpointRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CheckPMREndpointResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['check_pmr_endpoint_request'] = \
+            check_pmr_endpoint_request
+        return self.check_pmr_endpoint.call_with_http_info(**kwargs)
 
     def cleanup_media_root(
         self,
@@ -3189,6 +3366,78 @@ class PrivateApi(object):
         kwargs['id'] = \
             id
         return self.get_help_page_endpoint.call_with_http_info(**kwargs)
+
+    def get_licensing_state(
+        self,
+        **kwargs
+    ):
+        """get_licensing_state  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_licensing_state(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            LicensingStateEndpointResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_licensing_state_endpoint.call_with_http_info(**kwargs)
 
     def get_locale(
         self,

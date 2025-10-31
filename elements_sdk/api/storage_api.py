@@ -21,6 +21,7 @@ from elements_sdk.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from elements_sdk.model.base_transfer_request import BaseTransferRequest
 from elements_sdk.model.cloud_mount_authorization import CloudMountAuthorization
 from elements_sdk.model.deleted_workspace import DeletedWorkspace
 from elements_sdk.model.file_copy_endpoint_request import FileCopyEndpointRequest
@@ -35,12 +36,14 @@ from elements_sdk.model.file_zip_endpoint_request import FileZipEndpointRequest
 from elements_sdk.model.filesystem_file import FilesystemFile
 from elements_sdk.model.filesystem_trace_endpoint_request import FilesystemTraceEndpointRequest
 from elements_sdk.model.filesystem_trace_endpoint_response import FilesystemTraceEndpointResponse
+from elements_sdk.model.job import Job
 from elements_sdk.model.move_workspace_request import MoveWorkspaceRequest
 from elements_sdk.model.path_input import PathInput
 from elements_sdk.model.production import Production
 from elements_sdk.model.production_partial_update import ProductionPartialUpdate
 from elements_sdk.model.production_update import ProductionUpdate
 from elements_sdk.model.quota import Quota
+from elements_sdk.model.setup_offload_request import SetupOffloadRequest
 from elements_sdk.model.share import Share
 from elements_sdk.model.share_partial_update import SharePartialUpdate
 from elements_sdk.model.share_to_home_workspace_endpoint_request import ShareToHomeWorkspaceEndpointRequest
@@ -61,6 +64,7 @@ from elements_sdk.model.workspace_check_in import WorkspaceCheckIn
 from elements_sdk.model.workspace_detail import WorkspaceDetail
 from elements_sdk.model.workspace_detail_partial_update import WorkspaceDetailPartialUpdate
 from elements_sdk.model.workspace_detail_update import WorkspaceDetailUpdate
+from elements_sdk.model.workspace_offload_request import WorkspaceOffloadRequest
 from elements_sdk.model.workspace_permission import WorkspacePermission
 from elements_sdk.model.workspace_permission_partial_update import WorkspacePermissionPartialUpdate
 from elements_sdk.model.workspace_permission_update import WorkspacePermissionUpdate
@@ -77,6 +81,64 @@ class StorageApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.accept_workspace_offload_request_endpoint = _Endpoint(
+            settings={
+                'response_type': (TaskInfo,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/workspace-offload-requests/{id}/accept',
+                'operation_id': 'accept_workspace_offload_request',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'base_transfer_request',
+                ],
+                'required': [
+                    'id',
+                    'base_transfer_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'base_transfer_request':
+                        (BaseTransferRequest,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'base_transfer_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.apply_workspace_affinity_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -1274,6 +1336,55 @@ class StorageApi(object):
             },
             api_client=api_client
         )
+        self.delete_workspace_offload_request_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/workspace-offload-requests/{id}',
+                'operation_id': 'delete_workspace_offload_request',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.delete_workspace_permission_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -1371,6 +1482,7 @@ class StorageApi(object):
                         "BTRFS": "btrfs",
                         "BCACHEFS": "bcachefs",
                         "BEEGFS": "beegfs",
+                        "CEPH": "ceph",
                         "CLOUD": "cloud",
                         "ONEFS": "onefs",
                         "QUMULO": "qumulo"
@@ -1703,6 +1815,7 @@ class StorageApi(object):
                         "BTRFS": "btrfs",
                         "BCACHEFS": "bcachefs",
                         "BEEGFS": "beegfs",
+                        "CEPH": "ceph",
                         "CLOUD": "cloud",
                         "ONEFS": "onefs",
                         "QUMULO": "qumulo"
@@ -1753,6 +1866,65 @@ class StorageApi(object):
                     'limit': 'query',
                     'offset': 'query',
                     'include_status': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_all_workspace_offload_requests_endpoint = _Endpoint(
+            settings={
+                'response_type': ([WorkspaceOffloadRequest],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/workspace-offload-requests',
+                'operation_id': 'get_all_workspace_offload_requests',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'ordering',
+                    'limit',
+                    'offset',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'ordering':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'ordering': 'ordering',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'ordering': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1869,6 +2041,7 @@ class StorageApi(object):
                     'resolve_access_for',
                     'include_endpoints',
                     'include_quotas',
+                    'offloadable',
                 ],
                 'required': [],
                 'nullable': [
@@ -1891,6 +2064,7 @@ class StorageApi(object):
                         "BTRFS": "btrfs",
                         "BCACHEFS": "bcachefs",
                         "BEEGFS": "beegfs",
+                        "CEPH": "ceph",
                         "CLOUD": "cloud",
                         "ONEFS": "onefs",
                         "QUMULO": "qumulo"
@@ -1931,6 +2105,8 @@ class StorageApi(object):
                         (bool,),
                     'include_quotas':
                         (bool,),
+                    'offloadable':
+                        (bool,),
                 },
                 'attribute_map': {
                     'is_template': 'is_template',
@@ -1950,6 +2126,7 @@ class StorageApi(object):
                     'resolve_access_for': 'resolve_access_for',
                     'include_endpoints': 'include_endpoints',
                     'include_quotas': 'include_quotas',
+                    'offloadable': 'offloadable',
                 },
                 'location_map': {
                     'is_template': 'query',
@@ -1969,6 +2146,7 @@ class StorageApi(object):
                     'resolve_access_for': 'query',
                     'include_endpoints': 'query',
                     'include_quotas': 'query',
+                    'offloadable': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -2136,6 +2314,7 @@ class StorageApi(object):
                     'resolve_access_for',
                     'include_endpoints',
                     'include_quotas',
+                    'offloadable',
                 ],
                 'required': [],
                 'nullable': [
@@ -2158,6 +2337,7 @@ class StorageApi(object):
                         "BTRFS": "btrfs",
                         "BCACHEFS": "bcachefs",
                         "BEEGFS": "beegfs",
+                        "CEPH": "ceph",
                         "CLOUD": "cloud",
                         "ONEFS": "onefs",
                         "QUMULO": "qumulo"
@@ -2198,6 +2378,8 @@ class StorageApi(object):
                         (bool,),
                     'include_quotas':
                         (bool,),
+                    'offloadable':
+                        (bool,),
                 },
                 'attribute_map': {
                     'is_template': 'is_template',
@@ -2217,6 +2399,7 @@ class StorageApi(object):
                     'resolve_access_for': 'resolve_access_for',
                     'include_endpoints': 'include_endpoints',
                     'include_quotas': 'include_quotas',
+                    'offloadable': 'offloadable',
                 },
                 'location_map': {
                     'is_template': 'query',
@@ -2236,6 +2419,7 @@ class StorageApi(object):
                     'resolve_access_for': 'query',
                     'include_endpoints': 'query',
                     'include_quotas': 'query',
+                    'offloadable': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -2839,6 +3023,57 @@ class StorageApi(object):
             },
             api_client=api_client
         )
+        self.get_workspace_offload_request_endpoint = _Endpoint(
+            settings={
+                'response_type': (WorkspaceOffloadRequest,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/workspace-offload-requests/{id}',
+                'operation_id': 'get_workspace_offload_request',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_workspace_permission_endpoint = _Endpoint(
             settings={
                 'response_type': (WorkspacePermission,),
@@ -2847,6 +3082,57 @@ class StorageApi(object):
                 ],
                 'endpoint_path': '/api/2/workspace-permissions/{id}',
                 'operation_id': 'get_workspace_permission',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_workspace_sync_to_offload_location_job_endpoint = _Endpoint(
+            settings={
+                'response_type': (Job,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/workspaces/{id}/sync-to-offload-location-job',
+                'operation_id': 'get_workspace_sync_to_offload_location_job',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -2986,6 +3272,64 @@ class StorageApi(object):
                 'location_map': {
                     'id': 'path',
                     'move_workspace_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.offload_workspace_endpoint = _Endpoint(
+            settings={
+                'response_type': (TaskInfo,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/workspaces/{id}/offload',
+                'operation_id': 'offload_workspace',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'base_transfer_request',
+                ],
+                'required': [
+                    'id',
+                    'base_transfer_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'base_transfer_request':
+                        (BaseTransferRequest,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'base_transfer_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -3526,6 +3870,224 @@ class StorageApi(object):
             },
             api_client=api_client
         )
+        self.request_workspace_offload_endpoint = _Endpoint(
+            settings={
+                'response_type': (WorkspaceOffloadRequest,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/workspaces/{id}/request-offload',
+                'operation_id': 'request_workspace_offload',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.request_workspace_retrieval_endpoint = _Endpoint(
+            settings={
+                'response_type': (WorkspaceOffloadRequest,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/workspaces/{id}/request-retrieval',
+                'operation_id': 'request_workspace_retrieval',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.retrieve_offloaded_workspace_endpoint = _Endpoint(
+            settings={
+                'response_type': (TaskInfo,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/workspaces/{id}/offload-retrieve',
+                'operation_id': 'retrieve_offloaded_workspace',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'base_transfer_request',
+                ],
+                'required': [
+                    'id',
+                    'base_transfer_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'base_transfer_request':
+                        (BaseTransferRequest,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'base_transfer_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.setup_workspace_offload_endpoint = _Endpoint(
+            settings={
+                'response_type': (TaskInfo,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/workspaces/{id}/setup-offload',
+                'operation_id': 'setup_workspace_offload',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'setup_offload_request',
+                ],
+                'required': [
+                    'id',
+                    'setup_offload_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'setup_offload_request':
+                        (SetupOffloadRequest,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'setup_offload_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.share_to_home_workspace_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -3570,6 +4132,64 @@ class StorageApi(object):
             },
             headers_map={
                 'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.sync_workspace_to_offload_location_endpoint = _Endpoint(
+            settings={
+                'response_type': (TaskInfo,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/workspaces/{id}/sync-to-offload-location',
+                'operation_id': 'sync_workspace_to_offload_location',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'base_transfer_request',
+                ],
+                'required': [
+                    'id',
+                    'base_transfer_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'base_transfer_request':
+                        (BaseTransferRequest,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'base_transfer_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [
                     'application/json'
                 ]
@@ -4263,6 +4883,88 @@ class StorageApi(object):
             },
             api_client=api_client
         )
+
+    def accept_workspace_offload_request(
+        self,
+        id,
+        base_transfer_request,
+        **kwargs
+    ):
+        """accept_workspace_offload_request  # noqa: E501
+
+        ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.accept_workspace_offload_request(id, base_transfer_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this workspace offload request.
+            base_transfer_request (BaseTransferRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TaskInfo
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['base_transfer_request'] = \
+            base_transfer_request
+        return self.accept_workspace_offload_request_endpoint.call_with_http_info(**kwargs)
 
     def apply_workspace_affinity(
         self,
@@ -6072,6 +6774,84 @@ class StorageApi(object):
             id
         return self.delete_workspace_endpoint.call_with_http_info(**kwargs)
 
+    def delete_workspace_offload_request(
+        self,
+        id,
+        **kwargs
+    ):
+        """delete_workspace_offload_request  # noqa: E501
+
+        ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_workspace_offload_request(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this workspace offload request.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.delete_workspace_offload_request_endpoint.call_with_http_info(**kwargs)
+
     def delete_workspace_permission(
         self,
         id,
@@ -6553,6 +7333,82 @@ class StorageApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_all_volumes_endpoint.call_with_http_info(**kwargs)
 
+    def get_all_workspace_offload_requests(
+        self,
+        **kwargs
+    ):
+        """get_all_workspace_offload_requests  # noqa: E501
+
+        ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_all_workspace_offload_requests(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            ordering (str): Which field to use when ordering the results.. [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [WorkspaceOffloadRequest]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_all_workspace_offload_requests_endpoint.call_with_http_info(**kwargs)
+
     def get_all_workspace_permissions(
         self,
         **kwargs
@@ -6664,6 +7520,7 @@ class StorageApi(object):
             resolve_access_for (int): [optional]
             include_endpoints (bool): [optional]
             include_quotas (bool): [optional]
+            offloadable (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6916,6 +7773,7 @@ class StorageApi(object):
             resolve_access_for (int): [optional]
             include_endpoints (bool): [optional]
             include_quotas (bool): [optional]
+            offloadable (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -7840,6 +8698,84 @@ class StorageApi(object):
             id
         return self.get_workspace_endpoint.call_with_http_info(**kwargs)
 
+    def get_workspace_offload_request(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_workspace_offload_request  # noqa: E501
+
+        ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_workspace_offload_request(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this workspace offload request.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            WorkspaceOffloadRequest
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_workspace_offload_request_endpoint.call_with_http_info(**kwargs)
+
     def get_workspace_permission(
         self,
         id,
@@ -7917,6 +8853,84 @@ class StorageApi(object):
         kwargs['id'] = \
             id
         return self.get_workspace_permission_endpoint.call_with_http_info(**kwargs)
+
+    def get_workspace_sync_to_offload_location_job(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_workspace_sync_to_offload_location_job  # noqa: E501
+
+        ### Required permissions    * User account permission: `projects:manage` AND User account permission: `tasks:view`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_workspace_sync_to_offload_location_job(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this workspace.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Job
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_workspace_sync_to_offload_location_job_endpoint.call_with_http_info(**kwargs)
 
     def move_files(
         self,
@@ -8077,6 +9091,88 @@ class StorageApi(object):
         kwargs['move_workspace_request'] = \
             move_workspace_request
         return self.move_workspace_endpoint.call_with_http_info(**kwargs)
+
+    def offload_workspace(
+        self,
+        id,
+        base_transfer_request,
+        **kwargs
+    ):
+        """offload_workspace  # noqa: E501
+
+        ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.offload_workspace(id, base_transfer_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this workspace.
+            base_transfer_request (BaseTransferRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TaskInfo
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['base_transfer_request'] = \
+            base_transfer_request
+        return self.offload_workspace_endpoint.call_with_http_info(**kwargs)
 
     def patch_file(
         self,
@@ -8810,6 +9906,326 @@ class StorageApi(object):
             id
         return self.repair_workspace_permissions_endpoint.call_with_http_info(**kwargs)
 
+    def request_workspace_offload(
+        self,
+        id,
+        **kwargs
+    ):
+        """request_workspace_offload  # noqa: E501
+
+        ### Required permissions    * User account permission: `client:access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.request_workspace_offload(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this workspace.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            WorkspaceOffloadRequest
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.request_workspace_offload_endpoint.call_with_http_info(**kwargs)
+
+    def request_workspace_retrieval(
+        self,
+        id,
+        **kwargs
+    ):
+        """request_workspace_retrieval  # noqa: E501
+
+        ### Required permissions    * User account permission: `client:access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.request_workspace_retrieval(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this workspace.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            WorkspaceOffloadRequest
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.request_workspace_retrieval_endpoint.call_with_http_info(**kwargs)
+
+    def retrieve_offloaded_workspace(
+        self,
+        id,
+        base_transfer_request,
+        **kwargs
+    ):
+        """retrieve_offloaded_workspace  # noqa: E501
+
+        ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.retrieve_offloaded_workspace(id, base_transfer_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this workspace.
+            base_transfer_request (BaseTransferRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TaskInfo
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['base_transfer_request'] = \
+            base_transfer_request
+        return self.retrieve_offloaded_workspace_endpoint.call_with_http_info(**kwargs)
+
+    def setup_workspace_offload(
+        self,
+        id,
+        setup_offload_request,
+        **kwargs
+    ):
+        """setup_workspace_offload  # noqa: E501
+
+        ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.setup_workspace_offload(id, setup_offload_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this workspace.
+            setup_offload_request (SetupOffloadRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TaskInfo
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['setup_offload_request'] = \
+            setup_offload_request
+        return self.setup_workspace_offload_endpoint.call_with_http_info(**kwargs)
+
     def share_to_home_workspace(
         self,
         share_to_home_workspace_endpoint_request,
@@ -8887,6 +10303,88 @@ class StorageApi(object):
         kwargs['share_to_home_workspace_endpoint_request'] = \
             share_to_home_workspace_endpoint_request
         return self.share_to_home_workspace_endpoint.call_with_http_info(**kwargs)
+
+    def sync_workspace_to_offload_location(
+        self,
+        id,
+        base_transfer_request,
+        **kwargs
+    ):
+        """sync_workspace_to_offload_location  # noqa: E501
+
+        ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.sync_workspace_to_offload_location(id, base_transfer_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this workspace.
+            base_transfer_request (BaseTransferRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TaskInfo
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['base_transfer_request'] = \
+            base_transfer_request
+        return self.sync_workspace_to_offload_location_endpoint.call_with_http_info(**kwargs)
 
     def unbookmark_workspace(
         self,

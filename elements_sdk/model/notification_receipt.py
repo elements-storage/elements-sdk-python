@@ -91,7 +91,7 @@ class NotificationReceipt(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'user': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'user': (ElementsUserMini,),  # noqa: E501
             'notify_type': (str,),  # noqa: E501
             'failed': (bool,),  # noqa: E501
             'acknowledged': (bool,),  # noqa: E501
@@ -126,7 +126,7 @@ class NotificationReceipt(ModelNormal):
 
         Args:
             id (int):
-            user (bool, date, datetime, dict, float, int, list, str, none_type):
+            user (ElementsUserMini):
             notify_type (str):
             failed (bool):
             acknowledged (bool):
@@ -225,7 +225,7 @@ class NotificationReceipt(ModelNormal):
 
         Args:
             id (int):
-            user (bool, date, datetime, dict, float, int, list, str, none_type):
+            user (ElementsUserMini):
             notify_type (str):
             failed (bool):
             acknowledged (bool):

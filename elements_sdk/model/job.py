@@ -30,7 +30,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from elements_sdk.model.job_variable_definition import JobVariableDefinition
     from elements_sdk.model.schedule import Schedule
+    globals()['JobVariableDefinition'] = JobVariableDefinition
     globals()['Schedule'] = Schedule
 
 
@@ -120,7 +122,7 @@ class Job(ModelNormal):
             'id': (int,),  # noqa: E501
             'schedules': ([Schedule],),  # noqa: E501
             'startable': (bool,),  # noqa: E501
-            'variable_definitions': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
+            'variable_definitions': ([JobVariableDefinition],),  # noqa: E501
             'webhook_url': (str, none_type,),  # noqa: E501
             'needs_compatibility_check': (bool,),  # noqa: E501
             'special_type': (int, none_type,),  # noqa: E501
@@ -184,7 +186,7 @@ class Job(ModelNormal):
             id (int):
             schedules ([Schedule]):
             startable (bool):
-            variable_definitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
+            variable_definitions ([JobVariableDefinition]):
             webhook_url (str, none_type):
             needs_compatibility_check (bool):
             special_type (int, none_type):
@@ -308,7 +310,7 @@ class Job(ModelNormal):
         Args:
             id (int):
             schedules ([Schedule]):
-            variable_definitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
+            variable_definitions ([JobVariableDefinition]):
             special_type (int, none_type):
             name (str):
             description (str, none_type):

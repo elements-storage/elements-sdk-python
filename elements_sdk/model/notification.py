@@ -94,7 +94,7 @@ class Notification(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'receipts': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
+            'receipts': ([NotificationReceipt],),  # noqa: E501
             'kwargs': ({str: (str, none_type)},),  # noqa: E501
             'text': (str,),  # noqa: E501
             'markup': (str,),  # noqa: E501
@@ -130,7 +130,7 @@ class Notification(ModelNormal):
 
         Args:
             id (str):
-            receipts ([bool, date, datetime, dict, float, int, list, str, none_type]):
+            receipts ([NotificationReceipt]):
             kwargs ({str: (str, none_type)}):
             text (str):
             markup (str):
@@ -227,7 +227,7 @@ class Notification(ModelNormal):
 
         Args:
             id (str):
-            receipts ([bool, date, datetime, dict, float, int, list, str, none_type]):
+            receipts ([NotificationReceipt]):
             kwargs ({str: (str, none_type)}):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

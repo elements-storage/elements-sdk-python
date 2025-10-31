@@ -101,7 +101,7 @@ class ElementsUserProfileUpdate(ModelNormal):
             'default_page': (str,),  # noqa: E501
             'full_name': (str, none_type,),  # noqa: E501
             'language': (str, none_type,),  # noqa: E501
-            'fm_bookmarks': ([str, none_type],),  # noqa: E501
+            'fm_bookmarks': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -160,7 +160,7 @@ class ElementsUserProfileUpdate(ModelNormal):
             default_page (str): [optional]  # noqa: E501
             full_name (str, none_type): [optional]  # noqa: E501
             language (str, none_type): [optional]  # noqa: E501
-            fm_bookmarks ([str, none_type]): [optional]  # noqa: E501
+            fm_bookmarks ([str]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -247,7 +247,7 @@ class ElementsUserProfileUpdate(ModelNormal):
             default_page (str): [optional]  # noqa: E501
             full_name (str, none_type): [optional]  # noqa: E501
             language (str, none_type): [optional]  # noqa: E501
-            fm_bookmarks ([str, none_type]): [optional]  # noqa: E501
+            fm_bookmarks ([str]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

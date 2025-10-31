@@ -94,7 +94,7 @@ class Workflow(ModelNormal):
             'id': (int,),  # noqa: E501
             'states': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'transitions': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
-            'roots': ([int, none_type],),  # noqa: E501
+            'roots': ([int],),  # noqa: E501
             'jobs': ([Job],),  # noqa: E501
             'name': (str,),  # noqa: E501
         }
@@ -128,7 +128,7 @@ class Workflow(ModelNormal):
             id (int):
             states ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             transitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
-            roots ([int, none_type]):
+            roots ([int]):
             jobs ([Job]):
             name (str):
 
@@ -225,7 +225,7 @@ class Workflow(ModelNormal):
             id (int):
             states ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             transitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
-            roots ([int, none_type]):
+            roots ([int]):
             name (str):
 
         Keyword Args:

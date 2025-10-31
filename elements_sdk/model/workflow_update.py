@@ -88,7 +88,7 @@ class WorkflowUpdate(ModelNormal):
             'states': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'transitions': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'roots': ([int, none_type],),  # noqa: E501
+            'roots': ([int],),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +149,7 @@ class WorkflowUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            roots ([int, none_type]): [optional]  # noqa: E501
+            roots ([int]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -241,7 +241,7 @@ class WorkflowUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            roots ([int, none_type]): [optional]  # noqa: E501
+            roots ([int]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

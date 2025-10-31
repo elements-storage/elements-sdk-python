@@ -87,7 +87,7 @@ class WorkflowPartialUpdate(ModelNormal):
         return {
             'states': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'transitions': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
-            'roots': ([int, none_type],),  # noqa: E501
+            'roots': ([int],),  # noqa: E501
             'name': (str,),  # noqa: E501
         }
 
@@ -146,7 +146,7 @@ class WorkflowPartialUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             states ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             transitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
-            roots ([int, none_type]): [optional]  # noqa: E501
+            roots ([int]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
         """
 
@@ -233,7 +233,7 @@ class WorkflowPartialUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             states ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             transitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
-            roots ([int, none_type]): [optional]  # noqa: E501
+            roots ([int]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
         """
 

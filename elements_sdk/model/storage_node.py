@@ -65,6 +65,24 @@ class StorageNode(ModelNormal):
             'MEDIA': "media",
             'DEFAULT': "default",
         },
+        ('product',): {
+            'ELEMENTS': "ELEMENTS",
+            'ELEMENTS_BOLT': "ELEMENTS BOLT",
+            'ELEMENTS_CUBE': "ELEMENTS CUBE",
+            'ELEMENTS_GATEWAY': "ELEMENTS GATEWAY",
+            'ELEMENTS_MDC': "ELEMENTS MDC",
+            'ELEMENTS_NAS': "ELEMENTS NAS",
+            'ELEMENTS_ONE': "ELEMENTS ONE",
+            'ELEMENTS_WORKER': "ELEMENTS WORKER",
+        },
+        ('product_subtype',): {
+            'DMZ': "DMZ",
+            'PERFORMANCE': "PERFORMANCE",
+            'VM': "VM",
+            'SAN': "SAN",
+            'LTFS': "LTFS",
+            'EMPTY': "",
+        },
         ('ipmi',): {
             '1': 1,
             '2': 2,
@@ -81,6 +99,9 @@ class StorageNode(ModelNormal):
         ('name',): {
             'max_length': 255,
             'min_length': 1,
+        },
+        ('serial',): {
+            'max_length': 255,
         },
         ('address',): {
             'max_length': 255,
@@ -137,6 +158,9 @@ class StorageNode(ModelNormal):
             'task_queues': ([str],),  # noqa: E501
             'unique_id': (str, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'product': (str,),  # noqa: E501
+            'product_subtype': (str,),  # noqa: E501
+            'serial': (str,),  # noqa: E501
             'address': (str,),  # noqa: E501
             'ipmi': (int,),  # noqa: E501
             'ipmi_address': (str, none_type,),  # noqa: E501
@@ -145,6 +169,7 @@ class StorageNode(ModelNormal):
             'proxy_queue': (bool,),  # noqa: E501
             'email_queue': (bool,),  # noqa: E501
             'apply_configuration_queue': (bool,),  # noqa: E501
+            'workspace_transfer_queue': (bool,),  # noqa: E501
             'solr_indexer_enabled': (bool,),  # noqa: E501
             'discovery_enabled': (bool,),  # noqa: E501
             'discovery_address_override': (str, none_type,),  # noqa: E501
@@ -170,6 +195,9 @@ class StorageNode(ModelNormal):
         'task_queues': 'task_queues',  # noqa: E501
         'unique_id': 'unique_id',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'product': 'product',  # noqa: E501
+        'product_subtype': 'product_subtype',  # noqa: E501
+        'serial': 'serial',  # noqa: E501
         'address': 'address',  # noqa: E501
         'ipmi': 'ipmi',  # noqa: E501
         'ipmi_address': 'ipmi_address',  # noqa: E501
@@ -178,6 +206,7 @@ class StorageNode(ModelNormal):
         'proxy_queue': 'proxy_queue',  # noqa: E501
         'email_queue': 'email_queue',  # noqa: E501
         'apply_configuration_queue': 'apply_configuration_queue',  # noqa: E501
+        'workspace_transfer_queue': 'workspace_transfer_queue',  # noqa: E501
         'solr_indexer_enabled': 'solr_indexer_enabled',  # noqa: E501
         'discovery_enabled': 'discovery_enabled',  # noqa: E501
         'discovery_address_override': 'discovery_address_override',  # noqa: E501
@@ -200,7 +229,7 @@ class StorageNode(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, interfaces, is_log_aggregator, task_queues, unique_id, name, address, ipmi, ipmi_address, ipmi_username, ipmi_password, proxy_queue, email_queue, apply_configuration_queue, solr_indexer_enabled, discovery_enabled, discovery_address_override, ntp_enabled, type, allow_root_login, permission_mask, address_override, auto_scan_interfaces, volume_queues, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, interfaces, is_log_aggregator, task_queues, unique_id, name, product, product_subtype, serial, address, ipmi, ipmi_address, ipmi_username, ipmi_password, proxy_queue, email_queue, apply_configuration_queue, workspace_transfer_queue, solr_indexer_enabled, discovery_enabled, discovery_address_override, ntp_enabled, type, allow_root_login, permission_mask, address_override, auto_scan_interfaces, volume_queues, *args, **xkwargs):  # noqa: E501
         """StorageNode - a model defined in OpenAPI
 
         Args:
@@ -210,6 +239,9 @@ class StorageNode(ModelNormal):
             task_queues ([str]):
             unique_id (str, none_type):
             name (str):
+            product (str):
+            product_subtype (str):
+            serial (str):
             address (str): For communication between nodes only
             ipmi (int):
             ipmi_address (str, none_type):
@@ -218,6 +250,7 @@ class StorageNode(ModelNormal):
             proxy_queue (bool):
             email_queue (bool):
             apply_configuration_queue (bool):
+            workspace_transfer_queue (bool):
             solr_indexer_enabled (bool):
             discovery_enabled (bool):
             discovery_address_override (str, none_type):
@@ -295,6 +328,9 @@ class StorageNode(ModelNormal):
         self.task_queues = task_queues
         self.unique_id = unique_id
         self.name = name
+        self.product = product
+        self.product_subtype = product_subtype
+        self.serial = serial
         self.address = address
         self.ipmi = ipmi
         self.ipmi_address = ipmi_address
@@ -303,6 +339,7 @@ class StorageNode(ModelNormal):
         self.proxy_queue = proxy_queue
         self.email_queue = email_queue
         self.apply_configuration_queue = apply_configuration_queue
+        self.workspace_transfer_queue = workspace_transfer_queue
         self.solr_indexer_enabled = solr_indexer_enabled
         self.discovery_enabled = discovery_enabled
         self.discovery_address_override = discovery_address_override
@@ -334,7 +371,7 @@ class StorageNode(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, task_queues, unique_id, name, address, ipmi, ipmi_address, ipmi_username, ipmi_password, proxy_queue, email_queue, apply_configuration_queue, solr_indexer_enabled, discovery_enabled, discovery_address_override, ntp_enabled, type, allow_root_login, permission_mask, address_override, auto_scan_interfaces, volume_queues, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, task_queues, unique_id, name, product, product_subtype, serial, address, ipmi, ipmi_address, ipmi_username, ipmi_password, proxy_queue, email_queue, apply_configuration_queue, workspace_transfer_queue, solr_indexer_enabled, discovery_enabled, discovery_address_override, ntp_enabled, type, allow_root_login, permission_mask, address_override, auto_scan_interfaces, volume_queues, *args, **xkwargs):  # noqa: E501
         """StorageNode - a model defined in OpenAPI
 
         Args:
@@ -342,6 +379,9 @@ class StorageNode(ModelNormal):
             task_queues ([str]):
             unique_id (str, none_type):
             name (str):
+            product (str):
+            product_subtype (str):
+            serial (str):
             address (str): For communication between nodes only
             ipmi (int):
             ipmi_address (str, none_type):
@@ -350,6 +390,7 @@ class StorageNode(ModelNormal):
             proxy_queue (bool):
             email_queue (bool):
             apply_configuration_queue (bool):
+            workspace_transfer_queue (bool):
             solr_indexer_enabled (bool):
             discovery_enabled (bool):
             discovery_address_override (str, none_type):
@@ -423,6 +464,9 @@ class StorageNode(ModelNormal):
         self.task_queues = task_queues
         self.unique_id = unique_id
         self.name = name
+        self.product = product
+        self.product_subtype = product_subtype
+        self.serial = serial
         self.address = address
         self.ipmi = ipmi
         self.ipmi_address = ipmi_address
@@ -431,6 +475,7 @@ class StorageNode(ModelNormal):
         self.proxy_queue = proxy_queue
         self.email_queue = email_queue
         self.apply_configuration_queue = apply_configuration_queue
+        self.workspace_transfer_queue = workspace_transfer_queue
         self.solr_indexer_enabled = solr_indexer_enabled
         self.discovery_enabled = discovery_enabled
         self.discovery_address_override = discovery_address_override
