@@ -68,10 +68,6 @@ class ElementsUserMini(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
-        ('avatar',): {
-            'max_length': 0,
-            'min_length': 0,
-        },
     }
 
     @cached_property
@@ -102,7 +98,6 @@ class ElementsUserMini(ModelNormal):
             'is_external': (bool,),  # noqa: E501
             'is_cloud': (bool,),  # noqa: E501
             'username': (str,),  # noqa: E501
-            'avatar': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -118,12 +113,10 @@ class ElementsUserMini(ModelNormal):
         'is_external': 'is_external',  # noqa: E501
         'is_cloud': 'is_cloud',  # noqa: E501
         'username': 'username',  # noqa: E501
-        'avatar': 'avatar',  # noqa: E501
     }
 
     read_only_vars = {
         'display_name',  # noqa: E501
-        'avatar',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -173,7 +166,6 @@ class ElementsUserMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            avatar (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -272,7 +264,6 @@ class ElementsUserMini(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            avatar (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

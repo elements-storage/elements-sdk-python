@@ -66,6 +66,7 @@ class VolumeUpdate(ModelNormal):
             'CLOUD': "cloud",
             'ONEFS': "onefs",
             'QUMULO': "qumulo",
+            'XFS': "xfs",
         },
     }
 

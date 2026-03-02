@@ -33,12 +33,18 @@ from elements_sdk.model.asset_subtitle_link import AssetSubtitleLink
 from elements_sdk.model.asset_subtitle_link_partial_update import AssetSubtitleLinkPartialUpdate
 from elements_sdk.model.asset_subtitle_link_update import AssetSubtitleLinkUpdate
 from elements_sdk.model.asset_update import AssetUpdate
+from elements_sdk.model.change_storage_class_request import ChangeStorageClassRequest
 from elements_sdk.model.comment import Comment
 from elements_sdk.model.comment_partial_update import CommentPartialUpdate
 from elements_sdk.model.comment_update import CommentUpdate
 from elements_sdk.model.custom_field import CustomField
 from elements_sdk.model.custom_field_partial_update import CustomFieldPartialUpdate
 from elements_sdk.model.custom_field_update import CustomFieldUpdate
+from elements_sdk.model.eagle_nest_integration import EagleNestIntegration
+from elements_sdk.model.eagle_nest_integration_partial_update import EagleNestIntegrationPartialUpdate
+from elements_sdk.model.eagle_nest_integration_update import EagleNestIntegrationUpdate
+from elements_sdk.model.eagle_nest_metadata_field import EagleNestMetadataField
+from elements_sdk.model.eagle_nest_project_ref import EagleNestProjectRef
 from elements_sdk.model.editor_project import EditorProject
 from elements_sdk.model.editor_project_partial_update import EditorProjectPartialUpdate
 from elements_sdk.model.editor_project_update import EditorProjectUpdate
@@ -104,6 +110,9 @@ from elements_sdk.model.scanner_scan_endpoint_request import ScannerScanEndpoint
 from elements_sdk.model.sharing_permission_preset import SharingPermissionPreset
 from elements_sdk.model.sharing_permission_preset_partial_update import SharingPermissionPresetPartialUpdate
 from elements_sdk.model.sharing_permission_preset_update import SharingPermissionPresetUpdate
+from elements_sdk.model.storage_restore_request import StorageRestoreRequest
+from elements_sdk.model.storage_restore_request_browse_entry import StorageRestoreRequestBrowseEntry
+from elements_sdk.model.storage_restore_request_detail import StorageRestoreRequestDetail
 from elements_sdk.model.subclip import Subclip
 from elements_sdk.model.subclip_clipboard_entry import SubclipClipboardEntry
 from elements_sdk.model.subclip_clipboard_entry_update import SubclipClipboardEntryUpdate
@@ -188,6 +197,145 @@ class MediaLibraryApi(object):
             headers_map={
                 'accept': [],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.browse_storage_restore_request_endpoint = _Endpoint(
+            settings={
+                'response_type': ([StorageRestoreRequestBrowseEntry],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/storage-restore-requests/{id}/browse',
+                'operation_id': 'browse_storage_restore_request',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'path',
+                    'limit',
+                    'offset',
+                    'filter',
+                    'include_failed',
+                    'include_expired',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'path':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                    'filter':
+                        (str,),
+                    'include_failed':
+                        (bool,),
+                    'include_expired':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'path': 'path',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                    'filter': 'filter',
+                    'include_failed': 'include_failed',
+                    'include_expired': 'include_expired',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'path': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                    'filter': 'query',
+                    'include_failed': 'query',
+                    'include_expired': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.change_storage_class_endpoint = _Endpoint(
+            settings={
+                'response_type': (TaskInfo,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/files/{id}/change-storage-class',
+                'operation_id': 'change_storage_class',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'change_storage_class_request',
+                ],
+                'required': [
+                    'id',
+                    'change_storage_class_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'change_storage_class_request':
+                        (ChangeStorageClassRequest,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'change_storage_class_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -625,6 +773,58 @@ class MediaLibraryApi(object):
                 },
                 'location_map': {
                     'custom_field_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.create_eagle_nest_integration_endpoint = _Endpoint(
+            settings={
+                'response_type': (EagleNestIntegration,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/eaglenest-integrations',
+                'operation_id': 'create_eagle_nest_integration',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'eagle_nest_integration_update',
+                ],
+                'required': [
+                    'eagle_nest_integration_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'eagle_nest_integration_update':
+                        (EagleNestIntegrationUpdate,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'eagle_nest_integration_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1652,6 +1852,55 @@ class MediaLibraryApi(object):
                 ],
                 'endpoint_path': '/api/2/media/custom-fields/{id}',
                 'operation_id': 'delete_custom_field',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_eagle_nest_integration_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/eaglenest-integrations/{id}',
+                'operation_id': 'delete_eagle_nest_integration',
                 'http_method': 'DELETE',
                 'servers': None,
             },
@@ -4517,6 +4766,124 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.get_all_eagle_nest_integrations_endpoint = _Endpoint(
+            settings={
+                'response_type': ([EagleNestIntegration],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/eaglenest-integrations',
+                'operation_id': 'get_all_eagle_nest_integrations',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'ordering',
+                    'limit',
+                    'offset',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'ordering':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'ordering': 'ordering',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'ordering': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_all_eagle_nest_metadata_fields_endpoint = _Endpoint(
+            settings={
+                'response_type': ([EagleNestMetadataField],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/eaglenest-integrations/metadata-fields',
+                'operation_id': 'get_all_eagle_nest_metadata_fields',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'ordering',
+                    'limit',
+                    'offset',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'ordering':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'ordering': 'ordering',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'ordering': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_all_external_transcoders_endpoint = _Endpoint(
             settings={
                 'response_type': ([ExternalTranscoder],),
@@ -6074,6 +6441,99 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.get_all_storage_restore_requests_endpoint = _Endpoint(
+            settings={
+                'response_type': ([StorageRestoreRequest],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/storage-restore-requests',
+                'operation_id': 'get_all_storage_restore_requests',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'ordering',
+                    'limit',
+                    'offset',
+                    'status',
+                    'filter',
+                    'filtering_mode',
+                    'sort',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                    'filtering_mode',
+                    'sort',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('filtering_mode',): {
+
+                        "EXACT": "exact",
+                        "FUZZY": "fuzzy"
+                    },
+                    ('sort',): {
+
+                        "LAST-POLLED": "last-polled",
+                        "LAST-POLLED-REVERSE": "last-polled-reverse",
+                        "CREATED": "created",
+                        "CREATED-REVERSE": "created-reverse"
+                    },
+                },
+                'openapi_types': {
+                    'ordering':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                    'status':
+                        (str,),
+                    'filter':
+                        (str,),
+                    'filtering_mode':
+                        (str,),
+                    'sort':
+                        (str,),
+                },
+                'attribute_map': {
+                    'ordering': 'ordering',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                    'status': 'status',
+                    'filter': 'filter',
+                    'filtering_mode': 'filtering_mode',
+                    'sort': 'sort',
+                },
+                'location_map': {
+                    'ordering': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                    'status': 'query',
+                    'filter': 'query',
+                    'filtering_mode': 'query',
+                    'sort': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_all_subclip_clipboard_entries_endpoint = _Endpoint(
             settings={
                 'response_type': ([SubclipClipboardEntry],),
@@ -7054,6 +7514,108 @@ class MediaLibraryApi(object):
                 'location_map': {
                     'id': 'path',
                     'q': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_eagle_nest_integration_endpoint = _Endpoint(
+            settings={
+                'response_type': (EagleNestIntegration,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/eaglenest-integrations/{id}',
+                'operation_id': 'get_eagle_nest_integration',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_eagle_nest_projects_endpoint = _Endpoint(
+            settings={
+                'response_type': ([EagleNestProjectRef],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/eaglenest-integrations/{id}/projects',
+                'operation_id': 'get_eagle_nest_projects',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -8889,6 +9451,62 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.get_storage_restore_request_endpoint = _Endpoint(
+            settings={
+                'response_type': (StorageRestoreRequest,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/storage-restore-requests/{id}',
+                'operation_id': 'get_storage_restore_request',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'include_root',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'include_root':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'include_root': 'include_root',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'include_root': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_subtitles_endpoint = _Endpoint(
             settings={
                 'response_type': (file_type,),
@@ -9701,6 +10319,64 @@ class MediaLibraryApi(object):
                 'location_map': {
                     'id': 'path',
                     'custom_field_partial_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.patch_eagle_nest_integration_endpoint = _Endpoint(
+            settings={
+                'response_type': (EagleNestIntegration,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/eaglenest-integrations/{id}',
+                'operation_id': 'patch_eagle_nest_integration',
+                'http_method': 'PATCH',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'eagle_nest_integration_partial_update',
+                ],
+                'required': [
+                    'id',
+                    'eagle_nest_integration_partial_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'eagle_nest_integration_partial_update':
+                        (EagleNestIntegrationPartialUpdate,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'eagle_nest_integration_partial_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -10760,6 +11436,108 @@ class MediaLibraryApi(object):
             },
             api_client=api_client
         )
+        self.refresh_storage_restore_request_endpoint = _Endpoint(
+            settings={
+                'response_type': (TaskInfo,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/storage-restore-requests/{id}/refresh',
+                'operation_id': 'refresh_storage_restore_request',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.refresh_storage_restore_status_endpoint = _Endpoint(
+            settings={
+                'response_type': (TaskInfo,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/files/{id}/refresh-storage-restore-status',
+                'operation_id': 'refresh_storage_restore_status',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.reinclude_directory_for_proxy_generation_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -11174,6 +11952,64 @@ class MediaLibraryApi(object):
             },
             headers_map={
                 'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.request_storage_restore_endpoint = _Endpoint(
+            settings={
+                'response_type': (TaskInfo,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/files/{id}/request-storage-restore',
+                'operation_id': 'request_storage_restore',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'storage_restore_request_detail',
+                ],
+                'required': [
+                    'id',
+                    'storage_restore_request_detail',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'storage_restore_request_detail':
+                        (StorageRestoreRequestDetail,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'storage_restore_request_detail': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [
                     'application/json'
                 ]
@@ -11865,6 +12701,64 @@ class MediaLibraryApi(object):
                 'location_map': {
                     'id': 'path',
                     'custom_field_update': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_eagle_nest_integration_endpoint = _Endpoint(
+            settings={
+                'response_type': (EagleNestIntegration,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/eaglenest-integrations/{id}',
+                'operation_id': 'update_eagle_nest_integration',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'eagle_nest_integration_update',
+                ],
+                'required': [
+                    'id',
+                    'eagle_nest_integration_update',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'eagle_nest_integration_update':
+                        (EagleNestIntegrationUpdate,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'eagle_nest_integration_update': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -13007,6 +13901,172 @@ class MediaLibraryApi(object):
             id
         return self.bookmark_media_directory_endpoint.call_with_http_info(**kwargs)
 
+    def browse_storage_restore_request(
+        self,
+        id,
+        **kwargs
+    ):
+        """browse_storage_restore_request  # noqa: E501
+
+        ### Required permissions    * User account permission: `tasks:view`   * License component: universal   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.browse_storage_restore_request(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Storage Restore Request.
+
+        Keyword Args:
+            path (str): [optional]
+            limit (int): [optional]
+            offset (int): [optional]
+            filter (str): [optional]
+            include_failed (bool): [optional]
+            include_expired (bool): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [StorageRestoreRequestBrowseEntry]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.browse_storage_restore_request_endpoint.call_with_http_info(**kwargs)
+
+    def change_storage_class(
+        self,
+        id,
+        change_storage_class_request,
+        **kwargs
+    ):
+        """change_storage_class  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   * License component: universal   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.change_storage_class(id, change_storage_class_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this File.
+            change_storage_class_request (ChangeStorageClassRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TaskInfo
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['change_storage_class_request'] = \
+            change_storage_class_request
+        return self.change_storage_class_endpoint.call_with_http_info(**kwargs)
+
     def clear_subclip_clipboard(
         self,
         **kwargs
@@ -13633,6 +14693,84 @@ class MediaLibraryApi(object):
         kwargs['custom_field_update'] = \
             custom_field_update
         return self.create_custom_field_endpoint.call_with_http_info(**kwargs)
+
+    def create_eagle_nest_integration(
+        self,
+        eagle_nest_integration_update,
+        **kwargs
+    ):
+        """create_eagle_nest_integration  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_eagle_nest_integration(eagle_nest_integration_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            eagle_nest_integration_update (EagleNestIntegrationUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EagleNestIntegration
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['eagle_nest_integration_update'] = \
+            eagle_nest_integration_update
+        return self.create_eagle_nest_integration_endpoint.call_with_http_info(**kwargs)
 
     def create_editor_project(
         self,
@@ -15210,6 +16348,84 @@ class MediaLibraryApi(object):
         kwargs['id'] = \
             id
         return self.delete_custom_field_endpoint.call_with_http_info(**kwargs)
+
+    def delete_eagle_nest_integration(
+        self,
+        id,
+        **kwargs
+    ):
+        """delete_eagle_nest_integration  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_eagle_nest_integration(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this eagle nest integration.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.delete_eagle_nest_integration_endpoint.call_with_http_info(**kwargs)
 
     def delete_easy_sharing_token_for_bundle(
         self,
@@ -18905,6 +20121,158 @@ class MediaLibraryApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_all_custom_fields_endpoint.call_with_http_info(**kwargs)
 
+    def get_all_eagle_nest_integrations(
+        self,
+        **kwargs
+    ):
+        """get_all_eagle_nest_integrations  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_all_eagle_nest_integrations(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            ordering (str): Which field to use when ordering the results.. [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [EagleNestIntegration]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_all_eagle_nest_integrations_endpoint.call_with_http_info(**kwargs)
+
+    def get_all_eagle_nest_metadata_fields(
+        self,
+        **kwargs
+    ):
+        """get_all_eagle_nest_metadata_fields  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_all_eagle_nest_metadata_fields(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            ordering (str): Which field to use when ordering the results.. [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [EagleNestMetadataField]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_all_eagle_nest_metadata_fields_endpoint.call_with_http_info(**kwargs)
+
     def get_all_external_transcoders(
         self,
         **kwargs
@@ -20322,6 +21690,86 @@ class MediaLibraryApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_all_sharing_permission_presets_endpoint.call_with_http_info(**kwargs)
 
+    def get_all_storage_restore_requests(
+        self,
+        **kwargs
+    ):
+        """get_all_storage_restore_requests  # noqa: E501
+
+        ### Required permissions    * User account permission: `tasks:view`   * License component: universal   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_all_storage_restore_requests(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            ordering (str): Which field to use when ordering the results.. [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
+            status (str): [optional]
+            filter (str): [optional]
+            filtering_mode (str): [optional]
+            sort (str): [optional] if omitted the server will use the default value of "last-polled"
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [StorageRestoreRequest]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_all_storage_restore_requests_endpoint.call_with_http_info(**kwargs)
+
     def get_all_subclip_clipboard_entries(
         self,
         **kwargs
@@ -21524,6 +22972,162 @@ class MediaLibraryApi(object):
         kwargs['id'] = \
             id
         return self.get_custom_field_options_endpoint.call_with_http_info(**kwargs)
+
+    def get_eagle_nest_integration(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_eagle_nest_integration  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_eagle_nest_integration(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this eagle nest integration.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EagleNestIntegration
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_eagle_nest_integration_endpoint.call_with_http_info(**kwargs)
+
+    def get_eagle_nest_projects(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_eagle_nest_projects  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_eagle_nest_projects(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this eagle nest integration.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [EagleNestProjectRef]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_eagle_nest_projects_endpoint.call_with_http_info(**kwargs)
 
     def get_easy_sharing_token_for_bundle(
         self,
@@ -23857,6 +25461,85 @@ class MediaLibraryApi(object):
             id
         return self.get_sharing_permission_preset_endpoint.call_with_http_info(**kwargs)
 
+    def get_storage_restore_request(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_storage_restore_request  # noqa: E501
+
+        ### Required permissions    * User account permission: `tasks:view`   * License component: universal   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_storage_restore_request(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Storage Restore Request.
+
+        Keyword Args:
+            include_root (bool): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            StorageRestoreRequest
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_storage_restore_request_endpoint.call_with_http_info(**kwargs)
+
     def get_subtitles(
         self,
         id,
@@ -25057,6 +26740,88 @@ class MediaLibraryApi(object):
         kwargs['custom_field_partial_update'] = \
             custom_field_partial_update
         return self.patch_custom_field_endpoint.call_with_http_info(**kwargs)
+
+    def patch_eagle_nest_integration(
+        self,
+        id,
+        eagle_nest_integration_partial_update,
+        **kwargs
+    ):
+        """patch_eagle_nest_integration  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.patch_eagle_nest_integration(id, eagle_nest_integration_partial_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this eagle nest integration.
+            eagle_nest_integration_partial_update (EagleNestIntegrationPartialUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EagleNestIntegration
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['eagle_nest_integration_partial_update'] = \
+            eagle_nest_integration_partial_update
+        return self.patch_eagle_nest_integration_endpoint.call_with_http_info(**kwargs)
 
     def patch_editor_project(
         self,
@@ -26535,6 +28300,162 @@ class MediaLibraryApi(object):
             tag_media_directory_request
         return self.recursively_tag_media_directory_endpoint.call_with_http_info(**kwargs)
 
+    def refresh_storage_restore_request(
+        self,
+        id,
+        **kwargs
+    ):
+        """refresh_storage_restore_request  # noqa: E501
+
+        ### Required permissions    * User account permission: `tasks:view`   * License component: universal   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.refresh_storage_restore_request(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this Storage Restore Request.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TaskInfo
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.refresh_storage_restore_request_endpoint.call_with_http_info(**kwargs)
+
+    def refresh_storage_restore_status(
+        self,
+        id,
+        **kwargs
+    ):
+        """refresh_storage_restore_status  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   * License component: universal   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.refresh_storage_restore_status(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this File.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TaskInfo
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.refresh_storage_restore_status_endpoint.call_with_http_info(**kwargs)
+
     def reinclude_directory_for_proxy_generation(
         self,
         id,
@@ -27170,6 +29091,88 @@ class MediaLibraryApi(object):
         kwargs['scanner_scan_endpoint_request'] = \
             scanner_scan_endpoint_request
         return self.request_media_scan_endpoint.call_with_http_info(**kwargs)
+
+    def request_storage_restore(
+        self,
+        id,
+        storage_restore_request_detail,
+        **kwargs
+    ):
+        """request_storage_restore  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   * License component: universal   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.request_storage_restore(id, storage_restore_request_detail, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this File.
+            storage_restore_request_detail (StorageRestoreRequestDetail):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TaskInfo
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['storage_restore_request_detail'] = \
+            storage_restore_request_detail
+        return self.request_storage_restore_endpoint.call_with_http_info(**kwargs)
 
     def resolve_comment(
         self,
@@ -28203,6 +30206,88 @@ class MediaLibraryApi(object):
         kwargs['custom_field_update'] = \
             custom_field_update
         return self.update_custom_field_endpoint.call_with_http_info(**kwargs)
+
+    def update_eagle_nest_integration(
+        self,
+        id,
+        eagle_nest_integration_update,
+        **kwargs
+    ):
+        """update_eagle_nest_integration  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_eagle_nest_integration(id, eagle_nest_integration_update, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this eagle nest integration.
+            eagle_nest_integration_update (EagleNestIntegrationUpdate):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EagleNestIntegration
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['eagle_nest_integration_update'] = \
+            eagle_nest_integration_update
+        return self.update_eagle_nest_integration_endpoint.call_with_http_info(**kwargs)
 
     def update_editor_project(
         self,

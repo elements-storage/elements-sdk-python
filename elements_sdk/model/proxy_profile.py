@@ -153,10 +153,6 @@ class ProxyProfile(ModelNormal):
         ('external_transcoder_staging_path',): {
             'max_length': 1023,
         },
-        ('video_codec',): {
-            'max_length': 0,
-            'min_length': 0,
-        },
     }
 
     @cached_property
@@ -212,7 +208,6 @@ class ProxyProfile(ModelNormal):
             'allow_download': (bool,),  # noqa: E501
             'keep_audio_layout': (bool,),  # noqa: E501
             'external_transcoder': (int, none_type,),  # noqa: E501
-            'video_codec': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -253,12 +248,10 @@ class ProxyProfile(ModelNormal):
         'allow_download': 'allow_download',  # noqa: E501
         'keep_audio_layout': 'keep_audio_layout',  # noqa: E501
         'external_transcoder': 'external_transcoder',  # noqa: E501
-        'video_codec': 'video_codec',  # noqa: E501
     }
 
     read_only_vars = {
         'watermark_image',  # noqa: E501
-        'video_codec',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -333,7 +326,6 @@ class ProxyProfile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            video_codec (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -482,7 +474,6 @@ class ProxyProfile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            video_codec (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

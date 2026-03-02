@@ -87,10 +87,6 @@ class Proxy(ModelNormal):
         ('variant_config',): {
             'min_length': 1,
         },
-        ('video_codec',): {
-            'max_length': 0,
-            'min_length': 0,
-        },
     }
 
     @cached_property
@@ -132,7 +128,6 @@ class Proxy(ModelNormal):
             'codecs': (str, none_type,),  # noqa: E501
             'asset': (int,),  # noqa: E501
             'transforms': (Transforms,),  # noqa: E501
-            'video_codec': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -157,7 +152,6 @@ class Proxy(ModelNormal):
         'codecs': 'codecs',  # noqa: E501
         'asset': 'asset',  # noqa: E501
         'transforms': 'transforms',  # noqa: E501
-        'video_codec': 'video_codec',  # noqa: E501
     }
 
     read_only_vars = {
@@ -165,7 +159,6 @@ class Proxy(ModelNormal):
         'failed_reason',  # noqa: E501
         'skipped',  # noqa: E501
         'generated',  # noqa: E501
-        'video_codec',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -224,7 +217,6 @@ class Proxy(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             transforms (Transforms): [optional]  # noqa: E501
-            video_codec (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         variant_id = xkwargs.get('variant_id', "default")
@@ -338,7 +330,6 @@ class Proxy(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             transforms (Transforms): [optional]  # noqa: E501
-            video_codec (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         variant_id = xkwargs.get('variant_id', "default")

@@ -58,12 +58,6 @@ class MemberPreview(ModelNormal):
     }
 
     validations = {
-        ('avatar',): {
-            'min_length': 1,
-        },
-        ('email',): {
-            'min_length': 1,
-        },
     }
 
     @cached_property

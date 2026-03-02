@@ -56,6 +56,7 @@ class CloudAccountMini(ModelNormal):
 
     allowed_values = {
         ('provider',): {
+            'ARCHIWARE': "archiware",
             'AZURE': "azure",
             'AWS': "aws",
             'BACKBLAZE': "backblaze",
@@ -94,6 +95,7 @@ class CloudAccountMini(ModelNormal):
             'id': (int,),  # noqa: E501
             'provider': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'enabled': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -105,6 +107,7 @@ class CloudAccountMini(ModelNormal):
         'id': 'id',  # noqa: E501
         'provider': 'provider',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'enabled': 'enabled',  # noqa: E501
     }
 
     read_only_vars = {
@@ -114,13 +117,14 @@ class CloudAccountMini(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, provider, name, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, provider, name, enabled, *args, **xkwargs):  # noqa: E501
         """CloudAccountMini - a model defined in OpenAPI
 
         Args:
             id (int):
             provider (str):
             name (str):
+            enabled (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -184,6 +188,7 @@ class CloudAccountMini(ModelNormal):
         self.id = id
         self.provider = provider
         self.name = name
+        self.enabled = enabled
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -205,13 +210,14 @@ class CloudAccountMini(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, provider, name, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, provider, name, enabled, *args, **xkwargs):  # noqa: E501
         """CloudAccountMini - a model defined in OpenAPI
 
         Args:
             id (int):
             provider (str):
             name (str):
+            enabled (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -273,6 +279,7 @@ class CloudAccountMini(ModelNormal):
         self.id = id
         self.provider = provider
         self.name = name
+        self.enabled = enabled
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

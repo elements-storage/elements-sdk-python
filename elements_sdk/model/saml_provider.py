@@ -124,6 +124,8 @@ class SAMLProvider(ModelNormal):
             'sp_certificate_key': (str, none_type,),  # noqa: E501
             'nameid_format': (str,),  # noqa: E501
             'auto_create_users': (bool,),  # noqa: E501
+            'auto_create_groups': (bool,),  # noqa: E501
+            'auto_sync_groups': (bool,),  # noqa: E501
             'user_template': (int, none_type,),  # noqa: E501
             'logout_url': (str, none_type,),  # noqa: E501
         }
@@ -148,6 +150,8 @@ class SAMLProvider(ModelNormal):
         'sp_certificate_key': 'sp_certificate_key',  # noqa: E501
         'nameid_format': 'nameid_format',  # noqa: E501
         'auto_create_users': 'auto_create_users',  # noqa: E501
+        'auto_create_groups': 'auto_create_groups',  # noqa: E501
+        'auto_sync_groups': 'auto_sync_groups',  # noqa: E501
         'user_template': 'user_template',  # noqa: E501
         'logout_url': 'logout_url',  # noqa: E501
     }
@@ -163,7 +167,7 @@ class SAMLProvider(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, login_url, metadata_url, assertion_url, name, disabled_in_client, entity_id, sso_url, slo_url, certificate, sp_certificate, sp_certificate_key, nameid_format, auto_create_users, user_template, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, login_url, metadata_url, assertion_url, name, disabled_in_client, entity_id, sso_url, slo_url, certificate, sp_certificate, sp_certificate_key, nameid_format, auto_create_users, auto_create_groups, auto_sync_groups, user_template, *args, **xkwargs):  # noqa: E501
         """SAMLProvider - a model defined in OpenAPI
 
         Args:
@@ -181,6 +185,8 @@ class SAMLProvider(ModelNormal):
             sp_certificate_key (str, none_type):
             nameid_format (str):
             auto_create_users (bool):
+            auto_create_groups (bool):
+            auto_sync_groups (bool):
             user_template (int, none_type):
 
         Keyword Args:
@@ -257,6 +263,8 @@ class SAMLProvider(ModelNormal):
         self.sp_certificate_key = sp_certificate_key
         self.nameid_format = nameid_format
         self.auto_create_users = auto_create_users
+        self.auto_create_groups = auto_create_groups
+        self.auto_sync_groups = auto_sync_groups
         self.user_template = user_template
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -279,7 +287,7 @@ class SAMLProvider(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, disabled_in_client, entity_id, sso_url, slo_url, certificate, sp_certificate, sp_certificate_key, nameid_format, auto_create_users, user_template, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, disabled_in_client, entity_id, sso_url, slo_url, certificate, sp_certificate, sp_certificate_key, nameid_format, auto_create_users, auto_create_groups, auto_sync_groups, user_template, *args, **xkwargs):  # noqa: E501
         """SAMLProvider - a model defined in OpenAPI
 
         Args:
@@ -294,6 +302,8 @@ class SAMLProvider(ModelNormal):
             sp_certificate_key (str, none_type):
             nameid_format (str):
             auto_create_users (bool):
+            auto_create_groups (bool):
+            auto_sync_groups (bool):
             user_template (int, none_type):
 
         Keyword Args:
@@ -365,6 +375,8 @@ class SAMLProvider(ModelNormal):
         self.sp_certificate_key = sp_certificate_key
         self.nameid_format = nameid_format
         self.auto_create_users = auto_create_users
+        self.auto_create_groups = auto_create_groups
+        self.auto_sync_groups = auto_sync_groups
         self.user_template = user_template
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

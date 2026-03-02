@@ -59,6 +59,11 @@ class Parameters(ModelNormal):
     """
 
     allowed_values = {
+        ('default_mac_protocol',): {
+            'SMB': "smb",
+            'AFP': "afp",
+            'NFS': "nfs",
+        },
         ('https_redirect',): {
             'None': None,
             'DOMAIN': "domain",
@@ -140,6 +145,7 @@ class Parameters(ModelNormal):
             'branding_logo': (str,),  # noqa: E501
             'email_logo_url': (str, none_type,),  # noqa: E501
             'client_offer_file_search': (bool,),  # noqa: E501
+            'default_mac_protocol': (str,),  # noqa: E501
             'external_url': (str, none_type,),  # noqa: E501
             'file_manager_recycle_bin': (bool,),  # noqa: E501
             'https_redirect': (str, none_type,),  # noqa: E501
@@ -188,6 +194,7 @@ class Parameters(ModelNormal):
         'branding_logo': 'branding_logo',  # noqa: E501
         'email_logo_url': 'email_logo_url',  # noqa: E501
         'client_offer_file_search': 'client_offer_file_search',  # noqa: E501
+        'default_mac_protocol': 'default_mac_protocol',  # noqa: E501
         'external_url': 'external_url',  # noqa: E501
         'file_manager_recycle_bin': 'file_manager_recycle_bin',  # noqa: E501
         'https_redirect': 'https_redirect',  # noqa: E501
@@ -232,7 +239,7 @@ class Parameters(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, analytics, branding_css, branding_logo, email_logo_url, client_offer_file_search, external_url, file_manager_recycle_bin, https_redirect, language, ltfs_default_restore_to_original_location, ltfs_default_search_directories, ltfs_library_address, mail_styling, media_allow_anonymous_links, media_allow_changing_archived, media_auto_play, media_auto_proxy, media_auto_scan, media_auto_transport, media_background_auto_pause, media_default_custom_field_type, media_default_delete_behaviour, media_detect_versions, media_force_show_deleted, media_keep_selection_when_browsing, media_recycle_bin, media_require_link_password, media_max_link_views, media_shuttle_left_behaviour, ntp_enable, ntp_offer_sync, otp_policy, password_login, session_key_restrict_to_ip, sharing_smb_allow_anonymous, tasks_run_scheduled, update_in_progress, users_default_permissions, user_notification_settings, workspaces_path, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, analytics, branding_css, branding_logo, email_logo_url, client_offer_file_search, default_mac_protocol, external_url, file_manager_recycle_bin, https_redirect, language, ltfs_default_restore_to_original_location, ltfs_default_search_directories, ltfs_library_address, mail_styling, media_allow_anonymous_links, media_allow_changing_archived, media_auto_play, media_auto_proxy, media_auto_scan, media_auto_transport, media_background_auto_pause, media_default_custom_field_type, media_default_delete_behaviour, media_detect_versions, media_force_show_deleted, media_keep_selection_when_browsing, media_recycle_bin, media_require_link_password, media_max_link_views, media_shuttle_left_behaviour, ntp_enable, ntp_offer_sync, otp_policy, password_login, session_key_restrict_to_ip, sharing_smb_allow_anonymous, tasks_run_scheduled, update_in_progress, users_default_permissions, user_notification_settings, workspaces_path, *args, **xkwargs):  # noqa: E501
         """Parameters - a model defined in OpenAPI
 
         Args:
@@ -241,6 +248,7 @@ class Parameters(ModelNormal):
             branding_logo (str):
             email_logo_url (str, none_type):
             client_offer_file_search (bool):
+            default_mac_protocol (str):
             external_url (str, none_type): http://host/
             file_manager_recycle_bin (bool): Recycle bins are usually either in Workspace/Share or Volume folder
             https_redirect (str, none_type):
@@ -341,6 +349,7 @@ class Parameters(ModelNormal):
         self.branding_logo = branding_logo
         self.email_logo_url = email_logo_url
         self.client_offer_file_search = client_offer_file_search
+        self.default_mac_protocol = default_mac_protocol
         self.external_url = external_url
         self.file_manager_recycle_bin = file_manager_recycle_bin
         self.https_redirect = https_redirect
@@ -397,7 +406,7 @@ class Parameters(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, analytics, branding_css, branding_logo, email_logo_url, client_offer_file_search, external_url, file_manager_recycle_bin, https_redirect, language, ltfs_default_restore_to_original_location, ltfs_default_search_directories, ltfs_library_address, mail_styling, media_allow_anonymous_links, media_allow_changing_archived, media_auto_play, media_auto_proxy, media_auto_scan, media_auto_transport, media_background_auto_pause, media_default_custom_field_type, media_default_delete_behaviour, media_detect_versions, media_force_show_deleted, media_keep_selection_when_browsing, media_recycle_bin, media_require_link_password, media_max_link_views, media_shuttle_left_behaviour, ntp_enable, ntp_offer_sync, otp_policy, password_login, session_key_restrict_to_ip, sharing_smb_allow_anonymous, tasks_run_scheduled, update_in_progress, users_default_permissions, user_notification_settings, workspaces_path, *args, **xkwargs):  # noqa: E501
+    def __init__(self, analytics, branding_css, branding_logo, email_logo_url, client_offer_file_search, default_mac_protocol, external_url, file_manager_recycle_bin, https_redirect, language, ltfs_default_restore_to_original_location, ltfs_default_search_directories, ltfs_library_address, mail_styling, media_allow_anonymous_links, media_allow_changing_archived, media_auto_play, media_auto_proxy, media_auto_scan, media_auto_transport, media_background_auto_pause, media_default_custom_field_type, media_default_delete_behaviour, media_detect_versions, media_force_show_deleted, media_keep_selection_when_browsing, media_recycle_bin, media_require_link_password, media_max_link_views, media_shuttle_left_behaviour, ntp_enable, ntp_offer_sync, otp_policy, password_login, session_key_restrict_to_ip, sharing_smb_allow_anonymous, tasks_run_scheduled, update_in_progress, users_default_permissions, user_notification_settings, workspaces_path, *args, **xkwargs):  # noqa: E501
         """Parameters - a model defined in OpenAPI
 
         Args:
@@ -406,6 +415,7 @@ class Parameters(ModelNormal):
             branding_logo (str):
             email_logo_url (str, none_type):
             client_offer_file_search (bool):
+            default_mac_protocol (str):
             external_url (str, none_type): http://host/
             file_manager_recycle_bin (bool): Recycle bins are usually either in Workspace/Share or Volume folder
             https_redirect (str, none_type):
@@ -504,6 +514,7 @@ class Parameters(ModelNormal):
         self.branding_logo = branding_logo
         self.email_logo_url = email_logo_url
         self.client_offer_file_search = client_offer_file_search
+        self.default_mac_protocol = default_mac_protocol
         self.external_url = external_url
         self.file_manager_recycle_bin = file_manager_recycle_bin
         self.https_redirect = https_redirect

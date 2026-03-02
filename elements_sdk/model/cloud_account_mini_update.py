@@ -56,6 +56,7 @@ class CloudAccountMiniUpdate(ModelNormal):
 
     allowed_values = {
         ('provider',): {
+            'ARCHIWARE': "archiware",
             'AZURE': "azure",
             'AWS': "aws",
             'BACKBLAZE': "backblaze",
@@ -93,6 +94,7 @@ class CloudAccountMiniUpdate(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'provider': (str,),  # noqa: E501
+            'enabled': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -103,6 +105,7 @@ class CloudAccountMiniUpdate(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'provider': 'provider',  # noqa: E501
+        'enabled': 'enabled',  # noqa: E501
     }
 
     read_only_vars = {
@@ -150,6 +153,7 @@ class CloudAccountMiniUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             provider (str): [optional]  # noqa: E501
+            enabled (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -238,6 +242,7 @@ class CloudAccountMiniUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             provider (str): [optional]  # noqa: E501
+            enabled (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

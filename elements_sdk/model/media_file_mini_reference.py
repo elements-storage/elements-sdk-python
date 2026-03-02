@@ -31,9 +31,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.path_permissions import PathPermissions
-    from elements_sdk.model.volume_mini import VolumeMini
+    from elements_sdk.model.volume_mini_with_cloud_account import VolumeMiniWithCloudAccount
     globals()['PathPermissions'] = PathPermissions
-    globals()['VolumeMini'] = VolumeMini
+    globals()['VolumeMiniWithCloudAccount'] = VolumeMiniWithCloudAccount
 
 
 class MediaFileMiniReference(ModelNormal):
@@ -68,6 +68,9 @@ class MediaFileMiniReference(ModelNormal):
             'min_length': 1,
         },
         ('path',): {
+            'min_length': 1,
+        },
+        ('storage_class',): {
             'min_length': 1,
         },
     }
@@ -109,8 +112,10 @@ class MediaFileMiniReference(ModelNormal):
             'path_permissions': (PathPermissions,),  # noqa: E501
             'present': (bool,),  # noqa: E501
             'archived': (bool,),  # noqa: E501
+            'restore_expires_at': (datetime, none_type,),  # noqa: E501
             'size': (int,),  # noqa: E501
-            'volume': (VolumeMini,),  # noqa: E501
+            'storage_class': (str, none_type,),  # noqa: E501
+            'volume': (VolumeMiniWithCloudAccount,),  # noqa: E501
         }
 
     @cached_property
@@ -133,7 +138,9 @@ class MediaFileMiniReference(ModelNormal):
         'path_permissions': 'path_permissions',  # noqa: E501
         'present': 'present',  # noqa: E501
         'archived': 'archived',  # noqa: E501
+        'restore_expires_at': 'restore_expires_at',  # noqa: E501
         'size': 'size',  # noqa: E501
+        'storage_class': 'storage_class',  # noqa: E501
         'volume': 'volume',  # noqa: E501
     }
 
@@ -150,7 +157,9 @@ class MediaFileMiniReference(ModelNormal):
         'path',  # noqa: E501
         'present',  # noqa: E501
         'archived',  # noqa: E501
+        'restore_expires_at',  # noqa: E501
         'size',  # noqa: E501
+        'storage_class',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -207,8 +216,10 @@ class MediaFileMiniReference(ModelNormal):
             path_permissions (PathPermissions): [optional]  # noqa: E501
             present (bool): [optional]  # noqa: E501
             archived (bool): [optional]  # noqa: E501
+            restore_expires_at (datetime, none_type): [optional]  # noqa: E501
             size (int): [optional]  # noqa: E501
-            volume (VolumeMini): [optional]  # noqa: E501
+            storage_class (str, none_type): [optional]  # noqa: E501
+            volume (VolumeMiniWithCloudAccount): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -309,8 +320,10 @@ class MediaFileMiniReference(ModelNormal):
             path_permissions (PathPermissions): [optional]  # noqa: E501
             present (bool): [optional]  # noqa: E501
             archived (bool): [optional]  # noqa: E501
+            restore_expires_at (datetime, none_type): [optional]  # noqa: E501
             size (int): [optional]  # noqa: E501
-            volume (VolumeMini): [optional]  # noqa: E501
+            storage_class (str, none_type): [optional]  # noqa: E501
+            volume (VolumeMiniWithCloudAccount): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

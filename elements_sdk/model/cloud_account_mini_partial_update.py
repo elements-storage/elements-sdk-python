@@ -56,6 +56,7 @@ class CloudAccountMiniPartialUpdate(ModelNormal):
 
     allowed_values = {
         ('provider',): {
+            'ARCHIWARE': "archiware",
             'AZURE': "azure",
             'AWS': "aws",
             'BACKBLAZE': "backblaze",
@@ -93,6 +94,7 @@ class CloudAccountMiniPartialUpdate(ModelNormal):
         return {
             'provider': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'enabled': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -103,6 +105,7 @@ class CloudAccountMiniPartialUpdate(ModelNormal):
     attribute_map = {
         'provider': 'provider',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'enabled': 'enabled',  # noqa: E501
     }
 
     read_only_vars = {
@@ -148,6 +151,7 @@ class CloudAccountMiniPartialUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             provider (str): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
+            enabled (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -233,6 +237,7 @@ class CloudAccountMiniPartialUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             provider (str): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
+            enabled (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

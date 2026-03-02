@@ -85,6 +85,7 @@ from elements_sdk.model.certificate_partial_update import CertificatePartialUpda
 from elements_sdk.model.certificate_signing_request import CertificateSigningRequest
 from elements_sdk.model.change_own_password_request import ChangeOwnPasswordRequest
 from elements_sdk.model.change_password_request import ChangePasswordRequest
+from elements_sdk.model.change_storage_class_request import ChangeStorageClassRequest
 from elements_sdk.model.check_certificate_request import CheckCertificateRequest
 from elements_sdk.model.check_connectivity_endpoint_response import CheckConnectivityEndpointResponse
 from elements_sdk.model.check_pmr_endpoint_request import CheckPMREndpointRequest
@@ -128,6 +129,12 @@ from elements_sdk.model.download import Download
 from elements_sdk.model.download_archive import DownloadArchive
 from elements_sdk.model.download_archive_partial_update import DownloadArchivePartialUpdate
 from elements_sdk.model.download_archive_update import DownloadArchiveUpdate
+from elements_sdk.model.eagle_nest_field_mapping import EagleNestFieldMapping
+from elements_sdk.model.eagle_nest_integration import EagleNestIntegration
+from elements_sdk.model.eagle_nest_integration_partial_update import EagleNestIntegrationPartialUpdate
+from elements_sdk.model.eagle_nest_integration_update import EagleNestIntegrationUpdate
+from elements_sdk.model.eagle_nest_metadata_field import EagleNestMetadataField
+from elements_sdk.model.eagle_nest_project_ref import EagleNestProjectRef
 from elements_sdk.model.editor_marker import EditorMarker
 from elements_sdk.model.editor_project import EditorProject
 from elements_sdk.model.editor_project_partial_update import EditorProjectPartialUpdate
@@ -286,6 +293,7 @@ from elements_sdk.model.metadata_item import MetadataItem
 from elements_sdk.model.mounted_workspace import MountedWorkspace
 from elements_sdk.model.move_workspace_request import MoveWorkspaceRequest
 from elements_sdk.model.multiple_assets_request import MultipleAssetsRequest
+from elements_sdk.model.my_workspace import MyWorkspace
 from elements_sdk.model.nfs_permission import NFSPermission
 from elements_sdk.model.ntp_server import NTPServer
 from elements_sdk.model.ntp_server_partial_update import NTPServerPartialUpdate
@@ -404,6 +412,7 @@ from elements_sdk.model.slack_user import SlackUser
 from elements_sdk.model.snapshot import Snapshot
 from elements_sdk.model.snapshot_partial_update import SnapshotPartialUpdate
 from elements_sdk.model.snapshot_update import SnapshotUpdate
+from elements_sdk.model.solr_reindex_endpoint_request import SolrReindexEndpointRequest
 from elements_sdk.model.solr_reindex_endpoint_response import SolrReindexEndpointResponse
 from elements_sdk.model.start_job_request import StartJobRequest
 from elements_sdk.model.start_task_request import StartTaskRequest
@@ -420,6 +429,9 @@ from elements_sdk.model.storage_node_status import StorageNodeStatus
 from elements_sdk.model.storage_node_update import StorageNodeUpdate
 from elements_sdk.model.storage_request import StorageRequest
 from elements_sdk.model.storage_response import StorageResponse
+from elements_sdk.model.storage_restore_request import StorageRestoreRequest
+from elements_sdk.model.storage_restore_request_browse_entry import StorageRestoreRequestBrowseEntry
+from elements_sdk.model.storage_restore_request_detail import StorageRestoreRequestDetail
 from elements_sdk.model.storage_root import StorageRoot
 from elements_sdk.model.stornext_license import StornextLicense
 from elements_sdk.model.stornext_manager_attributes import StornextManagerAttributes
@@ -506,6 +518,7 @@ from elements_sdk.model.volume import Volume
 from elements_sdk.model.volume_bee_gfs_status import VolumeBeeGFSStatus
 from elements_sdk.model.volume_ceph_status import VolumeCephStatus
 from elements_sdk.model.volume_mini import VolumeMini
+from elements_sdk.model.volume_mini_with_cloud_account import VolumeMiniWithCloudAccount
 from elements_sdk.model.volume_partial_update import VolumePartialUpdate
 from elements_sdk.model.volume_reference import VolumeReference
 from elements_sdk.model.volume_snfs_status import VolumeSNFSStatus

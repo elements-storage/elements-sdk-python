@@ -141,6 +141,7 @@ class JobDetailPartialUpdate(ModelNormal):
             'hook': (str, none_type,),  # noqa: E501
             'webhook_secret': (str, none_type,),  # noqa: E501
             'elements_release': (str,),  # noqa: E501
+            'no_concurrency': (bool,),  # noqa: E501
             'security_context': (int, none_type,),  # noqa: E501
         }
 
@@ -169,6 +170,7 @@ class JobDetailPartialUpdate(ModelNormal):
         'hook': 'hook',  # noqa: E501
         'webhook_secret': 'webhook_secret',  # noqa: E501
         'elements_release': 'elements_release',  # noqa: E501
+        'no_concurrency': 'no_concurrency',  # noqa: E501
         'security_context': 'security_context',  # noqa: E501
     }
 
@@ -232,6 +234,7 @@ class JobDetailPartialUpdate(ModelNormal):
             hook (str, none_type): [optional]  # noqa: E501
             webhook_secret (str, none_type): [optional]  # noqa: E501
             elements_release (str): [optional]  # noqa: E501
+            no_concurrency (bool): [optional]  # noqa: E501
             security_context (int, none_type): [optional]  # noqa: E501
         """
 
@@ -335,6 +338,7 @@ class JobDetailPartialUpdate(ModelNormal):
             hook (str, none_type): [optional]  # noqa: E501
             webhook_secret (str, none_type): [optional]  # noqa: E501
             elements_release (str): [optional]  # noqa: E501
+            no_concurrency (bool): [optional]  # noqa: E501
             security_context (int, none_type): [optional]  # noqa: E501
         """
 

@@ -64,6 +64,7 @@ class WorkspaceDetailUpdate(ModelNormal):
 
     allowed_values = {
         ('mac_protocol',): {
+            'None': None,
             'SMB': "smb",
             'AFP': "afp",
             'NFS': "nfs",
@@ -184,7 +185,7 @@ class WorkspaceDetailUpdate(ModelNormal):
             'long_description': (str,),  # noqa: E501
             'is_template': (bool,),  # noqa: E501
             'active': (bool,),  # noqa: E501
-            'mac_protocol': (str,),  # noqa: E501
+            'mac_protocol': (str, none_type,),  # noqa: E501
             'win_protocol': (str,),  # noqa: E501
             'win_drive': (str, none_type,),  # noqa: E501
             'linux_protocol': (str,),  # noqa: E501
@@ -319,7 +320,7 @@ class WorkspaceDetailUpdate(ModelNormal):
             long_description (str): [optional]  # noqa: E501
             is_template (bool): [optional]  # noqa: E501
             active (bool): [optional]  # noqa: E501
-            mac_protocol (str): [optional]  # noqa: E501
+            mac_protocol (str, none_type): [optional]  # noqa: E501
             win_protocol (str): [optional]  # noqa: E501
             win_drive (str, none_type): [optional]  # noqa: E501
             linux_protocol (str): [optional]  # noqa: E501
@@ -446,7 +447,7 @@ class WorkspaceDetailUpdate(ModelNormal):
             long_description (str): [optional]  # noqa: E501
             is_template (bool): [optional]  # noqa: E501
             active (bool): [optional]  # noqa: E501
-            mac_protocol (str): [optional]  # noqa: E501
+            mac_protocol (str, none_type): [optional]  # noqa: E501
             win_protocol (str): [optional]  # noqa: E501
             win_drive (str, none_type): [optional]  # noqa: E501
             linux_protocol (str): [optional]  # noqa: E501

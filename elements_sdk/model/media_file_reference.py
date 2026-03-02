@@ -35,13 +35,13 @@ def lazy_import():
     from elements_sdk.model.media_root_mini import MediaRootMini
     from elements_sdk.model.media_root_permission import MediaRootPermission
     from elements_sdk.model.path_permissions import PathPermissions
-    from elements_sdk.model.volume_mini import VolumeMini
+    from elements_sdk.model.volume_mini_with_cloud_account import VolumeMiniWithCloudAccount
     globals()['ElementsUserMini'] = ElementsUserMini
     globals()['MediaFileExclusionInfo'] = MediaFileExclusionInfo
     globals()['MediaRootMini'] = MediaRootMini
     globals()['MediaRootPermission'] = MediaRootPermission
     globals()['PathPermissions'] = PathPermissions
-    globals()['VolumeMini'] = VolumeMini
+    globals()['VolumeMiniWithCloudAccount'] = VolumeMiniWithCloudAccount
 
 
 class MediaFileReference(ModelNormal):
@@ -88,6 +88,9 @@ class MediaFileReference(ModelNormal):
             'inclusive_maximum': 2147483647,
             'inclusive_minimum': -2147483648,
         },
+        ('storage_class',): {
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -114,7 +117,7 @@ class MediaFileReference(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'volume': (VolumeMini,),  # noqa: E501
+            'volume': (VolumeMiniWithCloudAccount,),  # noqa: E501
             'info': ({str: (str, none_type)},),  # noqa: E501
             'custom_fields': ({str: (str, none_type)},),  # noqa: E501
             'resolved_permission': (MediaRootPermission,),  # noqa: E501
@@ -143,6 +146,8 @@ class MediaFileReference(ModelNormal):
             'is_showroom': (bool,),  # noqa: E501
             'bundle_index': (int,),  # noqa: E501
             'modified': (datetime,),  # noqa: E501
+            'storage_class': (str, none_type,),  # noqa: E501
+            'restore_expires_at': (datetime, none_type,),  # noqa: E501
             'parent': (int, none_type,),  # noqa: E501
             'bundle': (int, none_type,),  # noqa: E501
         }
@@ -183,6 +188,8 @@ class MediaFileReference(ModelNormal):
         'is_showroom': 'is_showroom',  # noqa: E501
         'bundle_index': 'bundle_index',  # noqa: E501
         'modified': 'modified',  # noqa: E501
+        'storage_class': 'storage_class',  # noqa: E501
+        'restore_expires_at': 'restore_expires_at',  # noqa: E501
         'parent': 'parent',  # noqa: E501
         'bundle': 'bundle',  # noqa: E501
     }
@@ -211,6 +218,8 @@ class MediaFileReference(ModelNormal):
         'is_showroom',  # noqa: E501
         'bundle_index',  # noqa: E501
         'modified',  # noqa: E501
+        'storage_class',  # noqa: E501
+        'restore_expires_at',  # noqa: E501
         'parent',  # noqa: E501
         'bundle',  # noqa: E501
     }
@@ -256,7 +265,7 @@ class MediaFileReference(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            volume (VolumeMini): [optional]  # noqa: E501
+            volume (VolumeMiniWithCloudAccount): [optional]  # noqa: E501
             info ({str: (str, none_type)}): [optional]  # noqa: E501
             custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
             resolved_permission (MediaRootPermission): [optional]  # noqa: E501
@@ -285,6 +294,8 @@ class MediaFileReference(ModelNormal):
             is_showroom (bool): [optional]  # noqa: E501
             bundle_index (int): [optional]  # noqa: E501
             modified (datetime): [optional]  # noqa: E501
+            storage_class (str, none_type): [optional]  # noqa: E501
+            restore_expires_at (datetime, none_type): [optional]  # noqa: E501
             parent (int, none_type): [optional]  # noqa: E501
             bundle (int, none_type): [optional]  # noqa: E501
         """
@@ -374,7 +385,7 @@ class MediaFileReference(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            volume (VolumeMini): [optional]  # noqa: E501
+            volume (VolumeMiniWithCloudAccount): [optional]  # noqa: E501
             info ({str: (str, none_type)}): [optional]  # noqa: E501
             custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
             resolved_permission (MediaRootPermission): [optional]  # noqa: E501
@@ -403,6 +414,8 @@ class MediaFileReference(ModelNormal):
             is_showroom (bool): [optional]  # noqa: E501
             bundle_index (int): [optional]  # noqa: E501
             modified (datetime): [optional]  # noqa: E501
+            storage_class (str, none_type): [optional]  # noqa: E501
+            restore_expires_at (datetime, none_type): [optional]  # noqa: E501
             parent (int, none_type): [optional]  # noqa: E501
             bundle (int, none_type): [optional]  # noqa: E501
         """

@@ -73,6 +73,7 @@ class StorageNode(ModelNormal):
             'ELEMENTS_MDC': "ELEMENTS MDC",
             'ELEMENTS_NAS': "ELEMENTS NAS",
             'ELEMENTS_ONE': "ELEMENTS ONE",
+            'ELEMENTS_GRID': "ELEMENTS GRID",
             'ELEMENTS_WORKER': "ELEMENTS WORKER",
         },
         ('product_subtype',): {

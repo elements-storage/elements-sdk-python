@@ -106,6 +106,7 @@ from elements_sdk.model.smtp_configuration_update import SMTPConfigurationUpdate
 from elements_sdk.model.sensors import Sensors
 from elements_sdk.model.service_status import ServiceStatus
 from elements_sdk.model.set_time_request import SetTimeRequest
+from elements_sdk.model.solr_reindex_endpoint_request import SolrReindexEndpointRequest
 from elements_sdk.model.solr_reindex_endpoint_response import SolrReindexEndpointResponse
 from elements_sdk.model.stats import Stats
 from elements_sdk.model.stor_next_license_check_endpoint_response import StorNextLicenseCheckEndpointResponse
@@ -2466,6 +2467,7 @@ class MainApi(object):
                 'allowed_values': {
                     ('provider',): {
 
+                        "ARCHIWARE": "archiware",
                         "AZURE": "azure",
                         "AWS": "aws",
                         "BACKBLAZE": "backblaze",
@@ -7689,8 +7691,11 @@ class MainApi(object):
             },
             params_map={
                 'all': [
+                    'solr_reindex_endpoint_request',
                 ],
-                'required': [],
+                'required': [
+                    'solr_reindex_endpoint_request',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -7704,10 +7709,13 @@ class MainApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'solr_reindex_endpoint_request':
+                        (SolrReindexEndpointRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
+                    'solr_reindex_endpoint_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -7716,7 +7724,9 @@ class MainApi(object):
                 'accept': [
                     'application/json'
                 ],
-                'content_type': [],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -20341,6 +20351,7 @@ class MainApi(object):
 
     def start_solr_reindex(
         self,
+        solr_reindex_endpoint_request,
         **kwargs
     ):
         """start_solr_reindex  # noqa: E501
@@ -20349,9 +20360,11 @@ class MainApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.start_solr_reindex(async_req=True)
+        >>> thread = api.start_solr_reindex(solr_reindex_endpoint_request, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            solr_reindex_endpoint_request (SolrReindexEndpointRequest):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -20410,6 +20423,8 @@ class MainApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['solr_reindex_endpoint_request'] = \
+            solr_reindex_endpoint_request
         return self.start_solr_reindex_endpoint.call_with_http_info(**kwargs)
 
     def start_support_session(

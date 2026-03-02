@@ -120,6 +120,8 @@ class SAMLProviderPartialUpdate(ModelNormal):
             'sp_certificate_key': (str, none_type,),  # noqa: E501
             'nameid_format': (str,),  # noqa: E501
             'auto_create_users': (bool,),  # noqa: E501
+            'auto_create_groups': (bool,),  # noqa: E501
+            'auto_sync_groups': (bool,),  # noqa: E501
             'user_template': (int, none_type,),  # noqa: E501
         }
 
@@ -139,6 +141,8 @@ class SAMLProviderPartialUpdate(ModelNormal):
         'sp_certificate_key': 'sp_certificate_key',  # noqa: E501
         'nameid_format': 'nameid_format',  # noqa: E501
         'auto_create_users': 'auto_create_users',  # noqa: E501
+        'auto_create_groups': 'auto_create_groups',  # noqa: E501
+        'auto_sync_groups': 'auto_sync_groups',  # noqa: E501
         'user_template': 'user_template',  # noqa: E501
     }
 
@@ -193,6 +197,8 @@ class SAMLProviderPartialUpdate(ModelNormal):
             sp_certificate_key (str, none_type): [optional]  # noqa: E501
             nameid_format (str): [optional]  # noqa: E501
             auto_create_users (bool): [optional]  # noqa: E501
+            auto_create_groups (bool): [optional]  # noqa: E501
+            auto_sync_groups (bool): [optional]  # noqa: E501
             user_template (int, none_type): [optional]  # noqa: E501
         """
 
@@ -287,6 +293,8 @@ class SAMLProviderPartialUpdate(ModelNormal):
             sp_certificate_key (str, none_type): [optional]  # noqa: E501
             nameid_format (str): [optional]  # noqa: E501
             auto_create_users (bool): [optional]  # noqa: E501
+            auto_create_groups (bool): [optional]  # noqa: E501
+            auto_sync_groups (bool): [optional]  # noqa: E501
             user_template (int, none_type): [optional]  # noqa: E501
         """
 

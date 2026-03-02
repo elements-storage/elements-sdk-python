@@ -34,14 +34,12 @@ def lazy_import():
     from elements_sdk.model.production_mini import ProductionMini
     from elements_sdk.model.quota import Quota
     from elements_sdk.model.volume_mini import VolumeMini
-    from elements_sdk.model.workspace_endpoint import WorkspaceEndpoint
     from elements_sdk.model.workspace_resolved_permission import WorkspaceResolvedPermission
     from elements_sdk.model.workspace_transfer_status import WorkspaceTransferStatus
     globals()['NFSPermission'] = NFSPermission
     globals()['ProductionMini'] = ProductionMini
     globals()['Quota'] = Quota
     globals()['VolumeMini'] = VolumeMini
-    globals()['WorkspaceEndpoint'] = WorkspaceEndpoint
     globals()['WorkspaceResolvedPermission'] = WorkspaceResolvedPermission
     globals()['WorkspaceTransferStatus'] = WorkspaceTransferStatus
 
@@ -72,6 +70,7 @@ class Workspace(ModelNormal):
 
     allowed_values = {
         ('mac_protocol',): {
+            'None': None,
             'SMB': "smb",
             'AFP': "afp",
             'NFS': "nfs",
@@ -125,6 +124,9 @@ class Workspace(ModelNormal):
             'inclusive_maximum': 4611686018427388000,
             'inclusive_minimum': 0,
         },
+        ('endpoints',): {
+            'max_items': 0,
+        },
         ('name',): {
             'max_length': 255,
             'min_length': 1,
@@ -165,14 +167,6 @@ class Workspace(ModelNormal):
         },
         ('full_path',): {
             'min_length': 1,
-        },
-        ('emulate_fruit',): {
-            'max_length': 0,
-            'min_length': 0,
-        },
-        ('emulate_ntfs_streams',): {
-            'max_length': 0,
-            'min_length': 0,
         },
         ('directory',): {
             'min_length': 1,
@@ -215,13 +209,14 @@ class Workspace(ModelNormal):
             'bookmarked': (bool, none_type,),  # noqa: E501
             'quota_size_hard': (int,),  # noqa: E501
             'quota_size_soft': (int,),  # noqa: E501
+            'endpoints': ([str],),  # noqa: E501
             'resolved_read_only': (bool, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'long_description': (str,),  # noqa: E501
             'is_template': (bool,),  # noqa: E501
             'active': (bool,),  # noqa: E501
-            'mac_protocol': (str,),  # noqa: E501
+            'mac_protocol': (str, none_type,),  # noqa: E501
             'win_protocol': (str,),  # noqa: E501
             'win_drive': (str, none_type,),  # noqa: E501
             'linux_protocol': (str,),  # noqa: E501
@@ -257,10 +252,7 @@ class Workspace(ModelNormal):
             'volume_path': (str, none_type,),  # noqa: E501
             'path': (str, none_type,),  # noqa: E501
             'full_path': (str, none_type,),  # noqa: E501
-            'endpoints': ([WorkspaceEndpoint], none_type,),  # noqa: E501
             'quota': (Quota,),  # noqa: E501
-            'emulate_fruit': (str, none_type,),  # noqa: E501
-            'emulate_ntfs_streams': (str, none_type,),  # noqa: E501
             'resolved_permissions': ([WorkspaceResolvedPermission], none_type,),  # noqa: E501
             'transfer_status': (WorkspaceTransferStatus,),  # noqa: E501
             'directory': (str, none_type,),  # noqa: E501
@@ -286,6 +278,7 @@ class Workspace(ModelNormal):
         'bookmarked': 'bookmarked',  # noqa: E501
         'quota_size_hard': 'quota_size_hard',  # noqa: E501
         'quota_size_soft': 'quota_size_soft',  # noqa: E501
+        'endpoints': 'endpoints',  # noqa: E501
         'resolved_read_only': 'resolved_read_only',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -328,10 +321,7 @@ class Workspace(ModelNormal):
         'volume_path': 'volume_path',  # noqa: E501
         'path': 'path',  # noqa: E501
         'full_path': 'full_path',  # noqa: E501
-        'endpoints': 'endpoints',  # noqa: E501
         'quota': 'quota',  # noqa: E501
-        'emulate_fruit': 'emulate_fruit',  # noqa: E501
-        'emulate_ntfs_streams': 'emulate_ntfs_streams',  # noqa: E501
         'resolved_permissions': 'resolved_permissions',  # noqa: E501
         'transfer_status': 'transfer_status',  # noqa: E501
         'directory': 'directory',  # noqa: E501
@@ -346,14 +336,12 @@ class Workspace(ModelNormal):
         'size_used',  # noqa: E501
         'size_total',  # noqa: E501
         'bookmarked',  # noqa: E501
+        'endpoints',  # noqa: E501
         'resolved_read_only',  # noqa: E501
         'is_offloaded',  # noqa: E501
         'volume_path',  # noqa: E501
         'path',  # noqa: E501
         'full_path',  # noqa: E501
-        'endpoints',  # noqa: E501
-        'emulate_fruit',  # noqa: E501
-        'emulate_ntfs_streams',  # noqa: E501
         'resolved_permissions',  # noqa: E501
         'directory',  # noqa: E501
         'last_login',  # noqa: E501
@@ -366,7 +354,7 @@ class Workspace(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, production, volume, sharing_nfs_permissions, current_share_name, size_used, size_total, bookmarked, quota_size_hard, quota_size_soft, resolved_read_only, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, current_size, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_alternate_data_streams, emulate_recycle_bin, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, veto_dot_underscore, is_offloaded, template, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, production, volume, sharing_nfs_permissions, current_share_name, size_used, size_total, bookmarked, quota_size_hard, quota_size_soft, endpoints, resolved_read_only, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, current_size, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_alternate_data_streams, emulate_recycle_bin, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, veto_dot_underscore, is_offloaded, template, *args, **xkwargs):  # noqa: E501
         """Workspace - a model defined in OpenAPI
 
         Args:
@@ -380,13 +368,14 @@ class Workspace(ModelNormal):
             bookmarked (bool, none_type):
             quota_size_hard (int):
             quota_size_soft (int):
+            endpoints ([str]): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty array.
             resolved_read_only (bool, none_type):
             name (str):
             description (str, none_type):
             long_description (str):
             is_template (bool):
             active (bool):
-            mac_protocol (str):
+            mac_protocol (str, none_type):
             win_protocol (str):
             win_drive (str, none_type):
             linux_protocol (str):
@@ -454,10 +443,7 @@ class Workspace(ModelNormal):
             volume_path (str, none_type): [optional]  # noqa: E501
             path (str, none_type): [optional]  # noqa: E501
             full_path (str, none_type): [optional]  # noqa: E501
-            endpoints ([WorkspaceEndpoint], none_type): [optional]  # noqa: E501
             quota (Quota): [optional]  # noqa: E501
-            emulate_fruit (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
-            emulate_ntfs_streams (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
             resolved_permissions ([WorkspaceResolvedPermission], none_type): [optional]  # noqa: E501
             transfer_status (WorkspaceTransferStatus): [optional]  # noqa: E501
             directory (str, none_type): [optional]  # noqa: E501
@@ -503,6 +489,7 @@ class Workspace(ModelNormal):
         self.bookmarked = bookmarked
         self.quota_size_hard = quota_size_hard
         self.quota_size_soft = quota_size_soft
+        self.endpoints = endpoints
         self.resolved_read_only = resolved_read_only
         self.name = name
         self.description = description
@@ -577,7 +564,7 @@ class Workspace(ModelNormal):
             long_description (str):
             is_template (bool):
             active (bool):
-            mac_protocol (str):
+            mac_protocol (str, none_type):
             win_protocol (str):
             win_drive (str, none_type):
             linux_protocol (str):
@@ -644,10 +631,7 @@ class Workspace(ModelNormal):
             volume_path (str, none_type): [optional]  # noqa: E501
             path (str, none_type): [optional]  # noqa: E501
             full_path (str, none_type): [optional]  # noqa: E501
-            endpoints ([WorkspaceEndpoint], none_type): [optional]  # noqa: E501
             quota (Quota): [optional]  # noqa: E501
-            emulate_fruit (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
-            emulate_ntfs_streams (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
             resolved_permissions ([WorkspaceResolvedPermission], none_type): [optional]  # noqa: E501
             transfer_status (WorkspaceTransferStatus): [optional]  # noqa: E501
             directory (str, none_type): [optional]  # noqa: E501

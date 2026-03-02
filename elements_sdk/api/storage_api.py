@@ -38,6 +38,7 @@ from elements_sdk.model.filesystem_trace_endpoint_request import FilesystemTrace
 from elements_sdk.model.filesystem_trace_endpoint_response import FilesystemTraceEndpointResponse
 from elements_sdk.model.job import Job
 from elements_sdk.model.move_workspace_request import MoveWorkspaceRequest
+from elements_sdk.model.my_workspace import MyWorkspace
 from elements_sdk.model.path_input import PathInput
 from elements_sdk.model.production import Production
 from elements_sdk.model.production_partial_update import ProductionPartialUpdate
@@ -1485,7 +1486,8 @@ class StorageApi(object):
                         "CEPH": "ceph",
                         "CLOUD": "cloud",
                         "ONEFS": "onefs",
-                        "QUMULO": "qumulo"
+                        "QUMULO": "qumulo",
+                        "XFS": "xfs"
                     },
                 },
                 'openapi_types': {
@@ -1818,7 +1820,8 @@ class StorageApi(object):
                         "CEPH": "ceph",
                         "CLOUD": "cloud",
                         "ONEFS": "onefs",
-                        "QUMULO": "qumulo"
+                        "QUMULO": "qumulo",
+                        "XFS": "xfs"
                     },
                 },
                 'openapi_types': {
@@ -2039,15 +2042,19 @@ class StorageApi(object):
                     'offset',
                     'full_path',
                     'resolve_access_for',
-                    'include_endpoints',
                     'include_quotas',
                     'offloadable',
+                    'filter',
+                    'filtering_mode',
+                    'sort',
                 ],
                 'required': [],
                 'nullable': [
                 ],
                 'enum': [
                     'volume__type',
+                    'filtering_mode',
+                    'sort',
                 ],
                 'validation': [
                 ]
@@ -2067,7 +2074,24 @@ class StorageApi(object):
                         "CEPH": "ceph",
                         "CLOUD": "cloud",
                         "ONEFS": "onefs",
-                        "QUMULO": "qumulo"
+                        "QUMULO": "qumulo",
+                        "XFS": "xfs"
+                    },
+                    ('filtering_mode',): {
+
+                        "EXACT": "exact",
+                        "FUZZY": "fuzzy"
+                    },
+                    ('sort',): {
+
+                        "NAME": "name",
+                        "NAME-REVERSE": "name-reverse",
+                        "CREATED": "created",
+                        "CREATED-REVERSE": "created-reverse",
+                        "LAST-SEEN": "last-seen",
+                        "LAST-SEEN-REVERSE": "last-seen-reverse",
+                        "CURRENT-SIZE": "current-size",
+                        "CURRENT-SIZE-REVERSE": "current-size-reverse"
                     },
                 },
                 'openapi_types': {
@@ -2101,12 +2125,16 @@ class StorageApi(object):
                         (str,),
                     'resolve_access_for':
                         (int,),
-                    'include_endpoints':
-                        (bool,),
                     'include_quotas':
                         (bool,),
                     'offloadable':
                         (bool,),
+                    'filter':
+                        (str,),
+                    'filtering_mode':
+                        (str,),
+                    'sort':
+                        (str,),
                 },
                 'attribute_map': {
                     'is_template': 'is_template',
@@ -2124,9 +2152,11 @@ class StorageApi(object):
                     'offset': 'offset',
                     'full_path': 'full_path',
                     'resolve_access_for': 'resolve_access_for',
-                    'include_endpoints': 'include_endpoints',
                     'include_quotas': 'include_quotas',
                     'offloadable': 'offloadable',
+                    'filter': 'filter',
+                    'filtering_mode': 'filtering_mode',
+                    'sort': 'sort',
                 },
                 'location_map': {
                     'is_template': 'query',
@@ -2144,9 +2174,11 @@ class StorageApi(object):
                     'offset': 'query',
                     'full_path': 'query',
                     'resolve_access_for': 'query',
-                    'include_endpoints': 'query',
                     'include_quotas': 'query',
                     'offloadable': 'query',
+                    'filter': 'query',
+                    'filtering_mode': 'query',
+                    'sort': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -2286,7 +2318,7 @@ class StorageApi(object):
         )
         self.get_my_workspaces_endpoint = _Endpoint(
             settings={
-                'response_type': ([Workspace],),
+                'response_type': ([MyWorkspace],),
                 'auth': [
                     'Bearer'
                 ],
@@ -2311,16 +2343,19 @@ class StorageApi(object):
                     'limit',
                     'offset',
                     'full_path',
-                    'resolve_access_for',
-                    'include_endpoints',
                     'include_quotas',
                     'offloadable',
+                    'filter',
+                    'filtering_mode',
+                    'sort',
                 ],
                 'required': [],
                 'nullable': [
                 ],
                 'enum': [
                     'volume__type',
+                    'filtering_mode',
+                    'sort',
                 ],
                 'validation': [
                 ]
@@ -2340,7 +2375,24 @@ class StorageApi(object):
                         "CEPH": "ceph",
                         "CLOUD": "cloud",
                         "ONEFS": "onefs",
-                        "QUMULO": "qumulo"
+                        "QUMULO": "qumulo",
+                        "XFS": "xfs"
+                    },
+                    ('filtering_mode',): {
+
+                        "EXACT": "exact",
+                        "FUZZY": "fuzzy"
+                    },
+                    ('sort',): {
+
+                        "NAME": "name",
+                        "NAME-REVERSE": "name-reverse",
+                        "CREATED": "created",
+                        "CREATED-REVERSE": "created-reverse",
+                        "LAST-SEEN": "last-seen",
+                        "LAST-SEEN-REVERSE": "last-seen-reverse",
+                        "CURRENT-SIZE": "current-size",
+                        "CURRENT-SIZE-REVERSE": "current-size-reverse"
                     },
                 },
                 'openapi_types': {
@@ -2372,14 +2424,16 @@ class StorageApi(object):
                         (int,),
                     'full_path':
                         (str,),
-                    'resolve_access_for':
-                        (int,),
-                    'include_endpoints':
-                        (bool,),
                     'include_quotas':
                         (bool,),
                     'offloadable':
                         (bool,),
+                    'filter':
+                        (str,),
+                    'filtering_mode':
+                        (str,),
+                    'sort':
+                        (str,),
                 },
                 'attribute_map': {
                     'is_template': 'is_template',
@@ -2396,10 +2450,11 @@ class StorageApi(object):
                     'limit': 'limit',
                     'offset': 'offset',
                     'full_path': 'full_path',
-                    'resolve_access_for': 'resolve_access_for',
-                    'include_endpoints': 'include_endpoints',
                     'include_quotas': 'include_quotas',
                     'offloadable': 'offloadable',
+                    'filter': 'filter',
+                    'filtering_mode': 'filtering_mode',
+                    'sort': 'sort',
                 },
                 'location_map': {
                     'is_template': 'query',
@@ -2416,10 +2471,11 @@ class StorageApi(object):
                     'limit': 'query',
                     'offset': 'query',
                     'full_path': 'query',
-                    'resolve_access_for': 'query',
-                    'include_endpoints': 'query',
                     'include_quotas': 'query',
                     'offloadable': 'query',
+                    'filter': 'query',
+                    'filtering_mode': 'query',
+                    'sort': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -7518,9 +7574,11 @@ class StorageApi(object):
             offset (int): The initial index from which to return the results.. [optional]
             full_path (str): [optional]
             resolve_access_for (int): [optional]
-            include_endpoints (bool): [optional]
             include_quotas (bool): [optional]
             offloadable (bool): [optional]
+            filter (str): [optional]
+            filtering_mode (str): [optional]
+            sort (str): [optional] if omitted the server will use the default value of "name"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -7770,10 +7828,11 @@ class StorageApi(object):
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
             full_path (str): [optional]
-            resolve_access_for (int): [optional]
-            include_endpoints (bool): [optional]
             include_quotas (bool): [optional]
             offloadable (bool): [optional]
+            filter (str): [optional]
+            filtering_mode (str): [optional]
+            sort (str): [optional] if omitted the server will use the default value of "name"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -7802,7 +7861,7 @@ class StorageApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [Workspace]
+            [MyWorkspace]
                 If the method is called asynchronously, returns the request
                 thread.
         """

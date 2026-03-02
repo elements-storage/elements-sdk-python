@@ -151,6 +151,7 @@ class JobDetail(ModelNormal):
             'hook': (str, none_type,),  # noqa: E501
             'webhook_secret': (str, none_type,),  # noqa: E501
             'elements_release': (str,),  # noqa: E501
+            'no_concurrency': (bool,),  # noqa: E501
             'security_context': (int, none_type,),  # noqa: E501
         }
 
@@ -184,6 +185,7 @@ class JobDetail(ModelNormal):
         'hook': 'hook',  # noqa: E501
         'webhook_secret': 'webhook_secret',  # noqa: E501
         'elements_release': 'elements_release',  # noqa: E501
+        'no_concurrency': 'no_concurrency',  # noqa: E501
         'security_context': 'security_context',  # noqa: E501
     }
 
@@ -198,7 +200,7 @@ class JobDetail(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, schedules, startable, variable_definitions, webhook_url, needs_compatibility_check, subtasks, allow_users, allow_groups, media_roots, workflow, fs_triggers, special_type, name, description, enabled, allow_others_to_start, allow_client_to_start, show_as_button, input_type, add_to_new_media_roots, hook, webhook_secret, elements_release, security_context, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, schedules, startable, variable_definitions, webhook_url, needs_compatibility_check, subtasks, allow_users, allow_groups, media_roots, workflow, fs_triggers, special_type, name, description, enabled, allow_others_to_start, allow_client_to_start, show_as_button, input_type, add_to_new_media_roots, hook, webhook_secret, elements_release, no_concurrency, security_context, *args, **xkwargs):  # noqa: E501
         """JobDetail - a model defined in OpenAPI
 
         Args:
@@ -226,6 +228,7 @@ class JobDetail(ModelNormal):
             hook (str, none_type):
             webhook_secret (str, none_type):
             elements_release (str):
+            no_concurrency (bool):
             security_context (int, none_type):
 
         Keyword Args:
@@ -311,6 +314,7 @@ class JobDetail(ModelNormal):
         self.hook = hook
         self.webhook_secret = webhook_secret
         self.elements_release = elements_release
+        self.no_concurrency = no_concurrency
         self.security_context = security_context
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -333,7 +337,7 @@ class JobDetail(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, schedules, variable_definitions, subtasks, allow_users, allow_groups, media_roots, workflow, special_type, name, description, enabled, allow_others_to_start, allow_client_to_start, show_as_button, input_type, add_to_new_media_roots, hook, webhook_secret, elements_release, security_context, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, schedules, variable_definitions, subtasks, allow_users, allow_groups, media_roots, workflow, special_type, name, description, enabled, allow_others_to_start, allow_client_to_start, show_as_button, input_type, add_to_new_media_roots, hook, webhook_secret, elements_release, no_concurrency, security_context, *args, **xkwargs):  # noqa: E501
         """JobDetail - a model defined in OpenAPI
 
         Args:
@@ -357,6 +361,7 @@ class JobDetail(ModelNormal):
             hook (str, none_type):
             webhook_secret (str, none_type):
             elements_release (str):
+            no_concurrency (bool):
             security_context (int, none_type):
 
         Keyword Args:
@@ -436,6 +441,7 @@ class JobDetail(ModelNormal):
         self.hook = hook
         self.webhook_secret = webhook_secret
         self.elements_release = elements_release
+        self.no_concurrency = no_concurrency
         self.security_context = security_context
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

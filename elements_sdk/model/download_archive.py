@@ -72,10 +72,6 @@ class DownloadArchive(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
-        ('progress_unit',): {
-            'max_length': 0,
-            'min_length': 0,
-        },
     }
 
     @cached_property
@@ -111,7 +107,6 @@ class DownloadArchive(ModelNormal):
             'path': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'user': (int, none_type,),  # noqa: E501
-            'progress_unit': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -130,7 +125,6 @@ class DownloadArchive(ModelNormal):
         'path': 'path',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'user': 'user',  # noqa: E501
-        'progress_unit': 'progress_unit',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,7 +133,6 @@ class DownloadArchive(ModelNormal):
         'expires',  # noqa: E501
         'files',  # noqa: E501
         'created_at',  # noqa: E501
-        'progress_unit',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -192,7 +185,6 @@ class DownloadArchive(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            progress_unit (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -293,7 +285,6 @@ class DownloadArchive(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            progress_unit (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

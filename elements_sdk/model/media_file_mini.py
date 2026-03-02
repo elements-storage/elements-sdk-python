@@ -31,9 +31,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from elements_sdk.model.path_permissions import PathPermissions
-    from elements_sdk.model.volume_mini import VolumeMini
+    from elements_sdk.model.volume_mini_with_cloud_account import VolumeMiniWithCloudAccount
     globals()['PathPermissions'] = PathPermissions
-    globals()['VolumeMini'] = VolumeMini
+    globals()['VolumeMiniWithCloudAccount'] = VolumeMiniWithCloudAccount
 
 
 class MediaFileMini(ModelNormal):
@@ -68,6 +68,9 @@ class MediaFileMini(ModelNormal):
             'min_length': 1,
         },
         ('path',): {
+            'min_length': 1,
+        },
+        ('storage_class',): {
             'min_length': 1,
         },
     }
@@ -107,10 +110,12 @@ class MediaFileMini(ModelNormal):
             'present': (bool,),  # noqa: E501
             'archived': (bool,),  # noqa: E501
             'size': (int,),  # noqa: E501
-            'volume': (VolumeMini,),  # noqa: E501
+            'volume': (VolumeMiniWithCloudAccount,),  # noqa: E501
             'bundle': (int, none_type,),  # noqa: E501
             'parent': (int, none_type,),  # noqa: E501
             'parent_file': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'restore_expires_at': (datetime, none_type,),  # noqa: E501
+            'storage_class': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -135,6 +140,8 @@ class MediaFileMini(ModelNormal):
         'bundle': 'bundle',  # noqa: E501
         'parent': 'parent',  # noqa: E501
         'parent_file': 'parent_file',  # noqa: E501
+        'restore_expires_at': 'restore_expires_at',  # noqa: E501
+        'storage_class': 'storage_class',  # noqa: E501
     }
 
     read_only_vars = {
@@ -150,6 +157,8 @@ class MediaFileMini(ModelNormal):
         'bundle',  # noqa: E501
         'parent',  # noqa: E501
         'parent_file',  # noqa: E501
+        'restore_expires_at',  # noqa: E501
+        'storage_class',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -172,7 +181,7 @@ class MediaFileMini(ModelNormal):
             present (bool):
             archived (bool):
             size (int):
-            volume (VolumeMini):
+            volume (VolumeMiniWithCloudAccount):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -208,6 +217,8 @@ class MediaFileMini(ModelNormal):
             bundle (int, none_type): [optional]  # noqa: E501
             parent (int, none_type): [optional]  # noqa: E501
             parent_file ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
+            restore_expires_at (datetime, none_type): [optional]  # noqa: E501
+            storage_class (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -277,7 +288,7 @@ class MediaFileMini(ModelNormal):
             id (int):
             custom_fields ({str: (str, none_type)}):
             path_permissions (PathPermissions):
-            volume (VolumeMini):
+            volume (VolumeMiniWithCloudAccount):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -313,6 +324,8 @@ class MediaFileMini(ModelNormal):
             bundle (int, none_type): [optional]  # noqa: E501
             parent (int, none_type): [optional]  # noqa: E501
             parent_file ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
+            restore_expires_at (datetime, none_type): [optional]  # noqa: E501
+            storage_class (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

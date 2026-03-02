@@ -91,6 +91,7 @@ class SMTPConfiguration(ModelNormal):
         """
         return {
             'from_address': (str,),  # noqa: E501
+            'reply_to_address': (str, none_type,),  # noqa: E501
             'server': (str,),  # noqa: E501
             'port': (int,),  # noqa: E501
             'tls': (str,),  # noqa: E501
@@ -105,6 +106,7 @@ class SMTPConfiguration(ModelNormal):
 
     attribute_map = {
         'from_address': 'from_address',  # noqa: E501
+        'reply_to_address': 'reply_to_address',  # noqa: E501
         'server': 'server',  # noqa: E501
         'port': 'port',  # noqa: E501
         'tls': 'tls',  # noqa: E501
@@ -119,11 +121,12 @@ class SMTPConfiguration(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, from_address, server, port, tls, username, password, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, from_address, reply_to_address, server, port, tls, username, password, *args, **xkwargs):  # noqa: E501
         """SMTPConfiguration - a model defined in OpenAPI
 
         Args:
             from_address (str):
+            reply_to_address (str, none_type):
             server (str):
             port (int):
             tls (str):
@@ -190,6 +193,7 @@ class SMTPConfiguration(ModelNormal):
 
 
         self.from_address = from_address
+        self.reply_to_address = reply_to_address
         self.server = server
         self.port = port
         self.tls = tls
@@ -216,11 +220,12 @@ class SMTPConfiguration(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, from_address, server, port, tls, username, password, *args, **xkwargs):  # noqa: E501
+    def __init__(self, from_address, reply_to_address, server, port, tls, username, password, *args, **xkwargs):  # noqa: E501
         """SMTPConfiguration - a model defined in OpenAPI
 
         Args:
             from_address (str):
+            reply_to_address (str, none_type):
             server (str):
             port (int):
             tls (str):
@@ -285,6 +290,7 @@ class SMTPConfiguration(ModelNormal):
 
 
         self.from_address = from_address
+        self.reply_to_address = reply_to_address
         self.server = server
         self.port = port
         self.tls = tls

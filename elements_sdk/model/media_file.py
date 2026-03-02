@@ -35,13 +35,13 @@ def lazy_import():
     from elements_sdk.model.media_root_mini import MediaRootMini
     from elements_sdk.model.media_root_permission import MediaRootPermission
     from elements_sdk.model.path_permissions import PathPermissions
-    from elements_sdk.model.volume_mini import VolumeMini
+    from elements_sdk.model.volume_mini_with_cloud_account import VolumeMiniWithCloudAccount
     globals()['ElementsUserMini'] = ElementsUserMini
     globals()['MediaFileExclusionInfo'] = MediaFileExclusionInfo
     globals()['MediaRootMini'] = MediaRootMini
     globals()['MediaRootPermission'] = MediaRootPermission
     globals()['PathPermissions'] = PathPermissions
-    globals()['VolumeMini'] = VolumeMini
+    globals()['VolumeMiniWithCloudAccount'] = VolumeMiniWithCloudAccount
 
 
 class MediaFile(ModelNormal):
@@ -88,6 +88,9 @@ class MediaFile(ModelNormal):
             'inclusive_maximum': 2147483647,
             'inclusive_minimum': -2147483648,
         },
+        ('storage_class',): {
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -114,7 +117,7 @@ class MediaFile(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'volume': (VolumeMini,),  # noqa: E501
+            'volume': (VolumeMiniWithCloudAccount,),  # noqa: E501
             'info': ({str: (str, none_type)},),  # noqa: E501
             'custom_fields': ({str: (str, none_type)},),  # noqa: E501
             'full_path': (str,),  # noqa: E501
@@ -143,6 +146,8 @@ class MediaFile(ModelNormal):
             'root': (MediaRootMini,),  # noqa: E501
             'effective_custom_fields': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'modified_by': (ElementsUserMini,),  # noqa: E501
+            'storage_class': (str, none_type,),  # noqa: E501
+            'restore_expires_at': (datetime, none_type,),  # noqa: E501
             'parent': (int, none_type,),  # noqa: E501
             'bundle': (int, none_type,),  # noqa: E501
         }
@@ -183,6 +188,8 @@ class MediaFile(ModelNormal):
         'root': 'root',  # noqa: E501
         'effective_custom_fields': 'effective_custom_fields',  # noqa: E501
         'modified_by': 'modified_by',  # noqa: E501
+        'storage_class': 'storage_class',  # noqa: E501
+        'restore_expires_at': 'restore_expires_at',  # noqa: E501
         'parent': 'parent',  # noqa: E501
         'bundle': 'bundle',  # noqa: E501
     }
@@ -207,6 +214,8 @@ class MediaFile(ModelNormal):
         'modified',  # noqa: E501
         'parent_file',  # noqa: E501
         'effective_custom_fields',  # noqa: E501
+        'storage_class',  # noqa: E501
+        'restore_expires_at',  # noqa: E501
         'parent',  # noqa: E501
         'bundle',  # noqa: E501
     }
@@ -220,7 +229,7 @@ class MediaFile(ModelNormal):
 
         Args:
             id (int):
-            volume (VolumeMini):
+            volume (VolumeMiniWithCloudAccount):
             info ({str: (str, none_type)}):
             custom_fields ({str: (str, none_type)}):
             full_path (str):
@@ -281,6 +290,8 @@ class MediaFile(ModelNormal):
             root (MediaRootMini): [optional]  # noqa: E501
             effective_custom_fields ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             modified_by (ElementsUserMini): [optional]  # noqa: E501
+            storage_class (str, none_type): [optional]  # noqa: E501
+            restore_expires_at (datetime, none_type): [optional]  # noqa: E501
             parent (int, none_type): [optional]  # noqa: E501
             bundle (int, none_type): [optional]  # noqa: E501
         """
@@ -362,7 +373,7 @@ class MediaFile(ModelNormal):
 
         Args:
             id (int):
-            volume (VolumeMini):
+            volume (VolumeMiniWithCloudAccount):
             info ({str: (str, none_type)}):
             custom_fields ({str: (str, none_type)}):
             path_permissions (PathPermissions):
@@ -405,6 +416,8 @@ class MediaFile(ModelNormal):
             root (MediaRootMini): [optional]  # noqa: E501
             effective_custom_fields ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             modified_by (ElementsUserMini): [optional]  # noqa: E501
+            storage_class (str, none_type): [optional]  # noqa: E501
+            restore_expires_at (datetime, none_type): [optional]  # noqa: E501
             parent (int, none_type): [optional]  # noqa: E501
             bundle (int, none_type): [optional]  # noqa: E501
         """

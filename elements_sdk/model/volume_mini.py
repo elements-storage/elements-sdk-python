@@ -66,6 +66,7 @@ class VolumeMini(ModelNormal):
             'CLOUD': "cloud",
             'ONEFS': "onefs",
             'QUMULO': "qumulo",
+            'XFS': "xfs",
         },
     }
 

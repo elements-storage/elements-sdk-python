@@ -68,10 +68,6 @@ class ElementsUserMiniReference(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
-        ('avatar',): {
-            'max_length': 0,
-            'min_length': 0,
-        },
     }
 
     @cached_property
@@ -102,7 +98,6 @@ class ElementsUserMiniReference(ModelNormal):
             'is_external': (bool,),  # noqa: E501
             'is_cloud': (bool,),  # noqa: E501
             'username': (str,),  # noqa: E501
-            'avatar': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -118,7 +113,6 @@ class ElementsUserMiniReference(ModelNormal):
         'is_external': 'is_external',  # noqa: E501
         'is_cloud': 'is_cloud',  # noqa: E501
         'username': 'username',  # noqa: E501
-        'avatar': 'avatar',  # noqa: E501
     }
 
     read_only_vars = {
@@ -128,7 +122,6 @@ class ElementsUserMiniReference(ModelNormal):
         'is_external',  # noqa: E501
         'is_cloud',  # noqa: E501
         'username',  # noqa: E501
-        'avatar',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -178,7 +171,6 @@ class ElementsUserMiniReference(ModelNormal):
             is_external (bool): [optional]  # noqa: E501
             is_cloud (bool): [optional]  # noqa: E501
             username (str): [optional]  # noqa: E501
-            avatar (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -272,7 +264,6 @@ class ElementsUserMiniReference(ModelNormal):
             is_external (bool): [optional]  # noqa: E501
             is_cloud (bool): [optional]  # noqa: E501
             username (str): [optional]  # noqa: E501
-            avatar (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

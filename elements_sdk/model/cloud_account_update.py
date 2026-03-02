@@ -56,6 +56,7 @@ class CloudAccountUpdate(ModelNormal):
 
     allowed_values = {
         ('provider',): {
+            'ARCHIWARE': "archiware",
             'AZURE': "azure",
             'AWS': "aws",
             'BACKBLAZE': "backblaze",
@@ -103,6 +104,7 @@ class CloudAccountUpdate(ModelNormal):
             'tenant': (str, none_type,),  # noqa: E501
             'subscription': (str, none_type,),  # noqa: E501
             'endpoint': (str, none_type,),  # noqa: E501
+            'enabled': (bool,),  # noqa: E501
             'mount_credentials_management': (str, none_type,),  # noqa: E501
         }
 
@@ -119,6 +121,7 @@ class CloudAccountUpdate(ModelNormal):
         'tenant': 'tenant',  # noqa: E501
         'subscription': 'subscription',  # noqa: E501
         'endpoint': 'endpoint',  # noqa: E501
+        'enabled': 'enabled',  # noqa: E501
         'mount_credentials_management': 'mount_credentials_management',  # noqa: E501
     }
 
@@ -172,6 +175,7 @@ class CloudAccountUpdate(ModelNormal):
             tenant (str, none_type): [optional]  # noqa: E501
             subscription (str, none_type): [optional]  # noqa: E501
             endpoint (str, none_type): [optional]  # noqa: E501
+            enabled (bool): [optional]  # noqa: E501
             mount_credentials_management (str, none_type): [optional]  # noqa: E501
         """
 
@@ -266,6 +270,7 @@ class CloudAccountUpdate(ModelNormal):
             tenant (str, none_type): [optional]  # noqa: E501
             subscription (str, none_type): [optional]  # noqa: E501
             endpoint (str, none_type): [optional]  # noqa: E501
+            enabled (bool): [optional]  # noqa: E501
             mount_credentials_management (str, none_type): [optional]  # noqa: E501
         """
 

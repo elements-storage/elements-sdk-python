@@ -59,6 +59,11 @@ class ParametersUpdate(ModelNormal):
     """
 
     allowed_values = {
+        ('default_mac_protocol',): {
+            'SMB': "smb",
+            'AFP': "afp",
+            'NFS': "nfs",
+        },
         ('https_redirect',): {
             'None': None,
             'DOMAIN': "domain",
@@ -141,6 +146,7 @@ class ParametersUpdate(ModelNormal):
             'branding_logo': (str,),  # noqa: E501
             'email_logo_url': (str, none_type,),  # noqa: E501
             'client_offer_file_search': (bool,),  # noqa: E501
+            'default_mac_protocol': (str,),  # noqa: E501
             'external_url': (str, none_type,),  # noqa: E501
             'file_manager_recycle_bin': (bool,),  # noqa: E501
             'https_redirect': (str, none_type,),  # noqa: E501
@@ -189,6 +195,7 @@ class ParametersUpdate(ModelNormal):
         'branding_logo': 'branding_logo',  # noqa: E501
         'email_logo_url': 'email_logo_url',  # noqa: E501
         'client_offer_file_search': 'client_offer_file_search',  # noqa: E501
+        'default_mac_protocol': 'default_mac_protocol',  # noqa: E501
         'external_url': 'external_url',  # noqa: E501
         'file_manager_recycle_bin': 'file_manager_recycle_bin',  # noqa: E501
         'https_redirect': 'https_redirect',  # noqa: E501
@@ -274,6 +281,7 @@ class ParametersUpdate(ModelNormal):
             branding_logo (str): [optional]  # noqa: E501
             email_logo_url (str, none_type): [optional]  # noqa: E501
             client_offer_file_search (bool): [optional]  # noqa: E501
+            default_mac_protocol (str): [optional]  # noqa: E501
             external_url (str, none_type): http://host/. [optional]  # noqa: E501
             file_manager_recycle_bin (bool): Recycle bins are usually either in Workspace/Share or Volume folder. [optional]  # noqa: E501
             https_redirect (str, none_type): [optional]  # noqa: E501
@@ -400,6 +408,7 @@ class ParametersUpdate(ModelNormal):
             branding_logo (str): [optional]  # noqa: E501
             email_logo_url (str, none_type): [optional]  # noqa: E501
             client_offer_file_search (bool): [optional]  # noqa: E501
+            default_mac_protocol (str): [optional]  # noqa: E501
             external_url (str, none_type): http://host/. [optional]  # noqa: E501
             file_manager_recycle_bin (bool): Recycle bins are usually either in Workspace/Share or Volume folder. [optional]  # noqa: E501
             https_redirect (str, none_type): [optional]  # noqa: E501

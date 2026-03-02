@@ -68,18 +68,6 @@ class VolumeStatus(ModelNormal):
     }
 
     validations = {
-        ('size_total',): {
-            'max_length': 0,
-            'min_length': 0,
-        },
-        ('size_used',): {
-            'max_length': 0,
-            'min_length': 0,
-        },
-        ('size_free',): {
-            'max_length': 0,
-            'min_length': 0,
-        },
     }
 
     @cached_property
@@ -106,9 +94,6 @@ class VolumeStatus(ModelNormal):
         lazy_import()
         return {
             'online': (bool, none_type,),  # noqa: E501
-            'size_total': (str, none_type,),  # noqa: E501
-            'size_used': (str, none_type,),  # noqa: E501
-            'size_free': (str, none_type,),  # noqa: E501
             'usage': (VolumeUsage,),  # noqa: E501
             'snfs': (VolumeSNFSStatus,),  # noqa: E501
             'beegfs': (VolumeBeeGFSStatus,),  # noqa: E501
@@ -122,9 +107,6 @@ class VolumeStatus(ModelNormal):
 
     attribute_map = {
         'online': 'online',  # noqa: E501
-        'size_total': 'size_total',  # noqa: E501
-        'size_used': 'size_used',  # noqa: E501
-        'size_free': 'size_free',  # noqa: E501
         'usage': 'usage',  # noqa: E501
         'snfs': 'snfs',  # noqa: E501
         'beegfs': 'beegfs',  # noqa: E501
@@ -132,9 +114,6 @@ class VolumeStatus(ModelNormal):
     }
 
     read_only_vars = {
-        'size_total',  # noqa: E501
-        'size_used',  # noqa: E501
-        'size_free',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -178,9 +157,6 @@ class VolumeStatus(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            size_total (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
-            size_used (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
-            size_free (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
             usage (VolumeUsage): [optional]  # noqa: E501
             snfs (VolumeSNFSStatus): [optional]  # noqa: E501
             beegfs (VolumeBeeGFSStatus): [optional]  # noqa: E501
@@ -272,9 +248,6 @@ class VolumeStatus(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            size_total (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
-            size_used (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
-            size_free (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
             usage (VolumeUsage): [optional]  # noqa: E501
             snfs (VolumeSNFSStatus): [optional]  # noqa: E501
             beegfs (VolumeBeeGFSStatus): [optional]  # noqa: E501

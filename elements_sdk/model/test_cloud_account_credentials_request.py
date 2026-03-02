@@ -56,6 +56,7 @@ class TestCloudAccountCredentialsRequest(ModelNormal):
 
     allowed_values = {
         ('provider',): {
+            'ARCHIWARE': "archiware",
             'AZURE': "azure",
             'AWS': "aws",
             'BACKBLAZE': "backblaze",
@@ -103,6 +104,7 @@ class TestCloudAccountCredentialsRequest(ModelNormal):
             'tenant': (str, none_type,),  # noqa: E501
             'subscription': (str, none_type,),  # noqa: E501
             'endpoint': (str, none_type,),  # noqa: E501
+            'enabled': (bool,),  # noqa: E501
             'mount_credentials_management': (str, none_type,),  # noqa: E501
         }
 
@@ -119,6 +121,7 @@ class TestCloudAccountCredentialsRequest(ModelNormal):
         'tenant': 'tenant',  # noqa: E501
         'subscription': 'subscription',  # noqa: E501
         'endpoint': 'endpoint',  # noqa: E501
+        'enabled': 'enabled',  # noqa: E501
         'mount_credentials_management': 'mount_credentials_management',  # noqa: E501
     }
 
@@ -129,7 +132,7 @@ class TestCloudAccountCredentialsRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, provider, access_id, secret, tenant, subscription, endpoint, mount_credentials_management, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, provider, access_id, secret, tenant, subscription, endpoint, enabled, mount_credentials_management, *args, **xkwargs):  # noqa: E501
         """TestCloudAccountCredentialsRequest - a model defined in OpenAPI
 
         Args:
@@ -140,6 +143,7 @@ class TestCloudAccountCredentialsRequest(ModelNormal):
             tenant (str, none_type):
             subscription (str, none_type):
             endpoint (str, none_type):
+            enabled (bool):
             mount_credentials_management (str, none_type):
 
         Keyword Args:
@@ -208,6 +212,7 @@ class TestCloudAccountCredentialsRequest(ModelNormal):
         self.tenant = tenant
         self.subscription = subscription
         self.endpoint = endpoint
+        self.enabled = enabled
         self.mount_credentials_management = mount_credentials_management
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -230,7 +235,7 @@ class TestCloudAccountCredentialsRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, provider, access_id, secret, tenant, subscription, endpoint, mount_credentials_management, *args, **xkwargs):  # noqa: E501
+    def __init__(self, name, provider, access_id, secret, tenant, subscription, endpoint, enabled, mount_credentials_management, *args, **xkwargs):  # noqa: E501
         """TestCloudAccountCredentialsRequest - a model defined in OpenAPI
 
         Args:
@@ -241,6 +246,7 @@ class TestCloudAccountCredentialsRequest(ModelNormal):
             tenant (str, none_type):
             subscription (str, none_type):
             endpoint (str, none_type):
+            enabled (bool):
             mount_credentials_management (str, none_type):
 
         Keyword Args:
@@ -307,6 +313,7 @@ class TestCloudAccountCredentialsRequest(ModelNormal):
         self.tenant = tenant
         self.subscription = subscription
         self.endpoint = endpoint
+        self.enabled = enabled
         self.mount_credentials_management = mount_credentials_management
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

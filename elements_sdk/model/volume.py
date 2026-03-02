@@ -74,6 +74,7 @@ class Volume(ModelNormal):
             'CLOUD': "cloud",
             'ONEFS': "onefs",
             'QUMULO': "qumulo",
+            'XFS': "xfs",
         },
     }
 
