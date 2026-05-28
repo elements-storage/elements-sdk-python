@@ -89,6 +89,7 @@ class SetupOffloadRequest(ModelNormal):
         return {
             'bandwidth_limit': (int, none_type,),  # noqa: E501
             'enqueue_at_front': (bool,),  # noqa: E501
+            'force_sync': (bool,),  # noqa: E501
             'offload_volume': (int,),  # noqa: E501
             'offload_volume_path': (str,),  # noqa: E501
             'priority': (str,),  # noqa: E501
@@ -102,6 +103,7 @@ class SetupOffloadRequest(ModelNormal):
     attribute_map = {
         'bandwidth_limit': 'bandwidth_limit',  # noqa: E501
         'enqueue_at_front': 'enqueue_at_front',  # noqa: E501
+        'force_sync': 'force_sync',  # noqa: E501
         'offload_volume': 'offload_volume',  # noqa: E501
         'offload_volume_path': 'offload_volume_path',  # noqa: E501
         'priority': 'priority',  # noqa: E501
@@ -114,12 +116,13 @@ class SetupOffloadRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, bandwidth_limit, enqueue_at_front, offload_volume, offload_volume_path, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, bandwidth_limit, enqueue_at_front, force_sync, offload_volume, offload_volume_path, *args, **xkwargs):  # noqa: E501
         """SetupOffloadRequest - a model defined in OpenAPI
 
         Args:
             bandwidth_limit (int, none_type):
             enqueue_at_front (bool):
+            force_sync (bool):
             offload_volume (int):
             offload_volume_path (str):
 
@@ -185,6 +188,7 @@ class SetupOffloadRequest(ModelNormal):
 
         self.bandwidth_limit = bandwidth_limit
         self.enqueue_at_front = enqueue_at_front
+        self.force_sync = force_sync
         self.offload_volume = offload_volume
         self.offload_volume_path = offload_volume_path
         for var_name, var_value in xkwargs.items():
@@ -208,12 +212,13 @@ class SetupOffloadRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, bandwidth_limit, enqueue_at_front, offload_volume, offload_volume_path, *args, **xkwargs):  # noqa: E501
+    def __init__(self, bandwidth_limit, enqueue_at_front, force_sync, offload_volume, offload_volume_path, *args, **xkwargs):  # noqa: E501
         """SetupOffloadRequest - a model defined in OpenAPI
 
         Args:
             bandwidth_limit (int, none_type):
             enqueue_at_front (bool):
+            force_sync (bool):
             offload_volume (int):
             offload_volume_path (str):
 
@@ -277,6 +282,7 @@ class SetupOffloadRequest(ModelNormal):
 
         self.bandwidth_limit = bandwidth_limit
         self.enqueue_at_front = enqueue_at_front
+        self.force_sync = force_sync
         self.offload_volume = offload_volume
         self.offload_volume_path = offload_volume_path
         for var_name, var_value in xkwargs.items():

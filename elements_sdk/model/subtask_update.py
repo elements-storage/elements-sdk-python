@@ -79,6 +79,9 @@ class SubtaskUpdate(ModelNormal):
         ('queue',): {
             'max_length': 255,
         },
+        ('loop_variable_name',): {
+            'max_length': 255,
+        },
     }
 
     @cached_property
@@ -115,6 +118,9 @@ class SubtaskUpdate(ModelNormal):
             'sync': (bool,),  # noqa: E501
             'queue': (str, none_type,),  # noqa: E501
             'enqueue_at_front': (bool,),  # noqa: E501
+            'loop': (bool,),  # noqa: E501
+            'loop_expression': (str, none_type,),  # noqa: E501
+            'loop_variable_name': (str, none_type,),  # noqa: E501
             'relative_to': (int, none_type,),  # noqa: E501
         }
 
@@ -137,6 +143,9 @@ class SubtaskUpdate(ModelNormal):
         'sync': 'sync',  # noqa: E501
         'queue': 'queue',  # noqa: E501
         'enqueue_at_front': 'enqueue_at_front',  # noqa: E501
+        'loop': 'loop',  # noqa: E501
+        'loop_expression': 'loop_expression',  # noqa: E501
+        'loop_variable_name': 'loop_variable_name',  # noqa: E501
         'relative_to': 'relative_to',  # noqa: E501
     }
 
@@ -196,6 +205,9 @@ class SubtaskUpdate(ModelNormal):
             sync (bool): [optional]  # noqa: E501
             queue (str, none_type): [optional]  # noqa: E501
             enqueue_at_front (bool): [optional]  # noqa: E501
+            loop (bool): [optional]  # noqa: E501
+            loop_expression (str, none_type): [optional]  # noqa: E501
+            loop_variable_name (str, none_type): [optional]  # noqa: E501
             relative_to (int, none_type): [optional]  # noqa: E501
         """
 
@@ -297,6 +309,9 @@ class SubtaskUpdate(ModelNormal):
             sync (bool): [optional]  # noqa: E501
             queue (str, none_type): [optional]  # noqa: E501
             enqueue_at_front (bool): [optional]  # noqa: E501
+            loop (bool): [optional]  # noqa: E501
+            loop_expression (str, none_type): [optional]  # noqa: E501
+            loop_variable_name (str, none_type): [optional]  # noqa: E501
             relative_to (int, none_type): [optional]  # noqa: E501
         """
 

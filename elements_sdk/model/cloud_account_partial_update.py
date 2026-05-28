@@ -61,6 +61,7 @@ class CloudAccountPartialUpdate(ModelNormal):
             'AWS': "aws",
             'BACKBLAZE': "backblaze",
             'GCLOUD': "gcloud",
+            'WASABI': "wasabi",
         },
         ('mount_credentials_management',): {
             'None': None,

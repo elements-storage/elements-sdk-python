@@ -32,6 +32,7 @@ from elements_sdk.exceptions import ApiAttributeError
 def lazy_import():
     from elements_sdk.model.cloud_connection import CloudConnection
     from elements_sdk.model.elements_user_detail import ElementsUserDetail
+    from elements_sdk.model.elements_user_micro import ElementsUserMicro
     from elements_sdk.model.elements_user_mini_with_avatar import ElementsUserMiniWithAvatar
     from elements_sdk.model.elements_version import ElementsVersion
     from elements_sdk.model.event import Event
@@ -46,6 +47,7 @@ def lazy_import():
     from elements_sdk.model.tasks_summary import TasksSummary
     globals()['CloudConnection'] = CloudConnection
     globals()['ElementsUserDetail'] = ElementsUserDetail
+    globals()['ElementsUserMicro'] = ElementsUserMicro
     globals()['ElementsUserMiniWithAvatar'] = ElementsUserMiniWithAvatar
     globals()['ElementsVersion'] = ElementsVersion
     globals()['Event'] = Event
@@ -126,7 +128,7 @@ class BootstrapData(ModelNormal):
         lazy_import()
         return {
             'public_parameters': (PublicParameters,),  # noqa: E501
-            'known_usernames': ([str],),  # noqa: E501
+            'known_users': ([ElementsUserMicro],),  # noqa: E501
             'known_emails': ([str],),  # noqa: E501
             'impersonation_active': (bool,),  # noqa: E501
             'one_time_access_token_active': (bool,),  # noqa: E501
@@ -141,7 +143,6 @@ class BootstrapData(ModelNormal):
             'task_meta': ({str: (TaskType,)},),  # noqa: E501
             'scanner_metadata_schema': ([{str: (str, none_type)}],),  # noqa: E501
             'media_root_permissions': ([MediaRootPermission],),  # noqa: E501
-            'shared_storage_values': ({str: (str, none_type)},),  # noqa: E501
             'user_storage_values': ({str: (str, none_type)},),  # noqa: E501
             'saml_providers': ([SAMLProviderMini],),  # noqa: E501
             'settings': (PublicSettings,),  # noqa: E501
@@ -170,7 +171,7 @@ class BootstrapData(ModelNormal):
 
     attribute_map = {
         'public_parameters': 'public_parameters',  # noqa: E501
-        'known_usernames': 'known_usernames',  # noqa: E501
+        'known_users': 'known_users',  # noqa: E501
         'known_emails': 'known_emails',  # noqa: E501
         'impersonation_active': 'impersonation_active',  # noqa: E501
         'one_time_access_token_active': 'one_time_access_token_active',  # noqa: E501
@@ -185,7 +186,6 @@ class BootstrapData(ModelNormal):
         'task_meta': 'task_meta',  # noqa: E501
         'scanner_metadata_schema': 'scanner_metadata_schema',  # noqa: E501
         'media_root_permissions': 'media_root_permissions',  # noqa: E501
-        'shared_storage_values': 'shared_storage_values',  # noqa: E501
         'user_storage_values': 'user_storage_values',  # noqa: E501
         'saml_providers': 'saml_providers',  # noqa: E501
         'settings': 'settings',  # noqa: E501
@@ -214,12 +214,12 @@ class BootstrapData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, public_parameters, known_usernames, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, system_name, stream_proxy_url_prefix, has_password_policy, has_filesystem_events, cluster_node_ips, is_panel, is_valet_possible, av1_hwaccel_enabled, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, public_parameters, known_users, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, user_storage_values, saml_providers, settings, kibana_enabled, system_name, stream_proxy_url_prefix, has_password_policy, has_filesystem_events, cluster_node_ips, is_panel, is_valet_possible, av1_hwaccel_enabled, *args, **xkwargs):  # noqa: E501
         """BootstrapData - a model defined in OpenAPI
 
         Args:
             public_parameters (PublicParameters):
-            known_usernames ([str]):
+            known_users ([ElementsUserMicro]):
             known_emails ([str]):
             impersonation_active (bool):
             one_time_access_token_active (bool):
@@ -234,7 +234,6 @@ class BootstrapData(ModelNormal):
             task_meta ({str: (TaskType,)}):
             scanner_metadata_schema ([{str: (str, none_type)}]):
             media_root_permissions ([MediaRootPermission]):
-            shared_storage_values ({str: (str, none_type)}):
             user_storage_values ({str: (str, none_type)}):
             saml_providers ([SAMLProviderMini]):
             settings (PublicSettings):
@@ -315,7 +314,7 @@ class BootstrapData(ModelNormal):
 
 
         self.public_parameters = public_parameters
-        self.known_usernames = known_usernames
+        self.known_users = known_users
         self.known_emails = known_emails
         self.impersonation_active = impersonation_active
         self.one_time_access_token_active = one_time_access_token_active
@@ -330,7 +329,6 @@ class BootstrapData(ModelNormal):
         self.task_meta = task_meta
         self.scanner_metadata_schema = scanner_metadata_schema
         self.media_root_permissions = media_root_permissions
-        self.shared_storage_values = shared_storage_values
         self.user_storage_values = user_storage_values
         self.saml_providers = saml_providers
         self.settings = settings
@@ -364,12 +362,12 @@ class BootstrapData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, public_parameters, known_usernames, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, shared_storage_values, user_storage_values, saml_providers, settings, kibana_enabled, system_name, stream_proxy_url_prefix, has_password_policy, has_filesystem_events, cluster_node_ips, is_panel, is_valet_possible, av1_hwaccel_enabled, *args, **xkwargs):  # noqa: E501
+    def __init__(self, public_parameters, known_users, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, user_storage_values, saml_providers, settings, kibana_enabled, system_name, stream_proxy_url_prefix, has_password_policy, has_filesystem_events, cluster_node_ips, is_panel, is_valet_possible, av1_hwaccel_enabled, *args, **xkwargs):  # noqa: E501
         """BootstrapData - a model defined in OpenAPI
 
         Args:
             public_parameters (PublicParameters):
-            known_usernames ([str]):
+            known_users ([ElementsUserMicro]):
             known_emails ([str]):
             impersonation_active (bool):
             one_time_access_token_active (bool):
@@ -384,7 +382,6 @@ class BootstrapData(ModelNormal):
             task_meta ({str: (TaskType,)}):
             scanner_metadata_schema ([{str: (str, none_type)}]):
             media_root_permissions ([MediaRootPermission]):
-            shared_storage_values ({str: (str, none_type)}):
             user_storage_values ({str: (str, none_type)}):
             saml_providers ([SAMLProviderMini]):
             settings (PublicSettings):
@@ -463,7 +460,7 @@ class BootstrapData(ModelNormal):
 
 
         self.public_parameters = public_parameters
-        self.known_usernames = known_usernames
+        self.known_users = known_users
         self.known_emails = known_emails
         self.impersonation_active = impersonation_active
         self.one_time_access_token_active = one_time_access_token_active
@@ -478,7 +475,6 @@ class BootstrapData(ModelNormal):
         self.task_meta = task_meta
         self.scanner_metadata_schema = scanner_metadata_schema
         self.media_root_permissions = media_root_permissions
-        self.shared_storage_values = shared_storage_values
         self.user_storage_values = user_storage_values
         self.saml_providers = saml_providers
         self.settings = settings

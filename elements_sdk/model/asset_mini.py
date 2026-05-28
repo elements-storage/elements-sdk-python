@@ -70,6 +70,9 @@ class AssetMini(ModelNormal):
         ('type',): {
             'min_length': 1,
         },
+        ('matched_scanner',): {
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -100,9 +103,11 @@ class AssetMini(ModelNormal):
             'display_name': (str,),  # noqa: E501
             'format': (FormatMetadata,),  # noqa: E501
             'thumbnail_generated': (bool,),  # noqa: E501
+            'proxies_failed': (bool,),  # noqa: E501
             'default_proxy': (Proxy,),  # noqa: E501
             'type': (str, none_type,),  # noqa: E501
             'proxies': ([Proxy],),  # noqa: E501
+            'matched_scanner': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -116,24 +121,28 @@ class AssetMini(ModelNormal):
         'display_name': 'display_name',  # noqa: E501
         'format': 'format',  # noqa: E501
         'thumbnail_generated': 'thumbnail_generated',  # noqa: E501
+        'proxies_failed': 'proxies_failed',  # noqa: E501
         'default_proxy': 'default_proxy',  # noqa: E501
         'type': 'type',  # noqa: E501
         'proxies': 'proxies',  # noqa: E501
+        'matched_scanner': 'matched_scanner',  # noqa: E501
     }
 
     read_only_vars = {
         'sync_id',  # noqa: E501
         'display_name',  # noqa: E501
         'thumbnail_generated',  # noqa: E501
+        'proxies_failed',  # noqa: E501
         'type',  # noqa: E501
         'proxies',  # noqa: E501
+        'matched_scanner',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, sync_id, display_name, format, thumbnail_generated, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, sync_id, display_name, format, thumbnail_generated, proxies_failed, *args, **xkwargs):  # noqa: E501
         """AssetMini - a model defined in OpenAPI
 
         Args:
@@ -142,6 +151,7 @@ class AssetMini(ModelNormal):
             display_name (str):
             format (FormatMetadata):
             thumbnail_generated (bool):
+            proxies_failed (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -177,6 +187,7 @@ class AssetMini(ModelNormal):
             default_proxy (Proxy): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             proxies ([Proxy]): [optional]  # noqa: E501
+            matched_scanner (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -210,6 +221,7 @@ class AssetMini(ModelNormal):
         self.display_name = display_name
         self.format = format
         self.thumbnail_generated = thumbnail_generated
+        self.proxies_failed = proxies_failed
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -271,6 +283,7 @@ class AssetMini(ModelNormal):
             default_proxy (Proxy): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             proxies ([Proxy]): [optional]  # noqa: E501
+            matched_scanner (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

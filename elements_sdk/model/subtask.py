@@ -79,6 +79,9 @@ class Subtask(ModelNormal):
         ('queue',): {
             'max_length': 255,
         },
+        ('loop_variable_name',): {
+            'max_length': 255,
+        },
     }
 
     @cached_property
@@ -115,6 +118,9 @@ class Subtask(ModelNormal):
             'sync': (bool,),  # noqa: E501
             'queue': (str, none_type,),  # noqa: E501
             'enqueue_at_front': (bool,),  # noqa: E501
+            'loop': (bool,),  # noqa: E501
+            'loop_expression': (str, none_type,),  # noqa: E501
+            'loop_variable_name': (str, none_type,),  # noqa: E501
             'parent': (int,),  # noqa: E501
             'relative_to': (int, none_type,),  # noqa: E501
             'validation_error': (str, none_type,),  # noqa: E501
@@ -139,6 +145,9 @@ class Subtask(ModelNormal):
         'sync': 'sync',  # noqa: E501
         'queue': 'queue',  # noqa: E501
         'enqueue_at_front': 'enqueue_at_front',  # noqa: E501
+        'loop': 'loop',  # noqa: E501
+        'loop_expression': 'loop_expression',  # noqa: E501
+        'loop_variable_name': 'loop_variable_name',  # noqa: E501
         'parent': 'parent',  # noqa: E501
         'relative_to': 'relative_to',  # noqa: E501
         'validation_error': 'validation_error',  # noqa: E501
@@ -152,7 +161,7 @@ class Subtask(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, kwargs, trigger, name, noop_dont_save, no_concurrency, timeout, log_variable, task, condition, sync, queue, enqueue_at_front, parent, relative_to, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, kwargs, trigger, name, noop_dont_save, no_concurrency, timeout, log_variable, task, condition, sync, queue, enqueue_at_front, loop, loop_expression, loop_variable_name, parent, relative_to, *args, **xkwargs):  # noqa: E501
         """Subtask - a model defined in OpenAPI
 
         Args:
@@ -169,6 +178,9 @@ class Subtask(ModelNormal):
             sync (bool):
             queue (str, none_type):
             enqueue_at_front (bool):
+            loop (bool):
+            loop_expression (str, none_type):
+            loop_variable_name (str, none_type):
             parent (int):
             relative_to (int, none_type):
 
@@ -245,6 +257,9 @@ class Subtask(ModelNormal):
         self.sync = sync
         self.queue = queue
         self.enqueue_at_front = enqueue_at_front
+        self.loop = loop
+        self.loop_expression = loop_expression
+        self.loop_variable_name = loop_variable_name
         self.parent = parent
         self.relative_to = relative_to
         for var_name, var_value in xkwargs.items():
@@ -268,7 +283,7 @@ class Subtask(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, kwargs, trigger, name, noop_dont_save, no_concurrency, timeout, log_variable, task, condition, sync, queue, enqueue_at_front, parent, relative_to, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, kwargs, trigger, name, noop_dont_save, no_concurrency, timeout, log_variable, task, condition, sync, queue, enqueue_at_front, loop, loop_expression, loop_variable_name, parent, relative_to, *args, **xkwargs):  # noqa: E501
         """Subtask - a model defined in OpenAPI
 
         Args:
@@ -285,6 +300,9 @@ class Subtask(ModelNormal):
             sync (bool):
             queue (str, none_type):
             enqueue_at_front (bool):
+            loop (bool):
+            loop_expression (str, none_type):
+            loop_variable_name (str, none_type):
             parent (int):
             relative_to (int, none_type):
 
@@ -359,6 +377,9 @@ class Subtask(ModelNormal):
         self.sync = sync
         self.queue = queue
         self.enqueue_at_front = enqueue_at_front
+        self.loop = loop
+        self.loop_expression = loop_expression
+        self.loop_variable_name = loop_variable_name
         self.parent = parent
         self.relative_to = relative_to
         for var_name, var_value in xkwargs.items():

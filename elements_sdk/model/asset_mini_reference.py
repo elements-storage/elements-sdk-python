@@ -70,6 +70,9 @@ class AssetMiniReference(ModelNormal):
         ('display_name',): {
             'min_length': 1,
         },
+        ('matched_scanner',): {
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -103,6 +106,8 @@ class AssetMiniReference(ModelNormal):
             'format': (FormatMetadata,),  # noqa: E501
             'thumbnail_generated': (bool,),  # noqa: E501
             'proxies': ([Proxy],),  # noqa: E501
+            'matched_scanner': (str, none_type,),  # noqa: E501
+            'proxies_failed': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -119,6 +124,8 @@ class AssetMiniReference(ModelNormal):
         'format': 'format',  # noqa: E501
         'thumbnail_generated': 'thumbnail_generated',  # noqa: E501
         'proxies': 'proxies',  # noqa: E501
+        'matched_scanner': 'matched_scanner',  # noqa: E501
+        'proxies_failed': 'proxies_failed',  # noqa: E501
     }
 
     read_only_vars = {
@@ -127,6 +134,8 @@ class AssetMiniReference(ModelNormal):
         'display_name',  # noqa: E501
         'thumbnail_generated',  # noqa: E501
         'proxies',  # noqa: E501
+        'matched_scanner',  # noqa: E501
+        'proxies_failed',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -177,6 +186,8 @@ class AssetMiniReference(ModelNormal):
             format (FormatMetadata): [optional]  # noqa: E501
             thumbnail_generated (bool): [optional]  # noqa: E501
             proxies ([Proxy]): [optional]  # noqa: E501
+            matched_scanner (str, none_type): [optional]  # noqa: E501
+            proxies_failed (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -271,6 +282,8 @@ class AssetMiniReference(ModelNormal):
             format (FormatMetadata): [optional]  # noqa: E501
             thumbnail_generated (bool): [optional]  # noqa: E501
             proxies ([Proxy]): [optional]  # noqa: E501
+            matched_scanner (str, none_type): [optional]  # noqa: E501
+            proxies_failed (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

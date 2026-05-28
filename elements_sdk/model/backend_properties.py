@@ -55,9 +55,18 @@ class BackendProperties(ModelNormal):
     """
 
     allowed_values = {
+        ('sharing_permissions_priority',): {
+            'RW': "rw",
+            'RO': "ro",
+            'CONFIGURABLE': "configurable",
+        },
     }
 
     validations = {
+        ('supports_sharing_rw_permissions_priority',): {
+            'max_length': 0,
+            'min_length': 0,
+        },
     }
 
     @cached_property
@@ -81,7 +90,6 @@ class BackendProperties(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'supports_sharing_rw_permissions_priority': (bool,),  # noqa: E501
             'supports_sharing_afp': (bool,),  # noqa: E501
             'supports_sharing_smb_require_logon': (bool,),  # noqa: E501
             'supports_sharing_smb_recycle_bin': (bool,),  # noqa: E501
@@ -93,6 +101,8 @@ class BackendProperties(ModelNormal):
             'supports_sharing_smb_hidden': (bool,),  # noqa: E501
             'supports_sharing_veto': (bool,),  # noqa: E501
             'supports_sharing_nfs_permissions': (bool,),  # noqa: E501
+            'sharing_permissions_priority': (str,),  # noqa: E501
+            'supports_sharing_rw_permissions_priority': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -101,7 +111,6 @@ class BackendProperties(ModelNormal):
 
 
     attribute_map = {
-        'supports_sharing_rw_permissions_priority': 'supports_sharing_rw_permissions_priority',  # noqa: E501
         'supports_sharing_afp': 'supports_sharing_afp',  # noqa: E501
         'supports_sharing_smb_require_logon': 'supports_sharing_smb_require_logon',  # noqa: E501
         'supports_sharing_smb_recycle_bin': 'supports_sharing_smb_recycle_bin',  # noqa: E501
@@ -113,20 +122,22 @@ class BackendProperties(ModelNormal):
         'supports_sharing_smb_hidden': 'supports_sharing_smb_hidden',  # noqa: E501
         'supports_sharing_veto': 'supports_sharing_veto',  # noqa: E501
         'supports_sharing_nfs_permissions': 'supports_sharing_nfs_permissions',  # noqa: E501
+        'sharing_permissions_priority': 'sharing_permissions_priority',  # noqa: E501
+        'supports_sharing_rw_permissions_priority': 'supports_sharing_rw_permissions_priority',  # noqa: E501
     }
 
     read_only_vars = {
+        'supports_sharing_rw_permissions_priority',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, supports_sharing_rw_permissions_priority, supports_sharing_afp, supports_sharing_smb_require_logon, supports_sharing_smb_recycle_bin, supports_sharing_smb_xattrs, supports_sharing_smb_symlinks, supports_sharing_smb_custom_options, supports_sharing_smb_allow_execute, supports_sharing_smb_locking_options, supports_sharing_smb_hidden, supports_sharing_veto, supports_sharing_nfs_permissions, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, supports_sharing_afp, supports_sharing_smb_require_logon, supports_sharing_smb_recycle_bin, supports_sharing_smb_xattrs, supports_sharing_smb_symlinks, supports_sharing_smb_custom_options, supports_sharing_smb_allow_execute, supports_sharing_smb_locking_options, supports_sharing_smb_hidden, supports_sharing_veto, supports_sharing_nfs_permissions, sharing_permissions_priority, *args, **xkwargs):  # noqa: E501
         """BackendProperties - a model defined in OpenAPI
 
         Args:
-            supports_sharing_rw_permissions_priority (bool):
             supports_sharing_afp (bool):
             supports_sharing_smb_require_logon (bool):
             supports_sharing_smb_recycle_bin (bool):
@@ -138,6 +149,7 @@ class BackendProperties(ModelNormal):
             supports_sharing_smb_hidden (bool):
             supports_sharing_veto (bool):
             supports_sharing_nfs_permissions (bool):
+            sharing_permissions_priority (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -170,6 +182,7 @@ class BackendProperties(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            supports_sharing_rw_permissions_priority (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -198,7 +211,6 @@ class BackendProperties(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
-        self.supports_sharing_rw_permissions_priority = supports_sharing_rw_permissions_priority
         self.supports_sharing_afp = supports_sharing_afp
         self.supports_sharing_smb_require_logon = supports_sharing_smb_require_logon
         self.supports_sharing_smb_recycle_bin = supports_sharing_smb_recycle_bin
@@ -210,6 +222,7 @@ class BackendProperties(ModelNormal):
         self.supports_sharing_smb_hidden = supports_sharing_smb_hidden
         self.supports_sharing_veto = supports_sharing_veto
         self.supports_sharing_nfs_permissions = supports_sharing_nfs_permissions
+        self.sharing_permissions_priority = sharing_permissions_priority
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -231,11 +244,10 @@ class BackendProperties(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, supports_sharing_rw_permissions_priority, supports_sharing_afp, supports_sharing_smb_require_logon, supports_sharing_smb_recycle_bin, supports_sharing_smb_xattrs, supports_sharing_smb_symlinks, supports_sharing_smb_custom_options, supports_sharing_smb_allow_execute, supports_sharing_smb_locking_options, supports_sharing_smb_hidden, supports_sharing_veto, supports_sharing_nfs_permissions, *args, **xkwargs):  # noqa: E501
+    def __init__(self, supports_sharing_afp, supports_sharing_smb_require_logon, supports_sharing_smb_recycle_bin, supports_sharing_smb_xattrs, supports_sharing_smb_symlinks, supports_sharing_smb_custom_options, supports_sharing_smb_allow_execute, supports_sharing_smb_locking_options, supports_sharing_smb_hidden, supports_sharing_veto, supports_sharing_nfs_permissions, sharing_permissions_priority, *args, **xkwargs):  # noqa: E501
         """BackendProperties - a model defined in OpenAPI
 
         Args:
-            supports_sharing_rw_permissions_priority (bool):
             supports_sharing_afp (bool):
             supports_sharing_smb_require_logon (bool):
             supports_sharing_smb_recycle_bin (bool):
@@ -247,6 +259,7 @@ class BackendProperties(ModelNormal):
             supports_sharing_smb_hidden (bool):
             supports_sharing_veto (bool):
             supports_sharing_nfs_permissions (bool):
+            sharing_permissions_priority (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -279,6 +292,7 @@ class BackendProperties(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            supports_sharing_rw_permissions_priority (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -305,7 +319,6 @@ class BackendProperties(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
 
-        self.supports_sharing_rw_permissions_priority = supports_sharing_rw_permissions_priority
         self.supports_sharing_afp = supports_sharing_afp
         self.supports_sharing_smb_require_logon = supports_sharing_smb_require_logon
         self.supports_sharing_smb_recycle_bin = supports_sharing_smb_recycle_bin
@@ -317,6 +330,7 @@ class BackendProperties(ModelNormal):
         self.supports_sharing_smb_hidden = supports_sharing_smb_hidden
         self.supports_sharing_veto = supports_sharing_veto
         self.supports_sharing_nfs_permissions = supports_sharing_nfs_permissions
+        self.sharing_permissions_priority = sharing_permissions_priority
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

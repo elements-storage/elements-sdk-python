@@ -118,7 +118,6 @@ class VolumePartialUpdate(ModelNormal):
             'type': (str,),  # noqa: E501
             'snm_enabled': (bool,),  # noqa: E501
             'snfs_name': (str, none_type,),  # noqa: E501
-            'simulated_quotas': (bool,),  # noqa: E501
             'cloud_account': (int, none_type,),  # noqa: E501
             'qumulo_integration': (int, none_type,),  # noqa: E501
             'nfsv4_export': (bool,),  # noqa: E501
@@ -141,7 +140,6 @@ class VolumePartialUpdate(ModelNormal):
         'type': 'type',  # noqa: E501
         'snm_enabled': 'snm_enabled',  # noqa: E501
         'snfs_name': 'snfs_name',  # noqa: E501
-        'simulated_quotas': 'simulated_quotas',  # noqa: E501
         'cloud_account': 'cloud_account',  # noqa: E501
         'qumulo_integration': 'qumulo_integration',  # noqa: E501
         'nfsv4_export': 'nfsv4_export',  # noqa: E501
@@ -199,7 +197,6 @@ class VolumePartialUpdate(ModelNormal):
             type (str): [optional]  # noqa: E501
             snm_enabled (bool): [optional]  # noqa: E501
             snfs_name (str, none_type): [optional]  # noqa: E501
-            simulated_quotas (bool): [optional]  # noqa: E501
             cloud_account (int, none_type): [optional]  # noqa: E501
             qumulo_integration (int, none_type): [optional]  # noqa: E501
             nfsv4_export (bool): [optional]  # noqa: E501
@@ -297,7 +294,6 @@ class VolumePartialUpdate(ModelNormal):
             type (str): [optional]  # noqa: E501
             snm_enabled (bool): [optional]  # noqa: E501
             snfs_name (str, none_type): [optional]  # noqa: E501
-            simulated_quotas (bool): [optional]  # noqa: E501
             cloud_account (int, none_type): [optional]  # noqa: E501
             qumulo_integration (int, none_type): [optional]  # noqa: E501
             nfsv4_export (bool): [optional]  # noqa: E501

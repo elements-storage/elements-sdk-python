@@ -111,6 +111,7 @@ class SystemInfoEndpointResponse(ModelNormal):
             'global_alerts': ([GlobalAlert],),  # noqa: E501
             'has_password_policy': (bool,),  # noqa: E501
             'password_login': (bool,),  # noqa: E501
+            'analytics_enabled': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -131,6 +132,7 @@ class SystemInfoEndpointResponse(ModelNormal):
         'global_alerts': 'global_alerts',  # noqa: E501
         'has_password_policy': 'has_password_policy',  # noqa: E501
         'password_login': 'password_login',  # noqa: E501
+        'analytics_enabled': 'analytics_enabled',  # noqa: E501
     }
 
     read_only_vars = {
@@ -141,7 +143,7 @@ class SystemInfoEndpointResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, license, client_api_version, nt_hostname, offers_ntp_sync, offers_file_search, offers_iperf_benchmarking, language, saml_providers, version, global_alerts, has_password_policy, password_login, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, license, client_api_version, nt_hostname, offers_ntp_sync, offers_file_search, offers_iperf_benchmarking, language, saml_providers, version, global_alerts, has_password_policy, password_login, analytics_enabled, *args, **xkwargs):  # noqa: E501
         """SystemInfoEndpointResponse - a model defined in OpenAPI
 
         Args:
@@ -157,6 +159,7 @@ class SystemInfoEndpointResponse(ModelNormal):
             global_alerts ([GlobalAlert]):
             has_password_policy (bool):
             password_login (bool):
+            analytics_enabled (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -229,6 +232,7 @@ class SystemInfoEndpointResponse(ModelNormal):
         self.global_alerts = global_alerts
         self.has_password_policy = has_password_policy
         self.password_login = password_login
+        self.analytics_enabled = analytics_enabled
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -250,7 +254,7 @@ class SystemInfoEndpointResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, license, client_api_version, nt_hostname, offers_ntp_sync, offers_file_search, offers_iperf_benchmarking, language, version, global_alerts, has_password_policy, password_login, *args, **xkwargs):  # noqa: E501
+    def __init__(self, license, client_api_version, nt_hostname, offers_ntp_sync, offers_file_search, offers_iperf_benchmarking, language, version, global_alerts, has_password_policy, password_login, analytics_enabled, *args, **xkwargs):  # noqa: E501
         """SystemInfoEndpointResponse - a model defined in OpenAPI
 
         Args:
@@ -265,6 +269,7 @@ class SystemInfoEndpointResponse(ModelNormal):
             global_alerts ([GlobalAlert]):
             has_password_policy (bool):
             password_login (bool):
+            analytics_enabled (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -334,6 +339,7 @@ class SystemInfoEndpointResponse(ModelNormal):
         self.global_alerts = global_alerts
         self.has_password_policy = has_password_policy
         self.password_login = password_login
+        self.analytics_enabled = analytics_enabled
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -58,6 +58,7 @@ from elements_sdk.model.external_transcoder_update import ExternalTranscoderUpda
 from elements_sdk.model.extract_request import ExtractRequest
 from elements_sdk.model.field_option import FieldOption
 from elements_sdk.model.generate_proxies_request import GenerateProxiesRequest
+from elements_sdk.model.get_media_file_by_path_request import GetMediaFileByPathRequest
 from elements_sdk.model.get_multiple_bundles_request import GetMultipleBundlesRequest
 from elements_sdk.model.get_multiple_files_request import GetMultipleFilesRequest
 from elements_sdk.model.image_upload_request import ImageUploadRequest
@@ -107,12 +108,18 @@ from elements_sdk.model.saved_search_partial_update import SavedSearchPartialUpd
 from elements_sdk.model.saved_search_update import SavedSearchUpdate
 from elements_sdk.model.scanner_discover_endpoint_request import ScannerDiscoverEndpointRequest
 from elements_sdk.model.scanner_scan_endpoint_request import ScannerScanEndpointRequest
+from elements_sdk.model.search_markers_endpoint_request import SearchMarkersEndpointRequest
+from elements_sdk.model.search_markers_endpoint_response import SearchMarkersEndpointResponse
+from elements_sdk.model.search_subclips_endpoint_request import SearchSubclipsEndpointRequest
+from elements_sdk.model.search_subtitle_events_endpoint_request import SearchSubtitleEventsEndpointRequest
+from elements_sdk.model.search_subtitle_events_endpoint_response import SearchSubtitleEventsEndpointResponse
 from elements_sdk.model.sharing_permission_preset import SharingPermissionPreset
 from elements_sdk.model.sharing_permission_preset_partial_update import SharingPermissionPresetPartialUpdate
 from elements_sdk.model.sharing_permission_preset_update import SharingPermissionPresetUpdate
 from elements_sdk.model.storage_restore_request import StorageRestoreRequest
 from elements_sdk.model.storage_restore_request_browse_entry import StorageRestoreRequestBrowseEntry
 from elements_sdk.model.storage_restore_request_detail import StorageRestoreRequestDetail
+from elements_sdk.model.stored_subtitle_event import StoredSubtitleEvent
 from elements_sdk.model.subclip import Subclip
 from elements_sdk.model.subclip_clipboard_entry import SubclipClipboardEntry
 from elements_sdk.model.subclip_clipboard_entry_update import SubclipClipboardEntryUpdate
@@ -4627,6 +4634,7 @@ class MediaLibraryApi(object):
                     'tasks_for_user',
                     'include_full_asset',
                     'advanced_search',
+                    'in_directory',
                     'filter',
                 ],
                 'required': [],
@@ -4665,6 +4673,8 @@ class MediaLibraryApi(object):
                         (bool,),
                     'advanced_search':
                         (str,),
+                    'in_directory':
+                        (int,),
                     'filter':
                         (str,),
                 },
@@ -4680,6 +4690,7 @@ class MediaLibraryApi(object):
                     'tasks_for_user': 'tasks_for_user',
                     'include_full_asset': 'include_full_asset',
                     'advanced_search': 'advanced_search',
+                    'in_directory': 'in_directory',
                     'filter': 'filter',
                 },
                 'location_map': {
@@ -4694,6 +4705,7 @@ class MediaLibraryApi(object):
                     'tasks_for_user': 'query',
                     'include_full_asset': 'query',
                     'advanced_search': 'query',
+                    'in_directory': 'query',
                     'filter': 'query',
                 },
                 'collection_format_map': {
@@ -7361,6 +7373,7 @@ class MediaLibraryApi(object):
                     'tasks_for_user',
                     'include_full_asset',
                     'advanced_search',
+                    'in_directory',
                     'filter',
                 ],
                 'required': [
@@ -7389,6 +7402,8 @@ class MediaLibraryApi(object):
                         (bool,),
                     'advanced_search':
                         (str,),
+                    'in_directory':
+                        (int,),
                     'filter':
                         (str,),
                 },
@@ -7398,6 +7413,7 @@ class MediaLibraryApi(object):
                     'tasks_for_user': 'tasks_for_user',
                     'include_full_asset': 'include_full_asset',
                     'advanced_search': 'advanced_search',
+                    'in_directory': 'in_directory',
                     'filter': 'filter',
                 },
                 'location_map': {
@@ -7406,6 +7422,7 @@ class MediaLibraryApi(object):
                     'tasks_for_user': 'query',
                     'include_full_asset': 'query',
                     'advanced_search': 'query',
+                    'in_directory': 'query',
                     'filter': 'query',
                 },
                 'collection_format_map': {
@@ -8160,6 +8177,58 @@ class MediaLibraryApi(object):
                     'application/json'
                 ],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_media_file_by_path_endpoint = _Endpoint(
+            settings={
+                'response_type': (MediaFile,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/files/path',
+                'operation_id': 'get_media_file_by_path',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'get_media_file_by_path_request',
+                ],
+                'required': [
+                    'get_media_file_by_path_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'get_media_file_by_path_request':
+                        (GetMediaFileByPathRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'get_media_file_by_path_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -9495,6 +9564,57 @@ class MediaLibraryApi(object):
                 'location_map': {
                     'id': 'path',
                     'include_root': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_subtitle_event_endpoint = _Endpoint(
+            settings={
+                'response_type': (StoredSubtitleEvent,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/subtitle-events/{id}',
+                'operation_id': 'get_subtitle_event',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -12064,6 +12184,192 @@ class MediaLibraryApi(object):
                     'application/json'
                 ],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.search_markers_endpoint = _Endpoint(
+            settings={
+                'response_type': ([SearchMarkersEndpointResponse],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/markers/search',
+                'operation_id': 'search_markers',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'search_markers_endpoint_request',
+                    'offset',
+                    'limit',
+                ],
+                'required': [
+                    'search_markers_endpoint_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'search_markers_endpoint_request':
+                        (SearchMarkersEndpointRequest,),
+                    'offset':
+                        (int,),
+                    'limit':
+                        (int,),
+                },
+                'attribute_map': {
+                    'offset': 'offset',
+                    'limit': 'limit',
+                },
+                'location_map': {
+                    'search_markers_endpoint_request': 'body',
+                    'offset': 'query',
+                    'limit': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.search_subclips_endpoint = _Endpoint(
+            settings={
+                'response_type': ([Subclip],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/subclips/search',
+                'operation_id': 'search_subclips',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'search_subclips_endpoint_request',
+                    'offset',
+                    'limit',
+                ],
+                'required': [
+                    'search_subclips_endpoint_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'search_subclips_endpoint_request':
+                        (SearchSubclipsEndpointRequest,),
+                    'offset':
+                        (int,),
+                    'limit':
+                        (int,),
+                },
+                'attribute_map': {
+                    'offset': 'offset',
+                    'limit': 'limit',
+                },
+                'location_map': {
+                    'search_subclips_endpoint_request': 'body',
+                    'offset': 'query',
+                    'limit': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.search_subtitle_events_endpoint = _Endpoint(
+            settings={
+                'response_type': ([SearchSubtitleEventsEndpointResponse],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/subtitle-events/search',
+                'operation_id': 'search_subtitle_events',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'search_subtitle_events_endpoint_request',
+                    'offset',
+                    'limit',
+                ],
+                'required': [
+                    'search_subtitle_events_endpoint_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'search_subtitle_events_endpoint_request':
+                        (SearchSubtitleEventsEndpointRequest,),
+                    'offset':
+                        (int,),
+                    'limit':
+                        (int,),
+                },
+                'attribute_map': {
+                    'offset': 'offset',
+                    'limit': 'limit',
+                },
+                'location_map': {
+                    'search_subtitle_events_endpoint_request': 'body',
+                    'offset': 'query',
+                    'limit': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -15251,7 +15557,7 @@ class MediaLibraryApi(object):
     ):
         """create_media_root_permission  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:roots:manage`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17140,7 +17446,7 @@ class MediaLibraryApi(object):
     ):
         """delete_media_root_permission  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:roots:manage`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19986,6 +20292,7 @@ class MediaLibraryApi(object):
             tasks_for_user (int): [optional]
             include_full_asset (bool): [optional]
             advanced_search (str): [optional]
+            in_directory (int): [optional]
             filter (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -20984,7 +21291,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_media_root_permissions  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:roots:manage`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -22755,6 +23062,7 @@ class MediaLibraryApi(object):
             tasks_for_user (int): [optional]
             include_full_asset (bool): [optional]
             advanced_search (str): [optional]
+            in_directory (int): [optional]
             filter (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -23781,6 +24089,84 @@ class MediaLibraryApi(object):
             id
         return self.get_media_file_bundle_endpoint.call_with_http_info(**kwargs)
 
+    def get_media_file_by_path(
+        self,
+        get_media_file_by_path_request,
+        **kwargs
+    ):
+        """get_media_file_by_path  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_media_file_by_path(get_media_file_by_path_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            get_media_file_by_path_request (GetMediaFileByPathRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            MediaFile
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['get_media_file_by_path_request'] = \
+            get_media_file_by_path_request
+        return self.get_media_file_by_path_endpoint.call_with_http_info(**kwargs)
+
     def get_media_file_contents(
         self,
         id,
@@ -24186,7 +24572,7 @@ class MediaLibraryApi(object):
     ):
         """get_media_root_permission  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:roots:manage`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -24676,7 +25062,7 @@ class MediaLibraryApi(object):
     ):
         """get_my_media_root_permissions  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -24755,7 +25141,7 @@ class MediaLibraryApi(object):
     ):
         """get_my_resolved_media_root_permissions  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -25539,6 +25925,84 @@ class MediaLibraryApi(object):
         kwargs['id'] = \
             id
         return self.get_storage_restore_request_endpoint.call_with_http_info(**kwargs)
+
+    def get_subtitle_event(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_subtitle_event  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_subtitle_event(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this subtitle event.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            StoredSubtitleEvent
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_subtitle_event_endpoint.call_with_http_info(**kwargs)
 
     def get_subtitles(
         self,
@@ -27492,7 +27956,7 @@ class MediaLibraryApi(object):
     ):
         """patch_media_root_permission  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:roots:manage`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -29252,6 +29716,246 @@ class MediaLibraryApi(object):
             id
         return self.resolve_comment_endpoint.call_with_http_info(**kwargs)
 
+    def search_markers(
+        self,
+        search_markers_endpoint_request,
+        **kwargs
+    ):
+        """search_markers  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.search_markers(search_markers_endpoint_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            search_markers_endpoint_request (SearchMarkersEndpointRequest):
+
+        Keyword Args:
+            offset (int): [optional]
+            limit (int): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [SearchMarkersEndpointResponse]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['search_markers_endpoint_request'] = \
+            search_markers_endpoint_request
+        return self.search_markers_endpoint.call_with_http_info(**kwargs)
+
+    def search_subclips(
+        self,
+        search_subclips_endpoint_request,
+        **kwargs
+    ):
+        """search_subclips  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.search_subclips(search_subclips_endpoint_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            search_subclips_endpoint_request (SearchSubclipsEndpointRequest):
+
+        Keyword Args:
+            offset (int): [optional]
+            limit (int): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [Subclip]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['search_subclips_endpoint_request'] = \
+            search_subclips_endpoint_request
+        return self.search_subclips_endpoint.call_with_http_info(**kwargs)
+
+    def search_subtitle_events(
+        self,
+        search_subtitle_events_endpoint_request,
+        **kwargs
+    ):
+        """search_subtitle_events  # noqa: E501
+
+        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.search_subtitle_events(search_subtitle_events_endpoint_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            search_subtitle_events_endpoint_request (SearchSubtitleEventsEndpointRequest):
+
+        Keyword Args:
+            offset (int): [optional]
+            limit (int): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [SearchSubtitleEventsEndpointResponse]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['search_subtitle_events_endpoint_request'] = \
+            search_subtitle_events_endpoint_request
+        return self.search_subtitle_events_endpoint.call_with_http_info(**kwargs)
+
     def share_media_library_objects(
         self,
         media_library_share_request,
@@ -29259,6 +29963,7 @@ class MediaLibraryApi(object):
     ):
         """share_media_library_objects  # noqa: E501
 
+        ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -31040,7 +31745,7 @@ class MediaLibraryApi(object):
     ):
         """update_media_root_permission  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        ### Required permissions    * User account permission: `media:roots:manage`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

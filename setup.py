@@ -11,7 +11,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "elements-sdk"
-VERSION = "26.2.0"
+VERSION = "26.5.0"
 # To install the library, run the following
 #
 # python setup.py install

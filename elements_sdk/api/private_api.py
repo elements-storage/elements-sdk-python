@@ -36,8 +36,8 @@ from elements_sdk.model.install_license_endpoint_request import InstallLicenseEn
 from elements_sdk.model.licensing_state_endpoint_response import LicensingStateEndpointResponse
 from elements_sdk.model.locale_endpoint_response import LocaleEndpointResponse
 from elements_sdk.model.locate_endpoint_request import LocateEndpointRequest
-from elements_sdk.model.locate_markers_endpoint_request import LocateMarkersEndpointRequest
-from elements_sdk.model.locate_markers_endpoint_response import LocateMarkersEndpointResponse
+from elements_sdk.model.locate_metadata_endpoint_request import LocateMetadataEndpointRequest
+from elements_sdk.model.locate_metadata_endpoint_response import LocateMetadataEndpointResponse
 from elements_sdk.model.locate_proxies_endpoint_request import LocateProxiesEndpointRequest
 from elements_sdk.model.locate_proxies_endpoint_response import LocateProxiesEndpointResponse
 from elements_sdk.model.locate_result import LocateResult
@@ -1419,23 +1419,23 @@ class PrivateApi(object):
             },
             api_client=api_client
         )
-        self.locate_markers_endpoint = _Endpoint(
+        self.locate_metadata_endpoint = _Endpoint(
             settings={
-                'response_type': ([LocateMarkersEndpointResponse],),
+                'response_type': ([LocateMetadataEndpointResponse],),
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/panel/locate-markers',
-                'operation_id': 'locate_markers',
+                'endpoint_path': '/api/2/panel/locate-metadata',
+                'operation_id': 'locate_metadata',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'locate_markers_endpoint_request',
+                    'locate_metadata_endpoint_request',
                 ],
                 'required': [
-                    'locate_markers_endpoint_request',
+                    'locate_metadata_endpoint_request',
                 ],
                 'nullable': [
                 ],
@@ -1450,13 +1450,13 @@ class PrivateApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'locate_markers_endpoint_request':
-                        (LocateMarkersEndpointRequest,),
+                    'locate_metadata_endpoint_request':
+                        (LocateMetadataEndpointRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'locate_markers_endpoint_request': 'body',
+                    'locate_metadata_endpoint_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -4125,22 +4125,22 @@ class PrivateApi(object):
             locate_endpoint_request
         return self.locate_file_endpoint.call_with_http_info(**kwargs)
 
-    def locate_markers(
+    def locate_metadata(
         self,
-        locate_markers_endpoint_request,
+        locate_metadata_endpoint_request,
         **kwargs
     ):
-        """locate_markers  # noqa: E501
+        """locate_metadata  # noqa: E501
 
         ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.locate_markers(locate_markers_endpoint_request, async_req=True)
+        >>> thread = api.locate_metadata(locate_metadata_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         Args:
-            locate_markers_endpoint_request (LocateMarkersEndpointRequest):
+            locate_metadata_endpoint_request (LocateMetadataEndpointRequest):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -4171,7 +4171,7 @@ class PrivateApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [LocateMarkersEndpointResponse]
+            [LocateMetadataEndpointResponse]
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -4199,9 +4199,9 @@ class PrivateApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['locate_markers_endpoint_request'] = \
-            locate_markers_endpoint_request
-        return self.locate_markers_endpoint.call_with_http_info(**kwargs)
+        kwargs['locate_metadata_endpoint_request'] = \
+            locate_metadata_endpoint_request
+        return self.locate_metadata_endpoint.call_with_http_info(**kwargs)
 
     def locate_proxies(
         self,

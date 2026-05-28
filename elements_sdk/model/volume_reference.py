@@ -93,6 +93,10 @@ class VolumeReference(ModelNormal):
         ('snfs_name',): {
             'max_length': 255,
         },
+        ('simulated_quotas',): {
+            'max_length': 0,
+            'min_length': 0,
+        },
     }
 
     @cached_property
@@ -129,7 +133,7 @@ class VolumeReference(ModelNormal):
             'type': (str,),  # noqa: E501
             'snm_enabled': (bool,),  # noqa: E501
             'snfs_name': (str, none_type,),  # noqa: E501
-            'simulated_quotas': (bool,),  # noqa: E501
+            'simulated_quotas': (str, none_type,),  # noqa: E501
             'fs_properties': (FSProperties,),  # noqa: E501
             'backend': (Backend,),  # noqa: E501
             'status': (VolumeStatus,),  # noqa: E501
@@ -235,7 +239,7 @@ class VolumeReference(ModelNormal):
             type (str): [optional]  # noqa: E501
             snm_enabled (bool): [optional]  # noqa: E501
             snfs_name (str, none_type): [optional]  # noqa: E501
-            simulated_quotas (bool): [optional]  # noqa: E501
+            simulated_quotas (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
             fs_properties (FSProperties): [optional]  # noqa: E501
             backend (Backend): [optional]  # noqa: E501
             status (VolumeStatus): [optional]  # noqa: E501
@@ -340,7 +344,7 @@ class VolumeReference(ModelNormal):
             type (str): [optional]  # noqa: E501
             snm_enabled (bool): [optional]  # noqa: E501
             snfs_name (str, none_type): [optional]  # noqa: E501
-            simulated_quotas (bool): [optional]  # noqa: E501
+            simulated_quotas (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
             fs_properties (FSProperties): [optional]  # noqa: E501
             backend (Backend): [optional]  # noqa: E501
             status (VolumeStatus): [optional]  # noqa: E501

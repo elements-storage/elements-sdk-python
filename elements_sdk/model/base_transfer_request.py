@@ -89,6 +89,7 @@ class BaseTransferRequest(ModelNormal):
         return {
             'bandwidth_limit': (int, none_type,),  # noqa: E501
             'enqueue_at_front': (bool,),  # noqa: E501
+            'force_sync': (bool,),  # noqa: E501
             'priority': (str,),  # noqa: E501
         }
 
@@ -100,6 +101,7 @@ class BaseTransferRequest(ModelNormal):
     attribute_map = {
         'bandwidth_limit': 'bandwidth_limit',  # noqa: E501
         'enqueue_at_front': 'enqueue_at_front',  # noqa: E501
+        'force_sync': 'force_sync',  # noqa: E501
         'priority': 'priority',  # noqa: E501
     }
 
@@ -110,12 +112,13 @@ class BaseTransferRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, bandwidth_limit, enqueue_at_front, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, bandwidth_limit, enqueue_at_front, force_sync, *args, **xkwargs):  # noqa: E501
         """BaseTransferRequest - a model defined in OpenAPI
 
         Args:
             bandwidth_limit (int, none_type):
             enqueue_at_front (bool):
+            force_sync (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -179,6 +182,7 @@ class BaseTransferRequest(ModelNormal):
 
         self.bandwidth_limit = bandwidth_limit
         self.enqueue_at_front = enqueue_at_front
+        self.force_sync = force_sync
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -200,12 +204,13 @@ class BaseTransferRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, bandwidth_limit, enqueue_at_front, *args, **xkwargs):  # noqa: E501
+    def __init__(self, bandwidth_limit, enqueue_at_front, force_sync, *args, **xkwargs):  # noqa: E501
         """BaseTransferRequest - a model defined in OpenAPI
 
         Args:
             bandwidth_limit (int, none_type):
             enqueue_at_front (bool):
+            force_sync (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -267,6 +272,7 @@ class BaseTransferRequest(ModelNormal):
 
         self.bandwidth_limit = bandwidth_limit
         self.enqueue_at_front = enqueue_at_front
+        self.force_sync = force_sync
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

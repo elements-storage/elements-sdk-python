@@ -61,6 +61,7 @@ class CloudAccountMiniUpdate(ModelNormal):
             'AWS': "aws",
             'BACKBLAZE': "backblaze",
             'GCLOUD': "gcloud",
+            'WASABI': "wasabi",
         },
     }
 

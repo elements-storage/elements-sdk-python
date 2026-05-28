@@ -93,6 +93,10 @@ class Volume(ModelNormal):
         ('snfs_name',): {
             'max_length': 255,
         },
+        ('simulated_quotas',): {
+            'max_length': 0,
+            'min_length': 0,
+        },
     }
 
     @cached_property
@@ -129,12 +133,12 @@ class Volume(ModelNormal):
             'type': (str,),  # noqa: E501
             'snm_enabled': (bool,),  # noqa: E501
             'snfs_name': (str, none_type,),  # noqa: E501
-            'simulated_quotas': (bool,),  # noqa: E501
             'backend': (Backend,),  # noqa: E501
             'cloud_account': (int, none_type,),  # noqa: E501
             'qumulo_integration': (int, none_type,),  # noqa: E501
             'nfsv4_export': (bool,),  # noqa: E501
             'onefs_integration': (int, none_type,),  # noqa: E501
+            'simulated_quotas': (str, none_type,),  # noqa: E501
             'fs_properties': (FSProperties,),  # noqa: E501
             'status': (VolumeStatus,),  # noqa: E501
         }
@@ -156,24 +160,25 @@ class Volume(ModelNormal):
         'type': 'type',  # noqa: E501
         'snm_enabled': 'snm_enabled',  # noqa: E501
         'snfs_name': 'snfs_name',  # noqa: E501
-        'simulated_quotas': 'simulated_quotas',  # noqa: E501
         'backend': 'backend',  # noqa: E501
         'cloud_account': 'cloud_account',  # noqa: E501
         'qumulo_integration': 'qumulo_integration',  # noqa: E501
         'nfsv4_export': 'nfsv4_export',  # noqa: E501
         'onefs_integration': 'onefs_integration',  # noqa: E501
+        'simulated_quotas': 'simulated_quotas',  # noqa: E501
         'fs_properties': 'fs_properties',  # noqa: E501
         'status': 'status',  # noqa: E501
     }
 
     read_only_vars = {
+        'simulated_quotas',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, simulated_quotas, backend, cloud_account, qumulo_integration, nfsv4_export, onefs_integration, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, backend, cloud_account, qumulo_integration, nfsv4_export, onefs_integration, *args, **xkwargs):  # noqa: E501
         """Volume - a model defined in OpenAPI
 
         Args:
@@ -188,7 +193,6 @@ class Volume(ModelNormal):
             type (str):
             snm_enabled (bool):
             snfs_name (str, none_type):
-            simulated_quotas (bool):
             backend (Backend):
             cloud_account (int, none_type):
             qumulo_integration (int, none_type):
@@ -226,6 +230,7 @@ class Volume(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            simulated_quotas (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
             fs_properties (FSProperties): [optional]  # noqa: E501
             status (VolumeStatus): [optional]  # noqa: E501
         """
@@ -267,7 +272,6 @@ class Volume(ModelNormal):
         self.type = type
         self.snm_enabled = snm_enabled
         self.snfs_name = snfs_name
-        self.simulated_quotas = simulated_quotas
         self.backend = backend
         self.cloud_account = cloud_account
         self.qumulo_integration = qumulo_integration
@@ -294,7 +298,7 @@ class Volume(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, simulated_quotas, backend, cloud_account, qumulo_integration, nfsv4_export, onefs_integration, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, backend, cloud_account, qumulo_integration, nfsv4_export, onefs_integration, *args, **xkwargs):  # noqa: E501
         """Volume - a model defined in OpenAPI
 
         Args:
@@ -309,7 +313,6 @@ class Volume(ModelNormal):
             type (str):
             snm_enabled (bool):
             snfs_name (str, none_type):
-            simulated_quotas (bool):
             backend (Backend):
             cloud_account (int, none_type):
             qumulo_integration (int, none_type):
@@ -347,6 +350,7 @@ class Volume(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            simulated_quotas (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
             fs_properties (FSProperties): [optional]  # noqa: E501
             status (VolumeStatus): [optional]  # noqa: E501
         """
@@ -386,7 +390,6 @@ class Volume(ModelNormal):
         self.type = type
         self.snm_enabled = snm_enabled
         self.snfs_name = snfs_name
-        self.simulated_quotas = simulated_quotas
         self.backend = backend
         self.cloud_account = cloud_account
         self.qumulo_integration = qumulo_integration

@@ -98,7 +98,8 @@ from elements_sdk.model.password_policy import PasswordPolicy
 from elements_sdk.model.password_policy_update import PasswordPolicyUpdate
 from elements_sdk.model.path import Path
 from elements_sdk.model.raid_status import RAIDStatus
-from elements_sdk.model.register_upload_endpoint_request import RegisterUploadEndpointRequest
+from elements_sdk.model.register_batch_upload_endpoint_response import RegisterBatchUploadEndpointResponse
+from elements_sdk.model.register_upload import RegisterUpload
 from elements_sdk.model.register_upload_metadata_endpoint_request import RegisterUploadMetadataEndpointRequest
 from elements_sdk.model.release_notes_endpoint_response import ReleaseNotesEndpointResponse
 from elements_sdk.model.smtp_configuration import SMTPConfiguration
@@ -2471,7 +2472,8 @@ class MainApi(object):
                         "AZURE": "azure",
                         "AWS": "aws",
                         "BACKBLAZE": "backblaze",
-                        "GCLOUD": "gcloud"
+                        "GCLOUD": "gcloud",
+                        "WASABI": "wasabi"
                     },
                 },
                 'openapi_types': {
@@ -7012,23 +7014,23 @@ class MainApi(object):
             },
             api_client=api_client
         )
-        self.register_upload_endpoint = _Endpoint(
+        self.register_batch_upload_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': ([RegisterBatchUploadEndpointResponse],),
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/uploads/register',
-                'operation_id': 'register_upload',
+                'endpoint_path': '/api/2/uploads/register-batch',
+                'operation_id': 'register_batch_upload',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'register_upload_endpoint_request',
+                    'register_upload',
                 ],
                 'required': [
-                    'register_upload_endpoint_request',
+                    'register_upload',
                 ],
                 'nullable': [
                 ],
@@ -7043,13 +7045,65 @@ class MainApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'register_upload_endpoint_request':
-                        (RegisterUploadEndpointRequest,),
+                    'register_upload':
+                        ([RegisterUpload],),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'register_upload_endpoint_request': 'body',
+                    'register_upload': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.register_upload_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/uploads/register',
+                'operation_id': 'register_upload',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'register_upload',
+                ],
+                'required': [
+                    'register_upload',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'register_upload':
+                        (RegisterUpload,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'register_upload': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -19325,9 +19379,87 @@ class MainApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.reboot_endpoint.call_with_http_info(**kwargs)
 
+    def register_batch_upload(
+        self,
+        register_upload,
+        **kwargs
+    ):
+        """register_batch_upload  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.register_batch_upload(register_upload, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            register_upload ([RegisterUpload]):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [RegisterBatchUploadEndpointResponse]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['register_upload'] = \
+            register_upload
+        return self.register_batch_upload_endpoint.call_with_http_info(**kwargs)
+
     def register_upload(
         self,
-        register_upload_endpoint_request,
+        register_upload,
         **kwargs
     ):
         """register_upload  # noqa: E501
@@ -19336,11 +19468,11 @@ class MainApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.register_upload(register_upload_endpoint_request, async_req=True)
+        >>> thread = api.register_upload(register_upload, async_req=True)
         >>> result = thread.get()
 
         Args:
-            register_upload_endpoint_request (RegisterUploadEndpointRequest):
+            register_upload (RegisterUpload):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -19399,8 +19531,8 @@ class MainApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['register_upload_endpoint_request'] = \
-            register_upload_endpoint_request
+        kwargs['register_upload'] = \
+            register_upload
         return self.register_upload_endpoint.call_with_http_info(**kwargs)
 
     def register_upload_metadata(
