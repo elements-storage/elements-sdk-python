@@ -43,6 +43,20 @@ with elements_sdk.ApiClient(config) as api_client:
     storage_api.delete_share(share.id)
 ```
 
+If you're accessing the SDK via a Python job in ELEMENTS WebUI's automation engine, you can omit the configuration steps and use the `get_api_client` method instead.
+
+```python
+from elements_sdk.api import main_api
+
+api_client = get_api_client()
+api_instance = main_api.MainApi(api_client)
+
+users = api_instance.get_all_users()
+
+print(users)
+```
+
+
 ## API Endpoints
 
 Class | Method | HTTP request | Description
