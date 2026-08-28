@@ -124,7 +124,7 @@ class WorkspaceOffloadRequest(ModelNormal):
             id (int):
             workspace (WorkspaceMini):
             user (ElementsUserMini):
-            is_retrieval (bool):
+            is_retrieval (bool): When true, this is a request to retrieve (un-park) the workspace from its parking location; when false, a request to park (offload) it.
             created_at (datetime):
 
         Keyword Args:
@@ -219,7 +219,7 @@ class WorkspaceOffloadRequest(ModelNormal):
             id (int):
             workspace (WorkspaceMini):
             user (ElementsUserMini):
-            is_retrieval (bool):
+            is_retrieval (bool): When true, this is a request to retrieve (un-park) the workspace from its parking location; when false, a request to park (offload) it.
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be

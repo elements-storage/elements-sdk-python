@@ -107,7 +107,7 @@ class ChangePasswordRequest(ModelNormal):
         """ChangePasswordRequest - a model defined in OpenAPI
 
         Args:
-            password (str):
+            password (str): The new password to set for the user.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,7 +194,7 @@ class ChangePasswordRequest(ModelNormal):
         """ChangePasswordRequest - a model defined in OpenAPI
 
         Args:
-            password (str):
+            password (str): The new password to set for the user.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

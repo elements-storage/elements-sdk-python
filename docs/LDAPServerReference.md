@@ -1,5 +1,6 @@
 # LDAPServerReference
 
+An LDAP / Active Directory directory server used for authenticating users and resolving groups.
 
 ## Properties
 

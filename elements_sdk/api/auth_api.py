@@ -2504,7 +2504,7 @@ class AuthApi(object):
     ):
         """generate_password  # noqa: E501
 
-        ### Required permissions    * Authenticated user OR inside password reset flow OR inside \"password change required\" flow   # noqa: E501
+        Generate a random strong passphrase suitable for use as a password. Does not change any user's password.  ### Required permissions    * Authenticated user OR inside password reset flow OR inside \"password change required\" flow   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2656,6 +2656,7 @@ class AuthApi(object):
     ):
         """get_access_token_by_value  # noqa: E501
 
+        Look up a sharing link by its token value, returning a limited public view of it (e.g. to render the share page).    # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2666,11 +2667,11 @@ class AuthApi(object):
             token (str):
 
         Keyword Args:
-            shared_bundles (str): Filter the returned list by `shared_bundles`.. [optional]
-            shared_directories (str): Filter the returned list by `shared_directories`.. [optional]
-            shared_bundles__asset (int): Filter the returned list by `shared_bundles__asset`.. [optional]
-            user (int): Filter the returned list by `user`.. [optional]
-            created_by (int): Filter the returned list by `created_by`.. [optional]
+            shared_bundles (str): Filter the returned list by `shared_bundles` (exact match).. [optional]
+            shared_directories (str): Filter the returned list by `shared_directories` (exact match).. [optional]
+            shared_bundles__asset (int): Filter the returned list by `shared_bundles__asset` (exact match).. [optional]
+            user (int): Filter the returned list by `user` (exact match).. [optional]
+            created_by (int): Filter the returned list by `created_by` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -2741,6 +2742,7 @@ class AuthApi(object):
     ):
         """get_access_token_media_library_permissions  # noqa: E501
 
+        List the Media Library permissions granted by this sharing link.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2826,11 +2828,11 @@ class AuthApi(object):
 
 
         Keyword Args:
-            shared_bundles (str): Filter the returned list by `shared_bundles`.. [optional]
-            shared_directories (str): Filter the returned list by `shared_directories`.. [optional]
-            shared_bundles__asset (int): Filter the returned list by `shared_bundles__asset`.. [optional]
-            user (int): Filter the returned list by `user`.. [optional]
-            created_by (int): Filter the returned list by `created_by`.. [optional]
+            shared_bundles (str): Filter the returned list by `shared_bundles` (exact match).. [optional]
+            shared_directories (str): Filter the returned list by `shared_directories` (exact match).. [optional]
+            shared_bundles__asset (int): Filter the returned list by `shared_bundles__asset` (exact match).. [optional]
+            user (int): Filter the returned list by `user` (exact match).. [optional]
+            created_by (int): Filter the returned list by `created_by` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -2907,7 +2909,7 @@ class AuthApi(object):
 
 
         Keyword Args:
-            name (str): Filter the returned list by `name`.. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]

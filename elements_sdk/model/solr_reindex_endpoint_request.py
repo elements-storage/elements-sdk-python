@@ -134,7 +134,7 @@ class SolrReindexEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            clear_existing_data (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            clear_existing_data (bool): When true, clear the existing search index before reindexing.. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -218,7 +218,7 @@ class SolrReindexEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            clear_existing_data (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            clear_existing_data (bool): When true, clear the existing search index before reindexing.. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

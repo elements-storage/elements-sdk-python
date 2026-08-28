@@ -97,7 +97,7 @@ class KapacitorAlert(ModelNormal):
             'level': (str,),  # noqa: E501
             'message': (str,),  # noqa: E501
             'details': (str,),  # noqa: E501
-            'data': ({str: (str, none_type)},),  # noqa: E501
+            'data': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
         }
 
     @cached_property
@@ -128,7 +128,7 @@ class KapacitorAlert(ModelNormal):
             level (str):
             message (str):
             details (str):
-            data ({str: (str, none_type)}):
+            data ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -223,7 +223,7 @@ class KapacitorAlert(ModelNormal):
             level (str):
             message (str):
             details (str):
-            data ({str: (str, none_type)}):
+            data ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

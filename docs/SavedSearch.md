@@ -1,5 +1,6 @@
 # SavedSearch
 
+A user's saved Media Library search: a named, reusable search query, optionally scoped to a Media Root.
 
 ## Properties
 

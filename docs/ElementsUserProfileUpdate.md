@@ -1,5 +1,6 @@
 # ElementsUserProfileUpdate
 
+The current user's own profile: their editable preferences (display name, language, default page, file-manager bookmarks) plus read-only account info.
 
 ## Properties
 

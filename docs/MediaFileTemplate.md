@@ -1,5 +1,6 @@
 # MediaFileTemplate
 
+A folder that the user has chosen to save as a \"template\" in the Media Library for later instantiation
 
 ## Properties
 

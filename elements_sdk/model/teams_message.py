@@ -112,8 +112,8 @@ class TeamsMessage(ModelNormal):
         """TeamsMessage - a model defined in OpenAPI
 
         Args:
-            recipient (str):
-            text (str):
+            recipient (str): Channel or user ID to send the message to.
+            text (str): Message text.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -201,8 +201,8 @@ class TeamsMessage(ModelNormal):
         """TeamsMessage - a model defined in OpenAPI
 
         Args:
-            recipient (str):
-            text (str):
+            recipient (str): Channel or user ID to send the message to.
+            text (str): Message text.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

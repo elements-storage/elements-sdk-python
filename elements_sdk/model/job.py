@@ -200,7 +200,7 @@ class Job(ModelNormal):
             show_as_button (bool):
             input_type (str, none_type):
             add_to_new_media_roots (bool):
-            hook (str, none_type):
+            hook (str, none_type): Name of the event hook this job is triggered by - only valid with special_type=HOOK/3
             webhook_secret (str, none_type):
             elements_release (str):
             no_concurrency (bool):
@@ -324,7 +324,7 @@ class Job(ModelNormal):
             show_as_button (bool):
             input_type (str, none_type):
             add_to_new_media_roots (bool):
-            hook (str, none_type):
+            hook (str, none_type): Name of the event hook this job is triggered by - only valid with special_type=HOOK/3
             webhook_secret (str, none_type):
             elements_release (str):
             no_concurrency (bool):

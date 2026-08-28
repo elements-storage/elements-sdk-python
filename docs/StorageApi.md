@@ -84,6 +84,7 @@ Method | HTTP request | Description
 [**update_volume**](StorageApi.md#update_volume) | **PUT** `/api/2/volumes/{id}` | 
 [**update_workspace**](StorageApi.md#update_workspace) | **PUT** `/api/2/workspaces/{id}` | 
 [**update_workspace_permission**](StorageApi.md#update_workspace_permission) | **PUT** `/api/2/workspace-permissions/{id}` | 
+[**validate_share_path**](StorageApi.md#validate_share_path) | **POST** `/api/2/shares/validate-path` | 
 [**zip_files**](StorageApi.md#zip_files) | **POST** `/api/2/filesystem/zip` | 
 
 
@@ -92,7 +93,7 @@ Method | HTTP request | Description
 
 
 
-### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
+             Accept this pending workspace transfer request and start the transfer. For a             retrieval request the workspace is brought back from its parking location;             otherwise the workspace is parked (offloaded) to its parking location. The request             is removed once the transfer task has been started. Returns the started task.   ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -150,7 +151,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `projects:manage` 
+Apply this workspace's configured StorNext (SNFS) affinity to its files, placing their data on the matching storage pool. Only valid for SNFS-backed workspaces.  ### Required permissions    * User account permission: `projects:manage` 
 
 ### Example
 
@@ -248,7 +249,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+Bookmark this workspace for the current user so it appears in their bookmarked workspaces in the ELEMENTS Client.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -296,7 +297,7 @@ void (empty response body)
 
 
 
-### Required permissions    * Authenticated user 
+Recursively sum the on-disk size, in bytes, of the given files and directories (descending into all subdirectories) and return the combined total (expensive and may time out).  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -454,7 +455,7 @@ void (empty response body)
 
 
 
-### Required permissions    * Authenticated user 
+Asynchronously copy the given files and directories into a destination directory on the filesystem. Returns a task to track progress. This will also copy the Media Library metadata if present.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -514,7 +515,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+Create a new directory under the given parent path, optionally setting its owner, group and permission modes. Note: this endpoint creates directories only, not files.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -611,7 +612,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+Create a directory quota at the given path on the volume, enabling its size to be tracked and limited. On some filesystems the target directory must be empty, as creating the quota recreates it.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -1022,7 +1023,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
         snfs_name="snfs_name_example",
         cloud_account=1,
         qumulo_integration=1,
-        nfsv4_export=True,
         onefs_integration=1,
     ) # VolumeUpdate | 
 
@@ -1257,7 +1257,7 @@ void (empty response body)
 
 
 
-### Required permissions    * Authenticated user 
+Asynchronously delete the given files and directories, moving them to the recycle bin if it is enabled. Returns a task to track progress.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -1313,7 +1313,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+Remove the directory quota at the given path on the volume. On some filesystems the directory must be empty, as removing the quota recreates it.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -1710,7 +1710,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `projects:view` 
+List orphaned workspace directories: folders still present on disk under the workspaces path that no longer have a corresponding workspace in configuration.  ### Required permissions    * User account permission: `projects:view` 
 
 ### Example
 
@@ -1732,16 +1732,16 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = storage_api.StorageApi(api_client)
-    is_template = "is_template_example" # str | Filter the returned list by `is_template`. (optional)
-    production = 1 # int | Filter the returned list by `production`. (optional)
-    volume = 1 # int | Filter the returned list by `volume`. (optional)
-    home_for = 1 # int | Filter the returned list by `home_for`. (optional)
-    volume__type = "generic" # str | Filter the returned list by `volume__type`. (optional)
-    production__name = "production__name_example" # str | Filter the returned list by `production__name`. (optional)
-    production__active = "production__active_example" # str | Filter the returned list by `production__active`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    is_external = "is_external_example" # str | Filter the returned list by `is_external`. (optional)
-    active = "active_example" # str | Filter the returned list by `active`. (optional)
+    is_template = "is_template_example" # str | Filter the returned list by `is_template` (exact match). (optional)
+    production = 1 # int | Filter the returned list by `production` (exact match). (optional)
+    volume = 1 # int | Filter the returned list by `volume` (exact match). (optional)
+    home_for = 1 # int | Filter the returned list by `home_for` (exact match). (optional)
+    volume__type = "generic" # str | Filter the returned list by `volume__type` (exact match). (optional)
+    production__name = "production__name_example" # str | Filter the returned list by `production__name` (exact match). (optional)
+    production__active = "production__active_example" # str | Filter the returned list by `production__active` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    is_external = "is_external_example" # str | Filter the returned list by `is_external` (exact match). (optional)
+    active = "active_example" # str | Filter the returned list by `active` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -1760,16 +1760,16 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **is_template** | **str**| Filter the returned list by &#x60;is_template&#x60;. | [optional]
- **production** | **int**| Filter the returned list by &#x60;production&#x60;. | [optional]
- **volume** | **int**| Filter the returned list by &#x60;volume&#x60;. | [optional]
- **home_for** | **int**| Filter the returned list by &#x60;home_for&#x60;. | [optional]
- **volume__type** | **str**| Filter the returned list by &#x60;volume__type&#x60;. | [optional]
- **production__name** | **str**| Filter the returned list by &#x60;production__name&#x60;. | [optional]
- **production__active** | **str**| Filter the returned list by &#x60;production__active&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **is_external** | **str**| Filter the returned list by &#x60;is_external&#x60;. | [optional]
- **active** | **str**| Filter the returned list by &#x60;active&#x60;. | [optional]
+ **is_template** | **str**| Filter the returned list by &#x60;is_template&#x60; (exact match). | [optional]
+ **production** | **int**| Filter the returned list by &#x60;production&#x60; (exact match). | [optional]
+ **volume** | **int**| Filter the returned list by &#x60;volume&#x60; (exact match). | [optional]
+ **home_for** | **int**| Filter the returned list by &#x60;home_for&#x60; (exact match). | [optional]
+ **volume__type** | **str**| Filter the returned list by &#x60;volume__type&#x60; (exact match). | [optional]
+ **production__name** | **str**| Filter the returned list by &#x60;production__name&#x60; (exact match). | [optional]
+ **production__active** | **str**| Filter the returned list by &#x60;production__active&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **is_external** | **str**| Filter the returned list by &#x60;is_external&#x60; (exact match). | [optional]
+ **active** | **str**| Filter the returned list by &#x60;active&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -1807,8 +1807,8 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = storage_api.StorageApi(api_client)
-    active = "active_example" # str | Filter the returned list by `active`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    active = "active_example" # str | Filter the returned list by `active` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -1830,8 +1830,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **active** | **str**| Filter the returned list by &#x60;active&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **active** | **str**| Filter the returned list by &#x60;active&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -1927,7 +1927,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = storage_api.StorageApi(api_client)
-    workspace = 1 # int | Filter the returned list by `workspace`. (optional)
+    workspace = 1 # int | Filter the returned list by `workspace` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -1946,7 +1946,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workspace** | **int**| Filter the returned list by &#x60;workspace&#x60;. | [optional]
+ **workspace** | **int**| Filter the returned list by &#x60;workspace&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -1984,12 +1984,12 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = storage_api.StorageApi(api_client)
-    is_default = "is_default_example" # str | Filter the returned list by `is_default`. (optional)
-    type = "generic" # str | Filter the returned list by `type`. (optional)
-    use_for_homes = "use_for_homes_example" # str | Filter the returned list by `use_for_homes`. (optional)
-    use_for_workspaces = "use_for_workspaces_example" # str | Filter the returned list by `use_for_workspaces`. (optional)
-    display_name = "display_name_example" # str | Filter the returned list by `display_name`. (optional)
-    visual_tag = "visual_tag_example" # str | Filter the returned list by `visual_tag`. (optional)
+    is_default = "is_default_example" # str | Filter the returned list by `is_default` (exact match). (optional)
+    type = "generic" # str | Filter the returned list by `type` (exact match). (optional)
+    use_for_homes = "use_for_homes_example" # str | Filter the returned list by `use_for_homes` (exact match). (optional)
+    use_for_workspaces = "use_for_workspaces_example" # str | Filter the returned list by `use_for_workspaces` (exact match). (optional)
+    display_name = "display_name_example" # str | Filter the returned list by `display_name` (exact match). (optional)
+    visual_tag = "visual_tag_example" # str | Filter the returned list by `visual_tag` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -2009,12 +2009,12 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **is_default** | **str**| Filter the returned list by &#x60;is_default&#x60;. | [optional]
- **type** | **str**| Filter the returned list by &#x60;type&#x60;. | [optional]
- **use_for_homes** | **str**| Filter the returned list by &#x60;use_for_homes&#x60;. | [optional]
- **use_for_workspaces** | **str**| Filter the returned list by &#x60;use_for_workspaces&#x60;. | [optional]
- **display_name** | **str**| Filter the returned list by &#x60;display_name&#x60;. | [optional]
- **visual_tag** | **str**| Filter the returned list by &#x60;visual_tag&#x60;. | [optional]
+ **is_default** | **str**| Filter the returned list by &#x60;is_default&#x60; (exact match). | [optional]
+ **type** | **str**| Filter the returned list by &#x60;type&#x60; (exact match). | [optional]
+ **use_for_homes** | **str**| Filter the returned list by &#x60;use_for_homes&#x60; (exact match). | [optional]
+ **use_for_workspaces** | **str**| Filter the returned list by &#x60;use_for_workspaces&#x60; (exact match). | [optional]
+ **display_name** | **str**| Filter the returned list by &#x60;display_name&#x60; (exact match). | [optional]
+ **visual_tag** | **str**| Filter the returned list by &#x60;visual_tag&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -2108,9 +2108,9 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = storage_api.StorageApi(api_client)
-    workspace = 1 # int | Filter the returned list by `workspace`. (optional)
-    user = 1 # int | Filter the returned list by `user`. (optional)
-    group = 1 # int | Filter the returned list by `group`. (optional)
+    workspace = 1 # int | Filter the returned list by `workspace` (exact match). (optional)
+    user = 1 # int | Filter the returned list by `user` (exact match). (optional)
+    group = 1 # int | Filter the returned list by `group` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -2129,9 +2129,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workspace** | **int**| Filter the returned list by &#x60;workspace&#x60;. | [optional]
- **user** | **int**| Filter the returned list by &#x60;user&#x60;. | [optional]
- **group** | **int**| Filter the returned list by &#x60;group&#x60;. | [optional]
+ **workspace** | **int**| Filter the returned list by &#x60;workspace&#x60; (exact match). | [optional]
+ **user** | **int**| Filter the returned list by &#x60;user&#x60; (exact match). | [optional]
+ **group** | **int**| Filter the returned list by &#x60;group&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -2169,16 +2169,16 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = storage_api.StorageApi(api_client)
-    is_template = "is_template_example" # str | Filter the returned list by `is_template`. (optional)
-    production = 1 # int | Filter the returned list by `production`. (optional)
-    volume = 1 # int | Filter the returned list by `volume`. (optional)
-    home_for = 1 # int | Filter the returned list by `home_for`. (optional)
-    volume__type = "generic" # str | Filter the returned list by `volume__type`. (optional)
-    production__name = "production__name_example" # str | Filter the returned list by `production__name`. (optional)
-    production__active = "production__active_example" # str | Filter the returned list by `production__active`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    is_external = "is_external_example" # str | Filter the returned list by `is_external`. (optional)
-    active = "active_example" # str | Filter the returned list by `active`. (optional)
+    is_template = "is_template_example" # str | Filter the returned list by `is_template` (exact match). (optional)
+    production = 1 # int | Filter the returned list by `production` (exact match). (optional)
+    volume = 1 # int | Filter the returned list by `volume` (exact match). (optional)
+    home_for = 1 # int | Filter the returned list by `home_for` (exact match). (optional)
+    volume__type = "generic" # str | Filter the returned list by `volume__type` (exact match). (optional)
+    production__name = "production__name_example" # str | Filter the returned list by `production__name` (exact match). (optional)
+    production__active = "production__active_example" # str | Filter the returned list by `production__active` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    is_external = "is_external_example" # str | Filter the returned list by `is_external` (exact match). (optional)
+    active = "active_example" # str | Filter the returned list by `active` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -2204,16 +2204,16 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **is_template** | **str**| Filter the returned list by &#x60;is_template&#x60;. | [optional]
- **production** | **int**| Filter the returned list by &#x60;production&#x60;. | [optional]
- **volume** | **int**| Filter the returned list by &#x60;volume&#x60;. | [optional]
- **home_for** | **int**| Filter the returned list by &#x60;home_for&#x60;. | [optional]
- **volume__type** | **str**| Filter the returned list by &#x60;volume__type&#x60;. | [optional]
- **production__name** | **str**| Filter the returned list by &#x60;production__name&#x60;. | [optional]
- **production__active** | **str**| Filter the returned list by &#x60;production__active&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **is_external** | **str**| Filter the returned list by &#x60;is_external&#x60;. | [optional]
- **active** | **str**| Filter the returned list by &#x60;active&#x60;. | [optional]
+ **is_template** | **str**| Filter the returned list by &#x60;is_template&#x60; (exact match). | [optional]
+ **production** | **int**| Filter the returned list by &#x60;production&#x60; (exact match). | [optional]
+ **volume** | **int**| Filter the returned list by &#x60;volume&#x60; (exact match). | [optional]
+ **home_for** | **int**| Filter the returned list by &#x60;home_for&#x60; (exact match). | [optional]
+ **volume__type** | **str**| Filter the returned list by &#x60;volume__type&#x60; (exact match). | [optional]
+ **production__name** | **str**| Filter the returned list by &#x60;production__name&#x60; (exact match). | [optional]
+ **production__active** | **str**| Filter the returned list by &#x60;production__active&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **is_external** | **str**| Filter the returned list by &#x60;is_external&#x60; (exact match). | [optional]
+ **active** | **str**| Filter the returned list by &#x60;active&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -2350,7 +2350,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `projects:manage` (write) 
+List the workspaces the current user has access to.  ### Required permissions    * User account permission: `None` (read) / `projects:manage` (write) 
 
 ### Example
 
@@ -2372,16 +2372,16 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = storage_api.StorageApi(api_client)
-    is_template = "is_template_example" # str | Filter the returned list by `is_template`. (optional)
-    production = 1 # int | Filter the returned list by `production`. (optional)
-    volume = 1 # int | Filter the returned list by `volume`. (optional)
-    home_for = 1 # int | Filter the returned list by `home_for`. (optional)
-    volume__type = "generic" # str | Filter the returned list by `volume__type`. (optional)
-    production__name = "production__name_example" # str | Filter the returned list by `production__name`. (optional)
-    production__active = "production__active_example" # str | Filter the returned list by `production__active`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    is_external = "is_external_example" # str | Filter the returned list by `is_external`. (optional)
-    active = "active_example" # str | Filter the returned list by `active`. (optional)
+    is_template = "is_template_example" # str | Filter the returned list by `is_template` (exact match). (optional)
+    production = 1 # int | Filter the returned list by `production` (exact match). (optional)
+    volume = 1 # int | Filter the returned list by `volume` (exact match). (optional)
+    home_for = 1 # int | Filter the returned list by `home_for` (exact match). (optional)
+    volume__type = "generic" # str | Filter the returned list by `volume__type` (exact match). (optional)
+    production__name = "production__name_example" # str | Filter the returned list by `production__name` (exact match). (optional)
+    production__active = "production__active_example" # str | Filter the returned list by `production__active` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    is_external = "is_external_example" # str | Filter the returned list by `is_external` (exact match). (optional)
+    active = "active_example" # str | Filter the returned list by `active` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -2406,16 +2406,16 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **is_template** | **str**| Filter the returned list by &#x60;is_template&#x60;. | [optional]
- **production** | **int**| Filter the returned list by &#x60;production&#x60;. | [optional]
- **volume** | **int**| Filter the returned list by &#x60;volume&#x60;. | [optional]
- **home_for** | **int**| Filter the returned list by &#x60;home_for&#x60;. | [optional]
- **volume__type** | **str**| Filter the returned list by &#x60;volume__type&#x60;. | [optional]
- **production__name** | **str**| Filter the returned list by &#x60;production__name&#x60;. | [optional]
- **production__active** | **str**| Filter the returned list by &#x60;production__active&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **is_external** | **str**| Filter the returned list by &#x60;is_external&#x60;. | [optional]
- **active** | **str**| Filter the returned list by &#x60;active&#x60;. | [optional]
+ **is_template** | **str**| Filter the returned list by &#x60;is_template&#x60; (exact match). | [optional]
+ **production** | **int**| Filter the returned list by &#x60;production&#x60; (exact match). | [optional]
+ **volume** | **int**| Filter the returned list by &#x60;volume&#x60; (exact match). | [optional]
+ **home_for** | **int**| Filter the returned list by &#x60;home_for&#x60; (exact match). | [optional]
+ **volume__type** | **str**| Filter the returned list by &#x60;volume__type&#x60; (exact match). | [optional]
+ **production__name** | **str**| Filter the returned list by &#x60;production__name&#x60; (exact match). | [optional]
+ **production__active** | **str**| Filter the returned list by &#x60;production__active&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **is_external** | **str**| Filter the returned list by &#x60;is_external&#x60; (exact match). | [optional]
+ **active** | **str**| Filter the returned list by &#x60;active&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -2437,7 +2437,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+Return the directory quota configured at the given path on the volume, or 404 if none is set.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -2549,7 +2549,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+Redirect to the listing of the filesystem root directory (the server data root).  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -3115,7 +3115,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `projects:manage` AND User account permission: `tasks:view` 
+Return the running job that is syncing this workspace to its parking (Valet offload) location, if one is currently active.  ### Required permissions    * User account permission: `projects:manage` AND User account permission: `tasks:view` 
 
 ### Example
 
@@ -3165,7 +3165,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+Asynchronously move the given files and directories into a destination directory. Returns a task to track progress.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -3223,7 +3223,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `projects:manage` 
+Asynchronously move the workspace to a new volume, production or path on the same volume  ### Required permissions    * User account permission: `projects:manage` 
 
 ### Example
 
@@ -3285,7 +3285,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `projects:manage` 
+Park (offload) this workspace via ELEMENTS Valet: sync all its content to its parking location and remove the local copy to free space. Returns a task to track progress.  ### Required permissions    * User account permission: `projects:manage` 
 
 ### Example
 
@@ -3812,7 +3812,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
         snfs_name="snfs_name_example",
         cloud_account=1,
         qumulo_integration=1,
-        nfsv4_export=True,
         onefs_integration=1,
     ) # VolumePartialUpdate | 
 
@@ -4057,7 +4056,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `projects:manage` 
+Asynchronously reset UNIX modes and ownership of all files in the workspace based on the workspace permissions. This can be used to fix permissions issues caused by external modifications to the workspace files.  ### Required permissions    * User account permission: `projects:manage` 
 
 ### Example
 
@@ -4107,7 +4106,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `client:access` 
+Request that an administrator park (offload) this workspace to its Valet location. Creates a pending request rather than starting the transfer directly.  ### Required permissions    * User account permission: `client:access` 
 
 ### Example
 
@@ -4157,7 +4156,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `client:access` 
+Request that an administrator retrieve this parked (offloaded) workspace back from its Valet location. Creates a pending request rather than starting the transfer directly.  ### Required permissions    * User account permission: `client:access` 
 
 ### Example
 
@@ -4207,7 +4206,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `projects:manage` 
+Start retrieving this parked (offloaded) workspace back from its Valet location to primary storage. Returns the started transfer task. (Admin action; compare requestWorkspaceRetrieval, which only files a request.)  ### Required permissions    * User account permission: `projects:manage` 
 
 ### Example
 
@@ -4265,7 +4264,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `projects:manage` 
+Set up ELEMENTS Valet for this workspace by initializing its parking (offload) location on the given volume, then start the initial sync. Returns a task to track progress.  ### Required permissions    * User account permission: `projects:manage` 
 
 ### Example
 
@@ -4325,7 +4324,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+Copy the given files and media bundles into the target user's home workspace inbox.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -4383,7 +4382,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `projects:manage` 
+Asynchronously sync the workspace's content to its parking (offload) location without un-parking it. Returns a task to track progress.  ### Required permissions    * User account permission: `projects:manage` 
 
 ### Example
 
@@ -4441,7 +4440,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+Remove this workspace from the current user's bookmarked workspaces.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -4489,7 +4488,7 @@ void (empty response body)
 
 
 
-### Required permissions    * Authenticated user 
+Asynchronously extract the contents of a ZIP archive into its containing directory. Returns a task to track progress.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -4599,7 +4598,7 @@ void (empty response body)
 
 
 
-### Required permissions    * Authenticated user 
+Set the soft and/or hard size limits of the directory quota at the given path on the volume.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -5069,7 +5068,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
         snfs_name="snfs_name_example",
         cloud_account=1,
         qumulo_integration=1,
-        nfsv4_export=True,
         onefs_integration=1,
     ) # VolumeUpdate | 
 
@@ -5256,12 +5254,64 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **validate_share_path**
+    def validate_share_path(share_path_validation_request)
+
+
+
+### Required permissions    * User account permission: `shares:view` (read) / `shares:manage` (write) 
+
+### Example
+
+
+```python
+import elements_sdk
+from elements_sdk.api import storage_api
+from elements_sdk.model.share_path_validation_request import SharePathValidationRequest
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local:8080",
+    discard_unknown_keys=True,
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+with elements_sdk.ApiClient(configuration) as api_client:
+    api_instance = storage_api.StorageApi(api_client)
+    share_path_validation_request = SharePathValidationRequest(
+        path="path_example",
+        volume=1,
+    ) # SharePathValidationRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_instance.validate_share_path(share_path_validation_request)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling StorageApi->validate_share_path: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **share_path_validation_request** | [**SharePathValidationRequest**](SharePathValidationRequest.md)|  |
+
+### Return type
+
+void (empty response body)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
 # **zip_files**
     def TaskInfo zip_files(file_zip_endpoint_request)
 
 
 
-### Required permissions    * Authenticated user 
+Asynchronously create a ZIP archive from the given files at the given destination. Returns a task to track progress.  ### Required permissions    * Authenticated user 
 
 ### Example
 

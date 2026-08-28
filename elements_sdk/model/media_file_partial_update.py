@@ -85,8 +85,8 @@ class MediaFilePartialUpdate(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'info': ({str: (str, none_type)},),  # noqa: E501
-            'custom_fields': ({str: (str, none_type)},),  # noqa: E501
+            'info': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'total_files': (int, none_type,),  # noqa: E501
             'needs_rescan': (bool,),  # noqa: E501
         }
@@ -144,9 +144,9 @@ class MediaFilePartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            info ({str: (str, none_type)}): [optional]  # noqa: E501
-            custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
-            total_files (int, none_type): [optional]  # noqa: E501
+            info ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
+            total_files (int, none_type): Legacy (unused). [optional]  # noqa: E501
             needs_rescan (bool): [optional]  # noqa: E501
         """
 
@@ -231,9 +231,9 @@ class MediaFilePartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            info ({str: (str, none_type)}): [optional]  # noqa: E501
-            custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
-            total_files (int, none_type): [optional]  # noqa: E501
+            info ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
+            total_files (int, none_type): Legacy (unused). [optional]  # noqa: E501
             needs_rescan (bool): [optional]  # noqa: E501
         """
 

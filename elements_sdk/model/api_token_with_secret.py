@@ -116,8 +116,8 @@ class APITokenWithSecret(ModelNormal):
 
         Args:
             id (int):
-            token (str):
-            name (str):
+            token (str): The secret token value. Generated automatically and returned only on creation.
+            name (str): Human-readable label for the token.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -207,8 +207,8 @@ class APITokenWithSecret(ModelNormal):
 
         Args:
             id (int):
-            token (str):
-            name (str):
+            token (str): The secret token value. Generated automatically and returned only on creation.
+            name (str): Human-readable label for the token.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

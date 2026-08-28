@@ -58,9 +58,6 @@ class GetMediaFileByPathRequest(ModelNormal):
     }
 
     validations = {
-        ('path',): {
-            'min_length': 1,
-        },
     }
 
     @cached_property

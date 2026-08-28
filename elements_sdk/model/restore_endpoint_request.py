@@ -128,11 +128,11 @@ class RestoreEndpointRequest(ModelNormal):
         """RestoreEndpointRequest - a model defined in OpenAPI
 
         Args:
-            name (str):
-            source ([TapeJobSource]):
-            exclude ([str]):
-            tape (str):
-            start_date (datetime):
+            name (str): Human-readable name for the restore job.
+            source ([TapeJobSource]): Paths on the tape to restore.
+            exclude ([str]): Paths to exclude from the restore.
+            tape (str): Barcode of the tape to restore from.
+            start_date (datetime): When the restore job should start running.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -165,8 +165,8 @@ class RestoreEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            destination (str, none_type): [optional]  # noqa: E501
-            export (bool): [optional]  # noqa: E501
+            destination (str, none_type): Destination path to restore the files to. Defaults to their original location.. [optional]  # noqa: E501
+            export (bool): Eject (export) the tape from the library after restoring.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -225,11 +225,11 @@ class RestoreEndpointRequest(ModelNormal):
         """RestoreEndpointRequest - a model defined in OpenAPI
 
         Args:
-            name (str):
-            source ([TapeJobSource]):
-            exclude ([str]):
-            tape (str):
-            start_date (datetime):
+            name (str): Human-readable name for the restore job.
+            source ([TapeJobSource]): Paths on the tape to restore.
+            exclude ([str]): Paths to exclude from the restore.
+            tape (str): Barcode of the tape to restore from.
+            start_date (datetime): When the restore job should start running.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -262,8 +262,8 @@ class RestoreEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            destination (str, none_type): [optional]  # noqa: E501
-            export (bool): [optional]  # noqa: E501
+            destination (str, none_type): Destination path to restore the files to. Defaults to their original location.. [optional]  # noqa: E501
+            export (bool): Eject (export) the tape from the library after restoring.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

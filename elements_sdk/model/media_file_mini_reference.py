@@ -102,7 +102,7 @@ class MediaFileMiniReference(ModelNormal):
             'name': (str,),  # noqa: E501
             'bundle': (int, none_type,),  # noqa: E501
             'full_path': (str,),  # noqa: E501
-            'custom_fields': ({str: (str, none_type)},),  # noqa: E501
+            'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'is_dir': (bool,),  # noqa: E501
             'is_hardlink': (bool,),  # noqa: E501
             'mtime': (int,),  # noqa: E501
@@ -206,7 +206,7 @@ class MediaFileMiniReference(ModelNormal):
             name (str): [optional]  # noqa: E501
             bundle (int, none_type): [optional]  # noqa: E501
             full_path (str): [optional]  # noqa: E501
-            custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             is_dir (bool): [optional]  # noqa: E501
             is_hardlink (bool): [optional]  # noqa: E501
             mtime (int): [optional]  # noqa: E501
@@ -310,7 +310,7 @@ class MediaFileMiniReference(ModelNormal):
             name (str): [optional]  # noqa: E501
             bundle (int, none_type): [optional]  # noqa: E501
             full_path (str): [optional]  # noqa: E501
-            custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             is_dir (bool): [optional]  # noqa: E501
             is_hardlink (bool): [optional]  # noqa: E501
             mtime (int): [optional]  # noqa: E501

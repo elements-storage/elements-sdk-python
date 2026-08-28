@@ -117,8 +117,8 @@ class FilesystemPermission(ModelNormal):
 
         Args:
             id (int):
-            path (str):
-            read_only (bool):
+            path (str): Filesystem path this permission grants access to.
+            read_only (bool): When true, grant read-only access; otherwise read-write.
             user (int, none_type):
             group (int, none_type):
 
@@ -212,8 +212,8 @@ class FilesystemPermission(ModelNormal):
 
         Args:
             id (int):
-            path (str):
-            read_only (bool):
+            path (str): Filesystem path this permission grants access to.
+            read_only (bool): When true, grant read-only access; otherwise read-write.
             user (int, none_type):
             group (int, none_type):
 

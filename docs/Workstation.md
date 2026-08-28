@@ -1,5 +1,6 @@
 # Workstation
 
+A client workstation (a machine running the ELEMENTS Client) known to the server, with its hostname, address and last-seen status.
 
 ## Properties
 

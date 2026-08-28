@@ -108,7 +108,7 @@ class APITokenUpdate(ModelNormal):
         """APITokenUpdate - a model defined in OpenAPI
 
         Args:
-            name (str):
+            name (str): Human-readable label for the token.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -195,7 +195,7 @@ class APITokenUpdate(ModelNormal):
         """APITokenUpdate - a model defined in OpenAPI
 
         Args:
-            name (str):
+            name (str): Human-readable label for the token.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

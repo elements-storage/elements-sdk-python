@@ -1,5 +1,6 @@
 # TapeGroupPartialUpdate
 
+A named pool of tape cartridges, used to organize tapes and target archive jobs.
 
 ## Properties
 

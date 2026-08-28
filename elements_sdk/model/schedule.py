@@ -162,7 +162,7 @@ class Schedule(ModelNormal):
             id (int):
             variables ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             next_run (datetime):
-            type (int):
+            type (int): Scheduling mode: fixed interval (`1`, uses `every`/`period`) or a crontab expression (`2`, uses the `crontab_*` fields).
             enabled (bool):
             last_run (datetime, none_type):
             every (int):
@@ -274,7 +274,7 @@ class Schedule(ModelNormal):
         Args:
             id (int):
             variables ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-            type (int):
+            type (int): Scheduling mode: fixed interval (`1`, uses `every`/`period`) or a crontab expression (`2`, uses the `crontab_*` fields).
             enabled (bool):
             last_run (datetime, none_type):
             every (int):

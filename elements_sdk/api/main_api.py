@@ -51,6 +51,7 @@ from elements_sdk.model.elements_user import ElementsUser
 from elements_sdk.model.elements_user_detail import ElementsUserDetail
 from elements_sdk.model.elements_user_detail_partial_update import ElementsUserDetailPartialUpdate
 from elements_sdk.model.elements_user_detail_update import ElementsUserDetailUpdate
+from elements_sdk.model.elements_user_lookup import ElementsUserLookup
 from elements_sdk.model.elements_user_profile import ElementsUserProfile
 from elements_sdk.model.elements_user_profile_partial_update import ElementsUserProfilePartialUpdate
 from elements_sdk.model.elements_user_profile_update import ElementsUserProfileUpdate
@@ -78,6 +79,8 @@ from elements_sdk.model.ldap_server_groups import LDAPServerGroups
 from elements_sdk.model.ldap_server_users import LDAPServerUsers
 from elements_sdk.model.license_components_endpoint_response import LicenseComponentsEndpointResponse
 from elements_sdk.model.license_endpoint_response import LicenseEndpointResponse
+from elements_sdk.model.mcp_session import MCPSession
+from elements_sdk.model.mcp_user_key import MCPUserKey
 from elements_sdk.model.ntp_server import NTPServer
 from elements_sdk.model.ntp_server_partial_update import NTPServerPartialUpdate
 from elements_sdk.model.ntp_server_update import NTPServerUpdate
@@ -4847,6 +4850,124 @@ class MainApi(object):
             },
             api_client=api_client
         )
+        self.get_my_mcp_key_endpoint = _Endpoint(
+            settings={
+                'response_type': (MCPUserKey,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/users/me/mcp-key',
+                'operation_id': 'get_my_mcp_key',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'ordering',
+                    'limit',
+                    'offset',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'ordering':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'ordering': 'ordering',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'ordering': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_my_mcp_sessions_endpoint = _Endpoint(
+            settings={
+                'response_type': ([MCPSession],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/users/me/mcp-sessions',
+                'operation_id': 'get_my_mcp_sessions',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'ordering',
+                    'limit',
+                    'offset',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'ordering':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'ordering': 'ordering',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'ordering': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_node_ipmi_sensors_endpoint = _Endpoint(
             settings={
                 'response_type': (Sensors,),
@@ -5379,6 +5500,7 @@ class MainApi(object):
                     'ordering',
                     'limit',
                     'offset',
+                    'include_allowed_fs_paths',
                 ],
                 'required': [],
                 'nullable': [
@@ -5400,16 +5522,20 @@ class MainApi(object):
                         (int,),
                     'offset':
                         (int,),
+                    'include_allowed_fs_paths':
+                        (bool,),
                 },
                 'attribute_map': {
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
+                    'include_allowed_fs_paths': 'include_allowed_fs_paths',
                 },
                 'location_map': {
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                    'include_allowed_fs_paths': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -6007,6 +6133,91 @@ class MainApi(object):
                 'content_type': [
                     'application/json'
                 ]
+            },
+            api_client=api_client
+        )
+        self.lookup_users_endpoint = _Endpoint(
+            settings={
+                'response_type': ([ElementsUserLookup],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/users/lookup',
+                'operation_id': 'lookup_users',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'username',
+                    'ordering',
+                    'limit',
+                    'offset',
+                    'filter',
+                    'filtering_mode',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                    'filtering_mode',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('filtering_mode',): {
+
+                        "EXACT": "exact",
+                        "FUZZY": "fuzzy"
+                    },
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'username':
+                        (str,),
+                    'ordering':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                    'filter':
+                        (str,),
+                    'filtering_mode':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'username': 'username',
+                    'ordering': 'ordering',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                    'filter': 'filter',
+                    'filtering_mode': 'filtering_mode',
+                },
+                'location_map': {
+                    'id': 'query',
+                    'username': 'query',
+                    'ordering': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                    'filter': 'query',
+                    'filtering_mode': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -7354,6 +7565,99 @@ class MainApi(object):
             },
             headers_map={
                 'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.revoke_my_mcp_session_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/users/me/mcp-sessions/{session_id}',
+                'operation_id': 'revoke_my_mcp_session',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'session_id',
+                ],
+                'required': [
+                    'session_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'session_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'session_id': 'session_id',
+                },
+                'location_map': {
+                    'session_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.rotate_my_mcp_key_endpoint = _Endpoint(
+            settings={
+                'response_type': (MCPUserKey,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/users/me/mcp-key',
+                'operation_id': 'rotate_my_mcp_key',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [],
             },
             api_client=api_client
@@ -9462,7 +9766,7 @@ class MainApi(object):
     ):
         """acknowledge_all_notifications  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Mark every one of the current user's notifications as acknowledged (read), clearing the unread count.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -9535,7 +9839,7 @@ class MainApi(object):
     ):
         """apply_configuration  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Asynchronously start applying pending configuration changes made through the API to users/groups/productions/workspaces/shares.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -9608,7 +9912,7 @@ class MainApi(object):
     ):
         """beep  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Trigger the physical locator indicator on the current storage node (sounding the buzzer) to help find the machine in a rack.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -9682,7 +9986,7 @@ class MainApi(object):
     ):
         """bulk_delete_users  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
+        Delete multiple user accounts at once, optionally also removing their home Media Roots and home workspace content (dangerous).  ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -9912,7 +10216,7 @@ class MainApi(object):
     ):
         """check_internet_connectivity  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Check outbound internet connectivity from the storage node(s) via the node agent. Returns whether all checks passed plus any per-node error messages.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -9921,7 +10225,7 @@ class MainApi(object):
 
 
         Keyword Args:
-            run_on_all_nodes (bool): [optional]
+            run_on_all_nodes (bool): When true, run the check on every storage node instead of only the current node.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -10137,7 +10441,7 @@ class MainApi(object):
     ):
         """count_unread_notifications  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Return the number of unacknowledged (unread) notifications for the current user.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -10213,7 +10517,7 @@ class MainApi(object):
     ):
         """create_archive  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Asynchronously build a downloadable ZIP archive from the given files, bundles or paths. Returns the DownloadArchive object whose task can be polled for completion.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -10291,7 +10595,7 @@ class MainApi(object):
     ):
         """create_certificate_signing_request  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Generate a certificate signing request (CSR) and private key for the system's web TLS certificate using the given X.509 subject details. Returns a task to track generation. The private key is securely stored on the server and will be installed once the user provides the issued certificate  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -10997,7 +11301,7 @@ class MainApi(object):
     ):
         """create_user  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -11075,7 +11379,7 @@ class MainApi(object):
     ):
         """create_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -11152,7 +11456,7 @@ class MainApi(object):
     ):
         """delete_all_notifications  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Clear the current user's notification list by removing all of their notifications.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -11225,7 +11529,7 @@ class MainApi(object):
     ):
         """delete_certificate_signing_request  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Delete the pending certificate signing request (CSR) and its private key.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -11377,7 +11681,7 @@ class MainApi(object):
     ):
         """delete_disabled_users  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
+        Mass-delete every disabled user account on the system (dangerous).  ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -12224,7 +12528,7 @@ class MainApi(object):
     ):
         """delete_smtp_configuration  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Reset the system's outgoing email (SMTP) configuration to defaults, clearing the server, credentials and addresses so email sending is disabled. Returns the cleared configuration.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -12376,7 +12680,7 @@ class MainApi(object):
     ):
         """delete_user  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -12532,7 +12836,7 @@ class MainApi(object):
     ):
         """delete_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -12610,6 +12914,7 @@ class MainApi(object):
     ):
         """disable_user_totp  # noqa: E501
 
+        Disable TOTP two-factor authentication for this user.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -12688,6 +12993,7 @@ class MainApi(object):
     ):
         """enable_user_totp  # noqa: E501
 
+        Enable TOTP two-factor authentication for this user, storing the shared secret and verifying the first code.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -12923,6 +13229,7 @@ class MainApi(object):
     ):
         """get_all_client_sessions  # noqa: E501
 
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -12931,9 +13238,9 @@ class MainApi(object):
 
 
         Keyword Args:
-            user (int): Filter the returned list by `user`.. [optional]
-            mounted_workspaces__mount_node (int): Filter the returned list by `mounted_workspaces__mount_node`.. [optional]
-            workstation (str): Filter the returned list by `workstation`.. [optional]
+            user (int): Filter the returned list by `user` (exact match).. [optional]
+            mounted_workspaces__mount_node (int): Filter the returned list by `mounted_workspaces__mount_node` (exact match).. [optional]
+            workstation (str): Filter the returned list by `workstation` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -13010,8 +13317,8 @@ class MainApi(object):
 
 
         Keyword Args:
-            name (str): Filter the returned list by `name`.. [optional]
-            provider (str): Filter the returned list by `provider`.. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            provider (str): Filter the returned list by `provider` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -13164,7 +13471,7 @@ class MainApi(object):
 
 
         Keyword Args:
-            name (str): Filter the returned list by `name`.. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -13241,8 +13548,8 @@ class MainApi(object):
 
 
         Keyword Args:
-            user (int): Filter the returned list by `user`.. [optional]
-            group (int): Filter the returned list by `group`.. [optional]
+            user (int): Filter the returned list by `user` (exact match).. [optional]
+            group (int): Filter the returned list by `group` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -13320,7 +13627,7 @@ class MainApi(object):
 
 
         Keyword Args:
-            name (str): Filter the returned list by `name`.. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -13399,7 +13706,7 @@ class MainApi(object):
 
 
         Keyword Args:
-            node_id (int): Filter the returned list by `node_id`.. [optional]
+            node_id (int): Filter the returned list by `node_id` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -13628,9 +13935,9 @@ class MainApi(object):
 
 
         Keyword Args:
-            topic (str): Filter the returned list by `topic`.. [optional]
-            type (str): Filter the returned list by `type`.. [optional]
-            user (int): Filter the returned list by `user`.. [optional]
+            topic (str): Filter the returned list by `topic` (exact match).. [optional]
+            type (str): Filter the returned list by `type` (exact match).. [optional]
+            user (int): Filter the returned list by `user` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -13783,7 +14090,7 @@ class MainApi(object):
 
 
         Keyword Args:
-            address (str): Filter the returned list by `address`.. [optional]
+            address (str): Filter the returned list by `address` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -13860,9 +14167,9 @@ class MainApi(object):
 
 
         Keyword Args:
-            type (str): Filter the returned list by `type`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            address (str): Filter the returned list by `address`.. [optional]
+            type (str): Filter the returned list by `type` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            address (str): Filter the returned list by `address` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -13931,7 +14238,7 @@ class MainApi(object):
     ):
         """get_all_users  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write) OR User account permission: `media:roots:manage` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -13940,12 +14247,12 @@ class MainApi(object):
 
 
         Keyword Args:
-            username (str): Filter the returned list by `username`.. [optional]
-            home (str): Filter the returned list by `home`.. [optional]
-            full_name (str): Filter the returned list by `full_name`.. [optional]
-            groups (str): Filter the returned list by `groups`.. [optional]
-            is_cloud (str): Filter the returned list by `is_cloud`.. [optional]
-            is_enabled (str): Filter the returned list by `is_enabled`.. [optional]
+            username (str): Filter the returned list by `username` (exact match).. [optional]
+            home (str): Filter the returned list by `home` (exact match).. [optional]
+            full_name (str): Filter the returned list by `full_name` (exact match).. [optional]
+            groups (str): Filter the returned list by `groups` (exact match).. [optional]
+            is_cloud (str): Filter the returned list by `is_cloud` (exact match).. [optional]
+            is_enabled (str): Filter the returned list by `is_enabled` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -14017,7 +14324,7 @@ class MainApi(object):
     ):
         """get_all_workstations  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14026,8 +14333,8 @@ class MainApi(object):
 
 
         Keyword Args:
-            hostname (str): Filter the returned list by `hostname`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
+            hostname (str): Filter the returned list by `hostname` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -14171,7 +14478,7 @@ class MainApi(object):
     ):
         """get_certificate_signing_request  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Retrieve the previously generated certificate signing request (CSR).  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14394,6 +14701,7 @@ class MainApi(object):
     ):
         """get_client_session  # noqa: E501
 
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14549,7 +14857,7 @@ class MainApi(object):
     ):
         """get_cloud_account_costs  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Retrieve estimated storage costs for this cloud account for the current and previous month.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14627,7 +14935,7 @@ class MainApi(object):
     ):
         """get_cloud_account_storage_roots  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        List the storage roots (possible volume paths for each bucket/container and their regions) available to this cloud account.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14705,7 +15013,7 @@ class MainApi(object):
     ):
         """get_cloud_account_volume_sizes  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Return the used size, in bytes, of each cloud volume backed by this account.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14782,7 +15090,7 @@ class MainApi(object):
     ):
         """get_current_node  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        Return the storage node that is serving this API request (the current node).  ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14791,9 +15099,9 @@ class MainApi(object):
 
 
         Keyword Args:
-            type (str): Filter the returned list by `type`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            address (str): Filter the returned list by `address`.. [optional]
+            type (str): Filter the returned list by `type` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            address (str): Filter the returned list by `address` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -15018,7 +15326,7 @@ class MainApi(object):
     ):
         """get_download_archive_file  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Download the built ZIP archive file.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -15564,7 +15872,7 @@ class MainApi(object):
     ):
         """get_ipmi_configuration  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Get the IPMI (out-of-band management) network configuration of this storage node.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -15875,6 +16183,7 @@ class MainApi(object):
     ):
         """get_license  # noqa: E501
 
+        Return the currently active license, or an empty response if none is installed.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -15947,6 +16256,7 @@ class MainApi(object):
     ):
         """get_license_components  # noqa: E501
 
+        List all licensable components (features) known to the system, with their identifiers and names.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -16168,6 +16478,158 @@ class MainApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_my_avatar_endpoint.call_with_http_info(**kwargs)
 
+    def get_my_mcp_key(
+        self,
+        **kwargs
+    ):
+        """get_my_mcp_key  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_my_mcp_key(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            ordering (str): Which field to use when ordering the results.. [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            MCPUserKey
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_my_mcp_key_endpoint.call_with_http_info(**kwargs)
+
+    def get_my_mcp_sessions(
+        self,
+        **kwargs
+    ):
+        """get_my_mcp_sessions  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_my_mcp_sessions(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            ordering (str): Which field to use when ordering the results.. [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [MCPSession]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_my_mcp_sessions_endpoint.call_with_http_info(**kwargs)
+
     def get_node_ipmi_sensors(
         self,
         id,
@@ -16175,7 +16637,7 @@ class MainApi(object):
     ):
         """get_node_ipmi_sensors  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
+        Read the node's current IPMI hardware sensor readings (temperatures, fan speeds, voltages) from its BMC.  ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -16253,7 +16715,7 @@ class MainApi(object):
     ):
         """get_node_raid_status  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
+        Return the node's RAID controller status, grouped by controller type (LSI, Areca and RAIDIX).  ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -16331,7 +16793,7 @@ class MainApi(object):
     ):
         """get_node_stats  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
+        Return recent CPU, RAM, network and disk I/O usage samples for the node.  ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -16409,7 +16871,7 @@ class MainApi(object):
     ):
         """get_node_time  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Return the node's current time, its configured timezone and the list of available timezones.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -16799,6 +17261,7 @@ class MainApi(object):
     ):
         """get_parameters  # noqa: E501
 
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -16959,6 +17422,7 @@ class MainApi(object):
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
+            include_allowed_fs_paths (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -17169,7 +17633,7 @@ class MainApi(object):
     ):
         """get_release_notes  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Return the ELEMENTS release notes (changelog) for recent versions, rendered as HTML, newest first.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17244,7 +17708,7 @@ class MainApi(object):
     ):
         """get_service_status  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Return whether the named system service on this storage node is running, enabled (starts at boot) and masked.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17397,7 +17861,7 @@ class MainApi(object):
     ):
         """get_stor_next_license  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   * License component: stornext_mdc   # noqa: E501
+        Return the status, expiry and capacity of the StorNext license on the current storage node.  ### Required permissions    * User account permission: `system:admin-access`   * License component: stornext_mdc   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17549,6 +18013,7 @@ class MainApi(object):
     ):
         """get_system_info  # noqa: E501
 
+        Return general system information: license, version, language, enabled features, configured SAML providers and any global alerts.    # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17622,7 +18087,7 @@ class MainApi(object):
     ):
         """get_user  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17780,7 +18245,7 @@ class MainApi(object):
     ):
         """get_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17928,6 +18393,86 @@ class MainApi(object):
         kwargs['stornext_license'] = \
             stornext_license
         return self.install_stor_next_license_endpoint.call_with_http_info(**kwargs)
+
+    def lookup_users(
+        self,
+        **kwargs
+    ):
+        """lookup_users  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.lookup_users(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            id (int): Filter the returned list by `id` (exact match).. [optional]
+            username (str): Filter the returned list by `username` (exact match).. [optional]
+            ordering (str): Which field to use when ordering the results.. [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
+            filter (str): [optional]
+            filtering_mode (str): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [ElementsUserLookup]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.lookup_users_endpoint.call_with_http_info(**kwargs)
 
     def patch_certificate_configuration(
         self,
@@ -18096,6 +18641,7 @@ class MainApi(object):
     ):
         """patch_current_workstation  # noqa: E501
 
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19072,7 +19618,7 @@ class MainApi(object):
     ):
         """patch_user  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19154,7 +19700,7 @@ class MainApi(object):
     ):
         """patch_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19776,7 +20322,7 @@ class MainApi(object):
     ):
         """reset_user_password  # noqa: E501
 
-        ### Required permissions    * User account permission: `users:manage`   # noqa: E501
+        Generate a password-reset token for this user so they can set a new password (e.g. via a reset link).  ### Required permissions    * User account permission: `users:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19920,6 +20466,157 @@ class MainApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.restart_web_ui_endpoint.call_with_http_info(**kwargs)
 
+    def revoke_my_mcp_session(
+        self,
+        session_id,
+        **kwargs
+    ):
+        """revoke_my_mcp_session  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.revoke_my_mcp_session(session_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            session_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['session_id'] = \
+            session_id
+        return self.revoke_my_mcp_session_endpoint.call_with_http_info(**kwargs)
+
+    def rotate_my_mcp_key(
+        self,
+        **kwargs
+    ):
+        """rotate_my_mcp_key  # noqa: E501
+
+        ### Required permissions    * Authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.rotate_my_mcp_key(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            MCPUserKey
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.rotate_my_mcp_key_endpoint.call_with_http_info(**kwargs)
+
     def run_service_operation(
         self,
         id,
@@ -20014,7 +20711,7 @@ class MainApi(object):
     ):
         """set_ipmi_configuration  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Set the IPMI (out-of-band management) network configuration of this storage node.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20174,7 +20871,7 @@ class MainApi(object):
     ):
         """set_node_time  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Set the node's timezone and (optionally) its local clock.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20256,7 +20953,7 @@ class MainApi(object):
     ):
         """set_user_password  # noqa: E501
 
-        ### Required permissions    * User account permission: `users:manage`   # noqa: E501
+        Set this user's password to the given value.  ### Required permissions    * User account permission: `users:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20410,7 +21107,7 @@ class MainApi(object):
     ):
         """silence_node_raid_alarm  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Silence the audible RAID alarm on this storage node.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20488,7 +21185,7 @@ class MainApi(object):
     ):
         """start_solr_reindex  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Trigger a rebuild of the search index across all indexing nodes. Returns the started tasks.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20565,7 +21262,7 @@ class MainApi(object):
     ):
         """start_support_session  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Start a remote support session, opening a secure tunnel for ELEMENTS support to access this system. Returns a task to track it.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20639,7 +21336,7 @@ class MainApi(object):
     ):
         """start_system_backup  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Start a backup of the system configuration and database to the given path. Returns a task to track progress.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20717,7 +21414,7 @@ class MainApi(object):
     ):
         """sync_ldap_group  # noqa: E501
 
-        ### Required permissions    * User account permission: `users:manage`   # noqa: E501
+        Synchronize this group's members from its linked LDAP / Active Directory source.  ### Required permissions    * User account permission: `users:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20795,7 +21492,7 @@ class MainApi(object):
     ):
         """sync_ldap_users  # noqa: E501
 
-        ### Required permissions    * User account permission: `users:manage`   # noqa: E501
+        Synchronize user info for all ELEMENTS users belonging to this LDAP / Active Directory server from the directory.  ### Required permissions    * User account permission: `users:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20872,7 +21569,7 @@ class MainApi(object):
     ):
         """sync_time  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Synchronize the clock of all storage nodes via NTP.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20947,6 +21644,7 @@ class MainApi(object):
     ):
         """sync_user_totp  # noqa: E501
 
+        Verify a current TOTP code for this user and recalculate the authenticator's time drift. Returns the drift.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -21027,7 +21725,7 @@ class MainApi(object):
     ):
         """test_cloud_account_credentials  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Test the given cloud provider credentials without saving them; returns the subscriptions/accounts they can access.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -21105,7 +21803,7 @@ class MainApi(object):
     ):
         """test_smtp_configuration  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Send a test email to the given address using the current SMTP configuration.  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -22160,6 +22858,7 @@ class MainApi(object):
     ):
         """update_parameters  # noqa: E501
 
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -22710,7 +23409,7 @@ class MainApi(object):
     ):
         """update_user  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `users:manage` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -22874,7 +23573,7 @@ class MainApi(object):
     ):
         """update_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'>   # noqa: E501
+        ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

@@ -123,7 +123,7 @@ class AssetSubtitleLinkUpdate(ModelNormal):
 
         Args:
             subtitle (AssetMiniReference):
-            label (str):
+            label (str): Human-readable label for this subtitle track (e.g. a language name).
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -213,7 +213,7 @@ class AssetSubtitleLinkUpdate(ModelNormal):
 
         Args:
             subtitle (AssetMiniReference):
-            label (str):
+            label (str): Human-readable label for this subtitle track (e.g. a language name).
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

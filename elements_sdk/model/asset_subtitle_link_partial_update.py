@@ -153,7 +153,7 @@ class AssetSubtitleLinkPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             subtitle (AssetMiniReference): [optional]  # noqa: E501
-            label (str): [optional]  # noqa: E501
+            label (str): Human-readable label for this subtitle track (e.g. a language name).. [optional]  # noqa: E501
             key (str, none_type): [optional]  # noqa: E501
         """
 
@@ -239,7 +239,7 @@ class AssetSubtitleLinkPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             subtitle (AssetMiniReference): [optional]  # noqa: E501
-            label (str): [optional]  # noqa: E501
+            label (str): Human-readable label for this subtitle track (e.g. a language name).. [optional]  # noqa: E501
             key (str, none_type): [optional]  # noqa: E501
         """
 

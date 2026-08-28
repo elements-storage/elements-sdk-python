@@ -124,9 +124,6 @@ class Workspace(ModelNormal):
             'inclusive_maximum': 4611686018427388000,
             'inclusive_minimum': 0,
         },
-        ('endpoints',): {
-            'max_items': 0,
-        },
         ('name',): {
             'max_length': 255,
             'min_length': 1,
@@ -209,7 +206,6 @@ class Workspace(ModelNormal):
             'bookmarked': (bool, none_type,),  # noqa: E501
             'quota_size_hard': (int,),  # noqa: E501
             'quota_size_soft': (int,),  # noqa: E501
-            'endpoints': ([str],),  # noqa: E501
             'resolved_read_only': (bool, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -278,7 +274,6 @@ class Workspace(ModelNormal):
         'bookmarked': 'bookmarked',  # noqa: E501
         'quota_size_hard': 'quota_size_hard',  # noqa: E501
         'quota_size_soft': 'quota_size_soft',  # noqa: E501
-        'endpoints': 'endpoints',  # noqa: E501
         'resolved_read_only': 'resolved_read_only',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -336,7 +331,6 @@ class Workspace(ModelNormal):
         'size_used',  # noqa: E501
         'size_total',  # noqa: E501
         'bookmarked',  # noqa: E501
-        'endpoints',  # noqa: E501
         'resolved_read_only',  # noqa: E501
         'is_offloaded',  # noqa: E501
         'volume_path',  # noqa: E501
@@ -354,7 +348,7 @@ class Workspace(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, production, volume, sharing_nfs_permissions, current_share_name, size_used, size_total, bookmarked, quota_size_hard, quota_size_soft, endpoints, resolved_read_only, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, current_size, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_alternate_data_streams, emulate_recycle_bin, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, veto_dot_underscore, is_offloaded, template, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, production, volume, sharing_nfs_permissions, current_share_name, size_used, size_total, bookmarked, quota_size_hard, quota_size_soft, resolved_read_only, name, description, long_description, is_template, active, mac_protocol, win_protocol, win_drive, linux_protocol, linux_mountpoint, share_name, share_nfs, share_afp, sharing_hidden, sharing_require_login, sharing_read_only, sharing_allow_execute, enable_quota, current_size, affinity, emulate_avid, emulate_capture, emulate_preopen, emulate_alternate_data_streams, emulate_recycle_bin, smb_extra_config, afp_extra_config, recycle_bin_exclude, is_external, external_mac_url, external_win_url, external_linux_url, allow_symlinks, rw_permission_priority, veto_dot_underscore, is_offloaded, template, *args, **xkwargs):  # noqa: E501
         """Workspace - a model defined in OpenAPI
 
         Args:
@@ -363,12 +357,11 @@ class Workspace(ModelNormal):
             volume (bool, date, datetime, dict, float, int, list, str, none_type):
             sharing_nfs_permissions ([NFSPermission]):
             current_share_name (str):
-            size_used (int, none_type):
-            size_total (int, none_type):
+            size_used (int, none_type): Deprecated, do not use
+            size_total (int, none_type): Deprecated, do not use
             bookmarked (bool, none_type):
-            quota_size_hard (int):
-            quota_size_soft (int):
-            endpoints ([str]): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty array.
+            quota_size_hard (int): Hard quota limit (absolute cap for the workspace)
+            quota_size_soft (int): Soft quota limit (warning threshold)
             resolved_read_only (bool, none_type):
             name (str):
             description (str, none_type):
@@ -376,35 +369,35 @@ class Workspace(ModelNormal):
             is_template (bool):
             active (bool):
             mac_protocol (str, none_type):
-            win_protocol (str):
-            win_drive (str, none_type):
+            win_protocol (str): Defines how the workspace is mounted by the ELEMENTS Client - mapped as a disk or opened as a UNC path
+            win_drive (str, none_type): Drive letter for the ELEMENTS Client to use
             linux_protocol (str):
-            linux_mountpoint (str, none_type):
+            linux_mountpoint (str, none_type): Mountpoint for the ELEMENTS Client to use
             share_name (str, none_type):
             share_nfs (bool):
             share_afp (bool):
-            sharing_hidden (bool):
-            sharing_require_login (bool):
+            sharing_hidden (bool): When enabled, the share will be hidden in network browsing (e.g. SMB or AFP browse lists)
+            sharing_require_login (bool): Require authentication over SMB and AFP
             sharing_read_only (bool):
             sharing_allow_execute (bool):
             enable_quota (bool):
-            current_size (int, none_type):
-            affinity (str, none_type):
-            emulate_avid (bool):
-            emulate_capture (bool):
-            emulate_preopen (bool):
-            emulate_alternate_data_streams (bool):
+            current_size (int, none_type): Total cached size of the workspace, if tracked by the quota system
+            affinity (str, none_type): StorNext affinity tag
+            emulate_avid (bool): Emulate Avid NEXIS storage to enable bin locking in Avid Media Composer
+            emulate_capture (bool): Set up the SMB share for ingest, disables opportunistic locks for growing file editing
+            emulate_preopen (bool): Unused (legacy)
+            emulate_alternate_data_streams (bool): Enable alternate streams and extended attributes over SMB
             emulate_recycle_bin (bool):
-            smb_extra_config (str):
-            afp_extra_config (str):
-            recycle_bin_exclude (str, none_type):
+            smb_extra_config (str): Additional raw SMB configuration to add to the share definition in smb.conf
+            afp_extra_config (str): Additional raw AFP configuration to add to the share definition in afp.conf
+            recycle_bin_exclude (str, none_type): Exclude list for Samba vfs_recycle
             is_external (bool):
             external_mac_url (str, none_type):
             external_win_url (str, none_type):
             external_linux_url (str, none_type):
             allow_symlinks (bool):
-            rw_permission_priority (bool):
-            veto_dot_underscore (bool):
+            rw_permission_priority (bool): When enabled, if a user has both read-only and read-write permissions, the read-write permissions will take precedence. When disabled, the read-only permissions will take precedence.
+            veto_dot_underscore (bool): Block AppleDouble files - Prevents macOS from storing ._* and .DS_Store files in the workspace over SMB
             is_offloaded (bool):
             template (int, none_type):
 
@@ -489,7 +482,6 @@ class Workspace(ModelNormal):
         self.bookmarked = bookmarked
         self.quota_size_hard = quota_size_hard
         self.quota_size_soft = quota_size_soft
-        self.endpoints = endpoints
         self.resolved_read_only = resolved_read_only
         self.name = name
         self.description = description
@@ -557,43 +549,43 @@ class Workspace(ModelNormal):
             production (ProductionMini):
             volume (bool, date, datetime, dict, float, int, list, str, none_type):
             sharing_nfs_permissions ([NFSPermission]):
-            quota_size_hard (int):
-            quota_size_soft (int):
+            quota_size_hard (int): Hard quota limit (absolute cap for the workspace)
+            quota_size_soft (int): Soft quota limit (warning threshold)
             name (str):
             description (str, none_type):
             long_description (str):
             is_template (bool):
             active (bool):
             mac_protocol (str, none_type):
-            win_protocol (str):
-            win_drive (str, none_type):
+            win_protocol (str): Defines how the workspace is mounted by the ELEMENTS Client - mapped as a disk or opened as a UNC path
+            win_drive (str, none_type): Drive letter for the ELEMENTS Client to use
             linux_protocol (str):
-            linux_mountpoint (str, none_type):
+            linux_mountpoint (str, none_type): Mountpoint for the ELEMENTS Client to use
             share_name (str, none_type):
             share_nfs (bool):
             share_afp (bool):
-            sharing_hidden (bool):
-            sharing_require_login (bool):
+            sharing_hidden (bool): When enabled, the share will be hidden in network browsing (e.g. SMB or AFP browse lists)
+            sharing_require_login (bool): Require authentication over SMB and AFP
             sharing_read_only (bool):
             sharing_allow_execute (bool):
             enable_quota (bool):
-            current_size (int, none_type):
-            affinity (str, none_type):
-            emulate_avid (bool):
-            emulate_capture (bool):
-            emulate_preopen (bool):
-            emulate_alternate_data_streams (bool):
+            current_size (int, none_type): Total cached size of the workspace, if tracked by the quota system
+            affinity (str, none_type): StorNext affinity tag
+            emulate_avid (bool): Emulate Avid NEXIS storage to enable bin locking in Avid Media Composer
+            emulate_capture (bool): Set up the SMB share for ingest, disables opportunistic locks for growing file editing
+            emulate_preopen (bool): Unused (legacy)
+            emulate_alternate_data_streams (bool): Enable alternate streams and extended attributes over SMB
             emulate_recycle_bin (bool):
-            smb_extra_config (str):
-            afp_extra_config (str):
-            recycle_bin_exclude (str, none_type):
+            smb_extra_config (str): Additional raw SMB configuration to add to the share definition in smb.conf
+            afp_extra_config (str): Additional raw AFP configuration to add to the share definition in afp.conf
+            recycle_bin_exclude (str, none_type): Exclude list for Samba vfs_recycle
             is_external (bool):
             external_mac_url (str, none_type):
             external_win_url (str, none_type):
             external_linux_url (str, none_type):
             allow_symlinks (bool):
-            rw_permission_priority (bool):
-            veto_dot_underscore (bool):
+            rw_permission_priority (bool): When enabled, if a user has both read-only and read-write permissions, the read-write permissions will take precedence. When disabled, the read-only permissions will take precedence.
+            veto_dot_underscore (bool): Block AppleDouble files - Prevents macOS from storing ._* and .DS_Store files in the workspace over SMB
             template (int, none_type):
 
         Keyword Args:

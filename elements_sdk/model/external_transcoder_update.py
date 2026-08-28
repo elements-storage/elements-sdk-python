@@ -130,7 +130,7 @@ class ExternalTranscoderUpdate(ModelNormal):
         Args:
             path_mappings ([PathMapping]):
             name (str):
-            address (str):
+            address (str): Network address (hostname or IP) of the transcoder.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -222,7 +222,7 @@ class ExternalTranscoderUpdate(ModelNormal):
         Args:
             path_mappings ([PathMapping]):
             name (str):
-            address (str):
+            address (str): Network address (hostname or IP) of the transcoder.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -1,5 +1,6 @@
 # MediaFileContents
 
+Immediate contents of a media directory: child subdirectories and media bundles with a combined total count.
 
 ## Properties
 

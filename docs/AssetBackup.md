@@ -1,5 +1,6 @@
 # AssetBackup
 
+Links an Asset to its archived copy's location on tape in Tape Archive
 
 ## Properties
 

@@ -1,5 +1,6 @@
 # SubclipClipboardEntryUpdate
 
+An entry on the current user's subclip clipboard: a copied subclip waiting to be added to Media Editor.
 
 ## Properties
 

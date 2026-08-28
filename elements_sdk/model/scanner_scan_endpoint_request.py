@@ -113,7 +113,7 @@ class ScannerScanEndpointRequest(ModelNormal):
         """ScannerScanEndpointRequest - a model defined in OpenAPI
 
         Args:
-            path (str):
+            path (str): Filesystem path to scan.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -146,9 +146,9 @@ class ScannerScanEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            recursive (bool, none_type): [optional]  # noqa: E501
-            notify (bool, none_type): [optional]  # noqa: E501
-            force_rescan (bool, none_type): [optional]  # noqa: E501
+            recursive (bool, none_type): Also scan subdirectories of the path.. [optional]  # noqa: E501
+            notify (bool, none_type): Used internally. [optional]  # noqa: E501
+            force_rescan (bool, none_type): Re-scan files even if they appear unchanged since the last scan.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -203,7 +203,7 @@ class ScannerScanEndpointRequest(ModelNormal):
         """ScannerScanEndpointRequest - a model defined in OpenAPI
 
         Args:
-            path (str):
+            path (str): Filesystem path to scan.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -236,9 +236,9 @@ class ScannerScanEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            recursive (bool, none_type): [optional]  # noqa: E501
-            notify (bool, none_type): [optional]  # noqa: E501
-            force_rescan (bool, none_type): [optional]  # noqa: E501
+            recursive (bool, none_type): Also scan subdirectories of the path.. [optional]  # noqa: E501
+            notify (bool, none_type): Used internally. [optional]  # noqa: E501
+            force_rescan (bool, none_type): Re-scan files even if they appear unchanged since the last scan.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

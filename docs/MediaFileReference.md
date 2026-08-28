@@ -1,5 +1,6 @@
 # MediaFileReference
 
+Represents a file or folder on the filesystem that has been seen by the Media Library scanner. Files that are part of a media object are grouped in a MediaFileBundle (whether one file or multiple) and after a bundle is scanned, an Asset is created and assigned to it.
 
 ## Properties
 
@@ -7,12 +8,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
 **volume** | [**VolumeMiniWithCloudAccount**](VolumeMiniWithCloudAccount.md) |  | [optional] 
-**info** | **{str: (str, none_type)}** |  | [optional] [readonly] 
-**custom_fields** | **{str: (str, none_type)}** |  | [optional] [readonly] 
+**info** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | [optional] [readonly] 
+**custom_fields** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | [optional] [readonly] 
 **resolved_permission** | [**MediaRootPermission**](MediaRootPermission.md) |  | [optional] 
 **parent_file** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | [optional] [readonly] 
 **root** | [**MediaRootMini**](MediaRootMini.md) |  | [optional] 
-**effective_custom_fields** | **{str: (str, none_type)}, none_type** |  | [optional] [readonly] 
+**effective_custom_fields** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] [readonly] 
 **modified_by** | [**ElementsUserMini**](ElementsUserMini.md) |  | [optional] 
 **full_path** | **str** |  | [optional] [readonly] 
 **path_permissions** | [**PathPermissions**](PathPermissions.md) |  | [optional] 
@@ -26,7 +27,7 @@ Name | Type | Description | Notes
 **pathhash** | **str** |  | [optional] [readonly] 
 **ancestry** | **str** |  | [optional] [readonly] 
 **is_dir** | **bool** |  | [optional] [readonly] 
-**total_files** | **int, none_type** |  | [optional] [readonly] 
+**total_files** | **int, none_type** | Legacy (unused) | [optional] [readonly] 
 **size** | **int** |  | [optional] [readonly] 
 **mtime** | **int** |  | [optional] [readonly] 
 **present** | **bool** |  | [optional] [readonly] 

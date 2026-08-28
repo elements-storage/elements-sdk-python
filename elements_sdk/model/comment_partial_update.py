@@ -93,7 +93,7 @@ class CommentPartialUpdate(ModelNormal):
         return {
             'assignee': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'user': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'drawing': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'drawing': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'tags': ([TagReference],),  # noqa: E501
             'text': (str,),  # noqa: E501
             'time': (float, none_type,),  # noqa: E501
@@ -168,10 +168,10 @@ class CommentPartialUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             assignee (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            drawing ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            drawing ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             tags ([TagReference]): [optional]  # noqa: E501
             text (str): [optional]  # noqa: E501
-            time (float, none_type): [optional]  # noqa: E501
+            time (float, none_type): Timecode position in the media, in seconds, that the comment refers to.. [optional]  # noqa: E501
             is_cloud (bool): [optional]  # noqa: E501
             resolved (bool): [optional]  # noqa: E501
             resolved_date (datetime, none_type): [optional]  # noqa: E501
@@ -263,10 +263,10 @@ class CommentPartialUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             assignee (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            drawing ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            drawing ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             tags ([TagReference]): [optional]  # noqa: E501
             text (str): [optional]  # noqa: E501
-            time (float, none_type): [optional]  # noqa: E501
+            time (float, none_type): Timecode position in the media, in seconds, that the comment refers to.. [optional]  # noqa: E501
             is_cloud (bool): [optional]  # noqa: E501
             resolved (bool): [optional]  # noqa: E501
             resolved_date (datetime, none_type): [optional]  # noqa: E501

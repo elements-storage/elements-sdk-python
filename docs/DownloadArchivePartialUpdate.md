@@ -1,5 +1,6 @@
 # DownloadArchivePartialUpdate
 
+A temporary ZIP archive built from selected files for download, which expires after a configured time. For example, used to download multiple files from Media Library
 
 ## Properties
 

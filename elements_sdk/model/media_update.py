@@ -108,7 +108,7 @@ class MediaUpdate(ModelNormal):
             'id': (int,),  # noqa: E501
             'asset': (AssetMicro,),  # noqa: E501
             'root': (MediaRootMiniWithCustomFields,),  # noqa: E501
-            'custom_fields_diff': ({str: (str, none_type)},),  # noqa: E501
+            'custom_fields_diff': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'added_tags': ([UnfilteredTag],),  # noqa: E501
             'removed_tags': ([UnfilteredTag],),  # noqa: E501
             'type': (str,),  # noqa: E501
@@ -156,7 +156,7 @@ class MediaUpdate(ModelNormal):
             id (int):
             asset (AssetMicro):
             root (MediaRootMiniWithCustomFields):
-            custom_fields_diff ({str: (str, none_type)}):
+            custom_fields_diff ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             added_tags ([UnfilteredTag]):
             removed_tags ([UnfilteredTag]):
             type (str):
@@ -262,7 +262,7 @@ class MediaUpdate(ModelNormal):
             id (int):
             asset (AssetMicro):
             root (MediaRootMiniWithCustomFields):
-            custom_fields_diff ({str: (str, none_type)}):
+            custom_fields_diff ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             type (str):
             rating (int, none_type):
 

@@ -113,7 +113,7 @@ class APITokenWithSecretUpdate(ModelNormal):
         """APITokenWithSecretUpdate - a model defined in OpenAPI
 
         Args:
-            name (str):
+            name (str): Human-readable label for the token.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -146,7 +146,7 @@ class APITokenWithSecretUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            token (str): [optional]  # noqa: E501
+            token (str): The secret token value. Generated automatically and returned only on creation.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -201,7 +201,7 @@ class APITokenWithSecretUpdate(ModelNormal):
         """APITokenWithSecretUpdate - a model defined in OpenAPI
 
         Args:
-            name (str):
+            name (str): Human-readable label for the token.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -234,7 +234,7 @@ class APITokenWithSecretUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            token (str): [optional]  # noqa: E501
+            token (str): The secret token value. Generated automatically and returned only on creation.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

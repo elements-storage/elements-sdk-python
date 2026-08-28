@@ -81,7 +81,7 @@ class SubmitWorkstationReport(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'report': ({str: (str, none_type)},),  # noqa: E501
+            'report': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
         }
 
     @cached_property
@@ -104,7 +104,7 @@ class SubmitWorkstationReport(ModelNormal):
         """SubmitWorkstationReport - a model defined in OpenAPI
 
         Args:
-            report ({str: (str, none_type)}):
+            report ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -191,7 +191,7 @@ class SubmitWorkstationReport(ModelNormal):
         """SubmitWorkstationReport - a model defined in OpenAPI
 
         Args:
-            report ({str: (str, none_type)}):
+            report ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

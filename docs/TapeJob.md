@@ -1,5 +1,6 @@
 # TapeJob
 
+A Tape Archive job that copies content to or from LTFS tapes, with its destination, status and progress.
 
 ## Properties
 

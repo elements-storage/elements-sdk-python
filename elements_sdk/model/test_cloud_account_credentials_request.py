@@ -139,13 +139,13 @@ class TestCloudAccountCredentialsRequest(ModelNormal):
         Args:
             name (str):
             provider (str):
-            access_id (str, none_type):
-            secret (str, none_type):
-            tenant (str, none_type):
-            subscription (str, none_type):
-            endpoint (str, none_type):
+            access_id (str, none_type): Provider-specific access key / account ID. Leave empty to use IAM role-based auth (AWS).
+            secret (str, none_type): Provider-specific secret key credential
+            tenant (str, none_type): Azure tenant ID (Azure only).
+            subscription (str, none_type): Azure subscription ID (Azure only).
+            endpoint (str, none_type): Custom service endpoint URL (for S3-compatible providers).
             enabled (bool):
-            mount_credentials_management (str, none_type):
+            mount_credentials_management (str, none_type): Decides how the ELEMENTS Client will obtain credentials to mount cloud workspaces from this account. For `share` the server will expose service account credentials to clients (insecure). With `token` server will issue short lived tokens for mounting
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -242,13 +242,13 @@ class TestCloudAccountCredentialsRequest(ModelNormal):
         Args:
             name (str):
             provider (str):
-            access_id (str, none_type):
-            secret (str, none_type):
-            tenant (str, none_type):
-            subscription (str, none_type):
-            endpoint (str, none_type):
+            access_id (str, none_type): Provider-specific access key / account ID. Leave empty to use IAM role-based auth (AWS).
+            secret (str, none_type): Provider-specific secret key credential
+            tenant (str, none_type): Azure tenant ID (Azure only).
+            subscription (str, none_type): Azure subscription ID (Azure only).
+            endpoint (str, none_type): Custom service endpoint URL (for S3-compatible providers).
             enabled (bool):
-            mount_credentials_management (str, none_type):
+            mount_credentials_management (str, none_type): Decides how the ELEMENTS Client will obtain credentials to mount cloud workspaces from this account. For `share` the server will expose service account credentials to clients (insecure). With `token` server will issue short lived tokens for mounting
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -1,5 +1,6 @@
 # InterfacePartialUpdate
 
+A network interface on a storage node, with its addresses, link speed and whether it is offered for NAS mounts.
 
 ## Properties
 

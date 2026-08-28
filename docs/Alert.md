@@ -1,5 +1,6 @@
 # Alert
 
+A system alert, for example from the RAID controller or the filesystem fill level
 
 ## Properties
 
@@ -13,7 +14,7 @@ Name | Type | Description | Notes
 **node** | [**StorageNodeMini**](StorageNodeMini.md) |  | 
 **opened_at** | **datetime** |  | [readonly] 
 **closed_at** | **datetime, none_type** |  | 
-**duration** | **float, none_type** |  | 
+**duration** | **float, none_type** | Duration of the alert in seconds | 
 **acknowledged_by** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
 **silenced_by** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
 

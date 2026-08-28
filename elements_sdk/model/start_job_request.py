@@ -84,7 +84,7 @@ class StartJobRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'variables': ({str: (str, none_type)},),  # noqa: E501
+            'variables': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'secret': (str,),  # noqa: E501
         }
 
@@ -139,7 +139,7 @@ class StartJobRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            variables ({str: (str, none_type)}): [optional]  # noqa: E501
+            variables ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Values for the job's input variables, keyed by name.. [optional]  # noqa: E501
             secret (str): Only required for incoming webhooks. [optional]  # noqa: E501
         """
 
@@ -224,7 +224,7 @@ class StartJobRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            variables ({str: (str, none_type)}): [optional]  # noqa: E501
+            variables ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Values for the job's input variables, keyed by name.. [optional]  # noqa: E501
             secret (str): Only required for incoming webhooks. [optional]  # noqa: E501
         """
 

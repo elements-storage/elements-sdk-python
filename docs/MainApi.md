@@ -91,6 +91,8 @@ Method | HTTP request | Description
 [**get_license_components**](MainApi.md#get_license_components) | **GET** `/api/2/license/components` | 
 [**get_log**](MainApi.md#get_log) | **GET** `/api/2/system/log/{path}` | 
 [**get_my_avatar**](MainApi.md#get_my_avatar) | **GET** `/api/2/users/me/avatar` | 
+[**get_my_mcp_key**](MainApi.md#get_my_mcp_key) | **GET** `/api/2/users/me/mcp-key` | 
+[**get_my_mcp_sessions**](MainApi.md#get_my_mcp_sessions) | **GET** `/api/2/users/me/mcp-sessions` | 
 [**get_node_ipmi_sensors**](MainApi.md#get_node_ipmi_sensors) | **GET** `/api/2/nodes/{id}/sensors` | 
 [**get_node_raid_status**](MainApi.md#get_node_raid_status) | **GET** `/api/2/nodes/{id}/raid/status` | 
 [**get_node_stats**](MainApi.md#get_node_stats) | **GET** `/api/2/nodes/{id}/stats` | 
@@ -114,6 +116,7 @@ Method | HTTP request | Description
 [**get_user_avatar**](MainApi.md#get_user_avatar) | **GET** `/api/2/users/{id}/avatar` | 
 [**get_workstation**](MainApi.md#get_workstation) | **GET** `/api/2/workstations/{id}` | 
 [**install_stor_next_license**](MainApi.md#install_stor_next_license) | **POST** `/api/2/stornext-license` | 
+[**lookup_users**](MainApi.md#lookup_users) | **GET** `/api/2/users/lookup` | 
 [**patch_certificate_configuration**](MainApi.md#patch_certificate_configuration) | **PATCH** `/api/2/system/certificate` | 
 [**patch_cloud_account**](MainApi.md#patch_cloud_account) | **PATCH** `/api/2/cloud/accounts/{id}` | 
 [**patch_current_workstation**](MainApi.md#patch_current_workstation) | **PATCH** `/api/2/workstations/current` | 
@@ -139,6 +142,8 @@ Method | HTTP request | Description
 [**rescan_interfaces**](MainApi.md#rescan_interfaces) | **POST** `/api/2/nodes/{id}/rescan-interfaces` | 
 [**reset_user_password**](MainApi.md#reset_user_password) | **POST** `/api/2/users/{id}/password/reset` | 
 [**restart_web_ui**](MainApi.md#restart_web_ui) | **POST** `/api/2/system/restart-webui` | 
+[**revoke_my_mcp_session**](MainApi.md#revoke_my_mcp_session) | **DELETE** `/api/2/users/me/mcp-sessions/{session_id}` | 
+[**rotate_my_mcp_key**](MainApi.md#rotate_my_mcp_key) | **POST** `/api/2/users/me/mcp-key` | 
 [**run_service_operation**](MainApi.md#run_service_operation) | **POST** `/api/2/nodes/{id}/services/{service}/{operation}` | 
 [**set_ipmi_configuration**](MainApi.md#set_ipmi_configuration) | **PUT** `/api/2/nodes/{id}/ipmi` | 
 [**set_my_password**](MainApi.md#set_my_password) | **POST** `/api/2/users/me/password` | 
@@ -185,7 +190,7 @@ Method | HTTP request | Description
 
 
 
-### Required permissions    * Authenticated user 
+Mark every one of the current user's notifications as acknowledged (read), clearing the unread count.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -229,7 +234,7 @@ void (empty response body)
 
 
 
-### Required permissions    * Authenticated user 
+Asynchronously start applying pending configuration changes made through the API to users/groups/productions/workspaces/shares.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -275,7 +280,7 @@ This endpoint does not need any parameter.
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Trigger the physical locator indicator on the current storage node (sounding the buzzer) to help find the machine in a rack.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -319,7 +324,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `None` (read) / `users:manage` (write) 
+Delete multiple user accounts at once, optionally also removing their home Media Roots and home workspace content (dangerous).  ### Required permissions    * User account permission: `None` (read) / `users:manage` (write) 
 
 ### Example
 
@@ -479,7 +484,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Check outbound internet connectivity from the storage node(s) via the node agent. Returns whether all checks passed plus any per-node error messages.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -501,7 +506,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
-    run_on_all_nodes = True # bool |  (optional)
+    run_on_all_nodes = True # bool | When true, run the check on every storage node instead of only the current node. (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
@@ -517,7 +522,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **run_on_all_nodes** | **bool**|  | [optional]
+ **run_on_all_nodes** | **bool**| When true, run the check on every storage node instead of only the current node. | [optional]
 
 ### Return type
 
@@ -629,7 +634,7 @@ This endpoint does not need any parameter.
 
 
 
-### Required permissions    * Authenticated user 
+Return the number of unacknowledged (unread) notifications for the current user.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -682,7 +687,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+Asynchronously build a downloadable ZIP archive from the given files, bundles or paths. Returns the DownloadArchive object whose task can be polled for completion.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -745,7 +750,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Generate a certificate signing request (CSR) and private key for the system's web TLS certificate using the given X.509 subject details. Returns a task to track generation. The private key is securely stored on the server and will be installed once the user provides the issued certificate  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -1273,7 +1278,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `users:manage` (write) 
+### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write) 
 
 ### Example
 
@@ -1354,7 +1359,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'> 
+### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write) 
 
 ### Example
 
@@ -1378,9 +1383,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
     workstation_update = WorkstationUpdate(
-        report={
-            "key": "key_example",
-        },
+        report={},
         name="name_example",
         hostname="hostname_example",
         address="address_example",
@@ -1413,7 +1416,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+Clear the current user's notification list by removing all of their notifications.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -1457,7 +1460,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Delete the pending certificate signing request (CSR) and its private key.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -1549,7 +1552,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `None` (read) / `users:manage` (write) 
+Mass-delete every disabled user account on the system (dangerous).  ### Required permissions    * User account permission: `None` (read) / `users:manage` (write) 
 
 ### Example
 
@@ -2073,7 +2076,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Reset the system's outgoing email (SMTP) configuration to defaults, clearing the server, credentials and addresses so email sending is disabled. Returns the cleared configuration.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -2165,7 +2168,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `None` (read) / `users:manage` (write) 
+### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write) 
 
 ### Example
 
@@ -2261,7 +2264,7 @@ void (empty response body)
 
 
 
-### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'> 
+### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write) 
 
 ### Example
 
@@ -2309,6 +2312,8 @@ void (empty response body)
 
 
 
+Disable TOTP two-factor authentication for this user.  ### Required permissions    * Authenticated user 
+
 ### Example
 
 
@@ -2354,6 +2359,8 @@ void (empty response body)
     def enable_user_totp(id, enable_totp_request)
 
 
+
+Enable TOTP two-factor authentication for this user, storing the shared secret and verifying the first code.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -2508,6 +2515,8 @@ void (empty response body)
 
 
 
+### Required permissions    * Authenticated user 
+
 ### Example
 
 
@@ -2528,9 +2537,9 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
-    user = 1 # int | Filter the returned list by `user`. (optional)
-    mounted_workspaces__mount_node = 1 # int | Filter the returned list by `mounted_workspaces__mount_node`. (optional)
-    workstation = "workstation_example" # str | Filter the returned list by `workstation`. (optional)
+    user = 1 # int | Filter the returned list by `user` (exact match). (optional)
+    mounted_workspaces__mount_node = 1 # int | Filter the returned list by `mounted_workspaces__mount_node` (exact match). (optional)
+    workstation = "workstation_example" # str | Filter the returned list by `workstation` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -2549,9 +2558,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user** | **int**| Filter the returned list by &#x60;user&#x60;. | [optional]
- **mounted_workspaces__mount_node** | **int**| Filter the returned list by &#x60;mounted_workspaces__mount_node&#x60;. | [optional]
- **workstation** | **str**| Filter the returned list by &#x60;workstation&#x60;. | [optional]
+ **user** | **int**| Filter the returned list by &#x60;user&#x60; (exact match). | [optional]
+ **mounted_workspaces__mount_node** | **int**| Filter the returned list by &#x60;mounted_workspaces__mount_node&#x60; (exact match). | [optional]
+ **workstation** | **str**| Filter the returned list by &#x60;workstation&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -2589,8 +2598,8 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    provider = "archiware" # str | Filter the returned list by `provider`. (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    provider = "archiware" # str | Filter the returned list by `provider` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -2609,8 +2618,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **provider** | **str**| Filter the returned list by &#x60;provider&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **provider** | **str**| Filter the returned list by &#x60;provider&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -2703,7 +2712,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -2722,7 +2731,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -2760,8 +2769,8 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
-    user = 1 # int | Filter the returned list by `user`. (optional)
-    group = 1 # int | Filter the returned list by `group`. (optional)
+    user = 1 # int | Filter the returned list by `user` (exact match). (optional)
+    group = 1 # int | Filter the returned list by `group` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -2781,8 +2790,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user** | **int**| Filter the returned list by &#x60;user&#x60;. | [optional]
- **group** | **int**| Filter the returned list by &#x60;group&#x60;. | [optional]
+ **user** | **int**| Filter the returned list by &#x60;user&#x60; (exact match). | [optional]
+ **group** | **int**| Filter the returned list by &#x60;group&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -2821,7 +2830,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -2842,7 +2851,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -2882,7 +2891,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
-    node_id = 1 # int | Filter the returned list by `node_id`. (optional)
+    node_id = 1 # int | Filter the returned list by `node_id` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -2901,7 +2910,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **node_id** | **int**| Filter the returned list by &#x60;node_id&#x60;. | [optional]
+ **node_id** | **int**| Filter the returned list by &#x60;node_id&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -3049,9 +3058,9 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
-    topic = "topic_example" # str | Filter the returned list by `topic`. (optional)
-    type = "type_example" # str | Filter the returned list by `type`. (optional)
-    user = 1 # int | Filter the returned list by `user`. (optional)
+    topic = "topic_example" # str | Filter the returned list by `topic` (exact match). (optional)
+    type = "type_example" # str | Filter the returned list by `type` (exact match). (optional)
+    user = 1 # int | Filter the returned list by `user` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -3071,9 +3080,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **topic** | **str**| Filter the returned list by &#x60;topic&#x60;. | [optional]
- **type** | **str**| Filter the returned list by &#x60;type&#x60;. | [optional]
- **user** | **int**| Filter the returned list by &#x60;user&#x60;. | [optional]
+ **topic** | **str**| Filter the returned list by &#x60;topic&#x60; (exact match). | [optional]
+ **type** | **str**| Filter the returned list by &#x60;type&#x60; (exact match). | [optional]
+ **user** | **int**| Filter the returned list by &#x60;user&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -3165,7 +3174,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
-    address = "address_example" # str | Filter the returned list by `address`. (optional)
+    address = "address_example" # str | Filter the returned list by `address` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -3184,7 +3193,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **address** | **str**| Filter the returned list by &#x60;address&#x60;. | [optional]
+ **address** | **str**| Filter the returned list by &#x60;address&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -3222,9 +3231,9 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
-    type = "1" # str | Filter the returned list by `type`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    address = "address_example" # str | Filter the returned list by `address`. (optional)
+    type = "1" # str | Filter the returned list by `type` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    address = "address_example" # str | Filter the returned list by `address` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -3244,9 +3253,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **str**| Filter the returned list by &#x60;type&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **address** | **str**| Filter the returned list by &#x60;address&#x60;. | [optional]
+ **type** | **str**| Filter the returned list by &#x60;type&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **address** | **str**| Filter the returned list by &#x60;address&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -3263,7 +3272,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `users:manage` (write) 
+### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write) OR User account permission: `media:roots:manage` (read) / `users:manage` (write) 
 
 ### Example
 
@@ -3285,12 +3294,12 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
-    username = "username_example" # str | Filter the returned list by `username`. (optional)
-    home = "home_example" # str | Filter the returned list by `home`. (optional)
-    full_name = "full_name_example" # str | Filter the returned list by `full_name`. (optional)
-    groups = "groups_example" # str | Filter the returned list by `groups`. (optional)
-    is_cloud = "is_cloud_example" # str | Filter the returned list by `is_cloud`. (optional)
-    is_enabled = "is_enabled_example" # str | Filter the returned list by `is_enabled`. (optional)
+    username = "username_example" # str | Filter the returned list by `username` (exact match). (optional)
+    home = "home_example" # str | Filter the returned list by `home` (exact match). (optional)
+    full_name = "full_name_example" # str | Filter the returned list by `full_name` (exact match). (optional)
+    groups = "groups_example" # str | Filter the returned list by `groups` (exact match). (optional)
+    is_cloud = "is_cloud_example" # str | Filter the returned list by `is_cloud` (exact match). (optional)
+    is_enabled = "is_enabled_example" # str | Filter the returned list by `is_enabled` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -3313,12 +3322,12 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| Filter the returned list by &#x60;username&#x60;. | [optional]
- **home** | **str**| Filter the returned list by &#x60;home&#x60;. | [optional]
- **full_name** | **str**| Filter the returned list by &#x60;full_name&#x60;. | [optional]
- **groups** | **str**| Filter the returned list by &#x60;groups&#x60;. | [optional]
- **is_cloud** | **str**| Filter the returned list by &#x60;is_cloud&#x60;. | [optional]
- **is_enabled** | **str**| Filter the returned list by &#x60;is_enabled&#x60;. | [optional]
+ **username** | **str**| Filter the returned list by &#x60;username&#x60; (exact match). | [optional]
+ **home** | **str**| Filter the returned list by &#x60;home&#x60; (exact match). | [optional]
+ **full_name** | **str**| Filter the returned list by &#x60;full_name&#x60; (exact match). | [optional]
+ **groups** | **str**| Filter the returned list by &#x60;groups&#x60; (exact match). | [optional]
+ **is_cloud** | **str**| Filter the returned list by &#x60;is_cloud&#x60; (exact match). | [optional]
+ **is_enabled** | **str**| Filter the returned list by &#x60;is_enabled&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -3338,7 +3347,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'> 
+### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write) 
 
 ### Example
 
@@ -3360,8 +3369,8 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
-    hostname = "hostname_example" # str | Filter the returned list by `hostname`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    hostname = "hostname_example" # str | Filter the returned list by `hostname` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -3383,8 +3392,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hostname** | **str**| Filter the returned list by &#x60;hostname&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **hostname** | **str**| Filter the returned list by &#x60;hostname&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -3449,7 +3458,7 @@ This endpoint does not need any parameter.
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Retrieve the previously generated certificate signing request (CSR).  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -3585,6 +3594,8 @@ This endpoint does not need any parameter.
 
 
 
+### Required permissions    * Authenticated user 
+
 ### Example
 
 
@@ -3683,7 +3694,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Retrieve estimated storage costs for this cloud account for the current and previous month.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -3733,7 +3744,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+List the storage roots (possible volume paths for each bucket/container and their regions) available to this cloud account.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -3783,7 +3794,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Return the used size, in bytes, of each cloud volume backed by this account.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -3833,7 +3844,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+Return the storage node that is serving this API request (the current node).  ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -3855,9 +3866,9 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
-    type = "1" # str | Filter the returned list by `type`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    address = "address_example" # str | Filter the returned list by `address`. (optional)
+    type = "1" # str | Filter the returned list by `type` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    address = "address_example" # str | Filter the returned list by `address` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -3876,9 +3887,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **str**| Filter the returned list by &#x60;type&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **address** | **str**| Filter the returned list by &#x60;address&#x60;. | [optional]
+ **type** | **str**| Filter the returned list by &#x60;type&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **address** | **str**| Filter the returned list by &#x60;address&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -3994,7 +4005,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+Download the built ZIP archive file.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -4338,7 +4349,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Get the IPMI (out-of-band management) network configuration of this storage node.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -4538,6 +4549,8 @@ Name | Type | Description  | Notes
 
 
 
+Return the currently active license, or an empty response if none is installed.  ### Required permissions    * Authenticated user 
+
 ### Example
 
 
@@ -4581,6 +4594,8 @@ This endpoint does not need any parameter.
     def [LicenseComponentsEndpointResponse] get_license_components()
 
 
+
+List all licensable components (features) known to the system, with their identifiers and names.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -4734,12 +4749,122 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **get_my_mcp_key**
+    def MCPUserKey get_my_mcp_key()
+
+
+
+### Required permissions    * Authenticated user 
+
+### Example
+
+
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.mcp_user_key import MCPUserKey
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local:8080",
+    discard_unknown_keys=True,
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+with elements_sdk.ApiClient(configuration) as api_client:
+    api_instance = main_api.MainApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.get_my_mcp_key(ordering=ordering, limit=limit, offset=offset)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->get_my_mcp_key: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
+
+### Return type
+
+[**MCPUserKey**](MCPUserKey.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **get_my_mcp_sessions**
+    def [MCPSession] get_my_mcp_sessions()
+
+
+
+### Required permissions    * Authenticated user 
+
+### Example
+
+
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.mcp_session import MCPSession
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local:8080",
+    discard_unknown_keys=True,
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+with elements_sdk.ApiClient(configuration) as api_client:
+    api_instance = main_api.MainApi(api_client)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.get_my_mcp_sessions(ordering=ordering, limit=limit, offset=offset)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->get_my_mcp_sessions: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
+
+### Return type
+
+[**[MCPSession]**](MCPSession.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
 # **get_node_ipmi_sensors**
     def Sensors get_node_ipmi_sensors(id)
 
 
 
-### Required permissions    * User account permission: `system:status:view` 
+Read the node's current IPMI hardware sensor readings (temperatures, fan speeds, voltages) from its BMC.  ### Required permissions    * User account permission: `system:status:view` 
 
 ### Example
 
@@ -4789,7 +4914,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `system:status:view` 
+Return the node's RAID controller status, grouped by controller type (LSI, Areca and RAIDIX).  ### Required permissions    * User account permission: `system:status:view` 
 
 ### Example
 
@@ -4839,7 +4964,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `system:status:view` 
+Return recent CPU, RAM, network and disk I/O usage samples for the node.  ### Required permissions    * User account permission: `system:status:view` 
 
 ### Example
 
@@ -4889,7 +5014,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Return the node's current time, its configured timezone and the list of available timezones.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -5149,6 +5274,8 @@ Name | Type | Description  | Notes
 
 
 
+### Required permissions    * Authenticated user 
+
 ### Example
 
 
@@ -5273,11 +5400,12 @@ with elements_sdk.ApiClient(configuration) as api_client:
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
+    include_allowed_fs_paths = True # bool |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.get_profile(ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_profile(ordering=ordering, limit=limit, offset=offset, include_allowed_fs_paths=include_allowed_fs_paths)
         pprint(api_response)
     except elements_sdk.ApiException as e:
         print("Exception when calling MainApi->get_profile: %s\n" % e)
@@ -5291,6 +5419,7 @@ Name | Type | Description  | Notes
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
+ **include_allowed_fs_paths** | **bool**|  | [optional]
 
 ### Return type
 
@@ -5393,7 +5522,7 @@ void (empty response body)
 
 
 
-### Required permissions    * Authenticated user 
+Return the ELEMENTS release notes (changelog) for recent versions, rendered as HTML, newest first.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -5439,7 +5568,7 @@ This endpoint does not need any parameter.
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Return whether the named system service on this storage node is running, enabled (starts at boot) and masked.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -5537,7 +5666,7 @@ This endpoint does not need any parameter.
 
 
 
-### Required permissions    * User account permission: `system:admin-access`   * License component: stornext_mdc 
+Return the status, expiry and capacity of the StorNext license on the current storage node.  ### Required permissions    * User account permission: `system:admin-access`   * License component: stornext_mdc 
 
 ### Example
 
@@ -5643,6 +5772,8 @@ Name | Type | Description  | Notes
 
 
 
+Return general system information: license, version, language, enabled features, configured SAML providers and any global alerts.  
+
 ### Example
 
 
@@ -5687,7 +5818,7 @@ This endpoint does not need any parameter.
 
 
 
-### Required permissions    * User account permission: `None` (read) / `users:manage` (write) 
+### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write) 
 
 ### Example
 
@@ -5797,7 +5928,7 @@ void (empty response body)
 
 
 
-### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'> 
+### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write) 
 
 ### Example
 
@@ -5892,6 +6023,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StorNextLicenseEndpointResponse**](StorNextLicenseEndpointResponse.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **lookup_users**
+    def [ElementsUserLookup] lookup_users()
+
+
+
+### Required permissions    * Authenticated user 
+
+### Example
+
+
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.elements_user_lookup import ElementsUserLookup
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local:8080",
+    discard_unknown_keys=True,
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+with elements_sdk.ApiClient(configuration) as api_client:
+    api_instance = main_api.MainApi(api_client)
+    id = 1 # int | Filter the returned list by `id` (exact match). (optional)
+    username = "username_example" # str | Filter the returned list by `username` (exact match). (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
+    filter = "filter_example" # str |  (optional)
+    filtering_mode = "exact" # str |  (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.lookup_users(id=id, username=username, ordering=ordering, limit=limit, offset=offset, filter=filter, filtering_mode=filtering_mode)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->lookup_users: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
+ **username** | **str**| Filter the returned list by &#x60;username&#x60; (exact match). | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
+ **filter** | **str**|  | [optional]
+ **filtering_mode** | **str**|  | [optional]
+
+### Return type
+
+[**[ElementsUserLookup]**](ElementsUserLookup.md)
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
@@ -6017,6 +6211,8 @@ Name | Type | Description  | Notes
 
 
 
+### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write) 
+
 ### Example
 
 
@@ -6039,9 +6235,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
     submit_workstation_report = SubmitWorkstationReport(
-        report={
-            "key": "key_example",
-        },
+        report={},
     ) # SubmitWorkstationReport | 
 
     # example passing only required values which don't have defaults set
@@ -6416,9 +6610,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
                 id=1,
             ),
         ],
-        kwargs={
-            "key": "key_example",
-        },
+        kwargs={},
     ) # NotificationPartialUpdate | 
 
     # example passing only required values which don't have defaults set
@@ -6732,6 +6924,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
         permission_mask="permission_mask_example",
         address_override="address_override_example",
         auto_scan_interfaces=True,
+        mcp_tunnel_enabled=True,
         volume_queues=[
             1,
         ],
@@ -6764,7 +6957,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `users:manage` (write) 
+### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write) 
 
 ### Example
 
@@ -6847,7 +7040,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'> 
+### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write) 
 
 ### Example
 
@@ -6872,9 +7065,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
     id = "id_example" # str | A unique value identifying this workstation.
     workstation_partial_update = WorkstationPartialUpdate(
-        report={
-            "key": "key_example",
-        },
+        report={},
         name="name_example",
         hostname="hostname_example",
         address="address_example",
@@ -7140,9 +7331,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     register_upload_metadata_endpoint_request = RegisterUploadMetadataEndpointRequest(
         items=[
             MetadataItem(
-                custom_fields={
-                    "key": "key_example",
-                },
+                custom_fields={},
                 tags=[
                     {
                         "key": "key_example",
@@ -7285,7 +7474,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `users:manage` 
+Generate a password-reset token for this user so they can set a new password (e.g. via a reset link).  ### Required permissions    * User account permission: `users:manage` 
 
 ### Example
 
@@ -7372,6 +7561,100 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **revoke_my_mcp_session**
+    def revoke_my_mcp_session(session_id)
+
+
+
+### Required permissions    * Authenticated user 
+
+### Example
+
+
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local:8080",
+    discard_unknown_keys=True,
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+with elements_sdk.ApiClient(configuration) as api_client:
+    api_instance = main_api.MainApi(api_client)
+    session_id = "session_id_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_instance.revoke_my_mcp_session(session_id)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->revoke_my_mcp_session: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **session_id** | **str**|  |
+
+### Return type
+
+void (empty response body)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **rotate_my_mcp_key**
+    def MCPUserKey rotate_my_mcp_key()
+
+
+
+### Required permissions    * Authenticated user 
+
+### Example
+
+
+```python
+import elements_sdk
+from elements_sdk.api import main_api
+from elements_sdk.model.mcp_user_key import MCPUserKey
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local:8080",
+    discard_unknown_keys=True,
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+with elements_sdk.ApiClient(configuration) as api_client:
+    api_instance = main_api.MainApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        api_response = api_instance.rotate_my_mcp_key()
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MainApi->rotate_my_mcp_key: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**MCPUserKey**](MCPUserKey.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
 # **run_service_operation**
     def run_service_operation(id, service, operation)
 
@@ -7429,7 +7712,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Set the IPMI (out-of-band management) network configuration of this storage node.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -7538,7 +7821,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Set the node's timezone and (optionally) its local clock.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -7601,7 +7884,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `users:manage` 
+Set this user's password to the given value.  ### Required permissions    * User account permission: `users:manage` 
 
 ### Example
 
@@ -7698,7 +7981,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Silence the audible RAID alarm on this storage node.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -7746,7 +8029,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Trigger a rebuild of the search index across all indexing nodes. Returns the started tasks.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -7799,7 +8082,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Start a remote support session, opening a secure tunnel for ELEMENTS support to access this system. Returns a task to track it.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -7845,7 +8128,7 @@ This endpoint does not need any parameter.
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Start a backup of the system configuration and database to the given path. Returns a task to track progress.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -7898,7 +8181,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `users:manage` 
+Synchronize this group's members from its linked LDAP / Active Directory source.  ### Required permissions    * User account permission: `users:manage` 
 
 ### Example
 
@@ -7946,7 +8229,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `users:manage` 
+Synchronize user info for all ELEMENTS users belonging to this LDAP / Active Directory server from the directory.  ### Required permissions    * User account permission: `users:manage` 
 
 ### Example
 
@@ -7994,7 +8277,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Synchronize the clock of all storage nodes via NTP.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -8037,6 +8320,8 @@ void (empty response body)
     def SyncTOTP sync_user_totp(id, sync_totp_request)
 
 
+
+Verify a current TOTP code for this user and recalculate the authenticator's time drift. Returns the drift.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -8091,7 +8376,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Test the given cloud provider credentials without saving them; returns the subscriptions/accounts they can access.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -8152,7 +8437,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Send a test email to the given address using the current SMTP configuration.  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -8727,9 +9012,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
                 id=1,
             ),
         ],
-        kwargs={
-            "key": "key_example",
-        },
+        kwargs={},
     ) # NotificationUpdate | 
 
     # example passing only required values which don't have defaults set
@@ -8934,6 +9217,8 @@ Name | Type | Description  | Notes
 
 
 
+### Required permissions    * Authenticated user 
+
 ### Example
 
 
@@ -8990,12 +9275,15 @@ with elements_sdk.ApiClient(configuration) as api_client:
         media_require_link_password=True,
         media_max_link_views=-2147483648,
         media_shuttle_left_behaviour="slowdown",
+        mcp_enabled=True,
+        mcp_tunnel_enabled=True,
         ntp_enable=True,
         ntp_offer_sync=True,
         otp_policy="admin-only",
         password_login=True,
         session_key_restrict_to_ip=True,
         sharing_smb_allow_anonymous=True,
+        sharing_smb_enable_multichannel=True,
         tasks_run_scheduled=True,
         update_in_progress=True,
         users_default_permissions="users_default_permissions_example",
@@ -9365,6 +9653,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
         permission_mask="permission_mask_example",
         address_override="address_override_example",
         auto_scan_interfaces=True,
+        mcp_tunnel_enabled=True,
         volume_queues=[
             1,
         ],
@@ -9397,7 +9686,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `users:manage` (write) 
+### Required permissions    * User account permission: `users:view` (read) / `users:manage` (write) 
 
 ### Example
 
@@ -9533,7 +9822,7 @@ void (empty response body)
 
 
 
-### Required permissions    * Authenticated user   * Own workstation or <class 'elements.api.permissions.UserPermission.<locals>.Permission'> 
+### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write) 
 
 ### Example
 
@@ -9558,9 +9847,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = main_api.MainApi(api_client)
     id = "id_example" # str | A unique value identifying this workstation.
     workstation_update = WorkstationUpdate(
-        report={
-            "key": "key_example",
-        },
+        report={},
         name="name_example",
         hostname="hostname_example",
         address="address_example",

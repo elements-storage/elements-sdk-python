@@ -1,5 +1,6 @@
 # MediaFileBundle
 
+Media File Bundles represent groups of files that together represent a single media object. For example, related video+audio OP-Atom files, or a DPX framestack. Media Library scanner will automatically detect these groups and create bundles. Bundling cannot be managed by the user except for the `disable_framestack` flag in the Media Root.
 
 ## Properties
 

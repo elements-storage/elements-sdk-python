@@ -6,10 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
-**path** | **str** |  | 
-**is_default** | **bool** |  | 
+**path** | **str** | The exact server-side mountpoint path or cloud storage URI for this volume | 
+**is_default** | **bool** | Pre-selects this volume in the UI selectors | 
 **display_name** | **str** |  | 
-**visual_tag** | **str, none_type** |  | 
+**visual_tag** | **str, none_type** | A visual label shown for this volume in the UI | 
 **type** | **str** |  | 
 **cloud_account** | [**CloudAccountMini**](CloudAccountMini.md) |  | [optional] 
 

@@ -1,5 +1,6 @@
 # PasswordPolicy
 
+The system's password policy: the rules that user passwords must satisfy (such as length and complexity requirements).
 
 ## Properties
 

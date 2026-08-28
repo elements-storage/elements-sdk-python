@@ -85,7 +85,7 @@ class StartTaskRequest(ModelNormal):
         """
         return {
             'task_type': (str,),  # noqa: E501
-            'parameters': ({str: (str, none_type)},),  # noqa: E501
+            'parameters': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'sync': (bool,),  # noqa: E501
         }
 
@@ -111,8 +111,8 @@ class StartTaskRequest(ModelNormal):
         """StartTaskRequest - a model defined in OpenAPI
 
         Args:
-            task_type (str):
-            parameters ({str: (str, none_type)}):
+            task_type (str): Identifier of the task type to run.
+            parameters ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Parameters to pass to the task, keyed by name.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -145,7 +145,7 @@ class StartTaskRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            sync (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            sync (bool): When true, run the task synchronously and return only once it completes.. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -201,8 +201,8 @@ class StartTaskRequest(ModelNormal):
         """StartTaskRequest - a model defined in OpenAPI
 
         Args:
-            task_type (str):
-            parameters ({str: (str, none_type)}):
+            task_type (str): Identifier of the task type to run.
+            parameters ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Parameters to pass to the task, keyed by name.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -235,7 +235,7 @@ class StartTaskRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            sync (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            sync (bool): When true, run the task synchronously and return only once it completes.. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

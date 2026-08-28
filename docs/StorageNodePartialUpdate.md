@@ -1,5 +1,6 @@
 # StorageNodePartialUpdate
 
+A storage node (ELEMENTS server) that is part of this ELEMENTS system/cluster, running storage services and Automation task queues.
 
 ## Properties
 
@@ -29,6 +30,7 @@ Name | Type | Description | Notes
 **permission_mask** | **str** | Comma-separated list of user permissions allowed on this node | [optional] 
 **address_override** | **str, none_type** | Enforces mounting from a specific address/hostname instead of the available interfaces | [optional] 
 **auto_scan_interfaces** | **bool** |  | [optional] 
+**mcp_tunnel_enabled** | **bool** |  | [optional] 
 **volume_queues** | **[int]** | Run volume-specific tasks for selected volumes. | [optional] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**password** | **str** |  | 
+**password** | **str** | The new password to set for the user. | 
 **current_password** | **str** |  | 
 **current_otp** | **str, none_type** |  | [optional] 
 

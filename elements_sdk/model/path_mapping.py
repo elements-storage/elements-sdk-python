@@ -112,8 +112,8 @@ class PathMapping(ModelNormal):
         """PathMapping - a model defined in OpenAPI
 
         Args:
-            local (str):
-            remote (str):
+            local (str): Path as seen by ELEMENTS.
+            remote (str): Corresponding path as seen by the transcoder.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -201,8 +201,8 @@ class PathMapping(ModelNormal):
         """PathMapping - a model defined in OpenAPI
 
         Args:
-            local (str):
-            remote (str):
+            local (str): Path as seen by ELEMENTS.
+            remote (str): Corresponding path as seen by the transcoder.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

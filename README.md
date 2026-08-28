@@ -2,7 +2,7 @@
 
 - API version: 2
 - Python 2.7 and 3.4+
-- Latest build: 26.5.0
+- Latest build: 26.8.0
 
 ## Installation & Usage
 
@@ -16,6 +16,7 @@ import elements_sdk
 ```
 
 ## Example
+
 ```python
 import elements_sdk
 from elements_sdk.api.storage_api import StorageApi
@@ -55,7 +56,6 @@ users = api_instance.get_all_users()
 
 print(users)
 ```
-
 
 ## API Endpoints
 
@@ -299,6 +299,8 @@ Class | Method | HTTP request | Description
 *MainApi* | [**get_license_components**](docs/MainApi#get_license_components) | **GET** `/api/2/license/components` | 
 *MainApi* | [**get_log**](docs/MainApi#get_log) | **GET** `/api/2/system/log/{path}` | 
 *MainApi* | [**get_my_avatar**](docs/MainApi#get_my_avatar) | **GET** `/api/2/users/me/avatar` | 
+*MainApi* | [**get_my_mcp_key**](docs/MainApi#get_my_mcp_key) | **GET** `/api/2/users/me/mcp-key` | 
+*MainApi* | [**get_my_mcp_sessions**](docs/MainApi#get_my_mcp_sessions) | **GET** `/api/2/users/me/mcp-sessions` | 
 *MainApi* | [**get_node_ipmi_sensors**](docs/MainApi#get_node_ipmi_sensors) | **GET** `/api/2/nodes/{id}/sensors` | 
 *MainApi* | [**get_node_raid_status**](docs/MainApi#get_node_raid_status) | **GET** `/api/2/nodes/{id}/raid/status` | 
 *MainApi* | [**get_node_stats**](docs/MainApi#get_node_stats) | **GET** `/api/2/nodes/{id}/stats` | 
@@ -322,6 +324,7 @@ Class | Method | HTTP request | Description
 *MainApi* | [**get_user_avatar**](docs/MainApi#get_user_avatar) | **GET** `/api/2/users/{id}/avatar` | 
 *MainApi* | [**get_workstation**](docs/MainApi#get_workstation) | **GET** `/api/2/workstations/{id}` | 
 *MainApi* | [**install_stor_next_license**](docs/MainApi#install_stor_next_license) | **POST** `/api/2/stornext-license` | 
+*MainApi* | [**lookup_users**](docs/MainApi#lookup_users) | **GET** `/api/2/users/lookup` | 
 *MainApi* | [**patch_certificate_configuration**](docs/MainApi#patch_certificate_configuration) | **PATCH** `/api/2/system/certificate` | 
 *MainApi* | [**patch_cloud_account**](docs/MainApi#patch_cloud_account) | **PATCH** `/api/2/cloud/accounts/{id}` | 
 *MainApi* | [**patch_current_workstation**](docs/MainApi#patch_current_workstation) | **PATCH** `/api/2/workstations/current` | 
@@ -347,6 +350,8 @@ Class | Method | HTTP request | Description
 *MainApi* | [**rescan_interfaces**](docs/MainApi#rescan_interfaces) | **POST** `/api/2/nodes/{id}/rescan-interfaces` | 
 *MainApi* | [**reset_user_password**](docs/MainApi#reset_user_password) | **POST** `/api/2/users/{id}/password/reset` | 
 *MainApi* | [**restart_web_ui**](docs/MainApi#restart_web_ui) | **POST** `/api/2/system/restart-webui` | 
+*MainApi* | [**revoke_my_mcp_session**](docs/MainApi#revoke_my_mcp_session) | **DELETE** `/api/2/users/me/mcp-sessions/{session_id}` | 
+*MainApi* | [**rotate_my_mcp_key**](docs/MainApi#rotate_my_mcp_key) | **POST** `/api/2/users/me/mcp-key` | 
 *MainApi* | [**run_service_operation**](docs/MainApi#run_service_operation) | **POST** `/api/2/nodes/{id}/services/{service}/{operation}` | 
 *MainApi* | [**set_ipmi_configuration**](docs/MainApi#set_ipmi_configuration) | **PUT** `/api/2/nodes/{id}/ipmi` | 
 *MainApi* | [**set_my_password**](docs/MainApi#set_my_password) | **POST** `/api/2/users/me/password` | 
@@ -614,6 +619,7 @@ Class | Method | HTTP request | Description
 *MediaLibraryApi* | [**update_subclip**](docs/MediaLibraryApi#update_subclip) | **PUT** `/api/2/media/{asset_id}/subclips/{id}` | 
 *MediaLibraryApi* | [**update_workflow**](docs/MediaLibraryApi#update_workflow) | **PUT** `/api/2/media/workflows/{id}` | 
 *MediaLibraryApi* | [**web_upload_completed**](docs/MediaLibraryApi#web_upload_completed) | **POST** `/api/2/media/web/upload-completed` | 
+*PrivateApi* | [**check_one_fs_connection**](docs/PrivateApi#check_one_fs_connection) | **POST** `/api/2/private/onefs-integrations/check-connection` | 
 *PrivateApi* | [**check_pmr**](docs/PrivateApi#check_pmr) | **POST** `/api/2/panel/check-pmr` | 
 *PrivateApi* | [**cleanup_media_root**](docs/PrivateApi#cleanup_media_root) | **POST** `/api/2/media/root-cleanup` | 
 *PrivateApi* | [**create_one_fs_integration**](docs/PrivateApi#create_one_fs_integration) | **POST** `/api/2/private/onefs-integrations` | 
@@ -625,20 +631,22 @@ Class | Method | HTTP request | Description
 *PrivateApi* | [**export_updates**](docs/PrivateApi#export_updates) | **GET** `/api/2/private/export/updates/{root_id}` | 
 *PrivateApi* | [**fast_lane_get_token_params**](docs/PrivateApi#fast_lane_get_token_params) | **GET** `/api/2/private/fast-lane/{token}` | 
 *PrivateApi* | [**fast_lane_login_with_password**](docs/PrivateApi#fast_lane_login_with_password) | **POST** `/api/2/private/fast-lane/{token}` | 
-*PrivateApi* | [**get**](docs/PrivateApi#get) | **GET** `/api/2/private/bootstrap` | 
 *PrivateApi* | [**get_agent_auth_token**](docs/PrivateApi#get_agent_auth_token) | **GET** `/api/2/private/elements-agent-auth` | 
 *PrivateApi* | [**get_all_one_fs_integrations**](docs/PrivateApi#get_all_one_fs_integrations) | **GET** `/api/2/private/onefs-integrations` | 
 *PrivateApi* | [**get_all_qumulo_integrations**](docs/PrivateApi#get_all_qumulo_integrations) | **GET** `/api/2/private/qumulo-integrations` | 
+*PrivateApi* | [**get_bootstrap_data**](docs/PrivateApi#get_bootstrap_data) | **GET** `/api/2/private/bootstrap` | 
 *PrivateApi* | [**get_client_side_url**](docs/PrivateApi#get_client_side_url) | **POST** `/api/2/private/client-side-url` | 
 *PrivateApi* | [**get_help_page**](docs/PrivateApi#get_help_page) | **GET** `/api/2/help/{id}` | 
 *PrivateApi* | [**get_licensing_state**](docs/PrivateApi#get_licensing_state) | **POST** `/api/2/private/licensing-state` | 
 *PrivateApi* | [**get_locale**](docs/PrivateApi#get_locale) | **GET** `/api/2/private/locale/{lang}` | 
+*PrivateApi* | [**get_mcp_tunnel_status**](docs/PrivateApi#get_mcp_tunnel_status) | **GET** `/api/2/private/mcp-tunnel/status` | 
 *PrivateApi* | [**get_media_library_homepage_content**](docs/PrivateApi#get_media_library_homepage_content) | **GET** `/api/2/private/media/homepage-content` | 
 *PrivateApi* | [**get_one_fs_integration**](docs/PrivateApi#get_one_fs_integration) | **GET** `/api/2/private/onefs-integrations/{id}` | 
 *PrivateApi* | [**get_proxy_fs_size**](docs/PrivateApi#get_proxy_fs_size) | **GET** `/api/2/private/media/proxyfs-size` | 
 *PrivateApi* | [**get_qumulo_integration**](docs/PrivateApi#get_qumulo_integration) | **GET** `/api/2/private/qumulo-integrations/{id}` | 
 *PrivateApi* | [**get_samba_dfree_string**](docs/PrivateApi#get_samba_dfree_string) | **POST** `/api/2/private/dfree` | 
-*PrivateApi* | [**install_license**](docs/PrivateApi#install_license) | **POST** `/api/2/license/install` | 
+*PrivateApi* | [**install_license_offline**](docs/PrivateApi#install_license_offline) | **POST** `/api/2/license/install/offline` | 
+*PrivateApi* | [**install_license_online**](docs/PrivateApi#install_license_online) | **POST** `/api/2/license/install/online` | 
 *PrivateApi* | [**language_server_request**](docs/PrivateApi#language_server_request) | **POST** `/api/2/language-server/{language}` | 
 *PrivateApi* | [**locate_file**](docs/PrivateApi#locate_file) | **POST** `/api/2/private/locate` | 
 *PrivateApi* | [**locate_metadata**](docs/PrivateApi#locate_metadata) | **POST** `/api/2/panel/locate-metadata` | 
@@ -646,6 +654,7 @@ Class | Method | HTTP request | Description
 *PrivateApi* | [**lookup_upload_folder_by_path**](docs/PrivateApi#lookup_upload_folder_by_path) | **GET** `/api/2/private/media/lookup-upload-folder` | 
 *PrivateApi* | [**patch_one_fs_integration**](docs/PrivateApi#patch_one_fs_integration) | **PATCH** `/api/2/private/onefs-integrations/{id}` | 
 *PrivateApi* | [**patch_qumulo_integration**](docs/PrivateApi#patch_qumulo_integration) | **PATCH** `/api/2/private/qumulo-integrations/{id}` | 
+*PrivateApi* | [**restart_mcp_tunnel**](docs/PrivateApi#restart_mcp_tunnel) | **POST** `/api/2/system/mcp-tunnel/restart` | 
 *PrivateApi* | [**start_benchmark_session**](docs/PrivateApi#start_benchmark_session) | **POST** `/api/2/private/benchmark` | 
 *PrivateApi* | [**start_impersonation**](docs/PrivateApi#start_impersonation) | **POST** `/api/2/auth/impersonation` | 
 *PrivateApi* | [**start_impersonation_via_redirect**](docs/PrivateApi#start_impersonation_via_redirect) | **GET** `/api/2/auth/impersonation/redirect/{user_id}` | 
@@ -742,6 +751,7 @@ Class | Method | HTTP request | Description
 *StorageApi* | [**update_volume**](docs/StorageApi#update_volume) | **PUT** `/api/2/volumes/{id}` | 
 *StorageApi* | [**update_workspace**](docs/StorageApi#update_workspace) | **PUT** `/api/2/workspaces/{id}` | 
 *StorageApi* | [**update_workspace_permission**](docs/StorageApi#update_workspace_permission) | **PUT** `/api/2/workspace-permissions/{id}` | 
+*StorageApi* | [**validate_share_path**](docs/StorageApi#validate_share_path) | **POST** `/api/2/shares/validate-path` | 
 *StorageApi* | [**zip_files**](docs/StorageApi#zip_files) | **POST** `/api/2/filesystem/zip` | 
 *TapeArchiveApi* | [**archive_to_tape**](docs/TapeArchiveApi#archive_to_tape) | **POST** `/api/2/archive/tape/archive` | 
 *TapeArchiveApi* | [**cancel_all_tape_archive_jobs**](docs/TapeArchiveApi#cancel_all_tape_archive_jobs) | **POST** `/api/2/archive/tape/jobs/cancel-all` | 
@@ -863,6 +873,8 @@ Class | Method | HTTP request | Description
  - [ChangeStorageClassRequest](docs/ChangeStorageClassRequest)
  - [CheckCertificateRequest](docs/CheckCertificateRequest)
  - [CheckConnectivityEndpointResponse](docs/CheckConnectivityEndpointResponse)
+ - [CheckOneFSConnectionRequest](docs/CheckOneFSConnectionRequest)
+ - [CheckOneFSConnectionResponse](docs/CheckOneFSConnectionResponse)
  - [CheckPMREndpointRequest](docs/CheckPMREndpointRequest)
  - [CheckPMREndpointResponse](docs/CheckPMREndpointResponse)
  - [CleanupMediaRootRequest](docs/CleanupMediaRootRequest)
@@ -904,6 +916,7 @@ Class | Method | HTTP request | Description
  - [DownloadArchive](docs/DownloadArchive)
  - [DownloadArchivePartialUpdate](docs/DownloadArchivePartialUpdate)
  - [DownloadArchiveUpdate](docs/DownloadArchiveUpdate)
+ - [EagleNestDataEntryMapping](docs/EagleNestDataEntryMapping)
  - [EagleNestFieldMapping](docs/EagleNestFieldMapping)
  - [EagleNestIntegration](docs/EagleNestIntegration)
  - [EagleNestIntegrationPartialUpdate](docs/EagleNestIntegrationPartialUpdate)
@@ -926,7 +939,7 @@ Class | Method | HTTP request | Description
  - [ElementsUserDetail](docs/ElementsUserDetail)
  - [ElementsUserDetailPartialUpdate](docs/ElementsUserDetailPartialUpdate)
  - [ElementsUserDetailUpdate](docs/ElementsUserDetailUpdate)
- - [ElementsUserMicro](docs/ElementsUserMicro)
+ - [ElementsUserLookup](docs/ElementsUserLookup)
  - [ElementsUserMini](docs/ElementsUserMini)
  - [ElementsUserMiniReference](docs/ElementsUserMiniReference)
  - [ElementsUserMiniWithAvatar](docs/ElementsUserMiniWithAvatar)
@@ -987,7 +1000,8 @@ Class | Method | HTTP request | Description
  - [ImportAIModelResponse](docs/ImportAIModelResponse)
  - [ImportJobRequest](docs/ImportJobRequest)
  - [ImportJobResponse](docs/ImportJobResponse)
- - [InstallLicenseEndpointRequest](docs/InstallLicenseEndpointRequest)
+ - [InstallLicenseOfflineEndpointRequest](docs/InstallLicenseOfflineEndpointRequest)
+ - [InstallLicenseOnlineEndpointRequest](docs/InstallLicenseOnlineEndpointRequest)
  - [InstantiateFileTemplateRequest](docs/InstantiateFileTemplateRequest)
  - [Interface](docs/Interface)
  - [InterfacePartialUpdate](docs/InterfacePartialUpdate)
@@ -1027,9 +1041,12 @@ Class | Method | HTTP request | Description
  - [LocateProxiesEndpointRequest](docs/LocateProxiesEndpointRequest)
  - [LocateProxiesEndpointResponse](docs/LocateProxiesEndpointResponse)
  - [LocateResult](docs/LocateResult)
+ - [MCPSession](docs/MCPSession)
+ - [MCPUserKey](docs/MCPUserKey)
  - [Marker](docs/Marker)
  - [MarkerPartialUpdate](docs/MarkerPartialUpdate)
  - [MarkerUpdate](docs/MarkerUpdate)
+ - [McpTunnelStatusEndpointResponse](docs/McpTunnelStatusEndpointResponse)
  - [MediaFile](docs/MediaFile)
  - [MediaFileBundle](docs/MediaFileBundle)
  - [MediaFileBundleExclusionInfo](docs/MediaFileBundleExclusionInfo)
@@ -1174,11 +1191,13 @@ Class | Method | HTTP request | Description
  - [Sensor](docs/Sensor)
  - [Sensors](docs/Sensors)
  - [SequenceRenderRequestOptions](docs/SequenceRenderRequestOptions)
+ - [ServiceCertificateStatus](docs/ServiceCertificateStatus)
  - [ServiceStatus](docs/ServiceStatus)
  - [SetTimeRequest](docs/SetTimeRequest)
  - [SetupOffloadRequest](docs/SetupOffloadRequest)
  - [Share](docs/Share)
  - [SharePartialUpdate](docs/SharePartialUpdate)
+ - [SharePathValidationRequest](docs/SharePathValidationRequest)
  - [ShareToHomeWorkspaceEndpointRequest](docs/ShareToHomeWorkspaceEndpointRequest)
  - [ShareUpdate](docs/ShareUpdate)
  - [SharingPermissionPreset](docs/SharingPermissionPreset)

@@ -129,10 +129,10 @@ class SequenceRenderRequestOptions(ModelNormal):
         """SequenceRenderRequestOptions - a model defined in OpenAPI
 
         Args:
-            output_path (str):
-            tails (float):
-            resolution (str):
-            fps (str):
+            output_path (str): Destination path for the rendered output.
+            tails (float): Duration of subclip tails to leave in seconds
+            resolution (str): Output resolution.
+            fps (str): Output frame rate, as an exact fraction.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -165,9 +165,9 @@ class SequenceRenderRequestOptions(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            combine (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            data_source (str): [optional] if omitted the server will use the default value of "source"  # noqa: E501
-            wrap_opatom (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            combine (bool): When true, render the whole sequence into a single output file.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            data_source (str): Whether to render from the original `source` media or from `proxy` media.. [optional] if omitted the server will use the default value of "source"  # noqa: E501
+            wrap_opatom (bool): When true, wrap the output as OP-Atom MXF.. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -225,10 +225,10 @@ class SequenceRenderRequestOptions(ModelNormal):
         """SequenceRenderRequestOptions - a model defined in OpenAPI
 
         Args:
-            output_path (str):
-            tails (float):
-            resolution (str):
-            fps (str):
+            output_path (str): Destination path for the rendered output.
+            tails (float): Duration of subclip tails to leave in seconds
+            resolution (str): Output resolution.
+            fps (str): Output frame rate, as an exact fraction.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -261,9 +261,9 @@ class SequenceRenderRequestOptions(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            combine (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            data_source (str): [optional] if omitted the server will use the default value of "source"  # noqa: E501
-            wrap_opatom (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            combine (bool): When true, render the whole sequence into a single output file.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            data_source (str): Whether to render from the original `source` media or from `proxy` media.. [optional] if omitted the server will use the default value of "source"  # noqa: E501
+            wrap_opatom (bool): When true, wrap the output as OP-Atom MXF.. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

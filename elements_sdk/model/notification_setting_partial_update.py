@@ -146,9 +146,9 @@ class NotificationSettingPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            topic (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            user (int, none_type): [optional]  # noqa: E501
+            topic (str): The category of events this setting covers (e.g. `default`, `automation`).. [optional]  # noqa: E501
+            type (str): The delivery channel for the notification (e.g. `email`, `slack`, `teams`, `push`).. [optional]  # noqa: E501
+            user (int, none_type): The user this setting applies to. Null marks a system-wide default.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -232,9 +232,9 @@ class NotificationSettingPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            topic (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            user (int, none_type): [optional]  # noqa: E501
+            topic (str): The category of events this setting covers (e.g. `default`, `automation`).. [optional]  # noqa: E501
+            type (str): The delivery channel for the notification (e.g. `email`, `slack`, `teams`, `push`).. [optional]  # noqa: E501
+            user (int, none_type): The user this setting applies to. Null marks a system-wide default.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

@@ -1,5 +1,6 @@
 # SubtitleClipboardEntry
 
+An entry on the current user's subtitle clipboard: a selected subtitle waiting to be linked to a video asset.
 
 ## Properties
 

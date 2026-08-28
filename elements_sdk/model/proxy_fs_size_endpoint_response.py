@@ -104,7 +104,7 @@ class ProxyFSSizeEndpointResponse(ModelNormal):
         """ProxyFSSizeEndpointResponse - a model defined in OpenAPI
 
         Args:
-            size (int, none_type):
+            size (int, none_type): Total size in bytes, or null if it has not been computed yet.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -191,7 +191,7 @@ class ProxyFSSizeEndpointResponse(ModelNormal):
         """ProxyFSSizeEndpointResponse - a model defined in OpenAPI
 
         Args:
-            size (int, none_type):
+            size (int, none_type): Total size in bytes, or null if it has not been computed yet.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

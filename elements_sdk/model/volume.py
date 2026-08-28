@@ -93,7 +93,7 @@ class Volume(ModelNormal):
         ('snfs_name',): {
             'max_length': 255,
         },
-        ('simulated_quotas',): {
+        ('nfsv4_export',): {
             'max_length': 0,
             'min_length': 0,
         },
@@ -136,11 +136,10 @@ class Volume(ModelNormal):
             'backend': (Backend,),  # noqa: E501
             'cloud_account': (int, none_type,),  # noqa: E501
             'qumulo_integration': (int, none_type,),  # noqa: E501
-            'nfsv4_export': (bool,),  # noqa: E501
             'onefs_integration': (int, none_type,),  # noqa: E501
-            'simulated_quotas': (str, none_type,),  # noqa: E501
             'fs_properties': (FSProperties,),  # noqa: E501
             'status': (VolumeStatus,),  # noqa: E501
+            'nfsv4_export': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -163,41 +162,39 @@ class Volume(ModelNormal):
         'backend': 'backend',  # noqa: E501
         'cloud_account': 'cloud_account',  # noqa: E501
         'qumulo_integration': 'qumulo_integration',  # noqa: E501
-        'nfsv4_export': 'nfsv4_export',  # noqa: E501
         'onefs_integration': 'onefs_integration',  # noqa: E501
-        'simulated_quotas': 'simulated_quotas',  # noqa: E501
         'fs_properties': 'fs_properties',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'nfsv4_export': 'nfsv4_export',  # noqa: E501
     }
 
     read_only_vars = {
-        'simulated_quotas',  # noqa: E501
+        'nfsv4_export',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, backend, cloud_account, qumulo_integration, nfsv4_export, onefs_integration, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, backend, cloud_account, qumulo_integration, onefs_integration, *args, **xkwargs):  # noqa: E501
         """Volume - a model defined in OpenAPI
 
         Args:
             id (int):
-            path (str):
-            nodes ([int]):
+            path (str): The exact server-side mountpoint path or cloud storage URI for this volume
+            nodes ([int]): Storage nodes that this volume is \"native\" to. These nodes will be selected for NAS connection requests
             display_name (str):
-            visual_tag (str, none_type):
-            is_default (bool):
-            use_for_homes (bool):
-            use_for_workspaces (bool):
+            visual_tag (str, none_type): A visual label shown for this volume in the UI
+            is_default (bool): Pre-selects this volume in the UI selectors
+            use_for_homes (bool): Whether this volume can be used for user home workspace
+            use_for_workspaces (bool): Whether this volume can be used for workspaces in general
             type (str):
             snm_enabled (bool):
             snfs_name (str, none_type):
             backend (Backend):
-            cloud_account (int, none_type):
-            qumulo_integration (int, none_type):
-            nfsv4_export (bool):
-            onefs_integration (int, none_type):
+            cloud_account (int, none_type): For cloud volumes, the CloudAccount object containing credentials for this volume.
+            qumulo_integration (int, none_type): The Qumulo integration associated with this volume if it is a Qumulo volume. Required for Qumulo volumes and must be empty for non-Qumulo volumes.
+            onefs_integration (int, none_type): The OneFS integration associated with this volume if it is a OneFS volume. Required for OneFS volumes and must be empty for non-OneFS volumes.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -230,9 +227,9 @@ class Volume(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            simulated_quotas (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
             fs_properties (FSProperties): [optional]  # noqa: E501
             status (VolumeStatus): [optional]  # noqa: E501
+            nfsv4_export (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -275,7 +272,6 @@ class Volume(ModelNormal):
         self.backend = backend
         self.cloud_account = cloud_account
         self.qumulo_integration = qumulo_integration
-        self.nfsv4_export = nfsv4_export
         self.onefs_integration = onefs_integration
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -298,26 +294,25 @@ class Volume(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, backend, cloud_account, qumulo_integration, nfsv4_export, onefs_integration, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, path, nodes, display_name, visual_tag, is_default, use_for_homes, use_for_workspaces, type, snm_enabled, snfs_name, backend, cloud_account, qumulo_integration, onefs_integration, *args, **xkwargs):  # noqa: E501
         """Volume - a model defined in OpenAPI
 
         Args:
             id (int):
-            path (str):
-            nodes ([int]):
+            path (str): The exact server-side mountpoint path or cloud storage URI for this volume
+            nodes ([int]): Storage nodes that this volume is \"native\" to. These nodes will be selected for NAS connection requests
             display_name (str):
-            visual_tag (str, none_type):
-            is_default (bool):
-            use_for_homes (bool):
-            use_for_workspaces (bool):
+            visual_tag (str, none_type): A visual label shown for this volume in the UI
+            is_default (bool): Pre-selects this volume in the UI selectors
+            use_for_homes (bool): Whether this volume can be used for user home workspace
+            use_for_workspaces (bool): Whether this volume can be used for workspaces in general
             type (str):
             snm_enabled (bool):
             snfs_name (str, none_type):
             backend (Backend):
-            cloud_account (int, none_type):
-            qumulo_integration (int, none_type):
-            nfsv4_export (bool):
-            onefs_integration (int, none_type):
+            cloud_account (int, none_type): For cloud volumes, the CloudAccount object containing credentials for this volume.
+            qumulo_integration (int, none_type): The Qumulo integration associated with this volume if it is a Qumulo volume. Required for Qumulo volumes and must be empty for non-Qumulo volumes.
+            onefs_integration (int, none_type): The OneFS integration associated with this volume if it is a OneFS volume. Required for OneFS volumes and must be empty for non-OneFS volumes.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -350,9 +345,9 @@ class Volume(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            simulated_quotas (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
             fs_properties (FSProperties): [optional]  # noqa: E501
             status (VolumeStatus): [optional]  # noqa: E501
+            nfsv4_export (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -393,7 +388,6 @@ class Volume(ModelNormal):
         self.backend = backend
         self.cloud_account = cloud_account
         self.qumulo_integration = qumulo_integration
-        self.nfsv4_export = nfsv4_export
         self.onefs_integration = onefs_integration
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

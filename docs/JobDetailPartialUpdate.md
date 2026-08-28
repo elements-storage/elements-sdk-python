@@ -1,5 +1,6 @@
 # JobDetailPartialUpdate
 
+A configurable Automation job: an ordered workflow of subtasks that can be run manually, on a schedule, via filesystem triggers or via a webhook.
 
 ## Properties
 
@@ -7,12 +8,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **schedules** | [**[ScheduleReference]**](ScheduleReference.md) |  | [optional] 
 **variable_definitions** | [**[JobVariableDefinition]**](JobVariableDefinition.md) |  | [optional] 
+**special_type** | **int, none_type** |  | [optional] 
 **subtasks** | [**[SubtaskReference]**](SubtaskReference.md) |  | [optional] 
 **allow_users** | [**[ElementsUserReference]**](ElementsUserReference.md) |  | [optional] 
 **allow_groups** | [**[ElementsGroupReference]**](ElementsGroupReference.md) |  | [optional] 
 **media_roots** | **[int]** |  | [optional] 
 **workflow** | **int, none_type** |  | [optional] 
-**special_type** | **int, none_type** |  | [optional] 
 **name** | **str** |  | [optional] 
 **description** | **str, none_type** |  | [optional] 
 **enabled** | **bool** |  | [optional] 
@@ -21,7 +22,7 @@ Name | Type | Description | Notes
 **show_as_button** | **bool** |  | [optional] 
 **input_type** | **str, none_type** |  | [optional] 
 **add_to_new_media_roots** | **bool** |  | [optional] 
-**hook** | **str, none_type** |  | [optional] 
+**hook** | **str, none_type** | Name of the event hook this job is triggered by - only valid with special_type&#x3D;HOOK/3 | [optional] 
 **webhook_secret** | **str, none_type** |  | [optional] 
 **elements_release** | **str** |  | [optional] 
 **no_concurrency** | **bool** |  | [optional] 

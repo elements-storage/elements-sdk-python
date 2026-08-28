@@ -207,8 +207,8 @@ class FilePartialUpdate(ModelNormal):
             gid (int): [optional]  # noqa: E501
             user (str): [optional]  # noqa: E501
             group (str): [optional]  # noqa: E501
-            recursive (bool): [optional]  # noqa: E501
-            affinity (str, none_type): [optional]  # noqa: E501
+            recursive (bool): Apply the given ownership and permission modes to all existing contents recursively.. [optional]  # noqa: E501
+            affinity (str, none_type): StorNext (SNFS) affinity to assign, controlling which storage pool the data is placed on.. [optional]  # noqa: E501
             files ([DirectoryEntry], none_type): [optional]  # noqa: E501
             mode_setuid (bool): [optional]  # noqa: E501
             mode_setgid (bool): [optional]  # noqa: E501
@@ -312,8 +312,8 @@ class FilePartialUpdate(ModelNormal):
             gid (int): [optional]  # noqa: E501
             user (str): [optional]  # noqa: E501
             group (str): [optional]  # noqa: E501
-            recursive (bool): [optional]  # noqa: E501
-            affinity (str, none_type): [optional]  # noqa: E501
+            recursive (bool): Apply the given ownership and permission modes to all existing contents recursively.. [optional]  # noqa: E501
+            affinity (str, none_type): StorNext (SNFS) affinity to assign, controlling which storage pool the data is placed on.. [optional]  # noqa: E501
             files ([DirectoryEntry], none_type): [optional]  # noqa: E501
             mode_setuid (bool): [optional]  # noqa: E501
             mode_setgid (bool): [optional]  # noqa: E501

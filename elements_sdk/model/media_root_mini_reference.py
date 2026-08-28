@@ -182,11 +182,11 @@ class MediaRootMiniReference(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
-            full_path (str): [optional]  # noqa: E501
-            path (str): [optional]  # noqa: E501
-            prefetch_thumbnail_strips (bool): [optional]  # noqa: E501
-            view_mode (str): [optional]  # noqa: E501
-            cover (str, none_type): [optional]  # noqa: E501
+            full_path (str): Absolute filesystem path (volume mount point joined with the root path).. [optional]  # noqa: E501
+            path (str): Path relative to the volume root. Empty string means the volume root itself.. [optional]  # noqa: E501
+            prefetch_thumbnail_strips (bool): Pre-generate thumbnail strip proxies for faster in-browser timeline scrubbing.. [optional]  # noqa: E501
+            view_mode (str): Folder display mode in the browser UI (normal or flat).. [optional]  # noqa: E501
+            cover (str, none_type): URL to retrieve the cover image, or null if no cover has been set.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -278,11 +278,11 @@ class MediaRootMiniReference(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
-            full_path (str): [optional]  # noqa: E501
-            path (str): [optional]  # noqa: E501
-            prefetch_thumbnail_strips (bool): [optional]  # noqa: E501
-            view_mode (str): [optional]  # noqa: E501
-            cover (str, none_type): [optional]  # noqa: E501
+            full_path (str): Absolute filesystem path (volume mount point joined with the root path).. [optional]  # noqa: E501
+            path (str): Path relative to the volume root. Empty string means the volume root itself.. [optional]  # noqa: E501
+            prefetch_thumbnail_strips (bool): Pre-generate thumbnail strip proxies for faster in-browser timeline scrubbing.. [optional]  # noqa: E501
+            view_mode (str): Folder display mode in the browser UI (normal or flat).. [optional]  # noqa: E501
+            cover (str, none_type): URL to retrieve the cover image, or null if no cover has been set.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

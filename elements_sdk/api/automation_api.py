@@ -3396,7 +3396,7 @@ class AutomationApi(object):
     ):
         """abort_task  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        Request a graceful abort of a running task. The task is signalled to stop at its next safe checkpoint and is moved to the \"aborting\" state; it stays until it actually winds down. Use killTask to forcibly terminate a task that does not respond to an abort. Not all tasks are abortable - see the task type metadata  ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3474,7 +3474,7 @@ class AutomationApi(object):
     ):
         """convert_job_to_python_script  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        Convert the API-call subtasks within this job into equivalent Python script steps, replacing them in place. Returns the updated job.  ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3552,7 +3552,7 @@ class AutomationApi(object):
     ):
         """convert_subtask_to_python_script  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        Convert this API-call subtask into an equivalent Python script step, replacing it in place. Only subtasks of type 'api_call' can be converted. Returns the updated subtask.  ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3941,7 +3941,7 @@ class AutomationApi(object):
     ):
         """delete_finished_tasks  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
+        Delete all finished task records from the task history.  ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4413,18 +4413,18 @@ class AutomationApi(object):
 
 
         Keyword Args:
-            job_instance (str): Filter the returned list by `job_instance`.. [optional]
-            job_instance__in (str): Filter the returned list by `job_instance__in`.. [optional]
-            subtask (int): Filter the returned list by `subtask`.. [optional]
-            state (str): Filter the returned list by `state`.. [optional]
-            state__in (str): Filter the returned list by `state__in`.. [optional]
-            id (str): Filter the returned list by `id`.. [optional]
-            id__in (str): Filter the returned list by `id__in`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            task_name (str): Filter the returned list by `task_name`.. [optional]
-            is_finished (str): Filter the returned list by `is_finished`.. [optional]
-            is_running (str): Filter the returned list by `is_running`.. [optional]
-            related_proxy_id (str): Filter the returned list by `related_proxy_id`.. [optional]
+            job_instance (str): Filter the returned list by `job_instance` (exact match).. [optional]
+            job_instance__in (str): Filter the returned list by `job_instance__in` (exact match).. [optional]
+            subtask (int): Filter the returned list by `subtask` (exact match).. [optional]
+            state (str): Filter the returned list by `state` (exact match).. [optional]
+            state__in (str): Filter the returned list by `state__in` (exact match).. [optional]
+            id (str): Filter the returned list by `id` (exact match).. [optional]
+            id__in (str): Filter the returned list by `id__in` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            task_name (str): Filter the returned list by `task_name` (exact match).. [optional]
+            is_finished (str): Filter the returned list by `is_finished` (exact match).. [optional]
+            is_running (str): Filter the returned list by `is_running` (exact match).. [optional]
+            related_proxy_id (str): Filter the returned list by `related_proxy_id` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -4648,6 +4648,7 @@ class AutomationApi(object):
     ):
         """get_all_events  # noqa: E501
 
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4732,7 +4733,7 @@ class AutomationApi(object):
 
 
         Keyword Args:
-            job (int): Filter the returned list by `job`.. [optional]
+            job (int): Filter the returned list by `job` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -4809,10 +4810,10 @@ class AutomationApi(object):
 
 
         Keyword Args:
-            special_type (str): Filter the returned list by `special_type`.. [optional]
-            special_type__isnull (str): Filter the returned list by `special_type__isnull`.. [optional]
-            hook (str): Filter the returned list by `hook`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
+            special_type (str): Filter the returned list by `special_type` (exact match).. [optional]
+            special_type__isnull (str): Filter the returned list by `special_type__isnull` (exact match).. [optional]
+            hook (str): Filter the returned list by `hook` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -4970,7 +4971,7 @@ class AutomationApi(object):
 
 
         Keyword Args:
-            job (int): Filter the returned list by `job`.. [optional]
+            job (int): Filter the returned list by `job` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -5047,7 +5048,7 @@ class AutomationApi(object):
 
 
         Keyword Args:
-            parent (int): Filter the returned list by `parent`.. [optional]
+            parent (int): Filter the returned list by `parent` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -5191,6 +5192,7 @@ class AutomationApi(object):
     ):
         """get_all_task_types  # noqa: E501
 
+        ### Required permissions    * User account permission: `tasks:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5275,18 +5277,18 @@ class AutomationApi(object):
 
 
         Keyword Args:
-            job_instance (str): Filter the returned list by `job_instance`.. [optional]
-            job_instance__in (str): Filter the returned list by `job_instance__in`.. [optional]
-            subtask (int): Filter the returned list by `subtask`.. [optional]
-            state (str): Filter the returned list by `state`.. [optional]
-            state__in (str): Filter the returned list by `state__in`.. [optional]
-            id (str): Filter the returned list by `id`.. [optional]
-            id__in (str): Filter the returned list by `id__in`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            task_name (str): Filter the returned list by `task_name`.. [optional]
-            is_finished (str): Filter the returned list by `is_finished`.. [optional]
-            is_running (str): Filter the returned list by `is_running`.. [optional]
-            related_proxy_id (str): Filter the returned list by `related_proxy_id`.. [optional]
+            job_instance (str): Filter the returned list by `job_instance` (exact match).. [optional]
+            job_instance__in (str): Filter the returned list by `job_instance__in` (exact match).. [optional]
+            subtask (int): Filter the returned list by `subtask` (exact match).. [optional]
+            state (str): Filter the returned list by `state` (exact match).. [optional]
+            state__in (str): Filter the returned list by `state__in` (exact match).. [optional]
+            id (str): Filter the returned list by `id` (exact match).. [optional]
+            id__in (str): Filter the returned list by `id__in` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            task_name (str): Filter the returned list by `task_name` (exact match).. [optional]
+            is_finished (str): Filter the returned list by `is_finished` (exact match).. [optional]
+            is_running (str): Filter the returned list by `is_running` (exact match).. [optional]
+            related_proxy_id (str): Filter the returned list by `related_proxy_id` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -5356,6 +5358,7 @@ class AutomationApi(object):
     ):
         """get_event  # noqa: E501
 
+        ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5432,7 +5435,7 @@ class AutomationApi(object):
     ):
         """get_finished_tasks  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
+        List finished tasks (completed, aborted, failed, with warnings or no-op).  ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5441,18 +5444,18 @@ class AutomationApi(object):
 
 
         Keyword Args:
-            job_instance (str): Filter the returned list by `job_instance`.. [optional]
-            job_instance__in (str): Filter the returned list by `job_instance__in`.. [optional]
-            subtask (int): Filter the returned list by `subtask`.. [optional]
-            state (str): Filter the returned list by `state`.. [optional]
-            state__in (str): Filter the returned list by `state__in`.. [optional]
-            id (str): Filter the returned list by `id`.. [optional]
-            id__in (str): Filter the returned list by `id__in`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            task_name (str): Filter the returned list by `task_name`.. [optional]
-            is_finished (str): Filter the returned list by `is_finished`.. [optional]
-            is_running (str): Filter the returned list by `is_running`.. [optional]
-            related_proxy_id (str): Filter the returned list by `related_proxy_id`.. [optional]
+            job_instance (str): Filter the returned list by `job_instance` (exact match).. [optional]
+            job_instance__in (str): Filter the returned list by `job_instance__in` (exact match).. [optional]
+            subtask (int): Filter the returned list by `subtask` (exact match).. [optional]
+            state (str): Filter the returned list by `state` (exact match).. [optional]
+            state__in (str): Filter the returned list by `state__in` (exact match).. [optional]
+            id (str): Filter the returned list by `id` (exact match).. [optional]
+            id__in (str): Filter the returned list by `id__in` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            task_name (str): Filter the returned list by `task_name` (exact match).. [optional]
+            is_finished (str): Filter the returned list by `is_finished` (exact match).. [optional]
+            is_running (str): Filter the returned list by `is_running` (exact match).. [optional]
+            related_proxy_id (str): Filter the returned list by `related_proxy_id` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -5678,7 +5681,7 @@ class AutomationApi(object):
     ):
         """get_job_variable_options  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
+        List the available option values for a job variable definition, optionally filtered by a search query. A full job list excludes subtask for performance reasons  ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5690,7 +5693,7 @@ class AutomationApi(object):
             field_definition (FieldDefinition):
 
         Keyword Args:
-            q (str): [optional]
+            q (str): Only return options matching this search text.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5759,7 +5762,7 @@ class AutomationApi(object):
     ):
         """get_pending_tasks  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
+        List the tasks that are queued and waiting to start (pending).  ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5768,18 +5771,18 @@ class AutomationApi(object):
 
 
         Keyword Args:
-            job_instance (str): Filter the returned list by `job_instance`.. [optional]
-            job_instance__in (str): Filter the returned list by `job_instance__in`.. [optional]
-            subtask (int): Filter the returned list by `subtask`.. [optional]
-            state (str): Filter the returned list by `state`.. [optional]
-            state__in (str): Filter the returned list by `state__in`.. [optional]
-            id (str): Filter the returned list by `id`.. [optional]
-            id__in (str): Filter the returned list by `id__in`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            task_name (str): Filter the returned list by `task_name`.. [optional]
-            is_finished (str): Filter the returned list by `is_finished`.. [optional]
-            is_running (str): Filter the returned list by `is_running`.. [optional]
-            related_proxy_id (str): Filter the returned list by `related_proxy_id`.. [optional]
+            job_instance (str): Filter the returned list by `job_instance` (exact match).. [optional]
+            job_instance__in (str): Filter the returned list by `job_instance__in` (exact match).. [optional]
+            subtask (int): Filter the returned list by `subtask` (exact match).. [optional]
+            state (str): Filter the returned list by `state` (exact match).. [optional]
+            state__in (str): Filter the returned list by `state__in` (exact match).. [optional]
+            id (str): Filter the returned list by `id` (exact match).. [optional]
+            id__in (str): Filter the returned list by `id__in` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            task_name (str): Filter the returned list by `task_name` (exact match).. [optional]
+            is_finished (str): Filter the returned list by `is_finished` (exact match).. [optional]
+            is_running (str): Filter the returned list by `is_running` (exact match).. [optional]
+            related_proxy_id (str): Filter the returned list by `related_proxy_id` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -5847,7 +5850,7 @@ class AutomationApi(object):
     ):
         """get_python_environments  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        List the Python environments available to Python scripting jobs (the embedded interpreter and any configured Poetry virtual environments).  ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -6312,6 +6315,7 @@ class AutomationApi(object):
     ):
         """get_task_type  # noqa: E501
 
+        ### Required permissions    * User account permission: `tasks:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -6388,7 +6392,7 @@ class AutomationApi(object):
     ):
         """get_tasks_summary  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
+        Return a summary of task activity: the currently-running tasks, the most recently finished tasks, and the number of pending tasks.  ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -6397,18 +6401,18 @@ class AutomationApi(object):
 
 
         Keyword Args:
-            job_instance (str): Filter the returned list by `job_instance`.. [optional]
-            job_instance__in (str): Filter the returned list by `job_instance__in`.. [optional]
-            subtask (int): Filter the returned list by `subtask`.. [optional]
-            state (str): Filter the returned list by `state`.. [optional]
-            state__in (str): Filter the returned list by `state__in`.. [optional]
-            id (str): Filter the returned list by `id`.. [optional]
-            id__in (str): Filter the returned list by `id__in`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            task_name (str): Filter the returned list by `task_name`.. [optional]
-            is_finished (str): Filter the returned list by `is_finished`.. [optional]
-            is_running (str): Filter the returned list by `is_running`.. [optional]
-            related_proxy_id (str): Filter the returned list by `related_proxy_id`.. [optional]
+            job_instance (str): Filter the returned list by `job_instance` (exact match).. [optional]
+            job_instance__in (str): Filter the returned list by `job_instance__in` (exact match).. [optional]
+            subtask (int): Filter the returned list by `subtask` (exact match).. [optional]
+            state (str): Filter the returned list by `state` (exact match).. [optional]
+            state__in (str): Filter the returned list by `state__in` (exact match).. [optional]
+            id (str): Filter the returned list by `id` (exact match).. [optional]
+            id__in (str): Filter the returned list by `id__in` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            task_name (str): Filter the returned list by `task_name` (exact match).. [optional]
+            is_finished (str): Filter the returned list by `is_finished` (exact match).. [optional]
+            is_running (str): Filter the returned list by `is_running` (exact match).. [optional]
+            related_proxy_id (str): Filter the returned list by `related_proxy_id` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -6554,7 +6558,7 @@ class AutomationApi(object):
     ):
         """kill_all_pending_tasks  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
+        Cancel and remove all pending (queued, not yet started) tasks.  ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -6628,7 +6632,7 @@ class AutomationApi(object):
     ):
         """kill_task  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        Forcibly terminate a task by killing its worker process. Unlike abortTask, this does not wait for the task to stop at a safe checkpoint.  ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -7035,7 +7039,7 @@ class AutomationApi(object):
     ):
         """reorder_queued_task  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:view` (read) / `tasks:manage` (write)   # noqa: E501
+        Reorder a queued (pending) task within its queue, or move it to a different queue.  ### Required permissions    * User account permission: `tasks:view` (read) / `tasks:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -7116,7 +7120,7 @@ class AutomationApi(object):
     ):
         """restart_task  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        Run this task again as a new task, reusing its task type and parameters. Returns the new task.  ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -7195,6 +7199,7 @@ class AutomationApi(object):
     ):
         """start_job  # noqa: E501
 
+        Start this Automation job, optionally supplying values for its variables. Returns the started task(s).    # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -7275,7 +7280,7 @@ class AutomationApi(object):
     ):
         """start_task  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        Start a task of the given type with the given parameters. Returns the started task.  ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

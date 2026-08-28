@@ -85,7 +85,7 @@ class WorkflowTransitionRequest(ModelNormal):
             'root': (int,),  # noqa: E501
             'bundles': ([int],),  # noqa: E501
             'directories': ([int],),  # noqa: E501
-            'variables': ({str: (str, none_type)},),  # noqa: E501
+            'variables': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
         }
 
     @cached_property
@@ -112,8 +112,8 @@ class WorkflowTransitionRequest(ModelNormal):
         """WorkflowTransitionRequest - a model defined in OpenAPI
 
         Args:
-            job (int):
-            root (int):
+            job (int): The workflow transition job to run on the selected assets.
+            root (int): The Media Root whose workflow the transition belongs to.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -146,9 +146,9 @@ class WorkflowTransitionRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bundles ([int]): [optional]  # noqa: E501
-            directories ([int]): [optional]  # noqa: E501
-            variables ({str: (str, none_type)}): [optional]  # noqa: E501
+            bundles ([int]): Bundles to transition.. [optional]  # noqa: E501
+            directories ([int]): Directories whose contents to transition.. [optional]  # noqa: E501
+            variables ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Variable values to pass to the transition job.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -204,8 +204,8 @@ class WorkflowTransitionRequest(ModelNormal):
         """WorkflowTransitionRequest - a model defined in OpenAPI
 
         Args:
-            job (int):
-            root (int):
+            job (int): The workflow transition job to run on the selected assets.
+            root (int): The Media Root whose workflow the transition belongs to.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -238,9 +238,9 @@ class WorkflowTransitionRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bundles ([int]): [optional]  # noqa: E501
-            directories ([int]): [optional]  # noqa: E501
-            variables ({str: (str, none_type)}): [optional]  # noqa: E501
+            bundles ([int]): Bundles to transition.. [optional]  # noqa: E501
+            directories ([int]): Directories whose contents to transition.. [optional]  # noqa: E501
+            variables ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Variable values to pass to the transition job.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

@@ -1,5 +1,6 @@
 # TranscoderProfile
 
+A legacy transcoder profile defining a custom FFmpeg command for encoding media.
 
 ## Properties
 

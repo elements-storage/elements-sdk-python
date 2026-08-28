@@ -125,9 +125,9 @@ class ArchiveEndpointRequest(ModelNormal):
         """ArchiveEndpointRequest - a model defined in OpenAPI
 
         Args:
-            source ([TapeJobSource]):
-            start_date (datetime):
-            name (str):
+            source ([TapeJobSource]): The filesystem paths to archive onto tape.
+            start_date (datetime): When the archive job should start running.
+            name (str): Human-readable name for the archive job.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -160,10 +160,10 @@ class ArchiveEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            group (int): [optional]  # noqa: E501
-            group2 (int, none_type): [optional]  # noqa: E501
-            export (bool): [optional]  # noqa: E501
-            export2 (bool, none_type): [optional]  # noqa: E501
+            group (int): ID of the tape group to write the primary copy to.. [optional]  # noqa: E501
+            group2 (int, none_type): ID of a second tape group to write a redundant copy to. Omit or null to write a single copy.. [optional]  # noqa: E501
+            export (bool): When true, eject (export) the primary tape from the library after writing.. [optional]  # noqa: E501
+            export2 (bool, none_type): When true, eject (export) the second-copy tape from the library after writing.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -220,9 +220,9 @@ class ArchiveEndpointRequest(ModelNormal):
         """ArchiveEndpointRequest - a model defined in OpenAPI
 
         Args:
-            source ([TapeJobSource]):
-            start_date (datetime):
-            name (str):
+            source ([TapeJobSource]): The filesystem paths to archive onto tape.
+            start_date (datetime): When the archive job should start running.
+            name (str): Human-readable name for the archive job.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -255,10 +255,10 @@ class ArchiveEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            group (int): [optional]  # noqa: E501
-            group2 (int, none_type): [optional]  # noqa: E501
-            export (bool): [optional]  # noqa: E501
-            export2 (bool, none_type): [optional]  # noqa: E501
+            group (int): ID of the tape group to write the primary copy to.. [optional]  # noqa: E501
+            group2 (int, none_type): ID of a second tape group to write a redundant copy to. Omit or null to write a single copy.. [optional]  # noqa: E501
+            export (bool): When true, eject (export) the primary tape from the library after writing.. [optional]  # noqa: E501
+            export2 (bool, none_type): When true, eject (export) the second-copy tape from the library after writing.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

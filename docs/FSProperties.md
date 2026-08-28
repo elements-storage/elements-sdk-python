@@ -1,5 +1,6 @@
 # FSProperties
 
+Describes the filesystem-specific behaviours for this volume
 
 ## Properties
 

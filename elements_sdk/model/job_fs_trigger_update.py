@@ -126,7 +126,7 @@ class JobFSTriggerUpdate(ModelNormal):
         """JobFSTriggerUpdate - a model defined in OpenAPI
 
         Args:
-            path (str):
+            path (str): Filesystem path to watch for changes.
             job (int):
 
         Keyword Args:
@@ -160,8 +160,8 @@ class JobFSTriggerUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name_glob (str): [optional]  # noqa: E501
-            recursive (bool): [optional]  # noqa: E501
+            name_glob (str): Glob pattern; only files whose name matches it fire the trigger.. [optional]  # noqa: E501
+            recursive (bool): Also watch subdirectories of the path.. [optional]  # noqa: E501
             listen_for_created (bool): [optional]  # noqa: E501
             listen_for_modified (bool): [optional]  # noqa: E501
             listen_for_renamed (bool): [optional]  # noqa: E501
@@ -221,7 +221,7 @@ class JobFSTriggerUpdate(ModelNormal):
         """JobFSTriggerUpdate - a model defined in OpenAPI
 
         Args:
-            path (str):
+            path (str): Filesystem path to watch for changes.
             job (int):
 
         Keyword Args:
@@ -255,8 +255,8 @@ class JobFSTriggerUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name_glob (str): [optional]  # noqa: E501
-            recursive (bool): [optional]  # noqa: E501
+            name_glob (str): Glob pattern; only files whose name matches it fire the trigger.. [optional]  # noqa: E501
+            recursive (bool): Also watch subdirectories of the path.. [optional]  # noqa: E501
             listen_for_created (bool): [optional]  # noqa: E501
             listen_for_modified (bool): [optional]  # noqa: E501
             listen_for_renamed (bool): [optional]  # noqa: E501

@@ -1,5 +1,6 @@
 # EditorSubtitleUpdate
 
+A parsed, optionally editable representation of a subtitle asset on the storage
 
 ## Properties
 

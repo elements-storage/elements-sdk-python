@@ -1,5 +1,6 @@
 # MediaFileBundleMiniReference
 
+A compact representation of a media file bundle, containing only the primary file and asset reference.
 
 ## Properties
 

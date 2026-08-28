@@ -1,5 +1,6 @@
 # Event
 
+A type of system event that Automation jobs can be triggered by, including the arguments it provides to those jobs.
 
 ## Properties
 

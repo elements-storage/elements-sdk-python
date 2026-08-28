@@ -1,5 +1,6 @@
 # NotificationReceipt
 
+A per-user delivery record for a notification, tracking whether that user has acknowledged (read) or removed it.
 
 ## Properties
 

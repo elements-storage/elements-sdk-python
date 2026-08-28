@@ -104,7 +104,7 @@ class PathInput(ModelNormal):
         """PathInput - a model defined in OpenAPI
 
         Args:
-            input ([str]):
+            input ([str]): Filesystem paths to operate on.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -191,7 +191,7 @@ class PathInput(ModelNormal):
         """PathInput - a model defined in OpenAPI
 
         Args:
-            input ([str]):
+            input ([str]): Filesystem paths to operate on.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

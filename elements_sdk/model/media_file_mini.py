@@ -101,7 +101,7 @@ class MediaFileMini(ModelNormal):
             'id': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'full_path': (str,),  # noqa: E501
-            'custom_fields': ({str: (str, none_type)},),  # noqa: E501
+            'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'is_dir': (bool,),  # noqa: E501
             'is_hardlink': (bool,),  # noqa: E501
             'mtime': (int,),  # noqa: E501
@@ -172,7 +172,7 @@ class MediaFileMini(ModelNormal):
             id (int):
             name (str):
             full_path (str):
-            custom_fields ({str: (str, none_type)}):
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             is_dir (bool):
             is_hardlink (bool):
             mtime (int):
@@ -286,7 +286,7 @@ class MediaFileMini(ModelNormal):
 
         Args:
             id (int):
-            custom_fields ({str: (str, none_type)}):
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             path_permissions (PathPermissions):
             volume (VolumeMiniWithCloudAccount):
 

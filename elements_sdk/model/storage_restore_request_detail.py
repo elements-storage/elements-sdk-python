@@ -117,8 +117,8 @@ class StorageRestoreRequestDetail(ModelNormal):
         """StorageRestoreRequestDetail - a model defined in OpenAPI
 
         Args:
-            restore_tier (str):
-            restore_type (str):
+            restore_tier (str): Provider-specific retrieval tier to use (e.g. expedited, standard or bulk), trading off speed against cost.
+            restore_type (str): Whether to temporarily make the data available in place (`MAKE_AVAILABLE`) or copy it to a target path (`RESTORE_TO_PATH`).
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -151,8 +151,8 @@ class StorageRestoreRequestDetail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            target_path (str, none_type): [optional]  # noqa: E501
-            days (int): [optional]  # noqa: E501
+            target_path (str, none_type): Destination path when restore_type is `RESTORE_TO_PATH`.. [optional]  # noqa: E501
+            days (int): Number of days to keep the restored copy available before it expires.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -208,8 +208,8 @@ class StorageRestoreRequestDetail(ModelNormal):
         """StorageRestoreRequestDetail - a model defined in OpenAPI
 
         Args:
-            restore_tier (str):
-            restore_type (str):
+            restore_tier (str): Provider-specific retrieval tier to use (e.g. expedited, standard or bulk), trading off speed against cost.
+            restore_type (str): Whether to temporarily make the data available in place (`MAKE_AVAILABLE`) or copy it to a target path (`RESTORE_TO_PATH`).
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -242,8 +242,8 @@ class StorageRestoreRequestDetail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            target_path (str, none_type): [optional]  # noqa: E501
-            days (int): [optional]  # noqa: E501
+            target_path (str, none_type): Destination path when restore_type is `RESTORE_TO_PATH`.. [optional]  # noqa: E501
+            days (int): Number of days to keep the restored copy available before it expires.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

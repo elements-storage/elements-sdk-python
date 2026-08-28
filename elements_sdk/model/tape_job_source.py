@@ -114,7 +114,7 @@ class TapeJobSource(ModelNormal):
         """TapeJobSource - a model defined in OpenAPI
 
         Args:
-            path (str):
+            path (str): Absolute filesystem path of the file or folder to archive.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -148,7 +148,7 @@ class TapeJobSource(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             options ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            include (str, none_type): [optional]  # noqa: E501
+            include (str, none_type): Which content under the path to archive. Defaults to \"all\".. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -203,7 +203,7 @@ class TapeJobSource(ModelNormal):
         """TapeJobSource - a model defined in OpenAPI
 
         Args:
-            path (str):
+            path (str): Absolute filesystem path of the file or folder to archive.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -237,7 +237,7 @@ class TapeJobSource(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             options ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            include (str, none_type): [optional]  # noqa: E501
+            include (str, none_type): Which content under the path to archive. Defaults to \"all\".. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

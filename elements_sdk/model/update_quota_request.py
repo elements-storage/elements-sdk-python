@@ -136,8 +136,8 @@ class UpdateQuotaRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            soft (int, none_type): [optional]  # noqa: E501
-            hard (int, none_type): [optional]  # noqa: E501
+            soft (int, none_type): Soft quota in bytes (a warning threshold). Null clears it.. [optional]  # noqa: E501
+            hard (int, none_type): Hard quota in bytes (an enforced limit). Null clears it.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -221,8 +221,8 @@ class UpdateQuotaRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            soft (int, none_type): [optional]  # noqa: E501
-            hard (int, none_type): [optional]  # noqa: E501
+            soft (int, none_type): Soft quota in bytes (a warning threshold). Null clears it.. [optional]  # noqa: E501
+            hard (int, none_type): Hard quota in bytes (an enforced limit). Null clears it.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

@@ -171,13 +171,13 @@ class CloudAccountUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             provider (str): [optional]  # noqa: E501
-            access_id (str, none_type): [optional]  # noqa: E501
-            secret (str, none_type): [optional]  # noqa: E501
-            tenant (str, none_type): [optional]  # noqa: E501
-            subscription (str, none_type): [optional]  # noqa: E501
-            endpoint (str, none_type): [optional]  # noqa: E501
+            access_id (str, none_type): Provider-specific access key / account ID. Leave empty to use IAM role-based auth (AWS).. [optional]  # noqa: E501
+            secret (str, none_type): Provider-specific secret key credential. [optional]  # noqa: E501
+            tenant (str, none_type): Azure tenant ID (Azure only).. [optional]  # noqa: E501
+            subscription (str, none_type): Azure subscription ID (Azure only).. [optional]  # noqa: E501
+            endpoint (str, none_type): Custom service endpoint URL (for S3-compatible providers).. [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501
-            mount_credentials_management (str, none_type): [optional]  # noqa: E501
+            mount_credentials_management (str, none_type): Decides how the ELEMENTS Client will obtain credentials to mount cloud workspaces from this account. For `share` the server will expose service account credentials to clients (insecure). With `token` server will issue short lived tokens for mounting. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -266,13 +266,13 @@ class CloudAccountUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             provider (str): [optional]  # noqa: E501
-            access_id (str, none_type): [optional]  # noqa: E501
-            secret (str, none_type): [optional]  # noqa: E501
-            tenant (str, none_type): [optional]  # noqa: E501
-            subscription (str, none_type): [optional]  # noqa: E501
-            endpoint (str, none_type): [optional]  # noqa: E501
+            access_id (str, none_type): Provider-specific access key / account ID. Leave empty to use IAM role-based auth (AWS).. [optional]  # noqa: E501
+            secret (str, none_type): Provider-specific secret key credential. [optional]  # noqa: E501
+            tenant (str, none_type): Azure tenant ID (Azure only).. [optional]  # noqa: E501
+            subscription (str, none_type): Azure subscription ID (Azure only).. [optional]  # noqa: E501
+            endpoint (str, none_type): Custom service endpoint URL (for S3-compatible providers).. [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501
-            mount_credentials_management (str, none_type): [optional]  # noqa: E501
+            mount_credentials_management (str, none_type): Decides how the ELEMENTS Client will obtain credentials to mount cloud workspaces from this account. For `share` the server will expose service account credentials to clients (insecure). With `token` server will issue short lived tokens for mounting. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

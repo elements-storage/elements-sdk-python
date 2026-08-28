@@ -1,5 +1,6 @@
 # SMTPConfigurationUpdate
 
+The system's outgoing email (SMTP) server configuration.
 
 ## Properties
 

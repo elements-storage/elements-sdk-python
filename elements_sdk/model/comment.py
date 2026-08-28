@@ -96,7 +96,7 @@ class Comment(ModelNormal):
             'id': (int,),  # noqa: E501
             'assignee': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'user': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'drawing': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'drawing': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'tags': ([Tag],),  # noqa: E501
             'sync_id': (str,),  # noqa: E501
             'date': (datetime,),  # noqa: E501
@@ -151,12 +151,12 @@ class Comment(ModelNormal):
             id (int):
             assignee (bool, date, datetime, dict, float, int, list, str, none_type):
             user (bool, date, datetime, dict, float, int, list, str, none_type):
-            drawing ({str: (str, none_type)}, none_type):
+            drawing ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type):
             tags ([Tag]):
             sync_id (str):
             date (datetime):
             text (str):
-            time (float, none_type):
+            time (float, none_type): Timecode position in the media, in seconds, that the comment refers to.
             is_cloud (bool):
             resolved (bool):
             resolved_date (datetime, none_type):
@@ -267,10 +267,10 @@ class Comment(ModelNormal):
             id (int):
             assignee (bool, date, datetime, dict, float, int, list, str, none_type):
             user (bool, date, datetime, dict, float, int, list, str, none_type):
-            drawing ({str: (str, none_type)}, none_type):
+            drawing ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type):
             tags ([Tag]):
             text (str):
-            time (float, none_type):
+            time (float, none_type): Timecode position in the media, in seconds, that the comment refers to.
             is_cloud (bool):
             resolved (bool):
             resolved_date (datetime, none_type):

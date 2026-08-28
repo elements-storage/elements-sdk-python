@@ -120,7 +120,6 @@ class VolumeUpdate(ModelNormal):
             'snfs_name': (str, none_type,),  # noqa: E501
             'cloud_account': (int, none_type,),  # noqa: E501
             'qumulo_integration': (int, none_type,),  # noqa: E501
-            'nfsv4_export': (bool,),  # noqa: E501
             'onefs_integration': (int, none_type,),  # noqa: E501
         }
 
@@ -142,7 +141,6 @@ class VolumeUpdate(ModelNormal):
         'snfs_name': 'snfs_name',  # noqa: E501
         'cloud_account': 'cloud_account',  # noqa: E501
         'qumulo_integration': 'qumulo_integration',  # noqa: E501
-        'nfsv4_export': 'nfsv4_export',  # noqa: E501
         'onefs_integration': 'onefs_integration',  # noqa: E501
     }
 
@@ -187,20 +185,19 @@ class VolumeUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            path (str): [optional]  # noqa: E501
-            nodes ([int]): [optional]  # noqa: E501
+            path (str): The exact server-side mountpoint path or cloud storage URI for this volume. [optional]  # noqa: E501
+            nodes ([int]): Storage nodes that this volume is \"native\" to. These nodes will be selected for NAS connection requests. [optional]  # noqa: E501
             display_name (str): [optional]  # noqa: E501
-            visual_tag (str, none_type): [optional]  # noqa: E501
-            is_default (bool): [optional]  # noqa: E501
-            use_for_homes (bool): [optional]  # noqa: E501
-            use_for_workspaces (bool): [optional]  # noqa: E501
+            visual_tag (str, none_type): A visual label shown for this volume in the UI. [optional]  # noqa: E501
+            is_default (bool): Pre-selects this volume in the UI selectors. [optional]  # noqa: E501
+            use_for_homes (bool): Whether this volume can be used for user home workspace. [optional]  # noqa: E501
+            use_for_workspaces (bool): Whether this volume can be used for workspaces in general. [optional]  # noqa: E501
             type (str): [optional]  # noqa: E501
             snm_enabled (bool): [optional]  # noqa: E501
             snfs_name (str, none_type): [optional]  # noqa: E501
-            cloud_account (int, none_type): [optional]  # noqa: E501
-            qumulo_integration (int, none_type): [optional]  # noqa: E501
-            nfsv4_export (bool): [optional]  # noqa: E501
-            onefs_integration (int, none_type): [optional]  # noqa: E501
+            cloud_account (int, none_type): For cloud volumes, the CloudAccount object containing credentials for this volume.. [optional]  # noqa: E501
+            qumulo_integration (int, none_type): The Qumulo integration associated with this volume if it is a Qumulo volume. Required for Qumulo volumes and must be empty for non-Qumulo volumes.. [optional]  # noqa: E501
+            onefs_integration (int, none_type): The OneFS integration associated with this volume if it is a OneFS volume. Required for OneFS volumes and must be empty for non-OneFS volumes.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -284,20 +281,19 @@ class VolumeUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            path (str): [optional]  # noqa: E501
-            nodes ([int]): [optional]  # noqa: E501
+            path (str): The exact server-side mountpoint path or cloud storage URI for this volume. [optional]  # noqa: E501
+            nodes ([int]): Storage nodes that this volume is \"native\" to. These nodes will be selected for NAS connection requests. [optional]  # noqa: E501
             display_name (str): [optional]  # noqa: E501
-            visual_tag (str, none_type): [optional]  # noqa: E501
-            is_default (bool): [optional]  # noqa: E501
-            use_for_homes (bool): [optional]  # noqa: E501
-            use_for_workspaces (bool): [optional]  # noqa: E501
+            visual_tag (str, none_type): A visual label shown for this volume in the UI. [optional]  # noqa: E501
+            is_default (bool): Pre-selects this volume in the UI selectors. [optional]  # noqa: E501
+            use_for_homes (bool): Whether this volume can be used for user home workspace. [optional]  # noqa: E501
+            use_for_workspaces (bool): Whether this volume can be used for workspaces in general. [optional]  # noqa: E501
             type (str): [optional]  # noqa: E501
             snm_enabled (bool): [optional]  # noqa: E501
             snfs_name (str, none_type): [optional]  # noqa: E501
-            cloud_account (int, none_type): [optional]  # noqa: E501
-            qumulo_integration (int, none_type): [optional]  # noqa: E501
-            nfsv4_export (bool): [optional]  # noqa: E501
-            onefs_integration (int, none_type): [optional]  # noqa: E501
+            cloud_account (int, none_type): For cloud volumes, the CloudAccount object containing credentials for this volume.. [optional]  # noqa: E501
+            qumulo_integration (int, none_type): The Qumulo integration associated with this volume if it is a Qumulo volume. Required for Qumulo volumes and must be empty for non-Qumulo volumes.. [optional]  # noqa: E501
+            onefs_integration (int, none_type): The OneFS integration associated with this volume if it is a OneFS volume. Required for OneFS volumes and must be empty for non-OneFS volumes.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

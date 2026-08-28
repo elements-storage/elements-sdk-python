@@ -117,7 +117,7 @@ class MediaRootPermissionMini(ModelNormal):
         Args:
             id (int):
             root (int):
-            path (str):
+            path (str): Subdirectory within the root to which this permission is scoped. Empty string grants access to the entire root.
             user (int, none_type):
             group (int, none_type):
 
@@ -212,7 +212,7 @@ class MediaRootPermissionMini(ModelNormal):
         Args:
             id (int):
             root (int):
-            path (str):
+            path (str): Subdirectory within the root to which this permission is scoped. Empty string grants access to the entire root.
             user (int, none_type):
             group (int, none_type):
 

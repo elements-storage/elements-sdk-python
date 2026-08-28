@@ -112,7 +112,7 @@ class ClientSidePathEndpointRequest(ModelNormal):
         """ClientSidePathEndpointRequest - a model defined in OpenAPI
 
         Args:
-            server_side_path (str):
+            server_side_path (str): The server-side filesystem path to translate.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -145,7 +145,7 @@ class ClientSidePathEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            platform (str, none_type): [optional]  # noqa: E501
+            platform (str, none_type): Target client platform (e.g. `win` or `mac`); defaults to `win`.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -200,7 +200,7 @@ class ClientSidePathEndpointRequest(ModelNormal):
         """ClientSidePathEndpointRequest - a model defined in OpenAPI
 
         Args:
-            server_side_path (str):
+            server_side_path (str): The server-side filesystem path to translate.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -233,7 +233,7 @@ class ClientSidePathEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            platform (str, none_type): [optional]  # noqa: E501
+            platform (str, none_type): Target client platform (e.g. `win` or `mac`); defaults to `win`.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

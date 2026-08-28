@@ -169,6 +169,7 @@ class StorageNodeUpdate(ModelNormal):
             'permission_mask': (str,),  # noqa: E501
             'address_override': (str, none_type,),  # noqa: E501
             'auto_scan_interfaces': (bool,),  # noqa: E501
+            'mcp_tunnel_enabled': (bool,),  # noqa: E501
             'volume_queues': ([int],),  # noqa: E501
         }
 
@@ -202,6 +203,7 @@ class StorageNodeUpdate(ModelNormal):
         'permission_mask': 'permission_mask',  # noqa: E501
         'address_override': 'address_override',  # noqa: E501
         'auto_scan_interfaces': 'auto_scan_interfaces',  # noqa: E501
+        'mcp_tunnel_enabled': 'mcp_tunnel_enabled',  # noqa: E501
         'volume_queues': 'volume_queues',  # noqa: E501
     }
 
@@ -270,6 +272,7 @@ class StorageNodeUpdate(ModelNormal):
             permission_mask (str): Comma-separated list of user permissions allowed on this node. [optional]  # noqa: E501
             address_override (str, none_type): Enforces mounting from a specific address/hostname instead of the available interfaces. [optional]  # noqa: E501
             auto_scan_interfaces (bool): [optional]  # noqa: E501
+            mcp_tunnel_enabled (bool): [optional]  # noqa: E501
             volume_queues ([int]): Run volume-specific tasks for selected volumes.. [optional]  # noqa: E501
         """
 
@@ -378,6 +381,7 @@ class StorageNodeUpdate(ModelNormal):
             permission_mask (str): Comma-separated list of user permissions allowed on this node. [optional]  # noqa: E501
             address_override (str, none_type): Enforces mounting from a specific address/hostname instead of the available interfaces. [optional]  # noqa: E501
             auto_scan_interfaces (bool): [optional]  # noqa: E501
+            mcp_tunnel_enabled (bool): [optional]  # noqa: E501
             volume_queues ([int]): Run volume-specific tasks for selected volumes.. [optional]  # noqa: E501
         """
 

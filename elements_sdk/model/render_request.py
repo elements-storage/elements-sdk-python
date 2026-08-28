@@ -107,7 +107,7 @@ class RenderRequest(ModelNormal):
         """RenderRequest - a model defined in OpenAPI
 
         Args:
-            destination (str):
+            destination (str): Destination path for the rendered subclip file.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,7 +194,7 @@ class RenderRequest(ModelNormal):
         """RenderRequest - a model defined in OpenAPI
 
         Args:
-            destination (str):
+            destination (str): Destination path for the rendered subclip file.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

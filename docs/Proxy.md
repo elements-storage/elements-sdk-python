@@ -1,5 +1,6 @@
 # Proxy
 
+A generated proxy (preview) of an asset produced from a proxy profile, tracking its generation state and the URLs to access the generated files.
 
 ## Properties
 
@@ -18,6 +19,7 @@ Name | Type | Description | Notes
 **variant_config** | **str** |  | 
 **source_audio_layout_preserved** | **bool** |  | 
 **codecs** | **str, none_type** |  | 
+**image_format** | **str** |  | 
 **asset** | **int** |  | 
 **variant_id** | **str** |  | defaults to "default"
 **transforms** | [**Transforms**](Transforms.md) |  | [optional] 

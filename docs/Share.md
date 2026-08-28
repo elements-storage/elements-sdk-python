@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **share_afp** | **bool** |  | 
 **sharing_read_only** | **bool** |  | 
 **sharing_hidden** | **bool** |  | 
-**sharing_require_login** | **bool** |  | 
+**sharing_require_login** | **bool** | Require authentication over SMB and AFP | 
 **smb_extra_config** | **str** |  | 
 **afp_extra_config** | **str** |  | 
 **rw_access_group** | **int, none_type** |  | 

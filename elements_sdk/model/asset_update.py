@@ -95,7 +95,7 @@ class AssetUpdate(ModelNormal):
         """
         lazy_import()
         return {
-            'custom_fields': ({str: (str, none_type)},),  # noqa: E501
+            'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'tags': ([TagReference],),  # noqa: E501
             'workflow_state': (int,),  # noqa: E501
             'timecode': (float, none_type,),  # noqa: E501
@@ -126,7 +126,7 @@ class AssetUpdate(ModelNormal):
         """AssetUpdate - a model defined in OpenAPI
 
         Args:
-            custom_fields ({str: (str, none_type)}):
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             tags ([TagReference]):
 
         Keyword Args:
@@ -218,7 +218,7 @@ class AssetUpdate(ModelNormal):
         """AssetUpdate - a model defined in OpenAPI
 
         Args:
-            custom_fields ({str: (str, none_type)}):
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             tags ([TagReference]):
 
         Keyword Args:

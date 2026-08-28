@@ -1,5 +1,6 @@
 # AssetProjectLink
 
+Links an asset to an NLE project file that it's used in.
 
 ## Properties
 

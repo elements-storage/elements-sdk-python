@@ -139,8 +139,8 @@ class LocateEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            path (str): [optional]  # noqa: E501
-            asset (int): [optional]  # noqa: E501
+            path (str): Filesystem path to locate.. [optional]  # noqa: E501
+            asset (int): ID of an asset to locate.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -224,8 +224,8 @@ class LocateEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            path (str): [optional]  # noqa: E501
-            asset (int): [optional]  # noqa: E501
+            path (str): Filesystem path to locate.. [optional]  # noqa: E501
+            asset (int): ID of an asset to locate.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

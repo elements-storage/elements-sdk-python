@@ -1,5 +1,6 @@
 # QueuedTaskInfo
 
+A task currently waiting in a worker queue for execution, with its task type and (once it has started) its task record.
 
 ## Properties
 

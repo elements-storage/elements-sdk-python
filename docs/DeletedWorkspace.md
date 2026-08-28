@@ -1,5 +1,6 @@
 # DeletedWorkspace
 
+An orphaned workspace directory found on disk that no longer has a corresponding workspace in configuration.
 
 ## Properties
 

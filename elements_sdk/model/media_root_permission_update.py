@@ -200,14 +200,14 @@ class MediaRootPermissionUpdate(ModelNormal):
             group (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             allow_read (bool): [optional]  # noqa: E501
             allow_create (bool): [optional]  # noqa: E501
-            allow_write_fs (bool): [optional]  # noqa: E501
-            allow_write_db (bool): [optional]  # noqa: E501
-            allow_proxy_download (bool): [optional]  # noqa: E501
-            allow_original_download (bool): [optional]  # noqa: E501
+            allow_write_fs (bool): Allow operations that would write to the filesystem. [optional]  # noqa: E501
+            allow_write_db (bool): Allow operations that would write to the database, e.g. editing asset metadata (tags, custom fields, ratings, comments).. [optional]  # noqa: E501
+            allow_proxy_download (bool): Allow downloading low-resolution proxy files.. [optional]  # noqa: E501
+            allow_original_download (bool): Allow downloading original full-resolution source files.. [optional]  # noqa: E501
             allow_upload (bool): [optional]  # noqa: E501
             allow_sharing (bool): [optional]  # noqa: E501
-            allow_delete_fs (bool): [optional]  # noqa: E501
-            allow_delete_db (bool): [optional]  # noqa: E501
+            allow_delete_fs (bool): Allow deleting files from the filesystem.. [optional]  # noqa: E501
+            allow_delete_db (bool): Allow removing asset records and metadata from the database.. [optional]  # noqa: E501
             show_tags (bool): [optional]  # noqa: E501
             show_comments (bool): [optional]  # noqa: E501
             show_locations (bool): [optional]  # noqa: E501
@@ -218,8 +218,8 @@ class MediaRootPermissionUpdate(ModelNormal):
             show_ai_metadata (bool): [optional]  # noqa: E501
             show_markers (bool): [optional]  # noqa: E501
             show_history (bool): [optional]  # noqa: E501
-            path (str): [optional]  # noqa: E501
-            is_temporary_for_token (int, none_type): [optional]  # noqa: E501
+            path (str): Subdirectory within the root to which this permission is scoped. Empty string grants access to the entire root.. [optional]  # noqa: E501
+            is_temporary_for_token (int, none_type): If set, this permission was created for a sharing link and is removed when the link is deleted.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -311,14 +311,14 @@ class MediaRootPermissionUpdate(ModelNormal):
             group (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             allow_read (bool): [optional]  # noqa: E501
             allow_create (bool): [optional]  # noqa: E501
-            allow_write_fs (bool): [optional]  # noqa: E501
-            allow_write_db (bool): [optional]  # noqa: E501
-            allow_proxy_download (bool): [optional]  # noqa: E501
-            allow_original_download (bool): [optional]  # noqa: E501
+            allow_write_fs (bool): Allow operations that would write to the filesystem. [optional]  # noqa: E501
+            allow_write_db (bool): Allow operations that would write to the database, e.g. editing asset metadata (tags, custom fields, ratings, comments).. [optional]  # noqa: E501
+            allow_proxy_download (bool): Allow downloading low-resolution proxy files.. [optional]  # noqa: E501
+            allow_original_download (bool): Allow downloading original full-resolution source files.. [optional]  # noqa: E501
             allow_upload (bool): [optional]  # noqa: E501
             allow_sharing (bool): [optional]  # noqa: E501
-            allow_delete_fs (bool): [optional]  # noqa: E501
-            allow_delete_db (bool): [optional]  # noqa: E501
+            allow_delete_fs (bool): Allow deleting files from the filesystem.. [optional]  # noqa: E501
+            allow_delete_db (bool): Allow removing asset records and metadata from the database.. [optional]  # noqa: E501
             show_tags (bool): [optional]  # noqa: E501
             show_comments (bool): [optional]  # noqa: E501
             show_locations (bool): [optional]  # noqa: E501
@@ -329,8 +329,8 @@ class MediaRootPermissionUpdate(ModelNormal):
             show_ai_metadata (bool): [optional]  # noqa: E501
             show_markers (bool): [optional]  # noqa: E501
             show_history (bool): [optional]  # noqa: E501
-            path (str): [optional]  # noqa: E501
-            is_temporary_for_token (int, none_type): [optional]  # noqa: E501
+            path (str): Subdirectory within the root to which this permission is scoped. Empty string grants access to the entire root.. [optional]  # noqa: E501
+            is_temporary_for_token (int, none_type): If set, this permission was created for a sharing link and is removed when the link is deleted.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

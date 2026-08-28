@@ -120,11 +120,11 @@ class SetupOffloadRequest(ModelNormal):
         """SetupOffloadRequest - a model defined in OpenAPI
 
         Args:
-            bandwidth_limit (int, none_type):
-            enqueue_at_front (bool):
-            force_sync (bool):
-            offload_volume (int):
-            offload_volume_path (str):
+            bandwidth_limit (int, none_type): Maximum transfer rate in bytes per second. Null means no limit.
+            enqueue_at_front (bool): When true, place the task at the front of its queue so it runs before other already-queued tasks instead of at the back.
+            force_sync (bool): When true, bypass the safety check that aborts the sync when an unexpectedly large fraction of files at the destination would be deleted
+            offload_volume (int): Volume to use as the workspace's parking (offload) location.
+            offload_volume_path (str): Path on the offload volume to park the workspace contents at.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -157,7 +157,7 @@ class SetupOffloadRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            priority (str): [optional] if omitted the server will use the default value of "interactive"  # noqa: E501
+            priority (str): Scheduling priority of the transfer task relative to other tasks in the queue.. [optional] if omitted the server will use the default value of "interactive"  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -216,11 +216,11 @@ class SetupOffloadRequest(ModelNormal):
         """SetupOffloadRequest - a model defined in OpenAPI
 
         Args:
-            bandwidth_limit (int, none_type):
-            enqueue_at_front (bool):
-            force_sync (bool):
-            offload_volume (int):
-            offload_volume_path (str):
+            bandwidth_limit (int, none_type): Maximum transfer rate in bytes per second. Null means no limit.
+            enqueue_at_front (bool): When true, place the task at the front of its queue so it runs before other already-queued tasks instead of at the back.
+            force_sync (bool): When true, bypass the safety check that aborts the sync when an unexpectedly large fraction of files at the destination would be deleted
+            offload_volume (int): Volume to use as the workspace's parking (offload) location.
+            offload_volume_path (str): Path on the offload volume to park the workspace contents at.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -253,7 +253,7 @@ class SetupOffloadRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            priority (str): [optional] if omitted the server will use the default value of "interactive"  # noqa: E501
+            priority (str): Scheduling priority of the transfer task relative to other tasks in the queue.. [optional] if omitted the server will use the default value of "interactive"  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

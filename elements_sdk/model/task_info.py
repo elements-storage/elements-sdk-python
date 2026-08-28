@@ -126,8 +126,8 @@ class TaskInfo(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
-            'kwargs': ({str: (str, none_type)},),  # noqa: E501
-            'outputs': ({str: (str, none_type)},),  # noqa: E501
+            'kwargs': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'outputs': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'subtask': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'worker': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'user': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
@@ -149,7 +149,7 @@ class TaskInfo(ModelNormal):
             'related_proxy_id': (int, none_type,),  # noqa: E501
             'schedule': (int, none_type,),  # noqa: E501
             'finished': (datetime, none_type,),  # noqa: E501
-            'progress': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'progress': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -207,8 +207,8 @@ class TaskInfo(ModelNormal):
         Args:
             id (str):
             display_name (str):
-            kwargs ({str: (str, none_type)}):
-            outputs ({str: (str, none_type)}):
+            kwargs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+            outputs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             subtask (bool, date, datetime, dict, float, int, list, str, none_type):
             worker (bool, date, datetime, dict, float, int, list, str, none_type):
             user (bool, date, datetime, dict, float, int, list, str, none_type):
@@ -217,17 +217,17 @@ class TaskInfo(ModelNormal):
             is_finished (bool): True when the task is in one of the following states: FINISHED (2), ABORTED (4), FAILED (5), WARNINGS (6), NOOP (7).
             name (str, none_type):
             task_name (str, none_type):
-            is_private (bool):
+            is_private (bool): Private tasks are internal and hidden from the user-facing task list.
             worker_name (str, none_type):
-            queue (str, none_type):
+            queue (str, none_type): Name of the worker queue the task is assigned to.
             state (int):
-            state_text (str, none_type):
-            job_instance (str, none_type):
+            state_text (str, none_type): Human-readable status or progress message for the current state.
+            job_instance (str, none_type): Groups tasks spawned by the same job execution
             started (datetime):
-            exception (str, none_type):
-            traceback (str, none_type):
-            related_bundle_id (int, none_type):
-            related_proxy_id (int, none_type):
+            exception (str, none_type): Error message if the task failed.
+            traceback (str, none_type): Python traceback captured if the task raised an unhandled error.
+            related_bundle_id (int, none_type): ID of the Media Library file bundle this task relates to, if any.
+            related_proxy_id (int, none_type): ID of the proxy this task relates to, if any.
             schedule (int, none_type):
 
         Keyword Args:
@@ -262,7 +262,7 @@ class TaskInfo(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             finished (datetime, none_type): [optional]  # noqa: E501
-            progress ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            progress ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -347,16 +347,16 @@ class TaskInfo(ModelNormal):
             workstation (bool, date, datetime, dict, float, int, list, str, none_type):
             name (str, none_type):
             task_name (str, none_type):
-            is_private (bool):
+            is_private (bool): Private tasks are internal and hidden from the user-facing task list.
             worker_name (str, none_type):
-            queue (str, none_type):
+            queue (str, none_type): Name of the worker queue the task is assigned to.
             state (int):
-            state_text (str, none_type):
-            job_instance (str, none_type):
-            exception (str, none_type):
-            traceback (str, none_type):
-            related_bundle_id (int, none_type):
-            related_proxy_id (int, none_type):
+            state_text (str, none_type): Human-readable status or progress message for the current state.
+            job_instance (str, none_type): Groups tasks spawned by the same job execution
+            exception (str, none_type): Error message if the task failed.
+            traceback (str, none_type): Python traceback captured if the task raised an unhandled error.
+            related_bundle_id (int, none_type): ID of the Media Library file bundle this task relates to, if any.
+            related_proxy_id (int, none_type): ID of the proxy this task relates to, if any.
             schedule (int, none_type):
 
         Keyword Args:
@@ -391,7 +391,7 @@ class TaskInfo(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             finished (datetime, none_type): [optional]  # noqa: E501
-            progress ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            progress ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

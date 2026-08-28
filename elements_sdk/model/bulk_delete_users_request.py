@@ -108,7 +108,7 @@ class BulkDeleteUsersRequest(ModelNormal):
         """BulkDeleteUsersRequest - a model defined in OpenAPI
 
         Args:
-            ids ([int]):
+            ids ([int]): IDs of the users to delete.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -141,8 +141,8 @@ class BulkDeleteUsersRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            delete_workspace_content (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            delete_media_root (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            delete_workspace_content (bool): When true, also delete the files in each user's home workspace.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            delete_media_root (bool): When true, also delete each user's home Media Root from the Media Library.. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -197,7 +197,7 @@ class BulkDeleteUsersRequest(ModelNormal):
         """BulkDeleteUsersRequest - a model defined in OpenAPI
 
         Args:
-            ids ([int]):
+            ids ([int]): IDs of the users to delete.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -230,8 +230,8 @@ class BulkDeleteUsersRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            delete_workspace_content (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            delete_media_root (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            delete_workspace_content (bool): When true, also delete the files in each user's home workspace.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            delete_media_root (bool): When true, also delete each user's home Media Root from the Media Library.. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

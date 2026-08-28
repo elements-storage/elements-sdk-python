@@ -1,5 +1,6 @@
 # FilesystemFile
 
+A physical file or directory on a storage volume, including its size, timestamps, ownership and permission modes.
 
 ## Properties
 
@@ -20,8 +21,8 @@ Name | Type | Description | Notes
 **gid** | **int** |  | [optional] 
 **user** | **str** |  | [optional] 
 **group** | **str** |  | [optional] 
-**recursive** | **bool** |  | [optional] 
-**affinity** | **str, none_type** |  | [optional] 
+**recursive** | **bool** | Apply the given ownership and permission modes to all existing contents recursively. | [optional] 
+**affinity** | **str, none_type** | StorNext (SNFS) affinity to assign, controlling which storage pool the data is placed on. | [optional] 
 **files** | [**[DirectoryEntry], none_type**](DirectoryEntry.md) |  | [optional] 
 **mode_setuid** | **bool** |  | [optional] 
 **mode_setgid** | **bool** |  | [optional] 

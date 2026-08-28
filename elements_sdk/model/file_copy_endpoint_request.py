@@ -128,8 +128,8 @@ class FileCopyEndpointRequest(ModelNormal):
         """FileCopyEndpointRequest - a model defined in OpenAPI
 
         Args:
-            input ([str]):
-            destination (str):
+            input ([str]): Filesystem paths to operate on.
+            destination (str): Destination directory to copy the inputs into.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -162,10 +162,10 @@ class FileCopyEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            hardlink (bool): [optional]  # noqa: E501
-            sync (bool): [optional]  # noqa: E501
-            overwrite (str): [optional]  # noqa: E501
-            folders (str): [optional]  # noqa: E501
+            hardlink (bool): When true, create hardlinks instead of copying file data where possible.. [optional]  # noqa: E501
+            sync (bool): When true, wait for the copy to finish before responding instead of running it as a background task.. [optional]  # noqa: E501
+            overwrite (str): How to handle a file that already exists at the destination: skip (Overwrite.SKIP), `Overwrite.WARN`, keep both by appending a `Overwrite.NUMBER` or `Overwrite.TIMESTAMP`, or `Overwrite.OVERWRITE` it.. [optional]  # noqa: E501
+            folders (str): How to handle copying folders: merge contents into existing folder (`FolderCopyBehaviour.MERGE`) or rename the new folder (`FolderCopyBehaviour.RENAME`). Note that `Overwrite.OVERWRITE` logic will still be applied to individual files in both cases.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -221,8 +221,8 @@ class FileCopyEndpointRequest(ModelNormal):
         """FileCopyEndpointRequest - a model defined in OpenAPI
 
         Args:
-            input ([str]):
-            destination (str):
+            input ([str]): Filesystem paths to operate on.
+            destination (str): Destination directory to copy the inputs into.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -255,10 +255,10 @@ class FileCopyEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            hardlink (bool): [optional]  # noqa: E501
-            sync (bool): [optional]  # noqa: E501
-            overwrite (str): [optional]  # noqa: E501
-            folders (str): [optional]  # noqa: E501
+            hardlink (bool): When true, create hardlinks instead of copying file data where possible.. [optional]  # noqa: E501
+            sync (bool): When true, wait for the copy to finish before responding instead of running it as a background task.. [optional]  # noqa: E501
+            overwrite (str): How to handle a file that already exists at the destination: skip (Overwrite.SKIP), `Overwrite.WARN`, keep both by appending a `Overwrite.NUMBER` or `Overwrite.TIMESTAMP`, or `Overwrite.OVERWRITE` it.. [optional]  # noqa: E501
+            folders (str): How to handle copying folders: merge contents into existing folder (`FolderCopyBehaviour.MERGE`) or rename the new folder (`FolderCopyBehaviour.RENAME`). Note that `Overwrite.OVERWRITE` logic will still be applied to individual files in both cases.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

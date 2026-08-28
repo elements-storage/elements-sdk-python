@@ -86,7 +86,7 @@ class InstantiateFileTemplateRequest(ModelNormal):
         return {
             'parent': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'custom_fields': ({str: (str, none_type)},),  # noqa: E501
+            'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
         }
 
     @cached_property
@@ -145,7 +145,7 @@ class InstantiateFileTemplateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -235,7 +235,7 @@ class InstantiateFileTemplateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

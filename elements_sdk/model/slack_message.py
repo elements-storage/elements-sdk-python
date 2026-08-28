@@ -122,8 +122,8 @@ class SlackMessage(ModelNormal):
         """SlackMessage - a model defined in OpenAPI
 
         Args:
-            recipient (str):
-            text (str):
+            recipient (str): Channel or user ID to send the message to.
+            text (str): Message text.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -156,8 +156,8 @@ class SlackMessage(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            username (str, none_type): [optional]  # noqa: E501
-            emoji (str, none_type): [optional]  # noqa: E501
+            username (str, none_type): Override the sender display name.. [optional]  # noqa: E501
+            emoji (str, none_type): Override the sender avatar with this emoji.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -213,8 +213,8 @@ class SlackMessage(ModelNormal):
         """SlackMessage - a model defined in OpenAPI
 
         Args:
-            recipient (str):
-            text (str):
+            recipient (str): Channel or user ID to send the message to.
+            text (str): Message text.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -247,8 +247,8 @@ class SlackMessage(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            username (str, none_type): [optional]  # noqa: E501
-            emoji (str, none_type): [optional]  # noqa: E501
+            username (str, none_type): Override the sender display name.. [optional]  # noqa: E501
+            emoji (str, none_type): Override the sender avatar with this emoji.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

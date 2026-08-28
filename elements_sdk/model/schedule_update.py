@@ -188,7 +188,7 @@ class ScheduleUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             variables ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
-            type (int): [optional]  # noqa: E501
+            type (int): Scheduling mode: fixed interval (`1`, uses `every`/`period`) or a crontab expression (`2`, uses the `crontab_*` fields).. [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501
             last_run (datetime, none_type): [optional]  # noqa: E501
             every (int): [optional]  # noqa: E501
@@ -286,7 +286,7 @@ class ScheduleUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             variables ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
-            type (int): [optional]  # noqa: E501
+            type (int): Scheduling mode: fixed interval (`1`, uses `every`/`period`) or a crontab expression (`2`, uses the `crontab_*` fields).. [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501
             last_run (datetime, none_type): [optional]  # noqa: E501
             every (int): [optional]  # noqa: E501

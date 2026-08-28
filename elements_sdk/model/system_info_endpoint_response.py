@@ -105,6 +105,7 @@ class SystemInfoEndpointResponse(ModelNormal):
             'offers_ntp_sync': (bool,),  # noqa: E501
             'offers_file_search': (bool,),  # noqa: E501
             'offers_iperf_benchmarking': (bool,),  # noqa: E501
+            'offers_mcp': (bool,),  # noqa: E501
             'language': (str,),  # noqa: E501
             'saml_providers': ([SAMLProviderMini],),  # noqa: E501
             'version': (ElementsVersion,),  # noqa: E501
@@ -112,6 +113,7 @@ class SystemInfoEndpointResponse(ModelNormal):
             'has_password_policy': (bool,),  # noqa: E501
             'password_login': (bool,),  # noqa: E501
             'analytics_enabled': (bool,),  # noqa: E501
+            'supported_panel_plugins': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -126,6 +128,7 @@ class SystemInfoEndpointResponse(ModelNormal):
         'offers_ntp_sync': 'offers_ntp_sync',  # noqa: E501
         'offers_file_search': 'offers_file_search',  # noqa: E501
         'offers_iperf_benchmarking': 'offers_iperf_benchmarking',  # noqa: E501
+        'offers_mcp': 'offers_mcp',  # noqa: E501
         'language': 'language',  # noqa: E501
         'saml_providers': 'saml_providers',  # noqa: E501
         'version': 'version',  # noqa: E501
@@ -133,6 +136,7 @@ class SystemInfoEndpointResponse(ModelNormal):
         'has_password_policy': 'has_password_policy',  # noqa: E501
         'password_login': 'password_login',  # noqa: E501
         'analytics_enabled': 'analytics_enabled',  # noqa: E501
+        'supported_panel_plugins': 'supported_panel_plugins',  # noqa: E501
     }
 
     read_only_vars = {
@@ -143,7 +147,7 @@ class SystemInfoEndpointResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, license, client_api_version, nt_hostname, offers_ntp_sync, offers_file_search, offers_iperf_benchmarking, language, saml_providers, version, global_alerts, has_password_policy, password_login, analytics_enabled, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, license, client_api_version, nt_hostname, offers_ntp_sync, offers_file_search, offers_iperf_benchmarking, offers_mcp, language, saml_providers, version, global_alerts, has_password_policy, password_login, analytics_enabled, supported_panel_plugins, *args, **xkwargs):  # noqa: E501
         """SystemInfoEndpointResponse - a model defined in OpenAPI
 
         Args:
@@ -153,6 +157,7 @@ class SystemInfoEndpointResponse(ModelNormal):
             offers_ntp_sync (bool):
             offers_file_search (bool):
             offers_iperf_benchmarking (bool):
+            offers_mcp (bool):
             language (str):
             saml_providers ([SAMLProviderMini]):
             version (ElementsVersion):
@@ -160,6 +165,7 @@ class SystemInfoEndpointResponse(ModelNormal):
             has_password_policy (bool):
             password_login (bool):
             analytics_enabled (bool):
+            supported_panel_plugins ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -226,6 +232,7 @@ class SystemInfoEndpointResponse(ModelNormal):
         self.offers_ntp_sync = offers_ntp_sync
         self.offers_file_search = offers_file_search
         self.offers_iperf_benchmarking = offers_iperf_benchmarking
+        self.offers_mcp = offers_mcp
         self.language = language
         self.saml_providers = saml_providers
         self.version = version
@@ -233,6 +240,7 @@ class SystemInfoEndpointResponse(ModelNormal):
         self.has_password_policy = has_password_policy
         self.password_login = password_login
         self.analytics_enabled = analytics_enabled
+        self.supported_panel_plugins = supported_panel_plugins
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -254,7 +262,7 @@ class SystemInfoEndpointResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, license, client_api_version, nt_hostname, offers_ntp_sync, offers_file_search, offers_iperf_benchmarking, language, version, global_alerts, has_password_policy, password_login, analytics_enabled, *args, **xkwargs):  # noqa: E501
+    def __init__(self, license, client_api_version, nt_hostname, offers_ntp_sync, offers_file_search, offers_iperf_benchmarking, offers_mcp, language, version, global_alerts, has_password_policy, password_login, analytics_enabled, supported_panel_plugins, *args, **xkwargs):  # noqa: E501
         """SystemInfoEndpointResponse - a model defined in OpenAPI
 
         Args:
@@ -264,12 +272,14 @@ class SystemInfoEndpointResponse(ModelNormal):
             offers_ntp_sync (bool):
             offers_file_search (bool):
             offers_iperf_benchmarking (bool):
+            offers_mcp (bool):
             language (str):
             version (ElementsVersion):
             global_alerts ([GlobalAlert]):
             has_password_policy (bool):
             password_login (bool):
             analytics_enabled (bool):
+            supported_panel_plugins ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -334,12 +344,14 @@ class SystemInfoEndpointResponse(ModelNormal):
         self.offers_ntp_sync = offers_ntp_sync
         self.offers_file_search = offers_file_search
         self.offers_iperf_benchmarking = offers_iperf_benchmarking
+        self.offers_mcp = offers_mcp
         self.language = language
         self.version = version
         self.global_alerts = global_alerts
         self.has_password_policy = has_password_policy
         self.password_login = password_login
         self.analytics_enabled = analytics_enabled
+        self.supported_panel_plugins = supported_panel_plugins
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

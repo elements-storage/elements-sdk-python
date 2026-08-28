@@ -1,5 +1,6 @@
 # QumuloIntegrationPartialUpdate
 
+Connection settings for integrating a Qumulo storage cluster as a third-party volume.
 
 ## Properties
 

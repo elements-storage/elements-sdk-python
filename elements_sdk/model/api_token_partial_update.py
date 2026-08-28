@@ -138,7 +138,7 @@ class APITokenPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
+            name (str): Human-readable label for the token.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -222,7 +222,7 @@ class APITokenPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
+            name (str): Human-readable label for the token.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

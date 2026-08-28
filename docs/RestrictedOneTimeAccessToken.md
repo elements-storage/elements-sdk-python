@@ -1,5 +1,6 @@
 # RestrictedOneTimeAccessToken
 
+A shareable access token granting temporary access to specific media bundles or directories via a link, optionally password-protected and view-limited. Called \"Sharing Links\" in the UI.
 
 ## Properties
 

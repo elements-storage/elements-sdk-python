@@ -1,5 +1,6 @@
 # Certificate
 
+The system's web (HTTPS) TLS certificate configuration and its validity details.
 
 ## Properties
 

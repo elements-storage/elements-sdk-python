@@ -4,6 +4,7 @@
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**check_one_fs_connection**](PrivateApi.md#check_one_fs_connection) | **POST** `/api/2/private/onefs-integrations/check-connection` | 
 [**check_pmr**](PrivateApi.md#check_pmr) | **POST** `/api/2/panel/check-pmr` | 
 [**cleanup_media_root**](PrivateApi.md#cleanup_media_root) | **POST** `/api/2/media/root-cleanup` | 
 [**create_one_fs_integration**](PrivateApi.md#create_one_fs_integration) | **POST** `/api/2/private/onefs-integrations` | 
@@ -15,20 +16,22 @@ Method | HTTP request | Description
 [**export_updates**](PrivateApi.md#export_updates) | **GET** `/api/2/private/export/updates/{root_id}` | 
 [**fast_lane_get_token_params**](PrivateApi.md#fast_lane_get_token_params) | **GET** `/api/2/private/fast-lane/{token}` | 
 [**fast_lane_login_with_password**](PrivateApi.md#fast_lane_login_with_password) | **POST** `/api/2/private/fast-lane/{token}` | 
-[**get**](PrivateApi.md#get) | **GET** `/api/2/private/bootstrap` | 
 [**get_agent_auth_token**](PrivateApi.md#get_agent_auth_token) | **GET** `/api/2/private/elements-agent-auth` | 
 [**get_all_one_fs_integrations**](PrivateApi.md#get_all_one_fs_integrations) | **GET** `/api/2/private/onefs-integrations` | 
 [**get_all_qumulo_integrations**](PrivateApi.md#get_all_qumulo_integrations) | **GET** `/api/2/private/qumulo-integrations` | 
+[**get_bootstrap_data**](PrivateApi.md#get_bootstrap_data) | **GET** `/api/2/private/bootstrap` | 
 [**get_client_side_url**](PrivateApi.md#get_client_side_url) | **POST** `/api/2/private/client-side-url` | 
 [**get_help_page**](PrivateApi.md#get_help_page) | **GET** `/api/2/help/{id}` | 
 [**get_licensing_state**](PrivateApi.md#get_licensing_state) | **POST** `/api/2/private/licensing-state` | 
 [**get_locale**](PrivateApi.md#get_locale) | **GET** `/api/2/private/locale/{lang}` | 
+[**get_mcp_tunnel_status**](PrivateApi.md#get_mcp_tunnel_status) | **GET** `/api/2/private/mcp-tunnel/status` | 
 [**get_media_library_homepage_content**](PrivateApi.md#get_media_library_homepage_content) | **GET** `/api/2/private/media/homepage-content` | 
 [**get_one_fs_integration**](PrivateApi.md#get_one_fs_integration) | **GET** `/api/2/private/onefs-integrations/{id}` | 
 [**get_proxy_fs_size**](PrivateApi.md#get_proxy_fs_size) | **GET** `/api/2/private/media/proxyfs-size` | 
 [**get_qumulo_integration**](PrivateApi.md#get_qumulo_integration) | **GET** `/api/2/private/qumulo-integrations/{id}` | 
 [**get_samba_dfree_string**](PrivateApi.md#get_samba_dfree_string) | **POST** `/api/2/private/dfree` | 
-[**install_license**](PrivateApi.md#install_license) | **POST** `/api/2/license/install` | 
+[**install_license_offline**](PrivateApi.md#install_license_offline) | **POST** `/api/2/license/install/offline` | 
+[**install_license_online**](PrivateApi.md#install_license_online) | **POST** `/api/2/license/install/online` | 
 [**language_server_request**](PrivateApi.md#language_server_request) | **POST** `/api/2/language-server/{language}` | 
 [**locate_file**](PrivateApi.md#locate_file) | **POST** `/api/2/private/locate` | 
 [**locate_metadata**](PrivateApi.md#locate_metadata) | **POST** `/api/2/panel/locate-metadata` | 
@@ -36,6 +39,7 @@ Method | HTTP request | Description
 [**lookup_upload_folder_by_path**](PrivateApi.md#lookup_upload_folder_by_path) | **GET** `/api/2/private/media/lookup-upload-folder` | 
 [**patch_one_fs_integration**](PrivateApi.md#patch_one_fs_integration) | **PATCH** `/api/2/private/onefs-integrations/{id}` | 
 [**patch_qumulo_integration**](PrivateApi.md#patch_qumulo_integration) | **PATCH** `/api/2/private/qumulo-integrations/{id}` | 
+[**restart_mcp_tunnel**](PrivateApi.md#restart_mcp_tunnel) | **POST** `/api/2/system/mcp-tunnel/restart` | 
 [**start_benchmark_session**](PrivateApi.md#start_benchmark_session) | **POST** `/api/2/private/benchmark` | 
 [**start_impersonation**](PrivateApi.md#start_impersonation) | **POST** `/api/2/auth/impersonation` | 
 [**start_impersonation_via_redirect**](PrivateApi.md#start_impersonation_via_redirect) | **GET** `/api/2/auth/impersonation/redirect/{user_id}` | 
@@ -44,6 +48,61 @@ Method | HTTP request | Description
 [**update_one_fs_integration**](PrivateApi.md#update_one_fs_integration) | **PUT** `/api/2/private/onefs-integrations/{id}` | 
 [**update_qumulo_integration**](PrivateApi.md#update_qumulo_integration) | **PUT** `/api/2/private/qumulo-integrations/{id}` | 
 
+
+# **check_one_fs_connection**
+    def CheckOneFSConnectionResponse check_one_fs_connection(check_one_fs_connection_request)
+
+
+
+### Required permissions    * User account permission: `system:admin-access` 
+
+### Example
+
+
+```python
+import elements_sdk
+from elements_sdk.api import private_api
+from elements_sdk.model.check_one_fs_connection_response import CheckOneFSConnectionResponse
+from elements_sdk.model.check_one_fs_connection_request import CheckOneFSConnectionRequest
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local:8080",
+    discard_unknown_keys=True,
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+with elements_sdk.ApiClient(configuration) as api_client:
+    api_instance = private_api.PrivateApi(api_client)
+    check_one_fs_connection_request = CheckOneFSConnectionRequest(
+        address="address_example",
+        username="username_example",
+        password="password_example",
+    ) # CheckOneFSConnectionRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.check_one_fs_connection(check_one_fs_connection_request)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling PrivateApi->check_one_fs_connection: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **check_one_fs_connection_request** | [**CheckOneFSConnectionRequest**](CheckOneFSConnectionRequest.md)|  |
+
+### Return type
+
+[**CheckOneFSConnectionResponse**](CheckOneFSConnectionResponse.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **check_pmr**
     def CheckPMREndpointResponse check_pmr(check_pmr_endpoint_request)
@@ -103,7 +162,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:roots:manage`   * License component: media 
+Asynchronously delete all Media Library metadata for files under the given path. Returns a task handle to track progress.  ### Required permissions    * User account permission: `media:roots:manage`   * License component: media 
 
 ### Example
 
@@ -376,7 +435,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access` 
+### Required permissions    * User account permission: `media:roots:manage` 
 
 ### Example
 
@@ -424,7 +483,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access` 
+### Required permissions    * User account permission: `media:roots:manage` 
 
 ### Example
 
@@ -619,50 +678,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-# **get**
-    def BootstrapData get()
-
-
-
-### Example
-
-
-```python
-import elements_sdk
-from elements_sdk.api import private_api
-from elements_sdk.model.bootstrap_data import BootstrapData
-from pprint import pprint
-
-# See configuration.py for a list of all supported configuration parameters.
-configuration = elements_sdk.Configuration(
-    host="https://elements.local:8080",
-    discard_unknown_keys=True,
-)
-
-configuration.client_side_validation = False
-configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
-
-with elements_sdk.ApiClient(configuration) as api_client:
-    api_instance = private_api.PrivateApi(api_client)
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        api_response = api_instance.get()
-        pprint(api_response)
-    except elements_sdk.ApiException as e:
-        print("Exception when calling PrivateApi->get: %s\n" % e)
-```
-
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**BootstrapData**](BootstrapData.md)
-
-[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
-
 # **get_agent_auth_token**
     def get_agent_auth_token()
 
@@ -817,12 +832,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **get_bootstrap_data**
+    def BootstrapData get_bootstrap_data()
+
+
+
+### Example
+
+
+```python
+import elements_sdk
+from elements_sdk.api import private_api
+from elements_sdk.model.bootstrap_data import BootstrapData
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local:8080",
+    discard_unknown_keys=True,
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+with elements_sdk.ApiClient(configuration) as api_client:
+    api_instance = private_api.PrivateApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        api_response = api_instance.get_bootstrap_data()
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling PrivateApi->get_bootstrap_data: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**BootstrapData**](BootstrapData.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
 # **get_client_side_url**
     def ClientSidePathEndpointResponse get_client_side_url(client_side_path_endpoint_request)
 
 
 
-### Required permissions    * User account permission: `client:access` 
+Translate a server-side filesystem path into the local path/URL the requesting client would use to open it, based on the client's mounts and platform.  ### Required permissions    * User account permission: `client:access` 
 
 ### Example
 
@@ -926,6 +985,8 @@ Name | Type | Description  | Notes
 
 
 
+Return the overall licensing state: whether valid licenses exist (and apply to this node), the known products and subtypes, default components and the combined license.  ### Required permissions    * Authenticated user 
+
 ### Example
 
 
@@ -1013,12 +1074,58 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **get_mcp_tunnel_status**
+    def McpTunnelStatusEndpointResponse get_mcp_tunnel_status()
+
+
+
+### Required permissions    * User account permission: `system:admin-access` 
+
+### Example
+
+
+```python
+import elements_sdk
+from elements_sdk.api import private_api
+from elements_sdk.model.mcp_tunnel_status_endpoint_response import McpTunnelStatusEndpointResponse
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local:8080",
+    discard_unknown_keys=True,
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+with elements_sdk.ApiClient(configuration) as api_client:
+    api_instance = private_api.PrivateApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        api_response = api_instance.get_mcp_tunnel_status()
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling PrivateApi->get_mcp_tunnel_status: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**McpTunnelStatusEndpointResponse**](McpTunnelStatusEndpointResponse.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
 # **get_media_library_homepage_content**
     def MediaHomepageContentEndpointResponse get_media_library_homepage_content()
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media 
+Return the Media Library home page content for the current user: their pinned items and the media roots they can access with the corresponding permissions.  ### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -1114,7 +1221,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access` 
+Return the total disk space, in bytes, currently used by generated proxy files (a cached value).  ### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
@@ -1249,12 +1356,12 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
-# **install_license**
-    def install_license(install_license_endpoint_request)
+# **install_license_offline**
+    def install_license_offline(install_license_offline_endpoint_request)
 
 
 
-### Required permissions    * User account permission: `system:admin-access` 
+Offline activation: the WebUI submits the whole base64 response blob obtained from the licensing server (carrying the license, its signature and service certificates).  ### Required permissions    * User account permission: `system:admin-access` 
 
 ### Example
 
@@ -1262,7 +1369,7 @@ void (empty response body)
 ```python
 import elements_sdk
 from elements_sdk.api import private_api
-from elements_sdk.model.install_license_endpoint_request import InstallLicenseEndpointRequest
+from elements_sdk.model.install_license_offline_endpoint_request import InstallLicenseOfflineEndpointRequest
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1276,17 +1383,15 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = private_api.PrivateApi(api_client)
-    install_license_endpoint_request = InstallLicenseEndpointRequest(
-        license="license_example",
-        password="password_example",
-        signature="signature_example",
-    ) # InstallLicenseEndpointRequest | 
+    install_license_offline_endpoint_request = InstallLicenseOfflineEndpointRequest(
+        blob="blob_example",
+    ) # InstallLicenseOfflineEndpointRequest | 
 
     # example passing only required values which don't have defaults set
     try:
-        api_instance.install_license(install_license_endpoint_request)
+        api_instance.install_license_offline(install_license_offline_endpoint_request)
     except elements_sdk.ApiException as e:
-        print("Exception when calling PrivateApi->install_license: %s\n" % e)
+        print("Exception when calling PrivateApi->install_license_offline: %s\n" % e)
 ```
 
 
@@ -1294,7 +1399,59 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **install_license_endpoint_request** | [**InstallLicenseEndpointRequest**](InstallLicenseEndpointRequest.md)|  |
+ **install_license_offline_endpoint_request** | [**InstallLicenseOfflineEndpointRequest**](InstallLicenseOfflineEndpointRequest.md)|  |
+
+### Return type
+
+void (empty response body)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **install_license_online**
+    def install_license_online(install_license_online_endpoint_request)
+
+
+
+Online activation: the WebUI sends the license and the licensing password; the backend has the licensing server sign it (and issue service certificates).  ### Required permissions    * User account permission: `system:admin-access` 
+
+### Example
+
+
+```python
+import elements_sdk
+from elements_sdk.api import private_api
+from elements_sdk.model.install_license_online_endpoint_request import InstallLicenseOnlineEndpointRequest
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local:8080",
+    discard_unknown_keys=True,
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+with elements_sdk.ApiClient(configuration) as api_client:
+    api_instance = private_api.PrivateApi(api_client)
+    install_license_online_endpoint_request = InstallLicenseOnlineEndpointRequest(
+        license="license_example",
+        password="password_example",
+    ) # InstallLicenseOnlineEndpointRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_instance.install_license_online(install_license_online_endpoint_request)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling PrivateApi->install_license_online: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **install_license_online_endpoint_request** | [**InstallLicenseOnlineEndpointRequest**](InstallLicenseOnlineEndpointRequest.md)|  |
 
 ### Return type
 
@@ -1356,7 +1513,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+Locate a media file by its path or asset ID, returning where it physically resides in ELEMENTS.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -1703,6 +1860,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **restart_mcp_tunnel**
+    def restart_mcp_tunnel()
+
+
+
+Admin endpoint to restart the local MCP tunnel client via the agent, so it re-reads the enable/disable flag  ### Required permissions    * User account permission: `system:admin-access` 
+
+### Example
+
+
+```python
+import elements_sdk
+from elements_sdk.api import private_api
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local:8080",
+    discard_unknown_keys=True,
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+with elements_sdk.ApiClient(configuration) as api_client:
+    api_instance = private_api.PrivateApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        api_instance.restart_mcp_tunnel()
+    except elements_sdk.ApiException as e:
+        print("Exception when calling PrivateApi->restart_mcp_tunnel: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+void (empty response body)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
 # **start_benchmark_session**
     def TaskInfo start_benchmark_session(benchmark_endpoint_request)
 
@@ -1769,6 +1970,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
             permission_mask="permission_mask_example",
             address_override="address_override_example",
             auto_scan_interfaces=True,
+            mcp_tunnel_enabled=True,
             volume_queues=[
                 1,
             ],

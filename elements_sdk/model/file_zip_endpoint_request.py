@@ -114,9 +114,9 @@ class FileZipEndpointRequest(ModelNormal):
         """FileZipEndpointRequest - a model defined in OpenAPI
 
         Args:
-            input ([str]):
-            path (str):
-            name (str):
+            input ([str]): Filesystem paths to operate on.
+            path (str): Destination directory for the created ZIP archive.
+            name (str): Filename for the created ZIP archive.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -205,9 +205,9 @@ class FileZipEndpointRequest(ModelNormal):
         """FileZipEndpointRequest - a model defined in OpenAPI
 
         Args:
-            input ([str]):
-            path (str):
-            name (str):
+            input ([str]): Filesystem paths to operate on.
+            path (str): Destination directory for the created ZIP archive.
+            name (str): Filename for the created ZIP archive.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

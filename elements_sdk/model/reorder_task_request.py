@@ -117,8 +117,8 @@ class ReorderTaskRequest(ModelNormal):
         """ReorderTaskRequest - a model defined in OpenAPI
 
         Args:
-            task_id (str):
-            reorder_before_id (str, none_type):
+            task_id (str): ID of the queued task to move.
+            reorder_before_id (str, none_type): ID of the task to place it before; null to move it to the end of the queue.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -151,7 +151,7 @@ class ReorderTaskRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            different_queue (str, none_type): [optional]  # noqa: E501
+            different_queue (str, none_type): ID of another queue to move the task into; null to keep it in the current queue.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -207,8 +207,8 @@ class ReorderTaskRequest(ModelNormal):
         """ReorderTaskRequest - a model defined in OpenAPI
 
         Args:
-            task_id (str):
-            reorder_before_id (str, none_type):
+            task_id (str): ID of the queued task to move.
+            reorder_before_id (str, none_type): ID of the task to place it before; null to move it to the end of the queue.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -241,7 +241,7 @@ class ReorderTaskRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            different_queue (str, none_type): [optional]  # noqa: E501
+            different_queue (str, none_type): ID of another queue to move the task into; null to keep it in the current queue.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

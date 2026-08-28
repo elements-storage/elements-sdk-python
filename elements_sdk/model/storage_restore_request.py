@@ -176,13 +176,13 @@ class StorageRestoreRequest(ModelNormal):
             cloud_account (CloudAccountMini):
             items_total (int):
             items_processed (int):
-            created (datetime):
-            last_polled (datetime, none_type):
-            restore_tier (str):
-            restore_type (str):
-            target_path (str, none_type):
+            created (datetime): When the request was created.
+            last_polled (datetime, none_type): When the restore status was last checked with the storage provider.
+            restore_tier (str): Provider-specific retrieval tier requested for the restore (e.g. expedited, standard or bulk), trading off speed against cost.
+            restore_type (str): Whether the data is temporarily made available in place (`MAKE_AVAILABLE`) or copied to a target path (`RESTORE_TO_PATH`).
+            target_path (str, none_type): Destination path for the restored copy when restore_type is `RESTORE_TO_PATH`.
             target_storage_class (str, none_type): Copy to same location with this storage class when restore completes
-            status (str):
+            status (str): Overall status of the restore: `RUNNING` (in progress), `READY` (restored and available) or `FAILED`.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -287,12 +287,12 @@ class StorageRestoreRequest(ModelNormal):
             media_file (MediaFileMini):
             user (ElementsUserMini):
             cloud_account (CloudAccountMini):
-            last_polled (datetime, none_type):
-            restore_tier (str):
-            restore_type (str):
-            target_path (str, none_type):
+            last_polled (datetime, none_type): When the restore status was last checked with the storage provider.
+            restore_tier (str): Provider-specific retrieval tier requested for the restore (e.g. expedited, standard or bulk), trading off speed against cost.
+            restore_type (str): Whether the data is temporarily made available in place (`MAKE_AVAILABLE`) or copied to a target path (`RESTORE_TO_PATH`).
+            target_path (str, none_type): Destination path for the restored copy when restore_type is `RESTORE_TO_PATH`.
             target_storage_class (str, none_type): Copy to same location with this storage class when restore completes
-            status (str):
+            status (str): Overall status of the restore: `RUNNING` (in progress), `READY` (restored and available) or `FAILED`.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

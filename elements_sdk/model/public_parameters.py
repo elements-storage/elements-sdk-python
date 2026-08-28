@@ -113,6 +113,7 @@ class PublicParameters(ModelNormal):
     }
 
     read_only_vars = {
+        'update_in_progress',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -216,7 +217,7 @@ class PublicParameters(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, analytics, branding_css, branding_logo, language, password_login, update_in_progress, *args, **xkwargs):  # noqa: E501
+    def __init__(self, analytics, branding_css, branding_logo, language, password_login, *args, **xkwargs):  # noqa: E501
         """PublicParameters - a model defined in OpenAPI
 
         Args:
@@ -225,8 +226,6 @@ class PublicParameters(ModelNormal):
             branding_logo (str, none_type):
             language (str, none_type):
             password_login (bool):
-            update_in_progress (bool):
-
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -289,7 +288,6 @@ class PublicParameters(ModelNormal):
         self.branding_logo = branding_logo
         self.language = language
         self.password_login = password_login
-        self.update_in_progress = update_in_progress
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

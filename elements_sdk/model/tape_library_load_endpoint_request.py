@@ -107,7 +107,7 @@ class TapeLibraryLoadEndpointRequest(ModelNormal):
         """TapeLibraryLoadEndpointRequest - a model defined in OpenAPI
 
         Args:
-            barcode (str):
+            barcode (str): Barcode of the tape cartridge to load.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,7 +194,7 @@ class TapeLibraryLoadEndpointRequest(ModelNormal):
         """TapeLibraryLoadEndpointRequest - a model defined in OpenAPI
 
         Args:
-            barcode (str):
+            barcode (str): Barcode of the tape cartridge to load.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

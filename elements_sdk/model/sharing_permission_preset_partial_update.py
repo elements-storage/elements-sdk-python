@@ -182,14 +182,14 @@ class SharingPermissionPresetPartialUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             allow_read (bool): [optional]  # noqa: E501
             allow_create (bool): [optional]  # noqa: E501
-            allow_write_fs (bool): [optional]  # noqa: E501
-            allow_write_db (bool): [optional]  # noqa: E501
-            allow_proxy_download (bool): [optional]  # noqa: E501
-            allow_original_download (bool): [optional]  # noqa: E501
+            allow_write_fs (bool): Allow operations that would write to the filesystem. [optional]  # noqa: E501
+            allow_write_db (bool): Allow operations that would write to the database, e.g. editing asset metadata (tags, custom fields, ratings, comments).. [optional]  # noqa: E501
+            allow_proxy_download (bool): Allow downloading low-resolution proxy files.. [optional]  # noqa: E501
+            allow_original_download (bool): Allow downloading original full-resolution source files.. [optional]  # noqa: E501
             allow_upload (bool): [optional]  # noqa: E501
             allow_sharing (bool): [optional]  # noqa: E501
-            allow_delete_fs (bool): [optional]  # noqa: E501
-            allow_delete_db (bool): [optional]  # noqa: E501
+            allow_delete_fs (bool): Allow deleting files from the filesystem.. [optional]  # noqa: E501
+            allow_delete_db (bool): Allow removing asset records and metadata from the database.. [optional]  # noqa: E501
             show_tags (bool): [optional]  # noqa: E501
             show_comments (bool): [optional]  # noqa: E501
             show_locations (bool): [optional]  # noqa: E501
@@ -201,7 +201,7 @@ class SharingPermissionPresetPartialUpdate(ModelNormal):
             show_markers (bool): [optional]  # noqa: E501
             show_history (bool): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
-            default (bool): [optional]  # noqa: E501
+            default (bool): When true, this preset is pre-selected when creating a new link.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -287,14 +287,14 @@ class SharingPermissionPresetPartialUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             allow_read (bool): [optional]  # noqa: E501
             allow_create (bool): [optional]  # noqa: E501
-            allow_write_fs (bool): [optional]  # noqa: E501
-            allow_write_db (bool): [optional]  # noqa: E501
-            allow_proxy_download (bool): [optional]  # noqa: E501
-            allow_original_download (bool): [optional]  # noqa: E501
+            allow_write_fs (bool): Allow operations that would write to the filesystem. [optional]  # noqa: E501
+            allow_write_db (bool): Allow operations that would write to the database, e.g. editing asset metadata (tags, custom fields, ratings, comments).. [optional]  # noqa: E501
+            allow_proxy_download (bool): Allow downloading low-resolution proxy files.. [optional]  # noqa: E501
+            allow_original_download (bool): Allow downloading original full-resolution source files.. [optional]  # noqa: E501
             allow_upload (bool): [optional]  # noqa: E501
             allow_sharing (bool): [optional]  # noqa: E501
-            allow_delete_fs (bool): [optional]  # noqa: E501
-            allow_delete_db (bool): [optional]  # noqa: E501
+            allow_delete_fs (bool): Allow deleting files from the filesystem.. [optional]  # noqa: E501
+            allow_delete_db (bool): Allow removing asset records and metadata from the database.. [optional]  # noqa: E501
             show_tags (bool): [optional]  # noqa: E501
             show_comments (bool): [optional]  # noqa: E501
             show_locations (bool): [optional]  # noqa: E501
@@ -306,7 +306,7 @@ class SharingPermissionPresetPartialUpdate(ModelNormal):
             show_markers (bool): [optional]  # noqa: E501
             show_history (bool): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
-            default (bool): [optional]  # noqa: E501
+            default (bool): When true, this preset is pre-selected when creating a new link.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

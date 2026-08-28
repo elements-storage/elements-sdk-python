@@ -1,5 +1,6 @@
 # StorageNodeMini
 
+A storage node (ELEMENTS server) that is part of this ELEMENTS system/cluster, running storage services and Automation task queues.
 
 ## Properties
 

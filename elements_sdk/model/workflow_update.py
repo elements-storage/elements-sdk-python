@@ -114,8 +114,8 @@ class WorkflowUpdate(ModelNormal):
         """WorkflowUpdate - a model defined in OpenAPI
 
         Args:
-            states ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
-            transitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
+            states ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): The workflow states an asset can be in.
+            transitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): The allowed transitions between states.
             name (str):
 
         Keyword Args:
@@ -149,7 +149,7 @@ class WorkflowUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            roots ([int]): [optional]  # noqa: E501
+            roots ([int]): Media Roots in which this workflow is available.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -206,8 +206,8 @@ class WorkflowUpdate(ModelNormal):
         """WorkflowUpdate - a model defined in OpenAPI
 
         Args:
-            states ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
-            transitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
+            states ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): The workflow states an asset can be in.
+            transitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): The allowed transitions between states.
             name (str):
 
         Keyword Args:
@@ -241,7 +241,7 @@ class WorkflowUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            roots ([int]): [optional]  # noqa: E501
+            roots ([int]): Media Roots in which this workflow is available.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

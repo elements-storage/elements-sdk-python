@@ -87,7 +87,7 @@ class NotificationUpdate(ModelNormal):
         """
         lazy_import()
         return {
-            'kwargs': ({str: (str, none_type)},),  # noqa: E501
+            'kwargs': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'receipts': ([NotificationReceiptReference],),  # noqa: E501
         }
 
@@ -112,7 +112,7 @@ class NotificationUpdate(ModelNormal):
         """NotificationUpdate - a model defined in OpenAPI
 
         Args:
-            kwargs ({str: (str, none_type)}):
+            kwargs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class NotificationUpdate(ModelNormal):
         """NotificationUpdate - a model defined in OpenAPI
 
         Args:
-            kwargs ({str: (str, none_type)}):
+            kwargs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

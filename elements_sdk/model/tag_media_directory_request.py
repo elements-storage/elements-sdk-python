@@ -106,8 +106,8 @@ class TagMediaDirectoryRequest(ModelNormal):
         """TagMediaDirectoryRequest - a model defined in OpenAPI
 
         Args:
-            tag (int):
-            add (bool):
+            tag (int): The tag to add or remove.
+            add (bool): True to add the tag, false to remove it.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -195,8 +195,8 @@ class TagMediaDirectoryRequest(ModelNormal):
         """TagMediaDirectoryRequest - a model defined in OpenAPI
 
         Args:
-            tag (int):
-            add (bool):
+            tag (int): The tag to add or remove.
+            add (bool): True to add the tag, false to remove it.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

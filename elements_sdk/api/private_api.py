@@ -25,6 +25,8 @@ from elements_sdk.model.auth_fast_lane_endpoint_request import AuthFastLaneEndpo
 from elements_sdk.model.auth_fast_lane_endpoint_response import AuthFastLaneEndpointResponse
 from elements_sdk.model.benchmark_endpoint_request import BenchmarkEndpointRequest
 from elements_sdk.model.bootstrap_data import BootstrapData
+from elements_sdk.model.check_one_fs_connection_request import CheckOneFSConnectionRequest
+from elements_sdk.model.check_one_fs_connection_response import CheckOneFSConnectionResponse
 from elements_sdk.model.check_pmr_endpoint_request import CheckPMREndpointRequest
 from elements_sdk.model.check_pmr_endpoint_response import CheckPMREndpointResponse
 from elements_sdk.model.cleanup_media_root_request import CleanupMediaRootRequest
@@ -32,7 +34,8 @@ from elements_sdk.model.client_side_path_endpoint_request import ClientSidePathE
 from elements_sdk.model.client_side_path_endpoint_response import ClientSidePathEndpointResponse
 from elements_sdk.model.help_endpoint_response import HelpEndpointResponse
 from elements_sdk.model.impersonation_endpoint_request import ImpersonationEndpointRequest
-from elements_sdk.model.install_license_endpoint_request import InstallLicenseEndpointRequest
+from elements_sdk.model.install_license_offline_endpoint_request import InstallLicenseOfflineEndpointRequest
+from elements_sdk.model.install_license_online_endpoint_request import InstallLicenseOnlineEndpointRequest
 from elements_sdk.model.licensing_state_endpoint_response import LicensingStateEndpointResponse
 from elements_sdk.model.locale_endpoint_response import LocaleEndpointResponse
 from elements_sdk.model.locate_endpoint_request import LocateEndpointRequest
@@ -41,6 +44,7 @@ from elements_sdk.model.locate_metadata_endpoint_response import LocateMetadataE
 from elements_sdk.model.locate_proxies_endpoint_request import LocateProxiesEndpointRequest
 from elements_sdk.model.locate_proxies_endpoint_response import LocateProxiesEndpointResponse
 from elements_sdk.model.locate_result import LocateResult
+from elements_sdk.model.mcp_tunnel_status_endpoint_response import McpTunnelStatusEndpointResponse
 from elements_sdk.model.media_file import MediaFile
 from elements_sdk.model.media_homepage_content_endpoint_response import MediaHomepageContentEndpointResponse
 from elements_sdk.model.one_fs_integration import OneFSIntegration
@@ -64,6 +68,58 @@ class PrivateApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.check_one_fs_connection_endpoint = _Endpoint(
+            settings={
+                'response_type': (CheckOneFSConnectionResponse,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/private/onefs-integrations/check-connection',
+                'operation_id': 'check_one_fs_connection',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'check_one_fs_connection_request',
+                ],
+                'required': [
+                    'check_one_fs_connection_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'check_one_fs_connection_request':
+                        (CheckOneFSConnectionRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'check_one_fs_connection_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.check_pmr_endpoint = _Endpoint(
             settings={
                 'response_type': (CheckPMREndpointResponse,),
@@ -632,50 +688,6 @@ class PrivateApi(object):
             },
             api_client=api_client
         )
-        self.get_endpoint = _Endpoint(
-            settings={
-                'response_type': (BootstrapData,),
-                'auth': [
-                    'Bearer'
-                ],
-                'endpoint_path': '/api/2/private/bootstrap',
-                'operation_id': 'get',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
         self.get_agent_auth_token_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -824,6 +836,50 @@ class PrivateApi(object):
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_bootstrap_data_endpoint = _Endpoint(
+            settings={
+                'response_type': (BootstrapData,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/private/bootstrap',
+                'operation_id': 'get_bootstrap_data',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
                 },
                 'collection_format_map': {
                 }
@@ -1022,6 +1078,50 @@ class PrivateApi(object):
                 },
                 'location_map': {
                     'lang': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_mcp_tunnel_status_endpoint = _Endpoint(
+            settings={
+                'response_type': (McpTunnelStatusEndpointResponse,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/private/mcp-tunnel/status',
+                'operation_id': 'get_mcp_tunnel_status',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
                 },
                 'collection_format_map': {
                 }
@@ -1266,23 +1366,23 @@ class PrivateApi(object):
             },
             api_client=api_client
         )
-        self.install_license_endpoint = _Endpoint(
+        self.install_license_offline_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'Bearer'
                 ],
-                'endpoint_path': '/api/2/license/install',
-                'operation_id': 'install_license',
+                'endpoint_path': '/api/2/license/install/offline',
+                'operation_id': 'install_license_offline',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'install_license_endpoint_request',
+                    'install_license_offline_endpoint_request',
                 ],
                 'required': [
-                    'install_license_endpoint_request',
+                    'install_license_offline_endpoint_request',
                 ],
                 'nullable': [
                 ],
@@ -1297,13 +1397,63 @@ class PrivateApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'install_license_endpoint_request':
-                        (InstallLicenseEndpointRequest,),
+                    'install_license_offline_endpoint_request':
+                        (InstallLicenseOfflineEndpointRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'install_license_endpoint_request': 'body',
+                    'install_license_offline_endpoint_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.install_license_online_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/license/install/online',
+                'operation_id': 'install_license_online',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'install_license_online_endpoint_request',
+                ],
+                'required': [
+                    'install_license_online_endpoint_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'install_license_online_endpoint_request':
+                        (InstallLicenseOnlineEndpointRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'install_license_online_endpoint_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1698,6 +1848,48 @@ class PrivateApi(object):
             },
             api_client=api_client
         )
+        self.restart_mcp_tunnel_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/system/mcp-tunnel/restart',
+                'operation_id': 'restart_mcp_tunnel',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.start_benchmark_session_endpoint = _Endpoint(
             settings={
                 'response_type': (TaskInfo,),
@@ -2050,6 +2242,84 @@ class PrivateApi(object):
             api_client=api_client
         )
 
+    def check_one_fs_connection(
+        self,
+        check_one_fs_connection_request,
+        **kwargs
+    ):
+        """check_one_fs_connection  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.check_one_fs_connection(check_one_fs_connection_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            check_one_fs_connection_request (CheckOneFSConnectionRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CheckOneFSConnectionResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['check_one_fs_connection_request'] = \
+            check_one_fs_connection_request
+        return self.check_one_fs_connection_endpoint.call_with_http_info(**kwargs)
+
     def check_pmr(
         self,
         check_pmr_endpoint_request,
@@ -2135,7 +2405,7 @@ class PrivateApi(object):
     ):
         """cleanup_media_root  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:roots:manage`   * License component: media   # noqa: E501
+        Asynchronously delete all Media Library metadata for files under the given path. Returns a task handle to track progress.  ### Required permissions    * User account permission: `media:roots:manage`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2525,7 +2795,7 @@ class PrivateApi(object):
     ):
         """export_non_proxied_assets  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        ### Required permissions    * User account permission: `media:roots:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2604,7 +2874,7 @@ class PrivateApi(object):
     ):
         """export_non_proxied_assets_for_path  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        ### Required permissions    * User account permission: `media:roots:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2914,78 +3184,6 @@ class PrivateApi(object):
             auth_fast_lane_endpoint_request
         return self.fast_lane_login_with_password_endpoint.call_with_http_info(**kwargs)
 
-    def get(
-        self,
-        **kwargs
-    ):
-        """get  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get(async_req=True)
-        >>> result = thread.get()
-
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            BootstrapData
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.get_endpoint.call_with_http_info(**kwargs)
-
     def get_agent_auth_token(
         self,
         **kwargs
@@ -3211,6 +3409,78 @@ class PrivateApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_all_qumulo_integrations_endpoint.call_with_http_info(**kwargs)
 
+    def get_bootstrap_data(
+        self,
+        **kwargs
+    ):
+        """get_bootstrap_data  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_bootstrap_data(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            BootstrapData
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_bootstrap_data_endpoint.call_with_http_info(**kwargs)
+
     def get_client_side_url(
         self,
         client_side_path_endpoint_request,
@@ -3218,7 +3488,7 @@ class PrivateApi(object):
     ):
         """get_client_side_url  # noqa: E501
 
-        ### Required permissions    * User account permission: `client:access`   # noqa: E501
+        Translate a server-side filesystem path into the local path/URL the requesting client would use to open it, based on the client's mounts and platform.  ### Required permissions    * User account permission: `client:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3373,6 +3643,7 @@ class PrivateApi(object):
     ):
         """get_licensing_state  # noqa: E501
 
+        Return the overall licensing state: whether valid licenses exist (and apply to this node), the known products and subtypes, default components and the combined license.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3516,13 +3787,86 @@ class PrivateApi(object):
             lang
         return self.get_locale_endpoint.call_with_http_info(**kwargs)
 
+    def get_mcp_tunnel_status(
+        self,
+        **kwargs
+    ):
+        """get_mcp_tunnel_status  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_mcp_tunnel_status(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            McpTunnelStatusEndpointResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_mcp_tunnel_status_endpoint.call_with_http_info(**kwargs)
+
     def get_media_library_homepage_content(
         self,
         **kwargs
     ):
         """get_media_library_homepage_content  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        Return the Media Library home page content for the current user: their pinned items and the media roots they can access with the corresponding permissions.  ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3673,7 +4017,7 @@ class PrivateApi(object):
     ):
         """get_proxy_fs_size  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        Return the total disk space, in bytes, currently used by generated proxy files (a cached value).  ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3891,22 +4235,22 @@ class PrivateApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_samba_dfree_string_endpoint.call_with_http_info(**kwargs)
 
-    def install_license(
+    def install_license_offline(
         self,
-        install_license_endpoint_request,
+        install_license_offline_endpoint_request,
         **kwargs
     ):
-        """install_license  # noqa: E501
+        """install_license_offline  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        Offline activation: the WebUI submits the whole base64 response blob obtained from the licensing server (carrying the license, its signature and service certificates).  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.install_license(install_license_endpoint_request, async_req=True)
+        >>> thread = api.install_license_offline(install_license_offline_endpoint_request, async_req=True)
         >>> result = thread.get()
 
         Args:
-            install_license_endpoint_request (InstallLicenseEndpointRequest):
+            install_license_offline_endpoint_request (InstallLicenseOfflineEndpointRequest):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -3965,9 +4309,87 @@ class PrivateApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['install_license_endpoint_request'] = \
-            install_license_endpoint_request
-        return self.install_license_endpoint.call_with_http_info(**kwargs)
+        kwargs['install_license_offline_endpoint_request'] = \
+            install_license_offline_endpoint_request
+        return self.install_license_offline_endpoint.call_with_http_info(**kwargs)
+
+    def install_license_online(
+        self,
+        install_license_online_endpoint_request,
+        **kwargs
+    ):
+        """install_license_online  # noqa: E501
+
+        Online activation: the WebUI sends the license and the licensing password; the backend has the licensing server sign it (and issue service certificates).  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.install_license_online(install_license_online_endpoint_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            install_license_online_endpoint_request (InstallLicenseOnlineEndpointRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['install_license_online_endpoint_request'] = \
+            install_license_online_endpoint_request
+        return self.install_license_online_endpoint.call_with_http_info(**kwargs)
 
     def language_server_request(
         self,
@@ -4054,7 +4476,7 @@ class PrivateApi(object):
     ):
         """locate_file  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Locate a media file by its path or asset ID, returning where it physically resides in ELEMENTS.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4520,6 +4942,79 @@ class PrivateApi(object):
         kwargs['qumulo_integration_partial_update'] = \
             qumulo_integration_partial_update
         return self.patch_qumulo_integration_endpoint.call_with_http_info(**kwargs)
+
+    def restart_mcp_tunnel(
+        self,
+        **kwargs
+    ):
+        """restart_mcp_tunnel  # noqa: E501
+
+        Admin endpoint to restart the local MCP tunnel client via the agent, so it re-reads the enable/disable flag  ### Required permissions    * User account permission: `system:admin-access`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.restart_mcp_tunnel(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.restart_mcp_tunnel_endpoint.call_with_http_info(**kwargs)
 
     def start_benchmark_session(
         self,

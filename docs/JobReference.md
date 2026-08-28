@@ -1,5 +1,6 @@
 # JobReference
 
+A configurable Automation job: an ordered workflow of subtasks that can be run manually, on a schedule, via filesystem triggers or via a webhook.
 
 ## Properties
 
@@ -20,7 +21,7 @@ Name | Type | Description | Notes
 **show_as_button** | **bool** |  | [optional] [readonly] 
 **input_type** | **str, none_type** |  | [optional] [readonly] 
 **add_to_new_media_roots** | **bool** |  | [optional] [readonly] 
-**hook** | **str, none_type** |  | [optional] [readonly] 
+**hook** | **str, none_type** | Name of the event hook this job is triggered by - only valid with special_type&#x3D;HOOK/3 | [optional] [readonly] 
 **webhook_secret** | **str, none_type** |  | [optional] [readonly] 
 **elements_release** | **str** |  | [optional] [readonly] 
 **no_concurrency** | **bool** |  | [optional] [readonly] 

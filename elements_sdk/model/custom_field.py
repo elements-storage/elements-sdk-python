@@ -187,20 +187,20 @@ class CustomField(ModelNormal):
             options ([str]):
             name (str):
             order (int):
-            type (str):
-            use_for_uploads (bool):
-            require_to_upload (bool):
-            non_user_editable (bool):
-            validation (str, none_type):
-            regex (str, none_type):
-            range_min (int, none_type):
-            range_max (int, none_type):
-            number_of_digits (int, none_type):
-            metadata_prefill (str, none_type):
-            highlight_expiration (bool):
-            multiple_response (bool):
-            help_text (str, none_type):
-            users_from_group (int, none_type):
+            type (str): The kind of field, which controls its input widget and value format.
+            use_for_uploads (bool): Show this field in the upload panel.
+            require_to_upload (bool): Require a value for this field when uploading files.
+            non_user_editable (bool): Prevent end users from editing this field's value in the UI (the field will only be editable via API and Automation).
+            validation (str, none_type): Validation rule applied to values entered for this field.
+            regex (str, none_type): Regular expression that values must match (when validation is `regex`).
+            range_min (int, none_type): Minimum allowed numeric value (when validation is `range`).
+            range_max (int, none_type): Maximum allowed numeric value (when validation is `range`).
+            number_of_digits (int, none_type): Required number of digits (when validation is `number_of_digits`).
+            metadata_prefill (str, none_type): Name of an embedded metadata field to pre-fill this field's value from.
+            highlight_expiration (bool): For date fields, visually highlight assets whose date has passed or is near.
+            multiple_response (bool): Allow multiple values to be selected/entered.
+            help_text (str, none_type): Help text shown to users filling in this field.
+            users_from_group (int, none_type): For user-type fields, restrict selectable users to members of this group.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -310,20 +310,20 @@ class CustomField(ModelNormal):
             options ([str]):
             name (str):
             order (int):
-            type (str):
-            use_for_uploads (bool):
-            require_to_upload (bool):
-            non_user_editable (bool):
-            validation (str, none_type):
-            regex (str, none_type):
-            range_min (int, none_type):
-            range_max (int, none_type):
-            number_of_digits (int, none_type):
-            metadata_prefill (str, none_type):
-            highlight_expiration (bool):
-            multiple_response (bool):
-            help_text (str, none_type):
-            users_from_group (int, none_type):
+            type (str): The kind of field, which controls its input widget and value format.
+            use_for_uploads (bool): Show this field in the upload panel.
+            require_to_upload (bool): Require a value for this field when uploading files.
+            non_user_editable (bool): Prevent end users from editing this field's value in the UI (the field will only be editable via API and Automation).
+            validation (str, none_type): Validation rule applied to values entered for this field.
+            regex (str, none_type): Regular expression that values must match (when validation is `regex`).
+            range_min (int, none_type): Minimum allowed numeric value (when validation is `range`).
+            range_max (int, none_type): Maximum allowed numeric value (when validation is `range`).
+            number_of_digits (int, none_type): Required number of digits (when validation is `number_of_digits`).
+            metadata_prefill (str, none_type): Name of an embedded metadata field to pre-fill this field's value from.
+            highlight_expiration (bool): For date fields, visually highlight assets whose date has passed or is near.
+            multiple_response (bool): Allow multiple values to be selected/entered.
+            help_text (str, none_type): Help text shown to users filling in this field.
+            users_from_group (int, none_type): For user-type fields, restrict selectable users to members of this group.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -92,7 +92,7 @@ class WorkstationUpdate(ModelNormal):
         """
         return {
             'hostname': (str,),  # noqa: E501
-            'report': ({str: (str, none_type)},),  # noqa: E501
+            'report': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'address': (str, none_type,),  # noqa: E501
             'last_seen': (datetime, none_type,),  # noqa: E501
@@ -155,7 +155,7 @@ class WorkstationUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            report ({str: (str, none_type)}): [optional]  # noqa: E501
+            report ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             address (str, none_type): [optional]  # noqa: E501
             last_seen (datetime, none_type): [optional]  # noqa: E501
@@ -246,7 +246,7 @@ class WorkstationUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            report ({str: (str, none_type)}): [optional]  # noqa: E501
+            report ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             address (str, none_type): [optional]  # noqa: E501
             last_seen (datetime, none_type): [optional]  # noqa: E501

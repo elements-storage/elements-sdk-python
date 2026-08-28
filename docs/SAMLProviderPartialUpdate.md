@@ -1,5 +1,6 @@
 # SAMLProviderPartialUpdate
 
+A SAML 2.0 identity provider configuration enabling single sign-on (SSO) login to ELEMENTS.
 
 ## Properties
 

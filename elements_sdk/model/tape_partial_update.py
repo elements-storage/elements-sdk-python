@@ -206,16 +206,16 @@ class TapePartialUpdate(ModelNormal):
             name (str): [optional]  # noqa: E501
             uuid (str): [optional]  # noqa: E501
             generation (int): [optional]  # noqa: E501
-            custom_a (str): [optional]  # noqa: E501
-            custom_b (str): [optional]  # noqa: E501
-            custom_c (str): [optional]  # noqa: E501
-            custom_d (str): [optional]  # noqa: E501
-            free_space (int, none_type): [optional]  # noqa: E501
-            load_counter (int): [optional]  # noqa: E501
-            error_counter (int): [optional]  # noqa: E501
+            custom_a (str): Free-form custom metadata field for organizing tapes.. [optional]  # noqa: E501
+            custom_b (str): Free-form custom metadata field for organizing tapes.. [optional]  # noqa: E501
+            custom_c (str): Free-form custom metadata field for organizing tapes.. [optional]  # noqa: E501
+            custom_d (str): Free-form custom metadata field for organizing tapes.. [optional]  # noqa: E501
+            free_space (int, none_type): Remaining free space on the tape, in bytes.. [optional]  # noqa: E501
+            load_counter (int): Number of times the tape has been loaded into a drive.. [optional]  # noqa: E501
+            error_counter (int): Number of errors recorded against this tape.. [optional]  # noqa: E501
             error_reason (str, none_type): [optional]  # noqa: E501
             active (bool): [optional]  # noqa: E501
-            lto (str, none_type): [optional]  # noqa: E501
+            lto (str, none_type): LTO generation/format of the tape.. [optional]  # noqa: E501
             group (int, none_type): [optional]  # noqa: E501
         """
 
@@ -303,16 +303,16 @@ class TapePartialUpdate(ModelNormal):
             name (str): [optional]  # noqa: E501
             uuid (str): [optional]  # noqa: E501
             generation (int): [optional]  # noqa: E501
-            custom_a (str): [optional]  # noqa: E501
-            custom_b (str): [optional]  # noqa: E501
-            custom_c (str): [optional]  # noqa: E501
-            custom_d (str): [optional]  # noqa: E501
-            free_space (int, none_type): [optional]  # noqa: E501
-            load_counter (int): [optional]  # noqa: E501
-            error_counter (int): [optional]  # noqa: E501
+            custom_a (str): Free-form custom metadata field for organizing tapes.. [optional]  # noqa: E501
+            custom_b (str): Free-form custom metadata field for organizing tapes.. [optional]  # noqa: E501
+            custom_c (str): Free-form custom metadata field for organizing tapes.. [optional]  # noqa: E501
+            custom_d (str): Free-form custom metadata field for organizing tapes.. [optional]  # noqa: E501
+            free_space (int, none_type): Remaining free space on the tape, in bytes.. [optional]  # noqa: E501
+            load_counter (int): Number of times the tape has been loaded into a drive.. [optional]  # noqa: E501
+            error_counter (int): Number of errors recorded against this tape.. [optional]  # noqa: E501
             error_reason (str, none_type): [optional]  # noqa: E501
             active (bool): [optional]  # noqa: E501
-            lto (str, none_type): [optional]  # noqa: E501
+            lto (str, none_type): LTO generation/format of the tape.. [optional]  # noqa: E501
             group (int, none_type): [optional]  # noqa: E501
         """
 

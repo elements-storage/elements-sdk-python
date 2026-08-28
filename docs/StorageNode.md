@@ -1,5 +1,6 @@
 # StorageNode
 
+A storage node (ELEMENTS server) that is part of this ELEMENTS system/cluster, running storage services and Automation task queues.
 
 ## Properties
 
@@ -32,6 +33,7 @@ Name | Type | Description | Notes
 **permission_mask** | **str** | Comma-separated list of user permissions allowed on this node | 
 **address_override** | **str, none_type** | Enforces mounting from a specific address/hostname instead of the available interfaces | 
 **auto_scan_interfaces** | **bool** |  | 
+**mcp_tunnel_enabled** | **bool** |  | 
 **volume_queues** | **[int]** | Run volume-specific tasks for selected volumes. | 
 **status** | [**StorageNodeStatus**](StorageNodeStatus.md) |  | [optional] 
 

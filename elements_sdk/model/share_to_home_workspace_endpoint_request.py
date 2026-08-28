@@ -113,8 +113,8 @@ class ShareToHomeWorkspaceEndpointRequest(ModelNormal):
         """ShareToHomeWorkspaceEndpointRequest - a model defined in OpenAPI
 
         Args:
-            user (int):
-            name (str):
+            user (int): User whose home workspace to copy the content into.
+            name (str): Label used to name the folder created in the home workspace.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -147,8 +147,8 @@ class ShareToHomeWorkspaceEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            paths ([str]): [optional]  # noqa: E501
-            bundles ([int]): [optional]  # noqa: E501
+            paths ([str]): Filesystem paths to copy.. [optional]  # noqa: E501
+            bundles ([int]): IDs of media bundles whose files to copy.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -204,8 +204,8 @@ class ShareToHomeWorkspaceEndpointRequest(ModelNormal):
         """ShareToHomeWorkspaceEndpointRequest - a model defined in OpenAPI
 
         Args:
-            user (int):
-            name (str):
+            user (int): User whose home workspace to copy the content into.
+            name (str): Label used to name the folder created in the home workspace.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -238,8 +238,8 @@ class ShareToHomeWorkspaceEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            paths ([str]): [optional]  # noqa: E501
-            bundles ([int]): [optional]  # noqa: E501
+            paths ([str]): Filesystem paths to copy.. [optional]  # noqa: E501
+            bundles ([int]): IDs of media bundles whose files to copy.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

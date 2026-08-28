@@ -138,7 +138,7 @@ class Production(ModelNormal):
             is_special (bool):
             total_size (int, none_type):
             name (str):
-            obscure_name (bool):
+            obscure_name (bool): Makes new workspace paths use numeric IDs instead of plain text
             description (str, none_type):
             long_description (str):
             active (bool):
@@ -242,7 +242,7 @@ class Production(ModelNormal):
         Args:
             id (int):
             name (str):
-            obscure_name (bool):
+            obscure_name (bool): Makes new workspace paths use numeric IDs instead of plain text
             description (str, none_type):
             long_description (str):
             active (bool):

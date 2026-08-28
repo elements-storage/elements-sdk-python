@@ -114,7 +114,7 @@ class GenerateProxiesRequest(ModelNormal):
         """GenerateProxiesRequest - a model defined in OpenAPI
 
         Args:
-            proxy_profiles ([int]):
+            proxy_profiles ([int]): IDs of the proxy profiles to generate proxies for.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -147,11 +147,11 @@ class GenerateProxiesRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bundles ([int]): [optional]  # noqa: E501
-            directories ([int]): [optional]  # noqa: E501
-            enqueue_at_front (bool): [optional]  # noqa: E501
-            force (bool): [optional]  # noqa: E501
-            retry_failed (bool): [optional]  # noqa: E501
+            bundles ([int]): IDs of media file bundles to generate proxies for.. [optional]  # noqa: E501
+            directories ([int]): IDs of media directories whose contents to generate proxies for.. [optional]  # noqa: E501
+            enqueue_at_front (bool): When true, place the proxy generation tasks at the front of the queue.. [optional]  # noqa: E501
+            force (bool): When true, regenerate proxies even if they already exist (otherwise they will be skipped).. [optional]  # noqa: E501
+            retry_failed (bool): When true, retry generating proxies that have previously failed multiple times (otherwise they will be skipped).. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -206,7 +206,7 @@ class GenerateProxiesRequest(ModelNormal):
         """GenerateProxiesRequest - a model defined in OpenAPI
 
         Args:
-            proxy_profiles ([int]):
+            proxy_profiles ([int]): IDs of the proxy profiles to generate proxies for.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -239,11 +239,11 @@ class GenerateProxiesRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bundles ([int]): [optional]  # noqa: E501
-            directories ([int]): [optional]  # noqa: E501
-            enqueue_at_front (bool): [optional]  # noqa: E501
-            force (bool): [optional]  # noqa: E501
-            retry_failed (bool): [optional]  # noqa: E501
+            bundles ([int]): IDs of media file bundles to generate proxies for.. [optional]  # noqa: E501
+            directories ([int]): IDs of media directories whose contents to generate proxies for.. [optional]  # noqa: E501
+            enqueue_at_front (bool): When true, place the proxy generation tasks at the front of the queue.. [optional]  # noqa: E501
+            force (bool): When true, regenerate proxies even if they already exist (otherwise they will be skipped).. [optional]  # noqa: E501
+            retry_failed (bool): When true, retry generating proxies that have previously failed multiple times (otherwise they will be skipped).. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

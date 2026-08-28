@@ -30,7 +30,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from elements_sdk.model.eagle_nest_data_entry_mapping import EagleNestDataEntryMapping
     from elements_sdk.model.eagle_nest_field_mapping import EagleNestFieldMapping
+    globals()['EagleNestDataEntryMapping'] = EagleNestDataEntryMapping
     globals()['EagleNestFieldMapping'] = EagleNestFieldMapping
 
 
@@ -101,6 +103,7 @@ class EagleNestIntegration(ModelNormal):
             'username': (str,),  # noqa: E501
             'password': (str,),  # noqa: E501
             'field_mappings': ([EagleNestFieldMapping],),  # noqa: E501
+            'data_entry_mappings': ([EagleNestDataEntryMapping],),  # noqa: E501
         }
 
     @cached_property
@@ -114,6 +117,7 @@ class EagleNestIntegration(ModelNormal):
         'username': 'username',  # noqa: E501
         'password': 'password',  # noqa: E501
         'field_mappings': 'field_mappings',  # noqa: E501
+        'data_entry_mappings': 'data_entry_mappings',  # noqa: E501
     }
 
     read_only_vars = {
@@ -123,7 +127,7 @@ class EagleNestIntegration(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, name, username, password, field_mappings, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, username, password, field_mappings, data_entry_mappings, *args, **xkwargs):  # noqa: E501
         """EagleNestIntegration - a model defined in OpenAPI
 
         Args:
@@ -132,6 +136,7 @@ class EagleNestIntegration(ModelNormal):
             username (str):
             password (str):
             field_mappings ([EagleNestFieldMapping]):
+            data_entry_mappings ([EagleNestDataEntryMapping]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -197,6 +202,7 @@ class EagleNestIntegration(ModelNormal):
         self.username = username
         self.password = password
         self.field_mappings = field_mappings
+        self.data_entry_mappings = data_entry_mappings
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -218,7 +224,7 @@ class EagleNestIntegration(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, name, username, password, field_mappings, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, name, username, password, field_mappings, data_entry_mappings, *args, **xkwargs):  # noqa: E501
         """EagleNestIntegration - a model defined in OpenAPI
 
         Args:
@@ -227,6 +233,7 @@ class EagleNestIntegration(ModelNormal):
             username (str):
             password (str):
             field_mappings ([EagleNestFieldMapping]):
+            data_entry_mappings ([EagleNestDataEntryMapping]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -290,6 +297,7 @@ class EagleNestIntegration(ModelNormal):
         self.username = username
         self.password = password
         self.field_mappings = field_mappings
+        self.data_entry_mappings = data_entry_mappings
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

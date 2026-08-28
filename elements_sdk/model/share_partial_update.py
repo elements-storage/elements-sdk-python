@@ -184,7 +184,7 @@ class SharePartialUpdate(ModelNormal):
             share_afp (bool): [optional]  # noqa: E501
             sharing_read_only (bool): [optional]  # noqa: E501
             sharing_hidden (bool): [optional]  # noqa: E501
-            sharing_require_login (bool): [optional]  # noqa: E501
+            sharing_require_login (bool): Require authentication over SMB and AFP. [optional]  # noqa: E501
             smb_extra_config (str): [optional]  # noqa: E501
             afp_extra_config (str): [optional]  # noqa: E501
             rw_access_group (int, none_type): [optional]  # noqa: E501
@@ -281,7 +281,7 @@ class SharePartialUpdate(ModelNormal):
             share_afp (bool): [optional]  # noqa: E501
             sharing_read_only (bool): [optional]  # noqa: E501
             sharing_hidden (bool): [optional]  # noqa: E501
-            sharing_require_login (bool): [optional]  # noqa: E501
+            sharing_require_login (bool): Require authentication over SMB and AFP. [optional]  # noqa: E501
             smb_extra_config (str): [optional]  # noqa: E501
             afp_extra_config (str): [optional]  # noqa: E501
             rw_access_group (int, none_type): [optional]  # noqa: E501

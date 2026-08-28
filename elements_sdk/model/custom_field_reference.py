@@ -124,7 +124,7 @@ class CustomFieldReference(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
-            'labels': ([{str: (str, none_type)}],),  # noqa: E501
+            'labels': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'options': ([str],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'order': (int,),  # noqa: E501
@@ -233,24 +233,24 @@ class CustomFieldReference(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            labels ([{str: (str, none_type)}]): [optional]  # noqa: E501
+            labels ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             options ([str]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             order (int): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            use_for_uploads (bool): [optional]  # noqa: E501
-            require_to_upload (bool): [optional]  # noqa: E501
-            non_user_editable (bool): [optional]  # noqa: E501
-            validation (str, none_type): [optional]  # noqa: E501
-            regex (str, none_type): [optional]  # noqa: E501
-            range_min (int, none_type): [optional]  # noqa: E501
-            range_max (int, none_type): [optional]  # noqa: E501
-            number_of_digits (int, none_type): [optional]  # noqa: E501
-            metadata_prefill (str, none_type): [optional]  # noqa: E501
-            highlight_expiration (bool): [optional]  # noqa: E501
-            multiple_response (bool): [optional]  # noqa: E501
-            help_text (str, none_type): [optional]  # noqa: E501
-            users_from_group (int, none_type): [optional]  # noqa: E501
+            type (str): The kind of field, which controls its input widget and value format.. [optional]  # noqa: E501
+            use_for_uploads (bool): Show this field in the upload panel.. [optional]  # noqa: E501
+            require_to_upload (bool): Require a value for this field when uploading files.. [optional]  # noqa: E501
+            non_user_editable (bool): Prevent end users from editing this field's value in the UI (the field will only be editable via API and Automation).. [optional]  # noqa: E501
+            validation (str, none_type): Validation rule applied to values entered for this field.. [optional]  # noqa: E501
+            regex (str, none_type): Regular expression that values must match (when validation is `regex`).. [optional]  # noqa: E501
+            range_min (int, none_type): Minimum allowed numeric value (when validation is `range`).. [optional]  # noqa: E501
+            range_max (int, none_type): Maximum allowed numeric value (when validation is `range`).. [optional]  # noqa: E501
+            number_of_digits (int, none_type): Required number of digits (when validation is `number_of_digits`).. [optional]  # noqa: E501
+            metadata_prefill (str, none_type): Name of an embedded metadata field to pre-fill this field's value from.. [optional]  # noqa: E501
+            highlight_expiration (bool): For date fields, visually highlight assets whose date has passed or is near.. [optional]  # noqa: E501
+            multiple_response (bool): Allow multiple values to be selected/entered.. [optional]  # noqa: E501
+            help_text (str, none_type): Help text shown to users filling in this field.. [optional]  # noqa: E501
+            users_from_group (int, none_type): For user-type fields, restrict selectable users to members of this group.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -338,24 +338,24 @@ class CustomFieldReference(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            labels ([{str: (str, none_type)}]): [optional]  # noqa: E501
+            labels ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             options ([str]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             order (int): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            use_for_uploads (bool): [optional]  # noqa: E501
-            require_to_upload (bool): [optional]  # noqa: E501
-            non_user_editable (bool): [optional]  # noqa: E501
-            validation (str, none_type): [optional]  # noqa: E501
-            regex (str, none_type): [optional]  # noqa: E501
-            range_min (int, none_type): [optional]  # noqa: E501
-            range_max (int, none_type): [optional]  # noqa: E501
-            number_of_digits (int, none_type): [optional]  # noqa: E501
-            metadata_prefill (str, none_type): [optional]  # noqa: E501
-            highlight_expiration (bool): [optional]  # noqa: E501
-            multiple_response (bool): [optional]  # noqa: E501
-            help_text (str, none_type): [optional]  # noqa: E501
-            users_from_group (int, none_type): [optional]  # noqa: E501
+            type (str): The kind of field, which controls its input widget and value format.. [optional]  # noqa: E501
+            use_for_uploads (bool): Show this field in the upload panel.. [optional]  # noqa: E501
+            require_to_upload (bool): Require a value for this field when uploading files.. [optional]  # noqa: E501
+            non_user_editable (bool): Prevent end users from editing this field's value in the UI (the field will only be editable via API and Automation).. [optional]  # noqa: E501
+            validation (str, none_type): Validation rule applied to values entered for this field.. [optional]  # noqa: E501
+            regex (str, none_type): Regular expression that values must match (when validation is `regex`).. [optional]  # noqa: E501
+            range_min (int, none_type): Minimum allowed numeric value (when validation is `range`).. [optional]  # noqa: E501
+            range_max (int, none_type): Maximum allowed numeric value (when validation is `range`).. [optional]  # noqa: E501
+            number_of_digits (int, none_type): Required number of digits (when validation is `number_of_digits`).. [optional]  # noqa: E501
+            metadata_prefill (str, none_type): Name of an embedded metadata field to pre-fill this field's value from.. [optional]  # noqa: E501
+            highlight_expiration (bool): For date fields, visually highlight assets whose date has passed or is near.. [optional]  # noqa: E501
+            multiple_response (bool): Allow multiple values to be selected/entered.. [optional]  # noqa: E501
+            help_text (str, none_type): Help text shown to users filling in this field.. [optional]  # noqa: E501
+            users_from_group (int, none_type): For user-type fields, restrict selectable users to members of this group.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

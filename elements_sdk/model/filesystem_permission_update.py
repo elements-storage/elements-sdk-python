@@ -114,7 +114,7 @@ class FilesystemPermissionUpdate(ModelNormal):
         """FilesystemPermissionUpdate - a model defined in OpenAPI
 
         Args:
-            path (str):
+            path (str): Filesystem path this permission grants access to.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -147,7 +147,7 @@ class FilesystemPermissionUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            read_only (bool): [optional]  # noqa: E501
+            read_only (bool): When true, grant read-only access; otherwise read-write.. [optional]  # noqa: E501
             user (int, none_type): [optional]  # noqa: E501
             group (int, none_type): [optional]  # noqa: E501
         """
@@ -204,7 +204,7 @@ class FilesystemPermissionUpdate(ModelNormal):
         """FilesystemPermissionUpdate - a model defined in OpenAPI
 
         Args:
-            path (str):
+            path (str): Filesystem path this permission grants access to.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -237,7 +237,7 @@ class FilesystemPermissionUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            read_only (bool): [optional]  # noqa: E501
+            read_only (bool): When true, grant read-only access; otherwise read-write.. [optional]  # noqa: E501
             user (int, none_type): [optional]  # noqa: E501
             group (int, none_type): [optional]  # noqa: E501
         """

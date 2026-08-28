@@ -427,7 +427,7 @@ class StatusApi(object):
     ):
         """acknowledge_alert  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
+        Acknowledge the alert - this closes the alert moving it to the acknowledged list removing the alarm state.  ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -513,8 +513,8 @@ class StatusApi(object):
 
 
         Keyword Args:
-            is_open (str): Filter the returned list by `is_open`.. [optional]
-            id (int): Filter the returned list by `id`.. [optional]
+            is_open (str): Filter the returned list by `is_open` (exact match).. [optional]
+            id (int): Filter the returned list by `id` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -669,8 +669,8 @@ class StatusApi(object):
 
 
         Keyword Args:
-            is_open (str): Filter the returned list by `is_open`.. [optional]
-            id (int): Filter the returned list by `id`.. [optional]
+            is_open (str): Filter the returned list by `is_open` (exact match).. [optional]
+            id (int): Filter the returned list by `id` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -738,6 +738,7 @@ class StatusApi(object):
     ):
         """get_telegraf_stats  # noqa: E501
 
+        ### Required permissions    * localhost only   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -811,7 +812,7 @@ class StatusApi(object):
     ):
         """silence_alert  # noqa: E501
 
-        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
+        Silence the alert - clears the alarm while leaving the alert open permanently - used for false positives  ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

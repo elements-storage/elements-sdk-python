@@ -143,8 +143,8 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = aws_api.AWSApi(api_client)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    id = 1 # int | Filter the returned list by `id`. (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    id = 1 # int | Filter the returned list by `id` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -163,8 +163,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **id** | **int**| Filter the returned list by &#x60;id&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **id** | **int**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `tasks:manage` (read) / `system:admin-access` (write) 
+List the AWS SNS topics available in this AWS CloudAccount, which can be used in Automation to send SNS notifications  ### Required permissions    * User account permission: `tasks:manage` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -253,7 +253,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = aws_api.AWSApi(api_client)
     id = 1 # int | A unique integer value identifying this cloud account.
-    region = "region_example" # str |  (optional)
+    region = "region_example" # str | AWS region to list topics from. Defaults to the account region. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -277,7 +277,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this cloud account. |
- **region** | **str**|  | [optional]
+ **region** | **str**| AWS region to list topics from. Defaults to the account region. | [optional]
 
 ### Return type
 

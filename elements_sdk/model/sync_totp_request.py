@@ -107,7 +107,7 @@ class SyncTOTPRequest(ModelNormal):
         """SyncTOTPRequest - a model defined in OpenAPI
 
         Args:
-            otp (str):
+            otp (str): Current one-time code from the user's authenticator app.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,7 +194,7 @@ class SyncTOTPRequest(ModelNormal):
         """SyncTOTPRequest - a model defined in OpenAPI
 
         Args:
-            otp (str):
+            otp (str): Current one-time code from the user's authenticator app.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

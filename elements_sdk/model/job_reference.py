@@ -249,7 +249,7 @@ class JobReference(ModelNormal):
             show_as_button (bool): [optional]  # noqa: E501
             input_type (str, none_type): [optional]  # noqa: E501
             add_to_new_media_roots (bool): [optional]  # noqa: E501
-            hook (str, none_type): [optional]  # noqa: E501
+            hook (str, none_type): Name of the event hook this job is triggered by - only valid with special_type=HOOK/3. [optional]  # noqa: E501
             webhook_secret (str, none_type): [optional]  # noqa: E501
             elements_release (str): [optional]  # noqa: E501
             no_concurrency (bool): [optional]  # noqa: E501
@@ -356,7 +356,7 @@ class JobReference(ModelNormal):
             show_as_button (bool): [optional]  # noqa: E501
             input_type (str, none_type): [optional]  # noqa: E501
             add_to_new_media_roots (bool): [optional]  # noqa: E501
-            hook (str, none_type): [optional]  # noqa: E501
+            hook (str, none_type): Name of the event hook this job is triggered by - only valid with special_type=HOOK/3. [optional]  # noqa: E501
             webhook_secret (str, none_type): [optional]  # noqa: E501
             elements_release (str): [optional]  # noqa: E501
             no_concurrency (bool): [optional]  # noqa: E501

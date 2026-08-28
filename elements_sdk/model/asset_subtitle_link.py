@@ -129,8 +129,8 @@ class AssetSubtitleLink(ModelNormal):
 
         Args:
             subtitle (AssetMini):
-            editable (bool):
-            label (str):
+            editable (bool): Describes whether this subtitle type can be edited in the visual editor in Media Library
+            label (str): Human-readable label for this subtitle track (e.g. a language name).
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -222,7 +222,7 @@ class AssetSubtitleLink(ModelNormal):
 
         Args:
             subtitle (AssetMini):
-            label (str):
+            label (str): Human-readable label for this subtitle track (e.g. a language name).
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

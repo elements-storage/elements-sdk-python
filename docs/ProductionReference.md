@@ -1,5 +1,6 @@
 # ProductionReference
 
+Productions are logical groups of workspaces. Productions do not exist at a single location on the filesystem, but can span multiple volumes. However the production name is still used as a path segment in the workspace path.
 
 ## Properties
 
@@ -10,7 +11,7 @@ Name | Type | Description | Notes
 **special_type** | **int, none_type** |  | [optional] [readonly] 
 **total_size** | **int, none_type** |  | [optional] [readonly] 
 **name** | **str** |  | [optional] [readonly] 
-**obscure_name** | **bool** |  | [optional] [readonly] 
+**obscure_name** | **bool** | Makes new workspace paths use numeric IDs instead of plain text | [optional] [readonly] 
 **description** | **str, none_type** |  | [optional] [readonly] 
 **long_description** | **str** |  | [optional] [readonly] 
 **active** | **bool** |  | [optional] [readonly] 

@@ -107,7 +107,7 @@ class TestSMTP(ModelNormal):
         """TestSMTP - a model defined in OpenAPI
 
         Args:
-            email (str):
+            email (str): Address to send the test email to.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,7 +194,7 @@ class TestSMTP(ModelNormal):
         """TestSMTP - a model defined in OpenAPI
 
         Args:
-            email (str):
+            email (str): Address to send the test email to.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

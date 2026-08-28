@@ -107,7 +107,7 @@ class RenameCustomFieldRequest(ModelNormal):
         """RenameCustomFieldRequest - a model defined in OpenAPI
 
         Args:
-            name (str):
+            name (str): The new name for the custom field.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,7 +194,7 @@ class RenameCustomFieldRequest(ModelNormal):
         """RenameCustomFieldRequest - a model defined in OpenAPI
 
         Args:
-            name (str):
+            name (str): The new name for the custom field.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

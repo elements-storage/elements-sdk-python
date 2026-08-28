@@ -1,5 +1,6 @@
 # MediaPinnedItemUpdate
 
+A Media Library home-page pin for a user: either a saved/pinned search or a bookmarked file or directory.
 
 ## Properties
 

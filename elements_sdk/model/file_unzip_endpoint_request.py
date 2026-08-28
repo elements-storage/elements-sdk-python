@@ -109,7 +109,7 @@ class FileUnzipEndpointRequest(ModelNormal):
         """FileUnzipEndpointRequest - a model defined in OpenAPI
 
         Args:
-            input (str):
+            input (str): Path of the ZIP archive to extract.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -142,7 +142,7 @@ class FileUnzipEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            remove (bool): [optional]  # noqa: E501
+            remove (bool): When true, delete the ZIP archive after extracting it.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -197,7 +197,7 @@ class FileUnzipEndpointRequest(ModelNormal):
         """FileUnzipEndpointRequest - a model defined in OpenAPI
 
         Args:
-            input (str):
+            input (str): Path of the ZIP archive to extract.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -230,7 +230,7 @@ class FileUnzipEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            remove (bool): [optional]  # noqa: E501
+            remove (bool): When true, delete the ZIP archive after extracting it.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

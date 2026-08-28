@@ -161,7 +161,7 @@ class SubtaskUpdate(ModelNormal):
 
         Args:
             kwargs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-            parent (int):
+            parent (int): The Automation job this step belongs to.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,21 +194,21 @@ class SubtaskUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            trigger (str, none_type): [optional]  # noqa: E501
+            trigger (str, none_type): Event on the related step that triggers this step (e.g. on success/failure).. [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             noop_dont_save (bool): [optional]  # noqa: E501
-            no_concurrency (bool): [optional]  # noqa: E501
-            timeout (int, none_type): [optional]  # noqa: E501
+            no_concurrency (bool): Prevent this step from running concurrently with other instances of itself.. [optional]  # noqa: E501
+            timeout (int, none_type): Maximum run time in seconds before the step times out.. [optional]  # noqa: E501
             log_variable (bool): [optional]  # noqa: E501
-            task (str, none_type): [optional]  # noqa: E501
-            condition (str, none_type): [optional]  # noqa: E501
-            sync (bool): [optional]  # noqa: E501
+            task (str, none_type): Identifier of the task type this step runs.. [optional]  # noqa: E501
+            condition (str, none_type): Boolean Jinja expression evaluated to decide whether this step runs.. [optional]  # noqa: E501
+            sync (bool): Run this step synchronously in the caller context instead of as a background task.. [optional]  # noqa: E501
             queue (str, none_type): [optional]  # noqa: E501
             enqueue_at_front (bool): [optional]  # noqa: E501
-            loop (bool): [optional]  # noqa: E501
-            loop_expression (str, none_type): [optional]  # noqa: E501
-            loop_variable_name (str, none_type): [optional]  # noqa: E501
-            relative_to (int, none_type): [optional]  # noqa: E501
+            loop (bool): Run this step once per item produced by `loop_expression`.. [optional]  # noqa: E501
+            loop_expression (str, none_type): Jinja expression yielding the items to loop over.. [optional]  # noqa: E501
+            loop_variable_name (str, none_type): Variable name the current loop item is exposed as.. [optional]  # noqa: E501
+            relative_to (int, none_type): Previous step that this one is positioned relative to in the job flow.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -265,7 +265,7 @@ class SubtaskUpdate(ModelNormal):
 
         Args:
             kwargs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-            parent (int):
+            parent (int): The Automation job this step belongs to.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -298,21 +298,21 @@ class SubtaskUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            trigger (str, none_type): [optional]  # noqa: E501
+            trigger (str, none_type): Event on the related step that triggers this step (e.g. on success/failure).. [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             noop_dont_save (bool): [optional]  # noqa: E501
-            no_concurrency (bool): [optional]  # noqa: E501
-            timeout (int, none_type): [optional]  # noqa: E501
+            no_concurrency (bool): Prevent this step from running concurrently with other instances of itself.. [optional]  # noqa: E501
+            timeout (int, none_type): Maximum run time in seconds before the step times out.. [optional]  # noqa: E501
             log_variable (bool): [optional]  # noqa: E501
-            task (str, none_type): [optional]  # noqa: E501
-            condition (str, none_type): [optional]  # noqa: E501
-            sync (bool): [optional]  # noqa: E501
+            task (str, none_type): Identifier of the task type this step runs.. [optional]  # noqa: E501
+            condition (str, none_type): Boolean Jinja expression evaluated to decide whether this step runs.. [optional]  # noqa: E501
+            sync (bool): Run this step synchronously in the caller context instead of as a background task.. [optional]  # noqa: E501
             queue (str, none_type): [optional]  # noqa: E501
             enqueue_at_front (bool): [optional]  # noqa: E501
-            loop (bool): [optional]  # noqa: E501
-            loop_expression (str, none_type): [optional]  # noqa: E501
-            loop_variable_name (str, none_type): [optional]  # noqa: E501
-            relative_to (int, none_type): [optional]  # noqa: E501
+            loop (bool): Run this step once per item produced by `loop_expression`.. [optional]  # noqa: E501
+            loop_expression (str, none_type): Jinja expression yielding the items to loop over.. [optional]  # noqa: E501
+            loop_variable_name (str, none_type): Variable name the current loop item is exposed as.. [optional]  # noqa: E501
+            relative_to (int, none_type): Previous step that this one is positioned relative to in the job flow.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

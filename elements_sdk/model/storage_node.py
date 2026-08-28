@@ -180,6 +180,7 @@ class StorageNode(ModelNormal):
             'permission_mask': (str,),  # noqa: E501
             'address_override': (str, none_type,),  # noqa: E501
             'auto_scan_interfaces': (bool,),  # noqa: E501
+            'mcp_tunnel_enabled': (bool,),  # noqa: E501
             'volume_queues': ([int],),  # noqa: E501
             'status': (StorageNodeStatus,),  # noqa: E501
         }
@@ -217,6 +218,7 @@ class StorageNode(ModelNormal):
         'permission_mask': 'permission_mask',  # noqa: E501
         'address_override': 'address_override',  # noqa: E501
         'auto_scan_interfaces': 'auto_scan_interfaces',  # noqa: E501
+        'mcp_tunnel_enabled': 'mcp_tunnel_enabled',  # noqa: E501
         'volume_queues': 'volume_queues',  # noqa: E501
         'status': 'status',  # noqa: E501
     }
@@ -230,7 +232,7 @@ class StorageNode(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, interfaces, is_log_aggregator, task_queues, unique_id, name, product, product_subtype, serial, address, ipmi, ipmi_address, ipmi_username, ipmi_password, proxy_queue, email_queue, apply_configuration_queue, workspace_transfer_queue, solr_indexer_enabled, discovery_enabled, discovery_address_override, ntp_enabled, type, allow_root_login, permission_mask, address_override, auto_scan_interfaces, volume_queues, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, interfaces, is_log_aggregator, task_queues, unique_id, name, product, product_subtype, serial, address, ipmi, ipmi_address, ipmi_username, ipmi_password, proxy_queue, email_queue, apply_configuration_queue, workspace_transfer_queue, solr_indexer_enabled, discovery_enabled, discovery_address_override, ntp_enabled, type, allow_root_login, permission_mask, address_override, auto_scan_interfaces, mcp_tunnel_enabled, volume_queues, *args, **xkwargs):  # noqa: E501
         """StorageNode - a model defined in OpenAPI
 
         Args:
@@ -261,6 +263,7 @@ class StorageNode(ModelNormal):
             permission_mask (str): Comma-separated list of user permissions allowed on this node
             address_override (str, none_type): Enforces mounting from a specific address/hostname instead of the available interfaces
             auto_scan_interfaces (bool):
+            mcp_tunnel_enabled (bool):
             volume_queues ([int]): Run volume-specific tasks for selected volumes.
 
         Keyword Args:
@@ -350,6 +353,7 @@ class StorageNode(ModelNormal):
         self.permission_mask = permission_mask
         self.address_override = address_override
         self.auto_scan_interfaces = auto_scan_interfaces
+        self.mcp_tunnel_enabled = mcp_tunnel_enabled
         self.volume_queues = volume_queues
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -372,7 +376,7 @@ class StorageNode(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, task_queues, unique_id, name, product, product_subtype, serial, address, ipmi, ipmi_address, ipmi_username, ipmi_password, proxy_queue, email_queue, apply_configuration_queue, workspace_transfer_queue, solr_indexer_enabled, discovery_enabled, discovery_address_override, ntp_enabled, type, allow_root_login, permission_mask, address_override, auto_scan_interfaces, volume_queues, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, task_queues, unique_id, name, product, product_subtype, serial, address, ipmi, ipmi_address, ipmi_username, ipmi_password, proxy_queue, email_queue, apply_configuration_queue, workspace_transfer_queue, solr_indexer_enabled, discovery_enabled, discovery_address_override, ntp_enabled, type, allow_root_login, permission_mask, address_override, auto_scan_interfaces, mcp_tunnel_enabled, volume_queues, *args, **xkwargs):  # noqa: E501
         """StorageNode - a model defined in OpenAPI
 
         Args:
@@ -401,6 +405,7 @@ class StorageNode(ModelNormal):
             permission_mask (str): Comma-separated list of user permissions allowed on this node
             address_override (str, none_type): Enforces mounting from a specific address/hostname instead of the available interfaces
             auto_scan_interfaces (bool):
+            mcp_tunnel_enabled (bool):
             volume_queues ([int]): Run volume-specific tasks for selected volumes.
 
         Keyword Args:
@@ -486,6 +491,7 @@ class StorageNode(ModelNormal):
         self.permission_mask = permission_mask
         self.address_override = address_override
         self.auto_scan_interfaces = auto_scan_interfaces
+        self.mcp_tunnel_enabled = mcp_tunnel_enabled
         self.volume_queues = volume_queues
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

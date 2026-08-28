@@ -4271,17 +4271,6 @@ class MediaLibraryApi(object):
                     'ordering',
                     'limit',
                     'offset',
-                    'include_deleted',
-                    'include_deleted_and_archived',
-                    'include_unrecognized',
-                    'include_proxies',
-                    'include_parents',
-                    'include_modified_by',
-                    'advanced_search',
-                    'in_media_root',
-                    'in_directory',
-                    'for_root',
-                    'resolve_asset_permission',
                 ],
                 'required': [
                     'root',
@@ -4317,28 +4306,6 @@ class MediaLibraryApi(object):
                         (int,),
                     'offset':
                         (int,),
-                    'include_deleted':
-                        (bool,),
-                    'include_deleted_and_archived':
-                        (bool,),
-                    'include_unrecognized':
-                        (bool,),
-                    'include_proxies':
-                        (bool,),
-                    'include_parents':
-                        (bool,),
-                    'include_modified_by':
-                        (bool,),
-                    'advanced_search':
-                        (str,),
-                    'in_media_root':
-                        (int,),
-                    'in_directory':
-                        (int,),
-                    'for_root':
-                        (int,),
-                    'resolve_asset_permission':
-                        (bool,),
                 },
                 'attribute_map': {
                     'root': 'root',
@@ -4350,17 +4317,6 @@ class MediaLibraryApi(object):
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
-                    'include_deleted': 'include_deleted',
-                    'include_deleted_and_archived': 'include_deleted_and_archived',
-                    'include_unrecognized': 'include_unrecognized',
-                    'include_proxies': 'include_proxies',
-                    'include_parents': 'include_parents',
-                    'include_modified_by': 'include_modified_by',
-                    'advanced_search': 'advanced_search',
-                    'in_media_root': 'in_media_root',
-                    'in_directory': 'in_directory',
-                    'for_root': 'for_root',
-                    'resolve_asset_permission': 'resolve_asset_permission',
                 },
                 'location_map': {
                     'root': 'path',
@@ -4372,17 +4328,6 @@ class MediaLibraryApi(object):
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
-                    'include_deleted': 'query',
-                    'include_deleted_and_archived': 'query',
-                    'include_unrecognized': 'query',
-                    'include_proxies': 'query',
-                    'include_parents': 'query',
-                    'include_modified_by': 'query',
-                    'advanced_search': 'query',
-                    'in_media_root': 'query',
-                    'in_directory': 'query',
-                    'for_root': 'query',
-                    'resolve_asset_permission': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -5875,7 +5820,6 @@ class MediaLibraryApi(object):
                     'ordering',
                     'limit',
                     'offset',
-                    'resolve_permissions',
                 ],
                 'required': [],
                 'nullable': [
@@ -5903,8 +5847,6 @@ class MediaLibraryApi(object):
                         (int,),
                     'offset':
                         (int,),
-                    'resolve_permissions':
-                        (bool,),
                 },
                 'attribute_map': {
                     'path': 'path',
@@ -5913,7 +5855,6 @@ class MediaLibraryApi(object):
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
-                    'resolve_permissions': 'resolve_permissions',
                 },
                 'location_map': {
                     'path': 'query',
@@ -5922,7 +5863,6 @@ class MediaLibraryApi(object):
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
-                    'resolve_permissions': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -8434,7 +8374,6 @@ class MediaLibraryApi(object):
             params_map={
                 'all': [
                     'id',
-                    'resolve_permissions',
                 ],
                 'required': [
                     'id',
@@ -8454,16 +8393,12 @@ class MediaLibraryApi(object):
                 'openapi_types': {
                     'id':
                         (int,),
-                    'resolve_permissions':
-                        (bool,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'resolve_permissions': 'resolve_permissions',
                 },
                 'location_map': {
                     'id': 'path',
-                    'resolve_permissions': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -14136,7 +14071,7 @@ class MediaLibraryApi(object):
     ):
         """bookmark_media_directory  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions   # noqa: E501
+        Bookmark (pin) this media file or directory for the current user so it appears in their Media Library bookmarks.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14214,7 +14149,7 @@ class MediaLibraryApi(object):
     ):
         """browse_storage_restore_request  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:view`   * License component: universal   # noqa: E501
+        Browse the files covered by this storage restore request, one directory level at a time, with each entry annotated with its restore status (running, ready or failed). By default directories and currently-restoring/ready files are listed hierarchically; setting include_failed or include_expired switches to a flat listing of just the matching files across the whole subtree.  ### Required permissions    * User account permission: `tasks:view`   * License component: universal   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14225,12 +14160,12 @@ class MediaLibraryApi(object):
             id (int): A unique integer value identifying this Storage Restore Request.
 
         Keyword Args:
-            path (str): [optional]
+            path (str): Path within the restore request to list, relative to its root. Omit to list the root.. [optional]
             limit (int): [optional]
             offset (int): [optional]
-            filter (str): [optional]
-            include_failed (bool): [optional]
-            include_expired (bool): [optional]
+            filter (str): Only return entries whose name contains this text (case-insensitive).. [optional]
+            include_failed (bool): When true, return a flat list of only the files whose restore has failed.. [optional]
+            include_expired (bool): When true, return a flat list of only the files whose restored copy has expired (for cold storage classes).. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -14299,7 +14234,7 @@ class MediaLibraryApi(object):
     ):
         """change_storage_class  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   * License component: universal   # noqa: E501
+        Asynchronously change the cloud storage class of this file (and, for a directory, everything beneath it). Returns a task to track progress.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   * License component: universal   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14379,7 +14314,7 @@ class MediaLibraryApi(object):
     ):
         """clear_subclip_clipboard  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        Remove all entries from the current user's subclip clipboard.  ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14452,7 +14387,7 @@ class MediaLibraryApi(object):
     ):
         """clear_subtitle_clipboard  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        Remove all entries from the current user's subtitle clipboard.  ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14526,7 +14461,7 @@ class MediaLibraryApi(object):
     ):
         """combine_assets_into_set  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        Combine the given assets into a single Set: a group of related but distinct assets (as opposed to versions of the same asset) that allows quick jumping between the assets in the UI.  ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14603,7 +14538,7 @@ class MediaLibraryApi(object):
     ):
         """count_unresolved_comments  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        Return the number of unresolved comments assigned to or by the current user.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14612,9 +14547,9 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            asset (int): Filter the returned list by `asset`.. [optional]
-            root (int): Filter the returned list by `root`.. [optional]
-            user (int): Filter the returned list by `user`.. [optional]
+            asset (int): Filter the returned list by `asset` (exact match).. [optional]
+            root (int): Filter the returned list by `root` (exact match).. [optional]
+            user (int): Filter the returned list by `user` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             cursor (str): The pagination cursor value.. [optional]
             limit (int): Number of results to return per page.. [optional]
@@ -14697,7 +14632,7 @@ class MediaLibraryApi(object):
             asset_rating_update (AssetRatingUpdate):
 
         Keyword Args:
-            root (int): [optional]
+            root (int): ID of the Media Root providing the context for the updates feed.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -14860,8 +14795,8 @@ class MediaLibraryApi(object):
             comment_update (CommentUpdate):
 
         Keyword Args:
-            root (int): [optional]
-            bundle (int): [optional]
+            root (int): ID of the Media Root providing the permission context for the comment.. [optional]
+            bundle (int): Supply to disambiguate between multiple copies of the asset to generate the correct link for the @mention notifications.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -16354,7 +16289,7 @@ class MediaLibraryApi(object):
             id (int): A unique integer value identifying this Rating.
 
         Keyword Args:
-            root (int): [optional]
+            root (int): ID of the Media Root providing the context for the updates feed.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -16740,7 +16675,7 @@ class MediaLibraryApi(object):
     ):
         """delete_easy_sharing_token_for_bundle  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions   # noqa: E501
+        Revoke the default anonymous \"easy sharing\" access token for this bundle, invalidating any public sharing link.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -16818,7 +16753,7 @@ class MediaLibraryApi(object):
     ):
         """delete_easy_sharing_token_for_directory  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions   # noqa: E501
+        Revoke the default anonymous \"easy sharing\" access token for this directory, invalidating any public sharing link.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17134,7 +17069,7 @@ class MediaLibraryApi(object):
     ):
         """delete_media_library_objects  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        Destroy the given Media Library bundles, files and/or assets in the database and/or delete them from storage. At least one of delete_from_database or delete_from_storage must be set. Dangerous and irreversible. Returns tasks to track the deletion.  ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17762,7 +17697,7 @@ class MediaLibraryApi(object):
     ):
         """delete_proxy_profile  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        Asynchronously delete this proxy profile. Returns a task to track removal. Dangerous: deleting the profile also destroys the proxy files that were generated from it.  ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17840,7 +17775,7 @@ class MediaLibraryApi(object):
     ):
         """delete_proxy_profile_watermark_image  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        Remove the watermark image from this proxy profile.  ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -18390,7 +18325,7 @@ class MediaLibraryApi(object):
     ):
         """discover_media  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        Synchronously run the Media Library discovery phase for a path: enumerate files into the database (creating/updating their records) without reading file contents. Use requestMediaScan instead to fully scan the files.  ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19032,7 +18967,7 @@ class MediaLibraryApi(object):
     ):
         """exclude_directory_from_proxy_generation  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
+        Exclude this directory and its subtree from automatic proxy generation.  ### Required permissions    * User account permission: `media:roots:manage`   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19110,7 +19045,7 @@ class MediaLibraryApi(object):
     ):
         """exclude_directory_from_scan  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
+        Exclude this directory and its subtree from Media Library scanning.  ### Required permissions    * User account permission: `media:roots:manage`   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19433,7 +19368,7 @@ class MediaLibraryApi(object):
     ):
         """forget_deleted_media_files  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_delete_db Media Library permissions   # noqa: E501
+        Asynchronously destroy all metadata for deleted (no longer present on disk) objects in this directory subtree (dangerous).  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_delete_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19511,6 +19446,7 @@ class MediaLibraryApi(object):
     ):
         """generate_proxies  # noqa: E501
 
+        Queue proxy generation for the given bundles and/or directories using the specified proxy profiles. Returns tasks to track progress.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19599,8 +19535,8 @@ class MediaLibraryApi(object):
             asset_id (str):
 
         Keyword Args:
-            asset (int): Filter the returned list by `asset`.. [optional]
-            project (int): Filter the returned list by `project`.. [optional]
+            asset (int): Filter the returned list by `asset` (exact match).. [optional]
+            project (int): Filter the returned list by `project` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -19682,8 +19618,8 @@ class MediaLibraryApi(object):
             asset_id (str):
 
         Keyword Args:
-            user (int): Filter the returned list by `user`.. [optional]
-            asset (int): Filter the returned list by `asset`.. [optional]
+            user (int): Filter the returned list by `user` (exact match).. [optional]
+            asset (int): Filter the returned list by `asset` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -19765,7 +19701,7 @@ class MediaLibraryApi(object):
             asset_id (str):
 
         Keyword Args:
-            subtitle (int): Filter the returned list by `subtitle`.. [optional]
+            subtitle (int): Filter the returned list by `subtitle` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -19835,7 +19771,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_asset_tape_backups  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+                     Retrieve a list of AssetBackups. Also allows quickly searching for Tape Archive backups via the `getAllAssetBackups` API by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19844,14 +19780,14 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            asset (int): Filter the returned list by `asset`.. [optional]
+            asset (int): Filter the returned list by `asset` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
             include_asset (bool): [optional]
             advanced_search (str): [optional]
             exclude_unrecognized (bool): [optional]
-            in_media_root (int): [optional]
+            in_media_root (int): Only applies to searching - limits results to a Media Root. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -19925,8 +19861,8 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            sync_id (str): Filter the returned list by `sync_id`.. [optional]
-            display_name (str): Filter the returned list by `display_name`.. [optional]
+            sync_id (str): Filter the returned list by `sync_id` (exact match).. [optional]
+            display_name (str): Filter the returned list by `display_name` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -20001,7 +19937,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_bundles_for_media_root  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        List all media file bundles under the given media root as a flat list, regardless of directory structure.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20012,25 +19948,14 @@ class MediaLibraryApi(object):
             root (str):
 
         Keyword Args:
-            asset (int): Filter the returned list by `asset`.. [optional]
-            location (int): Filter the returned list by `location`.. [optional]
-            shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
-            shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
+            asset (int): Filter the returned list by `asset` (exact match).. [optional]
+            location (int): Filter the returned list by `location` (exact match).. [optional]
+            shared_via_tokens (str): Filter the returned list by `shared_via_tokens` (exact match).. [optional]
+            shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
-            limit (int): [optional]
-            offset (int): [optional]
-            include_deleted (bool): [optional]
-            include_deleted_and_archived (bool): [optional]
-            include_unrecognized (bool): [optional]
-            include_proxies (bool): [optional]
-            include_parents (bool): [optional]
-            include_modified_by (bool): [optional]
-            advanced_search (str): [optional]
-            in_media_root (int): [optional]
-            in_directory (int): [optional]
-            for_root (int): [optional]
-            resolve_asset_permission (bool): [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -20098,7 +20023,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_bundles_in_subtree  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+                     Retrieve a list of MediaFiles. Also allows quickly searching for bundles/assets via `getAllMediaFileBundles` endpoint by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20109,11 +20034,11 @@ class MediaLibraryApi(object):
             file (str):
 
         Keyword Args:
-            asset (int): Filter the returned list by `asset`.. [optional]
-            location (int): Filter the returned list by `location`.. [optional]
-            shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
-            shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
+            asset (int): Filter the returned list by `asset` (exact match).. [optional]
+            location (int): Filter the returned list by `location` (exact match).. [optional]
+            shared_via_tokens (str): Filter the returned list by `shared_via_tokens` (exact match).. [optional]
+            shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): [optional]
             offset (int): [optional]
@@ -20124,9 +20049,9 @@ class MediaLibraryApi(object):
             include_parents (bool): [optional]
             include_modified_by (bool): [optional]
             advanced_search (str): [optional]
-            in_media_root (int): [optional]
-            in_directory (int): [optional]
-            for_root (int): [optional]
+            in_media_root (int): Only applies to searching - limits results to a Media Root. [optional]
+            in_directory (int): Only applies to searching - limits results to a directory. [optional]
+            for_root (int): Additionally filters nested metadata (e.g. comments) by a Media Root. [optional]
             resolve_asset_permission (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -20203,8 +20128,8 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            asset (int): Filter the returned list by `asset`.. [optional]
-            connection (int): Filter the returned list by `connection`.. [optional]
+            asset (int): Filter the returned list by `asset` (exact match).. [optional]
+            connection (int): Filter the returned list by `connection` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -20272,7 +20197,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_comments  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+                     Retrieve a list of comments. Also allows quickly searching for comments via the `getAllComments` API by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20281,9 +20206,9 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            asset (int): Filter the returned list by `asset`.. [optional]
-            root (int): Filter the returned list by `root`.. [optional]
-            user (int): Filter the returned list by `user`.. [optional]
+            asset (int): Filter the returned list by `asset` (exact match).. [optional]
+            root (int): Filter the returned list by `root` (exact match).. [optional]
+            user (int): Filter the returned list by `user` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             cursor (str): The pagination cursor value.. [optional]
             limit (int): Number of results to return per page.. [optional]
@@ -20595,8 +20520,8 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            name (str): Filter the returned list by `name`.. [optional]
-            id (int): Filter the returned list by `id`.. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            id (int): Filter the returned list by `id` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -20676,7 +20601,7 @@ class MediaLibraryApi(object):
             asset_id (str):
 
         Keyword Args:
-            user (int): Filter the returned list by `user`.. [optional]
+            user (int): Filter the returned list by `user` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -20746,7 +20671,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_media_file_bundles  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+                     Retrieve a list of MediaFiles. Also allows quickly searching for bundles/assets via `getAllMediaFileBundles` endpoint by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20755,11 +20680,11 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            asset (int): Filter the returned list by `asset`.. [optional]
-            location (int): Filter the returned list by `location`.. [optional]
-            shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
-            shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
+            asset (int): Filter the returned list by `asset` (exact match).. [optional]
+            location (int): Filter the returned list by `location` (exact match).. [optional]
+            shared_via_tokens (str): Filter the returned list by `shared_via_tokens` (exact match).. [optional]
+            shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): [optional]
             offset (int): [optional]
@@ -20770,9 +20695,9 @@ class MediaLibraryApi(object):
             include_parents (bool): [optional]
             include_modified_by (bool): [optional]
             advanced_search (str): [optional]
-            in_media_root (int): [optional]
-            in_directory (int): [optional]
-            for_root (int): [optional]
+            in_media_root (int): Only applies to searching - limits results to a Media Root. [optional]
+            in_directory (int): Only applies to searching - limits results to a directory. [optional]
+            for_root (int): Additionally filters nested metadata (e.g. comments) by a Media Root. [optional]
             resolve_asset_permission (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -20914,7 +20839,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_media_files  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+                     Retrieve a list of MediaFiles. Also allows quickly searching for directories via the `getAllMediaFiles` API by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -20923,18 +20848,18 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            bundle (int): Filter the returned list by `bundle`.. [optional]
-            bundle__in (str): Filter the returned list by `bundle__in`.. [optional]
-            parent (int): Filter the returned list by `parent`.. [optional]
-            path (str): [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            is_dir (str): Filter the returned list by `is_dir`.. [optional]
-            is_showroom (str): Filter the returned list by `is_showroom`.. [optional]
-            present (str): Filter the returned list by `present`.. [optional]
-            archived (str): Filter the returned list by `archived`.. [optional]
-            volume (int): Filter the returned list by `volume`.. [optional]
-            shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
-            shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
+            bundle (int): Filter the returned list by `bundle` (exact match).. [optional]
+            bundle__in (str): Filter the returned list by `bundle__in` (exact match).. [optional]
+            parent (int): Filter the returned list by `parent` (exact match).. [optional]
+            path (str): Filter by volume-relative path (high performance penalty). [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            is_dir (str): Filter the returned list by `is_dir` (exact match).. [optional]
+            is_showroom (str): Filter the returned list by `is_showroom` (exact match).. [optional]
+            present (str): Filter the returned list by `present` (exact match).. [optional]
+            archived (str): Filter the returned list by `archived` (exact match).. [optional]
+            volume (int): Filter the returned list by `volume` (exact match).. [optional]
+            shared_via_tokens (str): Filter the returned list by `shared_via_tokens` (exact match).. [optional]
+            shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -20944,8 +20869,8 @@ class MediaLibraryApi(object):
             include_root (bool): [optional]
             include_parents (bool): [optional]
             advanced_search (str): [optional]
-            in_media_root (int): [optional]
-            in_directory (int): [optional]
+            in_media_root (int): Only applies to searching - limits results to a Media Root. [optional]
+            in_directory (int): Only applies to searching - limits results to a directory. [optional]
             include_deleted (bool): [optional]
             include_deleted_and_archived (bool): [optional]
             _return_http_data_only (bool): response data without head status
@@ -21013,7 +20938,7 @@ class MediaLibraryApi(object):
     ):
         """get_all_media_files_for_bundles  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        Return all media files belonging to the given set of bundles.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -21024,18 +20949,18 @@ class MediaLibraryApi(object):
             all_media_files_for_bundles_request (AllMediaFilesForBundlesRequest):
 
         Keyword Args:
-            bundle (int): Filter the returned list by `bundle`.. [optional]
-            bundle__in (str): Filter the returned list by `bundle__in`.. [optional]
-            parent (int): Filter the returned list by `parent`.. [optional]
-            path (str): Filter the returned list by `path`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            is_dir (str): Filter the returned list by `is_dir`.. [optional]
-            is_showroom (str): Filter the returned list by `is_showroom`.. [optional]
-            present (str): Filter the returned list by `present`.. [optional]
-            archived (str): Filter the returned list by `archived`.. [optional]
-            volume (int): Filter the returned list by `volume`.. [optional]
-            shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
-            shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
+            bundle (int): Filter the returned list by `bundle` (exact match).. [optional]
+            bundle__in (str): Filter the returned list by `bundle__in` (exact match).. [optional]
+            parent (int): Filter the returned list by `parent` (exact match).. [optional]
+            path (str): Filter the returned list by `path` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            is_dir (str): Filter the returned list by `is_dir` (exact match).. [optional]
+            is_showroom (str): Filter the returned list by `is_showroom` (exact match).. [optional]
+            present (str): Filter the returned list by `present` (exact match).. [optional]
+            archived (str): Filter the returned list by `archived` (exact match).. [optional]
+            volume (int): Filter the returned list by `volume` (exact match).. [optional]
+            shared_via_tokens (str): Filter the returned list by `shared_via_tokens` (exact match).. [optional]
+            shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -21117,18 +21042,18 @@ class MediaLibraryApi(object):
             root (str):
 
         Keyword Args:
-            bundle (int): Filter the returned list by `bundle`.. [optional]
-            bundle__in (str): Filter the returned list by `bundle__in`.. [optional]
-            parent (int): Filter the returned list by `parent`.. [optional]
-            path (str): Filter the returned list by `path`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            is_dir (str): Filter the returned list by `is_dir`.. [optional]
-            is_showroom (str): Filter the returned list by `is_showroom`.. [optional]
-            present (str): Filter the returned list by `present`.. [optional]
-            archived (str): Filter the returned list by `archived`.. [optional]
-            volume (int): Filter the returned list by `volume`.. [optional]
-            shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
-            shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
+            bundle (int): Filter the returned list by `bundle` (exact match).. [optional]
+            bundle__in (str): Filter the returned list by `bundle__in` (exact match).. [optional]
+            parent (int): Filter the returned list by `parent` (exact match).. [optional]
+            path (str): Filter the returned list by `path` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            is_dir (str): Filter the returned list by `is_dir` (exact match).. [optional]
+            is_showroom (str): Filter the returned list by `is_showroom` (exact match).. [optional]
+            present (str): Filter the returned list by `present` (exact match).. [optional]
+            archived (str): Filter the returned list by `archived` (exact match).. [optional]
+            volume (int): Filter the returned list by `volume` (exact match).. [optional]
+            shared_via_tokens (str): Filter the returned list by `shared_via_tokens` (exact match).. [optional]
+            shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -21210,18 +21135,18 @@ class MediaLibraryApi(object):
             file (str):
 
         Keyword Args:
-            bundle (int): Filter the returned list by `bundle`.. [optional]
-            bundle__in (str): Filter the returned list by `bundle__in`.. [optional]
-            parent (int): Filter the returned list by `parent`.. [optional]
-            path (str): Filter the returned list by `path`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            is_dir (str): Filter the returned list by `is_dir`.. [optional]
-            is_showroom (str): Filter the returned list by `is_showroom`.. [optional]
-            present (str): Filter the returned list by `present`.. [optional]
-            archived (str): Filter the returned list by `archived`.. [optional]
-            volume (int): Filter the returned list by `volume`.. [optional]
-            shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
-            shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
+            bundle (int): Filter the returned list by `bundle` (exact match).. [optional]
+            bundle__in (str): Filter the returned list by `bundle__in` (exact match).. [optional]
+            parent (int): Filter the returned list by `parent` (exact match).. [optional]
+            path (str): Filter the returned list by `path` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            is_dir (str): Filter the returned list by `is_dir` (exact match).. [optional]
+            is_showroom (str): Filter the returned list by `is_showroom` (exact match).. [optional]
+            present (str): Filter the returned list by `present` (exact match).. [optional]
+            archived (str): Filter the returned list by `archived` (exact match).. [optional]
+            volume (int): Filter the returned list by `volume` (exact match).. [optional]
+            shared_via_tokens (str): Filter the returned list by `shared_via_tokens` (exact match).. [optional]
+            shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -21300,9 +21225,9 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            root (int): Filter the returned list by `root`.. [optional]
-            id (int): Filter the returned list by `id`.. [optional]
-            is_temporary_for_token (int): Filter the returned list by `is_temporary_for_token`.. [optional]
+            root (int): Filter the returned list by `root` (exact match).. [optional]
+            id (int): Filter the returned list by `id` (exact match).. [optional]
+            is_temporary_for_token (int): Filter the returned list by `is_temporary_for_token` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -21379,13 +21304,12 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            path (str): Filter the returned list by `path`.. [optional]
-            volume (int): Filter the returned list by `volume`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
+            path (str): Filter the returned list by `path` (exact match).. [optional]
+            volume (int): Filter the returned list by `volume` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
-            resolve_permissions (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -21459,13 +21383,13 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            id (int): Filter the returned list by `id`.. [optional]
+            id (int): Filter the returned list by `id` (exact match).. [optional]
             id__in (str): [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            name__icontains (str): Filter the returned list by `name__icontains`.. [optional]
-            roots (str): Filter the returned list by `roots`.. [optional]
-            roots__isnull (str): Filter the returned list by `roots__isnull`.. [optional]
-            shared (str): Filter the returned list by `shared`.. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            name__icontains (str): Filter the returned list by `name__icontains` (exact match).. [optional]
+            roots (str): Filter the returned list by `roots` (exact match).. [optional]
+            roots__isnull (str): Filter the returned list by `roots__isnull` (exact match).. [optional]
+            shared (str): Filter the returned list by `shared` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -21543,9 +21467,9 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            asset (int): Filter the returned list by `asset`.. [optional]
-            user (int): Filter the returned list by `user`.. [optional]
-            root (int): Filter the returned list by `root`.. [optional]
+            asset (int): Filter the returned list by `asset` (exact match).. [optional]
+            user (int): Filter the returned list by `user` (exact match).. [optional]
+            root (int): Filter the returned list by `root` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             cursor (str): The pagination cursor value.. [optional]
             limit (int): Number of results to return per page.. [optional]
@@ -21624,7 +21548,7 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            user (int): Filter the returned list by `user`.. [optional]
+            user (int): Filter the returned list by `user` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -21777,7 +21701,7 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            name (str): Filter the returned list by `name`.. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -21855,9 +21779,9 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            name (str): Filter the returned list by `name`.. [optional]
-            root (int): Filter the returned list by `root`.. [optional]
-            user (int): Filter the returned list by `user`.. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            root (int): Filter the returned list by `root` (exact match).. [optional]
+            user (int): Filter the returned list by `user` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -21934,8 +21858,8 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            name (str): Filter the returned list by `name`.. [optional]
-            id (int): Filter the returned list by `id`.. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            id (int): Filter the returned list by `id` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -22092,7 +22016,7 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            cut (int): Filter the returned list by `cut`.. [optional]
+            cut (int): Filter the returned list by `cut` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -22172,8 +22096,8 @@ class MediaLibraryApi(object):
             asset_id (str):
 
         Keyword Args:
-            root (int): Filter the returned list by `root`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
+            root (int): Filter the returned list by `root` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -22252,7 +22176,7 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            subtitle (int): Filter the returned list by `subtitle`.. [optional]
+            subtitle (int): Filter the returned list by `subtitle` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -22557,7 +22481,7 @@ class MediaLibraryApi(object):
     ):
         """get_asset_bundles  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        List the media file bundles that correspond to this asset.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -22719,7 +22643,7 @@ class MediaLibraryApi(object):
     ):
         """get_asset_stack_members  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        List the assets that belong to this stack (a set or version stack).  ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -22878,7 +22802,7 @@ class MediaLibraryApi(object):
     ):
         """get_bookmarked_media_files_directories  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions   # noqa: E501
+        List all media files and directories bookmarked (pinned) by the current user.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -22887,18 +22811,18 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            bundle (int): Filter the returned list by `bundle`.. [optional]
-            bundle__in (str): Filter the returned list by `bundle__in`.. [optional]
-            parent (int): Filter the returned list by `parent`.. [optional]
-            path (str): Filter the returned list by `path`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            is_dir (str): Filter the returned list by `is_dir`.. [optional]
-            is_showroom (str): Filter the returned list by `is_showroom`.. [optional]
-            present (str): Filter the returned list by `present`.. [optional]
-            archived (str): Filter the returned list by `archived`.. [optional]
-            volume (int): Filter the returned list by `volume`.. [optional]
-            shared_via_tokens (str): Filter the returned list by `shared_via_tokens`.. [optional]
-            shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token`.. [optional]
+            bundle (int): Filter the returned list by `bundle` (exact match).. [optional]
+            bundle__in (str): Filter the returned list by `bundle__in` (exact match).. [optional]
+            parent (int): Filter the returned list by `parent` (exact match).. [optional]
+            path (str): Filter the returned list by `path` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            is_dir (str): Filter the returned list by `is_dir` (exact match).. [optional]
+            is_showroom (str): Filter the returned list by `is_showroom` (exact match).. [optional]
+            present (str): Filter the returned list by `present` (exact match).. [optional]
+            archived (str): Filter the returned list by `archived` (exact match).. [optional]
+            volume (int): Filter the returned list by `volume` (exact match).. [optional]
+            shared_via_tokens (str): Filter the returned list by `shared_via_tokens` (exact match).. [optional]
+            shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -22967,7 +22891,7 @@ class MediaLibraryApi(object):
     ):
         """get_bundle_files  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        List the individual files that make up this media file bundle.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -23047,7 +22971,7 @@ class MediaLibraryApi(object):
     ):
         """get_comment  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+                     Retrieve a list of comments. Also allows quickly searching for comments via the `getAllComments` API by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -23209,7 +23133,7 @@ class MediaLibraryApi(object):
     ):
         """get_custom_field_options  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        List the available option values for this custom field, optionally filtered by a search query.  ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -23220,7 +23144,7 @@ class MediaLibraryApi(object):
             id (int): A unique integer value identifying this Custom field.
 
         Keyword Args:
-            q (str): [optional]
+            q (str): Only return options matching this search text.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -23444,7 +23368,7 @@ class MediaLibraryApi(object):
     ):
         """get_easy_sharing_token_for_bundle  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions   # noqa: E501
+        Get (or create) the anonymous \"easy sharing\" access token for this bundle, used to build a public sharing link.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -23522,7 +23446,7 @@ class MediaLibraryApi(object):
     ):
         """get_easy_sharing_token_for_directory  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions   # noqa: E501
+        Get (or creating) the default anonymous \"easy sharing\" access token for this directory, used to build a public sharing link.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -23916,7 +23840,7 @@ class MediaLibraryApi(object):
     ):
         """get_media_file  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions   # noqa: E501
+                     Retrieve a list of MediaFiles. Also allows quickly searching for directories via the `getAllMediaFiles` API by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -23933,11 +23857,11 @@ class MediaLibraryApi(object):
             include_root (bool): [optional]
             include_parents (bool): [optional]
             advanced_search (str): [optional]
-            in_media_root (int): [optional]
-            in_directory (int): [optional]
+            in_media_root (int): Only applies to searching - limits results to a Media Root. [optional]
+            in_directory (int): Only applies to searching - limits results to a directory. [optional]
             include_deleted (bool): [optional]
             include_deleted_and_archived (bool): [optional]
-            path (str): [optional]
+            path (str): Filter by volume-relative path (high performance penalty). [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -24005,7 +23929,7 @@ class MediaLibraryApi(object):
     ):
         """get_media_file_bundle  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+                     Retrieve a list of MediaFiles. Also allows quickly searching for bundles/assets via `getAllMediaFileBundles` endpoint by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -24025,9 +23949,9 @@ class MediaLibraryApi(object):
             offset (int): [optional]
             limit (int): [optional]
             advanced_search (str): [optional]
-            in_media_root (int): [optional]
-            in_directory (int): [optional]
-            for_root (int): [optional]
+            in_media_root (int): Only applies to searching - limits results to a Media Root. [optional]
+            in_directory (int): Only applies to searching - limits results to a directory. [optional]
+            for_root (int): Additionally filters nested metadata (e.g. comments) by a Media Root. [optional]
             resolve_asset_permission (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -24096,7 +24020,7 @@ class MediaLibraryApi(object):
     ):
         """get_media_file_by_path  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        Retrieve a media file by its volume-relative path and volume ID.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -24174,7 +24098,7 @@ class MediaLibraryApi(object):
     ):
         """get_media_file_contents  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        List the immediate contents of a media directory: direct child subdirectories and bundles, paginated together.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -24426,7 +24350,6 @@ class MediaLibraryApi(object):
             id (int): A unique integer value identifying this media root.
 
         Keyword Args:
-            resolve_permissions (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -24650,7 +24573,7 @@ class MediaLibraryApi(object):
     ):
         """get_media_root_users  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        List all users who have access to this media root, either via a direct permission or through group membership.  ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -24808,7 +24731,7 @@ class MediaLibraryApi(object):
     ):
         """get_multiple_assets  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        Fetch the given assets by ID in a single request.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -24892,7 +24815,7 @@ class MediaLibraryApi(object):
     ):
         """get_multiple_bundles  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+                     Retrieve a list of MediaFiles. Also allows quickly searching for bundles/assets via `getAllMediaFileBundles` endpoint by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -24912,9 +24835,9 @@ class MediaLibraryApi(object):
             include_parents (bool): [optional]
             include_modified_by (bool): [optional]
             advanced_search (str): [optional]
-            in_media_root (int): [optional]
-            in_directory (int): [optional]
-            for_root (int): [optional]
+            in_media_root (int): Only applies to searching - limits results to a Media Root. [optional]
+            in_directory (int): Only applies to searching - limits results to a directory. [optional]
+            for_root (int): Additionally filters nested metadata (e.g. comments) by a Media Root. [optional]
             resolve_asset_permission (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -24983,7 +24906,7 @@ class MediaLibraryApi(object):
     ):
         """get_multiple_files  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        Fetch the given media files by ID in a single request.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -25062,7 +24985,7 @@ class MediaLibraryApi(object):
     ):
         """get_my_media_root_permissions  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        List all media root permissions assigned to the current user directly or via group membership.  ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -25071,9 +24994,9 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            root (int): Filter the returned list by `root`.. [optional]
-            id (int): Filter the returned list by `id`.. [optional]
-            is_temporary_for_token (int): Filter the returned list by `is_temporary_for_token`.. [optional]
+            root (int): Filter the returned list by `root` (exact match).. [optional]
+            id (int): Filter the returned list by `id` (exact match).. [optional]
+            is_temporary_for_token (int): Filter the returned list by `is_temporary_for_token` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -25141,7 +25064,7 @@ class MediaLibraryApi(object):
     ):
         """get_my_resolved_media_root_permissions  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        List effective media root permissions for the current user with overlapping path entries resolved to the narrowest matching permission.  ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -25150,9 +25073,9 @@ class MediaLibraryApi(object):
 
 
         Keyword Args:
-            root (int): Filter the returned list by `root`.. [optional]
-            id (int): Filter the returned list by `id`.. [optional]
-            is_temporary_for_token (int): Filter the returned list by `is_temporary_for_token`.. [optional]
+            root (int): Filter the returned list by `root` (exact match).. [optional]
+            id (int): Filter the returned list by `id` (exact match).. [optional]
+            is_temporary_for_token (int): Filter the returned list by `is_temporary_for_token` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -25304,7 +25227,7 @@ class MediaLibraryApi(object):
     ):
         """get_proxy_generation_info  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        Return the progress and state of the task currently generating this proxy, or null if no generation task is running.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -25542,7 +25465,7 @@ class MediaLibraryApi(object):
     ):
         """get_proxy_profile_proxy_count  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        Return the number of proxies that have been generated from this proxy profile.  ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -25620,7 +25543,7 @@ class MediaLibraryApi(object):
     ):
         """get_proxy_profile_watermark_image  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        Download the watermark image configured for this proxy profile.  ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -26012,7 +25935,7 @@ class MediaLibraryApi(object):
     ):
         """get_subtitles  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        Download the named subtitle track of this asset, in the requested format (SRT, VTT, ASS or JSON).  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -26328,7 +26251,7 @@ class MediaLibraryApi(object):
     ):
         """instantiate_media_file_template  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        Copy the template's source file into the given parent directory under the given name, then trigger a Media Library scan on the result.  ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -26409,7 +26332,7 @@ class MediaLibraryApi(object):
     ):
         """link_assets_as_versions  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        Combine the given assets into a single version stack (different versions of the same content), allowing quick switching between versions in the UI.  ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -26487,7 +26410,7 @@ class MediaLibraryApi(object):
     ):
         """locate_editor_project_paths  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        Resolve the media file paths referenced by this editor project to their current locations in ELEMENTS.  ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -26565,7 +26488,7 @@ class MediaLibraryApi(object):
     ):
         """lookup_media_files  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * Authenticated user   # noqa: E501
+        Search for present media files by name across all accessible media roots.  ### Required permissions    * Authenticated user   * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -26645,7 +26568,7 @@ class MediaLibraryApi(object):
     ):
         """mark_file_archived  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_delete_db Media Library permissions   # noqa: E501
+        Mark this file or directory as archived (and propagate to its contents). Returns a task to track updating descendants.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_delete_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -26723,7 +26646,7 @@ class MediaLibraryApi(object):
     ):
         """mark_file_not_archived  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
+        Clear the archived mark on this file or directory (and propagate to its contents). Returns a task to track updating descendants.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -26801,7 +26724,7 @@ class MediaLibraryApi(object):
     ):
         """mark_media_directory_as_showroom  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
+        Mark this directory as a Showroom (a destination where chosen assets can be quickly hardlinked from the UI).  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db, allow_sharing Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -28533,7 +28456,7 @@ class MediaLibraryApi(object):
     ):
         """pin_media_item_globally  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        Convert this user's personal Media Library pin into a global pin shown to all users (requires Media Roots management permission).  ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -28611,7 +28534,7 @@ class MediaLibraryApi(object):
     ):
         """pin_media_root_permission  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        Pin this Media Root (or its sub-path corresponding to this permission's path) to the top of the Media Library home page  ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -28690,7 +28613,7 @@ class MediaLibraryApi(object):
     ):
         """recursively_tag_media_directory  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
+        Asynchronously add or remove a tag on every asset within this directory subtree. Returns a task.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -28771,7 +28694,7 @@ class MediaLibraryApi(object):
     ):
         """refresh_storage_restore_request  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:view`   * License component: universal   # noqa: E501
+        Re-check the restore status of the files in this storage restore request with the storage provider. Returns a task.  ### Required permissions    * User account permission: `tasks:view`   * License component: universal   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -28849,7 +28772,7 @@ class MediaLibraryApi(object):
     ):
         """refresh_storage_restore_status  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   * License component: universal   # noqa: E501
+        Re-check with the storage provider whether the cold-storage files under this path have finished being restored. Returns a task.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   * License component: universal   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -28927,7 +28850,7 @@ class MediaLibraryApi(object):
     ):
         """reinclude_directory_for_proxy_generation  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
+        Re-include this directory in automatic proxy generation, removing a previous exclusion.  ### Required permissions    * User account permission: `media:roots:manage`   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -29005,7 +28928,7 @@ class MediaLibraryApi(object):
     ):
         """reinclude_directory_for_scan  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
+        Re-include this directory in Media Library scanning, removing a previous exclusion.  ### Required permissions    * User account permission: `media:roots:manage`   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -29083,7 +29006,7 @@ class MediaLibraryApi(object):
     ):
         """reindex_media_directory  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
+        Asynchronously rebuild the search index for this directory and its subtree.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -29161,7 +29084,7 @@ class MediaLibraryApi(object):
     ):
         """remove_asset_from_set  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
+        Remove this asset from its set. The set is dissolved if fewer than two assets would remain in it.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -29240,7 +29163,7 @@ class MediaLibraryApi(object):
     ):
         """rename_custom_field  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
+        Asynchronously rename this custom field, updating its name on all assets and files that use it. Returns a task.  ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -29321,7 +29244,7 @@ class MediaLibraryApi(object):
     ):
         """render_sequence  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        Render a timeline sequence built in the Media Editor to a new media file. Returns a task to track rendering.  ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -29401,7 +29324,7 @@ class MediaLibraryApi(object):
     ):
         """render_subclip  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * Must be shared OR Must own the object   * allow_read, show_subclips Media Library permissions   # noqa: E501
+        Render this subclip's in/out range to a new media file at the given destination. Returns a task.  ### Required permissions    * User account permission: `media:access`   * License component: media   * Must be shared OR Must own the object   * allow_read, show_subclips Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -29485,7 +29408,7 @@ class MediaLibraryApi(object):
     ):
         """request_media_scan  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        Queue a Media Library scan of the given path to discover and index new or changed media.  ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -29564,7 +29487,7 @@ class MediaLibraryApi(object):
     ):
         """request_storage_restore  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   * License component: universal   # noqa: E501
+        Start restoring this file (and its contents, if a directory) from cold cloud storage so it becomes accessible. Returns a task to track progress.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   * License component: universal   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -29645,7 +29568,7 @@ class MediaLibraryApi(object):
     ):
         """resolve_comment  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        Mark this comment as resolved.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -29723,7 +29646,7 @@ class MediaLibraryApi(object):
     ):
         """search_markers  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        Search markers across accessible assets using a Media Library search query.  ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -29803,7 +29726,7 @@ class MediaLibraryApi(object):
     ):
         """search_subclips  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        Search subclips across accessible assets using a Media Library search query.  ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -29883,7 +29806,7 @@ class MediaLibraryApi(object):
     ):
         """search_subtitle_events  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        Search subtitle/caption events (individual timed text lines) across accessible assets using a Media Library search query.  ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -29963,7 +29886,7 @@ class MediaLibraryApi(object):
     ):
         """share_media_library_objects  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   # noqa: E501
+        Create a sharing link granting temporary access to the given media bundles and directories, with optional expiry, view limit, password and access permissions.  ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -30041,7 +29964,7 @@ class MediaLibraryApi(object):
     ):
         """test_external_transcoder_connection  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write)   # noqa: E501
+        Test connectivity to an external transcoder at the given address; returns whether it responded.  ### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -30119,6 +30042,7 @@ class MediaLibraryApi(object):
     ):
         """transition_workflow  # noqa: E501
 
+        Run a workflow transition job on the given bundles and directories, advancing their workflow state. Returns the started tasks.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -30196,7 +30120,7 @@ class MediaLibraryApi(object):
     ):
         """unbookmark_media_directory  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions   # noqa: E501
+        Remove this media file or directory from the current user's Media Library bookmarks.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -30274,7 +30198,7 @@ class MediaLibraryApi(object):
     ):
         """unlink_asset_version  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
+        Remove this asset from its version stack so it is no longer tracked as a version of another asset.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -30352,7 +30276,7 @@ class MediaLibraryApi(object):
     ):
         """unmark_media_directory_as_showroom  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   # noqa: E501
+        Remove the Showroom mark from this directory.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db, allow_sharing Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -30430,7 +30354,7 @@ class MediaLibraryApi(object):
     ):
         """unpin_media_item_globally  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
+        Convert this globally-pinned Media Library item into a personal pin owned by the current user, so it no longer appears for all users.  ### Required permissions    * User account permission: `media:access`   * License component: media   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -30508,7 +30432,7 @@ class MediaLibraryApi(object):
     ):
         """unresolve_comment  # noqa: E501
 
-        ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        Re-open this comment by clearing its resolved state.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

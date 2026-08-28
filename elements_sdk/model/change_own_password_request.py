@@ -117,7 +117,7 @@ class ChangeOwnPasswordRequest(ModelNormal):
         """ChangeOwnPasswordRequest - a model defined in OpenAPI
 
         Args:
-            password (str):
+            password (str): The new password to set for the user.
             current_password (str):
 
         Keyword Args:
@@ -207,7 +207,7 @@ class ChangeOwnPasswordRequest(ModelNormal):
         """ChangeOwnPasswordRequest - a model defined in OpenAPI
 
         Args:
-            password (str):
+            password (str): The new password to set for the user.
             current_password (str):
 
         Keyword Args:

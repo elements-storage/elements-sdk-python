@@ -87,7 +87,7 @@ class MetadataItem(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'custom_fields': ({str: (str, none_type)},),  # noqa: E501
+            'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'tags': ([{str: (str, none_type)}],),  # noqa: E501
             'path': (str,),  # noqa: E501
             'upload_id': (str,),  # noqa: E501
@@ -116,7 +116,7 @@ class MetadataItem(ModelNormal):
         """MetadataItem - a model defined in OpenAPI
 
         Args:
-            custom_fields ({str: (str, none_type)}):
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             tags ([{str: (str, none_type)}]):
             path (str):
 
@@ -208,7 +208,7 @@ class MetadataItem(ModelNormal):
         """MetadataItem - a model defined in OpenAPI
 
         Args:
-            custom_fields ({str: (str, none_type)}):
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             tags ([{str: (str, none_type)}]):
             path (str):
 

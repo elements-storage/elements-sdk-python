@@ -152,7 +152,7 @@ class Alert(ModelNormal):
             node (StorageNodeMini):
             opened_at (datetime):
             closed_at (datetime, none_type):
-            duration (float, none_type):
+            duration (float, none_type): Duration of the alert in seconds
             acknowledged_by (bool, date, datetime, dict, float, int, list, str, none_type):
             silenced_by (bool, date, datetime, dict, float, int, list, str, none_type):
 
@@ -258,7 +258,7 @@ class Alert(ModelNormal):
             is_open (bool):
             node (StorageNodeMini):
             closed_at (datetime, none_type):
-            duration (float, none_type):
+            duration (float, none_type): Duration of the alert in seconds
             acknowledged_by (bool, date, datetime, dict, float, int, list, str, none_type):
             silenced_by (bool, date, datetime, dict, float, int, list, str, none_type):
 

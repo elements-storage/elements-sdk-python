@@ -311,43 +311,43 @@ class WorkspaceDetailPartialUpdate(ModelNormal):
             production (ProductionReference): [optional]  # noqa: E501
             volume (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             sharing_nfs_permissions ([NFSPermission]): [optional]  # noqa: E501
-            quota_size_hard (int): [optional]  # noqa: E501
-            quota_size_soft (int): [optional]  # noqa: E501
+            quota_size_hard (int): Hard quota limit (absolute cap for the workspace). [optional]  # noqa: E501
+            quota_size_soft (int): Soft quota limit (warning threshold). [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             long_description (str): [optional]  # noqa: E501
             is_template (bool): [optional]  # noqa: E501
             active (bool): [optional]  # noqa: E501
             mac_protocol (str, none_type): [optional]  # noqa: E501
-            win_protocol (str): [optional]  # noqa: E501
-            win_drive (str, none_type): [optional]  # noqa: E501
+            win_protocol (str): Defines how the workspace is mounted by the ELEMENTS Client - mapped as a disk or opened as a UNC path. [optional]  # noqa: E501
+            win_drive (str, none_type): Drive letter for the ELEMENTS Client to use. [optional]  # noqa: E501
             linux_protocol (str): [optional]  # noqa: E501
-            linux_mountpoint (str, none_type): [optional]  # noqa: E501
+            linux_mountpoint (str, none_type): Mountpoint for the ELEMENTS Client to use. [optional]  # noqa: E501
             share_name (str, none_type): [optional]  # noqa: E501
             share_nfs (bool): [optional]  # noqa: E501
             share_afp (bool): [optional]  # noqa: E501
-            sharing_hidden (bool): [optional]  # noqa: E501
-            sharing_require_login (bool): [optional]  # noqa: E501
+            sharing_hidden (bool): When enabled, the share will be hidden in network browsing (e.g. SMB or AFP browse lists). [optional]  # noqa: E501
+            sharing_require_login (bool): Require authentication over SMB and AFP. [optional]  # noqa: E501
             sharing_read_only (bool): [optional]  # noqa: E501
             sharing_allow_execute (bool): [optional]  # noqa: E501
             enable_quota (bool): [optional]  # noqa: E501
-            current_size (int, none_type): [optional]  # noqa: E501
-            affinity (str, none_type): [optional]  # noqa: E501
-            emulate_avid (bool): [optional]  # noqa: E501
-            emulate_capture (bool): [optional]  # noqa: E501
-            emulate_preopen (bool): [optional]  # noqa: E501
-            emulate_alternate_data_streams (bool): [optional]  # noqa: E501
+            current_size (int, none_type): Total cached size of the workspace, if tracked by the quota system. [optional]  # noqa: E501
+            affinity (str, none_type): StorNext affinity tag. [optional]  # noqa: E501
+            emulate_avid (bool): Emulate Avid NEXIS storage to enable bin locking in Avid Media Composer. [optional]  # noqa: E501
+            emulate_capture (bool): Set up the SMB share for ingest, disables opportunistic locks for growing file editing. [optional]  # noqa: E501
+            emulate_preopen (bool): Unused (legacy). [optional]  # noqa: E501
+            emulate_alternate_data_streams (bool): Enable alternate streams and extended attributes over SMB. [optional]  # noqa: E501
             emulate_recycle_bin (bool): [optional]  # noqa: E501
-            smb_extra_config (str): [optional]  # noqa: E501
-            afp_extra_config (str): [optional]  # noqa: E501
-            recycle_bin_exclude (str, none_type): [optional]  # noqa: E501
+            smb_extra_config (str): Additional raw SMB configuration to add to the share definition in smb.conf. [optional]  # noqa: E501
+            afp_extra_config (str): Additional raw AFP configuration to add to the share definition in afp.conf. [optional]  # noqa: E501
+            recycle_bin_exclude (str, none_type): Exclude list for Samba vfs_recycle. [optional]  # noqa: E501
             is_external (bool): [optional]  # noqa: E501
             external_mac_url (str, none_type): [optional]  # noqa: E501
             external_win_url (str, none_type): [optional]  # noqa: E501
             external_linux_url (str, none_type): [optional]  # noqa: E501
             allow_symlinks (bool): [optional]  # noqa: E501
-            rw_permission_priority (bool): [optional]  # noqa: E501
-            veto_dot_underscore (bool): [optional]  # noqa: E501
+            rw_permission_priority (bool): When enabled, if a user has both read-only and read-write permissions, the read-write permissions will take precedence. When disabled, the read-only permissions will take precedence.. [optional]  # noqa: E501
+            veto_dot_underscore (bool): Block AppleDouble files - Prevents macOS from storing ._* and .DS_Store files in the workspace over SMB. [optional]  # noqa: E501
             template (int, none_type): [optional]  # noqa: E501
         """
 
@@ -435,43 +435,43 @@ class WorkspaceDetailPartialUpdate(ModelNormal):
             production (ProductionReference): [optional]  # noqa: E501
             volume (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             sharing_nfs_permissions ([NFSPermission]): [optional]  # noqa: E501
-            quota_size_hard (int): [optional]  # noqa: E501
-            quota_size_soft (int): [optional]  # noqa: E501
+            quota_size_hard (int): Hard quota limit (absolute cap for the workspace). [optional]  # noqa: E501
+            quota_size_soft (int): Soft quota limit (warning threshold). [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             long_description (str): [optional]  # noqa: E501
             is_template (bool): [optional]  # noqa: E501
             active (bool): [optional]  # noqa: E501
             mac_protocol (str, none_type): [optional]  # noqa: E501
-            win_protocol (str): [optional]  # noqa: E501
-            win_drive (str, none_type): [optional]  # noqa: E501
+            win_protocol (str): Defines how the workspace is mounted by the ELEMENTS Client - mapped as a disk or opened as a UNC path. [optional]  # noqa: E501
+            win_drive (str, none_type): Drive letter for the ELEMENTS Client to use. [optional]  # noqa: E501
             linux_protocol (str): [optional]  # noqa: E501
-            linux_mountpoint (str, none_type): [optional]  # noqa: E501
+            linux_mountpoint (str, none_type): Mountpoint for the ELEMENTS Client to use. [optional]  # noqa: E501
             share_name (str, none_type): [optional]  # noqa: E501
             share_nfs (bool): [optional]  # noqa: E501
             share_afp (bool): [optional]  # noqa: E501
-            sharing_hidden (bool): [optional]  # noqa: E501
-            sharing_require_login (bool): [optional]  # noqa: E501
+            sharing_hidden (bool): When enabled, the share will be hidden in network browsing (e.g. SMB or AFP browse lists). [optional]  # noqa: E501
+            sharing_require_login (bool): Require authentication over SMB and AFP. [optional]  # noqa: E501
             sharing_read_only (bool): [optional]  # noqa: E501
             sharing_allow_execute (bool): [optional]  # noqa: E501
             enable_quota (bool): [optional]  # noqa: E501
-            current_size (int, none_type): [optional]  # noqa: E501
-            affinity (str, none_type): [optional]  # noqa: E501
-            emulate_avid (bool): [optional]  # noqa: E501
-            emulate_capture (bool): [optional]  # noqa: E501
-            emulate_preopen (bool): [optional]  # noqa: E501
-            emulate_alternate_data_streams (bool): [optional]  # noqa: E501
+            current_size (int, none_type): Total cached size of the workspace, if tracked by the quota system. [optional]  # noqa: E501
+            affinity (str, none_type): StorNext affinity tag. [optional]  # noqa: E501
+            emulate_avid (bool): Emulate Avid NEXIS storage to enable bin locking in Avid Media Composer. [optional]  # noqa: E501
+            emulate_capture (bool): Set up the SMB share for ingest, disables opportunistic locks for growing file editing. [optional]  # noqa: E501
+            emulate_preopen (bool): Unused (legacy). [optional]  # noqa: E501
+            emulate_alternate_data_streams (bool): Enable alternate streams and extended attributes over SMB. [optional]  # noqa: E501
             emulate_recycle_bin (bool): [optional]  # noqa: E501
-            smb_extra_config (str): [optional]  # noqa: E501
-            afp_extra_config (str): [optional]  # noqa: E501
-            recycle_bin_exclude (str, none_type): [optional]  # noqa: E501
+            smb_extra_config (str): Additional raw SMB configuration to add to the share definition in smb.conf. [optional]  # noqa: E501
+            afp_extra_config (str): Additional raw AFP configuration to add to the share definition in afp.conf. [optional]  # noqa: E501
+            recycle_bin_exclude (str, none_type): Exclude list for Samba vfs_recycle. [optional]  # noqa: E501
             is_external (bool): [optional]  # noqa: E501
             external_mac_url (str, none_type): [optional]  # noqa: E501
             external_win_url (str, none_type): [optional]  # noqa: E501
             external_linux_url (str, none_type): [optional]  # noqa: E501
             allow_symlinks (bool): [optional]  # noqa: E501
-            rw_permission_priority (bool): [optional]  # noqa: E501
-            veto_dot_underscore (bool): [optional]  # noqa: E501
+            rw_permission_priority (bool): When enabled, if a user has both read-only and read-write permissions, the read-write permissions will take precedence. When disabled, the read-only permissions will take precedence.. [optional]  # noqa: E501
+            veto_dot_underscore (bool): Block AppleDouble files - Prevents macOS from storing ._* and .DS_Store files in the workspace over SMB. [optional]  # noqa: E501
             template (int, none_type): [optional]  # noqa: E501
         """
 

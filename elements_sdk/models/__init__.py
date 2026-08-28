@@ -88,6 +88,8 @@ from elements_sdk.model.change_password_request import ChangePasswordRequest
 from elements_sdk.model.change_storage_class_request import ChangeStorageClassRequest
 from elements_sdk.model.check_certificate_request import CheckCertificateRequest
 from elements_sdk.model.check_connectivity_endpoint_response import CheckConnectivityEndpointResponse
+from elements_sdk.model.check_one_fs_connection_request import CheckOneFSConnectionRequest
+from elements_sdk.model.check_one_fs_connection_response import CheckOneFSConnectionResponse
 from elements_sdk.model.check_pmr_endpoint_request import CheckPMREndpointRequest
 from elements_sdk.model.check_pmr_endpoint_response import CheckPMREndpointResponse
 from elements_sdk.model.cleanup_media_root_request import CleanupMediaRootRequest
@@ -129,6 +131,7 @@ from elements_sdk.model.download import Download
 from elements_sdk.model.download_archive import DownloadArchive
 from elements_sdk.model.download_archive_partial_update import DownloadArchivePartialUpdate
 from elements_sdk.model.download_archive_update import DownloadArchiveUpdate
+from elements_sdk.model.eagle_nest_data_entry_mapping import EagleNestDataEntryMapping
 from elements_sdk.model.eagle_nest_field_mapping import EagleNestFieldMapping
 from elements_sdk.model.eagle_nest_integration import EagleNestIntegration
 from elements_sdk.model.eagle_nest_integration_partial_update import EagleNestIntegrationPartialUpdate
@@ -151,7 +154,7 @@ from elements_sdk.model.elements_user import ElementsUser
 from elements_sdk.model.elements_user_detail import ElementsUserDetail
 from elements_sdk.model.elements_user_detail_partial_update import ElementsUserDetailPartialUpdate
 from elements_sdk.model.elements_user_detail_update import ElementsUserDetailUpdate
-from elements_sdk.model.elements_user_micro import ElementsUserMicro
+from elements_sdk.model.elements_user_lookup import ElementsUserLookup
 from elements_sdk.model.elements_user_mini import ElementsUserMini
 from elements_sdk.model.elements_user_mini_reference import ElementsUserMiniReference
 from elements_sdk.model.elements_user_mini_with_avatar import ElementsUserMiniWithAvatar
@@ -212,7 +215,8 @@ from elements_sdk.model.import_ai_model_request import ImportAIModelRequest
 from elements_sdk.model.import_ai_model_response import ImportAIModelResponse
 from elements_sdk.model.import_job_request import ImportJobRequest
 from elements_sdk.model.import_job_response import ImportJobResponse
-from elements_sdk.model.install_license_endpoint_request import InstallLicenseEndpointRequest
+from elements_sdk.model.install_license_offline_endpoint_request import InstallLicenseOfflineEndpointRequest
+from elements_sdk.model.install_license_online_endpoint_request import InstallLicenseOnlineEndpointRequest
 from elements_sdk.model.instantiate_file_template_request import InstantiateFileTemplateRequest
 from elements_sdk.model.interface import Interface
 from elements_sdk.model.interface_partial_update import InterfacePartialUpdate
@@ -252,9 +256,12 @@ from elements_sdk.model.locate_metadata_endpoint_response import LocateMetadataE
 from elements_sdk.model.locate_proxies_endpoint_request import LocateProxiesEndpointRequest
 from elements_sdk.model.locate_proxies_endpoint_response import LocateProxiesEndpointResponse
 from elements_sdk.model.locate_result import LocateResult
+from elements_sdk.model.mcp_session import MCPSession
+from elements_sdk.model.mcp_user_key import MCPUserKey
 from elements_sdk.model.marker import Marker
 from elements_sdk.model.marker_partial_update import MarkerPartialUpdate
 from elements_sdk.model.marker_update import MarkerUpdate
+from elements_sdk.model.mcp_tunnel_status_endpoint_response import McpTunnelStatusEndpointResponse
 from elements_sdk.model.media_file import MediaFile
 from elements_sdk.model.media_file_bundle import MediaFileBundle
 from elements_sdk.model.media_file_bundle_exclusion_info import MediaFileBundleExclusionInfo
@@ -399,11 +406,13 @@ from elements_sdk.model.send_link_email_request import SendLinkEmailRequest
 from elements_sdk.model.sensor import Sensor
 from elements_sdk.model.sensors import Sensors
 from elements_sdk.model.sequence_render_request_options import SequenceRenderRequestOptions
+from elements_sdk.model.service_certificate_status import ServiceCertificateStatus
 from elements_sdk.model.service_status import ServiceStatus
 from elements_sdk.model.set_time_request import SetTimeRequest
 from elements_sdk.model.setup_offload_request import SetupOffloadRequest
 from elements_sdk.model.share import Share
 from elements_sdk.model.share_partial_update import SharePartialUpdate
+from elements_sdk.model.share_path_validation_request import SharePathValidationRequest
 from elements_sdk.model.share_to_home_workspace_endpoint_request import ShareToHomeWorkspaceEndpointRequest
 from elements_sdk.model.share_update import ShareUpdate
 from elements_sdk.model.sharing_permission_preset import SharingPermissionPreset

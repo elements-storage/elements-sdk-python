@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**custom_fields** | **{str: (str, none_type)}** |  | 
+**custom_fields** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | 
 **tags** | **[{str: (str, none_type)}]** |  | 
 **path** | **str** |  | 
 **upload_id** | **str** |  | [optional] 

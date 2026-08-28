@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **username** | **str** |  | [optional] 
 **password** | **str** |  | [optional] 
 **field_mappings** | [**[EagleNestFieldMapping]**](EagleNestFieldMapping.md) |  | [optional] 
+**data_entry_mappings** | [**[EagleNestDataEntryMapping]**](EagleNestDataEntryMapping.md) |  | [optional] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 

@@ -63,10 +63,6 @@ class BackendProperties(ModelNormal):
     }
 
     validations = {
-        ('supports_sharing_rw_permissions_priority',): {
-            'max_length': 0,
-            'min_length': 0,
-        },
     }
 
     @cached_property
@@ -102,7 +98,6 @@ class BackendProperties(ModelNormal):
             'supports_sharing_veto': (bool,),  # noqa: E501
             'supports_sharing_nfs_permissions': (bool,),  # noqa: E501
             'sharing_permissions_priority': (str,),  # noqa: E501
-            'supports_sharing_rw_permissions_priority': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -123,11 +118,9 @@ class BackendProperties(ModelNormal):
         'supports_sharing_veto': 'supports_sharing_veto',  # noqa: E501
         'supports_sharing_nfs_permissions': 'supports_sharing_nfs_permissions',  # noqa: E501
         'sharing_permissions_priority': 'sharing_permissions_priority',  # noqa: E501
-        'supports_sharing_rw_permissions_priority': 'supports_sharing_rw_permissions_priority',  # noqa: E501
     }
 
     read_only_vars = {
-        'supports_sharing_rw_permissions_priority',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -182,7 +175,6 @@ class BackendProperties(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            supports_sharing_rw_permissions_priority (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -292,7 +284,6 @@ class BackendProperties(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            supports_sharing_rw_permissions_priority (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

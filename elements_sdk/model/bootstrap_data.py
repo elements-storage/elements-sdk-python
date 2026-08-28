@@ -32,7 +32,6 @@ from elements_sdk.exceptions import ApiAttributeError
 def lazy_import():
     from elements_sdk.model.cloud_connection import CloudConnection
     from elements_sdk.model.elements_user_detail import ElementsUserDetail
-    from elements_sdk.model.elements_user_micro import ElementsUserMicro
     from elements_sdk.model.elements_user_mini_with_avatar import ElementsUserMiniWithAvatar
     from elements_sdk.model.elements_version import ElementsVersion
     from elements_sdk.model.event import Event
@@ -42,12 +41,12 @@ def lazy_import():
     from elements_sdk.model.public_parameters import PublicParameters
     from elements_sdk.model.public_settings import PublicSettings
     from elements_sdk.model.saml_provider_mini import SAMLProviderMini
+    from elements_sdk.model.service_certificate_status import ServiceCertificateStatus
     from elements_sdk.model.storage_node import StorageNode
     from elements_sdk.model.task_type import TaskType
     from elements_sdk.model.tasks_summary import TasksSummary
     globals()['CloudConnection'] = CloudConnection
     globals()['ElementsUserDetail'] = ElementsUserDetail
-    globals()['ElementsUserMicro'] = ElementsUserMicro
     globals()['ElementsUserMiniWithAvatar'] = ElementsUserMiniWithAvatar
     globals()['ElementsVersion'] = ElementsVersion
     globals()['Event'] = Event
@@ -57,6 +56,7 @@ def lazy_import():
     globals()['PublicParameters'] = PublicParameters
     globals()['PublicSettings'] = PublicSettings
     globals()['SAMLProviderMini'] = SAMLProviderMini
+    globals()['ServiceCertificateStatus'] = ServiceCertificateStatus
     globals()['StorageNode'] = StorageNode
     globals()['TaskType'] = TaskType
     globals()['TasksSummary'] = TasksSummary
@@ -90,6 +90,9 @@ class BootstrapData(ModelNormal):
     }
 
     validations = {
+        ('known_users',): {
+            'max_items': 0,
+        },
         ('client_os',): {
             'min_length': 1,
         },
@@ -99,7 +102,13 @@ class BootstrapData(ModelNormal):
         ('system_name',): {
             'min_length': 1,
         },
+        ('instance_id',): {
+            'min_length': 1,
+        },
         ('stream_proxy_url_prefix',): {
+            'min_length': 1,
+        },
+        ('licensing_server_url',): {
             'min_length': 1,
         },
     }
@@ -128,7 +137,7 @@ class BootstrapData(ModelNormal):
         lazy_import()
         return {
             'public_parameters': (PublicParameters,),  # noqa: E501
-            'known_users': ([ElementsUserMicro],),  # noqa: E501
+            'known_users': ([str],),  # noqa: E501
             'known_emails': ([str],),  # noqa: E501
             'impersonation_active': (bool,),  # noqa: E501
             'one_time_access_token_active': (bool,),  # noqa: E501
@@ -148,7 +157,10 @@ class BootstrapData(ModelNormal):
             'settings': (PublicSettings,),  # noqa: E501
             'kibana_enabled': (bool,),  # noqa: E501
             'system_name': (str,),  # noqa: E501
+            'instance_id': (str,),  # noqa: E501
             'stream_proxy_url_prefix': (str,),  # noqa: E501
+            'licensing_server_url': (str, none_type,),  # noqa: E501
+            'service_certificate': (ServiceCertificateStatus,),  # noqa: E501
             'has_password_policy': (bool,),  # noqa: E501
             'has_filesystem_events': (bool,),  # noqa: E501
             'cluster_node_ips': ([str],),  # noqa: E501
@@ -191,7 +203,10 @@ class BootstrapData(ModelNormal):
         'settings': 'settings',  # noqa: E501
         'kibana_enabled': 'kibana_enabled',  # noqa: E501
         'system_name': 'system_name',  # noqa: E501
+        'instance_id': 'instance_id',  # noqa: E501
         'stream_proxy_url_prefix': 'stream_proxy_url_prefix',  # noqa: E501
+        'licensing_server_url': 'licensing_server_url',  # noqa: E501
+        'service_certificate': 'service_certificate',  # noqa: E501
         'has_password_policy': 'has_password_policy',  # noqa: E501
         'has_filesystem_events': 'has_filesystem_events',  # noqa: E501
         'cluster_node_ips': 'cluster_node_ips',  # noqa: E501
@@ -208,18 +223,19 @@ class BootstrapData(ModelNormal):
     }
 
     read_only_vars = {
+        'known_users',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, public_parameters, known_users, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, user_storage_values, saml_providers, settings, kibana_enabled, system_name, stream_proxy_url_prefix, has_password_policy, has_filesystem_events, cluster_node_ips, is_panel, is_valet_possible, av1_hwaccel_enabled, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, public_parameters, known_users, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, user_storage_values, saml_providers, settings, kibana_enabled, system_name, instance_id, stream_proxy_url_prefix, licensing_server_url, service_certificate, has_password_policy, has_filesystem_events, cluster_node_ips, is_panel, is_valet_possible, av1_hwaccel_enabled, *args, **xkwargs):  # noqa: E501
         """BootstrapData - a model defined in OpenAPI
 
         Args:
             public_parameters (PublicParameters):
-            known_users ([ElementsUserMicro]):
+            known_users ([str]): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty array.
             known_emails ([str]):
             impersonation_active (bool):
             one_time_access_token_active (bool):
@@ -239,7 +255,10 @@ class BootstrapData(ModelNormal):
             settings (PublicSettings):
             kibana_enabled (bool):
             system_name (str):
+            instance_id (str): This instance's stable identifier (UUID).
             stream_proxy_url_prefix (str):
+            licensing_server_url (str, none_type): Base URL of the ELEMENTS licensing server (offline activation).
+            service_certificate (ServiceCertificateStatus):
             has_password_policy (bool):
             has_filesystem_events (bool):
             cluster_node_ips ([str]):
@@ -334,7 +353,10 @@ class BootstrapData(ModelNormal):
         self.settings = settings
         self.kibana_enabled = kibana_enabled
         self.system_name = system_name
+        self.instance_id = instance_id
         self.stream_proxy_url_prefix = stream_proxy_url_prefix
+        self.licensing_server_url = licensing_server_url
+        self.service_certificate = service_certificate
         self.has_password_policy = has_password_policy
         self.has_filesystem_events = has_filesystem_events
         self.cluster_node_ips = cluster_node_ips
@@ -362,12 +384,11 @@ class BootstrapData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, public_parameters, known_users, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, user_storage_values, saml_providers, settings, kibana_enabled, system_name, stream_proxy_url_prefix, has_password_policy, has_filesystem_events, cluster_node_ips, is_panel, is_valet_possible, av1_hwaccel_enabled, *args, **xkwargs):  # noqa: E501
+    def __init__(self, public_parameters, known_emails, impersonation_active, one_time_access_token_active, debug, version, client_os, session_id, cloud_connections, events, sentry_config, has_wan_networks, task_meta, scanner_metadata_schema, media_root_permissions, user_storage_values, saml_providers, settings, kibana_enabled, system_name, instance_id, stream_proxy_url_prefix, licensing_server_url, service_certificate, has_password_policy, has_filesystem_events, cluster_node_ips, is_panel, is_valet_possible, av1_hwaccel_enabled, *args, **xkwargs):  # noqa: E501
         """BootstrapData - a model defined in OpenAPI
 
         Args:
             public_parameters (PublicParameters):
-            known_users ([ElementsUserMicro]):
             known_emails ([str]):
             impersonation_active (bool):
             one_time_access_token_active (bool):
@@ -387,7 +408,10 @@ class BootstrapData(ModelNormal):
             settings (PublicSettings):
             kibana_enabled (bool):
             system_name (str):
+            instance_id (str): This instance's stable identifier (UUID).
             stream_proxy_url_prefix (str):
+            licensing_server_url (str, none_type): Base URL of the ELEMENTS licensing server (offline activation).
+            service_certificate (ServiceCertificateStatus):
             has_password_policy (bool):
             has_filesystem_events (bool):
             cluster_node_ips ([str]):
@@ -460,7 +484,6 @@ class BootstrapData(ModelNormal):
 
 
         self.public_parameters = public_parameters
-        self.known_users = known_users
         self.known_emails = known_emails
         self.impersonation_active = impersonation_active
         self.one_time_access_token_active = one_time_access_token_active
@@ -480,7 +503,10 @@ class BootstrapData(ModelNormal):
         self.settings = settings
         self.kibana_enabled = kibana_enabled
         self.system_name = system_name
+        self.instance_id = instance_id
         self.stream_proxy_url_prefix = stream_proxy_url_prefix
+        self.licensing_server_url = licensing_server_url
+        self.service_certificate = service_certificate
         self.has_password_policy = has_password_policy
         self.has_filesystem_events = has_filesystem_events
         self.cluster_node_ips = cluster_node_ips

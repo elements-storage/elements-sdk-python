@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**clear_existing_data** | **bool** |  | [optional]  if omitted the server will use the default value of False
+**clear_existing_data** | **bool** | When true, clear the existing search index before reindexing. | [optional]  if omitted the server will use the default value of False
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 

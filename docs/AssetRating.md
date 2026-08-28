@@ -1,5 +1,6 @@
 # AssetRating
 
+A start rating (1-5) that a user has given to an asset.
 
 ## Properties
 

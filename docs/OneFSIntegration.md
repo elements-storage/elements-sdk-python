@@ -1,5 +1,6 @@
 # OneFSIntegration
 
+Connection settings for integrating a Dell PowerScale (OneFS) storage cluster as a third-party volume.
 
 ## Properties
 

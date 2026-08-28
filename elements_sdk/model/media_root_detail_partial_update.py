@@ -237,12 +237,12 @@ class MediaRootDetailPartialUpdate(ModelNormal):
             workflow (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             jobs ([JobReference]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
-            path (str): [optional]  # noqa: E501
+            path (str): Path relative to the volume root. Empty string means the volume root itself.. [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
-            needs_rescan (bool): [optional]  # noqa: E501
-            view_mode (str): [optional]  # noqa: E501
-            view_style (str): [optional]  # noqa: E501
-            view_default_tab (str): [optional]  # noqa: E501
+            needs_rescan (bool): Deprecated. [optional]  # noqa: E501
+            view_mode (str): Folder display mode in the browser UI (normal or flat).. [optional]  # noqa: E501
+            view_style (str): Default layout style in the browser UI (gallery, list or compact).. [optional]  # noqa: E501
+            view_default_tab (str): Default tab shown in the asset detail panel.. [optional]  # noqa: E501
             show_tags (bool): [optional]  # noqa: E501
             show_comments (bool): [optional]  # noqa: E501
             show_locations (bool): [optional]  # noqa: E501
@@ -253,11 +253,11 @@ class MediaRootDetailPartialUpdate(ModelNormal):
             show_markers (bool): [optional]  # noqa: E501
             show_history (bool): [optional]  # noqa: E501
             show_ai_metadata (bool): [optional]  # noqa: E501
-            prefetch_thumbnail_strips (bool): [optional]  # noqa: E501
-            name_field (str, none_type): [optional]  # noqa: E501
-            share_comments (bool): [optional]  # noqa: E501
+            prefetch_thumbnail_strips (bool): Pre-generate thumbnail strip proxies for faster in-browser timeline scrubbing.. [optional]  # noqa: E501
+            name_field (str, none_type): Custom metadata field whose value is shown as the file name in the UI. If unset, the actual filename is used.. [optional]  # noqa: E501
+            share_comments (bool): Whether new comments should automatically be visible across Media Roots. [optional]  # noqa: E501
             share_link_duration (int): [optional]  # noqa: E501
-            disable_framestacks (bool): [optional]  # noqa: E501
+            disable_framestacks (bool): Disable detection of framestacks in this Media Root. Useful if it is known that this root will contain sequential still images.. [optional]  # noqa: E501
             default_proxy_profile (int, none_type): [optional]  # noqa: E501
             cloud_proxy_profile (int, none_type): [optional]  # noqa: E501
             proxy_profiles ([int]): [optional]  # noqa: E501
@@ -350,12 +350,12 @@ class MediaRootDetailPartialUpdate(ModelNormal):
             workflow (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             jobs ([JobReference]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
-            path (str): [optional]  # noqa: E501
+            path (str): Path relative to the volume root. Empty string means the volume root itself.. [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
-            needs_rescan (bool): [optional]  # noqa: E501
-            view_mode (str): [optional]  # noqa: E501
-            view_style (str): [optional]  # noqa: E501
-            view_default_tab (str): [optional]  # noqa: E501
+            needs_rescan (bool): Deprecated. [optional]  # noqa: E501
+            view_mode (str): Folder display mode in the browser UI (normal or flat).. [optional]  # noqa: E501
+            view_style (str): Default layout style in the browser UI (gallery, list or compact).. [optional]  # noqa: E501
+            view_default_tab (str): Default tab shown in the asset detail panel.. [optional]  # noqa: E501
             show_tags (bool): [optional]  # noqa: E501
             show_comments (bool): [optional]  # noqa: E501
             show_locations (bool): [optional]  # noqa: E501
@@ -366,11 +366,11 @@ class MediaRootDetailPartialUpdate(ModelNormal):
             show_markers (bool): [optional]  # noqa: E501
             show_history (bool): [optional]  # noqa: E501
             show_ai_metadata (bool): [optional]  # noqa: E501
-            prefetch_thumbnail_strips (bool): [optional]  # noqa: E501
-            name_field (str, none_type): [optional]  # noqa: E501
-            share_comments (bool): [optional]  # noqa: E501
+            prefetch_thumbnail_strips (bool): Pre-generate thumbnail strip proxies for faster in-browser timeline scrubbing.. [optional]  # noqa: E501
+            name_field (str, none_type): Custom metadata field whose value is shown as the file name in the UI. If unset, the actual filename is used.. [optional]  # noqa: E501
+            share_comments (bool): Whether new comments should automatically be visible across Media Roots. [optional]  # noqa: E501
             share_link_duration (int): [optional]  # noqa: E501
-            disable_framestacks (bool): [optional]  # noqa: E501
+            disable_framestacks (bool): Disable detection of framestacks in this Media Root. Useful if it is known that this root will contain sequential still images.. [optional]  # noqa: E501
             default_proxy_profile (int, none_type): [optional]  # noqa: E501
             cloud_proxy_profile (int, none_type): [optional]  # noqa: E501
             proxy_profiles ([int]): [optional]  # noqa: E501

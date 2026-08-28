@@ -1,5 +1,6 @@
 # Queue
 
+A task queue that Automation tasks are dispatched to, identified by its group and priority and bound to a particular node or volume.
 
 ## Properties
 

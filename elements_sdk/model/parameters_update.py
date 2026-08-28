@@ -170,12 +170,15 @@ class ParametersUpdate(ModelNormal):
             'media_require_link_password': (bool,),  # noqa: E501
             'media_max_link_views': (int, none_type,),  # noqa: E501
             'media_shuttle_left_behaviour': (str,),  # noqa: E501
+            'mcp_enabled': (bool,),  # noqa: E501
+            'mcp_tunnel_enabled': (bool,),  # noqa: E501
             'ntp_enable': (bool,),  # noqa: E501
             'ntp_offer_sync': (bool,),  # noqa: E501
             'otp_policy': (str,),  # noqa: E501
             'password_login': (bool,),  # noqa: E501
             'session_key_restrict_to_ip': (bool,),  # noqa: E501
             'sharing_smb_allow_anonymous': (bool,),  # noqa: E501
+            'sharing_smb_enable_multichannel': (bool,),  # noqa: E501
             'tasks_run_scheduled': (bool,),  # noqa: E501
             'update_in_progress': (bool,),  # noqa: E501
             'users_default_permissions': (str,),  # noqa: E501
@@ -219,12 +222,15 @@ class ParametersUpdate(ModelNormal):
         'media_require_link_password': 'media_require_link_password',  # noqa: E501
         'media_max_link_views': 'media_max_link_views',  # noqa: E501
         'media_shuttle_left_behaviour': 'media_shuttle_left_behaviour',  # noqa: E501
+        'mcp_enabled': 'mcp_enabled',  # noqa: E501
+        'mcp_tunnel_enabled': 'mcp_tunnel_enabled',  # noqa: E501
         'ntp_enable': 'ntp_enable',  # noqa: E501
         'ntp_offer_sync': 'ntp_offer_sync',  # noqa: E501
         'otp_policy': 'otp_policy',  # noqa: E501
         'password_login': 'password_login',  # noqa: E501
         'session_key_restrict_to_ip': 'session_key_restrict_to_ip',  # noqa: E501
         'sharing_smb_allow_anonymous': 'sharing_smb_allow_anonymous',  # noqa: E501
+        'sharing_smb_enable_multichannel': 'sharing_smb_enable_multichannel',  # noqa: E501
         'tasks_run_scheduled': 'tasks_run_scheduled',  # noqa: E501
         'update_in_progress': 'update_in_progress',  # noqa: E501
         'users_default_permissions': 'users_default_permissions',  # noqa: E501
@@ -305,12 +311,15 @@ class ParametersUpdate(ModelNormal):
             media_require_link_password (bool): [optional]  # noqa: E501
             media_max_link_views (int, none_type): [optional]  # noqa: E501
             media_shuttle_left_behaviour (str): [optional]  # noqa: E501
+            mcp_enabled (bool): [optional]  # noqa: E501
+            mcp_tunnel_enabled (bool): [optional]  # noqa: E501
             ntp_enable (bool): [optional]  # noqa: E501
             ntp_offer_sync (bool): [optional]  # noqa: E501
             otp_policy (str): [optional]  # noqa: E501
             password_login (bool): [optional]  # noqa: E501
             session_key_restrict_to_ip (bool): [optional]  # noqa: E501
             sharing_smb_allow_anonymous (bool): [optional]  # noqa: E501
+            sharing_smb_enable_multichannel (bool): [optional]  # noqa: E501
             tasks_run_scheduled (bool): [optional]  # noqa: E501
             update_in_progress (bool): [optional]  # noqa: E501
             users_default_permissions (str): Copy this value from an existing user. [optional]  # noqa: E501
@@ -432,12 +441,15 @@ class ParametersUpdate(ModelNormal):
             media_require_link_password (bool): [optional]  # noqa: E501
             media_max_link_views (int, none_type): [optional]  # noqa: E501
             media_shuttle_left_behaviour (str): [optional]  # noqa: E501
+            mcp_enabled (bool): [optional]  # noqa: E501
+            mcp_tunnel_enabled (bool): [optional]  # noqa: E501
             ntp_enable (bool): [optional]  # noqa: E501
             ntp_offer_sync (bool): [optional]  # noqa: E501
             otp_policy (str): [optional]  # noqa: E501
             password_login (bool): [optional]  # noqa: E501
             session_key_restrict_to_ip (bool): [optional]  # noqa: E501
             sharing_smb_allow_anonymous (bool): [optional]  # noqa: E501
+            sharing_smb_enable_multichannel (bool): [optional]  # noqa: E501
             tasks_run_scheduled (bool): [optional]  # noqa: E501
             update_in_progress (bool): [optional]  # noqa: E501
             users_default_permissions (str): Copy this value from an existing user. [optional]  # noqa: E501

@@ -1,12 +1,13 @@
 # ProductionPartialUpdate
 
+Productions are logical groups of workspaces. Productions do not exist at a single location on the filesystem, but can span multiple volumes. However the production name is still used as a path segment in the workspace path.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
-**obscure_name** | **bool** |  | [optional] 
+**obscure_name** | **bool** | Makes new workspace paths use numeric IDs instead of plain text | [optional] 
 **description** | **str, none_type** |  | [optional] 
 **long_description** | **str** |  | [optional] 
 **active** | **bool** |  | [optional] 

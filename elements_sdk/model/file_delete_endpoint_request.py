@@ -106,7 +106,7 @@ class FileDeleteEndpointRequest(ModelNormal):
         """FileDeleteEndpointRequest - a model defined in OpenAPI
 
         Args:
-            input ([str]):
+            input ([str]): Filesystem paths to operate on.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -139,7 +139,7 @@ class FileDeleteEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            sync (bool): [optional]  # noqa: E501
+            sync (bool): When true, wait for the deletion to finish before responding instead of running it as a background task.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -194,7 +194,7 @@ class FileDeleteEndpointRequest(ModelNormal):
         """FileDeleteEndpointRequest - a model defined in OpenAPI
 
         Args:
-            input ([str]):
+            input ([str]): Filesystem paths to operate on.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -227,7 +227,7 @@ class FileDeleteEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            sync (bool): [optional]  # noqa: E501
+            sync (bool): When true, wait for the deletion to finish before responding instead of running it as a background task.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

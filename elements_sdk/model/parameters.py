@@ -170,12 +170,15 @@ class Parameters(ModelNormal):
             'media_require_link_password': (bool,),  # noqa: E501
             'media_max_link_views': (int, none_type,),  # noqa: E501
             'media_shuttle_left_behaviour': (str,),  # noqa: E501
+            'mcp_enabled': (bool,),  # noqa: E501
+            'mcp_tunnel_enabled': (bool,),  # noqa: E501
             'ntp_enable': (bool,),  # noqa: E501
             'ntp_offer_sync': (bool,),  # noqa: E501
             'otp_policy': (str,),  # noqa: E501
             'password_login': (bool,),  # noqa: E501
             'session_key_restrict_to_ip': (bool,),  # noqa: E501
             'sharing_smb_allow_anonymous': (bool,),  # noqa: E501
+            'sharing_smb_enable_multichannel': (bool,),  # noqa: E501
             'tasks_run_scheduled': (bool,),  # noqa: E501
             'update_in_progress': (bool,),  # noqa: E501
             'users_default_permissions': (str,),  # noqa: E501
@@ -219,12 +222,15 @@ class Parameters(ModelNormal):
         'media_require_link_password': 'media_require_link_password',  # noqa: E501
         'media_max_link_views': 'media_max_link_views',  # noqa: E501
         'media_shuttle_left_behaviour': 'media_shuttle_left_behaviour',  # noqa: E501
+        'mcp_enabled': 'mcp_enabled',  # noqa: E501
+        'mcp_tunnel_enabled': 'mcp_tunnel_enabled',  # noqa: E501
         'ntp_enable': 'ntp_enable',  # noqa: E501
         'ntp_offer_sync': 'ntp_offer_sync',  # noqa: E501
         'otp_policy': 'otp_policy',  # noqa: E501
         'password_login': 'password_login',  # noqa: E501
         'session_key_restrict_to_ip': 'session_key_restrict_to_ip',  # noqa: E501
         'sharing_smb_allow_anonymous': 'sharing_smb_allow_anonymous',  # noqa: E501
+        'sharing_smb_enable_multichannel': 'sharing_smb_enable_multichannel',  # noqa: E501
         'tasks_run_scheduled': 'tasks_run_scheduled',  # noqa: E501
         'update_in_progress': 'update_in_progress',  # noqa: E501
         'users_default_permissions': 'users_default_permissions',  # noqa: E501
@@ -239,7 +245,7 @@ class Parameters(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, analytics, branding_css, branding_logo, email_logo_url, client_offer_file_search, default_mac_protocol, external_url, file_manager_recycle_bin, https_redirect, language, ltfs_default_restore_to_original_location, ltfs_default_search_directories, ltfs_library_address, mail_styling, media_allow_anonymous_links, media_allow_changing_archived, media_auto_play, media_auto_proxy, media_auto_scan, media_auto_transport, media_background_auto_pause, media_default_custom_field_type, media_default_delete_behaviour, media_detect_versions, media_force_show_deleted, media_keep_selection_when_browsing, media_recycle_bin, media_require_link_password, media_max_link_views, media_shuttle_left_behaviour, ntp_enable, ntp_offer_sync, otp_policy, password_login, session_key_restrict_to_ip, sharing_smb_allow_anonymous, tasks_run_scheduled, update_in_progress, users_default_permissions, user_notification_settings, workspaces_path, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, analytics, branding_css, branding_logo, email_logo_url, client_offer_file_search, default_mac_protocol, external_url, file_manager_recycle_bin, https_redirect, language, ltfs_default_restore_to_original_location, ltfs_default_search_directories, ltfs_library_address, mail_styling, media_allow_anonymous_links, media_allow_changing_archived, media_auto_play, media_auto_proxy, media_auto_scan, media_auto_transport, media_background_auto_pause, media_default_custom_field_type, media_default_delete_behaviour, media_detect_versions, media_force_show_deleted, media_keep_selection_when_browsing, media_recycle_bin, media_require_link_password, media_max_link_views, media_shuttle_left_behaviour, mcp_enabled, mcp_tunnel_enabled, ntp_enable, ntp_offer_sync, otp_policy, password_login, session_key_restrict_to_ip, sharing_smb_allow_anonymous, sharing_smb_enable_multichannel, tasks_run_scheduled, update_in_progress, users_default_permissions, user_notification_settings, workspaces_path, *args, **xkwargs):  # noqa: E501
         """Parameters - a model defined in OpenAPI
 
         Args:
@@ -273,12 +279,15 @@ class Parameters(ModelNormal):
             media_require_link_password (bool):
             media_max_link_views (int, none_type):
             media_shuttle_left_behaviour (str):
+            mcp_enabled (bool):
+            mcp_tunnel_enabled (bool):
             ntp_enable (bool):
             ntp_offer_sync (bool):
             otp_policy (str):
             password_login (bool):
             session_key_restrict_to_ip (bool):
             sharing_smb_allow_anonymous (bool):
+            sharing_smb_enable_multichannel (bool):
             tasks_run_scheduled (bool):
             update_in_progress (bool):
             users_default_permissions (str): Copy this value from an existing user
@@ -374,12 +383,15 @@ class Parameters(ModelNormal):
         self.media_require_link_password = media_require_link_password
         self.media_max_link_views = media_max_link_views
         self.media_shuttle_left_behaviour = media_shuttle_left_behaviour
+        self.mcp_enabled = mcp_enabled
+        self.mcp_tunnel_enabled = mcp_tunnel_enabled
         self.ntp_enable = ntp_enable
         self.ntp_offer_sync = ntp_offer_sync
         self.otp_policy = otp_policy
         self.password_login = password_login
         self.session_key_restrict_to_ip = session_key_restrict_to_ip
         self.sharing_smb_allow_anonymous = sharing_smb_allow_anonymous
+        self.sharing_smb_enable_multichannel = sharing_smb_enable_multichannel
         self.tasks_run_scheduled = tasks_run_scheduled
         self.update_in_progress = update_in_progress
         self.users_default_permissions = users_default_permissions
@@ -406,7 +418,7 @@ class Parameters(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, analytics, branding_css, branding_logo, email_logo_url, client_offer_file_search, default_mac_protocol, external_url, file_manager_recycle_bin, https_redirect, language, ltfs_default_restore_to_original_location, ltfs_default_search_directories, ltfs_library_address, mail_styling, media_allow_anonymous_links, media_allow_changing_archived, media_auto_play, media_auto_proxy, media_auto_scan, media_auto_transport, media_background_auto_pause, media_default_custom_field_type, media_default_delete_behaviour, media_detect_versions, media_force_show_deleted, media_keep_selection_when_browsing, media_recycle_bin, media_require_link_password, media_max_link_views, media_shuttle_left_behaviour, ntp_enable, ntp_offer_sync, otp_policy, password_login, session_key_restrict_to_ip, sharing_smb_allow_anonymous, tasks_run_scheduled, update_in_progress, users_default_permissions, user_notification_settings, workspaces_path, *args, **xkwargs):  # noqa: E501
+    def __init__(self, analytics, branding_css, branding_logo, email_logo_url, client_offer_file_search, default_mac_protocol, external_url, file_manager_recycle_bin, https_redirect, language, ltfs_default_restore_to_original_location, ltfs_default_search_directories, ltfs_library_address, mail_styling, media_allow_anonymous_links, media_allow_changing_archived, media_auto_play, media_auto_proxy, media_auto_scan, media_auto_transport, media_background_auto_pause, media_default_custom_field_type, media_default_delete_behaviour, media_detect_versions, media_force_show_deleted, media_keep_selection_when_browsing, media_recycle_bin, media_require_link_password, media_max_link_views, media_shuttle_left_behaviour, mcp_enabled, mcp_tunnel_enabled, ntp_enable, ntp_offer_sync, otp_policy, password_login, session_key_restrict_to_ip, sharing_smb_allow_anonymous, sharing_smb_enable_multichannel, tasks_run_scheduled, update_in_progress, users_default_permissions, user_notification_settings, workspaces_path, *args, **xkwargs):  # noqa: E501
         """Parameters - a model defined in OpenAPI
 
         Args:
@@ -440,12 +452,15 @@ class Parameters(ModelNormal):
             media_require_link_password (bool):
             media_max_link_views (int, none_type):
             media_shuttle_left_behaviour (str):
+            mcp_enabled (bool):
+            mcp_tunnel_enabled (bool):
             ntp_enable (bool):
             ntp_offer_sync (bool):
             otp_policy (str):
             password_login (bool):
             session_key_restrict_to_ip (bool):
             sharing_smb_allow_anonymous (bool):
+            sharing_smb_enable_multichannel (bool):
             tasks_run_scheduled (bool):
             update_in_progress (bool):
             users_default_permissions (str): Copy this value from an existing user
@@ -539,12 +554,15 @@ class Parameters(ModelNormal):
         self.media_require_link_password = media_require_link_password
         self.media_max_link_views = media_max_link_views
         self.media_shuttle_left_behaviour = media_shuttle_left_behaviour
+        self.mcp_enabled = mcp_enabled
+        self.mcp_tunnel_enabled = mcp_tunnel_enabled
         self.ntp_enable = ntp_enable
         self.ntp_offer_sync = ntp_offer_sync
         self.otp_policy = otp_policy
         self.password_login = password_login
         self.session_key_restrict_to_ip = session_key_restrict_to_ip
         self.sharing_smb_allow_anonymous = sharing_smb_allow_anonymous
+        self.sharing_smb_enable_multichannel = sharing_smb_enable_multichannel
         self.tasks_run_scheduled = tasks_run_scheduled
         self.update_in_progress = update_in_progress
         self.users_default_permissions = users_default_permissions

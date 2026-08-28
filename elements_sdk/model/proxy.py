@@ -66,6 +66,10 @@ class Proxy(ModelNormal):
             'AV1_OPUS': "av1_opus",
             'H264_AAC': "h264_aac",
         },
+        ('image_format',): {
+            'PNG': "png",
+            'JPEG': "jpeg",
+        },
     }
 
     validations = {
@@ -126,6 +130,7 @@ class Proxy(ModelNormal):
             'variant_config': (str,),  # noqa: E501
             'source_audio_layout_preserved': (bool,),  # noqa: E501
             'codecs': (str, none_type,),  # noqa: E501
+            'image_format': (str,),  # noqa: E501
             'asset': (int,),  # noqa: E501
             'transforms': (Transforms,),  # noqa: E501
         }
@@ -150,6 +155,7 @@ class Proxy(ModelNormal):
         'variant_config': 'variant_config',  # noqa: E501
         'source_audio_layout_preserved': 'source_audio_layout_preserved',  # noqa: E501
         'codecs': 'codecs',  # noqa: E501
+        'image_format': 'image_format',  # noqa: E501
         'asset': 'asset',  # noqa: E501
         'transforms': 'transforms',  # noqa: E501
     }
@@ -165,7 +171,7 @@ class Proxy(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, urls, profile, failed_reason, skipped, generated, generated_date, failed, failed_count, name, variant_config, source_audio_layout_preserved, codecs, asset, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, urls, profile, failed_reason, skipped, generated, generated_date, failed, failed_count, name, variant_config, source_audio_layout_preserved, codecs, image_format, asset, *args, **xkwargs):  # noqa: E501
         """Proxy - a model defined in OpenAPI
 
         Args:
@@ -182,6 +188,7 @@ class Proxy(ModelNormal):
             variant_config (str):
             source_audio_layout_preserved (bool):
             codecs (str, none_type):
+            image_format (str):
             asset (int):
 
         Keyword Args:
@@ -260,6 +267,7 @@ class Proxy(ModelNormal):
         self.variant_config = variant_config
         self.source_audio_layout_preserved = source_audio_layout_preserved
         self.codecs = codecs
+        self.image_format = image_format
         self.asset = asset
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
@@ -282,7 +290,7 @@ class Proxy(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, profile, generated_date, failed, failed_count, name, variant_config, source_audio_layout_preserved, codecs, asset, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, profile, generated_date, failed, failed_count, name, variant_config, source_audio_layout_preserved, codecs, image_format, asset, *args, **xkwargs):  # noqa: E501
         """Proxy - a model defined in OpenAPI
 
         Args:
@@ -295,6 +303,7 @@ class Proxy(ModelNormal):
             variant_config (str):
             source_audio_layout_preserved (bool):
             codecs (str, none_type):
+            image_format (str):
             asset (int):
 
         Keyword Args:
@@ -367,6 +376,7 @@ class Proxy(ModelNormal):
         self.variant_config = variant_config
         self.source_audio_layout_preserved = source_audio_layout_preserved
         self.codecs = codecs
+        self.image_format = image_format
         self.asset = asset
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

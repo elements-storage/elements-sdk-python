@@ -109,8 +109,8 @@ class TapeLibraryMoveEndpointRequest(ModelNormal):
         """TapeLibraryMoveEndpointRequest - a model defined in OpenAPI
 
         Args:
-            barcode (str):
-            slot (int):
+            barcode (str): Barcode of the tape cartridge to move.
+            slot (int): Destination library slot number to move the tape to.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -198,8 +198,8 @@ class TapeLibraryMoveEndpointRequest(ModelNormal):
         """TapeLibraryMoveEndpointRequest - a model defined in OpenAPI
 
         Args:
-            barcode (str):
-            slot (int):
+            barcode (str): Barcode of the tape cartridge to move.
+            slot (int): Destination library slot number to move the tape to.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

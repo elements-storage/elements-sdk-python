@@ -126,9 +126,9 @@ class Workflow(ModelNormal):
 
         Args:
             id (int):
-            states ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
-            transitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
-            roots ([int]):
+            states ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): The workflow states an asset can be in.
+            transitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): The allowed transitions between states.
+            roots ([int]): Media Roots in which this workflow is available.
             jobs ([Job]):
             name (str):
 
@@ -223,9 +223,9 @@ class Workflow(ModelNormal):
 
         Args:
             id (int):
-            states ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
-            transitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
-            roots ([int]):
+            states ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): The workflow states an asset can be in.
+            transitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): The allowed transitions between states.
+            roots ([int]): Media Roots in which this workflow is available.
             name (str):
 
         Keyword Args:

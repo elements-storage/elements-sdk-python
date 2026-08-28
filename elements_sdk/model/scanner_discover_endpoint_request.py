@@ -109,7 +109,7 @@ class ScannerDiscoverEndpointRequest(ModelNormal):
         """ScannerDiscoverEndpointRequest - a model defined in OpenAPI
 
         Args:
-            path (str):
+            path (str): Filesystem path to discover.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -142,7 +142,7 @@ class ScannerDiscoverEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            recursive (bool, none_type): [optional]  # noqa: E501
+            recursive (bool, none_type): When true, discover the directory's entire subtree; otherwise only its direct contents.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -197,7 +197,7 @@ class ScannerDiscoverEndpointRequest(ModelNormal):
         """ScannerDiscoverEndpointRequest - a model defined in OpenAPI
 
         Args:
-            path (str):
+            path (str): Filesystem path to discover.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -230,7 +230,7 @@ class ScannerDiscoverEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            recursive (bool, none_type): [optional]  # noqa: E501
+            recursive (bool, none_type): When true, discover the directory's entire subtree; otherwise only its direct contents.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

@@ -1,5 +1,6 @@
 # TeamsConnection
 
+A Microsoft Teams integration connection used to send notifications to a Teams team/channel.
 
 ## Properties
 

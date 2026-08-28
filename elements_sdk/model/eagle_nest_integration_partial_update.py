@@ -30,7 +30,9 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from elements_sdk.model.eagle_nest_data_entry_mapping import EagleNestDataEntryMapping
     from elements_sdk.model.eagle_nest_field_mapping import EagleNestFieldMapping
+    globals()['EagleNestDataEntryMapping'] = EagleNestDataEntryMapping
     globals()['EagleNestFieldMapping'] = EagleNestFieldMapping
 
 
@@ -100,6 +102,7 @@ class EagleNestIntegrationPartialUpdate(ModelNormal):
             'username': (str,),  # noqa: E501
             'password': (str,),  # noqa: E501
             'field_mappings': ([EagleNestFieldMapping],),  # noqa: E501
+            'data_entry_mappings': ([EagleNestDataEntryMapping],),  # noqa: E501
         }
 
     @cached_property
@@ -112,6 +115,7 @@ class EagleNestIntegrationPartialUpdate(ModelNormal):
         'username': 'username',  # noqa: E501
         'password': 'password',  # noqa: E501
         'field_mappings': 'field_mappings',  # noqa: E501
+        'data_entry_mappings': 'data_entry_mappings',  # noqa: E501
     }
 
     read_only_vars = {
@@ -159,6 +163,7 @@ class EagleNestIntegrationPartialUpdate(ModelNormal):
             username (str): [optional]  # noqa: E501
             password (str): [optional]  # noqa: E501
             field_mappings ([EagleNestFieldMapping]): [optional]  # noqa: E501
+            data_entry_mappings ([EagleNestDataEntryMapping]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -246,6 +251,7 @@ class EagleNestIntegrationPartialUpdate(ModelNormal):
             username (str): [optional]  # noqa: E501
             password (str): [optional]  # noqa: E501
             field_mappings ([EagleNestFieldMapping]): [optional]  # noqa: E501
+            data_entry_mappings ([EagleNestDataEntryMapping]): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

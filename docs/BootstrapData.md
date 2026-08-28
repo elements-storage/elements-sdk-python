@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **public_parameters** | [**PublicParameters**](PublicParameters.md) |  | 
-**known_users** | [**[ElementsUserMicro]**](ElementsUserMicro.md) |  | 
+**known_users** | **[str]** | This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty array. | [readonly] 
 **known_emails** | **[str]** |  | 
 **impersonation_active** | **bool** |  | 
 **one_time_access_token_active** | **bool** |  | 
@@ -26,7 +26,10 @@ Name | Type | Description | Notes
 **settings** | [**PublicSettings**](PublicSettings.md) |  | 
 **kibana_enabled** | **bool** |  | 
 **system_name** | **str** |  | 
+**instance_id** | **str** | This instance&#39;s stable identifier (UUID). | 
 **stream_proxy_url_prefix** | **str** |  | 
+**licensing_server_url** | **str, none_type** | Base URL of the ELEMENTS licensing server (offline activation). | 
+**service_certificate** | [**ServiceCertificateStatus**](ServiceCertificateStatus.md) |  | 
 **has_password_policy** | **bool** |  | 
 **has_filesystem_events** | **bool** |  | 
 **cluster_node_ips** | **[str]** |  | 

@@ -65,7 +65,7 @@ Method | HTTP request | Description
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+Request a graceful abort of a running task. The task is signalled to stop at its next safe checkpoint and is moved to the \"aborting\" state; it stays until it actually winds down. Use killTask to forcibly terminate a task that does not respond to an abort. Not all tasks are abortable - see the task type metadata  ### Required permissions    * User account permission: `tasks:manage` 
 
 ### Example
 
@@ -113,7 +113,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+Convert the API-call subtasks within this job into equivalent Python script steps, replacing them in place. Returns the updated job.  ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+Convert this API-call subtask into an equivalent Python script step, replacing it in place. Only subtasks of type 'api_call' can be converted. Returns the updated subtask.  ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -262,6 +262,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
                 ),
             ),
         ],
+        special_type=2,
         subtasks=[
             SubtaskReference(
                 id=1,
@@ -281,7 +282,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
             1,
         ],
         workflow=1,
-        special_type=2,
         name="name_example",
         description="description_example",
         enabled=True,
@@ -516,7 +516,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write) 
+Delete all finished task records from the task history.  ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write) 
 
 ### Example
 
@@ -821,18 +821,18 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = automation_api.AutomationApi(api_client)
-    job_instance = "job_instance_example" # str | Filter the returned list by `job_instance`. (optional)
-    job_instance__in = "job_instance__in_example" # str | Filter the returned list by `job_instance__in`. (optional)
-    subtask = 1 # int | Filter the returned list by `subtask`. (optional)
-    state = "0" # str | Filter the returned list by `state`. (optional)
-    state__in = "state__in_example" # str | Filter the returned list by `state__in`. (optional)
-    id = "id_example" # str | Filter the returned list by `id`. (optional)
-    id__in = "id__in_example" # str | Filter the returned list by `id__in`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    task_name = "task_name_example" # str | Filter the returned list by `task_name`. (optional)
-    is_finished = "is_finished_example" # str | Filter the returned list by `is_finished`. (optional)
-    is_running = "is_running_example" # str | Filter the returned list by `is_running`. (optional)
-    related_proxy_id = "related_proxy_id_example" # str | Filter the returned list by `related_proxy_id`. (optional)
+    job_instance = "job_instance_example" # str | Filter the returned list by `job_instance` (exact match). (optional)
+    job_instance__in = "job_instance__in_example" # str | Filter the returned list by `job_instance__in` (exact match). (optional)
+    subtask = 1 # int | Filter the returned list by `subtask` (exact match). (optional)
+    state = "0" # str | Filter the returned list by `state` (exact match). (optional)
+    state__in = "state__in_example" # str | Filter the returned list by `state__in` (exact match). (optional)
+    id = "id_example" # str | Filter the returned list by `id` (exact match). (optional)
+    id__in = "id__in_example" # str | Filter the returned list by `id__in` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    task_name = "task_name_example" # str | Filter the returned list by `task_name` (exact match). (optional)
+    is_finished = "is_finished_example" # str | Filter the returned list by `is_finished` (exact match). (optional)
+    is_running = "is_running_example" # str | Filter the returned list by `is_running` (exact match). (optional)
+    related_proxy_id = "related_proxy_id_example" # str | Filter the returned list by `related_proxy_id` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -850,18 +850,18 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60;. | [optional]
- **job_instance__in** | **str**| Filter the returned list by &#x60;job_instance__in&#x60;. | [optional]
- **subtask** | **int**| Filter the returned list by &#x60;subtask&#x60;. | [optional]
- **state** | **str**| Filter the returned list by &#x60;state&#x60;. | [optional]
- **state__in** | **str**| Filter the returned list by &#x60;state__in&#x60;. | [optional]
- **id** | **str**| Filter the returned list by &#x60;id&#x60;. | [optional]
- **id__in** | **str**| Filter the returned list by &#x60;id__in&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60;. | [optional]
- **is_finished** | **str**| Filter the returned list by &#x60;is_finished&#x60;. | [optional]
- **is_running** | **str**| Filter the returned list by &#x60;is_running&#x60;. | [optional]
- **related_proxy_id** | **str**| Filter the returned list by &#x60;related_proxy_id&#x60;. | [optional]
+ **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60; (exact match). | [optional]
+ **job_instance__in** | **str**| Filter the returned list by &#x60;job_instance__in&#x60; (exact match). | [optional]
+ **subtask** | **int**| Filter the returned list by &#x60;subtask&#x60; (exact match). | [optional]
+ **state** | **str**| Filter the returned list by &#x60;state&#x60; (exact match). | [optional]
+ **state__in** | **str**| Filter the returned list by &#x60;state__in&#x60; (exact match). | [optional]
+ **id** | **str**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
+ **id__in** | **str**| Filter the returned list by &#x60;id__in&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60; (exact match). | [optional]
+ **is_finished** | **str**| Filter the returned list by &#x60;is_finished&#x60; (exact match). | [optional]
+ **is_running** | **str**| Filter the returned list by &#x60;is_running&#x60; (exact match). | [optional]
+ **related_proxy_id** | **str**| Filter the returned list by &#x60;related_proxy_id&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -973,6 +973,8 @@ void (empty response body)
 
 
 
+### Required permissions    * Authenticated user 
+
 ### Example
 
 
@@ -1048,7 +1050,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = automation_api.AutomationApi(api_client)
-    job = 1 # int | Filter the returned list by `job`. (optional)
+    job = 1 # int | Filter the returned list by `job` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -1067,7 +1069,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job** | **int**| Filter the returned list by &#x60;job&#x60;. | [optional]
+ **job** | **int**| Filter the returned list by &#x60;job&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -1105,10 +1107,10 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = automation_api.AutomationApi(api_client)
-    special_type = "2" # str | Filter the returned list by `special_type`. (optional)
-    special_type__isnull = "special_type__isnull_example" # str | Filter the returned list by `special_type__isnull`. (optional)
-    hook = "hook_example" # str | Filter the returned list by `hook`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    special_type = "2" # str | Filter the returned list by `special_type` (exact match). (optional)
+    special_type__isnull = "special_type__isnull_example" # str | Filter the returned list by `special_type__isnull` (exact match). (optional)
+    hook = "hook_example" # str | Filter the returned list by `hook` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -1127,10 +1129,10 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **special_type** | **str**| Filter the returned list by &#x60;special_type&#x60;. | [optional]
- **special_type__isnull** | **str**| Filter the returned list by &#x60;special_type__isnull&#x60;. | [optional]
- **hook** | **str**| Filter the returned list by &#x60;hook&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **special_type** | **str**| Filter the returned list by &#x60;special_type&#x60; (exact match). | [optional]
+ **special_type__isnull** | **str**| Filter the returned list by &#x60;special_type__isnull&#x60; (exact match). | [optional]
+ **hook** | **str**| Filter the returned list by &#x60;hook&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -1232,7 +1234,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = automation_api.AutomationApi(api_client)
-    job = 1 # int | Filter the returned list by `job`. (optional)
+    job = 1 # int | Filter the returned list by `job` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -1251,7 +1253,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job** | **int**| Filter the returned list by &#x60;job&#x60;. | [optional]
+ **job** | **int**| Filter the returned list by &#x60;job&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -1289,7 +1291,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = automation_api.AutomationApi(api_client)
-    parent = 1 # int | Filter the returned list by `parent`. (optional)
+    parent = 1 # int | Filter the returned list by `parent` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -1308,7 +1310,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parent** | **int**| Filter the returned list by &#x60;parent&#x60;. | [optional]
+ **parent** | **int**| Filter the returned list by &#x60;parent&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -1378,6 +1380,8 @@ Name | Type | Description  | Notes
     def [TaskType] get_all_task_types()
 
 
+
+### Required permissions    * User account permission: `tasks:view` 
 
 ### Example
 
@@ -1454,18 +1458,18 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = automation_api.AutomationApi(api_client)
-    job_instance = "job_instance_example" # str | Filter the returned list by `job_instance`. (optional)
-    job_instance__in = "job_instance__in_example" # str | Filter the returned list by `job_instance__in`. (optional)
-    subtask = 1 # int | Filter the returned list by `subtask`. (optional)
-    state = "0" # str | Filter the returned list by `state`. (optional)
-    state__in = "state__in_example" # str | Filter the returned list by `state__in`. (optional)
-    id = "id_example" # str | Filter the returned list by `id`. (optional)
-    id__in = "id__in_example" # str | Filter the returned list by `id__in`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    task_name = "task_name_example" # str | Filter the returned list by `task_name`. (optional)
-    is_finished = "is_finished_example" # str | Filter the returned list by `is_finished`. (optional)
-    is_running = "is_running_example" # str | Filter the returned list by `is_running`. (optional)
-    related_proxy_id = "related_proxy_id_example" # str | Filter the returned list by `related_proxy_id`. (optional)
+    job_instance = "job_instance_example" # str | Filter the returned list by `job_instance` (exact match). (optional)
+    job_instance__in = "job_instance__in_example" # str | Filter the returned list by `job_instance__in` (exact match). (optional)
+    subtask = 1 # int | Filter the returned list by `subtask` (exact match). (optional)
+    state = "0" # str | Filter the returned list by `state` (exact match). (optional)
+    state__in = "state__in_example" # str | Filter the returned list by `state__in` (exact match). (optional)
+    id = "id_example" # str | Filter the returned list by `id` (exact match). (optional)
+    id__in = "id__in_example" # str | Filter the returned list by `id__in` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    task_name = "task_name_example" # str | Filter the returned list by `task_name` (exact match). (optional)
+    is_finished = "is_finished_example" # str | Filter the returned list by `is_finished` (exact match). (optional)
+    is_running = "is_running_example" # str | Filter the returned list by `is_running` (exact match). (optional)
+    related_proxy_id = "related_proxy_id_example" # str | Filter the returned list by `related_proxy_id` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -1485,18 +1489,18 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60;. | [optional]
- **job_instance__in** | **str**| Filter the returned list by &#x60;job_instance__in&#x60;. | [optional]
- **subtask** | **int**| Filter the returned list by &#x60;subtask&#x60;. | [optional]
- **state** | **str**| Filter the returned list by &#x60;state&#x60;. | [optional]
- **state__in** | **str**| Filter the returned list by &#x60;state__in&#x60;. | [optional]
- **id** | **str**| Filter the returned list by &#x60;id&#x60;. | [optional]
- **id__in** | **str**| Filter the returned list by &#x60;id__in&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60;. | [optional]
- **is_finished** | **str**| Filter the returned list by &#x60;is_finished&#x60;. | [optional]
- **is_running** | **str**| Filter the returned list by &#x60;is_running&#x60;. | [optional]
- **related_proxy_id** | **str**| Filter the returned list by &#x60;related_proxy_id&#x60;. | [optional]
+ **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60; (exact match). | [optional]
+ **job_instance__in** | **str**| Filter the returned list by &#x60;job_instance__in&#x60; (exact match). | [optional]
+ **subtask** | **int**| Filter the returned list by &#x60;subtask&#x60; (exact match). | [optional]
+ **state** | **str**| Filter the returned list by &#x60;state&#x60; (exact match). | [optional]
+ **state__in** | **str**| Filter the returned list by &#x60;state__in&#x60; (exact match). | [optional]
+ **id** | **str**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
+ **id__in** | **str**| Filter the returned list by &#x60;id__in&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60; (exact match). | [optional]
+ **is_finished** | **str**| Filter the returned list by &#x60;is_finished&#x60; (exact match). | [optional]
+ **is_running** | **str**| Filter the returned list by &#x60;is_running&#x60; (exact match). | [optional]
+ **related_proxy_id** | **str**| Filter the returned list by &#x60;related_proxy_id&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -1512,6 +1516,8 @@ Name | Type | Description  | Notes
     def Event get_event(id)
 
 
+
+### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -1561,7 +1567,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write) 
+List finished tasks (completed, aborted, failed, with warnings or no-op).  ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write) 
 
 ### Example
 
@@ -1583,18 +1589,18 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = automation_api.AutomationApi(api_client)
-    job_instance = "job_instance_example" # str | Filter the returned list by `job_instance`. (optional)
-    job_instance__in = "job_instance__in_example" # str | Filter the returned list by `job_instance__in`. (optional)
-    subtask = 1 # int | Filter the returned list by `subtask`. (optional)
-    state = "0" # str | Filter the returned list by `state`. (optional)
-    state__in = "state__in_example" # str | Filter the returned list by `state__in`. (optional)
-    id = "id_example" # str | Filter the returned list by `id`. (optional)
-    id__in = "id__in_example" # str | Filter the returned list by `id__in`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    task_name = "task_name_example" # str | Filter the returned list by `task_name`. (optional)
-    is_finished = "is_finished_example" # str | Filter the returned list by `is_finished`. (optional)
-    is_running = "is_running_example" # str | Filter the returned list by `is_running`. (optional)
-    related_proxy_id = "related_proxy_id_example" # str | Filter the returned list by `related_proxy_id`. (optional)
+    job_instance = "job_instance_example" # str | Filter the returned list by `job_instance` (exact match). (optional)
+    job_instance__in = "job_instance__in_example" # str | Filter the returned list by `job_instance__in` (exact match). (optional)
+    subtask = 1 # int | Filter the returned list by `subtask` (exact match). (optional)
+    state = "0" # str | Filter the returned list by `state` (exact match). (optional)
+    state__in = "state__in_example" # str | Filter the returned list by `state__in` (exact match). (optional)
+    id = "id_example" # str | Filter the returned list by `id` (exact match). (optional)
+    id__in = "id__in_example" # str | Filter the returned list by `id__in` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    task_name = "task_name_example" # str | Filter the returned list by `task_name` (exact match). (optional)
+    is_finished = "is_finished_example" # str | Filter the returned list by `is_finished` (exact match). (optional)
+    is_running = "is_running_example" # str | Filter the returned list by `is_running` (exact match). (optional)
+    related_proxy_id = "related_proxy_id_example" # str | Filter the returned list by `related_proxy_id` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -1613,18 +1619,18 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60;. | [optional]
- **job_instance__in** | **str**| Filter the returned list by &#x60;job_instance__in&#x60;. | [optional]
- **subtask** | **int**| Filter the returned list by &#x60;subtask&#x60;. | [optional]
- **state** | **str**| Filter the returned list by &#x60;state&#x60;. | [optional]
- **state__in** | **str**| Filter the returned list by &#x60;state__in&#x60;. | [optional]
- **id** | **str**| Filter the returned list by &#x60;id&#x60;. | [optional]
- **id__in** | **str**| Filter the returned list by &#x60;id__in&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60;. | [optional]
- **is_finished** | **str**| Filter the returned list by &#x60;is_finished&#x60;. | [optional]
- **is_running** | **str**| Filter the returned list by &#x60;is_running&#x60;. | [optional]
- **related_proxy_id** | **str**| Filter the returned list by &#x60;related_proxy_id&#x60;. | [optional]
+ **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60; (exact match). | [optional]
+ **job_instance__in** | **str**| Filter the returned list by &#x60;job_instance__in&#x60; (exact match). | [optional]
+ **subtask** | **int**| Filter the returned list by &#x60;subtask&#x60; (exact match). | [optional]
+ **state** | **str**| Filter the returned list by &#x60;state&#x60; (exact match). | [optional]
+ **state__in** | **str**| Filter the returned list by &#x60;state__in&#x60; (exact match). | [optional]
+ **id** | **str**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
+ **id__in** | **str**| Filter the returned list by &#x60;id__in&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60; (exact match). | [optional]
+ **is_finished** | **str**| Filter the returned list by &#x60;is_finished&#x60; (exact match). | [optional]
+ **is_running** | **str**| Filter the returned list by &#x60;is_running&#x60; (exact match). | [optional]
+ **related_proxy_id** | **str**| Filter the returned list by &#x60;related_proxy_id&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -1740,7 +1746,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write) 
+List the available option values for a job variable definition, optionally filtered by a search query. A full job list excludes subtask for performance reasons  ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write) 
 
 ### Example
 
@@ -1779,7 +1785,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
         multiple_response=True,
         users_from_group_id=1,
     ) # FieldDefinition | 
-    q = "q_example" # str |  (optional)
+    q = "q_example" # str | Only return options matching this search text. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -1804,7 +1810,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this job. |
  **field_definition** | [**FieldDefinition**](FieldDefinition.md)|  |
- **q** | **str**|  | [optional]
+ **q** | **str**| Only return options matching this search text. | [optional]
 
 ### Return type
 
@@ -1817,7 +1823,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write) 
+List the tasks that are queued and waiting to start (pending).  ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write) 
 
 ### Example
 
@@ -1839,18 +1845,18 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = automation_api.AutomationApi(api_client)
-    job_instance = "job_instance_example" # str | Filter the returned list by `job_instance`. (optional)
-    job_instance__in = "job_instance__in_example" # str | Filter the returned list by `job_instance__in`. (optional)
-    subtask = 1 # int | Filter the returned list by `subtask`. (optional)
-    state = "0" # str | Filter the returned list by `state`. (optional)
-    state__in = "state__in_example" # str | Filter the returned list by `state__in`. (optional)
-    id = "id_example" # str | Filter the returned list by `id`. (optional)
-    id__in = "id__in_example" # str | Filter the returned list by `id__in`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    task_name = "task_name_example" # str | Filter the returned list by `task_name`. (optional)
-    is_finished = "is_finished_example" # str | Filter the returned list by `is_finished`. (optional)
-    is_running = "is_running_example" # str | Filter the returned list by `is_running`. (optional)
-    related_proxy_id = "related_proxy_id_example" # str | Filter the returned list by `related_proxy_id`. (optional)
+    job_instance = "job_instance_example" # str | Filter the returned list by `job_instance` (exact match). (optional)
+    job_instance__in = "job_instance__in_example" # str | Filter the returned list by `job_instance__in` (exact match). (optional)
+    subtask = 1 # int | Filter the returned list by `subtask` (exact match). (optional)
+    state = "0" # str | Filter the returned list by `state` (exact match). (optional)
+    state__in = "state__in_example" # str | Filter the returned list by `state__in` (exact match). (optional)
+    id = "id_example" # str | Filter the returned list by `id` (exact match). (optional)
+    id__in = "id__in_example" # str | Filter the returned list by `id__in` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    task_name = "task_name_example" # str | Filter the returned list by `task_name` (exact match). (optional)
+    is_finished = "is_finished_example" # str | Filter the returned list by `is_finished` (exact match). (optional)
+    is_running = "is_running_example" # str | Filter the returned list by `is_running` (exact match). (optional)
+    related_proxy_id = "related_proxy_id_example" # str | Filter the returned list by `related_proxy_id` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -1869,18 +1875,18 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60;. | [optional]
- **job_instance__in** | **str**| Filter the returned list by &#x60;job_instance__in&#x60;. | [optional]
- **subtask** | **int**| Filter the returned list by &#x60;subtask&#x60;. | [optional]
- **state** | **str**| Filter the returned list by &#x60;state&#x60;. | [optional]
- **state__in** | **str**| Filter the returned list by &#x60;state__in&#x60;. | [optional]
- **id** | **str**| Filter the returned list by &#x60;id&#x60;. | [optional]
- **id__in** | **str**| Filter the returned list by &#x60;id__in&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60;. | [optional]
- **is_finished** | **str**| Filter the returned list by &#x60;is_finished&#x60;. | [optional]
- **is_running** | **str**| Filter the returned list by &#x60;is_running&#x60;. | [optional]
- **related_proxy_id** | **str**| Filter the returned list by &#x60;related_proxy_id&#x60;. | [optional]
+ **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60; (exact match). | [optional]
+ **job_instance__in** | **str**| Filter the returned list by &#x60;job_instance__in&#x60; (exact match). | [optional]
+ **subtask** | **int**| Filter the returned list by &#x60;subtask&#x60; (exact match). | [optional]
+ **state** | **str**| Filter the returned list by &#x60;state&#x60; (exact match). | [optional]
+ **state__in** | **str**| Filter the returned list by &#x60;state__in&#x60; (exact match). | [optional]
+ **id** | **str**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
+ **id__in** | **str**| Filter the returned list by &#x60;id__in&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60; (exact match). | [optional]
+ **is_finished** | **str**| Filter the returned list by &#x60;is_finished&#x60; (exact match). | [optional]
+ **is_running** | **str**| Filter the returned list by &#x60;is_running&#x60; (exact match). | [optional]
+ **related_proxy_id** | **str**| Filter the returned list by &#x60;related_proxy_id&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -1896,7 +1902,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+List the Python environments available to Python scripting jobs (the embedded interpreter and any configured Poetry virtual environments).  ### Required permissions    * User account permission: `tasks:manage` 
 
 ### Example
 
@@ -2202,6 +2208,8 @@ Name | Type | Description  | Notes
 
 
 
+### Required permissions    * User account permission: `tasks:view` 
+
 ### Example
 
 
@@ -2250,7 +2258,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write) 
+Return a summary of task activity: the currently-running tasks, the most recently finished tasks, and the number of pending tasks.  ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write) 
 
 ### Example
 
@@ -2272,18 +2280,18 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = automation_api.AutomationApi(api_client)
-    job_instance = "job_instance_example" # str | Filter the returned list by `job_instance`. (optional)
-    job_instance__in = "job_instance__in_example" # str | Filter the returned list by `job_instance__in`. (optional)
-    subtask = 1 # int | Filter the returned list by `subtask`. (optional)
-    state = "0" # str | Filter the returned list by `state`. (optional)
-    state__in = "state__in_example" # str | Filter the returned list by `state__in`. (optional)
-    id = "id_example" # str | Filter the returned list by `id`. (optional)
-    id__in = "id__in_example" # str | Filter the returned list by `id__in`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    task_name = "task_name_example" # str | Filter the returned list by `task_name`. (optional)
-    is_finished = "is_finished_example" # str | Filter the returned list by `is_finished`. (optional)
-    is_running = "is_running_example" # str | Filter the returned list by `is_running`. (optional)
-    related_proxy_id = "related_proxy_id_example" # str | Filter the returned list by `related_proxy_id`. (optional)
+    job_instance = "job_instance_example" # str | Filter the returned list by `job_instance` (exact match). (optional)
+    job_instance__in = "job_instance__in_example" # str | Filter the returned list by `job_instance__in` (exact match). (optional)
+    subtask = 1 # int | Filter the returned list by `subtask` (exact match). (optional)
+    state = "0" # str | Filter the returned list by `state` (exact match). (optional)
+    state__in = "state__in_example" # str | Filter the returned list by `state__in` (exact match). (optional)
+    id = "id_example" # str | Filter the returned list by `id` (exact match). (optional)
+    id__in = "id__in_example" # str | Filter the returned list by `id__in` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    task_name = "task_name_example" # str | Filter the returned list by `task_name` (exact match). (optional)
+    is_finished = "is_finished_example" # str | Filter the returned list by `is_finished` (exact match). (optional)
+    is_running = "is_running_example" # str | Filter the returned list by `is_running` (exact match). (optional)
+    related_proxy_id = "related_proxy_id_example" # str | Filter the returned list by `related_proxy_id` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -2302,18 +2310,18 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60;. | [optional]
- **job_instance__in** | **str**| Filter the returned list by &#x60;job_instance__in&#x60;. | [optional]
- **subtask** | **int**| Filter the returned list by &#x60;subtask&#x60;. | [optional]
- **state** | **str**| Filter the returned list by &#x60;state&#x60;. | [optional]
- **state__in** | **str**| Filter the returned list by &#x60;state__in&#x60;. | [optional]
- **id** | **str**| Filter the returned list by &#x60;id&#x60;. | [optional]
- **id__in** | **str**| Filter the returned list by &#x60;id__in&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60;. | [optional]
- **is_finished** | **str**| Filter the returned list by &#x60;is_finished&#x60;. | [optional]
- **is_running** | **str**| Filter the returned list by &#x60;is_running&#x60;. | [optional]
- **related_proxy_id** | **str**| Filter the returned list by &#x60;related_proxy_id&#x60;. | [optional]
+ **job_instance** | **str**| Filter the returned list by &#x60;job_instance&#x60; (exact match). | [optional]
+ **job_instance__in** | **str**| Filter the returned list by &#x60;job_instance__in&#x60; (exact match). | [optional]
+ **subtask** | **int**| Filter the returned list by &#x60;subtask&#x60; (exact match). | [optional]
+ **state** | **str**| Filter the returned list by &#x60;state&#x60; (exact match). | [optional]
+ **state__in** | **str**| Filter the returned list by &#x60;state__in&#x60; (exact match). | [optional]
+ **id** | **str**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
+ **id__in** | **str**| Filter the returned list by &#x60;id__in&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **task_name** | **str**| Filter the returned list by &#x60;task_name&#x60; (exact match). | [optional]
+ **is_finished** | **str**| Filter the returned list by &#x60;is_finished&#x60; (exact match). | [optional]
+ **is_running** | **str**| Filter the returned list by &#x60;is_running&#x60; (exact match). | [optional]
+ **related_proxy_id** | **str**| Filter the returned list by &#x60;related_proxy_id&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -2384,7 +2392,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write) 
+Cancel and remove all pending (queued, not yet started) tasks.  ### Required permissions    * User account permission: `None` (read) / `tasks:manage` (write) 
 
 ### Example
 
@@ -2428,7 +2436,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+Forcibly terminate a task by killing its worker process. Unlike abortTask, this does not wait for the task to stop at a safe checkpoint.  ### Required permissions    * User account permission: `tasks:manage` 
 
 ### Example
 
@@ -2526,6 +2534,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
                 ),
             ),
         ],
+        special_type=2,
         subtasks=[
             SubtaskReference(
                 id=1,
@@ -2545,7 +2554,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
             1,
         ],
         workflow=1,
-        special_type=2,
         name="name_example",
         description="description_example",
         enabled=True,
@@ -2787,7 +2795,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `tasks:view` (read) / `tasks:manage` (write) 
+Reorder a queued (pending) task within its queue, or move it to a different queue.  ### Required permissions    * User account permission: `tasks:view` (read) / `tasks:manage` (write) 
 
 ### Example
 
@@ -2842,7 +2850,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+Run this task again as a new task, reusing its task type and parameters. Returns the new task.  ### Required permissions    * User account permission: `tasks:manage` 
 
 ### Example
 
@@ -2892,6 +2900,8 @@ Name | Type | Description  | Notes
 
 
 
+Start this Automation job, optionally supplying values for its variables. Returns the started task(s).  
+
 ### Example
 
 
@@ -2915,9 +2925,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = automation_api.AutomationApi(api_client)
     id = 1 # int | A unique integer value identifying this job.
     start_job_request = StartJobRequest(
-        variables={
-            "key": "key_example",
-        },
+        variables={},
         secret="secret_example",
     ) # StartJobRequest | 
 
@@ -2948,7 +2956,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+Start a task of the given type with the given parameters. Returns the started task.  ### Required permissions    * User account permission: `tasks:manage` 
 
 ### Example
 
@@ -2973,9 +2981,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = automation_api.AutomationApi(api_client)
     start_task_request = StartTaskRequest(
         task_type="task_type_example",
-        parameters={
-            "key": "key_example",
-        },
+        parameters={},
         sync=False,
     ) # StartTaskRequest | 
 
@@ -3055,6 +3061,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
                 ),
             ),
         ],
+        special_type=2,
         subtasks=[
             SubtaskReference(
                 id=1,
@@ -3074,7 +3081,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
             1,
         ],
         workflow=1,
-        special_type=2,
         name="name_example",
         description="description_example",
         enabled=True,

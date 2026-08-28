@@ -1,5 +1,6 @@
 # TapeFile
 
+A file or directory recorded on an LTFS tape by the Tape Archive, including its path, size and the tape it lives on.
 
 ## Properties
 

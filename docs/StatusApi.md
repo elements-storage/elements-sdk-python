@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 
-### Required permissions    * User account permission: `system:status:view` 
+Acknowledge the alert - this closes the alert moving it to the acknowledged list removing the alarm state.  ### Required permissions    * User account permission: `system:status:view` 
 
 ### Example
 
@@ -90,8 +90,8 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = status_api.StatusApi(api_client)
-    is_open = "is_open_example" # str | Filter the returned list by `is_open`. (optional)
-    id = 1 # int | Filter the returned list by `id`. (optional)
+    is_open = "is_open_example" # str | Filter the returned list by `is_open` (exact match). (optional)
+    id = 1 # int | Filter the returned list by `id` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -110,8 +110,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **is_open** | **str**| Filter the returned list by &#x60;is_open&#x60;. | [optional]
- **id** | **int**| Filter the returned list by &#x60;id&#x60;. | [optional]
+ **is_open** | **str**| Filter the returned list by &#x60;is_open&#x60; (exact match). | [optional]
+ **id** | **int**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -199,8 +199,8 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = status_api.StatusApi(api_client)
-    is_open = "is_open_example" # str | Filter the returned list by `is_open`. (optional)
-    id = 1 # int | Filter the returned list by `id`. (optional)
+    is_open = "is_open_example" # str | Filter the returned list by `is_open` (exact match). (optional)
+    id = 1 # int | Filter the returned list by `id` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -219,8 +219,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **is_open** | **str**| Filter the returned list by &#x60;is_open&#x60;. | [optional]
- **id** | **int**| Filter the returned list by &#x60;id&#x60;. | [optional]
+ **is_open** | **str**| Filter the returned list by &#x60;is_open&#x60; (exact match). | [optional]
+ **id** | **int**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -235,6 +235,8 @@ Name | Type | Description  | Notes
     def get_telegraf_stats()
 
 
+
+### Required permissions    * localhost only 
 
 ### Example
 
@@ -278,7 +280,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `system:status:view` 
+Silence the alert - clears the alarm while leaving the alert open permanently - used for false positives  ### Required permissions    * User account permission: `system:status:view` 
 
 ### Example
 
@@ -355,9 +357,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
         level="level_example",
         message="message_example",
         details="details_example",
-        data={
-            "key": "key_example",
-        },
+        data={},
     ) # KapacitorAlert | 
 
     # example passing only required values which don't have defaults set

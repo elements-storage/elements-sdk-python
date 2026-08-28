@@ -239,7 +239,7 @@ Method | HTTP request | Description
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions 
+Bookmark (pin) this media file or directory for the current user so it appears in their Media Library bookmarks.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions 
 
 ### Example
 
@@ -287,7 +287,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `tasks:view`   * License component: universal 
+Browse the files covered by this storage restore request, one directory level at a time, with each entry annotated with its restore status (running, ready or failed). By default directories and currently-restoring/ready files are listed hierarchically; setting include_failed or include_expired switches to a flat listing of just the matching files across the whole subtree.  ### Required permissions    * User account permission: `tasks:view`   * License component: universal 
 
 ### Example
 
@@ -310,12 +310,12 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Storage Restore Request.
-    path = "path_example" # str |  (optional)
+    path = "path_example" # str | Path within the restore request to list, relative to its root. Omit to list the root. (optional)
     limit = 1 # int |  (optional)
     offset = 1 # int |  (optional)
-    filter = "filter_example" # str |  (optional)
-    include_failed = True # bool |  (optional)
-    include_expired = True # bool |  (optional)
+    filter = "filter_example" # str | Only return entries whose name contains this text (case-insensitive). (optional)
+    include_failed = True # bool | When true, return a flat list of only the files whose restore has failed. (optional)
+    include_expired = True # bool | When true, return a flat list of only the files whose restored copy has expired (for cold storage classes). (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -339,12 +339,12 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this Storage Restore Request. |
- **path** | **str**|  | [optional]
+ **path** | **str**| Path within the restore request to list, relative to its root. Omit to list the root. | [optional]
  **limit** | **int**|  | [optional]
  **offset** | **int**|  | [optional]
- **filter** | **str**|  | [optional]
- **include_failed** | **bool**|  | [optional]
- **include_expired** | **bool**|  | [optional]
+ **filter** | **str**| Only return entries whose name contains this text (case-insensitive). | [optional]
+ **include_failed** | **bool**| When true, return a flat list of only the files whose restore has failed. | [optional]
+ **include_expired** | **bool**| When true, return a flat list of only the files whose restored copy has expired (for cold storage classes). | [optional]
 
 ### Return type
 
@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   * License component: universal 
+Asynchronously change the cloud storage class of this file (and, for a directory, everything beneath it). Returns a task to track progress.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   * License component: universal 
 
 ### Example
 
@@ -414,7 +414,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media 
+Remove all entries from the current user's subclip clipboard.  ### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -458,7 +458,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media 
+Remove all entries from the current user's subtitle clipboard.  ### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -502,7 +502,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media 
+Combine the given assets into a single Set: a group of related but distinct assets (as opposed to versions of the same asset) that allows quick jumping between the assets in the UI.  ### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -555,7 +555,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+Return the number of unresolved comments assigned to or by the current user.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -577,9 +577,9 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    asset = 1 # int | Filter the returned list by `asset`. (optional)
-    root = 1 # int | Filter the returned list by `root`. (optional)
-    user = 1 # int | Filter the returned list by `user`. (optional)
+    asset = 1 # int | Filter the returned list by `asset` (exact match). (optional)
+    root = 1 # int | Filter the returned list by `root` (exact match). (optional)
+    user = 1 # int | Filter the returned list by `user` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     cursor = "cursor_example" # str | The pagination cursor value. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
@@ -599,9 +599,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **asset** | **int**| Filter the returned list by &#x60;asset&#x60;. | [optional]
- **root** | **int**| Filter the returned list by &#x60;root&#x60;. | [optional]
- **user** | **int**| Filter the returned list by &#x60;user&#x60;. | [optional]
+ **asset** | **int**| Filter the returned list by &#x60;asset&#x60; (exact match). | [optional]
+ **root** | **int**| Filter the returned list by &#x60;root&#x60; (exact match). | [optional]
+ **user** | **int**| Filter the returned list by &#x60;user&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **cursor** | **str**| The pagination cursor value. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
@@ -648,7 +648,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
         ),
         rating=-2147483648,
     ) # AssetRatingUpdate | 
-    root = 1 # int |  (optional)
+    root = 1 # int | ID of the Media Root providing the context for the updates feed. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -673,7 +673,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asset_id** | **str**|  |
  **asset_rating_update** | [**AssetRatingUpdate**](AssetRatingUpdate.md)|  |
- **root** | **int**|  | [optional]
+ **root** | **int**| ID of the Media Root providing the context for the updates feed. | [optional]
 
 ### Return type
 
@@ -751,6 +751,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
                 variant_config="variant_config_example",
                 source_audio_layout_preserved=True,
                 codecs="av1_opus",
+                image_format="png",
                 asset=1,
             ),
             format=FormatMetadata(
@@ -813,9 +814,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     comment_update = CommentUpdate(
         assignee=None,
         user=None,
-        drawing={
-            "key": "key_example",
-        },
+        drawing={},
         tags=[
             TagReference(
                 id=1,
@@ -830,8 +829,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
         root=1,
         parent=1,
     ) # CommentUpdate | 
-    root = 1 # int |  (optional)
-    bundle = 1 # int |  (optional)
+    root = 1 # int | ID of the Media Root providing the permission context for the comment. (optional)
+    bundle = 1 # int | Supply to disambiguate between multiple copies of the asset to generate the correct link for the @mention notifications. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -855,8 +854,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **comment_update** | [**CommentUpdate**](CommentUpdate.md)|  |
- **root** | **int**|  | [optional]
- **bundle** | **int**|  | [optional]
+ **root** | **int**| ID of the Media Root providing the permission context for the comment. | [optional]
+ **bundle** | **int**| Supply to disambiguate between multiple copies of the asset to generate the correct link for the @mention notifications. | [optional]
 
 ### Return type
 
@@ -894,9 +893,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     custom_field_update = CustomFieldUpdate(
         labels=[
-            {
-                "key": "key_example",
-            },
+            {},
         ],
         options=[
             "options_example",
@@ -975,6 +972,12 @@ with elements_sdk.ApiClient(configuration) as api_client:
         field_mappings=[
             EagleNestFieldMapping(
                 en_field=1,
+                custom_field=1,
+            ),
+        ],
+        data_entry_mappings=[
+            EagleNestDataEntryMapping(
+                label="label_example",
                 custom_field=1,
             ),
         ],
@@ -2112,6 +2115,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
                     variant_config="variant_config_example",
                     source_audio_layout_preserved=True,
                     codecs="av1_opus",
+                    image_format="png",
                     asset=1,
                 ),
                 format=FormatMetadata(
@@ -2227,6 +2231,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
                 variant_config="variant_config_example",
                 source_audio_layout_preserved=True,
                 codecs="av1_opus",
+                image_format="png",
                 asset=1,
             ),
             format=FormatMetadata(
@@ -2394,7 +2399,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset_id = "asset_id_example" # str | 
     id = 1 # int | A unique integer value identifying this Rating.
-    root = 1 # int |  (optional)
+    root = 1 # int | ID of the Media Root providing the context for the updates feed. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -2417,7 +2422,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asset_id** | **str**|  |
  **id** | **int**| A unique integer value identifying this Rating. |
- **root** | **int**|  | [optional]
+ **root** | **int**| ID of the Media Root providing the context for the updates feed. | [optional]
 
 ### Return type
 
@@ -2624,7 +2629,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions 
+Revoke the default anonymous \"easy sharing\" access token for this bundle, invalidating any public sharing link.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions 
 
 ### Example
 
@@ -2672,7 +2677,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions 
+Revoke the default anonymous \"easy sharing\" access token for this directory, invalidating any public sharing link.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions 
 
 ### Example
 
@@ -2866,7 +2871,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access` 
+Destroy the given Media Library bundles, files and/or assets in the database and/or delete them from storage. At least one of delete_from_database or delete_from_storage must be set. Dangerous and irreversible. Returns tasks to track the deletion.  ### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
@@ -3267,7 +3272,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
+Asynchronously delete this proxy profile. Returns a task to track removal. Dangerous: deleting the profile also destroys the proxy files that were generated from it.  ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -3317,7 +3322,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
+Remove the watermark image from this proxy profile.  ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -3655,7 +3660,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access` 
+Synchronously run the Media Library discovery phase for a path: enumerate files into the database (creating/updating their records) without reading file contents. Use requestMediaScan instead to fully scan the files.  ### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
@@ -4106,7 +4111,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions 
+Exclude this directory and its subtree from automatic proxy generation.  ### Required permissions    * User account permission: `media:roots:manage`   * allow_write_db Media Library permissions 
 
 ### Example
 
@@ -4154,7 +4159,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions 
+Exclude this directory and its subtree from Media Library scanning.  ### Required permissions    * User account permission: `media:roots:manage`   * allow_write_db Media Library permissions 
 
 ### Example
 
@@ -4377,7 +4382,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_delete_db Media Library permissions 
+Asynchronously destroy all metadata for deleted (no longer present on disk) objects in this directory subtree (dangerous).  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_delete_db Media Library permissions 
 
 ### Example
 
@@ -4424,6 +4429,8 @@ void (empty response body)
     def [TaskInfo] generate_proxies(generate_proxies_request)
 
 
+
+Queue proxy generation for the given bundles and/or directories using the specified proxy profiles. Returns tasks to track progress.  ### Required permissions    * Authenticated user 
 
 ### Example
 
@@ -4510,8 +4517,8 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset_id = "asset_id_example" # str | 
-    asset = 1 # int | Filter the returned list by `asset`. (optional)
-    project = 1 # int | Filter the returned list by `project`. (optional)
+    asset = 1 # int | Filter the returned list by `asset` (exact match). (optional)
+    project = 1 # int | Filter the returned list by `project` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -4538,8 +4545,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asset_id** | **str**|  |
- **asset** | **int**| Filter the returned list by &#x60;asset&#x60;. | [optional]
- **project** | **int**| Filter the returned list by &#x60;project&#x60;. | [optional]
+ **asset** | **int**| Filter the returned list by &#x60;asset&#x60; (exact match). | [optional]
+ **project** | **int**| Filter the returned list by &#x60;project&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -4578,8 +4585,8 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset_id = "asset_id_example" # str | 
-    user = 1 # int | Filter the returned list by `user`. (optional)
-    asset = 1 # int | Filter the returned list by `asset`. (optional)
+    user = 1 # int | Filter the returned list by `user` (exact match). (optional)
+    asset = 1 # int | Filter the returned list by `asset` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -4606,8 +4613,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asset_id** | **str**|  |
- **user** | **int**| Filter the returned list by &#x60;user&#x60;. | [optional]
- **asset** | **int**| Filter the returned list by &#x60;asset&#x60;. | [optional]
+ **user** | **int**| Filter the returned list by &#x60;user&#x60; (exact match). | [optional]
+ **asset** | **int**| Filter the returned list by &#x60;asset&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -4646,7 +4653,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset_id = "asset_id_example" # str | 
-    subtitle = 1 # int | Filter the returned list by `subtitle`. (optional)
+    subtitle = 1 # int | Filter the returned list by `subtitle` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -4673,7 +4680,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asset_id** | **str**|  |
- **subtitle** | **int**| Filter the returned list by &#x60;subtitle&#x60;. | [optional]
+ **subtitle** | **int**| Filter the returned list by &#x60;subtitle&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -4689,7 +4696,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media 
+             Retrieve a list of AssetBackups. Also allows quickly searching for Tape Archive backups via the `getAllAssetBackups` API by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -4711,14 +4718,14 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    asset = 1 # int | Filter the returned list by `asset`. (optional)
+    asset = 1 # int | Filter the returned list by `asset` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
     include_asset = True # bool |  (optional)
     advanced_search = "advanced_search_example" # str |  (optional)
     exclude_unrecognized = True # bool |  (optional)
-    in_media_root = 1 # int |  (optional)
+    in_media_root = 1 # int | Only applies to searching - limits results to a Media Root (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
@@ -4734,14 +4741,14 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **asset** | **int**| Filter the returned list by &#x60;asset&#x60;. | [optional]
+ **asset** | **int**| Filter the returned list by &#x60;asset&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
  **include_asset** | **bool**|  | [optional]
  **advanced_search** | **str**|  | [optional]
  **exclude_unrecognized** | **bool**|  | [optional]
- **in_media_root** | **int**|  | [optional]
+ **in_media_root** | **int**| Only applies to searching - limits results to a Media Root | [optional]
 
 ### Return type
 
@@ -4776,8 +4783,8 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    sync_id = "sync_id_example" # str | Filter the returned list by `sync_id`. (optional)
-    display_name = "display_name_example" # str | Filter the returned list by `display_name`. (optional)
+    sync_id = "sync_id_example" # str | Filter the returned list by `sync_id` (exact match). (optional)
+    display_name = "display_name_example" # str | Filter the returned list by `display_name` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -4802,8 +4809,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sync_id** | **str**| Filter the returned list by &#x60;sync_id&#x60;. | [optional]
- **display_name** | **str**| Filter the returned list by &#x60;display_name&#x60;. | [optional]
+ **sync_id** | **str**| Filter the returned list by &#x60;sync_id&#x60; (exact match). | [optional]
+ **display_name** | **str**| Filter the returned list by &#x60;display_name&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -4825,7 +4832,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+List all media file bundles under the given media root as a flat list, regardless of directory structure.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -4848,25 +4855,14 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     root = "root_example" # str | 
-    asset = 1 # int | Filter the returned list by `asset`. (optional)
-    location = 1 # int | Filter the returned list by `location`. (optional)
-    shared_via_tokens = "shared_via_tokens_example" # str | Filter the returned list by `shared_via_tokens`. (optional)
-    shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    asset = 1 # int | Filter the returned list by `asset` (exact match). (optional)
+    location = 1 # int | Filter the returned list by `location` (exact match). (optional)
+    shared_via_tokens = "shared_via_tokens_example" # str | Filter the returned list by `shared_via_tokens` (exact match). (optional)
+    shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
-    limit = 1 # int |  (optional)
-    offset = 1 # int |  (optional)
-    include_deleted = True # bool |  (optional)
-    include_deleted_and_archived = True # bool |  (optional)
-    include_unrecognized = True # bool |  (optional)
-    include_proxies = True # bool |  (optional)
-    include_parents = True # bool |  (optional)
-    include_modified_by = True # bool |  (optional)
-    advanced_search = "advanced_search_example" # str |  (optional)
-    in_media_root = 1 # int |  (optional)
-    in_directory = 1 # int |  (optional)
-    for_root = 1 # int |  (optional)
-    resolve_asset_permission = True # bool |  (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -4878,7 +4874,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.get_all_bundles_for_media_root(root, asset=asset, location=location, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, name=name, ordering=ordering, limit=limit, offset=offset, include_deleted=include_deleted, include_deleted_and_archived=include_deleted_and_archived, include_unrecognized=include_unrecognized, include_proxies=include_proxies, include_parents=include_parents, include_modified_by=include_modified_by, advanced_search=advanced_search, in_media_root=in_media_root, in_directory=in_directory, for_root=for_root, resolve_asset_permission=resolve_asset_permission)
+        api_response = api_instance.get_all_bundles_for_media_root(root, asset=asset, location=location, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, name=name, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
     except elements_sdk.ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_bundles_for_media_root: %s\n" % e)
@@ -4890,25 +4886,14 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **root** | **str**|  |
- **asset** | **int**| Filter the returned list by &#x60;asset&#x60;. | [optional]
- **location** | **int**| Filter the returned list by &#x60;location&#x60;. | [optional]
- **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60;. | [optional]
- **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **asset** | **int**| Filter the returned list by &#x60;asset&#x60; (exact match). | [optional]
+ **location** | **int**| Filter the returned list by &#x60;location&#x60; (exact match). | [optional]
+ **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60; (exact match). | [optional]
+ **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
- **limit** | **int**|  | [optional]
- **offset** | **int**|  | [optional]
- **include_deleted** | **bool**|  | [optional]
- **include_deleted_and_archived** | **bool**|  | [optional]
- **include_unrecognized** | **bool**|  | [optional]
- **include_proxies** | **bool**|  | [optional]
- **include_parents** | **bool**|  | [optional]
- **include_modified_by** | **bool**|  | [optional]
- **advanced_search** | **str**|  | [optional]
- **in_media_root** | **int**|  | [optional]
- **in_directory** | **int**|  | [optional]
- **for_root** | **int**|  | [optional]
- **resolve_asset_permission** | **bool**|  | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
@@ -4921,7 +4906,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+             Retrieve a list of MediaFiles. Also allows quickly searching for bundles/assets via `getAllMediaFileBundles` endpoint by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -4944,11 +4929,11 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     file = "file_example" # str | 
-    asset = 1 # int | Filter the returned list by `asset`. (optional)
-    location = 1 # int | Filter the returned list by `location`. (optional)
-    shared_via_tokens = "shared_via_tokens_example" # str | Filter the returned list by `shared_via_tokens`. (optional)
-    shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    asset = 1 # int | Filter the returned list by `asset` (exact match). (optional)
+    location = 1 # int | Filter the returned list by `location` (exact match). (optional)
+    shared_via_tokens = "shared_via_tokens_example" # str | Filter the returned list by `shared_via_tokens` (exact match). (optional)
+    shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int |  (optional)
     offset = 1 # int |  (optional)
@@ -4959,9 +4944,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
     include_parents = True # bool |  (optional)
     include_modified_by = True # bool |  (optional)
     advanced_search = "advanced_search_example" # str |  (optional)
-    in_media_root = 1 # int |  (optional)
-    in_directory = 1 # int |  (optional)
-    for_root = 1 # int |  (optional)
+    in_media_root = 1 # int | Only applies to searching - limits results to a Media Root (optional)
+    in_directory = 1 # int | Only applies to searching - limits results to a directory (optional)
+    for_root = 1 # int | Additionally filters nested metadata (e.g. comments) by a Media Root (optional)
     resolve_asset_permission = True # bool |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -4986,11 +4971,11 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file** | **str**|  |
- **asset** | **int**| Filter the returned list by &#x60;asset&#x60;. | [optional]
- **location** | **int**| Filter the returned list by &#x60;location&#x60;. | [optional]
- **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60;. | [optional]
- **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **asset** | **int**| Filter the returned list by &#x60;asset&#x60; (exact match). | [optional]
+ **location** | **int**| Filter the returned list by &#x60;location&#x60; (exact match). | [optional]
+ **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60; (exact match). | [optional]
+ **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**|  | [optional]
  **offset** | **int**|  | [optional]
@@ -5001,9 +4986,9 @@ Name | Type | Description  | Notes
  **include_parents** | **bool**|  | [optional]
  **include_modified_by** | **bool**|  | [optional]
  **advanced_search** | **str**|  | [optional]
- **in_media_root** | **int**|  | [optional]
- **in_directory** | **int**|  | [optional]
- **for_root** | **int**|  | [optional]
+ **in_media_root** | **int**| Only applies to searching - limits results to a Media Root | [optional]
+ **in_directory** | **int**| Only applies to searching - limits results to a directory | [optional]
+ **for_root** | **int**| Additionally filters nested metadata (e.g. comments) by a Media Root | [optional]
  **resolve_asset_permission** | **bool**|  | [optional]
 
 ### Return type
@@ -5039,8 +5024,8 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    asset = 1 # int | Filter the returned list by `asset`. (optional)
-    connection = 1 # int | Filter the returned list by `connection`. (optional)
+    asset = 1 # int | Filter the returned list by `asset` (exact match). (optional)
+    connection = 1 # int | Filter the returned list by `connection` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -5059,8 +5044,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **asset** | **int**| Filter the returned list by &#x60;asset&#x60;. | [optional]
- **connection** | **int**| Filter the returned list by &#x60;connection&#x60;. | [optional]
+ **asset** | **int**| Filter the returned list by &#x60;asset&#x60; (exact match). | [optional]
+ **connection** | **int**| Filter the returned list by &#x60;connection&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -5076,7 +5061,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+             Retrieve a list of comments. Also allows quickly searching for comments via the `getAllComments` API by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -5098,9 +5083,9 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    asset = 1 # int | Filter the returned list by `asset`. (optional)
-    root = 1 # int | Filter the returned list by `root`. (optional)
-    user = 1 # int | Filter the returned list by `user`. (optional)
+    asset = 1 # int | Filter the returned list by `asset` (exact match). (optional)
+    root = 1 # int | Filter the returned list by `root` (exact match). (optional)
+    user = 1 # int | Filter the returned list by `user` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     cursor = "cursor_example" # str | The pagination cursor value. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
@@ -5126,9 +5111,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **asset** | **int**| Filter the returned list by &#x60;asset&#x60;. | [optional]
- **root** | **int**| Filter the returned list by &#x60;root&#x60;. | [optional]
- **user** | **int**| Filter the returned list by &#x60;user&#x60;. | [optional]
+ **asset** | **int**| Filter the returned list by &#x60;asset&#x60; (exact match). | [optional]
+ **root** | **int**| Filter the returned list by &#x60;root&#x60; (exact match). | [optional]
+ **user** | **int**| Filter the returned list by &#x60;user&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **cursor** | **str**| The pagination cursor value. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
@@ -5338,8 +5323,8 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    id = 1 # int | Filter the returned list by `id`. (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    id = 1 # int | Filter the returned list by `id` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -5358,8 +5343,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **id** | **int**| Filter the returned list by &#x60;id&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **id** | **int**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -5398,7 +5383,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset_id = "asset_id_example" # str | 
-    user = 1 # int | Filter the returned list by `user`. (optional)
+    user = 1 # int | Filter the returned list by `user` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -5425,7 +5410,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asset_id** | **str**|  |
- **user** | **int**| Filter the returned list by &#x60;user&#x60;. | [optional]
+ **user** | **int**| Filter the returned list by &#x60;user&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -5441,7 +5426,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+             Retrieve a list of MediaFiles. Also allows quickly searching for bundles/assets via `getAllMediaFileBundles` endpoint by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -5463,11 +5448,11 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    asset = 1 # int | Filter the returned list by `asset`. (optional)
-    location = 1 # int | Filter the returned list by `location`. (optional)
-    shared_via_tokens = "shared_via_tokens_example" # str | Filter the returned list by `shared_via_tokens`. (optional)
-    shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    asset = 1 # int | Filter the returned list by `asset` (exact match). (optional)
+    location = 1 # int | Filter the returned list by `location` (exact match). (optional)
+    shared_via_tokens = "shared_via_tokens_example" # str | Filter the returned list by `shared_via_tokens` (exact match). (optional)
+    shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int |  (optional)
     offset = 1 # int |  (optional)
@@ -5478,9 +5463,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
     include_parents = True # bool |  (optional)
     include_modified_by = True # bool |  (optional)
     advanced_search = "advanced_search_example" # str |  (optional)
-    in_media_root = 1 # int |  (optional)
-    in_directory = 1 # int |  (optional)
-    for_root = 1 # int |  (optional)
+    in_media_root = 1 # int | Only applies to searching - limits results to a Media Root (optional)
+    in_directory = 1 # int | Only applies to searching - limits results to a directory (optional)
+    for_root = 1 # int | Additionally filters nested metadata (e.g. comments) by a Media Root (optional)
     resolve_asset_permission = True # bool |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -5497,11 +5482,11 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **asset** | **int**| Filter the returned list by &#x60;asset&#x60;. | [optional]
- **location** | **int**| Filter the returned list by &#x60;location&#x60;. | [optional]
- **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60;. | [optional]
- **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **asset** | **int**| Filter the returned list by &#x60;asset&#x60; (exact match). | [optional]
+ **location** | **int**| Filter the returned list by &#x60;location&#x60; (exact match). | [optional]
+ **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60; (exact match). | [optional]
+ **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**|  | [optional]
  **offset** | **int**|  | [optional]
@@ -5512,9 +5497,9 @@ Name | Type | Description  | Notes
  **include_parents** | **bool**|  | [optional]
  **include_modified_by** | **bool**|  | [optional]
  **advanced_search** | **str**|  | [optional]
- **in_media_root** | **int**|  | [optional]
- **in_directory** | **int**|  | [optional]
- **for_root** | **int**|  | [optional]
+ **in_media_root** | **int**| Only applies to searching - limits results to a Media Root | [optional]
+ **in_directory** | **int**| Only applies to searching - limits results to a directory | [optional]
+ **for_root** | **int**| Additionally filters nested metadata (e.g. comments) by a Media Root | [optional]
  **resolve_asset_permission** | **bool**|  | [optional]
 
 ### Return type
@@ -5583,7 +5568,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+             Retrieve a list of MediaFiles. Also allows quickly searching for directories via the `getAllMediaFiles` API by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -5605,18 +5590,18 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    bundle = 1 # int | Filter the returned list by `bundle`. (optional)
-    bundle__in = "bundle__in_example" # str | Filter the returned list by `bundle__in`. (optional)
-    parent = 1 # int | Filter the returned list by `parent`. (optional)
-    path = "path_example" # str |  (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    is_dir = "is_dir_example" # str | Filter the returned list by `is_dir`. (optional)
-    is_showroom = "is_showroom_example" # str | Filter the returned list by `is_showroom`. (optional)
-    present = "present_example" # str | Filter the returned list by `present`. (optional)
-    archived = "archived_example" # str | Filter the returned list by `archived`. (optional)
-    volume = 1 # int | Filter the returned list by `volume`. (optional)
-    shared_via_tokens = "shared_via_tokens_example" # str | Filter the returned list by `shared_via_tokens`. (optional)
-    shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token`. (optional)
+    bundle = 1 # int | Filter the returned list by `bundle` (exact match). (optional)
+    bundle__in = "bundle__in_example" # str | Filter the returned list by `bundle__in` (exact match). (optional)
+    parent = 1 # int | Filter the returned list by `parent` (exact match). (optional)
+    path = "path_example" # str | Filter by volume-relative path (high performance penalty) (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    is_dir = "is_dir_example" # str | Filter the returned list by `is_dir` (exact match). (optional)
+    is_showroom = "is_showroom_example" # str | Filter the returned list by `is_showroom` (exact match). (optional)
+    present = "present_example" # str | Filter the returned list by `present` (exact match). (optional)
+    archived = "archived_example" # str | Filter the returned list by `archived` (exact match). (optional)
+    volume = 1 # int | Filter the returned list by `volume` (exact match). (optional)
+    shared_via_tokens = "shared_via_tokens_example" # str | Filter the returned list by `shared_via_tokens` (exact match). (optional)
+    shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -5626,8 +5611,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
     include_root = True # bool |  (optional)
     include_parents = True # bool |  (optional)
     advanced_search = "advanced_search_example" # str |  (optional)
-    in_media_root = 1 # int |  (optional)
-    in_directory = 1 # int |  (optional)
+    in_media_root = 1 # int | Only applies to searching - limits results to a Media Root (optional)
+    in_directory = 1 # int | Only applies to searching - limits results to a directory (optional)
     include_deleted = True # bool |  (optional)
     include_deleted_and_archived = True # bool |  (optional)
 
@@ -5645,18 +5630,18 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **bundle** | **int**| Filter the returned list by &#x60;bundle&#x60;. | [optional]
- **bundle__in** | **str**| Filter the returned list by &#x60;bundle__in&#x60;. | [optional]
- **parent** | **int**| Filter the returned list by &#x60;parent&#x60;. | [optional]
- **path** | **str**|  | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **is_dir** | **str**| Filter the returned list by &#x60;is_dir&#x60;. | [optional]
- **is_showroom** | **str**| Filter the returned list by &#x60;is_showroom&#x60;. | [optional]
- **present** | **str**| Filter the returned list by &#x60;present&#x60;. | [optional]
- **archived** | **str**| Filter the returned list by &#x60;archived&#x60;. | [optional]
- **volume** | **int**| Filter the returned list by &#x60;volume&#x60;. | [optional]
- **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60;. | [optional]
- **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60;. | [optional]
+ **bundle** | **int**| Filter the returned list by &#x60;bundle&#x60; (exact match). | [optional]
+ **bundle__in** | **str**| Filter the returned list by &#x60;bundle__in&#x60; (exact match). | [optional]
+ **parent** | **int**| Filter the returned list by &#x60;parent&#x60; (exact match). | [optional]
+ **path** | **str**| Filter by volume-relative path (high performance penalty) | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **is_dir** | **str**| Filter the returned list by &#x60;is_dir&#x60; (exact match). | [optional]
+ **is_showroom** | **str**| Filter the returned list by &#x60;is_showroom&#x60; (exact match). | [optional]
+ **present** | **str**| Filter the returned list by &#x60;present&#x60; (exact match). | [optional]
+ **archived** | **str**| Filter the returned list by &#x60;archived&#x60; (exact match). | [optional]
+ **volume** | **int**| Filter the returned list by &#x60;volume&#x60; (exact match). | [optional]
+ **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60; (exact match). | [optional]
+ **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -5666,8 +5651,8 @@ Name | Type | Description  | Notes
  **include_root** | **bool**|  | [optional]
  **include_parents** | **bool**|  | [optional]
  **advanced_search** | **str**|  | [optional]
- **in_media_root** | **int**|  | [optional]
- **in_directory** | **int**|  | [optional]
+ **in_media_root** | **int**| Only applies to searching - limits results to a Media Root | [optional]
+ **in_directory** | **int**| Only applies to searching - limits results to a directory | [optional]
  **include_deleted** | **bool**|  | [optional]
  **include_deleted_and_archived** | **bool**|  | [optional]
 
@@ -5682,7 +5667,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+Return all media files belonging to the given set of bundles.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -5710,18 +5695,18 @@ with elements_sdk.ApiClient(configuration) as api_client:
             1,
         ],
     ) # AllMediaFilesForBundlesRequest | 
-    bundle = 1 # int | Filter the returned list by `bundle`. (optional)
-    bundle__in = "bundle__in_example" # str | Filter the returned list by `bundle__in`. (optional)
-    parent = 1 # int | Filter the returned list by `parent`. (optional)
-    path = "path_example" # str | Filter the returned list by `path`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    is_dir = "is_dir_example" # str | Filter the returned list by `is_dir`. (optional)
-    is_showroom = "is_showroom_example" # str | Filter the returned list by `is_showroom`. (optional)
-    present = "present_example" # str | Filter the returned list by `present`. (optional)
-    archived = "archived_example" # str | Filter the returned list by `archived`. (optional)
-    volume = 1 # int | Filter the returned list by `volume`. (optional)
-    shared_via_tokens = "shared_via_tokens_example" # str | Filter the returned list by `shared_via_tokens`. (optional)
-    shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token`. (optional)
+    bundle = 1 # int | Filter the returned list by `bundle` (exact match). (optional)
+    bundle__in = "bundle__in_example" # str | Filter the returned list by `bundle__in` (exact match). (optional)
+    parent = 1 # int | Filter the returned list by `parent` (exact match). (optional)
+    path = "path_example" # str | Filter the returned list by `path` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    is_dir = "is_dir_example" # str | Filter the returned list by `is_dir` (exact match). (optional)
+    is_showroom = "is_showroom_example" # str | Filter the returned list by `is_showroom` (exact match). (optional)
+    present = "present_example" # str | Filter the returned list by `present` (exact match). (optional)
+    archived = "archived_example" # str | Filter the returned list by `archived` (exact match). (optional)
+    volume = 1 # int | Filter the returned list by `volume` (exact match). (optional)
+    shared_via_tokens = "shared_via_tokens_example" # str | Filter the returned list by `shared_via_tokens` (exact match). (optional)
+    shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -5748,18 +5733,18 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **all_media_files_for_bundles_request** | [**AllMediaFilesForBundlesRequest**](AllMediaFilesForBundlesRequest.md)|  |
- **bundle** | **int**| Filter the returned list by &#x60;bundle&#x60;. | [optional]
- **bundle__in** | **str**| Filter the returned list by &#x60;bundle__in&#x60;. | [optional]
- **parent** | **int**| Filter the returned list by &#x60;parent&#x60;. | [optional]
- **path** | **str**| Filter the returned list by &#x60;path&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **is_dir** | **str**| Filter the returned list by &#x60;is_dir&#x60;. | [optional]
- **is_showroom** | **str**| Filter the returned list by &#x60;is_showroom&#x60;. | [optional]
- **present** | **str**| Filter the returned list by &#x60;present&#x60;. | [optional]
- **archived** | **str**| Filter the returned list by &#x60;archived&#x60;. | [optional]
- **volume** | **int**| Filter the returned list by &#x60;volume&#x60;. | [optional]
- **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60;. | [optional]
- **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60;. | [optional]
+ **bundle** | **int**| Filter the returned list by &#x60;bundle&#x60; (exact match). | [optional]
+ **bundle__in** | **str**| Filter the returned list by &#x60;bundle__in&#x60; (exact match). | [optional]
+ **parent** | **int**| Filter the returned list by &#x60;parent&#x60; (exact match). | [optional]
+ **path** | **str**| Filter the returned list by &#x60;path&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **is_dir** | **str**| Filter the returned list by &#x60;is_dir&#x60; (exact match). | [optional]
+ **is_showroom** | **str**| Filter the returned list by &#x60;is_showroom&#x60; (exact match). | [optional]
+ **present** | **str**| Filter the returned list by &#x60;present&#x60; (exact match). | [optional]
+ **archived** | **str**| Filter the returned list by &#x60;archived&#x60; (exact match). | [optional]
+ **volume** | **int**| Filter the returned list by &#x60;volume&#x60; (exact match). | [optional]
+ **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60; (exact match). | [optional]
+ **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -5798,18 +5783,18 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     root = "root_example" # str | 
-    bundle = 1 # int | Filter the returned list by `bundle`. (optional)
-    bundle__in = "bundle__in_example" # str | Filter the returned list by `bundle__in`. (optional)
-    parent = 1 # int | Filter the returned list by `parent`. (optional)
-    path = "path_example" # str | Filter the returned list by `path`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    is_dir = "is_dir_example" # str | Filter the returned list by `is_dir`. (optional)
-    is_showroom = "is_showroom_example" # str | Filter the returned list by `is_showroom`. (optional)
-    present = "present_example" # str | Filter the returned list by `present`. (optional)
-    archived = "archived_example" # str | Filter the returned list by `archived`. (optional)
-    volume = 1 # int | Filter the returned list by `volume`. (optional)
-    shared_via_tokens = "shared_via_tokens_example" # str | Filter the returned list by `shared_via_tokens`. (optional)
-    shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token`. (optional)
+    bundle = 1 # int | Filter the returned list by `bundle` (exact match). (optional)
+    bundle__in = "bundle__in_example" # str | Filter the returned list by `bundle__in` (exact match). (optional)
+    parent = 1 # int | Filter the returned list by `parent` (exact match). (optional)
+    path = "path_example" # str | Filter the returned list by `path` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    is_dir = "is_dir_example" # str | Filter the returned list by `is_dir` (exact match). (optional)
+    is_showroom = "is_showroom_example" # str | Filter the returned list by `is_showroom` (exact match). (optional)
+    present = "present_example" # str | Filter the returned list by `present` (exact match). (optional)
+    archived = "archived_example" # str | Filter the returned list by `archived` (exact match). (optional)
+    volume = 1 # int | Filter the returned list by `volume` (exact match). (optional)
+    shared_via_tokens = "shared_via_tokens_example" # str | Filter the returned list by `shared_via_tokens` (exact match). (optional)
+    shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -5836,18 +5821,18 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **root** | **str**|  |
- **bundle** | **int**| Filter the returned list by &#x60;bundle&#x60;. | [optional]
- **bundle__in** | **str**| Filter the returned list by &#x60;bundle__in&#x60;. | [optional]
- **parent** | **int**| Filter the returned list by &#x60;parent&#x60;. | [optional]
- **path** | **str**| Filter the returned list by &#x60;path&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **is_dir** | **str**| Filter the returned list by &#x60;is_dir&#x60;. | [optional]
- **is_showroom** | **str**| Filter the returned list by &#x60;is_showroom&#x60;. | [optional]
- **present** | **str**| Filter the returned list by &#x60;present&#x60;. | [optional]
- **archived** | **str**| Filter the returned list by &#x60;archived&#x60;. | [optional]
- **volume** | **int**| Filter the returned list by &#x60;volume&#x60;. | [optional]
- **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60;. | [optional]
- **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60;. | [optional]
+ **bundle** | **int**| Filter the returned list by &#x60;bundle&#x60; (exact match). | [optional]
+ **bundle__in** | **str**| Filter the returned list by &#x60;bundle__in&#x60; (exact match). | [optional]
+ **parent** | **int**| Filter the returned list by &#x60;parent&#x60; (exact match). | [optional]
+ **path** | **str**| Filter the returned list by &#x60;path&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **is_dir** | **str**| Filter the returned list by &#x60;is_dir&#x60; (exact match). | [optional]
+ **is_showroom** | **str**| Filter the returned list by &#x60;is_showroom&#x60; (exact match). | [optional]
+ **present** | **str**| Filter the returned list by &#x60;present&#x60; (exact match). | [optional]
+ **archived** | **str**| Filter the returned list by &#x60;archived&#x60; (exact match). | [optional]
+ **volume** | **int**| Filter the returned list by &#x60;volume&#x60; (exact match). | [optional]
+ **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60; (exact match). | [optional]
+ **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -5886,18 +5871,18 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     file = "file_example" # str | 
-    bundle = 1 # int | Filter the returned list by `bundle`. (optional)
-    bundle__in = "bundle__in_example" # str | Filter the returned list by `bundle__in`. (optional)
-    parent = 1 # int | Filter the returned list by `parent`. (optional)
-    path = "path_example" # str | Filter the returned list by `path`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    is_dir = "is_dir_example" # str | Filter the returned list by `is_dir`. (optional)
-    is_showroom = "is_showroom_example" # str | Filter the returned list by `is_showroom`. (optional)
-    present = "present_example" # str | Filter the returned list by `present`. (optional)
-    archived = "archived_example" # str | Filter the returned list by `archived`. (optional)
-    volume = 1 # int | Filter the returned list by `volume`. (optional)
-    shared_via_tokens = "shared_via_tokens_example" # str | Filter the returned list by `shared_via_tokens`. (optional)
-    shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token`. (optional)
+    bundle = 1 # int | Filter the returned list by `bundle` (exact match). (optional)
+    bundle__in = "bundle__in_example" # str | Filter the returned list by `bundle__in` (exact match). (optional)
+    parent = 1 # int | Filter the returned list by `parent` (exact match). (optional)
+    path = "path_example" # str | Filter the returned list by `path` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    is_dir = "is_dir_example" # str | Filter the returned list by `is_dir` (exact match). (optional)
+    is_showroom = "is_showroom_example" # str | Filter the returned list by `is_showroom` (exact match). (optional)
+    present = "present_example" # str | Filter the returned list by `present` (exact match). (optional)
+    archived = "archived_example" # str | Filter the returned list by `archived` (exact match). (optional)
+    volume = 1 # int | Filter the returned list by `volume` (exact match). (optional)
+    shared_via_tokens = "shared_via_tokens_example" # str | Filter the returned list by `shared_via_tokens` (exact match). (optional)
+    shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -5924,18 +5909,18 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file** | **str**|  |
- **bundle** | **int**| Filter the returned list by &#x60;bundle&#x60;. | [optional]
- **bundle__in** | **str**| Filter the returned list by &#x60;bundle__in&#x60;. | [optional]
- **parent** | **int**| Filter the returned list by &#x60;parent&#x60;. | [optional]
- **path** | **str**| Filter the returned list by &#x60;path&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **is_dir** | **str**| Filter the returned list by &#x60;is_dir&#x60;. | [optional]
- **is_showroom** | **str**| Filter the returned list by &#x60;is_showroom&#x60;. | [optional]
- **present** | **str**| Filter the returned list by &#x60;present&#x60;. | [optional]
- **archived** | **str**| Filter the returned list by &#x60;archived&#x60;. | [optional]
- **volume** | **int**| Filter the returned list by &#x60;volume&#x60;. | [optional]
- **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60;. | [optional]
- **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60;. | [optional]
+ **bundle** | **int**| Filter the returned list by &#x60;bundle&#x60; (exact match). | [optional]
+ **bundle__in** | **str**| Filter the returned list by &#x60;bundle__in&#x60; (exact match). | [optional]
+ **parent** | **int**| Filter the returned list by &#x60;parent&#x60; (exact match). | [optional]
+ **path** | **str**| Filter the returned list by &#x60;path&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **is_dir** | **str**| Filter the returned list by &#x60;is_dir&#x60; (exact match). | [optional]
+ **is_showroom** | **str**| Filter the returned list by &#x60;is_showroom&#x60; (exact match). | [optional]
+ **present** | **str**| Filter the returned list by &#x60;present&#x60; (exact match). | [optional]
+ **archived** | **str**| Filter the returned list by &#x60;archived&#x60; (exact match). | [optional]
+ **volume** | **int**| Filter the returned list by &#x60;volume&#x60; (exact match). | [optional]
+ **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60; (exact match). | [optional]
+ **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -5973,9 +5958,9 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    root = 1 # int | Filter the returned list by `root`. (optional)
-    id = 1 # int | Filter the returned list by `id`. (optional)
-    is_temporary_for_token = 1 # int | Filter the returned list by `is_temporary_for_token`. (optional)
+    root = 1 # int | Filter the returned list by `root` (exact match). (optional)
+    id = 1 # int | Filter the returned list by `id` (exact match). (optional)
+    is_temporary_for_token = 1 # int | Filter the returned list by `is_temporary_for_token` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -5994,9 +5979,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **root** | **int**| Filter the returned list by &#x60;root&#x60;. | [optional]
- **id** | **int**| Filter the returned list by &#x60;id&#x60;. | [optional]
- **is_temporary_for_token** | **int**| Filter the returned list by &#x60;is_temporary_for_token&#x60;. | [optional]
+ **root** | **int**| Filter the returned list by &#x60;root&#x60; (exact match). | [optional]
+ **id** | **int**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
+ **is_temporary_for_token** | **int**| Filter the returned list by &#x60;is_temporary_for_token&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -6034,18 +6019,17 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    path = "path_example" # str | Filter the returned list by `path`. (optional)
-    volume = 1 # int | Filter the returned list by `volume`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    path = "path_example" # str | Filter the returned list by `path` (exact match). (optional)
+    volume = 1 # int | Filter the returned list by `volume` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
-    resolve_permissions = True # bool |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.get_all_media_roots(path=path, volume=volume, name=name, ordering=ordering, limit=limit, offset=offset, resolve_permissions=resolve_permissions)
+        api_response = api_instance.get_all_media_roots(path=path, volume=volume, name=name, ordering=ordering, limit=limit, offset=offset)
         pprint(api_response)
     except elements_sdk.ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_media_roots: %s\n" % e)
@@ -6056,13 +6040,12 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **str**| Filter the returned list by &#x60;path&#x60;. | [optional]
- **volume** | **int**| Filter the returned list by &#x60;volume&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **path** | **str**| Filter the returned list by &#x60;path&#x60; (exact match). | [optional]
+ **volume** | **int**| Filter the returned list by &#x60;volume&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
- **resolve_permissions** | **bool**|  | [optional]
 
 ### Return type
 
@@ -6097,13 +6080,13 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    id = 1 # int | Filter the returned list by `id`. (optional)
+    id = 1 # int | Filter the returned list by `id` (exact match). (optional)
     id__in = "id__in_example" # str |  (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    name__icontains = "name__icontains_example" # str | Filter the returned list by `name__icontains`. (optional)
-    roots = "roots_example" # str | Filter the returned list by `roots`. (optional)
-    roots__isnull = "roots__isnull_example" # str | Filter the returned list by `roots__isnull`. (optional)
-    shared = "shared_example" # str | Filter the returned list by `shared`. (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    name__icontains = "name__icontains_example" # str | Filter the returned list by `name__icontains` (exact match). (optional)
+    roots = "roots_example" # str | Filter the returned list by `roots` (exact match). (optional)
+    roots__isnull = "roots__isnull_example" # str | Filter the returned list by `roots__isnull` (exact match). (optional)
+    shared = "shared_example" # str | Filter the returned list by `shared` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -6123,13 +6106,13 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Filter the returned list by &#x60;id&#x60;. | [optional]
+ **id** | **int**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
  **id__in** | **str**|  | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **name__icontains** | **str**| Filter the returned list by &#x60;name__icontains&#x60;. | [optional]
- **roots** | **str**| Filter the returned list by &#x60;roots&#x60;. | [optional]
- **roots__isnull** | **str**| Filter the returned list by &#x60;roots__isnull&#x60;. | [optional]
- **shared** | **str**| Filter the returned list by &#x60;shared&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **name__icontains** | **str**| Filter the returned list by &#x60;name__icontains&#x60; (exact match). | [optional]
+ **roots** | **str**| Filter the returned list by &#x60;roots&#x60; (exact match). | [optional]
+ **roots__isnull** | **str**| Filter the returned list by &#x60;roots__isnull&#x60; (exact match). | [optional]
+ **shared** | **str**| Filter the returned list by &#x60;shared&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -6168,9 +6151,9 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    asset = 1 # int | Filter the returned list by `asset`. (optional)
-    user = 1 # int | Filter the returned list by `user`. (optional)
-    root = 1 # int | Filter the returned list by `root`. (optional)
+    asset = 1 # int | Filter the returned list by `asset` (exact match). (optional)
+    user = 1 # int | Filter the returned list by `user` (exact match). (optional)
+    root = 1 # int | Filter the returned list by `root` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     cursor = "cursor_example" # str | The pagination cursor value. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
@@ -6191,9 +6174,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **asset** | **int**| Filter the returned list by &#x60;asset&#x60;. | [optional]
- **user** | **int**| Filter the returned list by &#x60;user&#x60;. | [optional]
- **root** | **int**| Filter the returned list by &#x60;root&#x60;. | [optional]
+ **asset** | **int**| Filter the returned list by &#x60;asset&#x60; (exact match). | [optional]
+ **user** | **int**| Filter the returned list by &#x60;user&#x60; (exact match). | [optional]
+ **root** | **int**| Filter the returned list by &#x60;root&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **cursor** | **str**| The pagination cursor value. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
@@ -6233,7 +6216,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    user = 1 # int | Filter the returned list by `user`. (optional)
+    user = 1 # int | Filter the returned list by `user` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -6252,7 +6235,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user** | **int**| Filter the returned list by &#x60;user&#x60;. | [optional]
+ **user** | **int**| Filter the returned list by &#x60;user&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -6345,7 +6328,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -6365,7 +6348,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -6404,9 +6387,9 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    root = 1 # int | Filter the returned list by `root`. (optional)
-    user = 1 # int | Filter the returned list by `user`. (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    root = 1 # int | Filter the returned list by `root` (exact match). (optional)
+    user = 1 # int | Filter the returned list by `user` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -6425,9 +6408,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **root** | **int**| Filter the returned list by &#x60;root&#x60;. | [optional]
- **user** | **int**| Filter the returned list by &#x60;user&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **root** | **int**| Filter the returned list by &#x60;root&#x60; (exact match). | [optional]
+ **user** | **int**| Filter the returned list by &#x60;user&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -6465,8 +6448,8 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    id = 1 # int | Filter the returned list by `id`. (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    id = 1 # int | Filter the returned list by `id` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -6485,8 +6468,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **id** | **int**| Filter the returned list by &#x60;id&#x60;. | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **id** | **int**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -6587,7 +6570,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    cut = 1 # int | Filter the returned list by `cut`. (optional)
+    cut = 1 # int | Filter the returned list by `cut` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -6606,7 +6589,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cut** | **int**| Filter the returned list by &#x60;cut&#x60;. | [optional]
+ **cut** | **int**| Filter the returned list by &#x60;cut&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -6645,8 +6628,8 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     asset_id = "asset_id_example" # str | 
-    root = 1 # int | Filter the returned list by `root`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    root = 1 # int | Filter the returned list by `root` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -6673,8 +6656,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asset_id** | **str**|  |
- **root** | **int**| Filter the returned list by &#x60;root&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **root** | **int**| Filter the returned list by &#x60;root&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -6712,7 +6695,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    subtitle = 1 # int | Filter the returned list by `subtitle`. (optional)
+    subtitle = 1 # int | Filter the returned list by `subtitle` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -6731,7 +6714,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subtitle** | **int**| Filter the returned list by &#x60;subtitle&#x60;. | [optional]
+ **subtitle** | **int**| Filter the returned list by &#x60;subtitle&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -6927,7 +6910,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+List the media file bundles that correspond to this asset.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -7041,7 +7024,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media 
+List the assets that belong to this stack (a set or version stack).  ### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -7143,7 +7126,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions 
+List all media files and directories bookmarked (pinned) by the current user.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions 
 
 ### Example
 
@@ -7165,18 +7148,18 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    bundle = 1 # int | Filter the returned list by `bundle`. (optional)
-    bundle__in = "bundle__in_example" # str | Filter the returned list by `bundle__in`. (optional)
-    parent = 1 # int | Filter the returned list by `parent`. (optional)
-    path = "path_example" # str | Filter the returned list by `path`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    is_dir = "is_dir_example" # str | Filter the returned list by `is_dir`. (optional)
-    is_showroom = "is_showroom_example" # str | Filter the returned list by `is_showroom`. (optional)
-    present = "present_example" # str | Filter the returned list by `present`. (optional)
-    archived = "archived_example" # str | Filter the returned list by `archived`. (optional)
-    volume = 1 # int | Filter the returned list by `volume`. (optional)
-    shared_via_tokens = "shared_via_tokens_example" # str | Filter the returned list by `shared_via_tokens`. (optional)
-    shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token`. (optional)
+    bundle = 1 # int | Filter the returned list by `bundle` (exact match). (optional)
+    bundle__in = "bundle__in_example" # str | Filter the returned list by `bundle__in` (exact match). (optional)
+    parent = 1 # int | Filter the returned list by `parent` (exact match). (optional)
+    path = "path_example" # str | Filter the returned list by `path` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    is_dir = "is_dir_example" # str | Filter the returned list by `is_dir` (exact match). (optional)
+    is_showroom = "is_showroom_example" # str | Filter the returned list by `is_showroom` (exact match). (optional)
+    present = "present_example" # str | Filter the returned list by `present` (exact match). (optional)
+    archived = "archived_example" # str | Filter the returned list by `archived` (exact match). (optional)
+    volume = 1 # int | Filter the returned list by `volume` (exact match). (optional)
+    shared_via_tokens = "shared_via_tokens_example" # str | Filter the returned list by `shared_via_tokens` (exact match). (optional)
+    shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -7195,18 +7178,18 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **bundle** | **int**| Filter the returned list by &#x60;bundle&#x60;. | [optional]
- **bundle__in** | **str**| Filter the returned list by &#x60;bundle__in&#x60;. | [optional]
- **parent** | **int**| Filter the returned list by &#x60;parent&#x60;. | [optional]
- **path** | **str**| Filter the returned list by &#x60;path&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **is_dir** | **str**| Filter the returned list by &#x60;is_dir&#x60;. | [optional]
- **is_showroom** | **str**| Filter the returned list by &#x60;is_showroom&#x60;. | [optional]
- **present** | **str**| Filter the returned list by &#x60;present&#x60;. | [optional]
- **archived** | **str**| Filter the returned list by &#x60;archived&#x60;. | [optional]
- **volume** | **int**| Filter the returned list by &#x60;volume&#x60;. | [optional]
- **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60;. | [optional]
- **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60;. | [optional]
+ **bundle** | **int**| Filter the returned list by &#x60;bundle&#x60; (exact match). | [optional]
+ **bundle__in** | **str**| Filter the returned list by &#x60;bundle__in&#x60; (exact match). | [optional]
+ **parent** | **int**| Filter the returned list by &#x60;parent&#x60; (exact match). | [optional]
+ **path** | **str**| Filter the returned list by &#x60;path&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **is_dir** | **str**| Filter the returned list by &#x60;is_dir&#x60; (exact match). | [optional]
+ **is_showroom** | **str**| Filter the returned list by &#x60;is_showroom&#x60; (exact match). | [optional]
+ **present** | **str**| Filter the returned list by &#x60;present&#x60; (exact match). | [optional]
+ **archived** | **str**| Filter the returned list by &#x60;archived&#x60; (exact match). | [optional]
+ **volume** | **int**| Filter the returned list by &#x60;volume&#x60; (exact match). | [optional]
+ **shared_via_tokens** | **str**| Filter the returned list by &#x60;shared_via_tokens&#x60; (exact match). | [optional]
+ **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -7222,7 +7205,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+List the individual files that make up this media file bundle.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -7284,7 +7267,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+             Retrieve a list of comments. Also allows quickly searching for comments via the `getAllComments` API by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -7404,7 +7387,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
+List the available option values for this custom field, optionally filtered by a search query.  ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -7427,7 +7410,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Custom field.
-    q = "q_example" # str |  (optional)
+    q = "q_example" # str | Only return options matching this search text. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -7451,7 +7434,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this Custom field. |
- **q** | **str**|  | [optional]
+ **q** | **str**| Only return options matching this search text. | [optional]
 
 ### Return type
 
@@ -7564,7 +7547,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions 
+Get (or create) the anonymous \"easy sharing\" access token for this bundle, used to build a public sharing link.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions 
 
 ### Example
 
@@ -7614,7 +7597,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions 
+Get (or creating) the default anonymous \"easy sharing\" access token for this directory, used to build a public sharing link.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_sharing Media Library permissions 
 
 ### Example
 
@@ -7865,7 +7848,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions 
+             Retrieve a list of MediaFiles. Also allows quickly searching for directories via the `getAllMediaFiles` API by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions 
 
 ### Example
 
@@ -7894,11 +7877,11 @@ with elements_sdk.ApiClient(configuration) as api_client:
     include_root = True # bool |  (optional)
     include_parents = True # bool |  (optional)
     advanced_search = "advanced_search_example" # str |  (optional)
-    in_media_root = 1 # int |  (optional)
-    in_directory = 1 # int |  (optional)
+    in_media_root = 1 # int | Only applies to searching - limits results to a Media Root (optional)
+    in_directory = 1 # int | Only applies to searching - limits results to a directory (optional)
     include_deleted = True # bool |  (optional)
     include_deleted_and_archived = True # bool |  (optional)
-    path = "path_example" # str |  (optional)
+    path = "path_example" # str | Filter by volume-relative path (high performance penalty) (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -7928,11 +7911,11 @@ Name | Type | Description  | Notes
  **include_root** | **bool**|  | [optional]
  **include_parents** | **bool**|  | [optional]
  **advanced_search** | **str**|  | [optional]
- **in_media_root** | **int**|  | [optional]
- **in_directory** | **int**|  | [optional]
+ **in_media_root** | **int**| Only applies to searching - limits results to a Media Root | [optional]
+ **in_directory** | **int**| Only applies to searching - limits results to a directory | [optional]
  **include_deleted** | **bool**|  | [optional]
  **include_deleted_and_archived** | **bool**|  | [optional]
- **path** | **str**|  | [optional]
+ **path** | **str**| Filter by volume-relative path (high performance penalty) | [optional]
 
 ### Return type
 
@@ -7945,7 +7928,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+             Retrieve a list of MediaFiles. Also allows quickly searching for bundles/assets via `getAllMediaFileBundles` endpoint by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -7977,9 +7960,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
     offset = 1 # int |  (optional)
     limit = 1 # int |  (optional)
     advanced_search = "advanced_search_example" # str |  (optional)
-    in_media_root = 1 # int |  (optional)
-    in_directory = 1 # int |  (optional)
-    for_root = 1 # int |  (optional)
+    in_media_root = 1 # int | Only applies to searching - limits results to a Media Root (optional)
+    in_directory = 1 # int | Only applies to searching - limits results to a directory (optional)
+    for_root = 1 # int | Additionally filters nested metadata (e.g. comments) by a Media Root (optional)
     resolve_asset_permission = True # bool |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -8013,9 +7996,9 @@ Name | Type | Description  | Notes
  **offset** | **int**|  | [optional]
  **limit** | **int**|  | [optional]
  **advanced_search** | **str**|  | [optional]
- **in_media_root** | **int**|  | [optional]
- **in_directory** | **int**|  | [optional]
- **for_root** | **int**|  | [optional]
+ **in_media_root** | **int**| Only applies to searching - limits results to a Media Root | [optional]
+ **in_directory** | **int**| Only applies to searching - limits results to a directory | [optional]
+ **for_root** | **int**| Additionally filters nested metadata (e.g. comments) by a Media Root | [optional]
  **resolve_asset_permission** | **bool**|  | [optional]
 
 ### Return type
@@ -8029,7 +8012,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+Retrieve a media file by its volume-relative path and volume ID.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -8083,7 +8066,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+List the immediate contents of a media directory: direct child subdirectories and bundles, paginated together.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -8278,19 +8261,10 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this media root.
-    resolve_permissions = True # bool |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_media_root(id)
-        pprint(api_response)
-    except elements_sdk.ApiException as e:
-        print("Exception when calling MediaLibraryApi->get_media_root: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        api_response = api_instance.get_media_root(id, resolve_permissions=resolve_permissions)
         pprint(api_response)
     except elements_sdk.ApiException as e:
         print("Exception when calling MediaLibraryApi->get_media_root: %s\n" % e)
@@ -8302,7 +8276,6 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| A unique integer value identifying this media root. |
- **resolve_permissions** | **bool**|  | [optional]
 
 ### Return type
 
@@ -8413,7 +8386,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
+List all users who have access to this media root, either via a direct permission or through group membership.  ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -8525,7 +8498,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+Fetch the given assets by ID in a single request.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -8600,7 +8573,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+             Retrieve a list of MediaFiles. Also allows quickly searching for bundles/assets via `getAllMediaFileBundles` endpoint by supplying the `advanced_search` parameter which is a JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects   ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -8640,9 +8613,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
     include_parents = True # bool |  (optional)
     include_modified_by = True # bool |  (optional)
     advanced_search = "advanced_search_example" # str |  (optional)
-    in_media_root = 1 # int |  (optional)
-    in_directory = 1 # int |  (optional)
-    for_root = 1 # int |  (optional)
+    in_media_root = 1 # int | Only applies to searching - limits results to a Media Root (optional)
+    in_directory = 1 # int | Only applies to searching - limits results to a directory (optional)
+    for_root = 1 # int | Additionally filters nested metadata (e.g. comments) by a Media Root (optional)
     resolve_asset_permission = True # bool |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -8676,9 +8649,9 @@ Name | Type | Description  | Notes
  **include_parents** | **bool**|  | [optional]
  **include_modified_by** | **bool**|  | [optional]
  **advanced_search** | **str**|  | [optional]
- **in_media_root** | **int**|  | [optional]
- **in_directory** | **int**|  | [optional]
- **for_root** | **int**|  | [optional]
+ **in_media_root** | **int**| Only applies to searching - limits results to a Media Root | [optional]
+ **in_directory** | **int**| Only applies to searching - limits results to a directory | [optional]
+ **for_root** | **int**| Additionally filters nested metadata (e.g. comments) by a Media Root | [optional]
  **resolve_asset_permission** | **bool**|  | [optional]
 
 ### Return type
@@ -8692,7 +8665,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+Fetch the given media files by ID in a single request.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -8759,7 +8732,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access` 
+List all media root permissions assigned to the current user directly or via group membership.  ### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
@@ -8781,9 +8754,9 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    root = 1 # int | Filter the returned list by `root`. (optional)
-    id = 1 # int | Filter the returned list by `id`. (optional)
-    is_temporary_for_token = 1 # int | Filter the returned list by `is_temporary_for_token`. (optional)
+    root = 1 # int | Filter the returned list by `root` (exact match). (optional)
+    id = 1 # int | Filter the returned list by `id` (exact match). (optional)
+    is_temporary_for_token = 1 # int | Filter the returned list by `is_temporary_for_token` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -8802,9 +8775,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **root** | **int**| Filter the returned list by &#x60;root&#x60;. | [optional]
- **id** | **int**| Filter the returned list by &#x60;id&#x60;. | [optional]
- **is_temporary_for_token** | **int**| Filter the returned list by &#x60;is_temporary_for_token&#x60;. | [optional]
+ **root** | **int**| Filter the returned list by &#x60;root&#x60; (exact match). | [optional]
+ **id** | **int**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
+ **is_temporary_for_token** | **int**| Filter the returned list by &#x60;is_temporary_for_token&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -8820,7 +8793,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access` 
+List effective media root permissions for the current user with overlapping path entries resolved to the narrowest matching permission.  ### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
@@ -8842,9 +8815,9 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
-    root = 1 # int | Filter the returned list by `root`. (optional)
-    id = 1 # int | Filter the returned list by `id`. (optional)
-    is_temporary_for_token = 1 # int | Filter the returned list by `is_temporary_for_token`. (optional)
+    root = 1 # int | Filter the returned list by `root` (exact match). (optional)
+    id = 1 # int | Filter the returned list by `id` (exact match). (optional)
+    is_temporary_for_token = 1 # int | Filter the returned list by `is_temporary_for_token` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -8863,9 +8836,9 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **root** | **int**| Filter the returned list by &#x60;root&#x60;. | [optional]
- **id** | **int**| Filter the returned list by &#x60;id&#x60;. | [optional]
- **is_temporary_for_token** | **int**| Filter the returned list by &#x60;is_temporary_for_token&#x60;. | [optional]
+ **root** | **int**| Filter the returned list by &#x60;root&#x60; (exact match). | [optional]
+ **id** | **int**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
+ **is_temporary_for_token** | **int**| Filter the returned list by &#x60;is_temporary_for_token&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -8933,7 +8906,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+Return the progress and state of the task currently generating this proxy, or null if no generation task is running.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -9095,7 +9068,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
+Return the number of proxies that have been generated from this proxy profile.  ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -9145,7 +9118,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
+Download the watermark image configured for this proxy profile.  ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -9403,7 +9376,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+Download the named subtitle track of this asset, in the requested format (SRT, VTT, ASS or JSON).  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -9604,7 +9577,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media 
+Copy the template's source file into the given parent directory under the given name, then trigger a Media Library scan on the result.  ### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -9630,9 +9603,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     instantiate_file_template_request = InstantiateFileTemplateRequest(
         parent=1,
         name="name_example",
-        custom_fields={
-            "key": "key_example",
-        },
+        custom_fields={},
     ) # InstantiateFileTemplateRequest | 
 
     # example passing only required values which don't have defaults set
@@ -9661,7 +9632,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media 
+Combine the given assets into a single version stack (different versions of the same content), allowing quick switching between versions in the UI.  ### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -9714,7 +9685,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access` 
+Resolve the media file paths referenced by this editor project to their current locations in ELEMENTS.  ### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
@@ -9764,7 +9735,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user   * Authenticated user 
+Search for present media files by name across all accessible media roots.  ### Required permissions    * Authenticated user   * Authenticated user 
 
 ### Example
 
@@ -9829,7 +9800,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_delete_db Media Library permissions 
+Mark this file or directory as archived (and propagate to its contents). Returns a task to track updating descendants.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_delete_db Media Library permissions 
 
 ### Example
 
@@ -9879,7 +9850,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions 
+Clear the archived mark on this file or directory (and propagate to its contents). Returns a task to track updating descendants.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions 
 
 ### Example
 
@@ -9929,7 +9900,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions 
+Mark this directory as a Showroom (a destination where chosen assets can be quickly hardlinked from the UI).  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db, allow_sharing Media Library permissions 
 
 ### Example
 
@@ -10002,9 +9973,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Asset.
     asset_partial_update = AssetPartialUpdate(
-        custom_fields={
-            "key": "key_example",
-        },
+        custom_fields={},
         tags=[
             TagReference(
                 id=1,
@@ -10118,6 +10087,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
                 variant_config="variant_config_example",
                 source_audio_layout_preserved=True,
                 codecs="av1_opus",
+                image_format="png",
                 asset=1,
             ),
             format=FormatMetadata(
@@ -10182,9 +10152,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     comment_partial_update = CommentPartialUpdate(
         assignee=None,
         user=None,
-        drawing={
-            "key": "key_example",
-        },
+        drawing={},
         tags=[
             TagReference(
                 id=1,
@@ -10253,9 +10221,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     id = 1 # int | A unique integer value identifying this Custom field.
     custom_field_partial_update = CustomFieldPartialUpdate(
         labels=[
-            {
-                "key": "key_example",
-            },
+            {},
         ],
         options=[
             "options_example",
@@ -10336,6 +10302,12 @@ with elements_sdk.ApiClient(configuration) as api_client:
         field_mappings=[
             EagleNestFieldMapping(
                 en_field=1,
+                custom_field=1,
+            ),
+        ],
+        data_entry_mappings=[
+            EagleNestDataEntryMapping(
+                label="label_example",
                 custom_field=1,
             ),
         ],
@@ -10659,12 +10631,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
     media_file_partial_update = MediaFilePartialUpdate(
-        info={
-            "key": "key_example",
-        },
-        custom_fields={
-            "key": "key_example",
-        },
+        info={},
+        custom_fields={},
         total_files=-2147483648,
         needs_rescan=True,
     ) # MediaFilePartialUpdate | 
@@ -11495,7 +11463,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media 
+Convert this user's personal Media Library pin into a global pin shown to all users (requires Media Roots management permission).  ### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -11545,7 +11513,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access` 
+Pin this Media Root (or its sub-path corresponding to this permission's path) to the top of the Media Library home page  ### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
@@ -11595,7 +11563,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions 
+Asynchronously add or remove a tag on every asset within this directory subtree. Returns a task.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions 
 
 ### Example
 
@@ -11649,7 +11617,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `tasks:view`   * License component: universal 
+Re-check the restore status of the files in this storage restore request with the storage provider. Returns a task.  ### Required permissions    * User account permission: `tasks:view`   * License component: universal 
 
 ### Example
 
@@ -11699,7 +11667,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   * License component: universal 
+Re-check with the storage provider whether the cold-storage files under this path have finished being restored. Returns a task.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   * License component: universal 
 
 ### Example
 
@@ -11749,7 +11717,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions 
+Re-include this directory in automatic proxy generation, removing a previous exclusion.  ### Required permissions    * User account permission: `media:roots:manage`   * allow_write_db Media Library permissions 
 
 ### Example
 
@@ -11797,7 +11765,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions 
+Re-include this directory in Media Library scanning, removing a previous exclusion.  ### Required permissions    * User account permission: `media:roots:manage`   * allow_write_db Media Library permissions 
 
 ### Example
 
@@ -11845,7 +11813,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions 
+Asynchronously rebuild the search index for this directory and its subtree.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions 
 
 ### Example
 
@@ -11893,7 +11861,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions 
+Remove this asset from its set. The set is dissolved if fewer than two assets would remain in it.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions 
 
 ### Example
 
@@ -11941,7 +11909,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
+Asynchronously rename this custom field, updating its name on all assets and files that use it. Returns a task.  ### Required permissions    * User account permission: `media:access` (read) / `media:roots:manage` (write)   * License component: media 
 
 ### Example
 
@@ -11996,7 +11964,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access` 
+Render a timeline sequence built in the Media Editor to a new media file. Returns a task to track rendering.  ### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
@@ -12059,7 +12027,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * Must be shared OR Must own the object   * allow_read, show_subclips Media Library permissions 
+Render this subclip's in/out range to a new media file at the given destination. Returns a task.  ### Required permissions    * User account permission: `media:access`   * License component: media   * Must be shared OR Must own the object   * allow_read, show_subclips Media Library permissions 
 
 ### Example
 
@@ -12116,7 +12084,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access` 
+Queue a Media Library scan of the given path to discover and index new or changed media.  ### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
@@ -12170,7 +12138,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   * License component: universal 
+Start restoring this file (and its contents, if a directory) from cold cloud storage so it becomes accessible. Returns a task to track progress.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions   * License component: universal 
 
 ### Example
 
@@ -12228,7 +12196,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+Mark this comment as resolved.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -12278,7 +12246,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access` 
+Search markers across accessible assets using a Media Library search query.  ### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
@@ -12345,7 +12313,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access` 
+Search subclips across accessible assets using a Media Library search query.  ### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
@@ -12412,7 +12380,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access` 
+Search subtitle/caption events (individual timed text lines) across accessible assets using a Media Library search query.  ### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
@@ -12479,7 +12447,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access` 
+Create a sharing link granting temporary access to the given media bundles and directories, with optional expiry, view limit, password and access permissions.  ### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
@@ -12565,7 +12533,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write) 
+Test connectivity to an external transcoder at the given address; returns whether it responded.  ### Required permissions    * User account permission: `media:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -12619,6 +12587,8 @@ Name | Type | Description  | Notes
 
 
 
+Run a workflow transition job on the given bundles and directories, advancing their workflow state. Returns the started tasks.  ### Required permissions    * Authenticated user 
+
 ### Example
 
 
@@ -12649,9 +12619,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
         ],
         job=1,
         root=1,
-        variables={
-            "key": "key_example",
-        },
+        variables={},
     ) # WorkflowTransitionRequest | 
 
     # example passing only required values which don't have defaults set
@@ -12680,7 +12648,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions 
+Remove this media file or directory from the current user's Media Library bookmarks.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions OR allow_upload Media Library permissions 
 
 ### Example
 
@@ -12728,7 +12696,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions 
+Remove this asset from its version stack so it is no longer tracked as a version of another asset.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions 
 
 ### Example
 
@@ -12776,7 +12744,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db Media Library permissions 
+Remove the Showroom mark from this directory.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_write_db, allow_sharing Media Library permissions 
 
 ### Example
 
@@ -12824,7 +12792,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media 
+Convert this globally-pinned Media Library item into a personal pin owned by the current user, so it no longer appears for all users.  ### Required permissions    * User account permission: `media:access`   * License component: media 
 
 ### Example
 
@@ -12874,7 +12842,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+Re-open this comment by clearing its resolved state.  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
 
 ### Example
 
@@ -12949,9 +12917,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this Asset.
     asset_update = AssetUpdate(
-        custom_fields={
-            "key": "key_example",
-        },
+        custom_fields={},
         tags=[
             TagReference(
                 id=1,
@@ -13065,6 +13031,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
                 variant_config="variant_config_example",
                 source_audio_layout_preserved=True,
                 codecs="av1_opus",
+                image_format="png",
                 asset=1,
             ),
             format=FormatMetadata(
@@ -13129,9 +13096,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     comment_update = CommentUpdate(
         assignee=None,
         user=None,
-        drawing={
-            "key": "key_example",
-        },
+        drawing={},
         tags=[
             TagReference(
                 id=1,
@@ -13200,9 +13165,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     id = 1 # int | A unique integer value identifying this Custom field.
     custom_field_update = CustomFieldUpdate(
         labels=[
-            {
-                "key": "key_example",
-            },
+            {},
         ],
         options=[
             "options_example",
@@ -13283,6 +13246,12 @@ with elements_sdk.ApiClient(configuration) as api_client:
         field_mappings=[
             EagleNestFieldMapping(
                 en_field=1,
+                custom_field=1,
+            ),
+        ],
+        data_entry_mappings=[
+            EagleNestDataEntryMapping(
+                label="label_example",
                 custom_field=1,
             ),
         ],
@@ -13606,12 +13575,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = media_library_api.MediaLibraryApi(api_client)
     id = 1 # int | A unique integer value identifying this File.
     media_file_update = MediaFileUpdate(
-        info={
-            "key": "key_example",
-        },
-        custom_fields={
-            "key": "key_example",
-        },
+        info={},
+        custom_fields={},
         total_files=-2147483648,
         needs_rescan=True,
     ) # MediaFileUpdate | 

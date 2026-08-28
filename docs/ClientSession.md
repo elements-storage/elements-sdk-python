@@ -1,5 +1,6 @@
 # ClientSession
 
+An ELEMENTS Client session: a desktop client connection to the server, including the user, workstation and currently mounted workspaces.
 
 ## Properties
 

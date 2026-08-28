@@ -118,12 +118,12 @@ class MediaFileReference(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'volume': (VolumeMiniWithCloudAccount,),  # noqa: E501
-            'info': ({str: (str, none_type)},),  # noqa: E501
-            'custom_fields': ({str: (str, none_type)},),  # noqa: E501
+            'info': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'resolved_permission': (MediaRootPermission,),  # noqa: E501
             'parent_file': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'root': (MediaRootMini,),  # noqa: E501
-            'effective_custom_fields': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'effective_custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'modified_by': (ElementsUserMini,),  # noqa: E501
             'full_path': (str,),  # noqa: E501
             'path_permissions': (PathPermissions,),  # noqa: E501
@@ -266,12 +266,12 @@ class MediaFileReference(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             volume (VolumeMiniWithCloudAccount): [optional]  # noqa: E501
-            info ({str: (str, none_type)}): [optional]  # noqa: E501
-            custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
+            info ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             resolved_permission (MediaRootPermission): [optional]  # noqa: E501
             parent_file ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             root (MediaRootMini): [optional]  # noqa: E501
-            effective_custom_fields ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            effective_custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             modified_by (ElementsUserMini): [optional]  # noqa: E501
             full_path (str): [optional]  # noqa: E501
             path_permissions (PathPermissions): [optional]  # noqa: E501
@@ -285,7 +285,7 @@ class MediaFileReference(ModelNormal):
             pathhash (str): [optional]  # noqa: E501
             ancestry (str): [optional]  # noqa: E501
             is_dir (bool): [optional]  # noqa: E501
-            total_files (int, none_type): [optional]  # noqa: E501
+            total_files (int, none_type): Legacy (unused). [optional]  # noqa: E501
             size (int): [optional]  # noqa: E501
             mtime (int): [optional]  # noqa: E501
             present (bool): [optional]  # noqa: E501
@@ -386,12 +386,12 @@ class MediaFileReference(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             volume (VolumeMiniWithCloudAccount): [optional]  # noqa: E501
-            info ({str: (str, none_type)}): [optional]  # noqa: E501
-            custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
+            info ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             resolved_permission (MediaRootPermission): [optional]  # noqa: E501
             parent_file ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             root (MediaRootMini): [optional]  # noqa: E501
-            effective_custom_fields ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            effective_custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             modified_by (ElementsUserMini): [optional]  # noqa: E501
             full_path (str): [optional]  # noqa: E501
             path_permissions (PathPermissions): [optional]  # noqa: E501
@@ -405,7 +405,7 @@ class MediaFileReference(ModelNormal):
             pathhash (str): [optional]  # noqa: E501
             ancestry (str): [optional]  # noqa: E501
             is_dir (bool): [optional]  # noqa: E501
-            total_files (int, none_type): [optional]  # noqa: E501
+            total_files (int, none_type): Legacy (unused). [optional]  # noqa: E501
             size (int): [optional]  # noqa: E501
             mtime (int): [optional]  # noqa: E501
             present (bool): [optional]  # noqa: E501

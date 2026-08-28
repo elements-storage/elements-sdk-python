@@ -1,5 +1,6 @@
 # UnfilteredTag
 
+A coloured label that can be attached to assets and comments in the Media Library, scoped to one or more Media Roots.
 
 ## Properties
 

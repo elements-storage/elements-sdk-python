@@ -120,8 +120,8 @@ class FileMoveEndpointRequest(ModelNormal):
         """FileMoveEndpointRequest - a model defined in OpenAPI
 
         Args:
-            input ([str]):
-            destination (str):
+            input ([str]): Filesystem paths to operate on.
+            destination (str): Destination directory to move the inputs into.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -154,8 +154,8 @@ class FileMoveEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            sync (bool): [optional]  # noqa: E501
-            overwrite (str): [optional]  # noqa: E501
+            sync (bool): When true, wait for the move to finish before responding instead of running it as a background task.. [optional]  # noqa: E501
+            overwrite (str): How to handle a file that already exists at the destination: skip (Overwrite.SKIP), `Overwrite.WARN`, keep both by appending a `Overwrite.NUMBER` or `Overwrite.TIMESTAMP`, or `Overwrite.OVERWRITE` it.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -211,8 +211,8 @@ class FileMoveEndpointRequest(ModelNormal):
         """FileMoveEndpointRequest - a model defined in OpenAPI
 
         Args:
-            input ([str]):
-            destination (str):
+            input ([str]): Filesystem paths to operate on.
+            destination (str): Destination directory to move the inputs into.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -245,8 +245,8 @@ class FileMoveEndpointRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            sync (bool): [optional]  # noqa: E501
-            overwrite (str): [optional]  # noqa: E501
+            sync (bool): When true, wait for the move to finish before responding instead of running it as a background task.. [optional]  # noqa: E501
+            overwrite (str): How to handle a file that already exists at the destination: skip (Overwrite.SKIP), `Overwrite.WARN`, keep both by appending a `Overwrite.NUMBER` or `Overwrite.TIMESTAMP`, or `Overwrite.OVERWRITE` it.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

@@ -48,7 +48,7 @@ Method | HTTP request | Description
 
 
 
-### Required permissions    * User account permission: `ltfs:backup`   * License component: ltfs 
+Create one or two tape backup jobs that copy the given source paths onto LTFS tapes  ### Required permissions    * User account permission: `ltfs:backup`   * License component: ltfs 
 
 ### Example
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+Cancel every tape archive job that is currently queued or running.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -159,7 +159,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+Cancel this tape archive job, stopping it if it is currently running.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -207,7 +207,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs 
+Start a filesystem check (fsck) of the LTFS tape with the given barcode to detect and repair filesystem inconsistencies on the cartridge.  ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs 
 
 ### Example
 
@@ -574,7 +574,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs 
+Format the LTFS tape with the given barcode, erasing all data on the cartridge.  ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs 
 
 ### Example
 
@@ -647,12 +647,12 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = tape_archive_api.TapeArchiveApi(api_client)
-    id = 1 # int | Filter the returned list by `id`. (optional)
-    is_dir = "is_dir_example" # str | Filter the returned list by `is_dir`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    fullpath = "fullpath_example" # str | Filter the returned list by `fullpath`. (optional)
-    parent = 1 # int | Filter the returned list by `parent`. (optional)
-    tape = 1 # int | Filter the returned list by `tape`. (optional)
+    id = 1 # int | Filter the returned list by `id` (exact match). (optional)
+    is_dir = "is_dir_example" # str | Filter the returned list by `is_dir` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    fullpath = "fullpath_example" # str | Filter the returned list by `fullpath` (exact match). (optional)
+    parent = 1 # int | Filter the returned list by `parent` (exact match). (optional)
+    tape = 1 # int | Filter the returned list by `tape` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -671,12 +671,12 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Filter the returned list by &#x60;id&#x60;. | [optional]
- **is_dir** | **str**| Filter the returned list by &#x60;is_dir&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **fullpath** | **str**| Filter the returned list by &#x60;fullpath&#x60;. | [optional]
- **parent** | **int**| Filter the returned list by &#x60;parent&#x60;. | [optional]
- **tape** | **int**| Filter the returned list by &#x60;tape&#x60;. | [optional]
+ **id** | **int**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
+ **is_dir** | **str**| Filter the returned list by &#x60;is_dir&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **fullpath** | **str**| Filter the returned list by &#x60;fullpath&#x60; (exact match). | [optional]
+ **parent** | **int**| Filter the returned list by &#x60;parent&#x60; (exact match). | [optional]
+ **tape** | **int**| Filter the returned list by &#x60;tape&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -769,8 +769,8 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = tape_archive_api.TapeArchiveApi(api_client)
-    id = 1 # int | Filter the returned list by `id`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    id = 1 # int | Filter the returned list by `id` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -789,8 +789,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Filter the returned list by &#x60;id&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **id** | **int**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -828,10 +828,10 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = tape_archive_api.TapeArchiveApi(api_client)
-    id = 1 # int | Filter the returned list by `id`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
-    group = 1 # int | Filter the returned list by `group`. (optional)
-    group__isnull = "group__isnull_example" # str | Filter the returned list by `group__isnull`. (optional)
+    id = 1 # int | Filter the returned list by `id` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
+    group = 1 # int | Filter the returned list by `group` (exact match). (optional)
+    group__isnull = "group__isnull_example" # str | Filter the returned list by `group__isnull` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -850,10 +850,10 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Filter the returned list by &#x60;id&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
- **group** | **int**| Filter the returned list by &#x60;group&#x60;. | [optional]
- **group__isnull** | **str**| Filter the returned list by &#x60;group__isnull&#x60;. | [optional]
+ **id** | **int**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
+ **group** | **int**| Filter the returned list by &#x60;group&#x60; (exact match). | [optional]
+ **group__isnull** | **str**| Filter the returned list by &#x60;group__isnull&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -1019,7 +1019,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+Download the log output of this tape archive job.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -1042,7 +1042,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = tape_archive_api.TapeArchiveApi(api_client)
     id = "id_example" # str | 
-    offset = 1 # int |  (optional)
+    offset = 1 # int | Byte offset to start reading the log from. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -1066,7 +1066,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  |
- **offset** | **int**|  | [optional]
+ **offset** | **int**| Byte offset to start reading the log from. | [optional]
 
 ### Return type
 
@@ -1079,7 +1079,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+List the source paths that this tape archive job copies.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -1179,7 +1179,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs 
+Return the current state of the tape library: its drives, storage slots and mailbox slots, and which tape occupies each.  ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs 
 
 ### Example
 
@@ -1225,7 +1225,7 @@ This endpoint does not need any parameter.
 
 
 
-### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs 
+Load the tape with the given barcode from its library slot into a drive.  ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs 
 
 ### Example
 
@@ -1276,7 +1276,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs 
+Move the tape with the given barcode to a destination library slot.  ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs 
 
 ### Example
 
@@ -1456,7 +1456,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+Pause this running tape archive job; resume it later with resumeTapeArchiveJob.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -1504,7 +1504,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs 
+Refresh the tape library state by re-reading the changer hardware (which tapes are in which slots and drives).  ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs 
 
 ### Example
 
@@ -1548,7 +1548,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs 
+Re-read (re-index) the contents of the tape with the given barcode into the Tape Archive database.  ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs 
 
 ### Example
 
@@ -1599,7 +1599,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+Remove all finished tape archive jobs from the job list.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -1643,7 +1643,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+Restart this tape archive job from the beginning.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -1691,7 +1691,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `ltfs:restore`   * License component: ltfs 
+Create a Tape Archive restore job that copies the given paths from a tape back to disk. Returns the created tape job.  ### Required permissions    * User account permission: `ltfs:restore`   * License component: ltfs 
 
 ### Example
 
@@ -1760,7 +1760,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+Resume this paused tape archive job.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -1808,7 +1808,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `ltfs:search`   * License component: ltfs 
+Search the Tape Archive catalog for files and folders by name or path, returning matching entries and the tapes they reside on.  ### Required permissions    * User account permission: `ltfs:search`   * License component: ltfs 
 
 ### Example
 
@@ -1867,7 +1867,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs 
+Unload the tape with the given barcode from its drive back into a library slot.  ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs 
 
 ### Example
 

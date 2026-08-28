@@ -95,7 +95,7 @@ class AssetPartialUpdate(ModelNormal):
         """
         lazy_import()
         return {
-            'custom_fields': ({str: (str, none_type)},),  # noqa: E501
+            'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'tags': ([TagReference],),  # noqa: E501
             'workflow_state': (int,),  # noqa: E501
             'timecode': (float, none_type,),  # noqa: E501
@@ -156,7 +156,7 @@ class AssetPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             tags ([TagReference]): [optional]  # noqa: E501
             workflow_state (int): [optional]  # noqa: E501
             timecode (float, none_type): [optional]  # noqa: E501
@@ -244,7 +244,7 @@ class AssetPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            custom_fields ({str: (str, none_type)}): [optional]  # noqa: E501
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             tags ([TagReference]): [optional]  # noqa: E501
             workflow_state (int): [optional]  # noqa: E501
             timecode (float, none_type): [optional]  # noqa: E501

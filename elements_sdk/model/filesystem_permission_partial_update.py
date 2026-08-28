@@ -144,8 +144,8 @@ class FilesystemPermissionPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            path (str): [optional]  # noqa: E501
-            read_only (bool): [optional]  # noqa: E501
+            path (str): Filesystem path this permission grants access to.. [optional]  # noqa: E501
+            read_only (bool): When true, grant read-only access; otherwise read-write.. [optional]  # noqa: E501
             user (int, none_type): [optional]  # noqa: E501
             group (int, none_type): [optional]  # noqa: E501
         """
@@ -231,8 +231,8 @@ class FilesystemPermissionPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            path (str): [optional]  # noqa: E501
-            read_only (bool): [optional]  # noqa: E501
+            path (str): Filesystem path this permission grants access to.. [optional]  # noqa: E501
+            read_only (bool): When true, grant read-only access; otherwise read-write.. [optional]  # noqa: E501
             user (int, none_type): [optional]  # noqa: E501
             group (int, none_type): [optional]  # noqa: E501
         """

@@ -1,5 +1,6 @@
 # WorkspaceTransferStatus
 
+State of an active workspace transfer, if running
 
 ## Properties
 

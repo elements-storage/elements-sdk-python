@@ -1,5 +1,6 @@
 # ProductionMini
 
+Productions are logical groups of workspaces. Productions do not exist at a single location on the filesystem, but can span multiple volumes. However the production name is still used as a path segment in the workspace path.
 
 ## Properties
 

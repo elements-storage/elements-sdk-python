@@ -81,6 +81,9 @@ class TaskType(ModelNormal):
         ('description',): {
             'min_length': 1,
         },
+        ('required_args',): {
+            'max_items': 0,
+        },
         ('parameters_editor_component',): {
             'min_length': 1,
         },
@@ -89,6 +92,10 @@ class TaskType(ModelNormal):
         },
         ('new_since_version',): {
             'min_length': 1,
+        },
+        ('arg_types',): {
+            'max_length': 0,
+            'min_length': 0,
         },
     }
 
@@ -121,8 +128,8 @@ class TaskType(ModelNormal):
             'description': (str, none_type,),  # noqa: E501
             'input_type': (str, none_type,),  # noqa: E501
             'abortable': (bool,),  # noqa: E501
-            'arg_template': ({str: (str, none_type)}, none_type,),  # noqa: E501
-            'arg_types': ({str: (ArgumentType,)},),  # noqa: E501
+            'arg_template': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'args_schema': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'required_args': ([str],),  # noqa: E501
             'output_names': ({str: (str,)},),  # noqa: E501
             'output_types': ({str: (ArgumentType,)},),  # noqa: E501
@@ -135,6 +142,7 @@ class TaskType(ModelNormal):
             'new_since_version': (str, none_type,),  # noqa: E501
             'wildcard_input': (bool, none_type,),  # noqa: E501
             'license_component': (str, none_type,),  # noqa: E501
+            'arg_types': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -150,7 +158,7 @@ class TaskType(ModelNormal):
         'input_type': 'input_type',  # noqa: E501
         'abortable': 'abortable',  # noqa: E501
         'arg_template': 'arg_template',  # noqa: E501
-        'arg_types': 'arg_types',  # noqa: E501
+        'args_schema': 'args_schema',  # noqa: E501
         'required_args': 'required_args',  # noqa: E501
         'output_names': 'output_names',  # noqa: E501
         'output_types': 'output_types',  # noqa: E501
@@ -163,20 +171,23 @@ class TaskType(ModelNormal):
         'new_since_version': 'new_since_version',  # noqa: E501
         'wildcard_input': 'wildcard_input',  # noqa: E501
         'license_component': 'license_component',  # noqa: E501
+        'arg_types': 'arg_types',  # noqa: E501
     }
 
     read_only_vars = {
-        'arg_types',  # noqa: E501
+        'args_schema',  # noqa: E501
+        'required_args',  # noqa: E501
         'output_types',  # noqa: E501
         'is_available',  # noqa: E501
         'license_component',  # noqa: E501
+        'arg_types',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, type, display_name, display_group, description, input_type, abortable, arg_template, arg_types, required_args, output_names, output_types, parameters_editor_component, superuser_only, icon_class, is_available, allow_in_jobs, required_permissions, new_since_version, wildcard_input, license_component, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, type, display_name, display_group, description, input_type, abortable, arg_template, args_schema, required_args, output_names, output_types, parameters_editor_component, superuser_only, icon_class, is_available, allow_in_jobs, required_permissions, new_since_version, wildcard_input, license_component, *args, **xkwargs):  # noqa: E501
         """TaskType - a model defined in OpenAPI
 
         Args:
@@ -186,9 +197,9 @@ class TaskType(ModelNormal):
             description (str, none_type):
             input_type (str, none_type):
             abortable (bool):
-            arg_template ({str: (str, none_type)}, none_type):
-            arg_types ({str: (ArgumentType,)}):
-            required_args ([str]):
+            arg_template ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type):
+            args_schema ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): JSON Schema describing the task parameters
+            required_args ([str]): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty array.
             output_names ({str: (str,)}):
             output_types ({str: (ArgumentType,)}):
             parameters_editor_component (str, none_type):
@@ -232,6 +243,7 @@ class TaskType(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            arg_types (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -267,7 +279,7 @@ class TaskType(ModelNormal):
         self.input_type = input_type
         self.abortable = abortable
         self.arg_template = arg_template
-        self.arg_types = arg_types
+        self.args_schema = args_schema
         self.required_args = required_args
         self.output_names = output_names
         self.output_types = output_types
@@ -301,7 +313,7 @@ class TaskType(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, type, display_name, display_group, description, input_type, abortable, arg_template, required_args, output_names, parameters_editor_component, superuser_only, icon_class, allow_in_jobs, required_permissions, new_since_version, wildcard_input, *args, **xkwargs):  # noqa: E501
+    def __init__(self, type, display_name, display_group, description, input_type, abortable, arg_template, output_names, parameters_editor_component, superuser_only, icon_class, allow_in_jobs, required_permissions, new_since_version, wildcard_input, *args, **xkwargs):  # noqa: E501
         """TaskType - a model defined in OpenAPI
 
         Args:
@@ -311,8 +323,7 @@ class TaskType(ModelNormal):
             description (str, none_type):
             input_type (str, none_type):
             abortable (bool):
-            arg_template ({str: (str, none_type)}, none_type):
-            required_args ([str]):
+            arg_template ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type):
             output_names ({str: (str,)}):
             parameters_editor_component (str, none_type):
             superuser_only (bool):
@@ -352,6 +363,7 @@ class TaskType(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            arg_types (str, none_type): This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -385,7 +397,6 @@ class TaskType(ModelNormal):
         self.input_type = input_type
         self.abortable = abortable
         self.arg_template = arg_template
-        self.required_args = required_args
         self.output_names = output_names
         self.parameters_editor_component = parameters_editor_component
         self.superuser_only = superuser_only

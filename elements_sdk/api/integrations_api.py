@@ -1501,7 +1501,7 @@ class IntegrationsApi(object):
     ):
         """get_slack_channels  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        List the channels available in the connected Slack workspace.  ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1657,7 +1657,7 @@ class IntegrationsApi(object):
     ):
         """get_slack_emoji  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        List the custom emoji available in the connected Slack workspace.  ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1735,7 +1735,7 @@ class IntegrationsApi(object):
     ):
         """get_slack_users  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        List the active (non-bot) users in the connected Slack workspace.  ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1813,7 +1813,7 @@ class IntegrationsApi(object):
     ):
         """get_teams_channels  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        List the channels available in the connected Microsoft Teams team.  ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1969,7 +1969,7 @@ class IntegrationsApi(object):
     ):
         """get_teams_users  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        List the Microsoft Teams users available for this Teams connection, e.g. as recipients of Automation notifications.  ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2212,7 +2212,7 @@ class IntegrationsApi(object):
     ):
         """send_slack_message  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        Send a message to a channel or user via this Slack connection.  ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2294,7 +2294,7 @@ class IntegrationsApi(object):
     ):
         """send_teams_message  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        Send a message to a Microsoft Teams channel or user through this Teams connection.  ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

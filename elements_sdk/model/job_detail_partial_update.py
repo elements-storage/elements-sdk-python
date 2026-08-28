@@ -124,12 +124,12 @@ class JobDetailPartialUpdate(ModelNormal):
         return {
             'schedules': ([ScheduleReference],),  # noqa: E501
             'variable_definitions': ([JobVariableDefinition],),  # noqa: E501
+            'special_type': (int, none_type,),  # noqa: E501
             'subtasks': ([SubtaskReference],),  # noqa: E501
             'allow_users': ([ElementsUserReference],),  # noqa: E501
             'allow_groups': ([ElementsGroupReference],),  # noqa: E501
             'media_roots': ([int],),  # noqa: E501
             'workflow': (int, none_type,),  # noqa: E501
-            'special_type': (int, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'enabled': (bool,),  # noqa: E501
@@ -153,12 +153,12 @@ class JobDetailPartialUpdate(ModelNormal):
     attribute_map = {
         'schedules': 'schedules',  # noqa: E501
         'variable_definitions': 'variable_definitions',  # noqa: E501
+        'special_type': 'special_type',  # noqa: E501
         'subtasks': 'subtasks',  # noqa: E501
         'allow_users': 'allow_users',  # noqa: E501
         'allow_groups': 'allow_groups',  # noqa: E501
         'media_roots': 'media_roots',  # noqa: E501
         'workflow': 'workflow',  # noqa: E501
-        'special_type': 'special_type',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'enabled': 'enabled',  # noqa: E501
@@ -217,12 +217,12 @@ class JobDetailPartialUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             schedules ([ScheduleReference]): [optional]  # noqa: E501
             variable_definitions ([JobVariableDefinition]): [optional]  # noqa: E501
+            special_type (int, none_type): [optional]  # noqa: E501
             subtasks ([SubtaskReference]): [optional]  # noqa: E501
             allow_users ([ElementsUserReference]): [optional]  # noqa: E501
             allow_groups ([ElementsGroupReference]): [optional]  # noqa: E501
             media_roots ([int]): [optional]  # noqa: E501
             workflow (int, none_type): [optional]  # noqa: E501
-            special_type (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501
@@ -231,7 +231,7 @@ class JobDetailPartialUpdate(ModelNormal):
             show_as_button (bool): [optional]  # noqa: E501
             input_type (str, none_type): [optional]  # noqa: E501
             add_to_new_media_roots (bool): [optional]  # noqa: E501
-            hook (str, none_type): [optional]  # noqa: E501
+            hook (str, none_type): Name of the event hook this job is triggered by - only valid with special_type=HOOK/3. [optional]  # noqa: E501
             webhook_secret (str, none_type): [optional]  # noqa: E501
             elements_release (str): [optional]  # noqa: E501
             no_concurrency (bool): [optional]  # noqa: E501
@@ -321,12 +321,12 @@ class JobDetailPartialUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             schedules ([ScheduleReference]): [optional]  # noqa: E501
             variable_definitions ([JobVariableDefinition]): [optional]  # noqa: E501
+            special_type (int, none_type): [optional]  # noqa: E501
             subtasks ([SubtaskReference]): [optional]  # noqa: E501
             allow_users ([ElementsUserReference]): [optional]  # noqa: E501
             allow_groups ([ElementsGroupReference]): [optional]  # noqa: E501
             media_roots ([int]): [optional]  # noqa: E501
             workflow (int, none_type): [optional]  # noqa: E501
-            special_type (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             enabled (bool): [optional]  # noqa: E501
@@ -335,7 +335,7 @@ class JobDetailPartialUpdate(ModelNormal):
             show_as_button (bool): [optional]  # noqa: E501
             input_type (str, none_type): [optional]  # noqa: E501
             add_to_new_media_roots (bool): [optional]  # noqa: E501
-            hook (str, none_type): [optional]  # noqa: E501
+            hook (str, none_type): Name of the event hook this job is triggered by - only valid with special_type=HOOK/3. [optional]  # noqa: E501
             webhook_secret (str, none_type): [optional]  # noqa: E501
             elements_release (str): [optional]  # noqa: E501
             no_concurrency (bool): [optional]  # noqa: E501

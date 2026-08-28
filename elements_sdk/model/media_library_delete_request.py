@@ -142,11 +142,11 @@ class MediaLibraryDeleteRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bundles ([int]): [optional]  # noqa: E501
-            files ([int]): [optional]  # noqa: E501
-            assets ([int]): [optional]  # noqa: E501
-            delete_from_database (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            delete_from_storage (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            bundles ([int]): IDs of media file bundles to delete.. [optional]  # noqa: E501
+            files ([int]): IDs of media files to delete.. [optional]  # noqa: E501
+            assets ([int]): IDs of assets to delete.. [optional]  # noqa: E501
+            delete_from_database (bool): Destroy the selected objects' records and metadata in the Media Library database.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            delete_from_storage (bool): Delete the underlying files from storage (moving them to the recycle bin if enabled).. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -230,11 +230,11 @@ class MediaLibraryDeleteRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bundles ([int]): [optional]  # noqa: E501
-            files ([int]): [optional]  # noqa: E501
-            assets ([int]): [optional]  # noqa: E501
-            delete_from_database (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            delete_from_storage (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            bundles ([int]): IDs of media file bundles to delete.. [optional]  # noqa: E501
+            files ([int]): IDs of media files to delete.. [optional]  # noqa: E501
+            assets ([int]): IDs of assets to delete.. [optional]  # noqa: E501
+            delete_from_database (bool): Destroy the selected objects' records and metadata in the Media Library database.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            delete_from_storage (bool): Delete the underlying files from storage (moving them to the recycle bin if enabled).. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

@@ -154,7 +154,7 @@ class ProductionPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
-            obscure_name (bool): [optional]  # noqa: E501
+            obscure_name (bool): Makes new workspace paths use numeric IDs instead of plain text. [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             long_description (str): [optional]  # noqa: E501
             active (bool): [optional]  # noqa: E501
@@ -244,7 +244,7 @@ class ProductionPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
-            obscure_name (bool): [optional]  # noqa: E501
+            obscure_name (bool): Makes new workspace paths use numeric IDs instead of plain text. [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             long_description (str): [optional]  # noqa: E501
             active (bool): [optional]  # noqa: E501

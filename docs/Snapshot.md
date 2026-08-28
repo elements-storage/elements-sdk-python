@@ -1,5 +1,6 @@
 # Snapshot
 
+A point-in-time Btrfs snapshot of a workspace, allowing its contents to be browsed or restored as they were when the snapshot was taken.
 
 ## Properties
 

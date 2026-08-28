@@ -114,7 +114,7 @@ class ChangeStorageClassRequest(ModelNormal):
         """ChangeStorageClassRequest - a model defined in OpenAPI
 
         Args:
-            target_class (str):
+            target_class (str): The cloud storage class to move the data to (provider-specific).
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -147,8 +147,8 @@ class ChangeStorageClassRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            force_restore (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            restore_tier (str, none_type): [optional]  # noqa: E501
+            force_restore (bool): When true, first restore any objects currently in cold storage so the storage class change can proceed.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            restore_tier (str, none_type): Retrieval tier to use if a restore is needed (provider-specific, e.g. expedited, standard or bulk).. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -203,7 +203,7 @@ class ChangeStorageClassRequest(ModelNormal):
         """ChangeStorageClassRequest - a model defined in OpenAPI
 
         Args:
-            target_class (str):
+            target_class (str): The cloud storage class to move the data to (provider-specific).
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -236,8 +236,8 @@ class ChangeStorageClassRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            force_restore (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            restore_tier (str, none_type): [optional]  # noqa: E501
+            force_restore (bool): When true, first restore any objects currently in cold storage so the storage class change can proceed.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            restore_tier (str, none_type): Retrieval tier to use if a restore is needed (provider-specific, e.g. expedited, standard or bulk).. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

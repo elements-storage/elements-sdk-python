@@ -2080,7 +2080,7 @@ class TapeArchiveApi(object):
     ):
         """archive_to_tape  # noqa: E501
 
-        ### Required permissions    * User account permission: `ltfs:backup`   * License component: ltfs   # noqa: E501
+        Create one or two tape backup jobs that copy the given source paths onto LTFS tapes  ### Required permissions    * User account permission: `ltfs:backup`   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2157,7 +2157,7 @@ class TapeArchiveApi(object):
     ):
         """cancel_all_tape_archive_jobs  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        Cancel every tape archive job that is currently queued or running.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2231,7 +2231,7 @@ class TapeArchiveApi(object):
     ):
         """cancel_tape_archive_job  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        Cancel this tape archive job, stopping it if it is currently running.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2309,7 +2309,7 @@ class TapeArchiveApi(object):
     ):
         """check_tape  # noqa: E501
 
-        ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs   # noqa: E501
+        Start a filesystem check (fsck) of the LTFS tape with the given barcode to detect and repair filesystem inconsistencies on the cartridge.  ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2855,7 +2855,7 @@ class TapeArchiveApi(object):
     ):
         """format_tape  # noqa: E501
 
-        ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs   # noqa: E501
+        Format the LTFS tape with the given barcode, erasing all data on the cartridge.  ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2941,12 +2941,12 @@ class TapeArchiveApi(object):
 
 
         Keyword Args:
-            id (int): Filter the returned list by `id`.. [optional]
-            is_dir (str): Filter the returned list by `is_dir`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            fullpath (str): Filter the returned list by `fullpath`.. [optional]
-            parent (int): Filter the returned list by `parent`.. [optional]
-            tape (int): Filter the returned list by `tape`.. [optional]
+            id (int): Filter the returned list by `id` (exact match).. [optional]
+            is_dir (str): Filter the returned list by `is_dir` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            fullpath (str): Filter the returned list by `fullpath` (exact match).. [optional]
+            parent (int): Filter the returned list by `parent` (exact match).. [optional]
+            tape (int): Filter the returned list by `tape` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -3099,8 +3099,8 @@ class TapeArchiveApi(object):
 
 
         Keyword Args:
-            id (int): Filter the returned list by `id`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
+            id (int): Filter the returned list by `id` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -3177,10 +3177,10 @@ class TapeArchiveApi(object):
 
 
         Keyword Args:
-            id (int): Filter the returned list by `id`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            group (int): Filter the returned list by `group`.. [optional]
-            group__isnull (str): Filter the returned list by `group__isnull`.. [optional]
+            id (int): Filter the returned list by `id` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            group (int): Filter the returned list by `group` (exact match).. [optional]
+            group__isnull (str): Filter the returned list by `group__isnull` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -3483,7 +3483,7 @@ class TapeArchiveApi(object):
     ):
         """get_tape_archive_job_log  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        Download the log output of this tape archive job.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3494,7 +3494,7 @@ class TapeArchiveApi(object):
             id (str):
 
         Keyword Args:
-            offset (int): [optional]
+            offset (int): Byte offset to start reading the log from.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -3562,7 +3562,7 @@ class TapeArchiveApi(object):
     ):
         """get_tape_archive_job_sources  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        List the source paths that this tape archive job copies.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3717,7 +3717,7 @@ class TapeArchiveApi(object):
     ):
         """get_tape_library_state  # noqa: E501
 
-        ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs   # noqa: E501
+        Return the current state of the tape library: its drives, storage slots and mailbox slots, and which tape occupies each.  ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3791,7 +3791,7 @@ class TapeArchiveApi(object):
     ):
         """load_tape  # noqa: E501
 
-        ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs   # noqa: E501
+        Load the tape with the given barcode from its library slot into a drive.  ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3869,7 +3869,7 @@ class TapeArchiveApi(object):
     ):
         """move_tape  # noqa: E501
 
-        ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs   # noqa: E501
+        Move the tape with the given barcode to a destination library slot.  ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4111,7 +4111,7 @@ class TapeArchiveApi(object):
     ):
         """pause_tape_archive_job  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        Pause this running tape archive job; resume it later with resumeTapeArchiveJob.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4188,7 +4188,7 @@ class TapeArchiveApi(object):
     ):
         """refresh_tape_library_state  # noqa: E501
 
-        ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs   # noqa: E501
+        Refresh the tape library state by re-reading the changer hardware (which tapes are in which slots and drives).  ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4262,7 +4262,7 @@ class TapeArchiveApi(object):
     ):
         """reindex_tape  # noqa: E501
 
-        ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs   # noqa: E501
+        Re-read (re-index) the contents of the tape with the given barcode into the Tape Archive database.  ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4339,7 +4339,7 @@ class TapeArchiveApi(object):
     ):
         """remove_finished_tape_archive_jobs  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        Remove all finished tape archive jobs from the job list.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4413,7 +4413,7 @@ class TapeArchiveApi(object):
     ):
         """restart_tape_archive_job  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        Restart this tape archive job from the beginning.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4491,7 +4491,7 @@ class TapeArchiveApi(object):
     ):
         """restore_from_tape  # noqa: E501
 
-        ### Required permissions    * User account permission: `ltfs:restore`   * License component: ltfs   # noqa: E501
+        Create a Tape Archive restore job that copies the given paths from a tape back to disk. Returns the created tape job.  ### Required permissions    * User account permission: `ltfs:restore`   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4569,7 +4569,7 @@ class TapeArchiveApi(object):
     ):
         """resume_tape_archive_job  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        Resume this paused tape archive job.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4647,7 +4647,7 @@ class TapeArchiveApi(object):
     ):
         """search_tape_archive  # noqa: E501
 
-        ### Required permissions    * User account permission: `ltfs:search`   * License component: ltfs   # noqa: E501
+        Search the Tape Archive catalog for files and folders by name or path, returning matching entries and the tapes they reside on.  ### Required permissions    * User account permission: `ltfs:search`   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4725,7 +4725,7 @@ class TapeArchiveApi(object):
     ):
         """unload_tape  # noqa: E501
 
-        ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs   # noqa: E501
+        Unload the tape with the given barcode from its drive back into a library slot.  ### Required permissions    * User account permission: `ltfs:manage`   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

@@ -603,8 +603,8 @@ class AWSApi(object):
 
 
         Keyword Args:
-            name (str): Filter the returned list by `name`.. [optional]
-            id (int): Filter the returned list by `id`.. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            id (int): Filter the returned list by `id` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -751,7 +751,7 @@ class AWSApi(object):
     ):
         """get_aws_account_sns_topics  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage` (read) / `system:admin-access` (write)   # noqa: E501
+        List the AWS SNS topics available in this AWS CloudAccount, which can be used in Automation to send SNS notifications  ### Required permissions    * User account permission: `tasks:manage` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -762,7 +762,7 @@ class AWSApi(object):
             id (int): A unique integer value identifying this cloud account.
 
         Keyword Args:
-            region (str): [optional]
+            region (str): AWS region to list topics from. Defaults to the account region.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

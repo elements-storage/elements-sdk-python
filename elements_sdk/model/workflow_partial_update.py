@@ -144,9 +144,9 @@ class WorkflowPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            states ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
-            transitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
-            roots ([int]): [optional]  # noqa: E501
+            states ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): The workflow states an asset can be in.. [optional]  # noqa: E501
+            transitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): The allowed transitions between states.. [optional]  # noqa: E501
+            roots ([int]): Media Roots in which this workflow is available.. [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
         """
 
@@ -231,9 +231,9 @@ class WorkflowPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            states ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
-            transitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
-            roots ([int]): [optional]  # noqa: E501
+            states ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): The workflow states an asset can be in.. [optional]  # noqa: E501
+            transitions ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): The allowed transitions between states.. [optional]  # noqa: E501
+            roots ([int]): Media Roots in which this workflow is available.. [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
         """
 

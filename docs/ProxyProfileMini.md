@@ -1,5 +1,6 @@
 # ProxyProfileMini
 
+A reusable recipe for generating proxies (web previews) of media: which generator and codecs to use, resolution/bitrate, and optional watermark and timecode burn-in settings. A single proxy profiles can be enabled in multiple Media Roots
 
 ## Properties
 

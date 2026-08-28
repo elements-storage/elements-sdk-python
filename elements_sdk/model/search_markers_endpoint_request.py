@@ -114,7 +114,7 @@ class SearchMarkersEndpointRequest(ModelNormal):
         """SearchMarkersEndpointRequest - a model defined in OpenAPI
 
         Args:
-            query (str):
+            query (str): JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -203,7 +203,7 @@ class SearchMarkersEndpointRequest(ModelNormal):
         """SearchMarkersEndpointRequest - a model defined in OpenAPI
 
         Args:
-            query (str):
+            query (str): JSON query that follows the general search query schema (see the README) - it's an array of MediaSearchQueryVariant objects
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

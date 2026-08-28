@@ -88,7 +88,7 @@ class NotificationPartialUpdate(ModelNormal):
         lazy_import()
         return {
             'receipts': ([NotificationReceiptReference],),  # noqa: E501
-            'kwargs': ({str: (str, none_type)},),  # noqa: E501
+            'kwargs': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
         }
 
     @cached_property
@@ -143,7 +143,7 @@ class NotificationPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             receipts ([NotificationReceiptReference]): [optional]  # noqa: E501
-            kwargs ({str: (str, none_type)}): [optional]  # noqa: E501
+            kwargs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -228,7 +228,7 @@ class NotificationPartialUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             receipts ([NotificationReceiptReference]): [optional]  # noqa: E501
-            kwargs ({str: (str, none_type)}): [optional]  # noqa: E501
+            kwargs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

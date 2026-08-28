@@ -1,5 +1,6 @@
 # MediaFileMini
 
+Represents a file or folder on the filesystem that has been seen by the Media Library scanner. Files that are part of a media object are grouped in a MediaFileBundle (whether one file or multiple) and after a bundle is scanned, an Asset is created and assigned to it.
 
 ## Properties
 
@@ -8,7 +9,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | 
 **name** | **str** |  | [readonly] 
 **full_path** | **str** |  | [readonly] 
-**custom_fields** | **{str: (str, none_type)}** |  | 
+**custom_fields** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | 
 **is_dir** | **bool** |  | [readonly] 
 **is_hardlink** | **bool** |  | [readonly] 
 **mtime** | **int** |  | [readonly] 

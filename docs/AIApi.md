@@ -747,8 +747,8 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = ai_api.AIApi(api_client)
-    connection = 1 # int | Filter the returned list by `connection`. (optional)
-    name = "name_example" # str | Filter the returned list by `name`. (optional)
+    connection = 1 # int | Filter the returned list by `connection` (exact match). (optional)
+    name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -767,8 +767,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **connection** | **int**| Filter the returned list by &#x60;connection&#x60;. | [optional]
- **name** | **str**| Filter the returned list by &#x60;name&#x60;. | [optional]
+ **connection** | **int**| Filter the returned list by &#x60;connection&#x60; (exact match). | [optional]
+ **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -806,8 +806,8 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = ai_api.AIApi(api_client)
-    asset = 1 # int | Filter the returned list by `asset`. (optional)
-    id = 1 # int | Filter the returned list by `id`. (optional)
+    asset = 1 # int | Filter the returned list by `asset` (exact match). (optional)
+    id = 1 # int | Filter the returned list by `id` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -826,8 +826,8 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **asset** | **int**| Filter the returned list by &#x60;asset&#x60;. | [optional]
- **id** | **int**| Filter the returned list by &#x60;id&#x60;. | [optional]
+ **asset** | **int**| Filter the returned list by &#x60;asset&#x60; (exact match). | [optional]
+ **id** | **int**| Filter the returned list by &#x60;id&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
@@ -865,7 +865,7 @@ configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
 
 with elements_sdk.ApiClient(configuration) as api_client:
     api_instance = ai_api.AIApi(api_client)
-    dataset = "dataset_example" # str | Filter the returned list by `dataset`. (optional)
+    dataset = "dataset_example" # str | Filter the returned list by `dataset` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
@@ -884,7 +884,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dataset** | **str**| Filter the returned list by &#x60;dataset&#x60;. | [optional]
+ **dataset** | **str**| Filter the returned list by &#x60;dataset&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]

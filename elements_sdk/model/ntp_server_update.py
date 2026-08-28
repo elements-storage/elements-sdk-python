@@ -114,7 +114,7 @@ class NTPServerUpdate(ModelNormal):
         """NTPServerUpdate - a model defined in OpenAPI
 
         Args:
-            address (str):
+            address (str): Hostname or IP address of the NTP server.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -147,7 +147,7 @@ class NTPServerUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            options (str): [optional]  # noqa: E501
+            options (str): Options appended to this server line in the NTP daemon configuration.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -202,7 +202,7 @@ class NTPServerUpdate(ModelNormal):
         """NTPServerUpdate - a model defined in OpenAPI
 
         Args:
-            address (str):
+            address (str): Hostname or IP address of the NTP server.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -235,7 +235,7 @@ class NTPServerUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            options (str): [optional]  # noqa: E501
+            options (str): Options appended to this server line in the NTP daemon configuration.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

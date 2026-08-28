@@ -112,7 +112,7 @@ class CreateDownloadArchive(ModelNormal):
         """CreateDownloadArchive - a model defined in OpenAPI
 
         Args:
-            paths ([str]):
+            paths ([str]): Filesystem paths to include in the archive.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -145,10 +145,10 @@ class CreateDownloadArchive(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            file_ids ([int]): [optional]  # noqa: E501
-            bundle_ids ([int]): [optional]  # noqa: E501
-            proxy (bool): [optional]  # noqa: E501
-            for_root (int): [optional]  # noqa: E501
+            file_ids ([int]): Additional IDs of individual MediaFiles to include.. [optional]  # noqa: E501
+            bundle_ids ([int]): Additional IDs of MediaFileBundles to include.. [optional]  # noqa: E501
+            proxy (bool): When true, include the proxy (low-resolution) versions instead of the originals.. [optional]  # noqa: E501
+            for_root (int): ID of the Media Root whose proxy profile to use when proxy is true.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -203,7 +203,7 @@ class CreateDownloadArchive(ModelNormal):
         """CreateDownloadArchive - a model defined in OpenAPI
 
         Args:
-            paths ([str]):
+            paths ([str]): Filesystem paths to include in the archive.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -236,10 +236,10 @@ class CreateDownloadArchive(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            file_ids ([int]): [optional]  # noqa: E501
-            bundle_ids ([int]): [optional]  # noqa: E501
-            proxy (bool): [optional]  # noqa: E501
-            for_root (int): [optional]  # noqa: E501
+            file_ids ([int]): Additional IDs of individual MediaFiles to include.. [optional]  # noqa: E501
+            bundle_ids ([int]): Additional IDs of MediaFileBundles to include.. [optional]  # noqa: E501
+            proxy (bool): When true, include the proxy (low-resolution) versions instead of the originals.. [optional]  # noqa: E501
+            for_root (int): ID of the Media Root whose proxy profile to use when proxy is true.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

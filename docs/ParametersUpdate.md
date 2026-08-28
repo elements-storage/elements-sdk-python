@@ -1,5 +1,6 @@
 # ParametersUpdate
 
+The global, system-wide configuration settings for this ELEMENTS instance (a singleton).
 
 ## Properties
 
@@ -35,12 +36,15 @@ Name | Type | Description | Notes
 **media_require_link_password** | **bool** |  | [optional] 
 **media_max_link_views** | **int, none_type** |  | [optional] 
 **media_shuttle_left_behaviour** | **str** |  | [optional] 
+**mcp_enabled** | **bool** |  | [optional] 
+**mcp_tunnel_enabled** | **bool** |  | [optional] 
 **ntp_enable** | **bool** |  | [optional] 
 **ntp_offer_sync** | **bool** |  | [optional] 
 **otp_policy** | **str** |  | [optional] 
 **password_login** | **bool** |  | [optional] 
 **session_key_restrict_to_ip** | **bool** |  | [optional] 
 **sharing_smb_allow_anonymous** | **bool** |  | [optional] 
+**sharing_smb_enable_multichannel** | **bool** |  | [optional] 
 **tasks_run_scheduled** | **bool** |  | [optional] 
 **update_in_progress** | **bool** |  | [optional] 
 **users_default_permissions** | **str** | Copy this value from an existing user | [optional] 

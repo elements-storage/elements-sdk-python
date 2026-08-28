@@ -1,5 +1,6 @@
 # CommentUpdate
 
+A text comment (potentially with tags, timecode and visual markup) left by a user for an asset
 
 ## Properties
 
@@ -8,10 +9,10 @@ Name | Type | Description | Notes
 **asset** | **int** |  | 
 **assignee** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
 **user** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
-**drawing** | **{str: (str, none_type)}, none_type** |  | [optional] 
+**drawing** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
 **tags** | [**[TagReference]**](TagReference.md) |  | [optional] 
 **text** | **str** |  | [optional] 
-**time** | **float, none_type** |  | [optional] 
+**time** | **float, none_type** | Timecode position in the media, in seconds, that the comment refers to. | [optional] 
 **is_cloud** | **bool** |  | [optional] 
 **resolved** | **bool** |  | [optional] 
 **resolved_date** | **datetime, none_type** |  | [optional] 

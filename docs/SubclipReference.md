@@ -1,5 +1,6 @@
 # SubclipReference
 
+A subclip: a named in/out range of an asset's timeline that can be used in the Media Editor and optionally rendered out to its own file.
 
 ## Properties
 

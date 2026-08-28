@@ -107,7 +107,7 @@ class Path(ModelNormal):
         """Path - a model defined in OpenAPI
 
         Args:
-            path (str):
+            path (str): Destination directory to write the backup to.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,7 +194,7 @@ class Path(ModelNormal):
         """Path - a model defined in OpenAPI
 
         Args:
-            path (str):
+            path (str): Destination directory to write the backup to.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

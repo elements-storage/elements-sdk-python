@@ -133,13 +133,13 @@ class JobDetail(ModelNormal):
             'variable_definitions': ([JobVariableDefinition],),  # noqa: E501
             'webhook_url': (str, none_type,),  # noqa: E501
             'needs_compatibility_check': (bool,),  # noqa: E501
+            'special_type': (int, none_type,),  # noqa: E501
             'subtasks': ([Subtask],),  # noqa: E501
             'allow_users': ([ElementsUser],),  # noqa: E501
             'allow_groups': ([ElementsGroup],),  # noqa: E501
             'media_roots': ([int],),  # noqa: E501
             'workflow': (int, none_type,),  # noqa: E501
             'fs_triggers': ([JobFSTrigger],),  # noqa: E501
-            'special_type': (int, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'enabled': (bool,),  # noqa: E501
@@ -167,13 +167,13 @@ class JobDetail(ModelNormal):
         'variable_definitions': 'variable_definitions',  # noqa: E501
         'webhook_url': 'webhook_url',  # noqa: E501
         'needs_compatibility_check': 'needs_compatibility_check',  # noqa: E501
+        'special_type': 'special_type',  # noqa: E501
         'subtasks': 'subtasks',  # noqa: E501
         'allow_users': 'allow_users',  # noqa: E501
         'allow_groups': 'allow_groups',  # noqa: E501
         'media_roots': 'media_roots',  # noqa: E501
         'workflow': 'workflow',  # noqa: E501
         'fs_triggers': 'fs_triggers',  # noqa: E501
-        'special_type': 'special_type',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'enabled': 'enabled',  # noqa: E501
@@ -200,7 +200,7 @@ class JobDetail(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, schedules, startable, variable_definitions, webhook_url, needs_compatibility_check, subtasks, allow_users, allow_groups, media_roots, workflow, fs_triggers, special_type, name, description, enabled, allow_others_to_start, allow_client_to_start, show_as_button, input_type, add_to_new_media_roots, hook, webhook_secret, elements_release, no_concurrency, security_context, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, schedules, startable, variable_definitions, webhook_url, needs_compatibility_check, special_type, subtasks, allow_users, allow_groups, media_roots, workflow, fs_triggers, name, description, enabled, allow_others_to_start, allow_client_to_start, show_as_button, input_type, add_to_new_media_roots, hook, webhook_secret, elements_release, no_concurrency, security_context, *args, **xkwargs):  # noqa: E501
         """JobDetail - a model defined in OpenAPI
 
         Args:
@@ -210,13 +210,13 @@ class JobDetail(ModelNormal):
             variable_definitions ([JobVariableDefinition]):
             webhook_url (str, none_type):
             needs_compatibility_check (bool):
+            special_type (int, none_type):
             subtasks ([Subtask]):
             allow_users ([ElementsUser]):
             allow_groups ([ElementsGroup]):
             media_roots ([int]):
             workflow (int, none_type):
             fs_triggers ([JobFSTrigger]):
-            special_type (int, none_type):
             name (str):
             description (str, none_type):
             enabled (bool):
@@ -225,7 +225,7 @@ class JobDetail(ModelNormal):
             show_as_button (bool):
             input_type (str, none_type):
             add_to_new_media_roots (bool):
-            hook (str, none_type):
+            hook (str, none_type): Name of the event hook this job is triggered by - only valid with special_type=HOOK/3
             webhook_secret (str, none_type):
             elements_release (str):
             no_concurrency (bool):
@@ -296,13 +296,13 @@ class JobDetail(ModelNormal):
         self.variable_definitions = variable_definitions
         self.webhook_url = webhook_url
         self.needs_compatibility_check = needs_compatibility_check
+        self.special_type = special_type
         self.subtasks = subtasks
         self.allow_users = allow_users
         self.allow_groups = allow_groups
         self.media_roots = media_roots
         self.workflow = workflow
         self.fs_triggers = fs_triggers
-        self.special_type = special_type
         self.name = name
         self.description = description
         self.enabled = enabled
@@ -337,19 +337,19 @@ class JobDetail(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, schedules, variable_definitions, subtasks, allow_users, allow_groups, media_roots, workflow, special_type, name, description, enabled, allow_others_to_start, allow_client_to_start, show_as_button, input_type, add_to_new_media_roots, hook, webhook_secret, elements_release, no_concurrency, security_context, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, schedules, variable_definitions, special_type, subtasks, allow_users, allow_groups, media_roots, workflow, name, description, enabled, allow_others_to_start, allow_client_to_start, show_as_button, input_type, add_to_new_media_roots, hook, webhook_secret, elements_release, no_concurrency, security_context, *args, **xkwargs):  # noqa: E501
         """JobDetail - a model defined in OpenAPI
 
         Args:
             id (int):
             schedules ([Schedule]):
             variable_definitions ([JobVariableDefinition]):
+            special_type (int, none_type):
             subtasks ([Subtask]):
             allow_users ([ElementsUser]):
             allow_groups ([ElementsGroup]):
             media_roots ([int]):
             workflow (int, none_type):
-            special_type (int, none_type):
             name (str):
             description (str, none_type):
             enabled (bool):
@@ -358,7 +358,7 @@ class JobDetail(ModelNormal):
             show_as_button (bool):
             input_type (str, none_type):
             add_to_new_media_roots (bool):
-            hook (str, none_type):
+            hook (str, none_type): Name of the event hook this job is triggered by - only valid with special_type=HOOK/3
             webhook_secret (str, none_type):
             elements_release (str):
             no_concurrency (bool):
@@ -424,12 +424,12 @@ class JobDetail(ModelNormal):
         self.id = id
         self.schedules = schedules
         self.variable_definitions = variable_definitions
+        self.special_type = special_type
         self.subtasks = subtasks
         self.allow_users = allow_users
         self.allow_groups = allow_groups
         self.media_roots = media_roots
         self.workflow = workflow
-        self.special_type = special_type
         self.name = name
         self.description = description
         self.enabled = enabled

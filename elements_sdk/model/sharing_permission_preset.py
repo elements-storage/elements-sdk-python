@@ -155,14 +155,14 @@ class SharingPermissionPreset(ModelNormal):
             id (int):
             allow_read (bool):
             allow_create (bool):
-            allow_write_fs (bool):
-            allow_write_db (bool):
-            allow_proxy_download (bool):
-            allow_original_download (bool):
+            allow_write_fs (bool): Allow operations that would write to the filesystem
+            allow_write_db (bool): Allow operations that would write to the database, e.g. editing asset metadata (tags, custom fields, ratings, comments).
+            allow_proxy_download (bool): Allow downloading low-resolution proxy files.
+            allow_original_download (bool): Allow downloading original full-resolution source files.
             allow_upload (bool):
             allow_sharing (bool):
-            allow_delete_fs (bool):
-            allow_delete_db (bool):
+            allow_delete_fs (bool): Allow deleting files from the filesystem.
+            allow_delete_db (bool): Allow removing asset records and metadata from the database.
             show_tags (bool):
             show_comments (bool):
             show_locations (bool):
@@ -174,7 +174,7 @@ class SharingPermissionPreset(ModelNormal):
             show_markers (bool):
             show_history (bool):
             name (str):
-            default (bool):
+            default (bool): When true, this preset is pre-selected when creating a new link.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -286,14 +286,14 @@ class SharingPermissionPreset(ModelNormal):
             id (int):
             allow_read (bool):
             allow_create (bool):
-            allow_write_fs (bool):
-            allow_write_db (bool):
-            allow_proxy_download (bool):
-            allow_original_download (bool):
+            allow_write_fs (bool): Allow operations that would write to the filesystem
+            allow_write_db (bool): Allow operations that would write to the database, e.g. editing asset metadata (tags, custom fields, ratings, comments).
+            allow_proxy_download (bool): Allow downloading low-resolution proxy files.
+            allow_original_download (bool): Allow downloading original full-resolution source files.
             allow_upload (bool):
             allow_sharing (bool):
-            allow_delete_fs (bool):
-            allow_delete_db (bool):
+            allow_delete_fs (bool): Allow deleting files from the filesystem.
+            allow_delete_db (bool): Allow removing asset records and metadata from the database.
             show_tags (bool):
             show_comments (bool):
             show_locations (bool):
@@ -305,7 +305,7 @@ class SharingPermissionPreset(ModelNormal):
             show_markers (bool):
             show_history (bool):
             name (str):
-            default (bool):
+            default (bool): When true, this preset is pre-selected when creating a new link.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

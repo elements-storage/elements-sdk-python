@@ -1,5 +1,6 @@
 # SlackConnectionUpdate
 
+A connection to a Slack workspace used to deliver notifications and messages.
 
 ## Properties
 

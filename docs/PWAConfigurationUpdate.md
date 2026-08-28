@@ -1,5 +1,6 @@
 # PWAConfigurationUpdate
 
+Progressive Web App (PWA) settings for the WebUI — whether the PWA mode is enabled and its display name.
 
 ## Properties
 

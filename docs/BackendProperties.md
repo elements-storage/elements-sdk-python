@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **supports_sharing_veto** | **bool** |  | 
 **supports_sharing_nfs_permissions** | **bool** |  | 
 **sharing_permissions_priority** | **str** |  | 
-**supports_sharing_rw_permissions_priority** | **str, none_type** | This is a legacy placeholder field for compatibility with previous SDK versions. It is always an empty string. | [optional] [readonly] 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 

@@ -178,7 +178,7 @@ class ProductionReference(ModelNormal):
             special_type (int, none_type): [optional]  # noqa: E501
             total_size (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
-            obscure_name (bool): [optional]  # noqa: E501
+            obscure_name (bool): Makes new workspace paths use numeric IDs instead of plain text. [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             long_description (str): [optional]  # noqa: E501
             active (bool): [optional]  # noqa: E501
@@ -275,7 +275,7 @@ class ProductionReference(ModelNormal):
             special_type (int, none_type): [optional]  # noqa: E501
             total_size (int, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
-            obscure_name (bool): [optional]  # noqa: E501
+            obscure_name (bool): Makes new workspace paths use numeric IDs instead of plain text. [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             long_description (str): [optional]  # noqa: E501
             active (bool): [optional]  # noqa: E501

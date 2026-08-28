@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **offers_ntp_sync** | **bool** |  | 
 **offers_file_search** | **bool** |  | 
 **offers_iperf_benchmarking** | **bool** |  | 
+**offers_mcp** | **bool** |  | 
 **language** | **str** |  | 
 **saml_providers** | [**[SAMLProviderMini]**](SAMLProviderMini.md) |  | [readonly] 
 **version** | [**ElementsVersion**](ElementsVersion.md) |  | 
@@ -18,6 +19,7 @@ Name | Type | Description | Notes
 **has_password_policy** | **bool** |  | 
 **password_login** | **bool** |  | 
 **analytics_enabled** | **bool** |  | 
+**supported_panel_plugins** | **[str]** |  | 
 
 [[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
 

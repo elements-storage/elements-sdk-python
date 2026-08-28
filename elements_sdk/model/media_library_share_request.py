@@ -140,7 +140,7 @@ class MediaLibraryShareRequest(ModelNormal):
         """MediaLibraryShareRequest - a model defined in OpenAPI
 
         Args:
-            expires (datetime):
+            expires (datetime): When the sharing link expires.
             permissions (MediaRootPermissionAccessOptions):
 
         Keyword Args:
@@ -174,13 +174,13 @@ class MediaLibraryShareRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bundles ([int]): [optional]  # noqa: E501
-            directories ([int]): [optional]  # noqa: E501
-            view_limit (int, none_type): [optional]  # noqa: E501
-            user (int): [optional]  # noqa: E501
-            email (str): [optional]  # noqa: E501
-            link_type (str, none_type): [optional]  # noqa: E501
-            password (str, none_type): [optional]  # noqa: E501
+            bundles ([int]): IDs of media file bundles to share.. [optional]  # noqa: E501
+            directories ([int]): IDs of media directories to share.. [optional]  # noqa: E501
+            view_limit (int, none_type): Maximum number of times the link may be opened (null for unlimited).. [optional]  # noqa: E501
+            user (int): Existing user to share with, instead of creating an anonymous link.. [optional]  # noqa: E501
+            email (str): Email address to create the sharing link for.. [optional]  # noqa: E501
+            link_type (str, none_type): What the link grants: `download-original`, `download-proxy`, `embed-player`, `embed-full` or `playlist`.. [optional]  # noqa: E501
+            password (str, none_type): Optional password required to open the link.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -236,7 +236,7 @@ class MediaLibraryShareRequest(ModelNormal):
         """MediaLibraryShareRequest - a model defined in OpenAPI
 
         Args:
-            expires (datetime):
+            expires (datetime): When the sharing link expires.
             permissions (MediaRootPermissionAccessOptions):
 
         Keyword Args:
@@ -270,13 +270,13 @@ class MediaLibraryShareRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bundles ([int]): [optional]  # noqa: E501
-            directories ([int]): [optional]  # noqa: E501
-            view_limit (int, none_type): [optional]  # noqa: E501
-            user (int): [optional]  # noqa: E501
-            email (str): [optional]  # noqa: E501
-            link_type (str, none_type): [optional]  # noqa: E501
-            password (str, none_type): [optional]  # noqa: E501
+            bundles ([int]): IDs of media file bundles to share.. [optional]  # noqa: E501
+            directories ([int]): IDs of media directories to share.. [optional]  # noqa: E501
+            view_limit (int, none_type): Maximum number of times the link may be opened (null for unlimited).. [optional]  # noqa: E501
+            user (int): Existing user to share with, instead of creating an anonymous link.. [optional]  # noqa: E501
+            email (str): Email address to create the sharing link for.. [optional]  # noqa: E501
+            link_type (str, none_type): What the link grants: `download-original`, `download-proxy`, `embed-player`, `embed-full` or `playlist`.. [optional]  # noqa: E501
+            password (str, none_type): Optional password required to open the link.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

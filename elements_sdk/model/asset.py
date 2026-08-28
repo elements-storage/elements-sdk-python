@@ -118,14 +118,14 @@ class Asset(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'proxy_info': ({str: (str, none_type)},),  # noqa: E501
-            'custom_fields': ({str: (str, none_type)},),  # noqa: E501
+            'proxy_info': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'tags': ([Tag],),  # noqa: E501
             'backups': ([AssetBackupMini],),  # noqa: E501
             'proxies_generated': (bool,),  # noqa: E501
             'proxies_failed': (bool,),  # noqa: E501
             'format': (FormatMetadata,),  # noqa: E501
-            'info': ({str: (str, none_type)},),  # noqa: E501
+            'info': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'sync_id': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
             'has_files': (bool,),  # noqa: E501
@@ -222,14 +222,14 @@ class Asset(ModelNormal):
 
         Args:
             id (int):
-            proxy_info ({str: (str, none_type)}):
-            custom_fields ({str: (str, none_type)}):
+            proxy_info ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             tags ([Tag]):
             backups ([AssetBackupMini]):
             proxies_generated (bool):
             proxies_failed (bool):
             format (FormatMetadata):
-            info ({str: (str, none_type)}):
+            info ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             sync_id (str):
             display_name (str):
             has_files (bool):
@@ -359,7 +359,7 @@ class Asset(ModelNormal):
 
         Args:
             id (int):
-            custom_fields ({str: (str, none_type)}):
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             tags ([Tag]):
             format (FormatMetadata):
             workflow_state (int):

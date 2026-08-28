@@ -104,7 +104,7 @@ class MultipleAssetsRequest(ModelNormal):
         """MultipleAssetsRequest - a model defined in OpenAPI
 
         Args:
-            assets ([int]):
+            assets ([int]): The assets to operate on.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -191,7 +191,7 @@ class MultipleAssetsRequest(ModelNormal):
         """MultipleAssetsRequest - a model defined in OpenAPI
 
         Args:
-            assets ([int]):
+            assets ([int]): The assets to operate on.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

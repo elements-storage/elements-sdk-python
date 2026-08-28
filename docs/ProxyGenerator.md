@@ -1,5 +1,6 @@
 # ProxyGenerator
 
+An available proxy-generation backend (e.g. ffmpeg or an external transcoder) and the capabilities it supports.
 
 ## Properties
 

@@ -117,8 +117,8 @@ class NTPServer(ModelNormal):
 
         Args:
             id (int):
-            address (str):
-            options (str):
+            address (str): Hostname or IP address of the NTP server.
+            options (str): Options appended to this server line in the NTP daemon configuration.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -208,8 +208,8 @@ class NTPServer(ModelNormal):
 
         Args:
             id (int):
-            address (str):
-            options (str):
+            address (str): Hostname or IP address of the NTP server.
+            options (str): Options appended to this server line in the NTP daemon configuration.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -161,7 +161,7 @@ class ExternalTranscoderPartialUpdate(ModelNormal):
             path_mappings ([PathMapping]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             type (str): [optional]  # noqa: E501
-            address (str): [optional]  # noqa: E501
+            address (str): Network address (hostname or IP) of the transcoder.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -248,7 +248,7 @@ class ExternalTranscoderPartialUpdate(ModelNormal):
             path_mappings ([PathMapping]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             type (str): [optional]  # noqa: E501
-            address (str): [optional]  # noqa: E501
+            address (str): Network address (hostname or IP) of the transcoder.. [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)

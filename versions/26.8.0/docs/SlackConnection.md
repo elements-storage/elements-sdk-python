@@ -1,0 +1,15 @@
+# SlackConnection
+
+A connection to a Slack workspace used to deliver notifications and messages.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **int** |  | 
+**name** | **str** |  | 
+**status** | [**SlackConnectionStatus**](SlackConnectionStatus.md) |  | [optional] 
+
+[[Back to Model list]](../#documentation-for-models) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to README]](../)
+
+

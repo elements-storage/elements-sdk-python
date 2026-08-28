@@ -47,6 +47,7 @@ from elements_sdk.model.quota import Quota
 from elements_sdk.model.setup_offload_request import SetupOffloadRequest
 from elements_sdk.model.share import Share
 from elements_sdk.model.share_partial_update import SharePartialUpdate
+from elements_sdk.model.share_path_validation_request import SharePathValidationRequest
 from elements_sdk.model.share_to_home_workspace_endpoint_request import ShareToHomeWorkspaceEndpointRequest
 from elements_sdk.model.share_update import ShareUpdate
 from elements_sdk.model.snapshot import Snapshot
@@ -4887,6 +4888,56 @@ class StorageApi(object):
             },
             api_client=api_client
         )
+        self.validate_share_path_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/shares/validate-path',
+                'operation_id': 'validate_share_path',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'share_path_validation_request',
+                ],
+                'required': [
+                    'share_path_validation_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'share_path_validation_request':
+                        (SharePathValidationRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'share_path_validation_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.zip_files_endpoint = _Endpoint(
             settings={
                 'response_type': (TaskInfo,),
@@ -4948,7 +4999,7 @@ class StorageApi(object):
     ):
         """accept_workspace_offload_request  # noqa: E501
 
-        ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
+                     Accept this pending workspace transfer request and start the transfer. For a             retrieval request the workspace is brought back from its parking location;             otherwise the workspace is parked (offloaded) to its parking location. The request             is removed once the transfer task has been started. Returns the started task.   ### Required permissions    * User account permission: `projects:view` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5029,7 +5080,7 @@ class StorageApi(object):
     ):
         """apply_workspace_affinity  # noqa: E501
 
-        ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
+        Apply this workspace's configured StorNext (SNFS) affinity to its files, placing their data on the matching storage pool. Only valid for SNFS-backed workspaces.  ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5185,7 +5236,7 @@ class StorageApi(object):
     ):
         """bookmark_workspace  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Bookmark this workspace for the current user so it appears in their bookmarked workspaces in the ELEMENTS Client.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5263,7 +5314,7 @@ class StorageApi(object):
     ):
         """calculate_directory_size  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Recursively sum the on-disk size, in bytes, of the given files and directories (descending into all subdirectories) and return the combined total (expensive and may time out).  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5501,7 +5552,7 @@ class StorageApi(object):
     ):
         """copy_files  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Asynchronously copy the given files and directories into a destination directory on the filesystem. Returns a task to track progress. This will also copy the Media Library metadata if present.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5579,7 +5630,7 @@ class StorageApi(object):
     ):
         """create_file  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Create a new directory under the given parent path, optionally setting its owner, group and permission modes. Note: this endpoint creates directories only, not files.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5658,7 +5709,7 @@ class StorageApi(object):
     ):
         """create_path_quota  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Create a directory quota at the given path on the volume, enabling its size to be tracked and limited. On some filesystems the target directory must be empty, as creating the quota recreates it.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -6286,7 +6337,7 @@ class StorageApi(object):
     ):
         """delete_files  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Asynchronously delete the given files and directories, moving them to the recycle bin if it is enabled. Returns a task to track progress.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -6365,7 +6416,7 @@ class StorageApi(object):
     ):
         """delete_path_quota  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Remove the directory quota at the given path on the volume. On some filesystems the directory must be empty, as removing the quota recreates it.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -6992,7 +7043,7 @@ class StorageApi(object):
     ):
         """get_all_deleted_workspaces  # noqa: E501
 
-        ### Required permissions    * User account permission: `projects:view`   # noqa: E501
+        List orphaned workspace directories: folders still present on disk under the workspaces path that no longer have a corresponding workspace in configuration.  ### Required permissions    * User account permission: `projects:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -7001,16 +7052,16 @@ class StorageApi(object):
 
 
         Keyword Args:
-            is_template (str): Filter the returned list by `is_template`.. [optional]
-            production (int): Filter the returned list by `production`.. [optional]
-            volume (int): Filter the returned list by `volume`.. [optional]
-            home_for (int): Filter the returned list by `home_for`.. [optional]
-            volume__type (str): Filter the returned list by `volume__type`.. [optional]
-            production__name (str): Filter the returned list by `production__name`.. [optional]
-            production__active (str): Filter the returned list by `production__active`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            is_external (str): Filter the returned list by `is_external`.. [optional]
-            active (str): Filter the returned list by `active`.. [optional]
+            is_template (str): Filter the returned list by `is_template` (exact match).. [optional]
+            production (int): Filter the returned list by `production` (exact match).. [optional]
+            volume (int): Filter the returned list by `volume` (exact match).. [optional]
+            home_for (int): Filter the returned list by `home_for` (exact match).. [optional]
+            volume__type (str): Filter the returned list by `volume__type` (exact match).. [optional]
+            production__name (str): Filter the returned list by `production__name` (exact match).. [optional]
+            production__active (str): Filter the returned list by `production__active` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            is_external (str): Filter the returned list by `is_external` (exact match).. [optional]
+            active (str): Filter the returned list by `active` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -7087,8 +7138,8 @@ class StorageApi(object):
 
 
         Keyword Args:
-            active (str): Filter the returned list by `active`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
+            active (str): Filter the returned list by `active` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -7244,7 +7295,7 @@ class StorageApi(object):
 
 
         Keyword Args:
-            workspace (int): Filter the returned list by `workspace`.. [optional]
+            workspace (int): Filter the returned list by `workspace` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -7321,12 +7372,12 @@ class StorageApi(object):
 
 
         Keyword Args:
-            is_default (str): Filter the returned list by `is_default`.. [optional]
-            type (str): Filter the returned list by `type`.. [optional]
-            use_for_homes (str): Filter the returned list by `use_for_homes`.. [optional]
-            use_for_workspaces (str): Filter the returned list by `use_for_workspaces`.. [optional]
-            display_name (str): Filter the returned list by `display_name`.. [optional]
-            visual_tag (str): Filter the returned list by `visual_tag`.. [optional]
+            is_default (str): Filter the returned list by `is_default` (exact match).. [optional]
+            type (str): Filter the returned list by `type` (exact match).. [optional]
+            use_for_homes (str): Filter the returned list by `use_for_homes` (exact match).. [optional]
+            use_for_workspaces (str): Filter the returned list by `use_for_workspaces` (exact match).. [optional]
+            display_name (str): Filter the returned list by `display_name` (exact match).. [optional]
+            visual_tag (str): Filter the returned list by `visual_tag` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -7480,9 +7531,9 @@ class StorageApi(object):
 
 
         Keyword Args:
-            workspace (int): Filter the returned list by `workspace`.. [optional]
-            user (int): Filter the returned list by `user`.. [optional]
-            group (int): Filter the returned list by `group`.. [optional]
+            workspace (int): Filter the returned list by `workspace` (exact match).. [optional]
+            user (int): Filter the returned list by `user` (exact match).. [optional]
+            group (int): Filter the returned list by `group` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -7559,16 +7610,16 @@ class StorageApi(object):
 
 
         Keyword Args:
-            is_template (str): Filter the returned list by `is_template`.. [optional]
-            production (int): Filter the returned list by `production`.. [optional]
-            volume (int): Filter the returned list by `volume`.. [optional]
-            home_for (int): Filter the returned list by `home_for`.. [optional]
-            volume__type (str): Filter the returned list by `volume__type`.. [optional]
-            production__name (str): Filter the returned list by `production__name`.. [optional]
-            production__active (str): Filter the returned list by `production__active`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            is_external (str): Filter the returned list by `is_external`.. [optional]
-            active (str): Filter the returned list by `active`.. [optional]
+            is_template (str): Filter the returned list by `is_template` (exact match).. [optional]
+            production (int): Filter the returned list by `production` (exact match).. [optional]
+            volume (int): Filter the returned list by `volume` (exact match).. [optional]
+            home_for (int): Filter the returned list by `home_for` (exact match).. [optional]
+            volume__type (str): Filter the returned list by `volume__type` (exact match).. [optional]
+            production__name (str): Filter the returned list by `production__name` (exact match).. [optional]
+            production__active (str): Filter the returned list by `production__active` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            is_external (str): Filter the returned list by `is_external` (exact match).. [optional]
+            active (str): Filter the returned list by `active` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -7805,7 +7856,7 @@ class StorageApi(object):
     ):
         """get_my_workspaces  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `projects:manage` (write)   # noqa: E501
+        List the workspaces the current user has access to.  ### Required permissions    * User account permission: `None` (read) / `projects:manage` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -7814,16 +7865,16 @@ class StorageApi(object):
 
 
         Keyword Args:
-            is_template (str): Filter the returned list by `is_template`.. [optional]
-            production (int): Filter the returned list by `production`.. [optional]
-            volume (int): Filter the returned list by `volume`.. [optional]
-            home_for (int): Filter the returned list by `home_for`.. [optional]
-            volume__type (str): Filter the returned list by `volume__type`.. [optional]
-            production__name (str): Filter the returned list by `production__name`.. [optional]
-            production__active (str): Filter the returned list by `production__active`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
-            is_external (str): Filter the returned list by `is_external`.. [optional]
-            active (str): Filter the returned list by `active`.. [optional]
+            is_template (str): Filter the returned list by `is_template` (exact match).. [optional]
+            production (int): Filter the returned list by `production` (exact match).. [optional]
+            volume (int): Filter the returned list by `volume` (exact match).. [optional]
+            home_for (int): Filter the returned list by `home_for` (exact match).. [optional]
+            volume__type (str): Filter the returned list by `volume__type` (exact match).. [optional]
+            production__name (str): Filter the returned list by `production__name` (exact match).. [optional]
+            production__active (str): Filter the returned list by `production__active` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
+            is_external (str): Filter the returned list by `is_external` (exact match).. [optional]
+            active (str): Filter the returned list by `active` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -7899,7 +7950,7 @@ class StorageApi(object):
     ):
         """get_path_quota  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Return the directory quota configured at the given path on the volume, or 404 if none is set.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -8058,7 +8109,7 @@ class StorageApi(object):
     ):
         """get_root_directory  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Redirect to the listing of the filesystem root directory (the server data root).  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -8920,7 +8971,7 @@ class StorageApi(object):
     ):
         """get_workspace_sync_to_offload_location_job  # noqa: E501
 
-        ### Required permissions    * User account permission: `projects:manage` AND User account permission: `tasks:view`   # noqa: E501
+        Return the running job that is syncing this workspace to its parking (Valet offload) location, if one is currently active.  ### Required permissions    * User account permission: `projects:manage` AND User account permission: `tasks:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -8998,7 +9049,7 @@ class StorageApi(object):
     ):
         """move_files  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Asynchronously move the given files and directories into a destination directory. Returns a task to track progress.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -9077,7 +9128,7 @@ class StorageApi(object):
     ):
         """move_workspace  # noqa: E501
 
-        ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
+        Asynchronously move the workspace to a new volume, production or path on the same volume  ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -9159,7 +9210,7 @@ class StorageApi(object):
     ):
         """offload_workspace  # noqa: E501
 
-        ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
+        Park (offload) this workspace via ELEMENTS Valet: sync all its content to its parking location and remove the local copy to free space. Returns a task to track progress.  ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -9894,7 +9945,7 @@ class StorageApi(object):
     ):
         """repair_workspace_permissions  # noqa: E501
 
-        ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
+        Asynchronously reset UNIX modes and ownership of all files in the workspace based on the workspace permissions. This can be used to fix permissions issues caused by external modifications to the workspace files.  ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -9972,7 +10023,7 @@ class StorageApi(object):
     ):
         """request_workspace_offload  # noqa: E501
 
-        ### Required permissions    * User account permission: `client:access`   # noqa: E501
+        Request that an administrator park (offload) this workspace to its Valet location. Creates a pending request rather than starting the transfer directly.  ### Required permissions    * User account permission: `client:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -10050,7 +10101,7 @@ class StorageApi(object):
     ):
         """request_workspace_retrieval  # noqa: E501
 
-        ### Required permissions    * User account permission: `client:access`   # noqa: E501
+        Request that an administrator retrieve this parked (offloaded) workspace back from its Valet location. Creates a pending request rather than starting the transfer directly.  ### Required permissions    * User account permission: `client:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -10129,7 +10180,7 @@ class StorageApi(object):
     ):
         """retrieve_offloaded_workspace  # noqa: E501
 
-        ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
+        Start retrieving this parked (offloaded) workspace back from its Valet location to primary storage. Returns the started transfer task. (Admin action; compare requestWorkspaceRetrieval, which only files a request.)  ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -10211,7 +10262,7 @@ class StorageApi(object):
     ):
         """setup_workspace_offload  # noqa: E501
 
-        ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
+        Set up ELEMENTS Valet for this workspace by initializing its parking (offload) location on the given volume, then start the initial sync. Returns a task to track progress.  ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -10292,7 +10343,7 @@ class StorageApi(object):
     ):
         """share_to_home_workspace  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Copy the given files and media bundles into the target user's home workspace inbox.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -10371,7 +10422,7 @@ class StorageApi(object):
     ):
         """sync_workspace_to_offload_location  # noqa: E501
 
-        ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
+        Asynchronously sync the workspace's content to its parking (offload) location without un-parking it. Returns a task to track progress.  ### Required permissions    * User account permission: `projects:manage`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -10452,7 +10503,7 @@ class StorageApi(object):
     ):
         """unbookmark_workspace  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Remove this workspace from the current user's bookmarked workspaces.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -10530,7 +10581,7 @@ class StorageApi(object):
     ):
         """unzip_file  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Asynchronously extract the contents of a ZIP archive into its containing directory. Returns a task to track progress.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -10696,7 +10747,7 @@ class StorageApi(object):
     ):
         """update_path_quota  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Set the soft and/or hard size limits of the directory quota at the given path on the volume.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -11351,6 +11402,84 @@ class StorageApi(object):
             workspace_permission_update
         return self.update_workspace_permission_endpoint.call_with_http_info(**kwargs)
 
+    def validate_share_path(
+        self,
+        share_path_validation_request,
+        **kwargs
+    ):
+        """validate_share_path  # noqa: E501
+
+        ### Required permissions    * User account permission: `shares:view` (read) / `shares:manage` (write)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.validate_share_path(share_path_validation_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            share_path_validation_request (SharePathValidationRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['share_path_validation_request'] = \
+            share_path_validation_request
+        return self.validate_share_path_endpoint.call_with_http_info(**kwargs)
+
     def zip_files(
         self,
         file_zip_endpoint_request,
@@ -11358,7 +11487,7 @@ class StorageApi(object):
     ):
         """zip_files  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        Asynchronously create a ZIP archive from the given files at the given destination. Returns a task to track progress.  ### Required permissions    * Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

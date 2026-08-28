@@ -129,9 +129,9 @@ class JobFSTrigger(ModelNormal):
 
         Args:
             id (int):
-            path (str):
-            name_glob (str):
-            recursive (bool):
+            path (str): Filesystem path to watch for changes.
+            name_glob (str): Glob pattern; only files whose name matches it fire the trigger.
+            recursive (bool): Also watch subdirectories of the path.
             listen_for_created (bool):
             listen_for_modified (bool):
             listen_for_renamed (bool):
@@ -232,9 +232,9 @@ class JobFSTrigger(ModelNormal):
 
         Args:
             id (int):
-            path (str):
-            name_glob (str):
-            recursive (bool):
+            path (str): Filesystem path to watch for changes.
+            name_glob (str): Glob pattern; only files whose name matches it fire the trigger.
+            recursive (bool): Also watch subdirectories of the path.
             listen_for_created (bool):
             listen_for_modified (bool):
             listen_for_renamed (bool):

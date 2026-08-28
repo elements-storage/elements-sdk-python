@@ -145,12 +145,12 @@ class MediaRootMini(ModelNormal):
             id (int):
             name (str):
             description (str, none_type):
-            full_path (str):
+            full_path (str): Absolute filesystem path (volume mount point joined with the root path).
             volume (VolumeMini):
-            path (str):
-            prefetch_thumbnail_strips (bool):
-            view_mode (str):
-            cover (str, none_type):
+            path (str): Path relative to the volume root. Empty string means the volume root itself.
+            prefetch_thumbnail_strips (bool): Pre-generate thumbnail strip proxies for faster in-browser timeline scrubbing.
+            view_mode (str): Folder display mode in the browser UI (normal or flat).
+            cover (str, none_type): URL to retrieve the cover image, or null if no cover has been set.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -249,9 +249,9 @@ class MediaRootMini(ModelNormal):
             name (str):
             description (str, none_type):
             volume (VolumeMini):
-            path (str):
-            prefetch_thumbnail_strips (bool):
-            view_mode (str):
+            path (str): Path relative to the volume root. Empty string means the volume root itself.
+            prefetch_thumbnail_strips (bool): Pre-generate thumbnail strip proxies for faster in-browser timeline scrubbing.
+            view_mode (str): Folder display mode in the browser UI (normal or flat).
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be

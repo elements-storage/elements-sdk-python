@@ -118,8 +118,8 @@ class MediaFile(ModelNormal):
         return {
             'id': (int,),  # noqa: E501
             'volume': (VolumeMiniWithCloudAccount,),  # noqa: E501
-            'info': ({str: (str, none_type)},),  # noqa: E501
-            'custom_fields': ({str: (str, none_type)},),  # noqa: E501
+            'info': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'full_path': (str,),  # noqa: E501
             'path_permissions': (PathPermissions,),  # noqa: E501
             'is_shared': (bool, none_type,),  # noqa: E501
@@ -144,7 +144,7 @@ class MediaFile(ModelNormal):
             'resolved_permission': (MediaRootPermission,),  # noqa: E501
             'parent_file': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'root': (MediaRootMini,),  # noqa: E501
-            'effective_custom_fields': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'effective_custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'modified_by': (ElementsUserMini,),  # noqa: E501
             'storage_class': (str, none_type,),  # noqa: E501
             'restore_expires_at': (datetime, none_type,),  # noqa: E501
@@ -230,8 +230,8 @@ class MediaFile(ModelNormal):
         Args:
             id (int):
             volume (VolumeMiniWithCloudAccount):
-            info ({str: (str, none_type)}):
-            custom_fields ({str: (str, none_type)}):
+            info ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             full_path (str):
             path_permissions (PathPermissions):
             is_shared (bool, none_type):
@@ -244,7 +244,7 @@ class MediaFile(ModelNormal):
             pathhash (str):
             ancestry (str):
             is_dir (bool):
-            total_files (int, none_type):
+            total_files (int, none_type): Legacy (unused)
             size (int):
             mtime (int):
             present (bool):
@@ -288,7 +288,7 @@ class MediaFile(ModelNormal):
             resolved_permission (MediaRootPermission): [optional]  # noqa: E501
             parent_file ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             root (MediaRootMini): [optional]  # noqa: E501
-            effective_custom_fields ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            effective_custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             modified_by (ElementsUserMini): [optional]  # noqa: E501
             storage_class (str, none_type): [optional]  # noqa: E501
             restore_expires_at (datetime, none_type): [optional]  # noqa: E501
@@ -374,11 +374,11 @@ class MediaFile(ModelNormal):
         Args:
             id (int):
             volume (VolumeMiniWithCloudAccount):
-            info ({str: (str, none_type)}):
-            custom_fields ({str: (str, none_type)}):
+            info ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             path_permissions (PathPermissions):
             exclusion_info (MediaFileExclusionInfo):
-            total_files (int, none_type):
+            total_files (int, none_type): Legacy (unused)
             needs_rescan (bool):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -414,7 +414,7 @@ class MediaFile(ModelNormal):
             resolved_permission (MediaRootPermission): [optional]  # noqa: E501
             parent_file ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             root (MediaRootMini): [optional]  # noqa: E501
-            effective_custom_fields ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            effective_custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             modified_by (ElementsUserMini): [optional]  # noqa: E501
             storage_class (str, none_type): [optional]  # noqa: E501
             restore_expires_at (datetime, none_type): [optional]  # noqa: E501

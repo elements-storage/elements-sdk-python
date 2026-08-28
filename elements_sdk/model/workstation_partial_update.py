@@ -91,7 +91,7 @@ class WorkstationPartialUpdate(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'report': ({str: (str, none_type)},),  # noqa: E501
+            'report': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'hostname': (str,),  # noqa: E501
             'address': (str, none_type,),  # noqa: E501
@@ -152,7 +152,7 @@ class WorkstationPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            report ({str: (str, none_type)}): [optional]  # noqa: E501
+            report ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             hostname (str): [optional]  # noqa: E501
             address (str, none_type): [optional]  # noqa: E501
@@ -240,7 +240,7 @@ class WorkstationPartialUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            report ({str: (str, none_type)}): [optional]  # noqa: E501
+            report ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             hostname (str): [optional]  # noqa: E501
             address (str, none_type): [optional]  # noqa: E501

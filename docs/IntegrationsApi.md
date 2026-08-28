@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+List the channels available in the connected Slack workspace.  ### Required permissions    * User account permission: `tasks:manage` 
 
 ### Example
 
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+List the custom emoji available in the connected Slack workspace.  ### Required permissions    * User account permission: `tasks:manage` 
 
 ### Example
 
@@ -388,7 +388,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+List the active (non-bot) users in the connected Slack workspace.  ### Required permissions    * User account permission: `tasks:manage` 
 
 ### Example
 
@@ -438,7 +438,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+List the channels available in the connected Microsoft Teams team.  ### Required permissions    * User account permission: `tasks:manage` 
 
 ### Example
 
@@ -538,7 +538,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+List the Microsoft Teams users available for this Teams connection, e.g. as recipients of Automation notifications.  ### Required permissions    * User account permission: `tasks:manage` 
 
 ### Example
 
@@ -698,7 +698,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+Send a message to a channel or user via this Slack connection.  ### Required permissions    * User account permission: `tasks:manage` 
 
 ### Example
 
@@ -754,7 +754,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+Send a message to a Microsoft Teams channel or user through this Teams connection.  ### Required permissions    * User account permission: `tasks:manage` 
 
 ### Example
 

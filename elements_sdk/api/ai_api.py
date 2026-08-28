@@ -2364,8 +2364,8 @@ class AIApi(object):
 
 
         Keyword Args:
-            connection (int): Filter the returned list by `connection`.. [optional]
-            name (str): Filter the returned list by `name`.. [optional]
+            connection (int): Filter the returned list by `connection` (exact match).. [optional]
+            name (str): Filter the returned list by `name` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -2442,8 +2442,8 @@ class AIApi(object):
 
 
         Keyword Args:
-            asset (int): Filter the returned list by `asset`.. [optional]
-            id (int): Filter the returned list by `id`.. [optional]
+            asset (int): Filter the returned list by `asset` (exact match).. [optional]
+            id (int): Filter the returned list by `id` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
@@ -2520,7 +2520,7 @@ class AIApi(object):
 
 
         Keyword Args:
-            dataset (str): Filter the returned list by `dataset`.. [optional]
+            dataset (str): Filter the returned list by `dataset` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]

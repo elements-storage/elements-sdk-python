@@ -96,7 +96,7 @@ class SavedSearchReference(ModelNormal):
             'id': (int,),  # noqa: E501
             'user': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'root': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'query': ([{str: (str, none_type)}],),  # noqa: E501
+            'query': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'url': (str,),  # noqa: E501
             'url_params': ({str: (str,)},),  # noqa: E501
             'name': (str,),  # noqa: E501
@@ -169,7 +169,7 @@ class SavedSearchReference(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             root (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            query ([{str: (str, none_type)}]): [optional]  # noqa: E501
+            query ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             url (str): [optional]  # noqa: E501
             url_params ({str: (str,)}): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
@@ -262,7 +262,7 @@ class SavedSearchReference(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             user (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             root (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            query ([{str: (str, none_type)}]): [optional]  # noqa: E501
+            query ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             url (str): [optional]  # noqa: E501
             url_params ({str: (str,)}): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501

@@ -119,9 +119,9 @@ class NotificationSetting(ModelNormal):
 
         Args:
             id (int):
-            topic (str):
-            type (str):
-            user (int, none_type):
+            topic (str): The category of events this setting covers (e.g. `default`, `automation`).
+            type (str): The delivery channel for the notification (e.g. `email`, `slack`, `teams`, `push`).
+            user (int, none_type): The user this setting applies to. Null marks a system-wide default.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -212,9 +212,9 @@ class NotificationSetting(ModelNormal):
 
         Args:
             id (int):
-            topic (str):
-            type (str):
-            user (int, none_type):
+            topic (str): The category of events this setting covers (e.g. `default`, `automation`).
+            type (str): The delivery channel for the notification (e.g. `email`, `slack`, `teams`, `push`).
+            user (int, none_type): The user this setting applies to. Null marks a system-wide default.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
