@@ -9,29 +9,10 @@
 # import sys
 # sys.setrecursionlimit(n)
 
-from elements_sdk.model.ai_annotation import AIAnnotation
 from elements_sdk.model.ai_category_mini import AICategoryMini
 from elements_sdk.model.ai_combined_inference_result import AICombinedInferenceResult
-from elements_sdk.model.ai_dataset import AIDataset
-from elements_sdk.model.ai_dataset_export_request import AIDatasetExportRequest
-from elements_sdk.model.ai_dataset_export_response import AIDatasetExportResponse
-from elements_sdk.model.ai_dataset_reference import AIDatasetReference
-from elements_sdk.model.ai_dataset_with_preview import AIDatasetWithPreview
-from elements_sdk.model.ai_dataset_with_preview_partial_update import AIDatasetWithPreviewPartialUpdate
-from elements_sdk.model.ai_dataset_with_preview_update import AIDatasetWithPreviewUpdate
-from elements_sdk.model.ai_image import AIImage
 from elements_sdk.model.ai_inference_position import AIInferencePosition
 from elements_sdk.model.ai_metadata import AIMetadata
-from elements_sdk.model.ai_model import AIModel
-from elements_sdk.model.ai_model_export_request import AIModelExportRequest
-from elements_sdk.model.ai_model_export_response import AIModelExportResponse
-from elements_sdk.model.ai_model_inference_request import AIModelInferenceRequest
-from elements_sdk.model.ai_model_inference_response import AIModelInferenceResponse
-from elements_sdk.model.ai_model_partial_update import AIModelPartialUpdate
-from elements_sdk.model.ai_model_progress import AIModelProgress
-from elements_sdk.model.ai_model_training_request import AIModelTrainingRequest
-from elements_sdk.model.ai_model_update import AIModelUpdate
-from elements_sdk.model.ai_processing_request import AIProcessingRequest
 from elements_sdk.model.api_token import APIToken
 from elements_sdk.model.api_token_partial_update import APITokenPartialUpdate
 from elements_sdk.model.api_token_update import APITokenUpdate
@@ -209,10 +190,6 @@ from elements_sdk.model.help_endpoint_response import HelpEndpointResponse
 from elements_sdk.model.io_stat import IOStat
 from elements_sdk.model.image_upload_request import ImageUploadRequest
 from elements_sdk.model.impersonation_endpoint_request import ImpersonationEndpointRequest
-from elements_sdk.model.import_ai_dataset_request import ImportAIDatasetRequest
-from elements_sdk.model.import_ai_dataset_response import ImportAIDatasetResponse
-from elements_sdk.model.import_ai_model_request import ImportAIModelRequest
-from elements_sdk.model.import_ai_model_response import ImportAIModelResponse
 from elements_sdk.model.import_job_request import ImportJobRequest
 from elements_sdk.model.import_job_response import ImportJobResponse
 from elements_sdk.model.install_license_offline_endpoint_request import InstallLicenseOfflineEndpointRequest
@@ -353,6 +330,12 @@ from elements_sdk.model.proxy_generation_info import ProxyGenerationInfo
 from elements_sdk.model.proxy_generation_info_response import ProxyGenerationInfoResponse
 from elements_sdk.model.proxy_generator import ProxyGenerator
 from elements_sdk.model.proxy_generator_properties import ProxyGeneratorProperties
+from elements_sdk.model.proxy_playback_metadata import ProxyPlaybackMetadata
+from elements_sdk.model.proxy_playback_metadata_source_timecode_start import ProxyPlaybackMetadataSourceTimecodeStart
+from elements_sdk.model.proxy_playback_metadata_timing import ProxyPlaybackMetadataTiming
+from elements_sdk.model.proxy_playback_metadata_validation import ProxyPlaybackMetadataValidation
+from elements_sdk.model.proxy_playback_metadata_warning import ProxyPlaybackMetadataWarning
+from elements_sdk.model.proxy_playback_metadata_warning_details import ProxyPlaybackMetadataWarningDetails
 from elements_sdk.model.proxy_profile import ProxyProfile
 from elements_sdk.model.proxy_profile_mini import ProxyProfileMini
 from elements_sdk.model.proxy_profile_partial_update import ProxyProfilePartialUpdate
@@ -535,6 +518,7 @@ from elements_sdk.model.vantage_workflows import VantageWorkflows
 from elements_sdk.model.volume import Volume
 from elements_sdk.model.volume_bee_gfs_status import VolumeBeeGFSStatus
 from elements_sdk.model.volume_ceph_status import VolumeCephStatus
+from elements_sdk.model.volume_deletion_impact import VolumeDeletionImpact
 from elements_sdk.model.volume_mini import VolumeMini
 from elements_sdk.model.volume_mini_with_cloud_account import VolumeMiniWithCloudAccount
 from elements_sdk.model.volume_partial_update import VolumePartialUpdate

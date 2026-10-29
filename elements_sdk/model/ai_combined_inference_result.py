@@ -90,9 +90,9 @@ class AICombinedInferenceResult(ModelNormal):
         lazy_import()
         return {
             'category': (AICategoryMini,),  # noqa: E501
-            'positions': ([AIInferencePosition],),  # noqa: E501
             'frame_start': (int,),  # noqa: E501
             'frame_end': (int,),  # noqa: E501
+            'positions': ([AIInferencePosition],),  # noqa: E501
         }
 
     @cached_property
@@ -102,9 +102,9 @@ class AICombinedInferenceResult(ModelNormal):
 
     attribute_map = {
         'category': 'category',  # noqa: E501
-        'positions': 'positions',  # noqa: E501
         'frame_start': 'frame_start',  # noqa: E501
         'frame_end': 'frame_end',  # noqa: E501
+        'positions': 'positions',  # noqa: E501
     }
 
     read_only_vars = {
@@ -114,14 +114,14 @@ class AICombinedInferenceResult(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, category, positions, frame_start, frame_end, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, category, frame_start, frame_end, positions, *args, **xkwargs):  # noqa: E501
         """AICombinedInferenceResult - a model defined in OpenAPI
 
         Args:
             category (AICategoryMini):
-            positions ([AIInferencePosition]):
             frame_start (int):
             frame_end (int):
+            positions ([AIInferencePosition]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -183,9 +183,9 @@ class AICombinedInferenceResult(ModelNormal):
 
 
         self.category = category
-        self.positions = positions
         self.frame_start = frame_start
         self.frame_end = frame_end
+        self.positions = positions
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -207,14 +207,14 @@ class AICombinedInferenceResult(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, category, positions, frame_start, frame_end, *args, **xkwargs):  # noqa: E501
+    def __init__(self, category, frame_start, frame_end, positions, *args, **xkwargs):  # noqa: E501
         """AICombinedInferenceResult - a model defined in OpenAPI
 
         Args:
             category (AICategoryMini):
-            positions ([AIInferencePosition]):
             frame_start (int):
             frame_end (int):
+            positions ([AIInferencePosition]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -274,9 +274,9 @@ class AICombinedInferenceResult(ModelNormal):
 
 
         self.category = category
-        self.positions = positions
         self.frame_start = frame_start
         self.frame_end = frame_end
+        self.positions = positions
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

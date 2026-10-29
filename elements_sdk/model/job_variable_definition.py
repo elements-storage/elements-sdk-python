@@ -112,13 +112,13 @@ class JobVariableDefinition(ModelNormal):
             'type': (str,),  # noqa: E501
             'default': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'options': ([str],),  # noqa: E501
-            'number_of_digits': (int,),  # noqa: E501
-            'regex': (str,),  # noqa: E501
+            'number_of_digits': (int, none_type,),  # noqa: E501
+            'regex': (str, none_type,),  # noqa: E501
+            'optional': (bool,),  # noqa: E501
             'validation': (str, none_type,),  # noqa: E501
             'multiple_response': (bool,),  # noqa: E501
             'users_from_group': (int, none_type,),  # noqa: E501
             'range': (JobVariableRange,),  # noqa: E501
-            'optional': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -133,11 +133,11 @@ class JobVariableDefinition(ModelNormal):
         'options': 'options',  # noqa: E501
         'number_of_digits': 'numberOfDigits',  # noqa: E501
         'regex': 'regex',  # noqa: E501
+        'optional': 'optional',  # noqa: E501
         'validation': 'validation',  # noqa: E501
         'multiple_response': 'multipleResponse',  # noqa: E501
         'users_from_group': 'usersFromGroup',  # noqa: E501
         'range': 'range',  # noqa: E501
-        'optional': 'optional',  # noqa: E501
     }
 
     read_only_vars = {
@@ -147,7 +147,7 @@ class JobVariableDefinition(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, type, default, options, number_of_digits, regex, validation, multiple_response, users_from_group, range, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, type, default, options, number_of_digits, regex, optional, validation, multiple_response, users_from_group, range, *args, **xkwargs):  # noqa: E501
         """JobVariableDefinition - a model defined in OpenAPI
 
         Args:
@@ -155,8 +155,9 @@ class JobVariableDefinition(ModelNormal):
             type (str):
             default (bool, date, datetime, dict, float, int, list, str, none_type):
             options ([str]):
-            number_of_digits (int):
-            regex (str):
+            number_of_digits (int, none_type):
+            regex (str, none_type):
+            optional (bool):
             validation (str, none_type):
             multiple_response (bool):
             users_from_group (int, none_type):
@@ -193,7 +194,6 @@ class JobVariableDefinition(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            optional (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -228,6 +228,7 @@ class JobVariableDefinition(ModelNormal):
         self.options = options
         self.number_of_digits = number_of_digits
         self.regex = regex
+        self.optional = optional
         self.validation = validation
         self.multiple_response = multiple_response
         self.users_from_group = users_from_group
@@ -253,7 +254,7 @@ class JobVariableDefinition(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, type, default, options, number_of_digits, regex, validation, multiple_response, users_from_group, range, *args, **xkwargs):  # noqa: E501
+    def __init__(self, name, type, default, options, number_of_digits, regex, optional, validation, multiple_response, users_from_group, range, *args, **xkwargs):  # noqa: E501
         """JobVariableDefinition - a model defined in OpenAPI
 
         Args:
@@ -261,8 +262,9 @@ class JobVariableDefinition(ModelNormal):
             type (str):
             default (bool, date, datetime, dict, float, int, list, str, none_type):
             options ([str]):
-            number_of_digits (int):
-            regex (str):
+            number_of_digits (int, none_type):
+            regex (str, none_type):
+            optional (bool):
             validation (str, none_type):
             multiple_response (bool):
             users_from_group (int, none_type):
@@ -299,7 +301,6 @@ class JobVariableDefinition(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            optional (bool): [optional]  # noqa: E501
         """
 
         _check_type = xkwargs.pop('_check_type', True)
@@ -332,6 +333,7 @@ class JobVariableDefinition(ModelNormal):
         self.options = options
         self.number_of_digits = number_of_digits
         self.regex = regex
+        self.optional = optional
         self.validation = validation
         self.multiple_response = multiple_response
         self.users_from_group = users_from_group

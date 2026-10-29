@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 
 
-Cancel every tape archive job that is currently queued or running.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+Cancel every tape archive job that is currently queued or running.  ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -159,7 +159,7 @@ void (empty response body)
 
 
 
-Cancel this tape archive job, stopping it if it is currently running.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+Cancel this tape archive job, stopping it if it is currently running.  ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -258,7 +258,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -382,7 +382,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -430,7 +430,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -478,7 +478,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -526,7 +526,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -692,7 +692,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -747,7 +747,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -806,7 +806,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -919,7 +919,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -969,7 +969,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -1019,7 +1019,7 @@ Name | Type | Description  | Notes
 
 
 
-Download the log output of this tape archive job.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+Download the log output of this tape archive job.  ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -1079,7 +1079,7 @@ Name | Type | Description  | Notes
 
 
 
-List the source paths that this tape archive job copies.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+List the source paths that this tape archive job copies.  ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -1129,7 +1129,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -1328,7 +1328,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -1396,7 +1396,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -1456,7 +1456,7 @@ Name | Type | Description  | Notes
 
 
 
-Pause this running tape archive job; resume it later with resumeTapeArchiveJob.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+Pause this running tape archive job; resume it later with resumeTapeArchiveJob.  ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -1599,7 +1599,7 @@ void (empty response body)
 
 
 
-Remove all finished tape archive jobs from the job list.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+Remove all finished tape archive jobs from the job list.  ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -1643,7 +1643,7 @@ void (empty response body)
 
 
 
-Restart this tape archive job from the beginning.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+Restart this tape archive job from the beginning.  ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -1760,7 +1760,7 @@ Name | Type | Description  | Notes
 
 
 
-Resume this paused tape archive job.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs 
+Resume this paused tape archive job.  ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -1918,7 +1918,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 
@@ -1986,7 +1986,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
+### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs 
 
 ### Example
 

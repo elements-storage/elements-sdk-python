@@ -59,7 +59,7 @@ class ElementsUserLookup(ModelNormal):
 
     validations = {
         ('email',): {
-            'max_length': 255,
+            'min_length': 1,
         },
         ('username',): {
             'max_length': 255,
@@ -109,6 +109,7 @@ class ElementsUserLookup(ModelNormal):
     }
 
     read_only_vars = {
+        'email',  # noqa: E501
         'display_name',  # noqa: E501
         'has_home',  # noqa: E501
     }
@@ -212,12 +213,11 @@ class ElementsUserLookup(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, email, username, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, username, *args, **xkwargs):  # noqa: E501
         """ElementsUserLookup - a model defined in OpenAPI
 
         Args:
             id (int):
-            email (str, none_type):
             username (str):
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -277,7 +277,6 @@ class ElementsUserLookup(ModelNormal):
 
 
         self.id = id
-        self.email = email
         self.username = username
         for var_name, var_value in xkwargs.items():
             if var_name not in self.attribute_map and \

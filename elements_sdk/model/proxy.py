@@ -30,8 +30,10 @@ from elements_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from elements_sdk.model.proxy_playback_metadata import ProxyPlaybackMetadata
     from elements_sdk.model.proxy_profile_mini import ProxyProfileMini
     from elements_sdk.model.transforms import Transforms
+    globals()['ProxyPlaybackMetadata'] = ProxyPlaybackMetadata
     globals()['ProxyProfileMini'] = ProxyProfileMini
     globals()['Transforms'] = Transforms
 
@@ -122,6 +124,7 @@ class Proxy(ModelNormal):
             'failed_reason': (str, none_type,),  # noqa: E501
             'skipped': (bool,),  # noqa: E501
             'generated': (bool,),  # noqa: E501
+            'playback_metadata': (ProxyPlaybackMetadata,),  # noqa: E501
             'generated_date': (datetime, none_type,),  # noqa: E501
             'failed': (bool,),  # noqa: E501
             'failed_count': (int,),  # noqa: E501
@@ -147,6 +150,7 @@ class Proxy(ModelNormal):
         'failed_reason': 'failed_reason',  # noqa: E501
         'skipped': 'skipped',  # noqa: E501
         'generated': 'generated',  # noqa: E501
+        'playback_metadata': 'playback_metadata',  # noqa: E501
         'generated_date': 'generated_date',  # noqa: E501
         'failed': 'failed',  # noqa: E501
         'failed_count': 'failed_count',  # noqa: E501
@@ -171,16 +175,17 @@ class Proxy(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, urls, profile, failed_reason, skipped, generated, generated_date, failed, failed_count, name, variant_config, source_audio_layout_preserved, codecs, image_format, asset, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, urls, profile, failed_reason, skipped, generated, playback_metadata, generated_date, failed, failed_count, name, variant_config, source_audio_layout_preserved, codecs, image_format, asset, *args, **xkwargs):  # noqa: E501
         """Proxy - a model defined in OpenAPI
 
         Args:
             id (int):
-            urls ({str: (str, none_type)}):
+            urls ({str: (str, none_type)}): URLs for downloading or streaming this proxy and related files.
             profile (ProxyProfileMini):
-            failed_reason (str, none_type):
-            skipped (bool):
-            generated (bool):
+            failed_reason (str, none_type): Proxy generation failure reason, or null if unavailable.
+            skipped (bool): Whether proxy generation is skipped after repeated failures.
+            generated (bool): Whether this proxy has finished generating.
+            playback_metadata (ProxyPlaybackMetadata):
             generated_date (datetime, none_type):
             failed (bool):
             failed_count (int):
@@ -259,6 +264,7 @@ class Proxy(ModelNormal):
         self.failed_reason = failed_reason
         self.skipped = skipped
         self.generated = generated
+        self.playback_metadata = playback_metadata
         self.generated_date = generated_date
         self.failed = failed
         self.failed_count = failed_count
@@ -290,12 +296,13 @@ class Proxy(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, profile, generated_date, failed, failed_count, name, variant_config, source_audio_layout_preserved, codecs, image_format, asset, *args, **xkwargs):  # noqa: E501
+    def __init__(self, id, profile, playback_metadata, generated_date, failed, failed_count, name, variant_config, source_audio_layout_preserved, codecs, image_format, asset, *args, **xkwargs):  # noqa: E501
         """Proxy - a model defined in OpenAPI
 
         Args:
             id (int):
             profile (ProxyProfileMini):
+            playback_metadata (ProxyPlaybackMetadata):
             generated_date (datetime, none_type):
             failed (bool):
             failed_count (int):
@@ -368,6 +375,7 @@ class Proxy(ModelNormal):
 
         self.id = id
         self.profile = profile
+        self.playback_metadata = playback_metadata
         self.generated_date = generated_date
         self.failed = failed
         self.failed_count = failed_count

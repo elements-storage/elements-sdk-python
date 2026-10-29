@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **is_bookmarked** | **bool, none_type** |  | [optional] [readonly] 
 **exclusion_info** | [**MediaFileExclusionInfo**](MediaFileExclusionInfo.md) |  | [optional] 
 **child_count** | **int, none_type** |  | [optional] [readonly] 
+**has_children** | **bool, none_type** |  | [optional] [readonly] 
+**has_subdirectories** | **bool, none_type** |  | [optional] [readonly] 
 **name** | **str** |  | [optional] [readonly] 
 **path** | **str** |  | [optional] [readonly] 
 **pathhash** | **str** |  | [optional] [readonly] 

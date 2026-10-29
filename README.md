@@ -2,7 +2,7 @@
 
 - API version: 2
 - Python 2.7 and 3.4+
-- Latest build: 26.8.0
+- Latest build: 26.11.0
 
 ## Installation & Usage
 
@@ -61,29 +61,8 @@ print(users)
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AIApi* | [**abort_ai_dataset_model_creation**](docs/AIApi#abort_ai_dataset_model_creation) | **POST** `/api/2/ai/models/{id}/abort` | 
-*AIApi* | [**activate_ai_model**](docs/AIApi#activate_ai_model) | **POST** `/api/2/ai/models/{id}/activate` | 
-*AIApi* | [**create_ai_dataset**](docs/AIApi#create_ai_dataset) | **POST** `/api/2/ai/datasets` | 
-*AIApi* | [**create_ai_dataset_model**](docs/AIApi#create_ai_dataset_model) | **POST** `/api/2/ai/models/create` | 
-*AIApi* | [**create_ai_metadata**](docs/AIApi#create_ai_metadata) | **POST** `/api/2/ai/metadata/create` | 
-*AIApi* | [**create_ai_model**](docs/AIApi#create_ai_model) | **POST** `/api/2/ai/models` | 
-*AIApi* | [**delete_ai_dataset**](docs/AIApi#delete_ai_dataset) | **DELETE** `/api/2/ai/datasets/{id}` | 
-*AIApi* | [**delete_ai_model**](docs/AIApi#delete_ai_model) | **DELETE** `/api/2/ai/models/{id}` | 
-*AIApi* | [**export_ai_dataset**](docs/AIApi#export_ai_dataset) | **POST** `/api/2/ai/datasets/{id}/export` | 
-*AIApi* | [**export_ai_model**](docs/AIApi#export_ai_model) | **POST** `/api/2/ai/models/{id}/export` | 
-*AIApi* | [**get_ai_dataset**](docs/AIApi#get_ai_dataset) | **GET** `/api/2/ai/datasets/{id}` | 
 *AIApi* | [**get_ai_metadata**](docs/AIApi#get_ai_metadata) | **GET** `/api/2/ai/metadata/{id}` | 
-*AIApi* | [**get_ai_model**](docs/AIApi#get_ai_model) | **GET** `/api/2/ai/models/{id}` | 
-*AIApi* | [**get_all_ai_datasets**](docs/AIApi#get_all_ai_datasets) | **GET** `/api/2/ai/datasets` | 
 *AIApi* | [**get_all_ai_metadata**](docs/AIApi#get_all_ai_metadata) | **GET** `/api/2/ai/metadata` | 
-*AIApi* | [**get_all_ai_models**](docs/AIApi#get_all_ai_models) | **GET** `/api/2/ai/models` | 
-*AIApi* | [**import_ai_datasets**](docs/AIApi#import_ai_datasets) | **POST** `/api/2/ai/datasets/import` | 
-*AIApi* | [**import_ai_models**](docs/AIApi#import_ai_models) | **POST** `/api/2/ai/datasets/{id}/import-models` | 
-*AIApi* | [**patch_ai_dataset**](docs/AIApi#patch_ai_dataset) | **PATCH** `/api/2/ai/datasets/{id}` | 
-*AIApi* | [**patch_ai_model**](docs/AIApi#patch_ai_model) | **PATCH** `/api/2/ai/models/{id}` | 
-*AIApi* | [**run_ai_model_inference**](docs/AIApi#run_ai_model_inference) | **POST** `/api/2/ai/models/{id}/inference` | 
-*AIApi* | [**update_ai_dataset**](docs/AIApi#update_ai_dataset) | **PUT** `/api/2/ai/datasets/{id}` | 
-*AIApi* | [**update_ai_model**](docs/AIApi#update_ai_model) | **PUT** `/api/2/ai/models/{id}` | 
 *AWSApi* | [**create_aws_account**](docs/AWSApi#create_aws_account) | **POST** `/api/2/aws-accounts` | 
 *AWSApi* | [**delete_aws_account**](docs/AWSApi#delete_aws_account) | **DELETE** `/api/2/aws-accounts/{id}` | 
 *AWSApi* | [**get_all_aws_accounts**](docs/AWSApi#get_all_aws_accounts) | **GET** `/api/2/aws-accounts` | 
@@ -103,6 +82,7 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**get_access_token**](docs/AuthApi#get_access_token) | **GET** `/api/2/auth/access-tokens/{id}` | 
 *AuthApi* | [**get_access_token_by_value**](docs/AuthApi#get_access_token_by_value) | **GET** `/api/2/auth/access-tokens/get/{token}` | 
 *AuthApi* | [**get_access_token_media_library_permissions**](docs/AuthApi#get_access_token_media_library_permissions) | **GET** `/api/2/auth/access-tokens/{id}/permissions` | 
+*AuthApi* | [**get_access_tokens_for_shared_object**](docs/AuthApi#get_access_tokens_for_shared_object) | **GET** `/api/2/auth/access-tokens/for-shared-object` | 
 *AuthApi* | [**get_all_access_tokens**](docs/AuthApi#get_all_access_tokens) | **GET** `/api/2/auth/access-tokens` | 
 *AuthApi* | [**get_all_api_tokens**](docs/AuthApi#get_all_api_tokens) | **GET** `/api/2/api-tokens` | 
 *AuthApi* | [**get_all_saml_providers**](docs/AuthApi#get_all_saml_providers) | **GET** `/api/2/auth/saml` | 
@@ -523,6 +503,7 @@ Class | Method | HTTP request | Description
 *MediaLibraryApi* | [**get_media_root_cover_image**](docs/MediaLibraryApi#get_media_root_cover_image) | **GET** `/api/2/media/roots/{id}/cover` | 
 *MediaLibraryApi* | [**get_media_root_permission**](docs/MediaLibraryApi#get_media_root_permission) | **GET** `/api/2/media/root-permissions/{id}` | 
 *MediaLibraryApi* | [**get_media_root_users**](docs/MediaLibraryApi#get_media_root_users) | **GET** `/api/2/media/roots/{id}/users` | 
+*MediaLibraryApi* | [**get_media_subdirectories**](docs/MediaLibraryApi#get_media_subdirectories) | **GET** `/api/2/media/files/{id}/subdirectories` | 
 *MediaLibraryApi* | [**get_media_tag**](docs/MediaLibraryApi#get_media_tag) | **GET** `/api/2/media/tags/{id}` | 
 *MediaLibraryApi* | [**get_multiple_assets**](docs/MediaLibraryApi#get_multiple_assets) | **POST** `/api/2/media/assets/multiple` | 
 *MediaLibraryApi* | [**get_multiple_bundles**](docs/MediaLibraryApi#get_multiple_bundles) | **POST** `/api/2/media/bundles/multiple` | 
@@ -619,6 +600,7 @@ Class | Method | HTTP request | Description
 *MediaLibraryApi* | [**update_subclip**](docs/MediaLibraryApi#update_subclip) | **PUT** `/api/2/media/{asset_id}/subclips/{id}` | 
 *MediaLibraryApi* | [**update_workflow**](docs/MediaLibraryApi#update_workflow) | **PUT** `/api/2/media/workflows/{id}` | 
 *MediaLibraryApi* | [**web_upload_completed**](docs/MediaLibraryApi#web_upload_completed) | **POST** `/api/2/media/web/upload-completed` | 
+*PrivateApi* | [**ai_metadata_serializer_stub**](docs/PrivateApi#ai_metadata_serializer_stub) | **GET** `/api/2/ai/metadata/stub` | 
 *PrivateApi* | [**check_one_fs_connection**](docs/PrivateApi#check_one_fs_connection) | **POST** `/api/2/private/onefs-integrations/check-connection` | 
 *PrivateApi* | [**check_pmr**](docs/PrivateApi#check_pmr) | **POST** `/api/2/panel/check-pmr` | 
 *PrivateApi* | [**cleanup_media_root**](docs/PrivateApi#cleanup_media_root) | **POST** `/api/2/media/root-cleanup` | 
@@ -716,6 +698,7 @@ Class | Method | HTTP request | Description
 *StorageApi* | [**get_user_quota**](docs/StorageApi#get_user_quota) | **GET** `/api/2/volumes/{id}/quotas/user/{user_id}` | 
 *StorageApi* | [**get_volume**](docs/StorageApi#get_volume) | **GET** `/api/2/volumes/{id}` | 
 *StorageApi* | [**get_volume_active_connections**](docs/StorageApi#get_volume_active_connections) | **GET** `/api/2/volumes/{id}/connections` | 
+*StorageApi* | [**get_volume_deletion_impact**](docs/StorageApi#get_volume_deletion_impact) | **GET** `/api/2/volumes/{id}/deletion-impact` | 
 *StorageApi* | [**get_volume_file_size_distribution**](docs/StorageApi#get_volume_file_size_distribution) | **GET** `/api/2/volumes/{id}/file-size-distribution` | 
 *StorageApi* | [**get_volume_stats**](docs/StorageApi#get_volume_stats) | **GET** `/api/2/volumes/{id}/stats` | 
 *StorageApi* | [**get_workspace**](docs/StorageApi#get_workspace) | **GET** `/api/2/workspaces/{id}` | 
@@ -794,29 +777,10 @@ Class | Method | HTTP request | Description
 
 ## Models
 
- - [AIAnnotation](docs/AIAnnotation)
  - [AICategoryMini](docs/AICategoryMini)
  - [AICombinedInferenceResult](docs/AICombinedInferenceResult)
- - [AIDataset](docs/AIDataset)
- - [AIDatasetExportRequest](docs/AIDatasetExportRequest)
- - [AIDatasetExportResponse](docs/AIDatasetExportResponse)
- - [AIDatasetReference](docs/AIDatasetReference)
- - [AIDatasetWithPreview](docs/AIDatasetWithPreview)
- - [AIDatasetWithPreviewPartialUpdate](docs/AIDatasetWithPreviewPartialUpdate)
- - [AIDatasetWithPreviewUpdate](docs/AIDatasetWithPreviewUpdate)
- - [AIImage](docs/AIImage)
  - [AIInferencePosition](docs/AIInferencePosition)
  - [AIMetadata](docs/AIMetadata)
- - [AIModel](docs/AIModel)
- - [AIModelExportRequest](docs/AIModelExportRequest)
- - [AIModelExportResponse](docs/AIModelExportResponse)
- - [AIModelInferenceRequest](docs/AIModelInferenceRequest)
- - [AIModelInferenceResponse](docs/AIModelInferenceResponse)
- - [AIModelPartialUpdate](docs/AIModelPartialUpdate)
- - [AIModelProgress](docs/AIModelProgress)
- - [AIModelTrainingRequest](docs/AIModelTrainingRequest)
- - [AIModelUpdate](docs/AIModelUpdate)
- - [AIProcessingRequest](docs/AIProcessingRequest)
  - [APIToken](docs/APIToken)
  - [APITokenPartialUpdate](docs/APITokenPartialUpdate)
  - [APITokenUpdate](docs/APITokenUpdate)
@@ -994,10 +958,6 @@ Class | Method | HTTP request | Description
  - [IOStat](docs/IOStat)
  - [ImageUploadRequest](docs/ImageUploadRequest)
  - [ImpersonationEndpointRequest](docs/ImpersonationEndpointRequest)
- - [ImportAIDatasetRequest](docs/ImportAIDatasetRequest)
- - [ImportAIDatasetResponse](docs/ImportAIDatasetResponse)
- - [ImportAIModelRequest](docs/ImportAIModelRequest)
- - [ImportAIModelResponse](docs/ImportAIModelResponse)
  - [ImportJobRequest](docs/ImportJobRequest)
  - [ImportJobResponse](docs/ImportJobResponse)
  - [InstallLicenseOfflineEndpointRequest](docs/InstallLicenseOfflineEndpointRequest)
@@ -1138,6 +1098,12 @@ Class | Method | HTTP request | Description
  - [ProxyGenerationInfoResponse](docs/ProxyGenerationInfoResponse)
  - [ProxyGenerator](docs/ProxyGenerator)
  - [ProxyGeneratorProperties](docs/ProxyGeneratorProperties)
+ - [ProxyPlaybackMetadata](docs/ProxyPlaybackMetadata)
+ - [ProxyPlaybackMetadataSourceTimecodeStart](docs/ProxyPlaybackMetadataSourceTimecodeStart)
+ - [ProxyPlaybackMetadataTiming](docs/ProxyPlaybackMetadataTiming)
+ - [ProxyPlaybackMetadataValidation](docs/ProxyPlaybackMetadataValidation)
+ - [ProxyPlaybackMetadataWarning](docs/ProxyPlaybackMetadataWarning)
+ - [ProxyPlaybackMetadataWarningDetails](docs/ProxyPlaybackMetadataWarningDetails)
  - [ProxyProfile](docs/ProxyProfile)
  - [ProxyProfileMini](docs/ProxyProfileMini)
  - [ProxyProfilePartialUpdate](docs/ProxyProfilePartialUpdate)
@@ -1320,6 +1286,7 @@ Class | Method | HTTP request | Description
  - [Volume](docs/Volume)
  - [VolumeBeeGFSStatus](docs/VolumeBeeGFSStatus)
  - [VolumeCephStatus](docs/VolumeCephStatus)
+ - [VolumeDeletionImpact](docs/VolumeDeletionImpact)
  - [VolumeMini](docs/VolumeMini)
  - [VolumeMiniWithCloudAccount](docs/VolumeMiniWithCloudAccount)
  - [VolumePartialUpdate](docs/VolumePartialUpdate)

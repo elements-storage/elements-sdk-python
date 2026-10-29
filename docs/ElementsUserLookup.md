@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
-**email** | **str, none_type** |  | 
+**email** | **str, none_type** |  | [readonly] 
 **username** | **str** |  | 
 **display_name** | **str** |  | [readonly] 
 **has_home** | **bool** |  | [readonly] 

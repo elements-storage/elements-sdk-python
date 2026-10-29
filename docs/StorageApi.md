@@ -49,6 +49,7 @@ Method | HTTP request | Description
 [**get_user_quota**](StorageApi.md#get_user_quota) | **GET** `/api/2/volumes/{id}/quotas/user/{user_id}` | 
 [**get_volume**](StorageApi.md#get_volume) | **GET** `/api/2/volumes/{id}` | 
 [**get_volume_active_connections**](StorageApi.md#get_volume_active_connections) | **GET** `/api/2/volumes/{id}/connections` | 
+[**get_volume_deletion_impact**](StorageApi.md#get_volume_deletion_impact) | **GET** `/api/2/volumes/{id}/deletion-impact` | 
 [**get_volume_file_size_distribution**](StorageApi.md#get_volume_file_size_distribution) | **GET** `/api/2/volumes/{id}/file-size-distribution` | 
 [**get_volume_stats**](StorageApi.md#get_volume_stats) | **GET** `/api/2/volumes/{id}/stats` | 
 [**get_workspace**](StorageApi.md#get_workspace) | **GET** `/api/2/workspaces/{id}` | 
@@ -985,7 +986,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) OR User account permission: `projects:view` (read) / `system:admin-access` (write) OR User account permission: `ltfs:restore` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) OR User account permission: `shares:view` (read) / `system:admin-access` (write) OR User account permission: `fs:fm` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -1507,7 +1508,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) OR User account permission: `projects:view` (read) / `system:admin-access` (write) OR User account permission: `ltfs:restore` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) OR User account permission: `shares:view` (read) / `system:admin-access` (write) OR User account permission: `fs:fm` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -1962,7 +1963,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) OR User account permission: `projects:view` (read) / `system:admin-access` (write) OR User account permission: `ltfs:restore` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) OR User account permission: `shares:view` (read) / `system:admin-access` (write) OR User account permission: `fs:fm` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -2574,11 +2575,13 @@ with elements_sdk.ApiClient(configuration) as api_client:
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
     limit = 1 # int | Number of results to return per page. (optional)
     offset = 1 # int | The initial index from which to return the results. (optional)
+    max_depth = 1 # int |  (optional)
+    bundle = True # bool |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_instance.get_root_directory(ordering=ordering, limit=limit, offset=offset)
+        api_instance.get_root_directory(ordering=ordering, limit=limit, offset=offset, max_depth=max_depth, bundle=bundle)
     except elements_sdk.ApiException as e:
         print("Exception when calling StorageApi->get_root_directory: %s\n" % e)
 ```
@@ -2591,6 +2594,8 @@ Name | Type | Description  | Notes
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
+ **max_depth** | **int**|  | [optional]
+ **bundle** | **bool**|  | [optional]
 
 ### Return type
 
@@ -2755,7 +2760,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) OR User account permission: `projects:view` (read) / `system:admin-access` (write) OR User account permission: `ltfs:restore` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) OR User account permission: `shares:view` (read) / `system:admin-access` (write) OR User account permission: `fs:fm` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -2857,6 +2862,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StorNextConnections**](StorNextConnections.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
+# **get_volume_deletion_impact**
+    def VolumeDeletionImpact get_volume_deletion_impact(id)
+
+
+
+### Required permissions    * User account permission: `system:status:view` 
+
+### Example
+
+
+```python
+import elements_sdk
+from elements_sdk.api import storage_api
+from elements_sdk.model.volume_deletion_impact import VolumeDeletionImpact
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local:8080",
+    discard_unknown_keys=True,
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+with elements_sdk.ApiClient(configuration) as api_client:
+    api_instance = storage_api.StorageApi(api_client)
+    id = 1 # int | A unique integer value identifying this volume.
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.get_volume_deletion_impact(id)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling StorageApi->get_volume_deletion_impact: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this volume. |
+
+### Return type
+
+[**VolumeDeletionImpact**](VolumeDeletionImpact.md)
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
@@ -3773,7 +3828,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) OR User account permission: `projects:view` (read) / `system:admin-access` (write) OR User account permission: `ltfs:restore` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) OR User account permission: `shares:view` (read) / `system:admin-access` (write) OR User account permission: `fs:fm` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -4324,7 +4379,7 @@ Name | Type | Description  | Notes
 
 
 
-Copy the given files and media bundles into the target user's home workspace inbox.  ### Required permissions    * Authenticated user 
+Copy the given files and media bundles into the target user's home workspace inbox.  ### Required permissions    * User account permission: `media:access` 
 
 ### Example
 
@@ -5029,7 +5084,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) OR User account permission: `projects:view` (read) / `system:admin-access` (write) OR User account permission: `ltfs:restore` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) OR User account permission: `shares:view` (read) / `system:admin-access` (write) OR User account permission: `fs:fm` (read) / `system:admin-access` (write) 
 
 ### Example
 

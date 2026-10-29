@@ -10673,7 +10673,7 @@ class MainApi(object):
     ):
         """create_cloud_account  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `projects:manage` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -11223,7 +11223,7 @@ class MainApi(object):
     ):
         """create_storage_node  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -11603,7 +11603,7 @@ class MainApi(object):
     ):
         """delete_cloud_account  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `projects:manage` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -12602,7 +12602,7 @@ class MainApi(object):
     ):
         """delete_storage_node  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -13308,7 +13308,7 @@ class MainApi(object):
     ):
         """get_all_cloud_accounts  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `projects:manage` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -13697,7 +13697,7 @@ class MainApi(object):
     ):
         """get_all_interfaces  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14158,7 +14158,7 @@ class MainApi(object):
     ):
         """get_all_storage_nodes  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14779,7 +14779,7 @@ class MainApi(object):
     ):
         """get_cloud_account  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `projects:manage` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -15090,7 +15090,7 @@ class MainApi(object):
     ):
         """get_current_node  # noqa: E501
 
-        Return the storage node that is serving this API request (the current node).  ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        Return the storage node that is serving this API request (the current node).  ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -15794,7 +15794,7 @@ class MainApi(object):
     ):
         """get_interface  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17935,7 +17935,7 @@ class MainApi(object):
     ):
         """get_storage_node  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -18560,7 +18560,7 @@ class MainApi(object):
     ):
         """patch_cloud_account  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `projects:manage` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -18641,7 +18641,7 @@ class MainApi(object):
     ):
         """patch_current_workstation  # noqa: E501
 
-        ### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write)   # noqa: E501
+        ### Required permissions    * Own workstation or Authenticated user   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -18966,7 +18966,7 @@ class MainApi(object):
     ):
         """patch_interface  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19536,7 +19536,7 @@ class MainApi(object):
     ):
         """patch_storage_node  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -21961,7 +21961,7 @@ class MainApi(object):
     ):
         """update_cloud_account  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `projects:manage` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -22289,7 +22289,7 @@ class MainApi(object):
     ):
         """update_interface  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -23327,7 +23327,7 @@ class MainApi(object):
     ):
         """update_storage_node  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

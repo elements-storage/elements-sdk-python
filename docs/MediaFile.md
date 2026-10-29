@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **is_bookmarked** | **bool, none_type** |  | [readonly] 
 **exclusion_info** | [**MediaFileExclusionInfo**](MediaFileExclusionInfo.md) |  | 
 **child_count** | **int, none_type** |  | [readonly] 
+**has_children** | **bool, none_type** |  | [readonly] 
+**has_subdirectories** | **bool, none_type** |  | [readonly] 
 **name** | **str** |  | [readonly] 
 **path** | **str** |  | [readonly] 
 **pathhash** | **str** |  | [readonly] 

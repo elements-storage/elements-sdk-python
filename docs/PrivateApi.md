@@ -4,6 +4,7 @@
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ai_metadata_serializer_stub**](PrivateApi.md#ai_metadata_serializer_stub) | **GET** `/api/2/ai/metadata/stub` | 
 [**check_one_fs_connection**](PrivateApi.md#check_one_fs_connection) | **POST** `/api/2/private/onefs-integrations/check-connection` | 
 [**check_pmr**](PrivateApi.md#check_pmr) | **POST** `/api/2/panel/check-pmr` | 
 [**cleanup_media_root**](PrivateApi.md#cleanup_media_root) | **POST** `/api/2/media/root-cleanup` | 
@@ -48,6 +49,50 @@ Method | HTTP request | Description
 [**update_one_fs_integration**](PrivateApi.md#update_one_fs_integration) | **PUT** `/api/2/private/onefs-integrations/{id}` | 
 [**update_qumulo_integration**](PrivateApi.md#update_qumulo_integration) | **PUT** `/api/2/private/qumulo-integrations/{id}` | 
 
+
+# **ai_metadata_serializer_stub**
+    def AICombinedInferenceResult ai_metadata_serializer_stub()
+
+
+
+### Example
+
+
+```python
+import elements_sdk
+from elements_sdk.api import private_api
+from elements_sdk.model.ai_combined_inference_result import AICombinedInferenceResult
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local:8080",
+    discard_unknown_keys=True,
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+with elements_sdk.ApiClient(configuration) as api_client:
+    api_instance = private_api.PrivateApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        api_response = api_instance.ai_metadata_serializer_stub()
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling PrivateApi->ai_metadata_serializer_stub: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AICombinedInferenceResult**](AICombinedInferenceResult.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
 # **check_one_fs_connection**
     def CheckOneFSConnectionResponse check_one_fs_connection(check_one_fs_connection_request)

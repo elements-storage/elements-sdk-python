@@ -127,6 +127,8 @@ class MediaFile(ModelNormal):
             'is_bookmarked': (bool, none_type,),  # noqa: E501
             'exclusion_info': (MediaFileExclusionInfo,),  # noqa: E501
             'child_count': (int, none_type,),  # noqa: E501
+            'has_children': (bool, none_type,),  # noqa: E501
+            'has_subdirectories': (bool, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'path': (str,),  # noqa: E501
             'pathhash': (str,),  # noqa: E501
@@ -169,6 +171,8 @@ class MediaFile(ModelNormal):
         'is_bookmarked': 'is_bookmarked',  # noqa: E501
         'exclusion_info': 'exclusion_info',  # noqa: E501
         'child_count': 'child_count',  # noqa: E501
+        'has_children': 'has_children',  # noqa: E501
+        'has_subdirectories': 'has_subdirectories',  # noqa: E501
         'name': 'name',  # noqa: E501
         'path': 'path',  # noqa: E501
         'pathhash': 'pathhash',  # noqa: E501
@@ -200,6 +204,8 @@ class MediaFile(ModelNormal):
         'is_hardlink',  # noqa: E501
         'is_bookmarked',  # noqa: E501
         'child_count',  # noqa: E501
+        'has_children',  # noqa: E501
+        'has_subdirectories',  # noqa: E501
         'name',  # noqa: E501
         'path',  # noqa: E501
         'pathhash',  # noqa: E501
@@ -224,7 +230,7 @@ class MediaFile(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, volume, info, custom_fields, full_path, path_permissions, is_shared, is_hardlink, is_bookmarked, exclusion_info, child_count, name, path, pathhash, ancestry, is_dir, total_files, size, mtime, present, archived, needs_rescan, is_showroom, bundle_index, modified, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, volume, info, custom_fields, full_path, path_permissions, is_shared, is_hardlink, is_bookmarked, exclusion_info, child_count, has_children, has_subdirectories, name, path, pathhash, ancestry, is_dir, total_files, size, mtime, present, archived, needs_rescan, is_showroom, bundle_index, modified, *args, **xkwargs):  # noqa: E501
         """MediaFile - a model defined in OpenAPI
 
         Args:
@@ -239,6 +245,8 @@ class MediaFile(ModelNormal):
             is_bookmarked (bool, none_type):
             exclusion_info (MediaFileExclusionInfo):
             child_count (int, none_type):
+            has_children (bool, none_type):
+            has_subdirectories (bool, none_type):
             name (str):
             path (str):
             pathhash (str):
@@ -333,6 +341,8 @@ class MediaFile(ModelNormal):
         self.is_bookmarked = is_bookmarked
         self.exclusion_info = exclusion_info
         self.child_count = child_count
+        self.has_children = has_children
+        self.has_subdirectories = has_subdirectories
         self.name = name
         self.path = path
         self.pathhash = pathhash

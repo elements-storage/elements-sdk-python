@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **thumbnail_generated** | **bool** |  | [readonly] 
 **workflow_state** | **int** |  | 
 **is_temporary** | **bool** |  | [readonly] 
+**is_growing** | **bool** |  | [readonly] 
 **created** | **datetime** |  | [readonly] 
 **modified** | **datetime** |  | [readonly] 
 **timecode** | **float, none_type** |  | 

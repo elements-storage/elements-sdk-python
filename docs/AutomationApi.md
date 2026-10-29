@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+### Required permissions    * User account permission: `tasks:manage`   * Requires special configuration 
 
 ### Example
 
@@ -608,7 +608,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+### Required permissions    * User account permission: `tasks:manage`   * Requires special configuration 
 
 ### Example
 
@@ -1028,7 +1028,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+### Required permissions    * User account permission: `tasks:manage`   * Requires special configuration 
 
 ### Example
 
@@ -1696,7 +1696,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+### Required permissions    * User account permission: `tasks:manage`   * Requires special configuration 
 
 ### Example
 
@@ -2596,7 +2596,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+### Required permissions    * User account permission: `tasks:manage`   * Requires special configuration 
 
 ### Example
 
@@ -3123,7 +3123,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `tasks:manage` 
+### Required permissions    * User account permission: `tasks:manage`   * Requires special configuration 
 
 ### Example
 

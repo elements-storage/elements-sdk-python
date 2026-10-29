@@ -3708,7 +3708,7 @@ class AutomationApi(object):
     ):
         """create_job_fs_trigger  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `tasks:manage`   * Requires special configuration   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4093,7 +4093,7 @@ class AutomationApi(object):
     ):
         """delete_job_fs_trigger  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `tasks:manage`   * Requires special configuration   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4724,7 +4724,7 @@ class AutomationApi(object):
     ):
         """get_all_job_fs_triggers  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `tasks:manage`   * Requires special configuration   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5602,7 +5602,7 @@ class AutomationApi(object):
     ):
         """get_job_fs_trigger  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `tasks:manage`   * Requires special configuration   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -6793,7 +6793,7 @@ class AutomationApi(object):
     ):
         """patch_job_fs_trigger  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `tasks:manage`   * Requires special configuration   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -7441,7 +7441,7 @@ class AutomationApi(object):
     ):
         """update_job_fs_trigger  # noqa: E501
 
-        ### Required permissions    * User account permission: `tasks:manage`   # noqa: E501
+        ### Required permissions    * User account permission: `tasks:manage`   * Requires special configuration   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

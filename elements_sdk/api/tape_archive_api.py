@@ -2157,7 +2157,7 @@ class TapeArchiveApi(object):
     ):
         """cancel_all_tape_archive_jobs  # noqa: E501
 
-        Cancel every tape archive job that is currently queued or running.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        Cancel every tape archive job that is currently queued or running.  ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2231,7 +2231,7 @@ class TapeArchiveApi(object):
     ):
         """cancel_tape_archive_job  # noqa: E501
 
-        Cancel this tape archive job, stopping it if it is currently running.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        Cancel this tape archive job, stopping it if it is currently running.  ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2387,7 +2387,7 @@ class TapeArchiveApi(object):
     ):
         """create_tape  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2465,7 +2465,7 @@ class TapeArchiveApi(object):
     ):
         """create_tape_group  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2543,7 +2543,7 @@ class TapeArchiveApi(object):
     ):
         """delete_tape  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2621,7 +2621,7 @@ class TapeArchiveApi(object):
     ):
         """delete_tape_archive_job  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2699,7 +2699,7 @@ class TapeArchiveApi(object):
     ):
         """delete_tape_group  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2777,7 +2777,7 @@ class TapeArchiveApi(object):
     ):
         """download_tape_archive_job_log  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3014,7 +3014,7 @@ class TapeArchiveApi(object):
     ):
         """get_all_tape_archive_jobs  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3090,7 +3090,7 @@ class TapeArchiveApi(object):
     ):
         """get_all_tape_groups  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3168,7 +3168,7 @@ class TapeArchiveApi(object):
     ):
         """get_all_tapes  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3327,7 +3327,7 @@ class TapeArchiveApi(object):
     ):
         """get_tape  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3405,7 +3405,7 @@ class TapeArchiveApi(object):
     ):
         """get_tape_archive_job  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3483,7 +3483,7 @@ class TapeArchiveApi(object):
     ):
         """get_tape_archive_job_log  # noqa: E501
 
-        Download the log output of this tape archive job.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        Download the log output of this tape archive job.  ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3562,7 +3562,7 @@ class TapeArchiveApi(object):
     ):
         """get_tape_archive_job_sources  # noqa: E501
 
-        List the source paths that this tape archive job copies.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        List the source paths that this tape archive job copies.  ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3640,7 +3640,7 @@ class TapeArchiveApi(object):
     ):
         """get_tape_group  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3948,7 +3948,7 @@ class TapeArchiveApi(object):
     ):
         """patch_tape  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4030,7 +4030,7 @@ class TapeArchiveApi(object):
     ):
         """patch_tape_group  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4111,7 +4111,7 @@ class TapeArchiveApi(object):
     ):
         """pause_tape_archive_job  # noqa: E501
 
-        Pause this running tape archive job; resume it later with resumeTapeArchiveJob.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        Pause this running tape archive job; resume it later with resumeTapeArchiveJob.  ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4339,7 +4339,7 @@ class TapeArchiveApi(object):
     ):
         """remove_finished_tape_archive_jobs  # noqa: E501
 
-        Remove all finished tape archive jobs from the job list.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        Remove all finished tape archive jobs from the job list.  ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4413,7 +4413,7 @@ class TapeArchiveApi(object):
     ):
         """restart_tape_archive_job  # noqa: E501
 
-        Restart this tape archive job from the beginning.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        Restart this tape archive job from the beginning.  ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4569,7 +4569,7 @@ class TapeArchiveApi(object):
     ):
         """resume_tape_archive_job  # noqa: E501
 
-        Resume this paused tape archive job.  ### Required permissions    * User account permission: `None` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
+        Resume this paused tape archive job.  ### Required permissions    * User account permission: `ltfs:manage` OR User account permission: `ltfs:search` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:manage` (write) OR User account permission: `ltfs:tapegroups:manage` (read) / `ltfs:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4804,7 +4804,7 @@ class TapeArchiveApi(object):
     ):
         """update_tape  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4886,7 +4886,7 @@ class TapeArchiveApi(object):
     ):
         """update_tape_group  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
+        ### Required permissions    * User account permission: `ltfs:tapegroups:manage` OR User account permission: `ltfs:search` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:backup` (read) / `ltfs:tapegroups:manage` (write) OR User account permission: `ltfs:manage` (read) / `ltfs:tapegroups:manage` (write)   * License component: ltfs   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

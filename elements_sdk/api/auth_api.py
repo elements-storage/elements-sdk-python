@@ -692,6 +692,90 @@ class AuthApi(object):
             },
             api_client=api_client
         )
+        self.get_access_tokens_for_shared_object_endpoint = _Endpoint(
+            settings={
+                'response_type': ([OneTimeAccessToken],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/auth/access-tokens/for-shared-object',
+                'operation_id': 'get_access_tokens_for_shared_object',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'shared_bundles',
+                    'shared_directories',
+                    'shared_bundles__asset',
+                    'user',
+                    'created_by',
+                    'ordering',
+                    'limit',
+                    'offset',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'shared_bundles':
+                        (str,),
+                    'shared_directories':
+                        (str,),
+                    'shared_bundles__asset':
+                        (int,),
+                    'user':
+                        (int,),
+                    'created_by':
+                        (int,),
+                    'ordering':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'shared_bundles': 'shared_bundles',
+                    'shared_directories': 'shared_directories',
+                    'shared_bundles__asset': 'shared_bundles__asset',
+                    'user': 'user',
+                    'created_by': 'created_by',
+                    'ordering': 'ordering',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'shared_bundles': 'query',
+                    'shared_directories': 'query',
+                    'shared_bundles__asset': 'query',
+                    'user': 'query',
+                    'created_by': 'query',
+                    'ordering': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_all_access_tokens_endpoint = _Endpoint(
             settings={
                 'response_type': ([OneTimeAccessToken],),
@@ -2115,7 +2199,7 @@ class AuthApi(object):
     ):
         """create_saml_provider  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2193,7 +2277,7 @@ class AuthApi(object):
     ):
         """delete_access_token  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        ### Required permissions    * Authenticated user   * owned token OR User account permission: `users:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2349,7 +2433,7 @@ class AuthApi(object):
     ):
         """delete_saml_provider  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2578,7 +2662,7 @@ class AuthApi(object):
     ):
         """get_access_token  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        ### Required permissions    * Authenticated user   * owned token OR User account permission: `users:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2742,7 +2826,7 @@ class AuthApi(object):
     ):
         """get_access_token_media_library_permissions  # noqa: E501
 
-        List the Media Library permissions granted by this sharing link.  ### Required permissions    * Authenticated user   # noqa: E501
+        List the Media Library permissions granted by this sharing link.  ### Required permissions    * Authenticated user   * owned token OR User account permission: `users:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2813,13 +2897,94 @@ class AuthApi(object):
             id
         return self.get_access_token_media_library_permissions_endpoint.call_with_http_info(**kwargs)
 
+    def get_access_tokens_for_shared_object(
+        self,
+        **kwargs
+    ):
+        """get_access_tokens_for_shared_object  # noqa: E501
+
+        List the sharing links for one asset (`shared_bundles__asset`) or directory (`shared_directories`): all of them with `users:view`, otherwise only the ones the current user created.  ### Required permissions    * Authenticated user   * owned token OR User account permission: `users:view`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_access_tokens_for_shared_object(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            shared_bundles (str): Filter the returned list by `shared_bundles` (exact match).. [optional]
+            shared_directories (str): Filter the returned list by `shared_directories` (exact match).. [optional]
+            shared_bundles__asset (int): Filter the returned list by `shared_bundles__asset` (exact match).. [optional]
+            user (int): Filter the returned list by `user` (exact match).. [optional]
+            created_by (int): Filter the returned list by `created_by` (exact match).. [optional]
+            ordering (str): Which field to use when ordering the results.. [optional]
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [OneTimeAccessToken]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.get_access_tokens_for_shared_object_endpoint.call_with_http_info(**kwargs)
+
     def get_all_access_tokens(
         self,
         **kwargs
     ):
         """get_all_access_tokens  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        ### Required permissions    * Authenticated user   * owned token OR User account permission: `users:view`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2977,7 +3142,7 @@ class AuthApi(object):
     ):
         """get_all_saml_providers  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3132,7 +3297,7 @@ class AuthApi(object):
     ):
         """get_saml_provider  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3669,7 +3834,7 @@ class AuthApi(object):
     ):
         """patch_saml_provider  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4141,7 +4306,7 @@ class AuthApi(object):
     ):
         """send_access_token_email_notification  # noqa: E501
 
-        ### Required permissions    * Authenticated user   # noqa: E501
+        ### Required permissions    * Authenticated user   * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4459,7 +4624,7 @@ class AuthApi(object):
     ):
         """update_saml_provider  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

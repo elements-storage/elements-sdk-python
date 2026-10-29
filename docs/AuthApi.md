@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**get_access_token**](AuthApi.md#get_access_token) | **GET** `/api/2/auth/access-tokens/{id}` | 
 [**get_access_token_by_value**](AuthApi.md#get_access_token_by_value) | **GET** `/api/2/auth/access-tokens/get/{token}` | 
 [**get_access_token_media_library_permissions**](AuthApi.md#get_access_token_media_library_permissions) | **GET** `/api/2/auth/access-tokens/{id}/permissions` | 
+[**get_access_tokens_for_shared_object**](AuthApi.md#get_access_tokens_for_shared_object) | **GET** `/api/2/auth/access-tokens/for-shared-object` | 
 [**get_all_access_tokens**](AuthApi.md#get_all_access_tokens) | **GET** `/api/2/auth/access-tokens` | 
 [**get_all_api_tokens**](AuthApi.md#get_all_api_tokens) | **GET** `/api/2/api-tokens` | 
 [**get_all_saml_providers**](AuthApi.md#get_all_saml_providers) | **GET** `/api/2/auth/saml` | 
@@ -196,7 +197,7 @@ This endpoint does not need any parameter.
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -261,7 +262,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+### Required permissions    * Authenticated user   * owned token OR User account permission: `users:view` 
 
 ### Example
 
@@ -357,7 +358,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -517,7 +518,7 @@ This endpoint does not need any parameter.
 
 
 
-### Required permissions    * Authenticated user 
+### Required permissions    * Authenticated user   * owned token OR User account permission: `users:view` 
 
 ### Example
 
@@ -641,7 +642,7 @@ Name | Type | Description  | Notes
 
 
 
-List the Media Library permissions granted by this sharing link.  ### Required permissions    * Authenticated user 
+List the Media Library permissions granted by this sharing link.  ### Required permissions    * Authenticated user   * owned token OR User account permission: `users:view` 
 
 ### Example
 
@@ -686,12 +687,77 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **get_access_tokens_for_shared_object**
+    def [OneTimeAccessToken] get_access_tokens_for_shared_object()
+
+
+
+List the sharing links for one asset (`shared_bundles__asset`) or directory (`shared_directories`): all of them with `users:view`, otherwise only the ones the current user created.  ### Required permissions    * Authenticated user   * owned token OR User account permission: `users:view` 
+
+### Example
+
+
+```python
+import elements_sdk
+from elements_sdk.api import auth_api
+from elements_sdk.model.one_time_access_token import OneTimeAccessToken
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local:8080",
+    discard_unknown_keys=True,
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+with elements_sdk.ApiClient(configuration) as api_client:
+    api_instance = auth_api.AuthApi(api_client)
+    shared_bundles = "shared_bundles_example" # str | Filter the returned list by `shared_bundles` (exact match). (optional)
+    shared_directories = "shared_directories_example" # str | Filter the returned list by `shared_directories` (exact match). (optional)
+    shared_bundles__asset = 1 # int | Filter the returned list by `shared_bundles__asset` (exact match). (optional)
+    user = 1 # int | Filter the returned list by `user` (exact match). (optional)
+    created_by = 1 # int | Filter the returned list by `created_by` (exact match). (optional)
+    ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.get_access_tokens_for_shared_object(shared_bundles=shared_bundles, shared_directories=shared_directories, shared_bundles__asset=shared_bundles__asset, user=user, created_by=created_by, ordering=ordering, limit=limit, offset=offset)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling AuthApi->get_access_tokens_for_shared_object: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **shared_bundles** | **str**| Filter the returned list by &#x60;shared_bundles&#x60; (exact match). | [optional]
+ **shared_directories** | **str**| Filter the returned list by &#x60;shared_directories&#x60; (exact match). | [optional]
+ **shared_bundles__asset** | **int**| Filter the returned list by &#x60;shared_bundles__asset&#x60; (exact match). | [optional]
+ **user** | **int**| Filter the returned list by &#x60;user&#x60; (exact match). | [optional]
+ **created_by** | **int**| Filter the returned list by &#x60;created_by&#x60; (exact match). | [optional]
+ **ordering** | **str**| Which field to use when ordering the results. | [optional]
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
+
+### Return type
+
+[**[OneTimeAccessToken]**](OneTimeAccessToken.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
 # **get_all_access_tokens**
     def [OneTimeAccessToken] get_all_access_tokens()
 
 
 
-### Required permissions    * Authenticated user 
+### Required permissions    * Authenticated user   * owned token OR User account permission: `users:view` 
 
 ### Example
 
@@ -813,7 +879,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -918,7 +984,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -1260,7 +1326,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -1570,7 +1636,7 @@ void (empty response body)
 
 
 
-### Required permissions    * Authenticated user 
+### Required permissions    * Authenticated user   * User account permission: `media:access` 
 
 ### Example
 
@@ -1772,7 +1838,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) 
 
 ### Example
 

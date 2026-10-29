@@ -58,8 +58,10 @@ class AICategoryMini(ModelNormal):
     }
 
     validations = {
+        ('id',): {
+            'min_length': 1,
+        },
         ('name',): {
-            'max_length': 255,
             'min_length': 1,
         },
     }

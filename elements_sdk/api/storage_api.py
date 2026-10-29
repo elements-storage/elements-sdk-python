@@ -58,6 +58,7 @@ from elements_sdk.model.task_info import TaskInfo
 from elements_sdk.model.update_quota_request import UpdateQuotaRequest
 from elements_sdk.model.updated_file import UpdatedFile
 from elements_sdk.model.volume import Volume
+from elements_sdk.model.volume_deletion_impact import VolumeDeletionImpact
 from elements_sdk.model.volume_partial_update import VolumePartialUpdate
 from elements_sdk.model.volume_stats import VolumeStats
 from elements_sdk.model.volume_update import VolumeUpdate
@@ -2618,6 +2619,8 @@ class StorageApi(object):
                     'ordering',
                     'limit',
                     'offset',
+                    'max_depth',
+                    'bundle',
                 ],
                 'required': [],
                 'nullable': [
@@ -2639,16 +2642,24 @@ class StorageApi(object):
                         (int,),
                     'offset':
                         (int,),
+                    'max_depth':
+                        (int,),
+                    'bundle':
+                        (bool,),
                 },
                 'attribute_map': {
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
+                    'max_depth': 'max_depth',
+                    'bundle': 'bundle',
                 },
                 'location_map': {
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                    'max_depth': 'query',
+                    'bundle': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -2884,6 +2895,57 @@ class StorageApi(object):
                 ],
                 'endpoint_path': '/api/2/volumes/{id}/connections',
                 'operation_id': 'get_volume_active_connections',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_volume_deletion_impact_endpoint = _Endpoint(
+            settings={
+                'response_type': (VolumeDeletionImpact,),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/volumes/{id}/deletion-impact',
+                'operation_id': 'get_volume_deletion_impact',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -6025,7 +6087,7 @@ class StorageApi(object):
     ):
         """create_volume  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) OR User account permission: `projects:view` (read) / `system:admin-access` (write) OR User account permission: `ltfs:restore` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) OR User account permission: `shares:view` (read) / `system:admin-access` (write) OR User account permission: `fs:fm` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -6731,7 +6793,7 @@ class StorageApi(object):
     ):
         """delete_volume  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) OR User account permission: `projects:view` (read) / `system:admin-access` (write) OR User account permission: `ltfs:restore` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) OR User account permission: `shares:view` (read) / `system:admin-access` (write) OR User account permission: `fs:fm` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -7363,7 +7425,7 @@ class StorageApi(object):
     ):
         """get_all_volumes  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) OR User account permission: `projects:view` (read) / `system:admin-access` (write) OR User account permission: `ltfs:restore` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) OR User account permission: `shares:view` (read) / `system:admin-access` (write) OR User account permission: `fs:fm` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -8121,6 +8183,8 @@ class StorageApi(object):
             ordering (str): Which field to use when ordering the results.. [optional]
             limit (int): Number of results to return per page.. [optional]
             offset (int): The initial index from which to return the results.. [optional]
+            max_depth (int): [optional]
+            bundle (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -8424,7 +8488,7 @@ class StorageApi(object):
     ):
         """get_volume  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) OR User account permission: `projects:view` (read) / `system:admin-access` (write) OR User account permission: `ltfs:restore` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) OR User account permission: `shares:view` (read) / `system:admin-access` (write) OR User account permission: `fs:fm` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -8573,6 +8637,84 @@ class StorageApi(object):
         kwargs['id'] = \
             id
         return self.get_volume_active_connections_endpoint.call_with_http_info(**kwargs)
+
+    def get_volume_deletion_impact(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_volume_deletion_impact  # noqa: E501
+
+        ### Required permissions    * User account permission: `system:status:view`   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_volume_deletion_impact(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this volume.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            VolumeDeletionImpact
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_volume_deletion_impact_endpoint.call_with_http_info(**kwargs)
 
     def get_volume_file_size_distribution(
         self,
@@ -9622,7 +9764,7 @@ class StorageApi(object):
     ):
         """patch_volume  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) OR User account permission: `projects:view` (read) / `system:admin-access` (write) OR User account permission: `ltfs:restore` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) OR User account permission: `shares:view` (read) / `system:admin-access` (write) OR User account permission: `fs:fm` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -10343,7 +10485,7 @@ class StorageApi(object):
     ):
         """share_to_home_workspace  # noqa: E501
 
-        Copy the given files and media bundles into the target user's home workspace inbox.  ### Required permissions    * Authenticated user   # noqa: E501
+        Copy the given files and media bundles into the target user's home workspace inbox.  ### Required permissions    * User account permission: `media:access`   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -11164,7 +11306,7 @@ class StorageApi(object):
     ):
         """update_volume  # noqa: E501
 
-        ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write)   # noqa: E501
+        ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `users:view` (read) / `system:admin-access` (write) OR User account permission: `projects:view` (read) / `system:admin-access` (write) OR User account permission: `ltfs:restore` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) OR User account permission: `shares:view` (read) / `system:admin-access` (write) OR User account permission: `fs:fm` (read) / `system:admin-access` (write)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

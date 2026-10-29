@@ -132,6 +132,8 @@ class MediaFileReference(ModelNormal):
             'is_bookmarked': (bool, none_type,),  # noqa: E501
             'exclusion_info': (MediaFileExclusionInfo,),  # noqa: E501
             'child_count': (int, none_type,),  # noqa: E501
+            'has_children': (bool, none_type,),  # noqa: E501
+            'has_subdirectories': (bool, none_type,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'path': (str,),  # noqa: E501
             'pathhash': (str,),  # noqa: E501
@@ -174,6 +176,8 @@ class MediaFileReference(ModelNormal):
         'is_bookmarked': 'is_bookmarked',  # noqa: E501
         'exclusion_info': 'exclusion_info',  # noqa: E501
         'child_count': 'child_count',  # noqa: E501
+        'has_children': 'has_children',  # noqa: E501
+        'has_subdirectories': 'has_subdirectories',  # noqa: E501
         'name': 'name',  # noqa: E501
         'path': 'path',  # noqa: E501
         'pathhash': 'pathhash',  # noqa: E501
@@ -204,6 +208,8 @@ class MediaFileReference(ModelNormal):
         'is_hardlink',  # noqa: E501
         'is_bookmarked',  # noqa: E501
         'child_count',  # noqa: E501
+        'has_children',  # noqa: E501
+        'has_subdirectories',  # noqa: E501
         'name',  # noqa: E501
         'path',  # noqa: E501
         'pathhash',  # noqa: E501
@@ -280,6 +286,8 @@ class MediaFileReference(ModelNormal):
             is_bookmarked (bool, none_type): [optional]  # noqa: E501
             exclusion_info (MediaFileExclusionInfo): [optional]  # noqa: E501
             child_count (int, none_type): [optional]  # noqa: E501
+            has_children (bool, none_type): [optional]  # noqa: E501
+            has_subdirectories (bool, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
             pathhash (str): [optional]  # noqa: E501
@@ -400,6 +408,8 @@ class MediaFileReference(ModelNormal):
             is_bookmarked (bool, none_type): [optional]  # noqa: E501
             exclusion_info (MediaFileExclusionInfo): [optional]  # noqa: E501
             child_count (int, none_type): [optional]  # noqa: E501
+            has_children (bool, none_type): [optional]  # noqa: E501
+            has_subdirectories (bool, none_type): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             path (str): [optional]  # noqa: E501
             pathhash (str): [optional]  # noqa: E501

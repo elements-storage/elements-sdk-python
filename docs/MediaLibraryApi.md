@@ -136,6 +136,7 @@ Method | HTTP request | Description
 [**get_media_root_cover_image**](MediaLibraryApi.md#get_media_root_cover_image) | **GET** `/api/2/media/roots/{id}/cover` | 
 [**get_media_root_permission**](MediaLibraryApi.md#get_media_root_permission) | **GET** `/api/2/media/root-permissions/{id}` | 
 [**get_media_root_users**](MediaLibraryApi.md#get_media_root_users) | **GET** `/api/2/media/roots/{id}/users` | 
+[**get_media_subdirectories**](MediaLibraryApi.md#get_media_subdirectories) | **GET** `/api/2/media/files/{id}/subdirectories` | 
 [**get_media_tag**](MediaLibraryApi.md#get_media_tag) | **GET** `/api/2/media/tags/{id}` | 
 [**get_multiple_assets**](MediaLibraryApi.md#get_multiple_assets) | **POST** `/api/2/media/assets/multiple` | 
 [**get_multiple_bundles**](MediaLibraryApi.md#get_multiple_bundles) | **POST** `/api/2/media/bundles/multiple` | 
@@ -742,6 +743,41 @@ with elements_sdk.ApiClient(configuration) as api_client:
                             1,
                         ],
                     ],
+                ),
+                playback_metadata=ProxyPlaybackMetadata(
+                    timing=ProxyPlaybackMetadataTiming(
+                        fps_numerator=1,
+                        fps_denominator=1,
+                        frame_count=1,
+                        proxy_timeline_start=3.14,
+                        source_timecode_start=ProxyPlaybackMetadataSourceTimecodeStart(
+                            frame=1,
+                            seconds=3.14,
+                            format="format_example",
+                            text="text_example",
+                        ),
+                        video_track_timescale=1,
+                        frame_duration_ticks=1,
+                        tolerance_seconds=3.14,
+                    ),
+                    validation=ProxyPlaybackMetadataValidation(
+                        valid=True,
+                        warnings=[
+                            ProxyPlaybackMetadataWarning(
+                                code="code_example",
+                                message="message_example",
+                                details=ProxyPlaybackMetadataWarningDetails(
+                                    error="error_example",
+                                    expected=1,
+                                    actual=1,
+                                    expected_value="expected_value_example",
+                                    actual_value="actual_value_example",
+                                    frame_duration_ticks=3.14,
+                                    value="value_example",
+                                ),
+                            ),
+                        ],
+                    ),
                 ),
                 generated_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
                 failed=True,
@@ -2107,6 +2143,41 @@ with elements_sdk.ApiClient(configuration) as api_client:
                             ],
                         ],
                     ),
+                    playback_metadata=ProxyPlaybackMetadata(
+                        timing=ProxyPlaybackMetadataTiming(
+                            fps_numerator=1,
+                            fps_denominator=1,
+                            frame_count=1,
+                            proxy_timeline_start=3.14,
+                            source_timecode_start=ProxyPlaybackMetadataSourceTimecodeStart(
+                                frame=1,
+                                seconds=3.14,
+                                format="format_example",
+                                text="text_example",
+                            ),
+                            video_track_timescale=1,
+                            frame_duration_ticks=1,
+                            tolerance_seconds=3.14,
+                        ),
+                        validation=ProxyPlaybackMetadataValidation(
+                            valid=True,
+                            warnings=[
+                                ProxyPlaybackMetadataWarning(
+                                    code="code_example",
+                                    message="message_example",
+                                    details=ProxyPlaybackMetadataWarningDetails(
+                                        error="error_example",
+                                        expected=1,
+                                        actual=1,
+                                        expected_value="expected_value_example",
+                                        actual_value="actual_value_example",
+                                        frame_duration_ticks=3.14,
+                                        value="value_example",
+                                    ),
+                                ),
+                            ],
+                        ),
+                    ),
                     generated_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
                     failed=True,
                     failed_count=-2147483648,
@@ -2222,6 +2293,41 @@ with elements_sdk.ApiClient(configuration) as api_client:
                             1,
                         ],
                     ],
+                ),
+                playback_metadata=ProxyPlaybackMetadata(
+                    timing=ProxyPlaybackMetadataTiming(
+                        fps_numerator=1,
+                        fps_denominator=1,
+                        frame_count=1,
+                        proxy_timeline_start=3.14,
+                        source_timecode_start=ProxyPlaybackMetadataSourceTimecodeStart(
+                            frame=1,
+                            seconds=3.14,
+                            format="format_example",
+                            text="text_example",
+                        ),
+                        video_track_timescale=1,
+                        frame_duration_ticks=1,
+                        tolerance_seconds=3.14,
+                    ),
+                    validation=ProxyPlaybackMetadataValidation(
+                        valid=True,
+                        warnings=[
+                            ProxyPlaybackMetadataWarning(
+                                code="code_example",
+                                message="message_example",
+                                details=ProxyPlaybackMetadataWarningDetails(
+                                    error="error_example",
+                                    expected=1,
+                                    actual=1,
+                                    expected_value="expected_value_example",
+                                    actual_value="actual_value_example",
+                                    frame_duration_ticks=3.14,
+                                    value="value_example",
+                                ),
+                            ),
+                        ],
+                    ),
                 ),
                 generated_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
                 failed=True,
@@ -4861,8 +4967,19 @@ with elements_sdk.ApiClient(configuration) as api_client:
     shared_via_tokens__token = "shared_via_tokens__token_example" # str | Filter the returned list by `shared_via_tokens__token` (exact match). (optional)
     name = "name_example" # str | Filter the returned list by `name` (exact match). (optional)
     ordering = "ordering_example" # str | Which field to use when ordering the results. (optional)
-    limit = 1 # int | Number of results to return per page. (optional)
-    offset = 1 # int | The initial index from which to return the results. (optional)
+    limit = 1 # int |  (optional)
+    offset = 1 # int |  (optional)
+    include_deleted = True # bool |  (optional)
+    include_deleted_and_archived = True # bool |  (optional)
+    include_unrecognized = True # bool |  (optional)
+    include_proxies = True # bool |  (optional)
+    include_parents = True # bool |  (optional)
+    include_modified_by = True # bool |  (optional)
+    advanced_search = "advanced_search_example" # str |  (optional)
+    in_media_root = 1 # int | Only applies to searching - limits results to a Media Root (optional)
+    in_directory = 1 # int | Only applies to searching - limits results to a directory (optional)
+    for_root = 1 # int | Additionally filters nested metadata (e.g. comments) by a Media Root (optional)
+    resolve_asset_permission = True # bool |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -4874,7 +4991,7 @@ with elements_sdk.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.get_all_bundles_for_media_root(root, asset=asset, location=location, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, name=name, ordering=ordering, limit=limit, offset=offset)
+        api_response = api_instance.get_all_bundles_for_media_root(root, asset=asset, location=location, shared_via_tokens=shared_via_tokens, shared_via_tokens__token=shared_via_tokens__token, name=name, ordering=ordering, limit=limit, offset=offset, include_deleted=include_deleted, include_deleted_and_archived=include_deleted_and_archived, include_unrecognized=include_unrecognized, include_proxies=include_proxies, include_parents=include_parents, include_modified_by=include_modified_by, advanced_search=advanced_search, in_media_root=in_media_root, in_directory=in_directory, for_root=for_root, resolve_asset_permission=resolve_asset_permission)
         pprint(api_response)
     except elements_sdk.ApiException as e:
         print("Exception when calling MediaLibraryApi->get_all_bundles_for_media_root: %s\n" % e)
@@ -4892,8 +5009,19 @@ Name | Type | Description  | Notes
  **shared_via_tokens__token** | **str**| Filter the returned list by &#x60;shared_via_tokens__token&#x60; (exact match). | [optional]
  **name** | **str**| Filter the returned list by &#x60;name&#x60; (exact match). | [optional]
  **ordering** | **str**| Which field to use when ordering the results. | [optional]
- **limit** | **int**| Number of results to return per page. | [optional]
- **offset** | **int**| The initial index from which to return the results. | [optional]
+ **limit** | **int**|  | [optional]
+ **offset** | **int**|  | [optional]
+ **include_deleted** | **bool**|  | [optional]
+ **include_deleted_and_archived** | **bool**|  | [optional]
+ **include_unrecognized** | **bool**|  | [optional]
+ **include_proxies** | **bool**|  | [optional]
+ **include_parents** | **bool**|  | [optional]
+ **include_modified_by** | **bool**|  | [optional]
+ **advanced_search** | **str**|  | [optional]
+ **in_media_root** | **int**| Only applies to searching - limits results to a Media Root | [optional]
+ **in_directory** | **int**| Only applies to searching - limits results to a directory | [optional]
+ **for_root** | **int**| Additionally filters nested metadata (e.g. comments) by a Media Root | [optional]
+ **resolve_asset_permission** | **bool**|  | [optional]
 
 ### Return type
 
@@ -8431,6 +8559,78 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
 
+# **get_media_subdirectories**
+    def [MediaFile] get_media_subdirectories(id)
+
+
+
+List the direct child subdirectories of a media directory, without bundles  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions 
+
+### Example
+
+
+```python
+import elements_sdk
+from elements_sdk.api import media_library_api
+from elements_sdk.model.media_file import MediaFile
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+configuration = elements_sdk.Configuration(
+    host="https://elements.local:8080",
+    discard_unknown_keys=True,
+)
+
+configuration.client_side_validation = False
+configuration.api_key['Bearer'] = 'Bearer your-api-token-here'
+
+with elements_sdk.ApiClient(configuration) as api_client:
+    api_instance = media_library_api.MediaLibraryApi(api_client)
+    id = 1 # int | A unique integer value identifying this File.
+    limit = 1 # int | Number of results to return per page. (optional)
+    offset = 1 # int | The initial index from which to return the results. (optional)
+    include_deleted = True # bool |  (optional)
+    include_deleted_and_archived = True # bool |  (optional)
+    include_unrecognized = True # bool |  (optional)
+    ordering = "ordering_example" # str |  (optional)
+    include_modified_by = True # bool |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.get_media_subdirectories(id)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_media_subdirectories: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.get_media_subdirectories(id, limit=limit, offset=offset, include_deleted=include_deleted, include_deleted_and_archived=include_deleted_and_archived, include_unrecognized=include_unrecognized, ordering=ordering, include_modified_by=include_modified_by)
+        pprint(api_response)
+    except elements_sdk.ApiException as e:
+        print("Exception when calling MediaLibraryApi->get_media_subdirectories: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this File. |
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
+ **include_deleted** | **bool**|  | [optional]
+ **include_deleted_and_archived** | **bool**|  | [optional]
+ **include_unrecognized** | **bool**|  | [optional]
+ **ordering** | **str**|  | [optional]
+ **include_modified_by** | **bool**|  | [optional]
+
+### Return type
+
+[**[MediaFile]**](MediaFile.md)
+
+[[Back to top]](#) [[Back to API list]](../#documentation-for-api-endpoints) [[Back to Model list]](../#documentation-for-models) [[Back to README]](../)
+
 # **get_media_tag**
     def UnfilteredTag get_media_tag(id)
 
@@ -10078,6 +10278,41 @@ with elements_sdk.ApiClient(configuration) as api_client:
                             1,
                         ],
                     ],
+                ),
+                playback_metadata=ProxyPlaybackMetadata(
+                    timing=ProxyPlaybackMetadataTiming(
+                        fps_numerator=1,
+                        fps_denominator=1,
+                        frame_count=1,
+                        proxy_timeline_start=3.14,
+                        source_timecode_start=ProxyPlaybackMetadataSourceTimecodeStart(
+                            frame=1,
+                            seconds=3.14,
+                            format="format_example",
+                            text="text_example",
+                        ),
+                        video_track_timescale=1,
+                        frame_duration_ticks=1,
+                        tolerance_seconds=3.14,
+                    ),
+                    validation=ProxyPlaybackMetadataValidation(
+                        valid=True,
+                        warnings=[
+                            ProxyPlaybackMetadataWarning(
+                                code="code_example",
+                                message="message_example",
+                                details=ProxyPlaybackMetadataWarningDetails(
+                                    error="error_example",
+                                    expected=1,
+                                    actual=1,
+                                    expected_value="expected_value_example",
+                                    actual_value="actual_value_example",
+                                    frame_duration_ticks=3.14,
+                                    value="value_example",
+                                ),
+                            ),
+                        ],
+                    ),
                 ),
                 generated_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
                 failed=True,
@@ -13022,6 +13257,41 @@ with elements_sdk.ApiClient(configuration) as api_client:
                             1,
                         ],
                     ],
+                ),
+                playback_metadata=ProxyPlaybackMetadata(
+                    timing=ProxyPlaybackMetadataTiming(
+                        fps_numerator=1,
+                        fps_denominator=1,
+                        frame_count=1,
+                        proxy_timeline_start=3.14,
+                        source_timecode_start=ProxyPlaybackMetadataSourceTimecodeStart(
+                            frame=1,
+                            seconds=3.14,
+                            format="format_example",
+                            text="text_example",
+                        ),
+                        video_track_timescale=1,
+                        frame_duration_ticks=1,
+                        tolerance_seconds=3.14,
+                    ),
+                    validation=ProxyPlaybackMetadataValidation(
+                        valid=True,
+                        warnings=[
+                            ProxyPlaybackMetadataWarning(
+                                code="code_example",
+                                message="message_example",
+                                details=ProxyPlaybackMetadataWarningDetails(
+                                    error="error_example",
+                                    expected=1,
+                                    actual=1,
+                                    expected_value="expected_value_example",
+                                    actual_value="actual_value_example",
+                                    frame_duration_ticks=3.14,
+                                    value="value_example",
+                                ),
+                            ),
+                        ],
+                    ),
                 ),
                 generated_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
                 failed=True,

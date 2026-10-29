@@ -809,7 +809,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+### Required permissions    * User account permission: `system:admin-access` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `projects:manage` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -1225,7 +1225,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -1504,7 +1504,7 @@ void (empty response body)
 
 
 
-### Required permissions    * Authenticated user 
+### Required permissions    * User account permission: `system:admin-access` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `projects:manage` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -2120,7 +2120,7 @@ void (empty response body)
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -2576,7 +2576,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+### Required permissions    * User account permission: `system:admin-access` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `projects:manage` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -2869,7 +2869,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -3209,7 +3209,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -3644,7 +3644,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+### Required permissions    * User account permission: `system:admin-access` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `projects:manage` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -3844,7 +3844,7 @@ Name | Type | Description  | Notes
 
 
 
-Return the storage node that is serving this API request (the current node).  ### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+Return the storage node that is serving this API request (the current node).  ### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -4299,7 +4299,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -5712,7 +5712,7 @@ This endpoint does not need any parameter.
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -6148,7 +6148,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+### Required permissions    * User account permission: `system:admin-access` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `projects:manage` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -6211,7 +6211,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user   * Own workstation or User account permission: `workstations:view` (read) / `workstations:manage` (write) 
+### Required permissions    * Own workstation or Authenticated user 
 
 ### Example
 
@@ -6448,7 +6448,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -6873,7 +6873,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -8552,7 +8552,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * Authenticated user 
+### Required permissions    * User account permission: `system:admin-access` (read) / `system:admin-access` (write) OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `projects:manage` (read) / `system:admin-access` (write) OR User account permission: `tasks:view` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -8799,7 +8799,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write) 
 
 ### Example
 
@@ -9602,7 +9602,7 @@ Name | Type | Description  | Notes
 
 
 
-### Required permissions    * User account permission: `None` (read) / `system:admin-access` (write) 
+### Required permissions    * User account permission: `system:admin-access` OR User account permission: `system:status:view` (read) / `system:admin-access` (write) OR User account permission: `client:access` (read) / `system:admin-access` (write) 
 
 ### Example
 

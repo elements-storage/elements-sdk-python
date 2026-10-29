@@ -4271,6 +4271,17 @@ class MediaLibraryApi(object):
                     'ordering',
                     'limit',
                     'offset',
+                    'include_deleted',
+                    'include_deleted_and_archived',
+                    'include_unrecognized',
+                    'include_proxies',
+                    'include_parents',
+                    'include_modified_by',
+                    'advanced_search',
+                    'in_media_root',
+                    'in_directory',
+                    'for_root',
+                    'resolve_asset_permission',
                 ],
                 'required': [
                     'root',
@@ -4306,6 +4317,28 @@ class MediaLibraryApi(object):
                         (int,),
                     'offset':
                         (int,),
+                    'include_deleted':
+                        (bool,),
+                    'include_deleted_and_archived':
+                        (bool,),
+                    'include_unrecognized':
+                        (bool,),
+                    'include_proxies':
+                        (bool,),
+                    'include_parents':
+                        (bool,),
+                    'include_modified_by':
+                        (bool,),
+                    'advanced_search':
+                        (str,),
+                    'in_media_root':
+                        (int,),
+                    'in_directory':
+                        (int,),
+                    'for_root':
+                        (int,),
+                    'resolve_asset_permission':
+                        (bool,),
                 },
                 'attribute_map': {
                     'root': 'root',
@@ -4317,6 +4350,17 @@ class MediaLibraryApi(object):
                     'ordering': 'ordering',
                     'limit': 'limit',
                     'offset': 'offset',
+                    'include_deleted': 'include_deleted',
+                    'include_deleted_and_archived': 'include_deleted_and_archived',
+                    'include_unrecognized': 'include_unrecognized',
+                    'include_proxies': 'include_proxies',
+                    'include_parents': 'include_parents',
+                    'include_modified_by': 'include_modified_by',
+                    'advanced_search': 'advanced_search',
+                    'in_media_root': 'in_media_root',
+                    'in_directory': 'in_directory',
+                    'for_root': 'for_root',
+                    'resolve_asset_permission': 'resolve_asset_permission',
                 },
                 'location_map': {
                     'root': 'path',
@@ -4328,6 +4372,17 @@ class MediaLibraryApi(object):
                     'ordering': 'query',
                     'limit': 'query',
                     'offset': 'query',
+                    'include_deleted': 'query',
+                    'include_deleted_and_archived': 'query',
+                    'include_unrecognized': 'query',
+                    'include_proxies': 'query',
+                    'include_parents': 'query',
+                    'include_modified_by': 'query',
+                    'advanced_search': 'query',
+                    'in_media_root': 'query',
+                    'in_directory': 'query',
+                    'for_root': 'query',
+                    'resolve_asset_permission': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -8550,6 +8605,92 @@ class MediaLibraryApi(object):
                 },
                 'location_map': {
                     'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_media_subdirectories_endpoint = _Endpoint(
+            settings={
+                'response_type': ([MediaFile],),
+                'auth': [
+                    'Bearer'
+                ],
+                'endpoint_path': '/api/2/media/files/{id}/subdirectories',
+                'operation_id': 'get_media_subdirectories',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'limit',
+                    'offset',
+                    'include_deleted',
+                    'include_deleted_and_archived',
+                    'include_unrecognized',
+                    'ordering',
+                    'include_modified_by',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                    'include_deleted':
+                        (bool,),
+                    'include_deleted_and_archived':
+                        (bool,),
+                    'include_unrecognized':
+                        (bool,),
+                    'ordering':
+                        (str,),
+                    'include_modified_by':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                    'include_deleted': 'include_deleted',
+                    'include_deleted_and_archived': 'include_deleted_and_archived',
+                    'include_unrecognized': 'include_unrecognized',
+                    'ordering': 'ordering',
+                    'include_modified_by': 'include_modified_by',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'limit': 'query',
+                    'offset': 'query',
+                    'include_deleted': 'query',
+                    'include_deleted_and_archived': 'query',
+                    'include_unrecognized': 'query',
+                    'ordering': 'query',
+                    'include_modified_by': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -19954,8 +20095,19 @@ class MediaLibraryApi(object):
             shared_via_tokens__token (str): Filter the returned list by `shared_via_tokens__token` (exact match).. [optional]
             name (str): Filter the returned list by `name` (exact match).. [optional]
             ordering (str): Which field to use when ordering the results.. [optional]
-            limit (int): Number of results to return per page.. [optional]
-            offset (int): The initial index from which to return the results.. [optional]
+            limit (int): [optional]
+            offset (int): [optional]
+            include_deleted (bool): [optional]
+            include_deleted_and_archived (bool): [optional]
+            include_unrecognized (bool): [optional]
+            include_proxies (bool): [optional]
+            include_parents (bool): [optional]
+            include_modified_by (bool): [optional]
+            advanced_search (str): [optional]
+            in_media_root (int): Only applies to searching - limits results to a Media Root. [optional]
+            in_directory (int): Only applies to searching - limits results to a directory. [optional]
+            for_root (int): Additionally filters nested metadata (e.g. comments) by a Media Root. [optional]
+            resolve_asset_permission (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -24643,6 +24795,91 @@ class MediaLibraryApi(object):
         kwargs['id'] = \
             id
         return self.get_media_root_users_endpoint.call_with_http_info(**kwargs)
+
+    def get_media_subdirectories(
+        self,
+        id,
+        **kwargs
+    ):
+        """get_media_subdirectories  # noqa: E501
+
+        List the direct child subdirectories of a media directory, without bundles  ### Required permissions    * User account permission: `media:access`   * License component: media   * allow_read Media Library permissions   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_media_subdirectories(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int): A unique integer value identifying this File.
+
+        Keyword Args:
+            limit (int): Number of results to return per page.. [optional]
+            offset (int): The initial index from which to return the results.. [optional]
+            include_deleted (bool): [optional]
+            include_deleted_and_archived (bool): [optional]
+            include_unrecognized (bool): [optional]
+            ordering (str): [optional]
+            include_modified_by (bool): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [MediaFile]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.get_media_subdirectories_endpoint.call_with_http_info(**kwargs)
 
     def get_media_tag(
         self,

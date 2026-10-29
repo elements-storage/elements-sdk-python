@@ -134,6 +134,7 @@ class Asset(ModelNormal):
             'thumbnail_generated': (bool,),  # noqa: E501
             'workflow_state': (int,),  # noqa: E501
             'is_temporary': (bool,),  # noqa: E501
+            'is_growing': (bool,),  # noqa: E501
             'created': (datetime,),  # noqa: E501
             'modified': (datetime,),  # noqa: E501
             'timecode': (float, none_type,),  # noqa: E501
@@ -173,6 +174,7 @@ class Asset(ModelNormal):
         'thumbnail_generated': 'thumbnail_generated',  # noqa: E501
         'workflow_state': 'workflow_state',  # noqa: E501
         'is_temporary': 'is_temporary',  # noqa: E501
+        'is_growing': 'is_growing',  # noqa: E501
         'created': 'created',  # noqa: E501
         'modified': 'modified',  # noqa: E501
         'timecode': 'timecode',  # noqa: E501
@@ -202,6 +204,7 @@ class Asset(ModelNormal):
         'has_cloud_links',  # noqa: E501
         'thumbnail_generated',  # noqa: E501
         'is_temporary',  # noqa: E501
+        'is_growing',  # noqa: E501
         'created',  # noqa: E501
         'modified',  # noqa: E501
         'proxies',  # noqa: E501
@@ -217,7 +220,7 @@ class Asset(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, proxy_info, custom_fields, tags, backups, proxies_generated, proxies_failed, format, info, sync_id, display_name, has_files, has_backups, has_cloud_links, thumbnail_generated, workflow_state, is_temporary, created, modified, timecode, set_stack_order, *args, **xkwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, proxy_info, custom_fields, tags, backups, proxies_generated, proxies_failed, format, info, sync_id, display_name, has_files, has_backups, has_cloud_links, thumbnail_generated, workflow_state, is_temporary, is_growing, created, modified, timecode, set_stack_order, *args, **xkwargs):  # noqa: E501
         """Asset - a model defined in OpenAPI
 
         Args:
@@ -238,6 +241,7 @@ class Asset(ModelNormal):
             thumbnail_generated (bool):
             workflow_state (int):
             is_temporary (bool):
+            is_growing (bool):
             created (datetime):
             modified (datetime):
             timecode (float, none_type):
@@ -329,6 +333,7 @@ class Asset(ModelNormal):
         self.thumbnail_generated = thumbnail_generated
         self.workflow_state = workflow_state
         self.is_temporary = is_temporary
+        self.is_growing = is_growing
         self.created = created
         self.modified = modified
         self.timecode = timecode

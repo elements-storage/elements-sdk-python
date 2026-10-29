@@ -7,11 +7,12 @@ A generated proxy (preview) of an asset produced from a proxy profile, tracking 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
-**urls** | **{str: (str, none_type)}** |  | [readonly] 
+**urls** | **{str: (str, none_type)}** | URLs for downloading or streaming this proxy and related files. | [readonly] 
 **profile** | [**ProxyProfileMini**](ProxyProfileMini.md) |  | 
-**failed_reason** | **str, none_type** |  | [readonly] 
-**skipped** | **bool** |  | [readonly] 
-**generated** | **bool** |  | [readonly] 
+**failed_reason** | **str, none_type** | Proxy generation failure reason, or null if unavailable. | [readonly] 
+**skipped** | **bool** | Whether proxy generation is skipped after repeated failures. | [readonly] 
+**generated** | **bool** | Whether this proxy has finished generating. | [readonly] 
+**playback_metadata** | [**ProxyPlaybackMetadata**](ProxyPlaybackMetadata.md) |  | 
 **generated_date** | **datetime, none_type** |  | 
 **failed** | **bool** |  | 
 **failed_count** | **int** |  | 
